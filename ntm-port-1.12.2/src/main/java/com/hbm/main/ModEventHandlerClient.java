@@ -1119,9 +1119,9 @@ public class ModEventHandlerClient {
 				boolean onlyGuns = true;
 
 				List<ItemStack> stacks = new ArrayList<ItemStack>();
-				for (Object reg : Item.itemRegistry) {
+				for (Object reg : Item.REGISTRY) {
 					Item item = (Item) reg;
-					if(ignoreNonNTM && !Item.itemRegistry.getNameForObject(item).startsWith("hbm:")) continue;
+					if(ignoreNonNTM && !java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null).startsWith("hbm:")) continue;
 					if(ignoredItems.contains(item)) continue;
 					if(onlyGuns && !(item instanceof ItemGunBaseNT)) continue;
 					if(collapsedClasses.contains(item.getClass())) {

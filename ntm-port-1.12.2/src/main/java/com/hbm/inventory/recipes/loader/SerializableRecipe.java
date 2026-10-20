@@ -301,14 +301,14 @@ public abstract class SerializableRecipe {
 		if(astack instanceof NBTStack) {
 			NBTStack comp = (NBTStack) astack;
 			writer.value(comp.nbt != null ? "nbt" : "item");											//NBT  identifier
-			writer.value(Item.itemRegistry.getNameForObject(comp.toStack().getItem()));					//item name
+			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.toStack().getItem()), null));					//item name
 			if(comp.stacksize != 1 || comp.meta > 0 || comp.nbt != null) writer.value(comp.stacksize);	//stack size
 			if(comp.meta > 0 || comp.nbt != null) writer.value(comp.meta);								//metadata
 			if(comp.nbt != null) writer.value(comp.nbt.toString());										//NBT
 		} else if(astack instanceof ComparableStack) {
 			ComparableStack comp = (ComparableStack) astack;
 			writer.value("item");														//ITEM  identifier
-			writer.value(Item.itemRegistry.getNameForObject(comp.toStack().getItem()));	//item name
+			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.toStack().getItem()), null));	//item name
 			if(comp.stacksize != 1 || comp.meta > 0) writer.value(comp.stacksize);		//stack size
 			if(comp.meta > 0) writer.value(comp.meta);									//metadata
 		} else if(astack instanceof OreDictStack) {
@@ -375,7 +375,7 @@ public abstract class SerializableRecipe {
 	public static void writeItemStack(ItemStack stack, JsonWriter writer) throws IOException {
 		writer.beginArray();
 		writer.setIndent("");
-		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));													//item name
+		writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem()), null));													//item name
 		if(stack.stackSize != 1 || stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.stackSize);		//stack size
 		if(stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.getItemDamage());						//metadata
 		if(stack.hasTagCompound()) writer.value(stack.getTagCompound().toString());											//nbt
@@ -386,7 +386,7 @@ public abstract class SerializableRecipe {
 	public static void writeItemStackChance(Pair<ItemStack, Float> stack, JsonWriter writer) throws IOException {
 		writer.beginArray();
 		writer.setIndent("");
-		writer.value(Item.itemRegistry.getNameForObject(stack.getKey().getItem()));																			//item name
+		writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getKey().getItem()), null));																			//item name
 		if(stack.getKey().stackSize != 1 || stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().stackSize);	//stack size
 		if(stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().getItemDamage());							//metadata
 		if(stack.getKey().hasTagCompound()) writer.value(stack.getKey().getTagCompound().toString());														//nbt

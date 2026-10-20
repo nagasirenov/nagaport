@@ -1,3 +1,7 @@
+# WIP preservation branch, not a verified successor
+
+This separate preservation tree contains20 registry query edits after CP75 plus archived unintegrated candidates. No combined full compile has run on these WIP edits. Last verified full compile is CP75 FAIL13,150; no runnable mod. See porting/wip-preservation-2026-10-20/README.md. Historical completed checkpoint status follows unchanged.
+
 ## Checkpoint 75: layered block state family and complete spill callbacks
 
 Exact predecessor CP74 5a102874e0cd18dfd6b2984a994330b9de0ece75. Published GitHub main remains separately authorized CP68 squash 8b8980209dd8ad5d1f011240c30622e3505f51a0, exact tree 5a9f56451286939bae46ee9827bd79b9e6deb9e7. No later push authorized or performed.

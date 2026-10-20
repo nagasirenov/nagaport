@@ -1,0 +1,302 @@
+{
+  "baseline": "5a102874e0cd18dfd6b2984a994330b9de0ece75",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java",
+      "before_sha256": "43753f9f03150ed990682e07818f2564a532f09d21c87a0e6fa275bcd3a0f6a2",
+      "after_sha256": "a33e94ca120ecc21746e35739017acbec9715ad51782410f09b9de338d718203",
+      "edits": [
+        {
+          "start": 3767,
+          "end": 3818,
+          "old": "Item.itemRegistry.getNameForObject(stack.getItem())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem()), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java",
+      "before_sha256": "072582c3714a4473f18dbdc64c533fa38ef0f1b606f27f426e4cda2be2c4b84c",
+      "after_sha256": "6b323763f60bb4d48fb9fac7e65569a71e8926a855c18ee2fbefe3e45f086d40",
+      "edits": [
+        {
+          "start": 9377,
+          "end": 9427,
+          "old": "Item.itemRegistry.getNameForObject(entry.getKey())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java",
+      "before_sha256": "64de9d181651423b7e9ff9a20751e9ad01bd9a64e79ee689c7346f285d867aff",
+      "after_sha256": "bfd6fac6bcd957e0f6f44b83a0dd8f7f3162eb509901324dea2e4e123170c5f6",
+      "edits": [
+        {
+          "start": 2064,
+          "end": 2117,
+          "old": "Item.itemRegistry.getNameForObject(preview.getItem())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(preview.getItem()), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java",
+      "before_sha256": "b192d9f6f5e75c343b7a7ae1220f8ce119bea7552d4c1502ff5d0e44c9a85798",
+      "after_sha256": "a4d92cab32fe741471bb9f10afb8b57a64ee9e526738debe12894a01b418a88c",
+      "edits": [
+        {
+          "start": 10530,
+          "end": 10570,
+          "old": "Item.itemRegistry.getNameForObject(item)",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null)"
+        },
+        {
+          "start": 10750,
+          "end": 10795,
+          "old": "Item.itemRegistry.getNameForObject(comp.item)",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.item), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
+      "before_sha256": "9ccd9b2d04166eb678c2997ffc7e2e154da82aa2820eee8f1613d28e40f019cb",
+      "after_sha256": "b3eb0f4a7792a1f568347d6dd2887e7d2f87abc4e6319ac9e64be8095236a68e",
+      "edits": [
+        {
+          "start": 11118,
+          "end": 11178,
+          "old": "Item.itemRegistry.getNameForObject(comp.toStack().getItem())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.toStack().getItem()), null)"
+        },
+        {
+          "start": 11636,
+          "end": 11696,
+          "old": "Item.itemRegistry.getNameForObject(comp.toStack().getItem())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.toStack().getItem()), null)"
+        },
+        {
+          "start": 14553,
+          "end": 14604,
+          "old": "Item.itemRegistry.getNameForObject(stack.getItem())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem()), null)"
+        },
+        {
+          "start": 15189,
+          "end": 15249,
+          "old": "Item.itemRegistry.getNameForObject(stack.getKey().getItem())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getKey().getItem()), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java",
+      "before_sha256": "8a47dcb933ad064fc078fe79e5c19c689357df7468e64a39ecd48a5b0fc1f507",
+      "after_sha256": "d25e653fd5f28b85af61eb085f904f55605b56901e650409bd752f8ea6cb06b9",
+      "edits": [
+        {
+          "start": 1986,
+          "end": 2026,
+          "old": "Item.itemRegistry.getNameForObject(item)",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java",
+      "before_sha256": "3127af78404157fc0f05233b6f6d4035e5af21d4b034ec8017ad25a9c0d6b41d",
+      "after_sha256": "f9eea8996d6225057e01c3f45e858771a323d26d2b317e6ea70f05480e33b14d",
+      "edits": [
+        {
+          "start": 7163,
+          "end": 7212,
+          "old": "Item.itemRegistry.getNameForObject(ore.getItem())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(ore.getItem()), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "before_sha256": "9f8815739a68aa10e7630ef9e59ab09627a8e04269461992f54151e428828364",
+      "after_sha256": "8d0cb11bf60fda039f4787d9fa3448fd540d4703290ccc47d65ecff3bd3d58eb",
+      "edits": [
+        {
+          "start": 43597,
+          "end": 43614,
+          "old": "Item.itemRegistry",
+          "new": "Item.REGISTRY"
+        },
+        {
+          "start": 43672,
+          "end": 43712,
+          "old": "Item.itemRegistry.getNameForObject(item)",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java",
+      "before_sha256": "4037945137e49e5a5774e6a54b0dfdaa757bcc28e9c080bc559eabc7b4146f29",
+      "after_sha256": "2ea63fd7b3bc20115c7c13a6dfa1014c30092ca77ca9ad8f7e9da1876bb0090c",
+      "edits": [
+        {
+          "start": 6166,
+          "end": 6206,
+          "old": "Item.itemRegistry.getNameForObject(item)",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null)"
+        },
+        {
+          "start": 6379,
+          "end": 6424,
+          "old": "Item.itemRegistry.getNameForObject(comp.item)",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.item), null)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "before_sha256": "77d4b6283379e0e90e8b093c92254851d3052d7726fe2bd01d26502848cc8887",
+      "after_sha256": "031f4c77d650e08088a8ab25243a9631911ff45f30eacd744beeba3b77ce9734",
+      "edits": [
+        {
+          "start": 16086,
+          "end": 16136,
+          "old": "Item.itemRegistry.getNameForObject(entry.getKey())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null)"
+        },
+        {
+          "start": 16522,
+          "end": 16579,
+          "old": "Item.itemRegistry.getNameForObject(entry.getKey().getW())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getW()), null)"
+        },
+        {
+          "start": 16591,
+          "end": 16648,
+          "old": "Item.itemRegistry.getNameForObject(entry.getKey().getX())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getX()), null)"
+        },
+        {
+          "start": 16660,
+          "end": 16717,
+          "old": "Item.itemRegistry.getNameForObject(entry.getKey().getY())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getY()), null)"
+        },
+        {
+          "start": 16729,
+          "end": 16786,
+          "old": "Item.itemRegistry.getNameForObject(entry.getKey().getZ())",
+          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getZ()), null)"
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java",
+      "offset": 4249,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java",
+      "offset": 10146,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/hazard/type/HazardTypeGlitch.java",
+      "offset": 1412,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java",
+      "offset": 9213,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java",
+      "offset": 9350,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
+      "offset": 9668,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
+      "offset": 9993,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
+      "offset": 12279,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
+      "offset": 12956,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java",
+      "offset": 827,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java",
+      "offset": 1242,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java",
+      "offset": 6930,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java",
+      "offset": 7068,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "offset": 17641,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "offset": 18066,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "offset": 18189,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "offset": 18312,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
+      "offset": 18435,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java",
+      "offset": 3239,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java",
+      "offset": 4542,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java",
+      "offset": 5216,
+      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
+    }
+  ]
+}

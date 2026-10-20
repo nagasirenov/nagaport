@@ -240,12 +240,12 @@ public class AnnihilatorRecipes extends SerializableRecipe {
 		if(rec.getKey() instanceof Item) {
 			Item item = (Item) rec.getKey();
 			writer.name("type").value("item");
-			writer.name("item").value(Item.itemRegistry.getNameForObject(item));
+			writer.name("item").value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null));
 		}
 		if(rec.getKey() instanceof ComparableStack) {
 			ComparableStack comp = (ComparableStack) rec.getKey();
 			writer.name("type").value("comp");
-			writer.name("item").value(Item.itemRegistry.getNameForObject(comp.item));
+			writer.name("item").value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.item), null));
 			writer.name("meta").value(comp.meta);
 		}
 		if(rec.getKey() instanceof FluidType) {

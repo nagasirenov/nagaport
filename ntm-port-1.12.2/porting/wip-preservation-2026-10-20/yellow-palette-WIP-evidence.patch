@@ -1,0 +1,4110 @@
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/PaletteOwner.java b/ntm-port-1.12.2/porting/tests/yellow-palette-native/PaletteOwner.java
+new file mode 100644
+index 00000000..520e536c
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/PaletteOwner.java
+@@ -0,0 +1,38 @@
++import com.sun.source.tree.*;
++import com.sun.source.util.*;
++import javax.tools.*;
++import javax.lang.model.element.*;
++import javax.lang.model.type.*;
++import java.nio.file.*;
++import java.util.*;
++/** Native javac attribution. Unresolved methods do not establish ownership. */
++public final class PaletteOwner {
++ static String q(String s){return "\""+s.replace("\\","\\\\").replace("\"","\\\"").replace("\n","\\n").replace("\r","\\r").replace("\t","\\t")+"\"";}
++ public static void main(String[] args)throws Exception {
++  JavaCompiler c=ToolProvider.getSystemJavaCompiler(); DiagnosticCollector<JavaFileObject> ds=new DiagnosticCollector<>(); StandardJavaFileManager fm=c.getStandardFileManager(ds,null,null);
++  JavacTask task=(JavacTask)c.getTask(null,fm,ds,Arrays.asList("-proc:none","-source","8","-classpath",args[0],"-sourcepath","","-Xmaxerrs","100000"),null,fm.getJavaFileObjects(Arrays.copyOfRange(args,1,args.length)));
++  Trees trees=Trees.instance(task); List<CompilationUnitTree> units=new ArrayList<>();for(CompilationUnitTree u:task.parse())units.add(u);
++  for(Diagnostic<?> d:ds.getDiagnostics())if(d.getKind()==Diagnostic.Kind.ERROR)throw new AssertionError(d.toString());
++  task.analyze();
++  for(CompilationUnitTree u:units){String source=u.getSourceFile().getCharContent(true).toString();SourcePositions positions=trees.getSourcePositions();
++   new TreePathScanner<Void,Void>() {
++    String raw(Tree t){return source.substring((int)positions.getStartPosition(u,t),(int)positions.getEndPosition(u,t));}
++    public Void visitMethodInvocation(MethodInvocationTree t,Void p){
++     if(!(t.getMethodSelect() instanceof MemberSelectTree))return super.visitMethodInvocation(t,p);
++     MemberSelectTree m=(MemberSelectTree)t.getMethodSelect(); if(!m.getIdentifier().contentEquals("setBlock"))return super.visitMethodInvocation(t,p);
++     List<? extends ExpressionTree> a=t.getArguments(); if(a.size()!=4&&a.size()!=6)return super.visitMethodInvocation(t,p);
++     TypeMirror recv=trees.getTypeMirror(new TreePath(getCurrentPath(),m.getExpression()));
++     Element block=trees.getElement(new TreePath(getCurrentPath(),a.get(3)));
++     boolean owner=recv!=null&&recv.getKind()==TypeKind.DECLARED&&recv.toString().equals("net.minecraft.world.World");
++     boolean vanilla=block instanceof VariableElement && block.getKind()==ElementKind.FIELD && block.asType().toString().equals("net.minecraft.block.Block") && (block.getEnclosingElement().toString().equals("com.hbm.world.dungeon.DesertAtom001") || block.getEnclosingElement().toString().equals("com.hbm.world.dungeon.DesertAtom002") || block.getEnclosingElement().toString().equals("com.hbm.world.dungeon.DesertAtom003")) && block.getSimpleName().contentEquals("Block2");
++     boolean ints=true;for(int i:new int[]{0,1,2,4,5})if(i<a.size()){TypeMirror ty=trees.getTypeMirror(new TreePath(getCurrentPath(),a.get(i)));ints&=ty!=null&&ty.getKind()==TypeKind.INT;}
++     TreePath enclosing=getCurrentPath();while(enclosing!=null&&!(enclosing.getLeaf() instanceof MethodTree))enclosing=enclosing.getParentPath();String method=enclosing==null?"":((MethodTree)enclosing.getLeaf()).getName().toString();
++     System.out.print("{\"method\":"+q(method)+",\"file\":"+q(Paths.get(u.getSourceFile().toUri()).toString())+",\"start\":"+positions.getStartPosition(u,t)+",\"end\":"+positions.getEndPosition(u,t)+",\"receiver\":"+q(raw(m.getExpression()))+",\"world\":"+owner+",\"vanilla\":"+vanilla+",\"ints\":"+ints+",\"statement\":"+(getCurrentPath().getParentPath().getLeaf() instanceof ExpressionStatementTree)+",\"block\":"+q(vanilla?block.getSimpleName().toString():"")+",\"args\":[");
++     boolean first=true;for(ExpressionTree e:a){if(!first)System.out.print(',');first=false;System.out.print(q(raw(e)));}System.out.println("]}");
++     return super.visitMethodInvocation(t,p);
++    }
++   }.scan(u,null);
++  }
++  System.err.println("Expected unresolved-port attribution diagnostics: "+ds.getDiagnostics().stream().filter(d->d.getKind()==Diagnostic.Kind.ERROR).count());fm.close();
++ }
++}
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/README.md b/ntm-port-1.12.2/porting/tests/yellow-palette-native/README.md
+new file mode 100644
+index 00000000..51cf6448
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/README.md
+@@ -0,0 +1,9 @@
++WIP: NOT VALIDATED FOR MERGE
++
++Baseline CP75 d3e012b1ee72c0170cb8e4ff89bfabadb25ac553. Production changes are exactly 105 current Block2 placements in DesertAtom001/002/003 (9/81/15), calling the existing DungeonToolbox helper. No helper or owner changes.
++
++Executed successfully: migrate.py exact source/selection verification (105 placements); ownership.py (15 Java8 attribution fixtures). Both used /workspace/shared/nagaport-toolchain/java8 and /tmp/nagaport-steel-jars-classpath.txt.
++
++Unfinished: prove.py scaffolding exists but YellowStateProof.java has not been written. Native ordered-stream, original bounds, null/evaluation and actual YellowBarrel state proof have NOT run. Do not claim this patch tested or merge silently.
++
++Paused on parent instruction before further tests. No active tool execution, no cleanup, no dependencies/downloads/push. Existing 917 concrete fixes were not repeated. Wasteplank and Generic placements untouched.
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/attribution.log b/ntm-port-1.12.2/porting/tests/yellow-palette-native/attribution.log
+new file mode 100644
+index 00000000..d070c336
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/attribution.log
+@@ -0,0 +1 @@
++Expected unresolved-port attribution diagnostics: 4956
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/baseline.zip b/ntm-port-1.12.2/porting/tests/yellow-palette-native/baseline.zip
+new file mode 100644
+index 0000000000000000000000000000000000000000..047e112f03d6a563b9a4df4d775b6ac2f6667826
+GIT binary patch
+literal 84005
+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
+Uh8zHZ@Ugo>0RUNI|9H9n56?`5B>(^b
+
+literal 0
+HcmV?d00001
+
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/collaborators.json b/ntm-port-1.12.2/porting/tests/yellow-palette-native/collaborators.json
+new file mode 100644
+index 00000000..b92d9d26
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/collaborators.json
+@@ -0,0 +1,6 @@
++{
++  "com/hbm/blocks/ModBlocks.java": "package com.hbm.blocks; public class ModBlocks {public static net.minecraft.block.Block capacitor_bus,capacitor_complex,barrel_plastic,barrel_corroded,barrel_iron,barrel_steel,barrel_tcalloy,barrel_antimatter,red_barrel,pink_barrel,yellow_barrel,oil_barrel,vitrified_barrel,lox_barrel,taint_barrel,toxic_block,gas_radon_dense,taint;}",
++  "com/hbm/entity/item/EntityTNTPrimedBase.java": "package com.hbm.entity.item;public class EntityTNTPrimedBase extends net.minecraft.entity.Entity {public int fuse;public boolean detonateOnCollision;public final api.hbm.block.IFuckingExplode owner;public final net.minecraft.entity.EntityLivingBase igniter;public EntityTNTPrimedBase(net.minecraft.world.World w,double x,double y,double z,net.minecraft.entity.EntityLivingBase e,api.hbm.block.IFuckingExplode b){super(w);setPosition(x,y,z);igniter=e;owner=b;}protected void entityInit(){}protected void readEntityFromNBT(net.minecraft.nbt.NBTTagCompound n){}protected void writeEntityToNBT(net.minecraft.nbt.NBTTagCompound n){}}",
++  "com/hbm/explosion/ExplosionNukeGeneric.java": "package com.hbm.explosion;public class ExplosionNukeGeneric {public static final java.util.List<String> calls=new java.util.ArrayList<>();public static void waste(net.minecraft.world.World w,int x,int y,int z,int radius){calls.add(x+\",\"+y+\",\"+z+\":\"+radius);}}",
++  "com/hbm/handler/radiation/ChunkRadiationManager.java": "package com.hbm.handler.radiation;public class ChunkRadiationManager {public static final ChunkRadiationManager proxy=new ChunkRadiationManager();public final java.util.List<String> calls=new java.util.ArrayList<>();public void incrementRad(net.minecraft.world.World w,int x,int y,int z,float amount){calls.add(x+\",\"+y+\",\"+z+\":\"+amount);}}"
++}
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/dependency-hashes.json b/ntm-port-1.12.2/porting/tests/yellow-palette-native/dependency-hashes.json
+new file mode 100644
+index 00000000..c03929a2
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/dependency-hashes.json
+@@ -0,0 +1,18 @@
++{
++  "src/main/java/com/hbm/blocks/generic/YellowBarrel.java": "46954392f4156e3b7ac651179c07b0fbf5d03dccb6547df6989bb461a30db587",
++  "src/main/java/com/hbm/blocks/generic/BlockFlammable.java": "9aaf14ca2f962f5bca4c5017e16bd6b9fa6a180c0b45013ee1184887a2e9e227",
++  "src/main/java/com/hbm/blocks/bomb/BlockDetonatable.java": "1ddce481a507dd1e6ba5c2c5afaf000e22cbef79a78a38346ad303777ff07e14",
++  "src/main/java/com/hbm/blocks/BlockBase.java": "771309060adbcfa8940e1dfb3e2cc2728f8595ca7ee136552f62e2c03450236a",
++  "src/main/java/com/hbm/render/icon/IIcon.java": "5af3039d6328bcfb6db1e0a03129c5d4ae7cba2107eebe46eec58eef2b287205",
++  "src/main/java/com/hbm/render/icon/IIconRegister.java": "071f74d222ff6f5b6f91aa631aec81bacdc4670f81787a08d97cad591e2d9752",
++  "src/main/java/api/hbm/block/IFuckingExplode.java": "ef669704e96e4750b5d37ccda58bb77821f5da1bdaa6cb5b788e6cae884e407c",
++  "src/main/java/com/hbm/lib/RefStrings.java": "55dd978e194872641b491431099312e61b5e8ee42fbe0ac3c547806aaf381d71",
++  "src/main/java/com/hbm/lib/ForgeDirection.java": "424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b",
++  "src/main/java/com/hbm/world/generator/DungeonToolbox.java": "c77a86116e4eb1a4c31f17524e45fd05554e08330efed47655751eaa2aaca11c",
++  "src/main/java/com/hbm/lib/Library.java": "7a7ca5297534f7ddd346b75c77498f5e2969dd4152a6b9067d91e7256494da98",
++  "src/main/java/com/hbm/inventory/RecipesCommon.java": "d10c390506e248b05e3eed10a60521e6ec4050a8b75d7187cbcddad3ff9179b2",
++  "src/main/java/com/hbm/blocks/ModBlocks.java": "fc5a8792d525d4593cf3454ae0ba2387a2ef4d1367f317b8ec6f7d3e3ff3e802",
++  "porting/tests/dungeon-palette-native/NativeProof.java": "78e62bbf86fea0a824470b24aff1a271e3014336712668636b75398f4fdfbf39",
++  "porting/tests/ct-palette-native/EvaluationProof.java": "a45ea925baa1e3bb61e1b5f3dd2a8731dd3c765a7d188a0e9e8032e8ef0d7433",
++  "porting/tests/atlas-block-machines-native-probe.py": "b8a35b7f2d7ad890026a8e8bd16fc1b9541a1ece3809085d8e575ae103e8433d"
++}
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/manifest.json b/ntm-port-1.12.2/porting/tests/yellow-palette-native/manifest.json
+new file mode 100644
+index 00000000..77668c48
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/manifest.json
+@@ -0,0 +1,21 @@
++{
++  "baseline": "d3e012b1ee72c0170cb8e4ff89bfabadb25ac553",
++  "placements": 105,
++  "files": {
++    "src/main/java/com/hbm/world/dungeon/DesertAtom001.java": {
++      "before": "da5bb32cb0b01f85ac903129b8bf77aeb88fe6b432590020358bc815ab291658",
++      "after": "d38e47c4483230f1f13b66c273fc9d7a30722d0207c00742414348b0e4e44de8",
++      "placements": 9
++    },
++    "src/main/java/com/hbm/world/dungeon/DesertAtom002.java": {
++      "before": "139d09f508b02cd1dec7077c4305d9c05c9fff25ccd70a3a09d53357de4bf2e6",
++      "after": "bbd9f4388170b0e2e233c2896dfc28e9e56289c2ba2d7dacb21d216aad2787e7",
++      "placements": 81
++    },
++    "src/main/java/com/hbm/world/dungeon/DesertAtom003.java": {
++      "before": "e3d270b9a29156797ed7477b8f61872a1ec51aad8e70d6cf602085a8349e513c",
++      "after": "8f6e9d3625ceda049e7309977f57e20d91bc510963de5a91d624beff951d88d3",
++      "placements": 15
++    }
++  }
++}
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/migrate.py b/ntm-port-1.12.2/porting/tests/yellow-palette-native/migrate.py
+new file mode 100644
+index 00000000..fd78e614
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/migrate.py
+@@ -0,0 +1,38 @@
++#!/usr/bin/env python3
++"""Exact CP75 yellow-barrel palette migration. No generic ModBlocks selection."""
++import argparse,hashlib,json,re,subprocess,tempfile,zipfile
++from pathlib import Path
++H=Path(__file__).resolve().parent; M=H.parents[2]; PATHS=['src/main/java/com/hbm/world/dungeon/'+c+'.java' for c in ['DesertAtom001','DesertAtom002','DesertAtom003']]
++def sha(b):return hashlib.sha256(b).hexdigest()
++def selected(r):return r['world'] and r['vanilla'] and r['ints'] and r['statement'] and r['args'][4:]==['0','3']
++def main():
++ p=argparse.ArgumentParser();p.add_argument('--java-home',type=Path,required=True);p.add_argument('--classpath-file',type=Path,required=True);p.add_argument('--apply',action='store_true');a=p.parse_args()
++ with zipfile.ZipFile(H/'baseline.zip') as z:source={p:z.read(p) for p in PATHS}
++ with tempfile.TemporaryDirectory() as td:
++  t=Path(td);files=[]
++  for path,b in source.items():
++   f=t/Path(path).name;f.write_bytes(b);files.append(str(f))
++  tools=a.java_home/'lib/tools.jar'
++  subprocess.run([str(a.java_home/'bin/javac'),'-cp',str(tools),'-d',td,str(H/'PaletteOwner.java')],check=True)
++  result=subprocess.run([str(a.java_home/'bin/java'),'-cp',td+':'+str(tools),'PaletteOwner',a.classpath_file.read_text().strip()]+files,text=True,capture_output=True,check=True)
++  rows=[]
++  for r in map(json.loads,result.stdout.splitlines()):
++   if not selected(r):continue
++   path=next(p for p in PATHS if Path(p).name==Path(r['file']).name);raw=source[path].decode()
++   lo=len(raw.encode('utf-16-le')[:2*r['start']].decode('utf-16-le'));hi=len(raw.encode('utf-16-le')[:2*r['end']].decode('utf-16-le'))+1
++   assert raw[hi-1]==';';r.update(file=path,start=lo,end=hi,old=raw[lo:hi],new='com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock('+', '.join([r['receiver']]+r['args'][:4])+');');rows.append(r)
++  assert len(rows)==105
++  manifest={'baseline':'d3e012b1ee72c0170cb8e4ff89bfabadb25ac553','placements':105,'files':{}}
++  for path,before in source.items():
++   out=before.decode();rs=[r for r in rows if r['file']==path]
++   for r in reversed(rs):out=out[:r['start']]+r['new']+out[r['end']:]
++   manifest['files'][path]={'before':sha(before),'after':sha(out.encode()),'placements':len(rs)}
++   if a.apply:
++    assert (M/path).read_bytes()==before
++    (M/path).write_bytes(out.encode())
++   else:assert (M/path).read_bytes()==out.encode()
++  if a.apply:
++   (H/'selection.json').write_text(json.dumps(rows,indent=2)+'\n');(H/'attribution.log').write_text(result.stderr);(H/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
++  else:assert rows==json.loads((H/'selection.json').read_text());assert manifest==json.loads((H/'manifest.json').read_text())
++  print('PASS 105 attributed current mutable Block2 placements; only literal metadata0/flags3, native World and exact declaring owners.')
++if __name__=='__main__':main()
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/ownership.py b/ntm-port-1.12.2/porting/tests/yellow-palette-native/ownership.py
+new file mode 100644
+index 00000000..c93dcd54
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/ownership.py
+@@ -0,0 +1,37 @@
++#!/usr/bin/env python3
++import argparse,json,subprocess,tempfile
++from pathlib import Path
++H=Path(__file__).resolve().parent
++p=argparse.ArgumentParser();p.add_argument('--java-home',type=Path,required=True);p.add_argument('--classpath-file',type=Path,required=True);a=p.parse_args()
++methods={
++'field':('void field(World w){w.setBlock(0,0,0,Block2,0,3);}',True),
++'qualified':('void qualified(World w){w.setBlock(0,0,0,this.Block2,0,3);}',True),
++'local':('void local(World w){Block Block2=null;w.setBlock(0,0,0,Block2,0,3);}',False),
++'parameter':('void parameter(World w,Block Block2){w.setBlock(0,0,0,Block2,0,3);}',False),
++'wrongField':('void wrongField(World w){w.setBlock(0,0,0,Other,0,3);}',False),
++'wrongMeta':('void wrongMeta(World w){w.setBlock(0,0,0,Block2,1,3);}',False),
++'wrongFlag':('void wrongFlag(World w){w.setBlock(0,0,0,Block2,0,2);}',False),
++'used':('boolean used(World w){return w.setBlock(0,0,0,Block2,0,3);}',False),
++'effectful':('void effectful(World w,int x){w.setBlock(x++,x++,x++,Block2,0,3);}',True),
++'foreign':('void foreign(Foreign w){w.setBlock(0,0,0,Block2,0,3);}',False),
++'string':('void string(World w){w.setBlock("x",0,0,Block2,0,3);}',False),
++'unknown':('void unknown(Unresolved w){w.setBlock(0,0,0,Block2,0,3);}',False),
++'inherited':('void inherited(World w){w.setBlock(0,0,0,Block4,0,3);}',False),
++}
++source='package com.hbm.world.dungeon;import net.minecraft.block.Block;import net.minecraft.world.World;class Parent{Block Block4;} class Foreign{void setBlock(int x,int y,int z,Block b,int m,int f){}} public class DesertAtom002 extends Parent { Block Block2,Other;\n'+'\n'.join(s for s,e in methods.values())+'\n}'
++targets=json.loads((H/'targets.json').read_text())
++for cls,fs in targets.items():
++ if cls=='DesertAtom002':continue
++ members=[]
++ for field in fs:
++  method='declaring_'+cls+'_'+field;methods[method]=('',True);members.append('void '+method+'(World w){w.setBlock(0,0,0,'+field+',0,3);}')
++ source+=' class '+cls+' {Block '+','.join(fs)+';'+' '.join(members)+'}'
++with tempfile.TemporaryDirectory() as td:
++ t=Path(td);f=t/'DesertAtom002.java';f.write_text(source);tools=a.java_home/'lib/tools.jar'
++ subprocess.run([str(a.java_home/'bin/javac'),'-cp',str(tools),'-d',td,str(H/'PaletteOwner.java')],check=True)
++ r=subprocess.run([str(a.java_home/'bin/java'),'-cp',td+':'+str(tools),'PaletteOwner',a.classpath_file.read_text().strip(),str(f)],capture_output=True,text=True,check=True)
++ rows=[json.loads(l) for l in r.stdout.splitlines()]
++ for name,(s,expected) in methods.items():
++  selected=[r for r in rows if r['method']==name and r['world'] and r['vanilla'] and r['ints'] and r['statement'] and r['args'][4:]==['0','3']]
++  assert bool(selected)==expected,(name,selected)
++ print('PASS',len(methods),'actual Java8 field-owner/receiver/type/literal/statement fixtures; local, parameter, inherited and foreign fields excluded.')
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/prove.py b/ntm-port-1.12.2/porting/tests/yellow-palette-native/prove.py
+new file mode 100644
+index 00000000..c45f9d39
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/prove.py
+@@ -0,0 +1,43 @@
++#!/usr/bin/env python3
++import argparse,collections,hashlib,importlib.util,json,re,subprocess,tempfile
++from pathlib import Path
++H=Path(__file__).resolve().parent;M=H.parents[2];SRC=M/'src/main/java'
++def run(args,**kw):return subprocess.run(list(map(str,args)),check=True,**kw)
++def main():
++ p=argparse.ArgumentParser();p.add_argument('--java-home',type=Path,required=True);p.add_argument('--classpath-file',type=Path,required=True);p.add_argument('--legacy-client',type=Path,required=True);a=p.parse_args();cp=a.classpath_file.read_text().strip()
++ assert hashlib.sha256(a.legacy_client.read_bytes()).hexdigest()=='a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce'
++ for path,digest in json.loads((H/'dependency-hashes.json').read_text()).items():assert hashlib.sha256((M/path).read_bytes()).hexdigest()==digest,path
++ def extract(s,sig):
++  a=s.index(sig);i=s.index('{',a)+1;n=1
++  while n:
++   n+=(s[i]=='{')-(s[i]=='}');i+=1
++  return s[a:i]
++ rows=json.loads((H/'selection.json').read_text());assert len(rows)==105;groups=collections.defaultdict(list)
++ for r in rows:groups[(r['file'],r['method'])].append(r)
++ with tempfile.TemporaryDirectory(prefix='yellow-palette-') as td:
++  t=Path(td);files=[]
++  def put(name,source):
++   f=t/name;f.parent.mkdir(parents=True,exist_ok=True);f.write_text(source);files.append(f)
++  for path,source in json.loads((H/'collaborators.json').read_text()).items():put(path,source)
++  production=['com/hbm/blocks/generic/YellowBarrel.java', 'com/hbm/blocks/generic/BlockFlammable.java', 'com/hbm/blocks/bomb/BlockDetonatable.java', 'com/hbm/blocks/BlockBase.java', 'com/hbm/render/icon/IIcon.java', 'com/hbm/render/icon/IIconRegister.java', 'api/hbm/block/IFuckingExplode.java', 'com/hbm/lib/RefStrings.java', 'com/hbm/lib/ForgeDirection.java', 'com/hbm/world/generator/DungeonToolbox.java']
++  files.extend(SRC/p for p in production if p not in ['com/hbm/world/generator/DungeonToolbox.java','com/hbm/lib/ForgeDirection.java'])
++  # Exact bounded Library fields; random concrete is not exercised and fails closed.
++  lib=(SRC/'com/hbm/lib/Library.java').read_text();fields=re.findall(r'^\s*public static final ForgeDirection \w+ = ForgeDirection\.\w+;',lib,re.M);assert len(fields)==6
++  put('com/hbm/lib/Library.java','package com.hbm.lib;import net.minecraft.block.Block;public class Library {'+'\n'.join(fields)+' public static Block getRandomConcrete(){throw new AssertionError("Unexercised concrete selector");}}')
++  put('com/hbm/inventory/RecipesCommon.java','package com.hbm.inventory;import net.minecraft.block.Block;public class RecipesCommon {'+extract((SRC/'com/hbm/inventory/RecipesCommon.java').read_text(),'public static class MetaBlock {')+'}')
++  files.extend([SRC/'com/hbm/lib/ForgeDirection.java',SRC/'com/hbm/world/generator/DungeonToolbox.java'])
++  native=(H.parent/'dungeon-palette-native/NativeProof.java').read_text();native=native[:native.index(' public static void main(')]+''' public static void main(String[]args)throws Exception {YellowStateProof.run();loadBounds(args[0]);GeneratedProof.run();EvaluationProof.run();System.out.println("PASS "+checks+" checks and "+events+" exact ordered yellow-barrel native/original-expression placement events.");}\n}\n''';put('NativeProof.java',native)
++  files.append(H/'YellowStateProof.java')
++  ev=(H.parent/'ct-palette-native/EvaluationProof.java').read_text().replace('ConcreteConstructionSlice.deco_steel','com.hbm.blocks.ModBlocks.yellow_barrel').replace('ConcreteConstructionSlice.deco_lead','com.hbm.blocks.ModBlocks.yellow_barrel');put('EvaluationProof.java',ev)
++  parts=['import net.minecraft.world.World;import net.minecraft.block.Block;public class GeneratedProof extends NativeProof {'];runs=[]
++  for i,((file,method),rs) in enumerate(groups.items()):
++   parts.append('static class Fixture'+str(i)+' {World world;int x,y,z;Block Block2;void nativeRun(){'+'\n'.join(r['new'] for r in rs)+'} void originalRun(){'+'\n'.join(r['old'].replace('world.setBlock(','legacy(world, ')for r in rs)+'}}')
++   runs.append(('{FixtureN f=new FixtureN();for(Block current:new Block[]{com.hbm.blocks.ModBlocks.yellow_barrel,net.minecraft.init.Blocks.STONE}){f.Block2=current;for(int[]o:origins){f.x=o[0];f.y=o[1];f.z=o[2];RecordingWorld old=new RecordingWorld(),w=new RecordingWorld();f.world=old;f.originalRun();f.world=w;f.nativeRun();check(old.trace.equals(w.trace),"exact ordered mutable field stream");events+=w.trace.size();f.world=null;boolean oe=false,ne=false;try{f.originalRun();}catch(NullPointerException e){oe=true;}try{f.nativeRun();}catch(NullPointerException e){ne=true;}check(oe&&ne,"null receiver even outside bounds");}}}').replace('FixtureN','Fixture'+str(i)))
++  parts.append('static void run(){'+''.join(runs)+'}}');put('GeneratedProof.java','\n'.join(parts))
++  run([a.java_home/'bin/javac','-encoding','UTF-8','-sourcepath',t,'-cp',cp,'-d',t]+files)
++  sizes=[]
++  for i,rs in enumerate(groups.values()):
++   dis=run([a.java_home/'bin/javap','-c','-p','-classpath',t,'GeneratedProof$Fixture'+str(i)],capture_output=True,text=True).stdout;b=dis.split('void nativeRun();')[1].split('void originalRun();')[0];assert b.count('DungeonToolbox.placeUnorientedStructureBlock:')==len(rs);sizes.append(int(re.findall(r'\n\s*(\d+): return',b)[-1])+1)
++  (H/'method-sizes.json').write_text(json.dumps(sizes)+'\n');print('PASS actual unsplit selected-expression Code sizes:',sizes,flush=True)
++  run([a.java_home/'bin/java','-Xmx500m','-cp',str(t)+':'+cp,'NativeProof',a.legacy_client],cwd=t)
++if __name__=='__main__':main()
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/selection.json b/ntm-port-1.12.2/porting/tests/yellow-palette-native/selection.json
+new file mode 100644
+index 00000000..44960cbf
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/selection.json
+@@ -0,0 +1,2312 @@
++[
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 54823,
++    "end": 54875,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 7",
++      "y + -4",
++      "z + 10",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 7, y + -4, z + 10, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -4, z + 10, Block2);"
++  },
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 54878,
++    "end": 54930,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 8",
++      "y + -4",
++      "z + 10",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 8, y + -4, z + 10, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + -4, z + 10, Block2);"
++  },
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 54933,
++    "end": 54985,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 9",
++      "y + -4",
++      "z + 10",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 9, y + -4, z + 10, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + -4, z + 10, Block2);"
++  },
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 57240,
++    "end": 57292,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 6",
++      "y + -4",
++      "z + 11",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 6, y + -4, z + 11, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + -4, z + 11, Block2);"
++  },
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 57295,
++    "end": 57347,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 7",
++      "y + -4",
++      "z + 11",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 7, y + -4, z + 11, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -4, z + 11, Block2);"
++  },
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 57682,
++    "end": 57735,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 10",
++      "y + -4",
++      "z + 11",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 10, y + -4, z + 11, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + -4, z + 11, Block2);"
++  },
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 59239,
++    "end": 59291,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 6",
++      "y + -4",
++      "z + 12",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 6, y + -4, z + 12, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + -4, z + 12, Block2);"
++  },
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 64542,
++    "end": 64594,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 7",
++      "y + -4",
++      "z + 14",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 7, y + -4, z + 14, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -4, z + 14, Block2);"
++  },
++  {
++    "method": "generate_r0",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom001.java",
++    "start": 93124,
++    "end": 93176,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 7",
++      "y + -3",
++      "z + 10",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 7, y + -3, z + 10, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + -3, z + 10, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 296344,
++    "end": 296394,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 6",
++      "y + 0",
++      "z + 9",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 6, y + 0, z + 9, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 9, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 296397,
++    "end": 296447,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 7",
++      "y + 0",
++      "z + 9",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 7, y + 0, z + 9, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 9, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 296450,
++    "end": 296500,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 8",
++      "y + 0",
++      "z + 9",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 8, y + 0, z + 9, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 9, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 296503,
++    "end": 296553,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 9",
++      "y + 0",
++      "z + 9",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 9, y + 0, z + 9, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 0, z + 9, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 302782,
++    "end": 302833,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 5",
++      "y + 0",
++      "z + 11",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 5, y + 0, z + 11, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 11, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 303662,
++    "end": 303714,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 11",
++      "y + 0",
++      "z + 11",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 11, y + 0, z + 11, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 0, z + 11, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 318366,
++    "end": 318418,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 11",
++      "y + 0",
++      "z + 12",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 11, y + 0, z + 12, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 0, z + 12, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 324935,
++    "end": 324986,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 5",
++      "y + 0",
++      "z + 13",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 5, y + 0, z + 13, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 13, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 325815,
++    "end": 325867,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 11",
++      "y + 0",
++      "z + 13",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 11, y + 0, z + 13, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 0, z + 13, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 332324,
++    "end": 332375,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 5",
++      "y + 0",
++      "z + 14",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 5, y + 0, z + 14, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 0, z + 14, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 333204,
++    "end": 333256,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 11",
++      "y + 0",
++      "z + 14",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 11, y + 0, z + 14, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 0, z + 14, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 339993,
++    "end": 340044,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 6",
++      "y + 0",
++      "z + 15",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 6, y + 0, z + 15, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 0, z + 15, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 340047,
++    "end": 340098,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 7",
++      "y + 0",
++      "z + 15",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 7, y + 0, z + 15, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 0, z + 15, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 340101,
++    "end": 340152,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 8",
++      "y + 0",
++      "z + 15",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 8, y + 0, z + 15, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 0, z + 15, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 340320,
++    "end": 340372,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 10",
++      "y + 0",
++      "z + 15",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 10, y + 0, z + 15, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 0, z + 15, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 379367,
++    "end": 379419,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 29",
++      "y + 0",
++      "z + 21",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 29, y + 0, z + 21, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 0, z + 21, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 379780,
++    "end": 379832,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 17",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 17, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 379835,
++    "end": 379887,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 19",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 19, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 379890,
++    "end": 379942,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 22",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 22, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 379945,
++    "end": 379997,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 25",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 25, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380000,
++    "end": 380052,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 26",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 26, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380055,
++    "end": 380107,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 28",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 28, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 28, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380110,
++    "end": 380162,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 29",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 29, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380165,
++    "end": 380217,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 30",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 30, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380220,
++    "end": 380272,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 35",
++      "y + 0",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 35, y + 0, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 0, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380633,
++    "end": 380685,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 17",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 17, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380688,
++    "end": 380740,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 18",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 18, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380743,
++    "end": 380795,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 19",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 19, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380798,
++    "end": 380850,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 23",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 23, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380853,
++    "end": 380905,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 25",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 25, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380908,
++    "end": 380960,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 29",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 29, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 380963,
++    "end": 381015,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 30",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 30, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381018,
++    "end": 381070,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 34",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 34, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381073,
++    "end": 381125,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 35",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 35, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381128,
++    "end": 381180,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 36",
++      "y + 0",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 36, y + 0, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 0, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381541,
++    "end": 381593,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 21",
++      "y + 0",
++      "z + 24",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 21, y + 0, z + 24, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 0, z + 24, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381596,
++    "end": 381648,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 22",
++      "y + 0",
++      "z + 24",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 22, y + 0, z + 24, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 22, y + 0, z + 24, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381651,
++    "end": 381703,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 23",
++      "y + 0",
++      "z + 24",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 23, y + 0, z + 24, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 0, z + 24, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381706,
++    "end": 381758,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 26",
++      "y + 0",
++      "z + 24",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 26, y + 0, z + 24, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 0, z + 24, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381761,
++    "end": 381813,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 33",
++      "y + 0",
++      "z + 24",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 33, y + 0, z + 24, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 33, y + 0, z + 24, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381816,
++    "end": 381868,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 34",
++      "y + 0",
++      "z + 24",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 34, y + 0, z + 24, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 34, y + 0, z + 24, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 381871,
++    "end": 381923,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 35",
++      "y + 0",
++      "z + 24",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 35, y + 0, z + 24, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 0, z + 24, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 382284,
++    "end": 382336,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 17",
++      "y + 0",
++      "z + 25",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 17, y + 0, z + 25, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 0, z + 25, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 382868,
++    "end": 382920,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 19",
++      "y + 0",
++      "z + 26",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 19, y + 0, z + 26, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 0, z + 26, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 382923,
++    "end": 382975,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 20",
++      "y + 0",
++      "z + 26",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 20, y + 0, z + 26, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 0, z + 26, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 382978,
++    "end": 383030,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 21",
++      "y + 0",
++      "z + 26",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 21, y + 0, z + 26, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 0, z + 26, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 383553,
++    "end": 383605,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 25",
++      "y + 0",
++      "z + 26",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 25, y + 0, z + 26, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 0, z + 26, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 383608,
++    "end": 383660,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 30",
++      "y + 0",
++      "z + 26",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 30, y + 0, z + 26, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 0, z + 26, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 383663,
++    "end": 383715,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 35",
++      "y + 0",
++      "z + 26",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 35, y + 0, z + 26, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 0, z + 26, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384076,
++    "end": 384128,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 18",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 18, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 18, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384131,
++    "end": 384183,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 19",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 19, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384186,
++    "end": 384238,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 20",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 20, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384241,
++    "end": 384293,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 21",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 21, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384296,
++    "end": 384348,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 23",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 23, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384351,
++    "end": 384403,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 24",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 24, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384406,
++    "end": 384458,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 25",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 25, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384461,
++    "end": 384513,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 26",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 26, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384516,
++    "end": 384568,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 29",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 29, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384571,
++    "end": 384623,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 30",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 30, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384626,
++    "end": 384678,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 31",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 31, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 31, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384681,
++    "end": 384733,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 35",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 35, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 384736,
++    "end": 384788,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 36",
++      "y + 0",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 36, y + 0, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 36, y + 0, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 385149,
++    "end": 385201,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 24",
++      "y + 0",
++      "z + 28",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 24, y + 0, z + 28, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 0, z + 28, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 385204,
++    "end": 385256,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 25",
++      "y + 0",
++      "z + 28",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 25, y + 0, z + 28, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 0, z + 28, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 385259,
++    "end": 385311,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 26",
++      "y + 0",
++      "z + 28",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 26, y + 0, z + 28, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 26, y + 0, z + 28, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 385314,
++    "end": 385366,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 29",
++      "y + 0",
++      "z + 28",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 29, y + 0, z + 28, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 0, z + 28, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 385369,
++    "end": 385421,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 30",
++      "y + 0",
++      "z + 28",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 30, y + 0, z + 28, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 0, z + 28, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 488967,
++    "end": 489019,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 29",
++      "y + 1",
++      "z + 22",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 29, y + 1, z + 22, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 29, y + 1, z + 22, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 489490,
++    "end": 489542,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 17",
++      "y + 1",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 17, y + 1, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 17, y + 1, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 489545,
++    "end": 489597,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 25",
++      "y + 1",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 25, y + 1, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 1, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 489600,
++    "end": 489652,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 35",
++      "y + 1",
++      "z + 23",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 35, y + 1, z + 23, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 1, z + 23, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 490123,
++    "end": 490175,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 23",
++      "y + 1",
++      "z + 24",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 23, y + 1, z + 24, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 23, y + 1, z + 24, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 491582,
++    "end": 491634,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 19",
++      "y + 1",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 19, y + 1, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 19, y + 1, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 491637,
++    "end": 491689,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 20",
++      "y + 1",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 20, y + 1, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 20, y + 1, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 491692,
++    "end": 491744,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 21",
++      "y + 1",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 21, y + 1, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 21, y + 1, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 491747,
++    "end": 491799,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 24",
++      "y + 1",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 24, y + 1, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 1, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 491802,
++    "end": 491854,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 25",
++      "y + 1",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 25, y + 1, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 1, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 491857,
++    "end": 491909,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 30",
++      "y + 1",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 30, y + 1, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 30, y + 1, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 491912,
++    "end": 491964,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 35",
++      "y + 1",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 35, y + 1, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 35, y + 1, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 492435,
++    "end": 492487,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 25",
++      "y + 1",
++      "z + 28",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 25, y + 1, z + 28, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 25, y + 1, z + 28, Block2);"
++  },
++  {
++    "method": "generate_r01",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom002.java",
++    "start": 609591,
++    "end": 609643,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 24",
++      "y + 2",
++      "z + 27",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 24, y + 2, z + 27, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 24, y + 2, z + 27, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 72050,
++    "end": 72101,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 32",
++      "y + 4",
++      "z + 7",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 32, y + 4, z + 7, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 4, z + 7, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 76028,
++    "end": 76079,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 32",
++      "y + 4",
++      "z + 8",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 32, y + 4, z + 8, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 4, z + 8, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 77488,
++    "end": 77538,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 6",
++      "y + 4",
++      "z + 9",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 6, y + 4, z + 9, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 6, y + 4, z + 9, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 77541,
++    "end": 77591,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 7",
++      "y + 4",
++      "z + 9",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 7, y + 4, z + 9, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 7, y + 4, z + 9, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 77594,
++    "end": 77645,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 10",
++      "y + 4",
++      "z + 9",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 10, y + 4, z + 9, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 4, z + 9, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 82893,
++    "end": 82944,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 5",
++      "y + 4",
++      "z + 10",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 5, y + 4, z + 10, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 10, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 82947,
++    "end": 82999,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 11",
++      "y + 4",
++      "z + 10",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 11, y + 4, z + 10, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 10, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 87434,
++    "end": 87485,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 5",
++      "y + 4",
++      "z + 11",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 5, y + 4, z + 11, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 11, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 87488,
++    "end": 87540,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 11",
++      "y + 4",
++      "z + 11",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 11, y + 4, z + 11, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 11, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 91087,
++    "end": 91139,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 11",
++      "y + 4",
++      "z + 12",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 11, y + 4, z + 12, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 11, y + 4, z + 12, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 95077,
++    "end": 95128,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 5",
++      "y + 4",
++      "z + 13",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 5, y + 4, z + 13, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 5, y + 4, z + 13, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 102970,
++    "end": 103021,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 8",
++      "y + 4",
++      "z + 15",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 8, y + 4, z + 15, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 4, z + 15, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 103024,
++    "end": 103075,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 9",
++      "y + 4",
++      "z + 15",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 9, y + 4, z + 15, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 4, z + 15, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 103078,
++    "end": 103130,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 10",
++      "y + 4",
++      "z + 15",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 10, y + 4, z + 15, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 4, z + 15, Block2);"
++  },
++  {
++    "method": "generate_r00",
++    "file": "src/main/java/com/hbm/world/dungeon/DesertAtom003.java",
++    "start": 148407,
++    "end": 148458,
++    "receiver": "world",
++    "world": true,
++    "vanilla": true,
++    "ints": true,
++    "statement": true,
++    "block": "Block2",
++    "args": [
++      "x + 32",
++      "y + 5",
++      "z + 7",
++      "Block2",
++      "0",
++      "3"
++    ],
++    "old": "world.setBlock(x + 32, y + 5, z + 7, Block2, 0, 3);",
++    "new": "com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 32, y + 5, z + 7, Block2);"
++  }
++]
+diff --git a/ntm-port-1.12.2/porting/tests/yellow-palette-native/targets.json b/ntm-port-1.12.2/porting/tests/yellow-palette-native/targets.json
+new file mode 100644
+index 00000000..e851f016
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/yellow-palette-native/targets.json
+@@ -0,0 +1 @@
++{"DesertAtom001": ["Block2"], "DesertAtom002": ["Block2"], "DesertAtom003": ["Block2"]}

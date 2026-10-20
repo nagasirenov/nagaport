@@ -249,7 +249,7 @@ public class HazmatRegistry {
 			
 			for(Entry<Item, Double> entry : entries.entrySet()) {
 				writer.beginObject();				//begin object for a single recipe
-				writer.name("item").value(Item.itemRegistry.getNameForObject(entry.getKey()));
+				writer.name("item").value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null));
 				writer.name("resistance").value(entry.getValue());
 				writer.endObject();					//end recipe object
 			}

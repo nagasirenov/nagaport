@@ -1,0 +1,46 @@
+{
+  "verified_commit": "d3e012b1ee72c0170cb8e4ff89bfabadb25ac553",
+  "verified_tree": "4b988fa4590f6ae1329de2bce8e230110d5d6000",
+  "verified_full_compile": "FAIL13150 diagnostics, all4065Java; no runnablemod/gameplay claim",
+  "archived_worktrees": 93,
+  "unique_archived_blobs": 1542,
+  "archived_uncompressed_blob_bytes": 55446302,
+  "files": {
+    "yellow-palette-WIP-production.patch": {
+      "bytes": 68594,
+      "sha256": "1bc3d3d0736333cf36f93a39c129481851312db23f599618dd20808cc0a291f1"
+    },
+    "yellow-palette-WIP-evidence.patch": {
+      "bytes": 188131,
+      "sha256": "a08034594838624edc3953ce59668601aa82209ddbc70c38422f4898b7b29668"
+    },
+    "oil-reserve-cp75-evidence.patch": {
+      "bytes": 40731,
+      "sha256": "157b44e0b8277d5d4aa20480979587b3b37f02160d7a73aa4cf77b87dbac87cd"
+    },
+    "nagaport-cp76-partial-render-checkout-cleanup.json": {
+      "bytes": 1538327,
+      "sha256": "a8682a913a83842719b7c3026098c4ccb849299d2475a205298be637bd2616fa"
+    },
+    "historical-worktree-differences.tar.gz": {
+      "bytes": 37478963,
+      "sha256": "323b08c16b3268cb1204ba8ad82891ac5ac4e3cbf18dbcb7b0cd1f16a5d16a49"
+    },
+    "item-registry-queries-evidence.patch": {
+      "bytes": 46297,
+      "sha256": "6f46d880d0eaba14bae1ac33071deaeee60e7ee52dd366235c9911ffc2f2520d"
+    },
+    "item-registry-queries-production.patch": {
+      "bytes": 12885,
+      "sha256": "8a70fb13d40c794c3b71aca112fc1752a37721c58f532b048eac6a84f85400b6"
+    },
+    "nagaport-cp76-expanded-checkpoint-cleanup.json": {
+      "bytes": 12444,
+      "sha256": "852283f1708170c73efa08e0ba72fdd75a8023e184d5a68523107c164a8f441c"
+    },
+    "oil-reserve-cp75-production.patch": {
+      "bytes": 2345,
+      "sha256": "ff5494e1808c7460381b6a55cd8e77a228deb1660fa58db0ed4496caea021fea"
+    }
+  }
+}

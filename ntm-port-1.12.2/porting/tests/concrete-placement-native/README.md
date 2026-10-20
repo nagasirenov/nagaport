@@ -1,5 +1,9 @@
 # Native static concrete placements
 
+## Historical scope notice (CP75, 2026-10-20)
+
+This README records the initial CP54 inline-placement slice, not the current remaining-work list. The 917-call Silo.generate_r0 exclusion below was subsequently resolved by the narrow existing DungeonToolbox.placeRandomConcrete helper. See `../silo-concrete-native/README.md`, current `src/main/java/com/hbm/world/generator/DungeonToolbox.java`, `src/main/java/com/hbm/world/dungeon/Silo.java`, and `porting/status.md`. CP75 d3e012b1ee72c0170cb8e4ff89bfabadb25ac553 already contains that fix. Do not migrate or claim those917 calls again. The historical original code-too-large rejection remains genuine evidence; full surrounding generator/gameplay readiness remains unclaimed. Use the latest frozen compiler log, not historical exclusions, to choose new work.
+
 Pinned input CP54: `0732d318302d807ce8579878a0cdde6b18bbba86`.
 Production changes: **1,595 statements in five existing dungeon files**, six original method groups. No block owner, metadata property, Library helper, item registration, renderer, asset, build setting, or dependency changed.
 

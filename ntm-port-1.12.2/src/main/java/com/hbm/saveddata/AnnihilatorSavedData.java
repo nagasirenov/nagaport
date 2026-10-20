@@ -168,13 +168,13 @@ public class AnnihilatorSavedData extends WorldSavedData {
 			if(key instanceof Item) { // 0
 				Item item = (Item) key;
 				nbt.setByte("key", (byte) 0);
-				nbt.setString("item", Item.itemRegistry.getNameForObject(item));
+				nbt.setString("item", java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null));
 			}
 			
 			if(key instanceof ComparableStack) { // 1
 				ComparableStack comp = (ComparableStack) key;
 				nbt.setByte("key", (byte) 1);
-				nbt.setString("item", Item.itemRegistry.getNameForObject(comp.item));
+				nbt.setString("item", java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.item), null));
 				nbt.setShort("meta", (short) comp.meta);
 			}
 			

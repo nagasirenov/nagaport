@@ -1,0 +1,187 @@
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java b/ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java
+index 806d5d9e..63d96240 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java
+@@ -115,7 +115,7 @@ public class ItemPoolConfigJSON {
+ 	public static void writeItemStack(ItemStack stack, JsonWriter writer) throws IOException {
+ 		writer.beginArray();
+ 		writer.setIndent("");
+-		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));
++		writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem()), null));
+ 		if(stack.stackSize != 1 || stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.stackSize);
+ 		if(stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.getItemDamage());
+ 		if(stack.hasTagCompound()) writer.value(stack.getTagCompound().toString());
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java b/ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java
+index d6d9f596..b00928f3 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java
+@@ -249,7 +249,7 @@ public class HazmatRegistry {
+ 			
+ 			for(Entry<Item, Double> entry : entries.entrySet()) {
+ 				writer.beginObject();				//begin object for a single recipe
+-				writer.name("item").value(Item.itemRegistry.getNameForObject(entry.getKey()));
++				writer.name("item").value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null));
+ 				writer.name("resistance").value(entry.getValue());
+ 				writer.endObject();					//end recipe object
+ 			}
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java b/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java
+index 62e124d0..8b4fafc5 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java
+@@ -57,7 +57,7 @@ public class GUIScreenPreview extends GuiScreen {
+ 		this.drawTexturedModalRect(res.getScaledWidth_double() / 2D / zoom - 9D, res.getScaledHeight_double() / 2D / zoom - 9D, 5, 87, 18, 18);
+ 		GL11.glPopMatrix();
+ 
+-		String nameString = Item.itemRegistry.getNameForObject(preview.getItem()) + ", " + preview.getItemDamage();
++		String nameString = java.util.Objects.toString(Item.REGISTRY.getNameForObject(preview.getItem()), null) + ", " + preview.getItemDamage();
+ 		String zoomString = "Zoom: " + zoom;
+ 		String scaleString = "Windows Scale: " + res.getScaleFactor();
+ 
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java b/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java
+index 40cc261a..d2948afc 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java
+@@ -240,12 +240,12 @@ public class AnnihilatorRecipes extends SerializableRecipe {
+ 		if(rec.getKey() instanceof Item) {
+ 			Item item = (Item) rec.getKey();
+ 			writer.name("type").value("item");
+-			writer.name("item").value(Item.itemRegistry.getNameForObject(item));
++			writer.name("item").value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null));
+ 		}
+ 		if(rec.getKey() instanceof ComparableStack) {
+ 			ComparableStack comp = (ComparableStack) rec.getKey();
+ 			writer.name("type").value("comp");
+-			writer.name("item").value(Item.itemRegistry.getNameForObject(comp.item));
++			writer.name("item").value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.item), null));
+ 			writer.name("meta").value(comp.meta);
+ 		}
+ 		if(rec.getKey() instanceof FluidType) {
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java b/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java
+index 24174cd9..09774c49 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java
+@@ -301,14 +301,14 @@ public abstract class SerializableRecipe {
+ 		if(astack instanceof NBTStack) {
+ 			NBTStack comp = (NBTStack) astack;
+ 			writer.value(comp.nbt != null ? "nbt" : "item");											//NBT  identifier
+-			writer.value(Item.itemRegistry.getNameForObject(comp.toStack().getItem()));					//item name
++			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.toStack().getItem()), null));					//item name
+ 			if(comp.stacksize != 1 || comp.meta > 0 || comp.nbt != null) writer.value(comp.stacksize);	//stack size
+ 			if(comp.meta > 0 || comp.nbt != null) writer.value(comp.meta);								//metadata
+ 			if(comp.nbt != null) writer.value(comp.nbt.toString());										//NBT
+ 		} else if(astack instanceof ComparableStack) {
+ 			ComparableStack comp = (ComparableStack) astack;
+ 			writer.value("item");														//ITEM  identifier
+-			writer.value(Item.itemRegistry.getNameForObject(comp.toStack().getItem()));	//item name
++			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.toStack().getItem()), null));	//item name
+ 			if(comp.stacksize != 1 || comp.meta > 0) writer.value(comp.stacksize);		//stack size
+ 			if(comp.meta > 0) writer.value(comp.meta);									//metadata
+ 		} else if(astack instanceof OreDictStack) {
+@@ -375,7 +375,7 @@ public abstract class SerializableRecipe {
+ 	public static void writeItemStack(ItemStack stack, JsonWriter writer) throws IOException {
+ 		writer.beginArray();
+ 		writer.setIndent("");
+-		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));													//item name
++		writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem()), null));													//item name
+ 		if(stack.stackSize != 1 || stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.stackSize);		//stack size
+ 		if(stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.getItemDamage());						//metadata
+ 		if(stack.hasTagCompound()) writer.value(stack.getTagCompound().toString());											//nbt
+@@ -386,7 +386,7 @@ public abstract class SerializableRecipe {
+ 	public static void writeItemStackChance(Pair<ItemStack, Float> stack, JsonWriter writer) throws IOException {
+ 		writer.beginArray();
+ 		writer.setIndent("");
+-		writer.value(Item.itemRegistry.getNameForObject(stack.getKey().getItem()));																			//item name
++		writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getKey().getItem()), null));																			//item name
+ 		if(stack.getKey().stackSize != 1 || stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().stackSize);	//stack size
+ 		if(stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().getItemDamage());							//metadata
+ 		if(stack.getKey().hasTagCompound()) writer.value(stack.getKey().getTagCompound().toString());														//nbt
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java b/ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java
+index c5fd25cb..4e6424e1 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java
+@@ -56,7 +56,7 @@ public class BrokenItem extends Item {
+ 	public static ItemStack make(Item item, int stacksize, int meta) {
+ 		ItemStack stack = new ItemStack(ModItems.broken_item, stacksize);
+ 		NBTTagCompound nbt = new NBTTagCompound();
+-		nbt.setString("itemID", Item.itemRegistry.getNameForObject(item));
++		nbt.setString("itemID", java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null));
+ 		nbt.setInteger("itemMeta", meta);
+ 		stack.setTagCompound(nbt);
+ 		return stack;
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java b/ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java
+index 9cedcf8c..914f464c 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java
+@@ -188,7 +188,7 @@ public class ItemMold extends Item {
+ 				if(!ores.isEmpty()) {
+ 					//prioritize NTM items
+ 					for(ItemStack ore : ores) {
+-						String registry = Item.itemRegistry.getNameForObject(ore.getItem());
++						String registry = java.util.Objects.toString(Item.REGISTRY.getNameForObject(ore.getItem()), null);
+ 						if(registry.startsWith(RefStrings.MODID)) {
+ 							if(registry.contains("fragment")) continue; // deprioritize fragments
+ 							ItemStack copy = ore.copy();
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java b/ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java
+index bda15c2a..17ebe1d2 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java
+@@ -1119,9 +1119,9 @@ public class ModEventHandlerClient {
+ 				boolean onlyGuns = true;
+ 
+ 				List<ItemStack> stacks = new ArrayList<ItemStack>();
+-				for (Object reg : Item.itemRegistry) {
++				for (Object reg : Item.REGISTRY) {
+ 					Item item = (Item) reg;
+-					if(ignoreNonNTM && !Item.itemRegistry.getNameForObject(item).startsWith("hbm:")) continue;
++					if(ignoreNonNTM && !java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null).startsWith("hbm:")) continue;
+ 					if(ignoredItems.contains(item)) continue;
+ 					if(onlyGuns && !(item instanceof ItemGunBaseNT)) continue;
+ 					if(collapsedClasses.contains(item.getClass())) {
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java b/ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java
+index deffab39..cbcc5819 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java
+@@ -168,13 +168,13 @@ public class AnnihilatorSavedData extends WorldSavedData {
+ 			if(key instanceof Item) { // 0
+ 				Item item = (Item) key;
+ 				nbt.setByte("key", (byte) 0);
+-				nbt.setString("item", Item.itemRegistry.getNameForObject(item));
++				nbt.setString("item", java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null));
+ 			}
+ 			
+ 			if(key instanceof ComparableStack) { // 1
+ 				ComparableStack comp = (ComparableStack) key;
+ 				nbt.setByte("key", (byte) 1);
+-				nbt.setString("item", Item.itemRegistry.getNameForObject(comp.item));
++				nbt.setString("item", java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.item), null));
+ 				nbt.setShort("meta", (short) comp.meta);
+ 			}
+ 			
+diff --git a/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java b/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java
+index 2c48b228..abd35212 100644
+--- a/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java
++++ b/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java
+@@ -334,7 +334,7 @@ public class DamageResistanceHandler {
+ 		writer.name("itemStats").beginArray();
+ 		for(Entry<Item, ResistanceStats> entry : itemStats.entrySet()) {
+ 			writer.beginArray().setIndent("");
+-			writer.value(Item.itemRegistry.getNameForObject(entry.getKey())).setIndent("  ");
++			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null)).setIndent("  ");
+ 			writer.beginObject();
+ 			entry.getValue().serialize(writer);
+ 			writer.setIndent("");
+@@ -346,10 +346,10 @@ public class DamageResistanceHandler {
+ 		writer.name("setStats").beginArray();
+ 		for(Entry<Quartet<Item, Item, Item, Item>, ResistanceStats> entry : setStats.entrySet()) {
+ 			writer.beginArray().setIndent("");
+-			writer.value(Item.itemRegistry.getNameForObject(entry.getKey().getW()))
+-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getX()))
+-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getY()))
+-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getZ())).setIndent("  ");
++			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getW()), null))
++			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getX()), null))
++			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getY()), null))
++			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getZ()), null)).setIndent("  ");
+ 			writer.beginObject();
+ 			entry.getValue().serialize(writer);
+ 			writer.setIndent("");

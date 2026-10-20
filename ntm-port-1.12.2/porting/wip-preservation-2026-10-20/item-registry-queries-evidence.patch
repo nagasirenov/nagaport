@@ -1,0 +1,630 @@
+diff --git a/ntm-port-1.12.2/porting/tests/native-item-registry-queries/ItemRegistryOwners.java b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/ItemRegistryOwners.java
+new file mode 100644
+index 00000000..411b6414
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/ItemRegistryOwners.java
+@@ -0,0 +1,30 @@
++import java.util.*;
++import javax.tools.*;
++import javax.lang.model.element.*;
++import com.sun.source.tree.*;
++import com.sun.source.util.*;
++/** Reports positions only for statically resolved native class qualifiers; no edits. */
++public final class ItemRegistryOwners {
++ public static void main(String[] args) throws Exception {
++  JavaCompiler c=ToolProvider.getSystemJavaCompiler();
++  StandardJavaFileManager fm=c.getStandardFileManager(null,null,null);
++  DiagnosticCollector<JavaFileObject> diagnostics=new DiagnosticCollector<>();
++  JavacTask task=(JavacTask)c.getTask(null,fm,diagnostics,Arrays.asList("-proc:none","-classpath",args[0],"-sourcepath","","-Xmaxerrs","10000"),null,fm.getJavaFileObjects(Arrays.copyOfRange(args,1,args.length)));
++  List<CompilationUnitTree> units=new ArrayList<>(); for(CompilationUnitTree u:task.parse()) units.add(u);
++  task.analyze(); Trees trees=Trees.instance(task);
++  for(final CompilationUnitTree u:units) new TreePathScanner<Void,Void>() {
++   public Void visitImport(ImportTree n,Void p) { return null; }
++   public Void visitMemberSelect(MemberSelectTree n,Void p) {
++    String s=n.getIdentifier().toString();
++    if(s.equals("itemRegistry")) {
++     Element owner=trees.getElement(new TreePath(getCurrentPath(),n.getExpression()));
++     if(owner instanceof TypeElement && owner.getKind()==ElementKind.CLASS && ((TypeElement)owner).getQualifiedName().contentEquals("net.minecraft.item.Item")) {
++      long end=trees.getSourcePositions().getEndPosition(u,n);
++      System.out.println(u.getSourceFile().toUri().getPath()+"\t"+(end-s.length())+"\t"+end+"\t"+s);
++     }
++    } return super.visitMemberSelect(n,p);
++   }
++  }.scan(u,null);
++  fm.close();
++ }
++}
+diff --git a/ntm-port-1.12.2/porting/tests/native-item-registry-queries/README.md b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/README.md
+new file mode 100644
+index 00000000..260c12d7
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/README.md
+@@ -0,0 +1,63 @@
++# Native item registry output-name queries
++
++Baseline CP74: `5a102874e0cd18dfd6b2984a994330b9de0ece75`.
++Twenty exact expressions in ten production files: nineteen name queries and one
++GUI iteration field access. No new registration, fake registry, adapter, resource
++rename or changes to saved keys are introduced.
++
++`Item.REGISTRY.getNameForObject` returns a native ResourceLocation, whereas the
++original `Item.itemRegistry.getNameForObject` returned String. Each selected
++name query explicitly uses `java.util.Objects.toString(key, null)`. The second
++argument is essential: null/unregistered items still serialize as JSON null,
++not the string "null", and string consumers retain their old null behavior.
++The original item expression is evaluated exactly once, in its original order
++relative to the writer/other enclosing receiver. No item identity is replaced.
++The GUI iterates actual native items, without introducing an ordering promise.
++
++## Proof
++
++Run from any directory, with the existing offline toolchain:
++
++```
++python3 porting/tests/native-item-registry-queries/run.py \
++ /workspace/shared/nagaport-toolchain/java8 \
++ /tmp/nagaport-ae2-native-classpath.txt /tmp/nagaport-legacy-client.jar \
++ /tmp/nagaport1710-srg.zip \
++ /workspace/shared/nagaport-toolchain/gradle-user-home/caches/minecraft/de/oceanlabs/mcp/mcp_stable/39/fields.csv
++```
++
++2,372 actual native/original assertions pass. The original signed client archive
++is hash-verified, and only its signature metadata is omitted in the temporary
++execution copy. Actual original registry `adb.e` and native Forge Item.REGISTRY
++are used. Tests cover every bootstrapped native item, genuine identity,
++registered/null/unregistered names, common original saved keys, JSON and NBT
++roundtrips, writer/argument evaluation order, and registry membership.
++Two verbatim production serialization statements (AnnihilatorSavedData and
++ItemPoolConfigJSON) are compiled and executed for every native registered item.
++These are explicitly bounded statement extractions, not complete owner classes.
++No platform or registry stubs are used. Original and native mappings are checked.
++
++Javac attributes the original qualifier to net.minecraft.item.Item in each
++complete selected owner; unresolved unrelated dependencies are not claimed to
++compile. Negative controls exclude a shadow Item class, a value receiver, and
++string contents. Every selected expression reverses to the exact baseline
++bytes; original line endings, arguments, enclosing statements and surrounding
++source remain intact. Twenty independent single-edit reversal mutations are
++rejected by source hashes. A token-only native field rename fails genuine
++javac String assignment, proving explicit result conversion is required.
++
++## Deliberate exclusions
++
++The baseline census contains 45 accesses; 20 are selected. All 21 input lookups
++remain unchanged. Actual Forge missing-item lookup returns null, not AIR. Tests
++verify this against original null behavior, but ResourceLocation lowercases
++namespace/path and has different colon parsing: `MINECRAFT:APPLE` is absent in
++the original registry but resolves to the native apple. Therefore blindly
++wrapping arbitrary saved/user/external names in ResourceLocation is not certified.
++The two Mekanism external IDs, Compat and structure palette are excluded too.
++
++Three StatHelper iterators feed numeric-ID statistics arrays, and HazardTypeGlitch
++uses registry size as a raw numeric-ID random bound. They are not migrated as
++mere name changes. No whole-owner compilation, save-reader migration, cross-mod
++registration/name normalization, numeric-ID parity, full game launch or gameplay
++parity is claimed. Main's coordinator owns full compile diagnostic accounting.
+diff --git a/ntm-port-1.12.2/porting/tests/native-item-registry-queries/RegistryQueryTest.java b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/RegistryQueryTest.java
+new file mode 100644
+index 00000000..db429dc1
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/RegistryQueryTest.java
+@@ -0,0 +1,45 @@
++import net.minecraft.init.*;
++import net.minecraft.item.*;
++import net.minecraft.nbt.NBTTagCompound;
++import net.minecraft.util.ResourceLocation;
++import com.google.gson.stream.JsonWriter;
++import java.io.*;
++import java.util.*;
++public final class RegistryQueryTest {
++ static int checks,calls; static String trace="";
++ static void ok(boolean b,String m){checks++;if(!b)throw new AssertionError(m);}
++ static Item argument(Item i){calls++;trace+="A";return i;}
++ static JsonWriter writer(StringWriter s){trace+="W";return new JsonWriter(s);}
++ static String name(Item i){return java.util.Objects.toString(Item.REGISTRY.getNameForObject(i), null);}
++ public static void main(String[] args)throws Exception {
++  Bootstrap.register(); aji.p(); adb.l();
++  ok(Item.REGISTRY.getClass().getName().equals("net.minecraftforge.registries.NamespacedWrapper"),"actual Forge registry");
++  ok(adb.e.c(null)==null && name(null)==null,"null identity has null name, not literal null");
++  ok(adb.e.c(new adb())==null && name(new Item())==null,"unregistered identity has null name");
++  ResourceLocation missing=new ResourceLocation("hbm:missing_item_query_probe");
++  ok(adb.e.a(missing.toString())==null,"original missing object is null");
++  ok(Item.REGISTRY.getObject(missing)==null,"native missing object is null");
++  ok(!Item.REGISTRY.containsKey(missing),"missing not registered");
++  ok(adb.e.a("MINECRAFT:APPLE")==null && Item.REGISTRY.getObject(new ResourceLocation("MINECRAFT:APPLE"))==Items.APPLE,"case normalization mismatch explicitly excludes input lookups");
++  Set<Item> identities=Collections.newSetFromMap(new IdentityHashMap<Item,Boolean>());
++  for(Item item:Item.REGISTRY) {
++   ok(identities.add(item),"iterator exposes each actual identity once");
++   String n=name(item);ok(n!=null,"registered name");
++   ok(Item.REGISTRY.getObject(new ResourceLocation(n))==item,"native saved-name identity roundtrip");
++   NBTTagCompound tag=ProductionSavedNames.nbt(item);
++   ok(Item.REGISTRY.getObject(new ResourceLocation(tag.getString("item")))==item,"real NBT saved name");
++   StringWriter out=new StringWriter();JsonWriter w=new JsonWriter(out);w.beginArray();ProductionSavedNames.json(w,new ItemStack(item));w.endArray().close();
++   ok(new com.google.gson.JsonParser().parse(out.toString()).getAsJsonArray().get(0).getAsString().equals(n),"JSON scalar remains string");
++   Object old=adb.e.a(n);
++   if(old!=null){ok(n.equals(adb.e.c(old)),"original common saved key exact spelling");}
++  }
++  ok(identities.size()==Item.REGISTRY.getKeys().size(),"keys/iterator same native membership, no old-order assumption");
++  for(Item i:new Item[]{Items.APPLE,Items.DIAMOND,null,new Item()}) {
++   StringWriter s=new StringWriter();trace="";calls=0;
++   writer(s).value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(argument(i)), null)).close();
++   ok(trace.equals("WA")&&calls==1,"writer before item argument, once each");
++   ok(s.toString().equals(i==Items.APPLE?"\"minecraft:apple\"":i==Items.DIAMOND?"\"minecraft:diamond\"":"null"),"JSON null/string contract");
++  }
++  System.out.println("PASS "+checks+" real original/native registry, saved-key, identity, JSON/NBT and order assertions; missing-object null behavior verified; case-changing input lookups excluded");
++ }
++}
+diff --git a/ntm-port-1.12.2/porting/tests/native-item-registry-queries/attribution.log b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/attribution.log
+new file mode 100644
+index 00000000..e237bd05
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/attribution.log
+@@ -0,0 +1,41 @@
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java	3772	3784	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java	4254	4266	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java	9382	9394	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java	10151	10163	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/hazard/type/HazardTypeGlitch.java	1417	1429	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java	2069	2081	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java	9218	9230	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java	9355	9367	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java	10535	10547	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java	10755	10767	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java	9673	9685	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java	9998	10010	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java	11123	11135	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java	11641	11653	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java	12284	12296	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java	12961	12973	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java	14558	14570	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java	15194	15206	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java	832	844	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java	1247	1259	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java	1991	2003	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java	7168	7180	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java	43602	43614	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java	43677	43689	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java	6171	6183	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java	6384	6396	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java	6935	6947	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java	7073	7085	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	16091	16103	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	16527	16539	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	16596	16608	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	16665	16677	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	16734	16746	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	17646	17658	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	18071	18083	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	18194	18206	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	18317	18329	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java	18440	18452	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java	3244	3256	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java	4547	4559	itemRegistry
++/workspace/shared/nagaport-item-queries-cp74/ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java	5221	5233	itemRegistry
+diff --git a/ntm-port-1.12.2/porting/tests/native-item-registry-queries/baseline-census.txt b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/baseline-census.txt
+new file mode 100644
+index 00000000..422e64a8
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/baseline-census.txt
+@@ -0,0 +1,45 @@
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java:118:		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java:128:			Item item = (Item) Item.itemRegistry.getObject(array.get(0).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java:252:				writer.name("item").value(Item.itemRegistry.getNameForObject(entry.getKey()));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java:277:					Item item = (Item) Item.itemRegistry.getObject(name);
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/hazard/type/HazardTypeGlitch.java:46:				setSize = Item.itemRegistry.getKeys().size();
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java:60:		String nameString = Item.itemRegistry.getNameForObject(preview.getItem()) + ", " + preview.getItemDamage();
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java:208:			keyObject = Item.itemRegistry.getObject(key.get("item").getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java:211:			keyObject = new ComparableStack((Item) Item.itemRegistry.getObject(key.get("item").getAsString()), 1, key.get("meta").getAsInt());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java:243:			writer.name("item").value(Item.itemRegistry.getNameForObject(item));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java:248:			writer.name("item").value(Item.itemRegistry.getNameForObject(comp.item));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:270:				Item item = (Item) Item.itemRegistry.getObject(array.get(1).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:275:				Item item = (Item) Item.itemRegistry.getObject(array.get(1).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:304:			writer.value(Item.itemRegistry.getNameForObject(comp.toStack().getItem()));					//item name
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:311:			writer.value(Item.itemRegistry.getNameForObject(comp.toStack().getItem()));	//item name
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:326:			Item item = (Item) Item.itemRegistry.getObject(array.get(0).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:341:			Item item = (Item) Item.itemRegistry.getObject(array.get(0).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:378:		writer.value(Item.itemRegistry.getNameForObject(stack.getItem()));													//item name
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java:389:		writer.value(Item.itemRegistry.getNameForObject(stack.getKey().getItem()));																			//item name
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java:32:		Item item = (Item) Item.itemRegistry.getObject(id);
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java:45:		Item item = (Item) Item.itemRegistry.getObject(id);
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java:59:		nbt.setString("itemID", Item.itemRegistry.getNameForObject(item));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java:191:						String registry = Item.itemRegistry.getNameForObject(ore.getItem());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/main/CraftingManager.java:1137:				Item disassembler = (Item) Item.itemRegistry.getObject("Mekanism:AtomicDisassembler");
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/main/CraftingManager.java:1169:					Item disassembler = (Item) Item.itemRegistry.getObject("Mekanism:AtomicDisassembler");
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java:1122:				for (Object reg : Item.itemRegistry) {
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java:1124:					if(ignoreNonNTM && !Item.itemRegistry.getNameForObject(item).startsWith("hbm:")) continue;
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java:171:				nbt.setString("item", Item.itemRegistry.getNameForObject(item));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java:177:				nbt.setString("item", Item.itemRegistry.getNameForObject(comp.item));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java:198:					return Item.itemRegistry.getObject(nbt.getString("item"));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java:201:					return new ComparableStack((Item) Item.itemRegistry.getObject(nbt.getString("item")), 1, nbt.getShort("meta"));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/Compat.java:47:		return (Item) Item.itemRegistry.getObject(getReg(domain, name));
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:337:			writer.value(Item.itemRegistry.getNameForObject(entry.getKey())).setIndent("  ");
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:349:			writer.value(Item.itemRegistry.getNameForObject(entry.getKey().getW()))
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:350:			.value(Item.itemRegistry.getNameForObject(entry.getKey().getX()))
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:351:			.value(Item.itemRegistry.getNameForObject(entry.getKey().getY()))
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:352:			.value(Item.itemRegistry.getNameForObject(entry.getKey().getZ())).setIndent("  ");
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:378:			Item item = (Item) Item.itemRegistry.getObject(statArray.get(0).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:387:			Item helmet =	statArray.get(0).isJsonNull() ? null : (Item) Item.itemRegistry.getObject(statArray.get(0).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:388:			Item plate =	statArray.get(1).isJsonNull() ? null : (Item) Item.itemRegistry.getObject(statArray.get(1).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:389:			Item legs =		statArray.get(2).isJsonNull() ? null : (Item) Item.itemRegistry.getObject(statArray.get(2).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java:390:			Item boots =	statArray.get(3).isJsonNull() ? null : (Item) Item.itemRegistry.getObject(statArray.get(3).getAsString());
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java:66:		Iterator iterator = Item.itemRegistry.iterator();
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java:102:		Iterator iterator = Item.itemRegistry.iterator();
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java:122:		Iterator iterator = Item.itemRegistry.iterator();
++5a102874e0cd18dfd6b2984a994330b9de0ece75:ntm-port-1.12.2/src/main/java/com/hbm/world/gen/nbt/NBTStructure.java:472:			Item item = (Item)Item.itemRegistry.getObject(entry.getValue());
+diff --git a/ntm-port-1.12.2/porting/tests/native-item-registry-queries/manifest.json b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/manifest.json
+new file mode 100644
+index 00000000..a367138c
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/manifest.json
+@@ -0,0 +1,302 @@
++{
++  "baseline": "5a102874e0cd18dfd6b2984a994330b9de0ece75",
++  "files": [
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java",
++      "before_sha256": "43753f9f03150ed990682e07818f2564a532f09d21c87a0e6fa275bcd3a0f6a2",
++      "after_sha256": "a33e94ca120ecc21746e35739017acbec9715ad51782410f09b9de338d718203",
++      "edits": [
++        {
++          "start": 3767,
++          "end": 3818,
++          "old": "Item.itemRegistry.getNameForObject(stack.getItem())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem()), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java",
++      "before_sha256": "072582c3714a4473f18dbdc64c533fa38ef0f1b606f27f426e4cda2be2c4b84c",
++      "after_sha256": "6b323763f60bb4d48fb9fac7e65569a71e8926a855c18ee2fbefe3e45f086d40",
++      "edits": [
++        {
++          "start": 9377,
++          "end": 9427,
++          "old": "Item.itemRegistry.getNameForObject(entry.getKey())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java",
++      "before_sha256": "64de9d181651423b7e9ff9a20751e9ad01bd9a64e79ee689c7346f285d867aff",
++      "after_sha256": "bfd6fac6bcd957e0f6f44b83a0dd8f7f3162eb509901324dea2e4e123170c5f6",
++      "edits": [
++        {
++          "start": 2064,
++          "end": 2117,
++          "old": "Item.itemRegistry.getNameForObject(preview.getItem())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(preview.getItem()), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java",
++      "before_sha256": "b192d9f6f5e75c343b7a7ae1220f8ce119bea7552d4c1502ff5d0e44c9a85798",
++      "after_sha256": "a4d92cab32fe741471bb9f10afb8b57a64ee9e526738debe12894a01b418a88c",
++      "edits": [
++        {
++          "start": 10530,
++          "end": 10570,
++          "old": "Item.itemRegistry.getNameForObject(item)",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null)"
++        },
++        {
++          "start": 10750,
++          "end": 10795,
++          "old": "Item.itemRegistry.getNameForObject(comp.item)",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.item), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
++      "before_sha256": "9ccd9b2d04166eb678c2997ffc7e2e154da82aa2820eee8f1613d28e40f019cb",
++      "after_sha256": "b3eb0f4a7792a1f568347d6dd2887e7d2f87abc4e6319ac9e64be8095236a68e",
++      "edits": [
++        {
++          "start": 11118,
++          "end": 11178,
++          "old": "Item.itemRegistry.getNameForObject(comp.toStack().getItem())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.toStack().getItem()), null)"
++        },
++        {
++          "start": 11636,
++          "end": 11696,
++          "old": "Item.itemRegistry.getNameForObject(comp.toStack().getItem())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.toStack().getItem()), null)"
++        },
++        {
++          "start": 14553,
++          "end": 14604,
++          "old": "Item.itemRegistry.getNameForObject(stack.getItem())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem()), null)"
++        },
++        {
++          "start": 15189,
++          "end": 15249,
++          "old": "Item.itemRegistry.getNameForObject(stack.getKey().getItem())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getKey().getItem()), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java",
++      "before_sha256": "8a47dcb933ad064fc078fe79e5c19c689357df7468e64a39ecd48a5b0fc1f507",
++      "after_sha256": "d25e653fd5f28b85af61eb085f904f55605b56901e650409bd752f8ea6cb06b9",
++      "edits": [
++        {
++          "start": 1986,
++          "end": 2026,
++          "old": "Item.itemRegistry.getNameForObject(item)",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/machine/ItemMold.java",
++      "before_sha256": "3127af78404157fc0f05233b6f6d4035e5af21d4b034ec8017ad25a9c0d6b41d",
++      "after_sha256": "f9eea8996d6225057e01c3f45e858771a323d26d2b317e6ea70f05480e33b14d",
++      "edits": [
++        {
++          "start": 7163,
++          "end": 7212,
++          "old": "Item.itemRegistry.getNameForObject(ore.getItem())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(ore.getItem()), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java",
++      "before_sha256": "9f8815739a68aa10e7630ef9e59ab09627a8e04269461992f54151e428828364",
++      "after_sha256": "8d0cb11bf60fda039f4787d9fa3448fd540d4703290ccc47d65ecff3bd3d58eb",
++      "edits": [
++        {
++          "start": 43597,
++          "end": 43614,
++          "old": "Item.itemRegistry",
++          "new": "Item.REGISTRY"
++        },
++        {
++          "start": 43672,
++          "end": 43712,
++          "old": "Item.itemRegistry.getNameForObject(item)",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java",
++      "before_sha256": "4037945137e49e5a5774e6a54b0dfdaa757bcc28e9c080bc559eabc7b4146f29",
++      "after_sha256": "2ea63fd7b3bc20115c7c13a6dfa1014c30092ca77ca9ad8f7e9da1876bb0090c",
++      "edits": [
++        {
++          "start": 6166,
++          "end": 6206,
++          "old": "Item.itemRegistry.getNameForObject(item)",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(item), null)"
++        },
++        {
++          "start": 6379,
++          "end": 6424,
++          "old": "Item.itemRegistry.getNameForObject(comp.item)",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(comp.item), null)"
++        }
++      ]
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
++      "before_sha256": "77d4b6283379e0e90e8b093c92254851d3052d7726fe2bd01d26502848cc8887",
++      "after_sha256": "031f4c77d650e08088a8ab25243a9631911ff45f30eacd744beeba3b77ce9734",
++      "edits": [
++        {
++          "start": 16086,
++          "end": 16136,
++          "old": "Item.itemRegistry.getNameForObject(entry.getKey())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null)"
++        },
++        {
++          "start": 16522,
++          "end": 16579,
++          "old": "Item.itemRegistry.getNameForObject(entry.getKey().getW())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getW()), null)"
++        },
++        {
++          "start": 16591,
++          "end": 16648,
++          "old": "Item.itemRegistry.getNameForObject(entry.getKey().getX())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getX()), null)"
++        },
++        {
++          "start": 16660,
++          "end": 16717,
++          "old": "Item.itemRegistry.getNameForObject(entry.getKey().getY())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getY()), null)"
++        },
++        {
++          "start": 16729,
++          "end": 16786,
++          "old": "Item.itemRegistry.getNameForObject(entry.getKey().getZ())",
++          "new": "java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getZ()), null)"
++        }
++      ]
++    }
++  ],
++  "excluded": [
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/config/ItemPoolConfigJSON.java",
++      "offset": 4249,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/HazmatRegistry.java",
++      "offset": 10146,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/hazard/type/HazardTypeGlitch.java",
++      "offset": 1412,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java",
++      "offset": 9213,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/AnnihilatorRecipes.java",
++      "offset": 9350,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
++      "offset": 9668,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
++      "offset": 9993,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
++      "offset": 12279,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/recipes/loader/SerializableRecipe.java",
++      "offset": 12956,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java",
++      "offset": 827,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/BrokenItem.java",
++      "offset": 1242,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java",
++      "offset": 6930,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/saveddata/AnnihilatorSavedData.java",
++      "offset": 7068,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
++      "offset": 17641,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
++      "offset": 18066,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
++      "offset": 18189,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
++      "offset": 18312,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/DamageResistanceHandler.java",
++      "offset": 18435,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java",
++      "offset": 3239,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java",
++      "offset": 4542,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    },
++    {
++      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/StatHelper.java",
++      "offset": 5216,
++      "reason": "Input ResourceLocation changes case/colon normalization, or registry iteration feeds raw numeric-ID statistics/random selection; outside selected output-name/GUI iteration family."
++    }
++  ]
++}
+diff --git a/ntm-port-1.12.2/porting/tests/native-item-registry-queries/proof.log b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/proof.log
+new file mode 100644
+index 00000000..a0ffb823
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/proof.log
+@@ -0,0 +1,3 @@
++PASS 2372 real original/native registry, saved-key, identity, JSON/NBT and order assertions; missing-object null behavior verified; case-changing input lookups excluded
++
++PASS exact source reversal, class-qualifier attribution and shadow/value/string negative controls
+diff --git a/ntm-port-1.12.2/porting/tests/native-item-registry-queries/run.py b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/run.py
+new file mode 100644
+index 00000000..6cbcce07
+--- /dev/null
++++ b/ntm-port-1.12.2/porting/tests/native-item-registry-queries/run.py
+@@ -0,0 +1,53 @@
++#!/usr/bin/env python3
++"""Offline proof: run.py JAVA_HOME CLASSPATH_FILE OLD_CLIENT_JAR OLD_SRG_ZIP FIELDS_CSV"""
++from pathlib import Path
++import sys,subprocess,tempfile,json,hashlib,zipfile
++here=Path(__file__).resolve().parent; root=here.parents[3]
++java,cpf,old,srg,fields=map(Path,sys.argv[1:]); cp=cpf.read_text().strip();m=json.loads((here/'manifest.json').read_text())
++def run(a):
++ p=subprocess.run(list(map(str,a)),capture_output=True,text=True);assert p.returncode==0,p.stdout+p.stderr;return p.stdout
++assert 'MD: cw/c (Ljava/lang/Object;)Ljava/lang/String; net/minecraft/util/RegistryNamespaced/func_148750_c (Ljava/lang/Object;)Ljava/lang/String;' in zipfile.ZipFile(srg).read('joined.srg').decode()
++assert 'FD: adb/e net/minecraft/item/Item/field_150901_e' in zipfile.ZipFile(srg).read('joined.srg').decode()
++assert 'field_150901_e,REGISTRY,' in fields.read_text()
++assert hashlib.sha256(old.read_bytes()).hexdigest()=='a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce'
++with tempfile.TemporaryDirectory(prefix='item-registry-query-') as td:
++ t=Path(td);sources=[]
++ for n,f in enumerate(m['files']):
++  a=subprocess.check_output(['git','-C',str(root),'show',m['baseline']+':'+f['path']]);assert hashlib.sha256(a).hexdigest()==f['before_sha256'];b=a.decode();delta=0;reverse=[]
++  for e in f['edits']:
++   assert b[e['start']:e['end']]==e['old'];reverse.append((e['start']+delta,e['start']+delta+len(e['new']),e['old']));delta+=len(e['new'])-len(e['old'])
++  for e in reversed(f['edits']):b=b[:e['start']]+e['new']+b[e['end']:]
++  assert b.encode()==(root/f['path']).read_bytes();assert hashlib.sha256(b.encode()).hexdigest()==f['after_sha256']
++  for s,e,oldtext in reversed(reverse):b=b[:s]+oldtext+b[e:]
++  assert b.encode()==a
++  d=t/str(n);d.mkdir();p=d/Path(f['path']).name;p.write_bytes(a);sources.append(p)
++ run([java/'bin/javac','-cp',java/'lib/tools.jar','-d',t,here/'ItemRegistryOwners.java'])
++ attributed=run([java/'bin/java','-cp',str(t)+':'+str(java/'lib/tools.jar'),'ItemRegistryOwners',cp]+sources)
++ positions={(p,int(s),int(e)) for p,s,e,_ in (l.split('\t') for l in attributed.splitlines())}
++ for p,f in zip(sources,m['files']):
++  for e in f['edits']: assert (str(p),e['start']+5,e['start']+17) in positions
++ controls=t/'Controls.java';controls.write_text('class Controls { static class Item {static Object itemRegistry;} Object a=Item.itemRegistry; net.minecraft.item.Item value; Object b=value.itemRegistry; Object c=net.minecraft.item.Item.itemRegistry; String s="Item.itemRegistry"; }')
++ assert len(run([java/'bin/java','-cp',str(t)+':'+str(java/'lib/tools.jar'),'ItemRegistryOwners',cp,controls]).splitlines())==1
++ unsigned=t/'old.jar'
++ with zipfile.ZipFile(old) as a,zipfile.ZipFile(unsigned,'w') as b:
++  for z in a.infolist():
++   if not z.filename.startswith('META-INF/'):b.writestr(z,a.read(z))
++ runtime=cp+':'+str(unsigned)
++ # Compile verbatim complete selected serialization statements, not replacement platform types.
++ production=root/'ntm-port-1.12.2/src/main/java/com/hbm'
++ nbt=next(l.strip() for l in (production/'saveddata/AnnihilatorSavedData.java').read_text().splitlines() if 'nbt.setString("item", java.util.Objects.toString(Item.REGISTRY.getNameForObject(item)' in l)
++ js=next(l.strip() for l in (production/'config/ItemPoolConfigJSON.java').read_text().splitlines() if 'writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem())' in l)
++ generated=t/'ProductionSavedNames.java'
++ generated.write_text('import net.minecraft.item.*;import net.minecraft.nbt.*;import com.google.gson.stream.*;class ProductionSavedNames { static NBTTagCompound nbt(Item item){NBTTagCompound nbt=new NBTTagCompound();'+nbt+'return nbt;} static void json(JsonWriter writer,ItemStack stack)throws Exception{'+js+'}}')
++ run([java/'bin/javac','-cp',runtime,'-d',t,generated,here/'RegistryQueryTest.java'])
++ # A blind field-token edit cannot satisfy the genuine String sink.
++ bad=t/'BadName.java';bad.write_text('import net.minecraft.item.*;class BadName {String x=Item.REGISTRY.getNameForObject(new Item());}')
++ assert subprocess.run([str(java/'bin/javac'),'-cp',cp,'-d',str(t),str(bad)],capture_output=True).returncode!=0
++ # Each selected edit is independently source guarded; reverting any single edit is rejected.
++ for f in m['files']:
++  current=(root/f['path']).read_bytes().decode();offset=0
++  for e in f['edits']:
++   pos=e['start']+offset;mutated=current[:pos]+e['old']+current[pos+len(e['new']):]
++   assert hashlib.sha256(mutated.encode()).hexdigest()!=f['after_sha256'];offset+=len(e['new'])-len(e['old'])
++ print(run([java/'bin/java','-cp',str(t)+':'+runtime,'RegistryQueryTest']))
++print('PASS exact source reversal, class-qualifier attribution and shadow/value/string negative controls')

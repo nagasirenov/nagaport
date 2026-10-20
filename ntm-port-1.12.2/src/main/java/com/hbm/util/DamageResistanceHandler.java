@@ -334,7 +334,7 @@ public class DamageResistanceHandler {
 		writer.name("itemStats").beginArray();
 		for(Entry<Item, ResistanceStats> entry : itemStats.entrySet()) {
 			writer.beginArray().setIndent("");
-			writer.value(Item.itemRegistry.getNameForObject(entry.getKey())).setIndent("  ");
+			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null)).setIndent("  ");
 			writer.beginObject();
 			entry.getValue().serialize(writer);
 			writer.setIndent("");
@@ -346,10 +346,10 @@ public class DamageResistanceHandler {
 		writer.name("setStats").beginArray();
 		for(Entry<Quartet<Item, Item, Item, Item>, ResistanceStats> entry : setStats.entrySet()) {
 			writer.beginArray().setIndent("");
-			writer.value(Item.itemRegistry.getNameForObject(entry.getKey().getW()))
-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getX()))
-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getY()))
-			.value(Item.itemRegistry.getNameForObject(entry.getKey().getZ())).setIndent("  ");
+			writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getW()), null))
+			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getX()), null))
+			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getY()), null))
+			.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey().getZ()), null)).setIndent("  ");
 			writer.beginObject();
 			entry.getValue().serialize(writer);
 			writer.setIndent("");
