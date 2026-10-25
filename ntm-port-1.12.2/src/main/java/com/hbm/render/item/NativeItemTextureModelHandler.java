@@ -61,10 +61,25 @@ public final class NativeItemTextureModelHandler {
 
     @SubscribeEvent
     public void stitch(TextureStitchEvent.Pre event) {
+        // Stitch every declared texture whose concrete PNG exists. Sprite
+        // availability is a resource concern; the eligible() gate above only
+        // governs model-route ownership. Base-prefix declarations whose real
+        // art is per-suffix (upgrade_ejector_1..N) stay unstitched instead of
+        // loading as missing textures.
+        java.util.Set<String> skipped = new java.util.TreeSet<>();
         for(Map.Entry<Item, String> entry : NativeItemTextureRegistry.textures().entrySet()) {
-            if(eligible(entry.getKey()))
-                event.getMap().registerSprite(NativeItemTextureRegistry.atlasLocation(entry.getValue()));
+            ResourceLocation atlasLocation = NativeItemTextureRegistry.atlasLocation(entry.getValue());
+            ResourceLocation png = new ResourceLocation(atlasLocation.getNamespace(),
+                    "textures/" + atlasLocation.getPath() + ".png");
+            try {
+                Minecraft.getMinecraft().getResourceManager().getResource(png);
+                event.getMap().registerSprite(atlasLocation);
+            } catch(java.io.IOException absent) {
+                skipped.add(entry.getValue());
+            }
         }
+        if(!skipped.isEmpty())
+            com.hbm.main.MainRegistry.logger.debug("Declared item textures without a concrete PNG (not stitched): {}", skipped);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)

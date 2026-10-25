@@ -115,22 +115,32 @@ public final class BakeOwnedModelLoader implements ICustomModelLoader {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void validateBake(ModelBakeEvent event) {
         Map<String, Integer> unresolvedOwners = new TreeMap<>();
-        int replaced = 0;
-        // All registered owners publish at NORMAL; validate at LOWEST after them.
+        int replaced = 0, quietUnresolved = 0;
+        // All registered owners publish at NORMAL and the route repair runs at
+        // LOW; validate last so the count reflects the final registry.
         for(Map.Entry<ModelResourceLocation, String> entry : new TreeMap<>(loadedMissing).entrySet()) {
             IBakedModel model = event.getModelRegistry().getObject(entry.getKey());
             if(model != null && !placeholders.contains(model)
                     && model != event.getModelManager().getMissingModel()
                     && !model.getClass().getName().equals("net.minecraftforge.client.model.FancyMissingModel$BakedModel")) {
                 replaced++;
-            } else {
-                unresolvedOwners.merge(entry.getValue(), 1, Integer::sum);
-                MainRegistry.logger.error("Unresolved bake-owned model: owner={} location={}", entry.getValue(), entry.getKey());
+                continue;
             }
+            // DefaultVariantQuiet items carry a mesh route to another owner's
+            // model key; the quiet placeholder on the default key is by design
+            // and usually never queried. Aggregate them instead of per-item
+            // error spam; owning a route still does not prove the default key
+            // unreachable, so the count stays visible.
+            if("DefaultVariantQuiet".equals(entry.getValue())) {
+                quietUnresolved++;
+                continue;
+            }
+            unresolvedOwners.merge(entry.getValue(), 1, Integer::sum);
+            MainRegistry.logger.error("Unresolved bake-owned model: owner={} location={}", entry.getValue(), entry.getKey());
         }
         int unresolved = loadedMissing.size() - replaced;
-        MainRegistry.logger.info("Bake-owned pre-load validation: loaded={}, replaced={}, unresolved={}, unresolved owners={}",
-                loadedMissing.size(), replaced, unresolved, unresolvedOwners);
+        MainRegistry.logger.info("Bake-owned pre-load validation: loaded={}, replaced={}, unresolved={} (of which quiet-by-design={}), unresolved owners={}",
+                loadedMissing.size(), replaced, unresolved, quietUnresolved, unresolvedOwners);
     }
 
     private static ResourceLocation normalized(ResourceLocation location) {

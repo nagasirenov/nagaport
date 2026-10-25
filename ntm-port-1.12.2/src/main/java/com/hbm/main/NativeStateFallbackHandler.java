@@ -74,7 +74,7 @@ public final class NativeStateFallbackHandler {
 		ROUTES.clear();
 
 		Map<?, ?> existing = stateMappers();
-		int blocks = 0, states = 0;
+		int blocks = 0, states = 0, blockItems = 0;
 		for(Block block : net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValuesCollection()) {
 			ResourceLocation name = block.getRegistryName();
 			if(name == null || !RefStrings.MODID.equals(name.getNamespace())) continue;
@@ -98,17 +98,19 @@ public final class NativeStateFallbackHandler {
 				touched = true;
 				states++;
 			}
-			if(!touched) continue;
+			if(touched) {
+				ROUTES.put(routeKey, adapter);
+				final Map<IBlockState, ModelResourceLocation> published = routes;
+				ModelLoader.setCustomStateMapper(block, owner -> new HashMap<>(published));
+				blocks++;
+			}
 
-			ROUTES.put(routeKey, adapter);
-			final Map<IBlockState, ModelResourceLocation> published = routes;
-			ModelLoader.setCustomStateMapper(block, owner -> new HashMap<>(published));
-			blocks++;
-
-			// Inventory: give the ItemBlock the same icon-driven coverage when no
-			// other owner registered a route for it.
+			// Inventory coverage is independent of the world reroute above: a prior
+			// world owner (for example INVISIBLE container states routed to empty
+			// models) must not leave the ItemBlock without a real per-face model.
 			Item item = Item.getItemFromBlock(block);
-			if(item instanceof ItemBlock && !BakeOwnedModelLoader.hasInventoryAsset(name)
+			if(item instanceof ItemBlock && ((ItemBlock) item).getBlock() == block
+					&& !BakeOwnedModelLoader.hasInventoryAsset(name)
 					&& !hasCustomRoute(item)) {
 				String itemKey = PREFIX + name.getPath().replace('#', '_') + "/item";
 				ROUTES.put(itemKey, adapter);
@@ -116,6 +118,7 @@ public final class NativeStateFallbackHandler {
 						new ResourceLocation(RefStrings.MODID, itemKey), "inventory");
 				ModelBakery.registerItemVariants(item, inventory);
 				ModelLoader.setCustomMeshDefinition(item, stack -> inventory);
+				blockItems++;
 			}
 		}
 		// Final inventory pass: every remaining NTM item without an asset or a
@@ -139,7 +142,7 @@ public final class NativeStateFallbackHandler {
 			if(!owned) ModelLoader.setCustomMeshDefinition(item, stack -> location);
 			items++;
 		}
-		MainRegistry.logger.info("Native state fallback: {} blocks, {} states, {} items rerouted", blocks, states, items);
+		MainRegistry.logger.info("Native state fallback: {} blocks, {} states, {} block items, {} items rerouted", blocks, states, blockItems, items);
 	}
 
 	private static ModelResourceLocation location(String route) {

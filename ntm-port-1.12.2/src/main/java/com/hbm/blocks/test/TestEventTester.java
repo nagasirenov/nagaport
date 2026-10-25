@@ -495,7 +495,8 @@ public boolean onBlockActivated(World par1World, net.minecraft.util.math.BlockPo
 	                    }
 
 	                    //entity.attackEntityFrom(DamageSource.GENERIC, (float)((int)((d11 * d11 + d11) / 2.0D * 8.0D * (double)this.explosionSize + 1.0D)));
-	                    double d8 = EnchantmentProtection.getBlastDamageReduction((net.minecraft.entity.EntityLivingBase) entity, d11);
+	                    double d8 = entity instanceof net.minecraft.entity.EntityLivingBase
+	                            ? EnchantmentProtection.getBlastDamageReduction((net.minecraft.entity.EntityLivingBase) entity, d11) : d11;
 	                    entity.motionX += d5 * d8;
 	                    entity.motionY += d6 * d8;
 	                    entity.motionZ += d7 * d8;

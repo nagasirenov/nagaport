@@ -1,5 +1,6 @@
 package com.hbm.handler;
 
+import com.hbm.items.weapon.ItemCustomMissile;
 import com.hbm.items.weapon.ItemCustomMissilePart;
 import com.hbm.items.weapon.ItemCustomMissilePart.PartType;
 
@@ -74,16 +75,16 @@ public class MissileStruct {
 		int t = buf.readInt();
 		
 		if(w != 0)
-			multipart.warhead = (ItemCustomMissilePart) Item.getItemById(w);
-		
+			multipart.warhead = ItemCustomMissile.readPart(w);
+
 		if(f != 0)
-			multipart.fuselage = (ItemCustomMissilePart) Item.getItemById(f);
-		
+			multipart.fuselage = ItemCustomMissile.readPart(f);
+
 		if(s != 0)
-			multipart.fins = (ItemCustomMissilePart) Item.getItemById(s);
-		
+			multipart.fins = ItemCustomMissile.readPart(s);
+
 		if(t != 0)
-			multipart.thruster = (ItemCustomMissilePart) Item.getItemById(t);
+			multipart.thruster = ItemCustomMissile.readPart(t);
 		
 		return multipart;
 	}

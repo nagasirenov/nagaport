@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 
 public class ItemCustomMissile extends Item {
@@ -26,27 +27,55 @@ public class ItemCustomMissile extends Item {
 
 		ItemStack missile = new ItemStack(ModItems.missile_custom);
 
-		writeToNBT(missile, "chip", Item.getIdFromItem(chip.getItem()));
-		writeToNBT(missile, "warhead", Item.getIdFromItem(warhead.getItem()));
-		writeToNBT(missile, "fuselage", Item.getIdFromItem(fuselage.getItem()));
-		writeToNBT(missile, "thruster", Item.getIdFromItem(thruster.getItem()));
+		writePartToNBT(missile, "chip", chip.getItem());
+		writePartToNBT(missile, "warhead", warhead.getItem());
+		writePartToNBT(missile, "fuselage", fuselage.getItem());
+		writePartToNBT(missile, "thruster", thruster.getItem());
 
 		if(stability != null)
-			writeToNBT(missile, "stability", Item.getIdFromItem(stability.getItem()));
+			writePartToNBT(missile, "stability", stability.getItem());
 
 		return missile;
 	}
 
-	private static void writeToNBT(ItemStack stack, String key, int value) {
+	// numeric item ids shift between sessions; only registry names may be persisted
+	private static void writePartToNBT(ItemStack stack, String key, Item item) {
 		if(!stack.hasTagCompound())
 			stack.setTagCompound(new NBTTagCompound());
-		stack.getTagCompound().setInteger(key, value);
+		ResourceLocation name = item.getRegistryName();
+		if(name != null)
+			stack.getTagCompound().setString(key + "_name", name.toString());
+		else
+			stack.getTagCompound().setInteger(key, Item.getIdFromItem(item));
 	}
 
 	public static int readFromNBT(ItemStack stack, String key) {
 		if(!stack.hasTagCompound())
 			stack.setTagCompound(new NBTTagCompound());
 		return stack.getTagCompound().getInteger(key);
+	}
+
+	// reads a part written by buildMissile; legacy numeric ids are validated by instanceof instead of cast
+	public static ItemCustomMissilePart readPart(ItemStack stack, String key) {
+
+		if(stack == null || !stack.hasTagCompound())
+			return null;
+
+		NBTTagCompound nbt = stack.getTagCompound();
+		Item item = null;
+
+		if(nbt.hasKey(key + "_name", 8))
+			item = Item.getByNameOrId(nbt.getString(key + "_name"));
+		else if(nbt.hasKey(key, 99))
+			item = Item.getItemById(nbt.getInteger(key));
+
+		return item instanceof ItemCustomMissilePart ? (ItemCustomMissilePart) item : null;
+	}
+
+	// validates a runtime numeric id (DataWatcher, packets); returns null for foreign ids instead of throwing
+	public static ItemCustomMissilePart readPart(int id) {
+		Item item = Item.getItemById(id);
+		return item instanceof ItemCustomMissilePart ? (ItemCustomMissilePart) item : null;
 	}
 
 	@Override
@@ -56,11 +85,11 @@ public class ItemCustomMissile extends Item {
 			return;
 
 		try {
-			ItemCustomMissilePart chip = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "chip"));
-			ItemCustomMissilePart warhead = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "warhead"));
-			ItemCustomMissilePart fuselage = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "fuselage"));
-			ItemCustomMissilePart stability = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "stability"));
-			ItemCustomMissilePart thruster = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "thruster"));
+			ItemCustomMissilePart chip = readPart(stack, "chip");
+			ItemCustomMissilePart warhead = readPart(stack, "warhead");
+			ItemCustomMissilePart fuselage = readPart(stack, "fuselage");
+			ItemCustomMissilePart stability = readPart(stack, "stability");
+			ItemCustomMissilePart thruster = readPart(stack, "thruster");
 
 			list.add(TextFormatting.BOLD + I18nUtil.resolveKey("item.missile.desc.warhead") + ": " + TextFormatting.GRAY + warhead.getWarhead());
 			list.add(TextFormatting.BOLD + I18nUtil.resolveKey("item.missile.desc.strength") + ": " + TextFormatting.GRAY + warhead.attributes[1]);
@@ -91,12 +120,14 @@ public class ItemCustomMissile extends Item {
 		if(stack == null || !(stack.getItem() instanceof ItemCustomMissile))
 			return null;
 
-		ItemCustomMissilePart warhead = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "warhead"));
-		ItemCustomMissilePart fuselage = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "fuselage"));
-		ItemCustomMissilePart stability = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "stability"));
-		ItemCustomMissilePart thruster = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, "thruster"));
+		ItemCustomMissilePart warhead = readPart(stack, "warhead");
+		ItemCustomMissilePart fuselage = readPart(stack, "fuselage");
+		ItemCustomMissilePart thruster = readPart(stack, "thruster");
 
-		MissileStruct missile = new MissileStruct(warhead, fuselage, stability, thruster);
+		if(warhead == null || fuselage == null || thruster == null)
+			return null;
+
+		MissileStruct missile = new MissileStruct(warhead, fuselage, readPart(stack, "stability"), thruster);
 
 		return missile;
 	}

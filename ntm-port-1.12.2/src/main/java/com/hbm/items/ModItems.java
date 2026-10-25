@@ -3413,7 +3413,9 @@ public class ModItems {
 		can_key = NativeItemTextureRegistry.texture(new Item().setTranslationKey("can_key").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":can_key");
 
 		boat_rubber = NativeItemTextureRegistry.texture(new ItemBoatRubber().setTranslationKey("boat_rubber"), RefStrings.MODID + ":boat_rubber");
-		cart = new ItemModMinecart().setTranslationKey("cart");
+		// The minecart's legacy icon callback derives its base and overlay icon
+		// names (cart.<base>, cart_overlay.<type>) from this declaration.
+		cart = NativeItemTextureRegistry.texture(new ItemModMinecart().setTranslationKey("cart"), RefStrings.MODID + ":cart");
 		train = new ItemTrain().setTranslationKey("train");
 		drone = new ItemDrone().setTranslationKey("drone");
 

@@ -130,14 +130,40 @@ public final class NativeItemParticles {
     private static TextureAtlasSprite boundSprite(TextureMap atlas, Item item) {
         ResourceLocation texture = BOUND.get(item);
         if(texture == null || !hasSourcePng(texture)) return null;
-        TextureAtlasSprite sprite = atlas.getTextureExtry(MaterialTextureAtlasSprite.spriteLocation(texture).toString());
-        return sprite == null || sprite == atlas.getMissingSprite() ? null : sprite;
+        return stitchedSprite(atlas, MaterialTextureAtlasSprite.spriteLocation(texture).toString());
     }
 
     private static TextureAtlasSprite atlasSprite(TextureMap atlas, ResourceLocation location) {
         if(location == null || !hasSourcePng(pngForAtlasSprite(location))) return null;
-        TextureAtlasSprite sprite = atlas.getTextureExtry(location.toString());
-        return sprite == null || sprite == atlas.getMissingSprite() ? null : sprite;
+        return stitchedSprite(atlas, location.toString());
+    }
+
+    /** A registered entry alone does not prove the sprite was stitched and
+     * uploaded; the post-stitch lookup must return that exact sprite. */
+    private static TextureAtlasSprite stitchedSprite(TextureMap atlas, String name) {
+        TextureAtlasSprite registered = atlas.getTextureExtry(name);
+        TextureAtlasSprite uploaded = atlas.getAtlasSprite(name);
+        if(registered == null || uploaded != registered || uploaded == atlas.getMissingSprite()) return null;
+        return uploaded;
+    }
+
+    /** A directly held sprite counts only when the atlas actually uploaded it. */
+    private static TextureAtlasSprite uploadedSprite(TextureMap atlas, TextureAtlasSprite sprite) {
+        if(sprite == null || sprite == atlas.getMissingSprite()) return null;
+        return atlas.getAtlasSprite(sprite.getIconName()) == sprite ? sprite : null;
+    }
+
+    /** Post-stitch sprite of a legacy icon; null when it never reached the atlas. */
+    public static TextureAtlasSprite spriteOf(com.hbm.render.icon.IIcon icon) {
+        if(icon == null) return null;
+        TextureMap atlas = Minecraft.getMinecraft().getTextureMapBlocks();
+        if(icon instanceof com.hbm.render.icon.WrappedIcon)
+            return uploadedSprite(atlas, ((com.hbm.render.icon.WrappedIcon) icon).getSprite());
+        if(icon instanceof LegacyTextureAtlasSprite)
+            return uploadedSprite(atlas, ((LegacyTextureAtlasSprite) icon).getSprite());
+        if(icon instanceof TextureAtlasSprite)
+            return uploadedSprite(atlas, (TextureAtlasSprite) icon);
+        return stitchedSprite(atlas, icon.getIconName());
     }
 
     private static ResourceLocation pngForAtlasSprite(ResourceLocation atlasLocation) {
@@ -182,8 +208,7 @@ public final class NativeItemParticles {
         if(icon instanceof com.hbm.render.icon.WrappedIcon) direct = ((com.hbm.render.icon.WrappedIcon) icon).getSprite();
         else if(icon instanceof LegacyTextureAtlasSprite) direct = ((LegacyTextureAtlasSprite) icon).getSprite();
         else if(icon instanceof TextureAtlasSprite) direct = (TextureAtlasSprite) icon;
-        if(direct != null) return direct == atlas.getMissingSprite() ? null : direct;
-        TextureAtlasSprite sprite = atlas.getTextureExtry(icon.getIconName());
-        return sprite == null || sprite == atlas.getMissingSprite() ? null : sprite;
+        if(direct != null) return uploadedSprite(atlas, direct);
+        return stitchedSprite(atlas, icon.getIconName());
     }
 }

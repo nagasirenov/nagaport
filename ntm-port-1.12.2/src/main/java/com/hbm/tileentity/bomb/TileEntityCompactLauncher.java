@@ -346,23 +346,30 @@ public class TileEntityCompactLauncher extends TileEntityLoadedBase implements I
 
 	public void launchTo(int tX, int tZ) {
 
+		MissileStruct struct = getStruct(slots[0]);
+
+		if(struct == null)
+			return;
+
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.missileTakeOff", 10.0F, 1.0F);
 
-		ItemCustomMissilePart chip = (ItemCustomMissilePart) Item.getItemById(ItemCustomMissile.readFromNBT(slots[0], "chip"));
-		float c = (Float)chip.attributes[0];
+		ItemCustomMissilePart chip = ItemCustomMissile.readPart(slots[0], "chip");
+		float c = 1.0F;
+
+		if(chip != null)
+			c = (Float) chip.attributes[0];
+
 		float f = 1.0F;
 
-		if(getStruct(slots[0]).fins != null) {
-			ItemCustomMissilePart fins = (ItemCustomMissilePart) Item.getItemById(ItemCustomMissile.readFromNBT(slots[0], "stability"));
-			f = (Float) fins.attributes[0];
-		}
+		if(struct.fins != null)
+			f = (Float) struct.fins.attributes[0];
 
 		Vec3d target = new Vec3d(this.pos.getX() - tX, 0, this.pos.getZ() - tZ);
 		target = new Vec3d(target.x * c * f, target.y, target.z * c * f);
 
 		target = target.rotateYaw(this.world.rand.nextFloat() * 360);
 
-		EntityMissileCustom missile = new EntityMissileCustom(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 2.5F, this.pos.getZ() + 0.5F, tX + (int)target.x, tZ + (int)target.z, getStruct(slots[0]));
+		EntityMissileCustom missile = new EntityMissileCustom(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 2.5F, this.pos.getZ() + 0.5F, tX + (int)target.x, tZ + (int)target.z, struct);
 		this.world.spawnEntity(missile);
 
 		subtractFuel();

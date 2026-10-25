@@ -59,10 +59,11 @@ public final class LegacyIconRegister implements IIconRegister {
 		return wrap(sprite);
 	}
 
-	/** Wraps an arbitrary atlas sprite into the legacy IIcon contract. The pure
-	 * WrappedIcon delegation survives reobfuscation; the TextureAtlasSprite-
-	 * extending LegacyTextureAtlasSprite does not (its contract methods are
-	 * renamed to SRG and the interface is left unimplemented). */
+	/** Wraps an arbitrary atlas sprite into the legacy IIcon contract. Both
+	 * wrapper types delegate through WrappedIcon with dev-named methods and no
+	 * vanilla superclass: a TextureAtlasSprite-extending adapter would have its
+	 * contract methods renamed to SRG by reobfuscation, leaving the interface
+	 * unimplemented (AbstractMethodError). */
 	public static IIcon wrapSprite(TextureAtlasSprite sprite) {
 		if(sprite == null) throw new IllegalArgumentException("sprite cannot be null");
 		return new WrappedIcon(sprite);

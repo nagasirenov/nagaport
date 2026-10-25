@@ -16,10 +16,12 @@ import com.hbm.util.fauxpointtwelve.BlockPos;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAir;
 import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -232,8 +234,16 @@ public class EntityRequestDrone extends EntityDroneBase {
 			} else if("dock".equals(pType)) {
 				this.program.add(DroneProgram.DOCK);
 			} else if("comp".equals(pType)) {
-				ComparableStack comp = new ComparableStack(Item.getItemById(nbt.getInteger("id")), 1, nbt.getInteger("meta"));
-				this.program.add(comp);
+				// the old code read "id" from the root NBT instead of the program compound; registry names written since the fix are preferred
+				Item item = null;
+
+				if(data.hasKey("name", 8))
+					item = Item.getByNameOrId(data.getString("name"));
+				else if(data.hasKey("id", 99))
+					item = Item.getItemById(data.getInteger("id"));
+
+				if(item != null && !(item instanceof ItemAir))
+					this.program.add(new ComparableStack(item, 1, data.getInteger("meta")));
 			} else if("dict".equals(pType)) {
 				OreDictStack dict = new OreDictStack(nbt.getString("dict"));
 				this.program.add(dict);
@@ -271,6 +281,8 @@ public class EntityRequestDrone extends EntityDroneBase {
 				if(p instanceof ComparableStack) {
 					ComparableStack comp = (ComparableStack) p;
 					data.setString("type", "comp");
+					ResourceLocation name = comp.item != null ? comp.item.getRegistryName() : null;
+					if(name != null) data.setString("name", name.toString());
 					data.setInteger("id", Item.getIdFromItem(comp.item));
 					data.setInteger("meta", comp.meta);
 				} else {

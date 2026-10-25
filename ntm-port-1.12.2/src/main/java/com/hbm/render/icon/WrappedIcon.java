@@ -5,12 +5,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /** Pure legacy IIcon delegation for sprites consumed through the icon contract.
- * Unlike LegacyTextureAtlasSprite this does not extend TextureAtlasSprite: a
- * vanilla superclass makes Forge's reobfuscation rename the IIcon contract
- * methods to SRG names, which leaves the interface unimplemented at runtime
- * (AbstractMethodError on the first IIcon UV call in a reobfuscated jar). */
+ * This must not extend TextureAtlasSprite: a vanilla superclass makes Forge's
+ * reobfuscation rename the IIcon contract methods to SRG names, which leaves
+ * the interface unimplemented at runtime (AbstractMethodError on the first
+ * IIcon call in a reobfuscated jar). LegacyTextureAtlasSprite subclasses this
+ * for the same reason; every IIcon implementation in the port must stay free
+ * of vanilla superclasses. */
 @SideOnly(Side.CLIENT)
-public final class WrappedIcon implements IIcon {
+public class WrappedIcon implements IIcon {
 
 	private final TextureAtlasSprite sprite;
 

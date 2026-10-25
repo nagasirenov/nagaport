@@ -28,11 +28,13 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAir;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
@@ -187,9 +189,17 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
 
-			this.resource = new ItemStack(Item.getItemById(nbt.getInteger("0id")), nbt.getByte("size"), nbt.getShort("meta"));
+			Item resourceItem = null;
 
-			if(this.resource.getItem() == null) this.resource = new ItemStack(ModItems.powder_iron);
+			// block/item ids shift between sessions; registry names written since the fix are preferred
+			if(nbt.hasKey("0name", 8))
+				resourceItem = Item.getByNameOrId(nbt.getString("0name"));
+			else if(nbt.hasKey("0id", 99))
+				resourceItem = Item.getItemById(nbt.getInteger("0id"));
+
+			this.resource = new ItemStack(resourceItem, nbt.getByte("size"), nbt.getShort("meta"));
+
+			if(this.resource.getItem() == null || this.resource.getItem() instanceof ItemAir) this.resource = new ItemStack(ModItems.powder_iron);
 
 			FluidType type = Fluids.fromID(nbt.getInteger("fluid"));
 
@@ -207,6 +217,8 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 			super.writeToNBT(nbt);
 
 			if(this.resource != null) {
+				ResourceLocation resourceName = this.resource.getItem().getRegistryName();
+				if(resourceName != null) nbt.setString("0name", resourceName.toString());
 				nbt.setInteger("0id", Item.getIdFromItem(this.resource.getItem()));
 				nbt.setByte("size", (byte) this.resource.getCount());
 				nbt.setShort("meta", (short) this.resource.getItemDamage());

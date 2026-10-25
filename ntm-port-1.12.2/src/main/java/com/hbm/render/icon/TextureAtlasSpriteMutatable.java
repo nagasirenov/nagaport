@@ -55,13 +55,23 @@ public class TextureAtlasSpriteMutatable extends TextureAtlasSprite {
 		int domain = path.indexOf(':');
 		if(domain >= 0) source = new ResourceLocation(path.substring(0, domain), path.substring(domain + 1));
 		else source = new ResourceLocation(location.getNamespace(), path);
+		// Legacy registry-style names ("tile.slag") keep their art under the plain
+		// atlas name ("slag"); strip the old prefix the same way the legacy icon
+		// register does, never by rewriting the resource itself.
+		String sourcePath = source.getPath();
+		if(sourcePath.startsWith("tile.")) sourcePath = sourcePath.substring(5);
+		else if(sourcePath.startsWith("item.")) sourcePath = sourcePath.substring(5);
+		source = new ResourceLocation(source.getNamespace(), sourcePath);
 		ResourceLocation sourceTexture = completeResourceLocation(source, 0);
 
 		try(IResource resource = manager.getResource(sourceTexture)) {
 			loadSprite(PngSizeInfo.makeFromResource(resource), false);
 			loadSpriteFrames(resource, mipmap);
 			mutateFrames();
-			return true;
+			// Forge 2768's TextureMap exits before stitching the sprite when a
+			// custom loader returns true; false hands the loaded frames to the
+			// ordinary stitcher, which is what generated sprites need.
+			return false;
 		} catch(IOException e) {
 			throw new IllegalStateException("Unable to load generated atlas source " + sourceTexture, e);
 		}

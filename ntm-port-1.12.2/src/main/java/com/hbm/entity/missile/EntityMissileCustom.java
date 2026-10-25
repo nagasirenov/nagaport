@@ -14,6 +14,7 @@ import com.hbm.explosion.ExplosionLarge;
 import com.hbm.handler.BulletConfigSyncingUtil;
 import com.hbm.handler.MissileStruct;
 import com.hbm.items.ModItems;
+import com.hbm.items.weapon.ItemCustomMissile;
 import com.hbm.items.weapon.ItemCustomMissilePart;
 import com.hbm.items.weapon.ItemCustomMissilePart.FuelType;
 import com.hbm.items.weapon.ItemCustomMissilePart.PartSize;
@@ -108,10 +109,12 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	@Override
 	public void onUpdate() {
 
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(WARHEAD));
-		WarheadType type = (WarheadType) part.attributes[0];
-		if(type != null && type.updateCustom != null) {
-			type.updateCustom.accept(this);
+		ItemCustomMissilePart part = ItemCustomMissile.readPart(this.dataManager.get(WARHEAD));
+		if(part != null) {
+			WarheadType type = (WarheadType) part.attributes[0];
+			if(type != null && type.updateCustom != null) {
+				type.updateCustom.accept(this);
+			}
 		}
 
 		if(!this.world.isRemote) {
@@ -163,7 +166,11 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 
 		Vec3d v = new Vec3d(motionX, motionY, motionZ).normalize();
 		String smoke = "";
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));
+		ItemCustomMissilePart part = ItemCustomMissile.readPart(this.dataManager.get(FUSELAGE));
+
+		if(part == null)
+			return;
+
 		FuelType type = (FuelType) part.attributes[0];
 
 		switch(type) {
@@ -191,7 +198,10 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	@Override
 	public void onMissileImpact(RayTraceResult mop) { //TODO: demolish this steaming pile of shit
 
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(WARHEAD));
+		ItemCustomMissilePart part = ItemCustomMissile.readPart(this.dataManager.get(WARHEAD));
+
+		if(part == null)
+			return;
 
 		WarheadType type = (WarheadType) part.attributes[0];
 		float strength = (Float) part.attributes[1];
@@ -274,7 +284,11 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	@Override
 	public String getUnlocalizedName() {
 
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));
+		ItemCustomMissilePart part = ItemCustomMissile.readPart(this.dataManager.get(FUSELAGE));
+
+		if(part == null)
+			return "radar.target.custom";
+
 		PartSize top = part.top;
 		PartSize bottom = part.bottom;
 
@@ -290,7 +304,11 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 	@Override
 	public int getBlipLevel() {
 
-		ItemCustomMissilePart part = (ItemCustomMissilePart) Item.getItemById(this.dataManager.get(FUSELAGE));
+		ItemCustomMissilePart part = ItemCustomMissile.readPart(this.dataManager.get(FUSELAGE));
+
+		if(part == null)
+			return IRadarDetectableNT.TIER1;
+
 		PartSize top = part.top;
 		PartSize bottom = part.bottom;
 

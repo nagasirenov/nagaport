@@ -12,6 +12,7 @@ import com.hbm.explosion.vanillant.interfaces.IEntityRangeMutator;
 
 import net.minecraft.enchantment.EnchantmentProtection;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -112,7 +113,9 @@ public class EntityProcessorCross implements IEntityProcessor {
 
 					float dmg = calculateDamage(distanceScaled, density, knockback, size);
 					if(!damageMap.containsKey(entity) || damageMap.get(entity) < dmg) damageMap.put(entity, dmg);
-					double enchKnockback = EnchantmentProtection.getBlastDamageReduction((net.minecraft.entity.EntityLivingBase) entity, knockback);
+					// vanilla applies the blast-protection reduction to living entities only; the zone query returns arbitrary entities
+					double enchKnockback = entity instanceof EntityLivingBase
+							? EnchantmentProtection.getBlastDamageReduction((EntityLivingBase) entity, knockback) : knockback;
 
 					if(!(entity instanceof EntityBulletBaseMK4)) {
 						entity.motionX += deltaX * enchKnockback * knockbackMult;
