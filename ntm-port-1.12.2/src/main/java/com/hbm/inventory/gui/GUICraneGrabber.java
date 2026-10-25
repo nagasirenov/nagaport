@@ -49,7 +49,7 @@ public class GUICraneGrabber extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 97 <= x && guiLeft + 97 + 14 > x && guiTop + 30 < y && guiTop + 30 + 26 >= y) {

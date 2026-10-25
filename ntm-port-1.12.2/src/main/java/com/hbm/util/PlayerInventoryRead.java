@@ -19,6 +19,6 @@ public final class PlayerInventoryRead {
     @Nullable
     public static ItemStack get(NonNullList<ItemStack> inventory, int slot) {
         ItemStack stack = inventory.get(slot);
-        return stack == ItemStack.EMPTY ? null : stack;
+        return (stack == null || stack.isEmpty()) ? null : stack;
     }
 }

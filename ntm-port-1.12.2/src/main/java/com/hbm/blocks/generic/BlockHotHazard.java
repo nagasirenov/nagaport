@@ -7,14 +7,20 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 
 public class BlockHotHazard extends BlockHazard {
 
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
-		
-		if (world.canLightningStrikeAt(x, y + 1, z)) {
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
+		if (world.isRainingAt(new net.minecraft.util.math.BlockPos(x, y + 1, z))) {
 
 			float ox = rand.nextFloat();
 			float oz = rand.nextFloat();

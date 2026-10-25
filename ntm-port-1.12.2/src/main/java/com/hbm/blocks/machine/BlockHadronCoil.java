@@ -15,8 +15,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockHadronCoil extends Block implements IBlockCT, ITooltipProvider {
-	
+
 	public int factor;
+
+	@Override
+	public net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType sound) {
+		return super.setSoundType(sound);
+	}
 
 	public BlockHadronCoil(Material mat, int factor) {
 		super(mat);
@@ -33,12 +38,12 @@ public class BlockHadronCoil extends Block implements IBlockCT, ITooltipProvider
     }
 
 
-	
+
 	@Override
 	public boolean canConnect(IBlockAccess world, int x, int y, int z, Block block) {
 		return block instanceof BlockHadronCoil;
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 		list.add(I18nUtil.resolveKey("info.coil") + ": " + String.format(Locale.US, "%,d", factor));

@@ -38,90 +38,90 @@ public class EntityAIMaskmanCasualApproach extends EntityAIBase {
 		this.longMemory = longMemory;
 		this.setMutexBits(3);
 	}
-	
+
 	@Override
 	public boolean shouldExecute() {
 		EntityLivingBase entitylivingbase = this.attacker.getAttackTarget();
 
 		if(entitylivingbase == null) {
 			return false;
-			
+
 		} else if(!entitylivingbase.isEntityAlive()) {
 			return false;
-			
+
 		} else if(this.classTarget != null && !this.classTarget.isAssignableFrom(entitylivingbase.getClass())) {
 			return false;
-			
+
 		} else {
-			
+
 			if(--this.pathTimer <= 0) {
-				
+
 				double[] pos = getApproachPos();
 				this.entityPathEntity = this.attacker.getNavigator().getPathToXYZ(pos[0], pos[1], pos[2]);
 				this.pathTimer = 4 + this.attacker.getRNG().nextInt(7);
 				return this.entityPathEntity != null;
-				
+
 			} else {
 				return true;
 			}
 		}
 	}
 
-	
+
 	@Override
 	public boolean shouldContinueExecuting() {
-		
+
 		EntityLivingBase entitylivingbase = this.attacker.getAttackTarget();
-		
+
 		return entitylivingbase == null ? false
 				: (!entitylivingbase.isEntityAlive() ? false
 				: (!this.longMemory ? !this.attacker.getNavigator().noPath()
 				: this.attacker.isWithinHomeDistanceFromPosition(new BlockPos(MathHelper.floor(entitylivingbase.posX), MathHelper.floor(entitylivingbase.posY), MathHelper.floor(entitylivingbase.posZ)))));
 	}
 
-	
+
 	@Override
 	public void startExecuting() {
 		this.attacker.getNavigator().setPath(this.entityPathEntity, this.speedTowardsTarget);
 		this.pathTimer = 0;
 	}
 
-	
+
 	@Override
 	public void resetTask() {
 		this.attacker.getNavigator().clearPath();
 	}
 
-	
+
 	@Override
 	public void updateTask() {
-		
+
 		EntityLivingBase entitylivingbase = this.attacker.getAttackTarget();
 		this.attacker.getLookHelper().setLookPositionWithEntity(entitylivingbase, 30.0F, 30.0F);
 		double d0 = this.attacker.getDistanceSq(entitylivingbase.posX, entitylivingbase.getEntityBoundingBox().minY, entitylivingbase.posZ);
-		
+
 		this.pathTimer--;
 
 		if((this.longMemory || this.attacker.getEntitySenses().canSee(entitylivingbase)) && this.pathTimer <= 0
 				&& (this.lastX == 0.0D && this.lastY == 0.0D && this.lastZ == 0.0D
 				|| entitylivingbase.getDistanceSq(this.lastX, this.lastY, this.lastZ) >= 1.0D
 				|| this.attacker.getRNG().nextFloat() < 0.05F)) {
-			
+
 			this.lastX = entitylivingbase.posX;
 			this.lastY = entitylivingbase.getEntityBoundingBox().minY;
 			this.lastZ = entitylivingbase.posZ;
 			this.pathTimer = failedPathFindingPenalty + 4 + this.attacker.getRNG().nextInt(7);
 
 			if(this.attacker.getNavigator().getPath() != null) {
-				
+
 				PathPoint finalPathPoint = this.attacker.getNavigator().getPath().getFinalPathPoint();
 				if(finalPathPoint != null && entitylivingbase.getDistanceSq(finalPathPoint.x, finalPathPoint.y, finalPathPoint.z) < 1) {
 					failedPathFindingPenalty = 0;
-					
+
 				} else {
 					failedPathFindingPenalty += 10;
 				}
-				
+
 			} else {
 				failedPathFindingPenalty += 10;
 			}
@@ -144,27 +144,27 @@ public class EntityAIMaskmanCasualApproach extends EntityAIBase {
 			this.attackTick = 20;
 
 			if(this.attacker.getHeldItem() != null) {
-				this.attacker.swingItem();
+				this.attacker.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 			}
 
 			this.attacker.attackEntityAsMob(entitylivingbase);
 		}*/
 	}
-	
+
 	public double[] getApproachPos() {
-		
+
 		EntityLivingBase target = this.attacker.getAttackTarget();
-		
+
 		Vec3d vec = new Vec3d(this.attacker.posX - target.posX, this.attacker.posY - target.posY, this.attacker.posZ - target.posZ);
-		
+
 		double range = Math.min(vec.length(), 20) - 10;
-		
+
 		vec = vec.normalize();
-    	
+
         double x = this.attacker.posX + vec.x * range + this.attacker.getRNG().nextGaussian() * 2;
         double y = this.attacker.posY + vec.y - 5 + this.attacker.getRNG().nextInt(11);
         double z = this.attacker.posZ + vec.z * range + this.attacker.getRNG().nextGaussian() * 2;
-    	
+
     	return new double[] {x, y, z};
 	}
 }

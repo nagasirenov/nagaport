@@ -37,8 +37,8 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 	}
 
 	@Override
-	public String getDimensionName() {
-		return "Duna";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 			dustStormTimer--;
 		} else {
 			if(dustStormSmoothed >= 0.05F && this.world.rand.nextFloat() < dustStormSmoothed) {
-				EntityLivingBase viewEntity = Minecraft.getMinecraft().renderViewEntity;
+				EntityLivingBase viewEntity = (EntityLivingBase) Minecraft.getMinecraft().getRenderViewEntity();
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(20, 0, 50);
 				vec.rotateAroundZRad((float)(this.world.rand.nextDouble() * Math.PI * 10));
 				vec.rotateAroundYRad((float)(this.world.rand.nextDouble() * Math.PI * 2 * 5));

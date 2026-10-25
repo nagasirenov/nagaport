@@ -65,13 +65,13 @@ public class GUIScreenWikiRender extends GuiScreen {
 		this.drawGuiContainerForegroundLayer(preview[index]);
 		GL11.glEnable(GL11.GL_LIGHTING);
 
-		ScaledResolution res = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
+		ScaledResolution res = new ScaledResolution(this.mc);
 		int zoom = scale * res.getScaleFactor();
 
 		try {
 			String slotName = getStackName.apply(preview[index]).replaceAll("§.", "").replaceAll("[^\\w ().-]+", "");
 			if(!slotName.endsWith(".name")) {
-				saveScreenshot(Minecraft.getMinecraft().mcDataDir, saveLocation, prefix + slotName + ".png", zoom, zoom, zoom * 16, zoom * 16, 0xFFFF00FF);
+				saveScreenshot(Minecraft.getMinecraft().gameDir, saveLocation, prefix + slotName + ".png", zoom, zoom, zoom * 16, zoom * 16, 0xFFFF00FF);
 			}
 		} catch (Exception ex) {
 			// Just skip any failures caused by display name or rendering
@@ -94,15 +94,15 @@ public class GUIScreenWikiRender extends GuiScreen {
 
 		GL11.glScaled(scale, scale, scale);
 
-		ScaledResolution res = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
+		ScaledResolution res = new ScaledResolution(this.mc);
 		GL11.glTranslated(9D, res.getScaledHeight_double() / scale - 9D, -200);
 
 		this.zLevel = 200.0F;
 		itemRender.zLevel = 200.0F;
 
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
-		itemRender.renderItemAndEffectIntoGUI(this.fontRenderer, this.mc.getTextureManager(), preview, -8, -8);
-		itemRender.renderItemOverlayIntoGUI(this.fontRenderer, this.mc.getTextureManager(), preview, -8, -8, null);
+		itemRender.renderItemAndEffectIntoGUI(preview, -8, -8);
+		itemRender.renderItemOverlayIntoGUI(this.fontRenderer, preview, -8, -8, null);
 
 		itemRender.zLevel = 0.0F;
 		this.zLevel = 0.0F;
@@ -133,7 +133,7 @@ public class GUIScreenWikiRender extends GuiScreen {
 			GL11.glReadPixels(x, y, width, height, GL12.GL_BGRA, GL12.GL_UNSIGNED_INT_8_8_8_8_REV, pixelBuffer);
 
 			pixelBuffer.get(pixelValues);
-			TextureUtil.func_147953_a(pixelValues, width, height);
+			
 			BufferedImage imageBuffer = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 			imageBuffer.setRGB(0, 0, width, height, pixelValues, 0, width);
 

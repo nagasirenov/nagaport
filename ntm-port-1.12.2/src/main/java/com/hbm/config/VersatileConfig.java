@@ -25,7 +25,7 @@ public class VersatileConfig {
 		if(PotionConfig.potionSickness == 0) return;
 		if(PotionConfig.potionSickness == 2) duration *= 12;
 		
-		PotionEffect eff = new PotionEffect(HbmPotion.potionsickness.id, duration * 20);
+		PotionEffect eff = new PotionEffect(HbmPotion.potionsickness, duration * 20);
 		eff.setCurativeItems(new ArrayList());
 		entity.addPotionEffect(eff);
 	}

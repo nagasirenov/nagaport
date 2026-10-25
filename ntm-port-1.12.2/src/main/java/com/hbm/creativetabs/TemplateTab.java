@@ -13,13 +13,18 @@ public class TemplateTab extends CreativeTabs {
 		setBackgroundImageName("item_search.png");
 	}
 
-	@Override
-	public Item getTabIconItem() {
-		
+
+		@Override
+	public net.minecraft.item.ItemStack createIcon() {
+		return new net.minecraft.item.ItemStack(getTabIconItem());
+	}
+
+public Item getTabIconItem() {
+
 		if(ModItems.crucible_template != null) {
 			return ModItems.crucible_template;
 		}
-		
+
 		return Items.IRON_PICKAXE;
 	}
 

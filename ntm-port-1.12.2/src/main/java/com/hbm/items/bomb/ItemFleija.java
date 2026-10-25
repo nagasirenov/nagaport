@@ -13,18 +13,23 @@ import net.minecraft.item.ItemStack;
 
 public class ItemFleija extends Item {
 
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 		list.add(I18nUtil.resolveKey("item.bomb_part.used_in"));
 		list.add(ModBlocks.nuke_fleija.getLocalizedName());
-		super.addInformation(itemstack, player, list, bool);
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack itemstack) {
 		if (this == ModItems.fleija_propellant) {
-			return EnumRarity.rare;
+			return EnumRarity.RARE;
 		}
-		return EnumRarity.common;
+		return EnumRarity.COMMON;
 	}
 }

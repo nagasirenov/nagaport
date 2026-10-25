@@ -99,7 +99,7 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 	public void receiveControl(NBTTagCompound data) {
 		if(data.hasKey("valve")) this.isOn = !this.isOn;
 		if(data.hasKey("dial")) this.doesBurn = !this.doesBurn;
-		this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+		this.world.markChunkDirty(this.pos, this);
 	}
 
 	@Override
@@ -170,10 +170,10 @@ public class TileEntityMachineGasFlare extends TileEntityMachineBase implements 
 
 						ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 11.75F, this.pos.getZ() + 0.5F, this.world.rand.nextGaussian() * 0.15, 0.2, this.world.rand.nextGaussian() * 0.15);
 
-						List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY() + 12, this.pos.getZ() - 2, this.pos.getX() + 2, this.pos.getY() + 17, this.pos.getZ() + 2));
+						List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() - 1, this.pos.getY() + 12, this.pos.getZ() - 2, this.pos.getX() + 2, this.pos.getY() + 17, this.pos.getZ() + 2));
 						for(Entity e : list) {
 							e.setFire(5);
-							e.attackEntityFrom(DamageSource.onFire, 5F);
+							e.attackEntityFrom(DamageSource.ON_FIRE, 5F);
 						}
 
 						if(this.world.getTotalWorldTime() % 3 == 0)

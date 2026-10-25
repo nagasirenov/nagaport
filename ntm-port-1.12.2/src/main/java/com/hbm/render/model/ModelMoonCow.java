@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class ModelMoonCow extends ModelCow {
-	
+
 	private static ResourceLocation glass = new ResourceLocation(RefStrings.MODID, "textures/blocks/glass_boron.png");
 
 	@Override
@@ -25,11 +25,11 @@ public class ModelMoonCow extends ModelCow {
 			Minecraft.getMinecraft().renderEngine.bindTexture(glass);
 
 			if(isChild) {
-				GL11.glTranslatef(0.0F, this.field_78145_g * f5, this.field_78151_h * f5);
+				GL11.glTranslatef(0.0F, this.childYOffset * f5, this.childZOffset * f5);
 			}
 
 			GL11.glTranslatef(head.offsetX, head.offsetY, head.offsetZ);
-			
+
 			GL11.glTranslatef(head.rotationPointX * f5, head.rotationPointY * f5, head.rotationPointZ * f5);
 			GL11.glRotatef(head.rotateAngleZ * (180F / (float)Math.PI), 0.0F, 0.0F, 1.0F);
 			GL11.glRotatef(head.rotateAngleY * (180F / (float)Math.PI), 0.0F, 1.0F, 0.0F);
@@ -39,7 +39,7 @@ public class ModelMoonCow extends ModelCow {
 
 			GL11.glScalef(0.7F, 0.7F, 0.7F);
 
-			RenderUtil.renderBlock(Tessellator.instance);
+			RenderUtil.renderBlock(Tessellator.getInstance());
 
 		}
 		GL11.glPopMatrix();

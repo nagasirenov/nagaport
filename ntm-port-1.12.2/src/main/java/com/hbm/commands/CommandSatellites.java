@@ -19,12 +19,27 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class CommandSatellites extends CommandBase {
-	@Override
-	public String getCommandName() {
-		return "ntmsatellites";
+
+		@Override
+	public String getName() {
+		return getCommandName();
 	}
 
 	@Override
+	public String getUsage(net.minecraft.command.ICommandSender sender) {
+		return getCommandUsage(sender);
+	}
+
+	@Override
+	public void execute(net.minecraft.server.MinecraftServer server, net.minecraft.command.ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+		processCommand(sender, args);
+	}
+
+public String getCommandName() {
+		return "ntmsatellites";
+	}
+
+
 	public String getCommandUsage(ICommandSender iCommandSender) {
 		return String.format(Locale.US,
 				"%s/%s orbit [frequency] %s- Launch the held satellite with optional frequency override.\n" +
@@ -36,8 +51,8 @@ public class CommandSatellites extends CommandBase {
 		);
 	}
 
-	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
+
+	public void processCommand(ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
 		if(!(sender instanceof EntityPlayer)) {
 			sender.sendMessage(new TextComponentTranslation( "commands.satellite.should_be_run_as_player").setStyle(new Style().setColor(TextFormatting.RED)));
 			return;
@@ -48,21 +63,21 @@ public class CommandSatellites extends CommandBase {
 			case "orbit":
 				if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ISatChip && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() != ModItems.sat_chip) {
 					int freq = ISatChip.getFreqS(com.hbm.util.NativeHeldItem.getMainHandNullable(player));
-					if(args.length >= 2) freq = parseInt(sender, args[1]);
+					if(args.length >= 2) freq = parseInt(args[1]);
 					Satellite.orbit(
 						player.world,
 						Satellite.getIDFromItem(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()),
 						freq,
 						player.posX, player.posY, player.posZ
 					);
-					com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize -= 1;
+					com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
 					sender.sendMessage(new TextComponentTranslation("commands.satellite.satellite_orbited").setStyle(new Style().setColor(TextFormatting.GREEN)));
 				} else {
 					sender.sendMessage(new TextComponentTranslation("commands.satellite.not_a_satellite").setStyle(new Style().setColor(TextFormatting.RED)));
 				}
 				break;
 			case "descend":
-				int freq = parseInt(sender, args[1]);
+				int freq = parseInt(args[1]);
 				SatelliteSavedData data = SatelliteSavedData.getData(sender.getEntityWorld(), (int)player.posX, (int)player.posZ);
 				if(data.sats.containsKey(freq)) {
 					data.sats.remove(freq);
@@ -93,7 +108,7 @@ public class CommandSatellites extends CommandBase {
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public java.util.List<String> getTabCompletions(net.minecraft.server.MinecraftServer server, ICommandSender sender, String[] args, net.minecraft.util.math.BlockPos pos) {
 		if(!(sender instanceof EntityPlayer)) {
 			return Collections.emptyList();
 		}
@@ -105,7 +120,7 @@ public class CommandSatellites extends CommandBase {
 		}
 		if (args[0].equals("descend")) {
 			BlockPos coords = sender.getPosition();
-			return getListOfStringsFromIterableMatchingLastWord(args, SatelliteSavedData.getData(sender.getEntityWorld(), coords.getX(), coords.getZ()).sats.keySet().stream().map(String::valueOf).collect(Collectors.toList()));
+			return getListOfStringsMatchingLastWord(args, SatelliteSavedData.getData(sender.getEntityWorld(), coords.getX(), coords.getZ()).sats.keySet().stream().map(String::valueOf).collect(Collectors.toList()));
 		}
 		return Collections.emptyList();
 	}

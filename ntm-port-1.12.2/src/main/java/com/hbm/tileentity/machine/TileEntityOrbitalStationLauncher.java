@@ -212,7 +212,7 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 
 		EntityRideableRocket rocket = new EntityRideableRocket(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F, stack).withProgram(slots[0]).launchedBy(player);
 		rocket.posY -= rocket.height;
-		this.world.spawnEntityInWorld(rocket);
+		this.world.spawnEntity(rocket);
 
 		// Deplete all fills
 		for(int i = 0; i < tanks.length; i++) tanks[i] = new FluidTank(Fluids.NONE, 64_000);

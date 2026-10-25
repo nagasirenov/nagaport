@@ -15,13 +15,13 @@ public class BlockPorous extends BlockStone {
 	}
 	
 	@Override
-	protected ItemStack createStackedBlock(int meta) {
+	protected ItemStack getSilkTouchDrop(net.minecraft.block.state.IBlockState state) {
 		//in theory this should keep the block silk-harvestable, but dropping smooth stone instead
 		return new ItemStack(Blocks.STONE);
 	}
 	
 	@Override
-	public boolean isReplaceableOreGen(World world, int x, int y, int z, Block target) {
-		return target == this || target == Blocks.STONE;
+	public boolean isReplaceableOreGen(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, com.google.common.base.Predicate<net.minecraft.block.state.IBlockState> target) {
+		return state.getBlock() == this || state.getBlock() == Blocks.STONE;
 	}
 }

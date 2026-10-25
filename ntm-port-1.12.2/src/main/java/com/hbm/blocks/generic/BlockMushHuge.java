@@ -15,27 +15,32 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class BlockMushHuge extends Block {
-	
+
+	protected IIcon blockIcon;
+	public BlockMushHuge withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
 	public BlockMushHuge(Material p_i45394_1_) {
 		super(p_i45394_1_);
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + (this == ModBlocks.mush_block ? ":mush_block_skin" : ":mush_block_inside"));
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + (this == ModBlocks.mush_block ? ":mush_block_skin" : ":mush_block_stem"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);
 	}
-	
+
     @Override
 	public int quantityDropped(Random p_149745_1_)
     {
@@ -55,11 +60,11 @@ public class BlockMushHuge extends Block {
         return Item.getItemFromBlock(ModBlocks.mush);
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
+    public net.minecraft.item.ItemStack getItem(World p_149694_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)
     {
-        return Item.getItemFromBlock(ModBlocks.mush);
+    	int p_149694_2_ = pos.getX(), p_149694_3_ = pos.getY(), p_149694_4_ = pos.getZ();
+        return new net.minecraft.item.ItemStack(Item.getItemFromBlock(ModBlocks.mush));
     }
 
 }

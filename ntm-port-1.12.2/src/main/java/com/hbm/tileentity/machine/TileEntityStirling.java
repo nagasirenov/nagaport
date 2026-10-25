@@ -76,7 +76,7 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 						cog.motionX = rot.offsetX;
 						cog.motionY = 1 + (heat - maxHeat()) * 0.0001D;
 						cog.motionZ = rot.offsetZ;
-						this.world.spawnEntityInWorld(cog);
+						this.world.spawnEntity(cog);
 
 						this.markDirty();
 					}
@@ -210,7 +210,7 @@ public class TileEntityStirling extends TileEntityLoadedBase implements IBufPack
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

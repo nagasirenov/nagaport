@@ -84,7 +84,7 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 4,
 					this.pos.getY() - 2,
 					this.pos.getZ() - 4,
@@ -144,14 +144,14 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 				if(slots[3] == null) {
 					slots[3] = recipe.output1.copy();
 				} else {
-					slots[3].stackSize += recipe.output1.stackSize;
+					slots[3].grow(recipe.output1.getCount());
 				}
 
 				if(recipe.output2 != null) {
 					if(slots[4] == null) {
 						slots[4] = recipe.output2.copy();
 					} else {
-						slots[4].stackSize += recipe.output2.stackSize;
+						slots[4].grow(recipe.output2.getCount());
 					}
 				}
 			}
@@ -176,7 +176,7 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 		if(output != null) {
 			if(slots[outputSlot] != null) {
 				//cancel if: output item does not match, meta does not match, resulting stacksize exceeds stack limit
-				if(slots[outputSlot].getItem() != output.getItem() || slots[outputSlot].getItemDamage() != output.getItemDamage() || slots[outputSlot].stackSize + output.stackSize > output.getMaxStackSize()) return false;
+				if(slots[outputSlot].getItem() != output.getItem() || slots[outputSlot].getItemDamage() != output.getItemDamage() || slots[outputSlot].getCount() + output.getCount() > output.getMaxStackSize()) return false;
 			}
 			if(output.getItem().hasContainerItem(output)) {
 				ItemStack container = output.getItem().getContainerItem(output);
@@ -221,8 +221,8 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 		for (int i = 0; i < 4; i++) {
 			ItemStack slot = slots[i+1];
 			if (slot != null) {
-				items[i*2] = slot.getUnlocalizedName();
-				items[(i*2)+1] = slot.stackSize;
+				items[i*2] = slot.getTranslationKey();
+				items[(i*2)+1] = slot.getCount();
 			}
 		}
 		return items;
@@ -235,8 +235,8 @@ public class TileEntityPADetector extends TileEntityCooledBase implements IGUIPr
 		for (int i = 0; i < 4; i++) {
 			ItemStack slot = slots[i+1];
 			if (slot != null) {
-				items[i*2] = slot.getUnlocalizedName();
-				items[(i*2)+1] = slot.stackSize;
+				items[i*2] = slot.getTranslationKey();
+				items[(i*2)+1] = slot.getCount();
 			}
 		}
 

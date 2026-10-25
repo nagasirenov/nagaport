@@ -10,6 +10,8 @@ import com.hbm.tileentity.machine.TileEntityHatch;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,6 +26,8 @@ import net.minecraft.world.World;
 
 public class BlockSeal extends Block implements IBomb {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
@@ -31,14 +35,12 @@ public class BlockSeal extends Block implements IBomb {
 		super(p_i45394_1_);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":seal_frame");
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":seal_controller");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		metadata = metadata % 4;
@@ -58,21 +60,24 @@ public class BlockSeal extends Block implements IBomb {
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 1, 2);
 		}
 		if(i == 2) {
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 3) {
-			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 0, 2);
 		}
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -129,8 +134,8 @@ public class BlockSeal extends Block implements IBomb {
 			 * for(int X = x - size + 1; X <= x + size - 1; X++) { for(int Z = z
 			 * - size + 1; Z <= z + size - 1; Z++) { //if(world.getBlock(X +
 			 * size + xOff, y, Z + zOff) != ModBlocks.block_steel && //
-			 * world.getBlock(X + size + xOff, y, Z + zOff) != Blocks.air) //
-			 * valid = false; world.setBlock(X + xOff, y, Z + zOff,
+			 * world.getBlock(X + size + xOff, y, Z + zOff) != Blocks.AIR) //
+			 * valid = false; com.hbm.world.WorldBlockState.writeLegacyBlock(world, X + xOff, y, Z + zOff,
 			 * ModBlocks.block_steel); System.out.println(valid); } }
 			 */
 
@@ -157,7 +162,7 @@ public class BlockSeal extends Block implements IBomb {
 		for(int X = x - size + 1; X <= x + size - 1; X++) {
 			for(int Z = z - size + 1; Z <= z + size - 1; Z++) {
 				if(com.hbm.world.WorldBlockState.read(world, X + xOff, y, Z + zOff).getBlock() == Blocks.AIR && !world.isRemote) {
-					world.setBlock(X + xOff, y, Z + zOff, ModBlocks.seal_hatch);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, X + xOff, y, Z + zOff, ModBlocks.seal_hatch);
 					TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(X + xOff, y, Z + zOff));
 					if(te != null && te instanceof TileEntityHatch)
 						((TileEntityHatch) te).setControllerPos(x, y, z);
@@ -225,10 +230,10 @@ public class BlockSeal extends Block implements IBomb {
 				} else {
 					BlockSeal.closeSeal(world, x, y, z, i);
 				}
-				
+
 				return BombReturnCode.TRIGGERED;
 			}
-			
+
 			return BombReturnCode.ERROR_INCOMPATIBLE;
 		}
 
@@ -236,11 +241,12 @@ public class BlockSeal extends Block implements IBomb {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			if(meta < 4) {
-				world.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta + 4, 2);
 
 				int i = BlockSeal.getFrameSize(world, x, y, z);
 
@@ -253,7 +259,7 @@ public class BlockSeal extends Block implements IBomb {
 		} else {
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			if(meta >= 4) {
-				world.setBlockMetadataWithNotify(x, y, z, meta % 4, 2);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta % 4, 2);
 			}
 		}
 	}

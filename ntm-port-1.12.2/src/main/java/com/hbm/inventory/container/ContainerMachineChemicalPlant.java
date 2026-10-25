@@ -35,7 +35,7 @@ public class ContainerMachineChemicalPlant extends ContainerBase {
 		// Fluid Output
 		this.addSlots(			chemicalPlant, 16, 80, 54, 1, 3);
 		this.addTakeOnlySlots(	chemicalPlant, 19, 80, 72, 1, 3);
-		
+
 		this.playerInv(invPlayer, 8, 174);
 	}
 
@@ -54,7 +54,7 @@ public class ContainerMachineChemicalPlant extends ContainerBase {
 					return null;
 				}
 			} else {
-				
+
 				if(slotOriginal.getItem() instanceof IBatteryItem || slotOriginal.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(slotStack, 0, 1, false)) return null;
 				} else if(slotOriginal.getItem() instanceof ItemBlueprints) {
@@ -66,7 +66,7 @@ public class ContainerMachineChemicalPlant extends ContainerBase {
 				}
 			}
 
-			if(slotStack.stackSize == 0) {
+			if(slotStack.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();

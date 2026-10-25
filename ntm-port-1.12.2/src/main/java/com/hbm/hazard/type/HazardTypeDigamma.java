@@ -24,15 +24,15 @@ public class HazardTypeDigamma extends HazardTypeBase {
 
 	@Override
 	public void addHazardInformation(EntityPlayer player, List list, float level, ItemStack stack, List<HazardModifier> modifiers) {
-		
+
 		level = HazardModifier.evalAllModifiers(stack, player, level, modifiers);
-		
+
 		float d = (float)(Math.floor(level * 10000F)) / 10F;
 		list.add(TextFormatting.RED + "[" + I18nUtil.resolveKey("trait.digamma") + "]");
 		list.add(TextFormatting.DARK_RED + "" + d + "mDRX/s");
-		
-		if(stack.stackSize > 1) {
-			list.add(TextFormatting.DARK_RED + "Stack: " + ((Math.floor(level * 10000F * stack.stackSize) / 10F) + "mDRX/s"));
+
+		if(stack.getCount() > 1) {
+			list.add(TextFormatting.DARK_RED + "Stack: " + ((Math.floor(level * 10000F * stack.getCount()) / 10F) + "mDRX/s"));
 		}
 	}
 

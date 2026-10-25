@@ -29,7 +29,6 @@ public class MapGenGreg extends MapGenCaves {
 	private double[] upperInterpolatedNoises;
 	private double[] depthNoises;
 
-	@Override
 	public void generate(World worldIn, int chunkX, int chunkZ, ChunkPrimer primer) {
 		if (this.world != worldIn) {
 			this.caveNoise = new double[825];
@@ -199,7 +198,7 @@ public class MapGenGreg extends MapGenCaves {
 					double lowerNoise = this.lowerInterpolatedNoises[i] / 512.0D;
 					double upperNoise = this.upperInterpolatedNoises[i] / 512.0D;
 					double interpolation = (this.interpolationNoises[i] / 10.0D + 1.0D) / 2.0D;
-					double noise = MathHelper.denormalizeClamp(lowerNoise, upperNoise, interpolation) - falloff;
+					double noise = MathHelper.clampedLerp(lowerNoise, upperNoise, interpolation) - falloff;
 
 					// Scale down the last 3 layers
 					if (y > 29) {
@@ -219,7 +218,6 @@ public class MapGenGreg extends MapGenCaves {
 		}
 	}
 
-	@Override
 	protected void digBlock(ChunkPrimer primer, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop) {
 		Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
 		Block top = biome.topBlock.getBlock();

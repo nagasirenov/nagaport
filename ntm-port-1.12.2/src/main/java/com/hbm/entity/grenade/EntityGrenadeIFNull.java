@@ -30,7 +30,7 @@ public class EntityGrenadeIFNull extends EntityGrenadeBouncyBase {
 
 		if(!this.world.isRemote) {
 			this.setDead();
-			
+
 			int range = 5;
 
 			for(int a = -range; a <= range; a++)
@@ -39,13 +39,13 @@ public class EntityGrenadeIFNull extends EntityGrenadeBouncyBase {
 						com.hbm.world.WorldAirRemoval.remove(this.world, (int) Math.floor(posX + a), (int) Math.floor(posY + b), (int) Math.floor(posZ + c));
 
 			List list = this.world.getEntitiesWithinAABBExcludingEntity(this,
-					AxisAlignedBB.getBoundingBox((int) posX + 0.5 - 3, (int) posY + 0.5 - 3, (int) posZ + 0.5 - 3, (int) posX + 0.5 + 3, (int) posY + 0.5 + 3, (int) posZ + 0.5 + 3));
+					new AxisAlignedBB((int) posX + 0.5 - 3, (int) posY + 0.5 - 3, (int) posZ + 0.5 - 3, (int) posX + 0.5 + 3, (int) posY + 0.5 + 3, (int) posZ + 0.5 + 3));
 
 			for(Object o : list) {
 				if(o instanceof EntityLivingBase) {
 					EntityLivingBase e = (EntityLivingBase) o;
 					e.setHealth(0);
-					e.onDeath(DamageSource.outOfWorld);
+					e.onDeath(DamageSource.OUT_OF_WORLD);
 				} else if(o instanceof Entity) {
 					Entity e = (Entity) o;
 					e.setDead();

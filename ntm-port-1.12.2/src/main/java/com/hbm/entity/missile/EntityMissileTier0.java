@@ -44,13 +44,13 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 	protected float getContrailScale() {
 		return 0.5F;
 	}
-	
+
 	public static class EntityMissileTest extends EntityMissileTier0 {
 		public EntityMissileTest(World world) { super(world); }
 		public EntityMissileTest(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }
 		@Override public ItemStack getDebrisRareDrop() { return null; }
 		@Override public ItemStack getMissileItemForInfo() { return new ItemStack(ModItems.missile_test); }
-		
+
 		@Override public void onMissileImpact(RayTraceResult mop) {
 			int x = (int) Math.floor(posX);
 			int y = (int) Math.floor(posY);
@@ -64,12 +64,12 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 						if(dist > range) continue;
 						net.minecraft.block.state.IBlockState nativeCubeState_block = com.hbm.world.WorldBlockState.read(this.world, x + iX, y + iY, z + iZ);
 						Block block = nativeCubeState_block.getBlock();
-						int meta = this.world.getBlockMetadata(x + iX, y + iY, z + iZ);
+						int meta = com.hbm.world.WorldBlockState.readMetadata(this.world, x + iX, y + iY, z + iZ);
 						int charMeta = (int) MathHelper.clamp(12 - (dist / range) * (dist / range) * 13, (double) (0), (double) (12));
-						
+
 						if(block.isNormalCube(nativeCubeState_block)) {
 							if(block != ModBlocks.sellafield_slaked || meta < charMeta) {
-								this.world.setBlock(x + iX, y + iY, z + iZ, ModBlocks.sellafield_slaked, charMeta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x + iX, y + iY, z + iZ, ModBlocks.sellafield_slaked, charMeta, 3);
 							}
 						} else {
 							com.hbm.world.WorldBlockState.write(this.world, x + iX, y + iY, z + iZ, Blocks.AIR.getStateFromMeta(0), 3);
@@ -79,7 +79,7 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 			}
 		}
 	}
-	
+
 	public static class EntityMissileMicro extends EntityMissileTier0 {
 		public EntityMissileMicro(World world) { super(world); }
 		public EntityMissileMicro(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }
@@ -87,7 +87,7 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 		@Override public ItemStack getDebrisRareDrop() { return DictFrame.fromOne(ModItems.ammo_standard, EnumAmmo.NUKE_HIGH); }
 		@Override public ItemStack getMissileItemForInfo() { return new ItemStack(ModItems.missile_micro); }
 	}
-	
+
 	public static class EntityMissileSchrabidium extends EntityMissileTier0 {
 		public EntityMissileSchrabidium(World world) { super(world); }
 		public EntityMissileSchrabidium(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }
@@ -99,13 +99,13 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 				cloud.posX = this.posX;
 				cloud.posY = this.posY;
 				cloud.posZ = this.posZ;
-				this.world.spawnEntityInWorld(cloud);
+				this.world.spawnEntity(cloud);
 			}
 		}
 		@Override public ItemStack getDebrisRareDrop() { return null; }
 		@Override public ItemStack getMissileItemForInfo() { return new ItemStack(ModItems.missile_schrabidium); }
 	}
-	
+
 	public static class EntityMissileBHole extends EntityMissileTier0 {
 		public EntityMissileBHole(World world) { super(world); }
 		public EntityMissileBHole(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }
@@ -115,12 +115,12 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 			bl.posX = this.posX;
 			bl.posY = this.posY;
 			bl.posZ = this.posZ;
-			this.world.spawnEntityInWorld(bl);
+			this.world.spawnEntity(bl);
 		}
 		@Override public ItemStack getDebrisRareDrop() { return new ItemStack(ModItems.grenade_black_hole, 1); }
 		@Override public ItemStack getMissileItemForInfo() { return new ItemStack(ModItems.missile_bhole); }
 	}
-	
+
 	public static class EntityMissileTaint extends EntityMissileTier0 {
 		public EntityMissileTaint(World world) { super(world); }
 		public EntityMissileTaint(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }
@@ -133,14 +133,14 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 				net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);
 				Block block = nativeAirState.getBlock();
 				if(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {
-					this.world.setBlock(a, b, c, ModBlocks.taint, 0, 2);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, a, b, c, ModBlocks.taint, 0, 2);
 				}
 			}
 		}
 		@Override public ItemStack getDebrisRareDrop() { return new ItemStack(ModItems.powder_spark_mix, 1); }
 		@Override public ItemStack getMissileItemForInfo() { return new ItemStack(ModItems.missile_taint); }
 	}
-	
+
 	public static class EntityMissileEMP extends EntityMissileTier0 {
 		public EntityMissileEMP(World world) { super(world); }
 		public EntityMissileEMP(World world, float x, float y, float z, int a, int b) { super(world, x, y, z, a, b); }
@@ -150,7 +150,7 @@ public abstract class EntityMissileTier0 extends EntityMissileBaseNT {
 			wave.posX = posX;
 			wave.posY = posY;
 			wave.posZ = posZ;
-			this.world.spawnEntityInWorld(wave);
+			this.world.spawnEntity(wave);
 		}
 		@Override public ItemStack getDebrisRareDrop() { return new ItemStack(ModBlocks.emp_bomb, 1); }
 		@Override public ItemStack getMissileItemForInfo() { return new ItemStack(ModItems.missile_emp); }

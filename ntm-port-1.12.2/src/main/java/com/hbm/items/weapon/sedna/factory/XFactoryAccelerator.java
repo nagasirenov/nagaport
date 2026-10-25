@@ -77,7 +77,7 @@ public class XFactoryAccelerator {
 				int y = (int) Math.floor(dY);
 				int z = (int) Math.floor(dZ);
 				Block b = com.hbm.world.WorldBlockState.read(entity.world, x, y, z).getBlock();
-				float hardness = b.getBlockHardness(entity.world, x, y, z);
+				float hardness = com.hbm.world.WorldBlockState.getBlockHardness(entity.world, x, y, z);
 				if(b.getDefaultState().getMaterial() != Material.AIR && hardness >= 0 && hardness < threshold) {
 					com.hbm.world.WorldBlockDestruction.destroy(entity.world, x, y, z, false);
 				}
@@ -176,7 +176,7 @@ public class XFactoryAccelerator {
 			float damage = Lego.getStandardWearDamage(stack, ctx.config, index) * unitsUsed * 5;
 			float spread = Lego.calcSpread(ctx, stack, primary, config, true, index, false);
 			EntityBulletBeamBase mk4 = new EntityBulletBeamBase(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);
-			entity.world.spawnEntityInWorld(mk4);
+			entity.world.spawnEntity(mk4);
 
 			ItemGunBaseNT.setWear(stack, index, Math.min(ItemGunBaseNT.getWear(stack, index) + config.wear * unitsUsed, ctx.config.getDurability(stack)));
 
@@ -192,15 +192,15 @@ public class XFactoryAccelerator {
 		if(ItemGunNI4NI.getCoinCount(stack) > 0) {
 			Vec3NT vec = new Vec3NT(player.getLookVec()).multiply(0.8D);
 			EntityCoin coin = new EntityCoin(player.world);
-			coin.setPosition(player.posX, player.posY + player.getEyeHeight() - coin.yOffset - 0.125, player.posZ);
+			coin.setPosition(player.posX, player.posY + player.getEyeHeight() - coin.getYOffset() - 0.125, player.posZ);
 			coin.motionX = vec.x;
 			coin.motionY = vec.y + 0.5;
 			coin.motionZ = vec.z;
 			coin.rotationYaw = player.rotationYaw;
 			coin.setThrower(player);
-			player.world.spawnEntityInWorld(coin);
+			player.world.spawnEntity(coin);
 
-			player.world.playSoundAtEntity(player, "random.orb", 1.0F, 1F + player.getRNG().nextFloat() * 0.25F);
+			player.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("random.orb"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1F + player.getRNG().nextFloat() * 0.25F);
 
 			ItemGunNI4NI.setCoinCount(stack, ItemGunNI4NI.getCoinCount(stack) - 1);
 		}

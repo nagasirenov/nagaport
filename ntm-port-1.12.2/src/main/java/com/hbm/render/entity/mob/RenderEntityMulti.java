@@ -15,8 +15,8 @@ public class RenderEntityMulti extends RenderLiving {
 	private ResourceLocation[] textures;
 
 	@SuppressWarnings("rawtypes")
-	public RenderEntityMulti(ModelBase model, Class<? extends Enum> theEnum, float shadowSize) {
-		super(model, shadowSize);
+	public RenderEntityMulti(net.minecraft.client.renderer.entity.RenderManager renderManager, ModelBase model, Class<? extends Enum> theEnum, float shadowSize) {
+		super(renderManager, model, shadowSize);
 
 		Enum[] order = theEnum.getEnumConstants();
 		textures = new ResourceLocation[order.length];

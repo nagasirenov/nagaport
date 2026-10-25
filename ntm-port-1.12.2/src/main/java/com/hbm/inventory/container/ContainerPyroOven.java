@@ -16,7 +16,7 @@ import net.minecraft.item.ItemStack;
 public class ContainerPyroOven extends Container {
 
 	private TileEntityMachinePyroOven pyro;
-	
+
 	public ContainerPyroOven(InventoryPlayer invPlayer, TileEntityMachinePyroOven tedf) {
 		pyro = tedf;
 
@@ -31,7 +31,7 @@ public class ContainerPyroOven extends Container {
 		//Upgrades
 		this.addSlotToContainer(new Slot(tedf, 4, 71, 72));
 		this.addSlotToContainer(new Slot(tedf, 5, 89, 72));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 122 + i * 18));
@@ -57,7 +57,7 @@ public class ContainerPyroOven extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 0, 1, false)) return null;
 				} else if(rStack.getItem() instanceof IItemFluidIdentifier) {
@@ -69,7 +69,7 @@ public class ContainerPyroOven extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

@@ -27,11 +27,33 @@ import java.util.Random;
 
 public class DroneDock extends BlockContainer implements ITooltipProvider {
 
-	@SideOnly(Side.CLIENT) private IIcon iconTop;
-	@SideOnly(Side.CLIENT) private IIcon iconBottom;
+	@SideOnly(Side.CLIENT)
+	private IIcon iconSide;
+	@SideOnly(Side.CLIENT)
+	private IIcon iconTop;
+	@SideOnly(Side.CLIENT)
+	private IIcon iconBottom;
 
 	public DroneDock() {
 		super(Material.IRON);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister reg) {
+		// The original dock/crate blocks registered side, top and bottom faces.
+		String base = com.hbm.blocks.LegacyBlockTextures.texture(this);
+		if(base == null) base = this.getRegistryName().toString();
+		this.iconSide = reg.registerIcon(base + "_side");
+		this.iconTop = reg.registerIcon(base + "_top");
+		this.iconBottom = reg.registerIcon(base + "_bottom");
+	}
+
+	/** Legacy side icon lookup; null until the atlas pass has run. */
+	@SideOnly(Side.CLIENT)
+	public IIcon getLegacyIcon(int side) {
+		if(side == 0) return this.iconBottom;
+		if(side == 1) return this.iconTop;
+		return this.iconSide;
 	}
 
 	@Override
@@ -42,20 +64,6 @@ public class DroneDock extends BlockContainer implements ITooltipProvider {
 		if(this == ModBlocks.drone_crate_requester) return new TileEntityDroneRequester();
 
 		return null;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		this.blockIcon = reg.registerIcon(this.textureName + "_side");
-		this.iconTop = reg.registerIcon(this.textureName + "_top");
-		this.iconBottom = reg.registerIcon(this.textureName + "_bottom");
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int metadata) {
-		return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon);
 	}
 
 	@Override
@@ -77,11 +85,14 @@ public class DroneDock extends BlockContainer implements ITooltipProvider {
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
 		if(this == ModBlocks.drone_dock) this.dropContents(world, x, y, z, block, meta, 0, 9);
 		if(this == ModBlocks.drone_crate_provider) this.dropContents(world, x, y, z, block, meta, 0, 9);
 		if(this == ModBlocks.drone_crate_requester) this.dropContents(world, x, y, z, block, meta, 9, 18);
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	private final Random rand = new Random();
@@ -89,7 +100,7 @@ public class DroneDock extends BlockContainer implements ITooltipProvider {
 		ISidedInventory sidedInventory = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(sidedInventory != null) {
-			
+
 			for(int i1 = start; i1 < end; ++i1) {
 				ItemStack stack = sidedInventory.getStackInSlot(i1);
 
@@ -125,7 +136,7 @@ public class DroneDock extends BlockContainer implements ITooltipProvider {
 				}
 			}
 
-			world.func_147453_f(x, y, z, block);
+			world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), block);
 		}
 	}
 }

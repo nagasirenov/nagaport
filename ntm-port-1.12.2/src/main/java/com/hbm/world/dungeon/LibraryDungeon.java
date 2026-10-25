@@ -41,7 +41,7 @@ public class LibraryDungeon extends WorldGenerator
 
 		Block blockAbove = (world.isValid(new BlockPos(x, y  + 8, z)) ? world.getBlockState(new BlockPos(x, y  + 8, z)).getBlock() : Blocks.AIR);
 		Block blockBelow = (world.isValid(new BlockPos(x, y - 1, z)) ? world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() : Blocks.AIR);
-		
+
 		if(blockAbove.getDefaultState().getMaterial().isSolid() && blockBelow.getDefaultState().getMaterial().isSolid() && y - 1 > 4)
 		{
 			return true;
@@ -49,7 +49,11 @@ public class LibraryDungeon extends WorldGenerator
 		return false;
 	}
 
-	@Override
+	public boolean generate(World world, Random rand, BlockPos position)
+	{
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
+
 	public boolean generate(World world, Random rand, int x, int y, int z)
 	{
 		int i = rand.nextInt(1);
@@ -179,7 +183,7 @@ public class LibraryDungeon extends WorldGenerator
 		placeStoneBrick(world, x + 7, y + 1, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 1, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONEBRICK.getStateFromMeta(3), 3); }
 		placeStoneBrick(world, x + 0, y + 1, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 1, z + 1, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 1, z + 1, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -188,7 +192,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 1, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 1, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 1, z + 2, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 1, z + 2, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -199,7 +203,7 @@ public class LibraryDungeon extends WorldGenerator
 
         if (tileentitymobspawner != null)
         {
-            tileentitymobspawner.func_145881_a().setEntityName(this.pickMobSpawner(rand));
+            tileentitymobspawner.getSpawnerBaseLogic().setEntityId(this.pickMobSpawner(rand));
         }
         else
         {
@@ -208,7 +212,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 1, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 1, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 1, z + 3, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 1, z + 3, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
@@ -217,7 +221,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 1, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 1, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 1, z + 4, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 1, z + 4, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -241,7 +245,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 1, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 1, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 1, z + 6, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 1, z + 6, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
@@ -250,7 +254,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 1, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 1, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 1, z + 7, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 1, z + 7, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -277,7 +281,7 @@ public class LibraryDungeon extends WorldGenerator
 
         if (tileentitymobspawner1 != null)
         {
-            tileentitymobspawner1.func_145881_a().setEntityName(this.pickMobSpawner(rand));
+            tileentitymobspawner1.getSpawnerBaseLogic().setEntityId(this.pickMobSpawner(rand));
         }
         else
         {
@@ -286,7 +290,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 1, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 1, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 1, z + 9, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 1, z + 9, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -313,7 +317,7 @@ public class LibraryDungeon extends WorldGenerator
 		placeStoneBrick(world, x + 7, y + 2, z + 0, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 2, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONEBRICK.getStateFromMeta(3), 3); }
 		placeStoneBrick(world, x + 0, y + 2, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 2, z + 1, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 2, z + 1, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 2, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 2, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -322,7 +326,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 2, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 2, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 2, z + 2, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 2, z + 2, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 2, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 2, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -346,7 +350,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 2, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 2, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 2, z + 4, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 2, z + 4, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 2, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 2, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -364,7 +368,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 2, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 2, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 2, z + 6, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 2, z + 6, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
@@ -373,7 +377,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 2, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 2, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 2, z + 7, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 2, z + 7, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 2, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 2, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -391,7 +395,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 2, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 2, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 2, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 2, z + 9, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 2, z + 9, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 2, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 2, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 2, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -541,7 +545,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 4, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 4, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 4, z + 4, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 4, z + 4, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 4, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 4, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 4, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -565,7 +569,7 @@ public class LibraryDungeon extends WorldGenerator
 
         if (tileentitymobspawner2 != null)
         {
-            tileentitymobspawner2.func_145881_a().setEntityName(this.pickMobSpawner(rand));
+            tileentitymobspawner2.getSpawnerBaseLogic().setEntityId(this.pickMobSpawner(rand));
         }
         else
         {
@@ -577,7 +581,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 4, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 4, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 4, z + 6, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 4, z + 6, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 4, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 4, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 4, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
@@ -586,7 +590,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 4, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 4, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 4, z + 7, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 4, z + 7, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 4, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 4, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 4, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -595,7 +599,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 4, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 4, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 4, z + 8, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 4, z + 8, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 4, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 4, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 4, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -604,7 +608,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 4, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 4, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 4, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 4, z + 9, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 4, z + 9, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 4, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(2), 3); }
         TileEntityChest tileentitychest4 = (TileEntityChest)world.getTileEntity(new BlockPos(x + 2, y + 4, z + 9));
 
@@ -612,7 +616,7 @@ public class LibraryDungeon extends WorldGenerator
         {
             fillDungeonChest(world, rand, tileentitychest4);
         }
-		world.setBlock(x + 3, y + 4, z + 9, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 3, y + 4, z + 9, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 4, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 4, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 4, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -663,7 +667,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(8), 3); }
 		placeStoneBrick(world, x + 8, y + 5, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 5, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 5, z + 4, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 5, z + 4, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(8), 3); }
@@ -681,7 +685,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(8), 3); }
 		placeStoneBrick(world, x + 8, y + 5, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 5, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 5, z + 6, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 5, z + 6, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.DOUBLE_WOODEN_SLAB.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(8), 3); }
@@ -703,7 +707,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 5, z + 7, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 5, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 5, z + 8, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 5, z + 8, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -712,9 +716,9 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + 5, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		placeStoneBrick(world, x + 8, y + 5, z + 8, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 5, z + 9, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
-		world.setBlock(x + 1, y + 5, z + 9, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 5, z + 9, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(8), 3); }
-		world.setBlock(x + 3, y + 5, z + 9, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 3, y + 5, z + 9, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 5, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -743,7 +747,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 6, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 6, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 5, y + 6, z + 1, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 5, y + 6, z + 1, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(3), 3); }
         TileEntityChest tileentitychest6 = (TileEntityChest)world.getTileEntity(new BlockPos(x + 6, y + 6, z + 1));
 
@@ -751,7 +755,7 @@ public class LibraryDungeon extends WorldGenerator
         {
             fillDungeonChest(world, rand, tileentitychest6);
         }
-		world.setBlock(x + 7, y + 6, z + 1, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + 6, z + 1, getShelf(rand), 0, 3);
 		placeStoneBrick(world, x + 8, y + 6, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 6, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 6, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -760,7 +764,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 7, y + 6, z + 2, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + 6, z + 2, getShelf(rand), 0, 3);
 		placeStoneBrick(world, x + 8, y + 6, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 6, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 6, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -769,7 +773,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 7, y + 6, z + 3, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + 6, z + 3, getShelf(rand), 0, 3);
 		placeStoneBrick(world, x + 8, y + 6, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 6, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 6, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -783,7 +787,7 @@ public class LibraryDungeon extends WorldGenerator
 
         if (tileentitymobspawner3 != null)
         {
-            tileentitymobspawner3.func_145881_a().setEntityName(this.pickMobSpawner(rand));
+            tileentitymobspawner3.getSpawnerBaseLogic().setEntityId(this.pickMobSpawner(rand));
         }
         else
         {
@@ -805,7 +809,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 6, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 7, y + 6, z + 5, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + 6, z + 5, getShelf(rand), 0, 3);
 		placeStoneBrick(world, x + 8, y + 6, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 6, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 6, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -866,9 +870,9 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 7, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 7, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 7, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 5, y + 7, z + 1, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 5, y + 7, z + 1, getShelf(rand), 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 7, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.WOODEN_SLAB.getStateFromMeta(8), 3); }
-		world.setBlock(x + 7, y + 7, z + 1, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + 7, z + 1, getShelf(rand), 0, 3);
 		placeStoneBrick(world, x + 8, y + 7, z + 1, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 7, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 7, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -877,7 +881,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 7, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 7, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 7, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 7, y + 7, z + 2, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + 7, z + 2, getShelf(rand), 0, 3);
 		placeStoneBrick(world, x + 8, y + 7, z + 2, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 7, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 7, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -886,7 +890,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 7, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.OAK_FENCE.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 7, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 7, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 7, y + 7, z + 3, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + 7, z + 3, getShelf(rand), 0, 3);
 		placeStoneBrick(world, x + 8, y + 7, z + 3, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 7, z + 4, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 7, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -904,7 +908,7 @@ public class LibraryDungeon extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 7, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 7, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + 7, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 7, y + 7, z + 5, getShelf(rand), 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + 7, z + 5, getShelf(rand), 0, 3);
 		placeStoneBrick(world, x + 8, y + 7, z + 5, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		placeStoneBrick(world, x + 0, y + 7, z + 6, (net.minecraft.block.BlockStoneBrick) Blocks.STONEBRICK, getBrick(rand));
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 7, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -1058,12 +1062,12 @@ public class LibraryDungeon extends WorldGenerator
 	public boolean generate_r02_last(World world, Random rand, int x, int y, int z)
 	{
 
-		/*world.setBlock(x + 4, y + 3, z + 2, Blocks.torch, 4, 3);
-		world.setBlock(x + 5, y + 3, z + 3, Blocks.torch, 1, 3);
-		world.setBlock(x + 5, y + 3, z + 6, Blocks.torch, 1, 3);
-		world.setBlock(x + 3, y + 5, z + 3, Blocks.torch, 2, 3);
-		world.setBlock(x + 3, y + 5, z + 6, Blocks.torch, 2, 3);
-		world.setBlock(x + 4, y + 5, z + 7, Blocks.torch, 3, 3);*/
+		/*com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 4, y + 3, z + 2, Blocks.TORCH, 4, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 5, y + 3, z + 3, Blocks.TORCH, 1, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 5, y + 3, z + 6, Blocks.TORCH, 1, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 3, y + 5, z + 3, Blocks.TORCH, 2, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 3, y + 5, z + 6, Blocks.TORCH, 2, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 4, y + 5, z + 7, Blocks.TORCH, 3, 3);*/
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 3, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 5, y + 3, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -1077,7 +1081,7 @@ public class LibraryDungeon extends WorldGenerator
 	}
 	public int getBrick(Random rand) {
 		return rand.nextInt(3);
-		
+
 	}
 	public Block getShelf(Random rand) {
 		int i = rand.nextInt(2);
@@ -1087,7 +1091,7 @@ public class LibraryDungeon extends WorldGenerator
 		}
 		return Blocks.BOOKSHELF;
 	}
-    private String pickMobSpawner(Random p_76543_1_)
+    private net.minecraft.util.ResourceLocation pickMobSpawner(Random p_76543_1_)
     {
         return DungeonHooks.getRandomDungeonMob(p_76543_1_);
     }

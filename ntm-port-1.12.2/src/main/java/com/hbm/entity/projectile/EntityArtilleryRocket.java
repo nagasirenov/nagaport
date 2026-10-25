@@ -82,7 +82,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 
 	public EntityArtilleryRocket setTarget(Entity target) {
 		this.targetEntity = target;
-		setTarget(target.posX, target.posY - target.yOffset + target.height / 2D, target.posZ);
+		setTarget(target.posX, target.posY - target.getYOffset() + target.height / 2D, target.posZ);
 		return this;
 	}
 
@@ -107,7 +107,7 @@ public class EntityArtilleryRocket extends EntityThrowableInterp implements IChu
 		super.onUpdate();
 
 		if(!this.world.isRemote) {
-			
+
 			Vec3NT delta = new Vec3NT(this.lastTargetPos.x - this.posX, this.lastTargetPos.y - this.posY, this.lastTargetPos.z - this.posZ);
 			double momentum = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) * motionMult();
 			if(delta.length() <= momentum * 1.5) {

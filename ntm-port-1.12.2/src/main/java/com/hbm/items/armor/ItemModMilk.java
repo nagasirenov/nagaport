@@ -45,13 +45,13 @@ public class ItemModMilk extends ItemArmorMod {
 
 			PotionEffect eff = (PotionEffect) iterator.next();
 
-			if(HbmPotion.getIsBadEffect(Potion.potionTypes[eff.getPotionID()])) {
-				ints.add(eff.getPotionID());
+			if(HbmPotion.getIsBadEffect((eff.getPotion()))) {
+				ints.add(net.minecraft.potion.Potion.getIdFromPotion(eff.getPotion()));
 			}
 		}
 
 		for(Integer i : ints) {
-			entity.removePotionEffect(i);
+			entity.removePotionEffect(net.minecraft.potion.Potion.getPotionById(i));
 		}
 	}
 }

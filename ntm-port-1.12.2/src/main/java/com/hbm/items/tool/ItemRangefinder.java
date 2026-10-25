@@ -15,26 +15,31 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class ItemRangefinder extends Item {
-	
+
 	public static final int META_POLARIZED = 1;
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(world.isRemote) return stack;
 
 		Vec3NT start = new Vec3NT(player.posX, player.posY + player.eyeHeight, player.posZ);
 		Vec3NT startOriginal = new Vec3NT(start); // why the fuck
 		Vec3NT end = new Vec3NT(start).add(new Vec3NT(player.getLookVec()).multiply(300));
-		
+
 		RayTraceResult mop = world.rayTraceBlocks(start.toVec3d(), end.toVec3d(), false, true, false);
-		
+
 		if(mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 			double dist = startOriginal.distanceTo(mop.hitVec);
 			String msg = ((int)(dist * 10D)) / 10D + "m";
 			if(stack.getItemDamage() == META_POLARIZED) msg = TextFormatting.LIGHT_PURPLE + msg + TextFormatting.RESET;
 			PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start(msg).flush(), MainRegistry.proxy.ID_DETONATOR, 5000), (EntityPlayerMP) player);
 		}
-		
+
 		return stack;
 	}
 

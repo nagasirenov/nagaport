@@ -23,12 +23,31 @@ import com.hbm.lib.ForgeDirection;
 
 public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack slots[];
-	
+
 	private static final int[] slots_arr = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-	
+
 	private String customName;
-	
+
 	public TileEntityWasteDrum() {
 		slots = new ItemStack[12];
 	}
@@ -66,15 +85,23 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.wasteDrum";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.wasteDrum";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
-	
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
+	}
+
 	public void setCustomName(String name) {
 		this.customName = name;
 		markDirty();
@@ -86,7 +113,7 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
@@ -94,7 +121,9 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
-	
+
+
+
 	//You scrubs aren't needed for anything (right now)
 	@Override
 	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
@@ -105,36 +134,36 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
 		return FuelPoolRecipes.recipes.keySet().contains(new ComparableStack(itemStack)) || itemStack.getItem() instanceof ItemRBMKRod;
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null)
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
-			
+
 			return itemStack1;
 		} else {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		NBTTagList list = nbt.getTagList("items", 10);
 
 		slots = new ItemStack[getSizeInventory()];
-		
+
 		for(int i = 0; i < list.tagCount(); i++)
 		{
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
@@ -147,13 +176,13 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 
 		customName = nbt.getString("name");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		NBTTagList list = new NBTTagList();
-		
+
 		for(int i = 0; i < slots.length; i++)
 		{
 			if(slots[i] != null)
@@ -165,13 +194,13 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
 		return nbt;
 	}
-	
+
 	@Override
 	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
 		int p_94128_1_ = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
@@ -186,7 +215,7 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 
 	@Override
 	public boolean canExtractItem(int i, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
-		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();	
+		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		if(itemStack.getItem() instanceof ItemRBMKRod) {
 			return ItemRBMKRod.getCoreHeat(itemStack) < 50 && ItemRBMKRod.getHullHeat(itemStack) < 50;
 		} else {
@@ -196,9 +225,9 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			int water = 0;
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
@@ -206,21 +235,21 @@ public class TileEntityWasteDrum extends TileEntity implements ISidedInventory, 
 					water++;
 				}
 			}
-			
+
 			if(water > 0) {
-				
+
 				int r = 60 * 60 * 20 / water;
-				
+
 				for(int i = 0; i < 12; i++) {
-					
+
 					if(slots[i] != null) {
-						
+
 						if(slots[i].getItem() instanceof ItemRBMKRod) {
-							
+
 							ItemRBMKRod rod = (ItemRBMKRod) slots[i].getItem();
 							rod.updateHeat(this.world, slots[i], 0.025D);
 							rod.provideHeat(this.world, slots[i], 20D, 0.025D);
-							
+
 						} else if(this.world.rand.nextInt(r) == 0) {
 
 							ComparableStack comp = new ComparableStack(getStackInSlot(i));

@@ -3,24 +3,28 @@ package com.hbm.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public abstract class BlockContainerBase extends BlockBase implements ITileEntityProvider {
 
 	protected BlockContainerBase(Material material) {
 		super(material);
-		this.isBlockContainer = true;
+		this.hasTileEntity = true;
 	}
 
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		super.breakBlock(world, x, y, z, block, meta);
-		world.removeTileEntity(x, y, z);
+	@Override
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		super.breakBlock(world, pos, state);
+		world.removeTileEntity(pos);
 	}
 
-	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventNo, int eventArg) {
-		super.onBlockEventReceived(world, x, y, z, eventNo, eventArg);
-		TileEntity tileentity = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		return tileentity != null ? tileentity.receiveClientEvent(eventNo, eventArg) : false;
+	@Override
+	public boolean eventReceived(IBlockState state, World world, BlockPos pos, int id, int param) {
+		super.eventReceived(state, world, pos, id, param);
+		TileEntity tileentity = world.getTileEntity(pos);
+		return tileentity != null ? tileentity.receiveClientEvent(id, param) : false;
 	}
 }

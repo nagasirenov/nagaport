@@ -30,6 +30,7 @@ public class ItemPipette extends Item implements IFillableItem {
 
 	@SideOnly(Side.CLIENT) protected IIcon overlayIcon;
 	@SideOnly(Side.CLIENT) protected IIcon emptyIcon;
+	@SideOnly(Side.CLIENT) protected IIcon itemIcon;
 
 	public short getMaxFill() {
 		if(this == ModItems.pipette_laboratory) return 50;
@@ -77,6 +78,11 @@ public class ItemPipette extends Item implements IFillableItem {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(!stack.hasTagCompound()) {
@@ -88,7 +94,7 @@ public class ItemPipette extends Item implements IFillableItem {
 				int a;
 				if(this == ModItems.pipette_laboratory)
 					a = !player.isSneaking() ? Math.min(this.getCapacity(stack) + 1, 50) : Math.max(this.getCapacity(stack) - 1, 1);
-				else 
+				else
 					a = !player.isSneaking() ? Math.min(this.getCapacity(stack) + 50, 1_000) : Math.max(this.getCapacity(stack) - 50, 50);
 				stack.getTagCompound().setShort("capacity", (short) a);
 				player.sendMessage(new TextComponentString(a + "/" + this.getMaxFill() + "mB"));
@@ -134,7 +140,7 @@ public class ItemPipette extends Item implements IFillableItem {
 
 		// fizzling checks
 		if(this.getFill(stack) > 0 && willFizzle(type)) {
-			stack.stackSize = 0;
+			stack.setCount(0);
 		}
 
 		return amount - toFill;
@@ -162,32 +168,28 @@ public class ItemPipette extends Item implements IFillableItem {
 		return amount;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister icon) {
-		super.registerIcons(icon);
+		this.itemIcon = icon.registerIcon(this.getRegistryName().toString());
 		if(this == ModItems.pipette_laboratory)
 			this.overlayIcon = icon.registerIcon("hbm:pipette_laboratory_overlay");
 		else
 			this.overlayIcon = icon.registerIcon("hbm:pipette_overlay");
-		
+
 		this.emptyIcon = icon.registerIcon("hbm:pipette_empty");
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(ItemStack stack, int pass) {
 		if(getFill(stack) == 0 && pass == 1) return this.emptyIcon;
-		return pass == 1 ? this.overlayIcon : getIconFromDamageForRenderPass(stack.getItemDamage(), pass);
+		return pass == 1 ? this.overlayIcon : this.itemIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
 		if(pass == 0) {

@@ -144,7 +144,6 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 		return null;
 	}
 
-	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		ForgeDirection dir = getDirection(world, pos.getX(), pos.getY(), pos.getZ());
 		float[] bounds = swizzleBounds(dir);
@@ -342,7 +341,6 @@ public class Spotlight extends Block implements ISpotlight, INBTBlockTransformab
 		return Item.getItemFromBlock(getOn());
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
 		return new ItemStack(getOn());

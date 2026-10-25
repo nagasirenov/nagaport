@@ -11,7 +11,11 @@ import com.hbm.tileentity.machine.TileEntityCore;
 
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -36,12 +40,12 @@ public class RenderCore extends TileEntitySpecialRenderer {
 
 			GL11.glPushMatrix();
 			GL11.glTranslated(x + 0.5, y + 0.5, z + 0.5);
-			
+
 			if(core.meltdownTick)
 				renderFlare(core);
 			else
 				renderOrb(core, 0, 0, 0);
-			
+
 			GL11.glPopMatrix();
 		}
 	}
@@ -77,7 +81,7 @@ public class RenderCore extends TileEntitySpecialRenderer {
 
 		GL11.glPopMatrix();
 	}
-    
+
     public void renderOrb(TileEntityCore tile, double x, double y, double z) {
 
         GL11.glPushMatrix();
@@ -90,10 +94,10 @@ public class RenderCore extends TileEntitySpecialRenderer {
         float b = ((color & 0x0000FF) >> 0) / 256F;
         float mod = 0.4F;
 		GL11.glColor3f(r * mod, g * mod, b * mod);
-		
+
 		int tot = tile.tanks[0].getMaxFill() + tile.tanks[1].getMaxFill();
 		int fill = tile.tanks[0].getFill() + tile.tanks[1].getFill();
-		
+
 		float scale = 4.5F * fill / tot + 0.5F;
 		GL11.glScalef(scale, scale, scale);
 
@@ -103,29 +107,29 @@ public class RenderCore extends TileEntitySpecialRenderer {
 
 		GL11.glScalef(0.25F, 0.25F, 0.25F);
 		ResourceManager.sphere_ruv.renderAll();
-		
+
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
-		
+
 		double ix = (tile.getWorld().getTotalWorldTime() * 0.1D) % (Math.PI * 2D);
 		double t = 0.8F;
 		float pulse = (float) ((1D / t) * Math.atan((t * Math.sin(ix)) / (1 - t * Math.cos(ix))));
-		
+
 		pulse += 1D;
 		pulse /= 2D;
-		
+
 		for(int i = 0; i <= 16; i++) {
 
 			GL11.glPushMatrix();
-			
+
 			float s = 1F + 0.25F * i;
 			s += (pulse * (20 - i)) * 0.125F;
-			
+
 			GL11.glScalef(s, s, s);
 			ResourceManager.sphere_ruv.renderAll();
 			GL11.glPopMatrix();
 		}
-		
+
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
 		GL11.glDisable(GL11.GL_BLEND);
@@ -141,8 +145,8 @@ public class RenderCore extends TileEntitySpecialRenderer {
 		float r = ((color & 0xFF0000) >> 16) / 255F;
 		float g = ((color & 0x00FF00) >> 8) / 255F;
 		float b = ((color & 0x0000FF) >> 0) / 255F;
-		
-		Tessellator tessellator = Tessellator.instance;
+
+		Tessellator tessellator = Tessellator.getInstance();
 		RenderHelper.disableStandardItemLighting();
 		float f1 = (core.getWorld().getTotalWorldTime()) / 200.0F;
 		float f2 = 0.0F;
@@ -158,17 +162,17 @@ public class RenderCore extends TileEntitySpecialRenderer {
 		GL11.glDepthMask(false);
 		RenderHelper.disableStandardItemLighting();
 		GL11.glPushMatrix();
-		
+
 		double ix = (core.getWorld().getTotalWorldTime() * 0.2D) % (Math.PI * 2D);
 		double t = 0.8F;
 		float pulse = (float) ((1D / t) * Math.atan((t * Math.sin(ix)) / (1 - t * Math.cos(ix))));
-		
+
 		pulse += 1D;
 		pulse /= 2D;
-		
+
 		float s = 0.875F;
 		s += pulse * 0.125F;
-		
+
 		GL11.glScalef(s, s, s);
 
 		int count = 150;
@@ -179,16 +183,15 @@ public class RenderCore extends TileEntitySpecialRenderer {
 			GL11.glRotatef(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
 			GL11.glRotatef(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
 			GL11.glRotatef(random.nextFloat() * 360.0F + f1 * 90.0F, 0.0F, 0.0F, 1.0F);
-			tessellator.startDrawing(6);
+			BufferBuilder buf = tessellator.getBuffer();
+			buf.begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION_COLOR);
 			float f3 = random.nextFloat() * 2.0F + 5.0F + f2 * 10F;
 			float f4 = random.nextFloat() * 1.0F + 1.0F + f2 * 2.0F;
-			tessellator.setColorRGBA_F(r, g, b, 1F);
-			tessellator.addVertex(0.0D, 0.0D, 0.0D);
-			tessellator.setColorRGBA_F(r, g, b, 0F);
-			tessellator.addVertex(-0.866D * f4, f3, -0.5F * f4);
-			tessellator.addVertex(0.866D * f4, f3, -0.5F * f4);
-			tessellator.addVertex(0.0D, f3, 1.0F * f4);
-			tessellator.addVertex(-0.866D * f4, f3, -0.5F * f4);
+			buf.pos(0.0D, 0.0D, 0.0D).color(r, g, b, 1.0F).endVertex();
+			buf.pos(-0.866D * f4, f3, -0.5F * f4).color(r, g, b, 0.0F).endVertex();
+			buf.pos(0.866D * f4, f3, -0.5F * f4).color(r, g, b, 0.0F).endVertex();
+			buf.pos(0.0D, f3, 1.0F * f4).color(r, g, b, 0.0F).endVertex();
+			buf.pos(-0.866D * f4, f3, -0.5F * f4).color(r, g, b, 0.0F).endVertex();
 			GL11.glScalef(0.999F, 0.999F, 0.999F);
 			tessellator.draw();
 		}
@@ -203,19 +206,19 @@ public class RenderCore extends TileEntitySpecialRenderer {
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 		GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
 		RenderHelper.enableStandardItemLighting();
-		
+
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	}
-	
+
     public void renderVoid(TileEntity tile, double x, double y, double z) {
-        
+
         TileEntityCore core = (TileEntityCore)tile;
 
 		World world = tile.getWorld();
         GL11.glPushMatrix();
-        
+
         GL11.glDisable(GL11.GL_LIGHTING);
-        
+
         random.setSeed(31110L);
 
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -234,7 +237,7 @@ public class RenderCore extends TileEntitySpecialRenderer {
 		float f100 = world.getTotalWorldTime() % 500L / 500F;
 		GL11.glTranslatef(random.nextFloat(), f100, random.nextFloat());
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
 
 		final int end = 10;
 		for (int i = 0; i < end; ++i) {
@@ -279,31 +282,30 @@ public class RenderCore extends TileEntitySpecialRenderer {
 			GL11.glTexGen(GL11.GL_Q, GL11.GL_EYE_PLANE, this.func_147525_a(0, 1, 0, 0));
 
 			GL11.glRotatef(180, 0, 0, 1);
-			
+
 			int tot = core.tanks[0].getMaxFill() + core.tanks[1].getMaxFill();
 			int fill = core.tanks[0].getFill() + core.tanks[1].getFill();
-			
+
 			float s = 2.25F * fill / tot + 0.5F;
 
 			int count = 32;
-			
+
 			for(int j = 0; j < count; j++) {
-				
+
 				Vec3d vec = new Vec3d(s, 0, 0);
-				
-				
-				tessellator.startDrawing(GL11.GL_TRIANGLES);
-				tessellator.setColorOpaque_F(f11, f12, f13);
-				tessellator.setBrightness(0xF000F0);
+
+
+				BufferBuilder buf = tessellator.getBuffer();
+				buf.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
 
 				vec = vec.rotateYaw((float) Math.PI * 2F / count * j - 0.0025F);
-				
-				tessellator.addVertex(x + 0.5 + vec.x, y + 1.0, z + 0.5 + vec.z);
-				
+
+				buf.pos(x + 0.5 + vec.x, y + 1.0, z + 0.5 + vec.z).color(f11, f12, f13, 1.0F).endVertex();
+
 				vec = vec.rotateYaw((float) Math.PI * 2F / count + 0.005F);
-				tessellator.addVertex(x + 0.5 + vec.x, y + 1.0, z + 0.5 + vec.z);
-				tessellator.addVertex(x + 0.5, y + 1.0, z + 0.5);
-				
+				buf.pos(x + 0.5 + vec.x, y + 1.0, z + 0.5 + vec.z).color(f11, f12, f13, 1.0F).endVertex();
+				buf.pos(x + 0.5, y + 1.0, z + 0.5).color(f11, f12, f13, 1.0F).endVertex();
+
 				tessellator.draw();
 			}
 
@@ -362,7 +364,7 @@ public class RenderCore extends TileEntitySpecialRenderer {
     }
 
     private FloatBuffer func_147525_a(float x, float y, float z, float w) {
-    	
+
         this.buffer.clear();
         this.buffer.put(x).put(y).put(z).put(w);
         this.buffer.flip();

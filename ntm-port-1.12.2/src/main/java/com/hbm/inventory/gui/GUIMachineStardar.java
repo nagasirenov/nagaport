@@ -172,7 +172,7 @@ public class GUIMachineStardar extends GuiInfoContainer {
 				}
 
 				mc.getTextureManager().bindTexture(groundMap);
-				func_146110_a(guiLeft, guiTop, (int) starX * -1 - 256 - 9, (int) starY * -1 - 256 - 9, 256, 256, 512, 512);
+				drawModalRectWithCustomSizedTexture(guiLeft, guiTop, (int) starX * -1 - 256 - 9, (int) starY * -1 - 256 - 9, 256, 256, 512, 512);
 			}
 		} else {
 
@@ -328,7 +328,7 @@ public class GUIMachineStardar extends GuiInfoContainer {
 	}
 
 	@Override
-	public void handleMouseInput() {
+	public void handleMouseInput() throws java.io.IOException {
 		super.handleMouseInput();
 
 		//if(star.radarMode) return;
@@ -376,7 +376,7 @@ public class GUIMachineStardar extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		if(checkClick(x, y, 9, 9, 158, 108)) {
 			dragging = true;
@@ -417,7 +417,7 @@ public class GUIMachineStardar extends GuiInfoContainer {
 			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 
 			NBTTagCompound data = new NBTTagCompound();
-			data.setInteger("pid", star.getWorld().provider.dimensionId);
+			data.setInteger("pid", star.getWorld().provider.getDimension());
 			data.setInteger("ix", star.getPos().getX());
 			data.setInteger("iz", star.getPos().getZ());
 
@@ -427,8 +427,8 @@ public class GUIMachineStardar extends GuiInfoContainer {
 
 	// which==-1 is mouseMove, which==0 or which==1 is mouseUp
 	@Override
-	protected void mouseMovedOrUp(int x, int y, int which) {
-		super.mouseMovedOrUp(x, y, which);
+	protected void mouseReleased(int x, int y, int which) {
+		super.mouseReleased(x, y, which);
 		if(which == -1 || which == 1) return;
 
 		if(Math.abs(sX - x) > 2 || Math.abs(sY - y) > 2) return;

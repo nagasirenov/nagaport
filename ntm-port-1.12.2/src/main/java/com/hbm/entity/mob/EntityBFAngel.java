@@ -67,23 +67,23 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 	public int beamTimer;
 	private Entity target;
 	private List<Entity> secondaries = new ArrayList();
-	
+
 	private double lockedX;
 	private double lockedY;
 	private double lockedZ;
-	
+
 	private int aoeCooldown = 0;
 	private int aoeStage = 0;
 	private int aoeTimer = 0;
 	private Vec3d[] strikepositions = new Vec3d[3];
 	private int[] strikeTimers = new int[3];
 	private boolean[] strikeArmed = new boolean[3];
-	
+
 	public int gatlingCharge;
 	public boolean isChargingGatling;
-	
-	
-	
+
+
+
 	public EntityBFAngel(World p_i1587_1_) {
 		super(p_i1587_1_);
 		this.setSize(5F, 4F);
@@ -115,15 +115,15 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10000.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10000.0D);
 	}
 
 	@Override
-	protected void updateEntityActionState() {
+	protected void updateAITasks() {
 
 		if(!this.world.isRemote) {
 
-			if(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
+			if(this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
 				this.setDead();
 				return;
 			}
@@ -165,13 +165,13 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 					if(this.target == null) {
 						this.target = entity;
 					} else {
-						if(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {
+						if(this.getDistanceSq(entity) < this.getDistanceSq(this.target)) {
 							this.target = entity;
 						}
 					}
 				}
 
-				if(entity instanceof EntityLivingBase && this.getDistanceSqToEntity(entity) < 100 * 100 && this.canEntityBeSeen(entity) && entity != this.target) {
+				if(entity instanceof EntityLivingBase && this.getDistanceSq(entity) < 100 * 100 && this.canEntityBeSeen(entity) && entity != this.target) {
 					this.secondaries.add(entity);
 				}
 			}
@@ -195,7 +195,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 			int wX = (int)Math.floor(this.target.posX - vec.x / length * overshoot);
 			int wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);
 
-			this.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ) + rand.nextInt(15), (int) this.target.posY - 5),  wZ);
+			this.setWaypoint(wX, Math.max(this.world.getHeight(wX, wZ) + rand.nextInt(15), (int) this.target.posY - 5),  wZ);
 
 			this.courseChangeCooldown = 40 + rand.nextInt(20);
 		}
@@ -226,14 +226,14 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 
 				for(int i = (int)Math.ceil(this.posY); i >= 0; i--) {
 
-					//if(this.worldObj.getBlock(ix, i, iz) != Blocks.air) {
+					//if(this.worldObj.getBlock(ix, i, iz) != Blocks.AIR) {
 						//iy = i;
 						//break;
 					//}
 				}
 
 				if(iy < this.posY) {
-					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
+					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
 
 					for(Entity e : entities) {
 						if(this.canAttackClass(e.getClass())) {
@@ -280,7 +280,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 						gatlingCharge--;
 
 						if (gatlingCharge == 30) {
-							this.world.playSoundAtEntity(this, "hbm:entity.bfatalk", 10.0F, 1.0F);
+							this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.bfatalk"), 10.0F, 1.0F);
 						}
 
 						if (gatlingCharge <= 0) {
@@ -333,7 +333,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 			                target.posZ + offsetZ
 			            );
 
-			            strikeTimers[i] = -i * 4; 
+			            strikeTimers[i] = -i * 4;
 			            strikeArmed[i] = true;
 			        }
 
@@ -398,7 +398,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 		        double angle = rand.nextDouble() * Math.PI * 2;
 		        double radius = 15 + rand.nextInt(10);
 
-		        
+
 		        int targetX = (int)(this.target.posX + Math.cos(angle) * radius);
 		        int targetZ = (int)(this.target.posZ + Math.sin(angle) * radius);
 		        int targetY = (int)(this.target.posY + 5 + rand.nextInt(5));
@@ -416,7 +416,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 
 		        Vec3d dir = new Vec3d(dx, dy, dz).normalize();
 
-		        double t = this.courseChangeCooldown / 15.0; 
+		        double t = this.courseChangeCooldown / 15.0;
 		        double dashSpeed = 2.0D * t;
 
 		        this.motionX = dir.x * dashSpeed;
@@ -426,7 +426,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 
 		    this.courseChangeCooldown--;
 		}
-	
+
 		if (this.target != null) {
 			    double dx = this.target.posX - this.posX;
 			    double dy = this.target.posY + this.target.height * 0.5 - (this.posY + 1);
@@ -436,7 +436,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 
 			    float delta = net.minecraft.util.math.MathHelper.wrapDegrees(targetYaw - this.rotationYaw);
 			    this.rotationYaw += delta * 0.15F;
-			    
+
 			    double dist = Math.sqrt(dx * dx + dz * dz);
 			    float targetPitch = (float)(-(Math.atan2(dy, dist) * -180D / Math.PI));
 			    this.rotationPitch += (targetPitch - this.rotationPitch) * 0.1F;
@@ -451,7 +451,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 		this.motionY -= 0.05D;
 
 		if(this.deathTime == -10) {
-			this.world.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
+			this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.chopperDamage"), 10.0F, 1.0F);
 		}
 
 		if(this.deathTime == 19 && !this.world.isRemote) {
@@ -459,16 +459,16 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 			data.setString("type", "tinytot");
 			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, posX, posY + 0.5, posZ), new TargetPoint(this.dimension, posX, posY, posZ, 250));
 			com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
-			
+
 			this.entityDropItem(new ItemStack(ModItems.core_angel, 1, 0), 1);
 
 			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(200, 200, 200));
 
-			
+
 			for(EntityPlayer player : players) {
 				player.sendMessage(new TextComponentString("Stars are starting to flicker...").setStyle(new Style().setColor(TextFormatting.RED)));
 			}
-			
+
 			CelestialBody body = CelestialBody.getBody(this.world);
 
 			CBT_Invasion invasion = body.getTrait(CBT_Invasion.class);
@@ -478,7 +478,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 
 			}
 
-			
+
 		}
 
 		super.onDeathUpdate();
@@ -504,10 +504,10 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 
 		    bullet.performHitscanExternal(250D);
 
-		    this.world.spawnEntityInWorld(bullet);
-		    this.playSound("hbm:entity.bfashoot", 5.0F, 1.0F);
+		    this.world.spawnEntity(bullet);
+		    this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.bfashoot"), 5.0F, 1.0F);
 		}
-	
+
 	private void fireDownwardBeamAt(double x, double y, double z) {
 
 		    double spawnX = x;
@@ -528,9 +528,9 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 
 		    bullet.performHitscanExternal(250D);
 
-		    this.world.spawnEntityInWorld(bullet);
+		    this.world.spawnEntity(bullet);
 
-		    this.playSound("hbm:entity.bfashoot", 5.0F, 1.0F);
+		    this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.bfashoot"), 5.0F, 1.0F);
 		}
 
 	private void rocketAttack(Entity e) {
@@ -551,13 +551,13 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 
 		    bullet.setThrower(this);
 
-		    double speed = 1.0; 
+		    double speed = 1.0;
 		    bullet.motionX = heading.x * speed;
 		    bullet.motionY = heading.y * speed;
 		    bullet.motionZ = heading.z * speed;
 
-		    this.world.spawnEntityInWorld(bullet);
-		    this.playSound("hbm:turret.richard_fire", 5.0F, 1.0F);
+		    this.world.spawnEntity(bullet);
+		    this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:turret.richard_fire"), 5.0F, 1.0F);
 		}
 
 	@Override
@@ -579,12 +579,12 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 		double d4 = (this.getX() - this.posX) / p_70790_7_;
 		double d5 = (this.getY() - this.posY) / p_70790_7_;
 		double d6 = (this.getZ() - this.posZ) / p_70790_7_;
-		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
 
 		for(int i = 1; i < p_70790_7_; ++i) {
 			axisalignedbb.offset(d4, d5, d6);
 
-			if(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
+			if(!this.world.getCollisionBoxes(this, axisalignedbb).isEmpty()) {
 				return false;
 			}
 		}
@@ -598,12 +598,12 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 	}
 
 	@Override
-	protected String getHurtSound() {
-		return "mob.blaze.hit";
+	protected net.minecraft.util.SoundEvent getHurtSound(DamageSource damageSourceIn) {
+		return com.hbm.main.ModSoundEvents.resolve("mob.blaze.hit");
 	}
 
 	@Override
-	protected String getDeathSound() {
+	protected net.minecraft.util.SoundEvent getDeathSound() {
 		return null;
 	}
 

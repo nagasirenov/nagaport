@@ -91,7 +91,7 @@ public class ItemCrucible extends ItemSwordAbility implements IEquipReceiver, IA
 				data.setInteger("count", count * 4);
 				data.setDouble("motion", 0.1D);
 				data.setString("mode", "blockdust");
-				data.setInteger("block", Block.getIdFromBlock(Blocks.redstone_block));
+				data.setInteger("block", Block.getIdFromBlock(Blocks.REDSTONE_BLOCK));
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, victim.posX, victim.posY + victim.height * 0.5, victim.posZ), new TargetPoint(victim.dimension, victim.posX, victim.posY + victim.height * 0.5, victim.posZ, 50));
 			}
 

@@ -30,6 +30,11 @@ import net.minecraftforge.common.property.IUnlistedProperty;
 
 /** Native owner for the original two height-adjustable steel grates. */
 public class BlockGrate extends Block implements ITooltipProvider {
+	@Override
+	public net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
     public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
     public static final IUnlistedProperty<RenderSnapshot> RENDER = new IUnlistedProperty<RenderSnapshot>() {
         @Override public String getName() { return "grate_render"; }

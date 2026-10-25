@@ -57,23 +57,23 @@ public class BossSpawnHandler {
 				if(world.rand.nextInt(MobConfig.maskmanChance) == 0 && !world.playerEntities.isEmpty() && world.provider.isSurfaceWorld()) {	//33% chance only if there is a player online
 
 					EntityPlayer player = (EntityPlayer) world.playerEntities.get(world.rand.nextInt(world.playerEntities.size()));	//choose a random player
-					int id = Item.getIdFromItem(Item.getItemFromBlock(ModBlocks.machine_crystallizer));
+					Item item = Item.getItemFromBlock(ModBlocks.machine_crystallizer);
 
-					StatBase statCraft = StatList.objectCraftStats[id];
-					StatBase statPlace = StatList.objectUseStats[id];
+					StatBase statCraft = StatList.getCraftStats(item);
+					StatBase statPlace = StatList.getObjectUseStats(item);
 
 					if(!(player instanceof EntityPlayerMP)) return;
 					EntityPlayerMP playerMP = (EntityPlayerMP) player;
 
-					boolean acidizerStat = !GeneralConfig.enableStatReRegistering || (statCraft != null && playerMP.func_147099_x().writeStat(statCraft) > 0)|| (statPlace != null && playerMP.func_147099_x().writeStat(statPlace) > 0);
+					boolean acidizerStat = !GeneralConfig.enableStatReRegistering || (statCraft != null && playerMP.getStatFile().readStat(statCraft) > 0)|| (statPlace != null && playerMP.getStatFile().readStat(statPlace) > 0);
 
-					if(acidizerStat && ContaminationUtil.getRads(player) >= MobConfig.maskmanMinRad && (world.getHeightValue((int)player.posX, (int)player.posZ) > player.posY + 3 || !MobConfig.maskmanUnderground)) {	//if the player has more than 50 RAD and is underground
+					if(acidizerStat && ContaminationUtil.getRads(player) >= MobConfig.maskmanMinRad && (world.getHeight((int)player.posX, (int)player.posZ) > player.posY + 3 || !MobConfig.maskmanUnderground)) {	//if the player has more than 50 RAD and is underground
 
 						player.sendMessage(new TextComponentString("The mask man is about to claim another victim.").setStyle(new Style().setColor(TextFormatting.RED)));
 
 						double spawnX = player.posX + world.rand.nextGaussian() * 20;
 						double spawnZ = player.posZ + world.rand.nextGaussian() * 20;
-						double spawnY = world.getHeightValue((int)spawnX, (int)spawnZ);
+						double spawnY = world.getHeight((int)spawnX, (int)spawnZ);
 
 						trySpawn(world, (float)spawnX, (float)spawnY, (float)spawnZ, new EntityMaskMan(world));
 					}
@@ -99,7 +99,7 @@ public class BossSpawnHandler {
 
 							double spawnX = player.posX + vec.x + world.rand.nextGaussian() * 5;
 							double spawnZ = player.posZ + vec.z + world.rand.nextGaussian() * 5;
-							double spawnY = world.getHeightValue((int)spawnX, (int)spawnZ);
+							double spawnY = world.getHeight((int)spawnX, (int)spawnZ);
 
 							trySpawn(world, (float)spawnX, (float)spawnY, (float)spawnZ, new EntityFBI(world));
 						}
@@ -108,7 +108,7 @@ public class BossSpawnHandler {
 
 							double spawnX = player.posX + vec.x + world.rand.nextGaussian() * 5;
 							double spawnZ = player.posZ + vec.z + world.rand.nextGaussian() * 5;
-							double spawnY = world.getHeightValue((int)spawnX, (int)spawnZ);
+							double spawnY = world.getHeight((int)spawnX, (int)spawnZ);
 
 							trySpawn(world, (float)spawnX, (float)spawnY + 10, (float)spawnZ, new EntityFBIDrone(world));
 						}
@@ -138,7 +138,7 @@ public class BossSpawnHandler {
 
 							double spawnX = player.posX + vec.x + world.rand.nextGaussian();
 							double spawnZ = player.posZ + vec.z + world.rand.nextGaussian();
-							double spawnY = world.getHeightValue((int)spawnX, (int)spawnZ);
+							double spawnY = world.getHeight((int)spawnX, (int)spawnZ);
 
 							EntityRADBeast rad = new EntityRADBeast(world);
 
@@ -167,7 +167,7 @@ public class BossSpawnHandler {
 					vec = vec.rotateYaw((float)(Math.PI * 2) * world.rand.nextFloat());
 					double spawnX = player.posX + vec.x + world.rand.nextGaussian();
 					double spawnZ = player.posZ + vec.z + world.rand.nextGaussian();
-					double spawnY = world.getHeightValue((int)spawnX, (int)spawnZ);
+					double spawnY = world.getHeight((int)spawnX, (int)spawnZ);
 					trySpawn(world, (float)spawnX, (float)spawnY, (float)spawnZ, new EntityGhost(world));
 				}
 			}
@@ -181,9 +181,9 @@ public class BossSpawnHandler {
 
 		if (canSpawn == Result.ALLOW || canSpawn == Result.DEFAULT) {
 
-			world.spawnEntityInWorld(e);
+			world.spawnEntity(e);
 			ForgeEventFactory.doSpecialSpawn(e, world, x, y, z);
-			e.onSpawnWithEgg(null);
+			e.onInitialSpawn(e.world.getDifficultyForLocation(new net.minecraft.util.math.BlockPos(e)), null);
 		}
 	}
 
@@ -261,6 +261,6 @@ public class BossSpawnHandler {
 		meteor.motionX = vec.x;
 		meteor.motionY = -2.5;
 		meteor.motionZ = vec.z;
-		player.world.spawnEntityInWorld(meteor);
+		player.world.spawnEntity(meteor);
 	}
 }

@@ -44,7 +44,6 @@ public abstract class EntityMinecartNTM extends EntityMinecart {
 		return EnumCartBase.values()[this.dataManager.get(CART_BASE)];
 	}
 
-	@Override
 	public int getMinecartType() {
 		return -1;
 	}
@@ -59,7 +58,6 @@ public abstract class EntityMinecartNTM extends EntityMinecart {
 		return entity.getEntityBoundingBox();
 	}
 
-	@Override
 	public AxisAlignedBB getBoundingBox() {
 		return this.getEntityBoundingBox();
 	}
@@ -69,8 +67,8 @@ public abstract class EntityMinecartNTM extends EntityMinecart {
 		this.setDead();
 		ItemStack itemstack = getCartItem();
 
-		if(this.func_95999_t() != null) {
-			itemstack.setStackDisplayName(this.func_95999_t());
+		if(this.getCartItem() != null) {
+			itemstack.setStackDisplayName(this.getCartItem().getDisplayName());
 		}
 
 		this.entityDropItem(itemstack, 0.0F);

@@ -9,6 +9,11 @@ import net.minecraft.world.World;
 
 public class EntityMinecartOre extends EntityMinecartNTM {
 
+	@Override
+	public net.minecraft.entity.item.EntityMinecart.Type getType() {
+		return net.minecraft.entity.item.EntityMinecart.Type.RIDEABLE;
+	}
+
 	public EntityMinecartOre(World p_i1712_1_) {
 		super(p_i1712_1_);
 	}

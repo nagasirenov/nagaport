@@ -19,14 +19,20 @@ import net.minecraft.world.World;
 
 public class BlockAmmoCrate extends Block {
 
+	protected IIcon blockIcon;
+	public BlockAmmoCrate withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+
 	@SideOnly(Side.CLIENT) private IIcon iconTop;
 	@SideOnly(Side.CLIENT) private IIcon iconBottom;
 
 	public BlockAmmoCrate(Material mat) {
 		super(mat);
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":crate_ammo_top");
@@ -34,39 +40,41 @@ public class BlockAmmoCrate extends Block {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":crate_ammo_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 0 ? this.iconBottom : (side == 1 ? this.iconTop : this.blockIcon);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int p_149727_6_ = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem().equals(ModItems.crowbar)) {
 			if(!world.isRemote) {
 				dropContents(world, x, y, z);
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
-				world.playSoundEffect(x, y, z, "hbm:block.crateBreak", 0.5F, 1.0F);
+				world.playSound(null, x, y, z, com.hbm.main.ModSoundEvents.resolve("hbm:block.crateBreak"), net.minecraft.util.SoundCategory.BLOCKS, 0.5F, 1.0F);
 			}
 			return true;
 		}
 		return false;
 	}
-	
+
 	Random rand = new Random();
-	
+
 	public void dropContents(World world, int x, int y, int z) {
 		ArrayList<ItemStack> items = getContents(world, x, y, z);
 
 		for(ItemStack item : items) {
-			this.dropBlockAsItem(world, x, y, z, item);
+			net.minecraft.block.Block.spawnAsEntity(world, new net.minecraft.util.math.BlockPos(x, y, z), item);
 		}
 	}
-	
+
 	public ArrayList<ItemStack> getContents(World world, int x, int y, int z) {
-	
+
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-			
+
 		ret.add(new ItemStack(ModItems.cap_nuka, 12 + rand.nextInt(21)));
 		ret.add(new ItemStack(ModItems.syringe_metal_stimpak, 1 + rand.nextInt(3)));
 
@@ -84,9 +92,9 @@ public class BlockAmmoCrate extends Block {
 		if(rand.nextBoolean()) ret.add(new ItemStack(ModItems.ammo_standard, 16 + rand.nextInt(17), EnumAmmo.G12_SLUG.ordinal()));
 		if(rand.nextBoolean()) ret.add(new ItemStack(ModItems.ammo_standard, 2 + rand.nextInt(3), EnumAmmo.G40_HE.ordinal()));
 		if(rand.nextBoolean()) ret.add(new ItemStack(ModItems.ammo_standard, 2 + rand.nextInt(3), EnumAmmo.ROCKET_HE.ordinal()));
-		
+
 		if(rand.nextInt(10) == 0) ret.add(new ItemStack(ModItems.syringe_metal_super, 2));
-		
+
 		return ret;
 	}
 }

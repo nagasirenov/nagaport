@@ -14,7 +14,6 @@ public class WorldGenWaterCoral extends WorldGenerator {
 
 	public int seaLevel = 64;
 
-	@Override
 	public boolean generate(World world, Random rand, BlockPos origin) {
 		int x = origin.getX();
 		int y = origin.getY();

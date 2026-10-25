@@ -9,6 +9,8 @@ import com.hbm.tileentity.machine.TileEntityFurnaceCombination;
 
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
@@ -25,12 +27,12 @@ public class RenderFurnaceCombination extends TileEntitySpecialRenderer {
 		GL11.glTranslated(x + 0.5D, y, z + 0.5D);
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_CULL_FACE);
-		
+
 		bindTexture(ResourceManager.combination_oven_tex);
 		ResourceManager.combination_oven.renderAll();
-		
+
 		TileEntityFurnaceCombination furnace = (TileEntityFurnaceCombination) tileEntity;
-		
+
 		if(furnace.wasOn) {
 
 			bindTexture(texture);
@@ -43,7 +45,7 @@ public class RenderFurnaceCombination extends TileEntitySpecialRenderer {
 			GL11.glDepthMask(false);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 			RenderHelper.disableStandardItemLighting();
-			
+
 			int texIndex = (int) (furnace.getWorld().getTotalWorldTime() / 2 % 14);
 			float f0 = 1F / 14F;
 
@@ -51,25 +53,22 @@ public class RenderFurnaceCombination extends TileEntitySpecialRenderer {
 			float uMax = uMin + f0;
 			float vMin = 0;
 			float vMax = 1;
-			
-			Tessellator tess = Tessellator.instance;
-			tess.startDrawingQuads();
-			
-			tess.setNormal(0.0F, 1.0F, 0.0F);
-			tess.setBrightness(240);
-			tess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F);
-			
+
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder buf = tess.getBuffer();
+			buf.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);
+
 			GL11.glTranslated(0, 1.75, 0);
-			GL11.glRotatef(-RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);
+			GL11.glRotatef(-net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
 
 			double scaleH = 1;
 			double scaleV = 3;
 
-			tess.addVertexWithUV(-scaleH, 0, 0, uMax, vMax);
-			tess.addVertexWithUV(-scaleH, scaleV, 0, uMax, vMin);
-			tess.addVertexWithUV(scaleH, scaleV, 0, uMin, vMin);
-			tess.addVertexWithUV(scaleH, 0, 0, uMin, vMax);
-			
+			buf.pos(-scaleH, 0, 0).tex(uMax, vMax).color(1.0F, 1.0F, 1.0F, 1.0F).normal(0.0F, 1.0F, 0.0F).endVertex();
+			buf.pos(-scaleH, scaleV, 0).tex(uMax, vMin).color(1.0F, 1.0F, 1.0F, 1.0F).normal(0.0F, 1.0F, 0.0F).endVertex();
+			buf.pos(scaleH, scaleV, 0).tex(uMin, vMin).color(1.0F, 1.0F, 1.0F, 1.0F).normal(0.0F, 1.0F, 0.0F).endVertex();
+			buf.pos(scaleH, 0, 0).tex(uMin, vMax).color(1.0F, 1.0F, 1.0F, 1.0F).normal(0.0F, 1.0F, 0.0F).endVertex();
+
 			tess.draw();
 
 			//GL11.glPolygonOffset(0.0F, 0.0F);
@@ -81,7 +80,7 @@ public class RenderFurnaceCombination extends TileEntitySpecialRenderer {
 			GL11.glPopMatrix();
 			RenderHelper.enableStandardItemLighting();
 		}
-		
+
 		GL11.glPopMatrix();
 	}
 

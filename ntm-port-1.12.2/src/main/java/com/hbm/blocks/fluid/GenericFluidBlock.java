@@ -28,7 +28,7 @@ public class GenericFluidBlock extends BlockFluidClassic {
 	@SideOnly(Side.CLIENT)
 	public IIcon flowingIcon;
 	public Random rand = new Random();
-	
+
 	private String stillName;
 	private String flowingName;
 
@@ -49,13 +49,11 @@ public class GenericFluidBlock extends BlockFluidClassic {
 		return this;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return (side == 0 || side == 1) ? stillIcon : flowingIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 		stillIcon = register.registerIcon(RefStrings.MODID + ":" + stillName);
@@ -64,8 +62,13 @@ public class GenericFluidBlock extends BlockFluidClassic {
 
 	/** Only temporary, will be moved into a subclass */
 	@SuppressWarnings("unchecked")
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if(damageSource != null) {
 			if(this == ModBlocks.sulfuric_acid_block) {
 				if(entity instanceof EntityItem) {
@@ -73,13 +76,13 @@ public class GenericFluidBlock extends BlockFluidClassic {
 					entity.motionX = 0;
 					entity.motionY = 0;
 					entity.motionZ = 0;
-					
+
 					if(entity.ticksExisted % 20 == 0 && !world.isRemote) {
 						entity.attackEntityFrom(damageSource, damage * 0.1F);
-						
-						if(this == ModBlocks.sulfuric_acid_block && entity.isDead && ((EntityItem)entity).getEntityItem().getItem() == Items.SLIME_BALL) {
+
+						if(this == ModBlocks.sulfuric_acid_block && entity.isDead && ((EntityItem)entity).getItem().getItem() == Items.SLIME_BALL) {
 							List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, entity.getEntityBoundingBox().grow(10, 10, 10));
-							
+
 							for(EntityPlayer player : players)
 								com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achSulfuric);
 						}
@@ -88,17 +91,17 @@ public class GenericFluidBlock extends BlockFluidClassic {
 						world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, entity.posX, entity.posY, entity.posZ, 0.0, 0.0, 0.0);
 					}
 				} else {
-					
+
 					if(entity.motionY < -0.2)
 						entity.motionY *= 0.5;
-					
+
 					if(!world.isRemote) {
 						entity.attackEntityFrom(damageSource, damage);
 					}
 				}
-				
+
 				if(entity.ticksExisted % 5 == 0) {
-					world.playSoundAtEntity(entity, "random.fizz", 0.2F, 1F);
+					world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("random.fizz"), net.minecraft.util.SoundCategory.PLAYERS, 0.2F, 1F);
 				}
 			}
 		}

@@ -125,7 +125,7 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 
 	protected boolean checkGround() {
 
-		if(this.world.provider.hasNoSky) return false;
+		if(!this.world.provider.hasSkyLight()) return false;
 		if(this.world.provider instanceof WorldProviderOrbit) return false;
 		CBT_Water table = CelestialBody.getTrait(this.world, CBT_Water.class);
 		if(table == null) return false;
@@ -200,7 +200,7 @@ public abstract class TileEntityMachinePumpBase extends TileEntityLoadedBase imp
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

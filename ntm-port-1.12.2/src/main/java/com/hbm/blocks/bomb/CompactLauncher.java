@@ -10,6 +10,8 @@ import com.hbm.tileentity.bomb.TileEntityCompactLauncher;
 import com.hbm.tileentity.machine.TileEntityDummy;
 
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -73,7 +75,8 @@ public class CompactLauncher extends BlockContainer implements IMultiblock, IBom
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, EntityLivingBase player, ItemStack itemStack) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(!(com.hbm.world.WorldBlockState.read(world, x + 1, y, z + 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x + 1, y, z - 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x - 1, y, z - 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x - 1, y, z + 1).getBlock().getDefaultState().getMaterial().isReplaceable() && com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock().getDefaultState().getMaterial().isReplaceable())) {
 			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);
@@ -89,13 +92,13 @@ public class CompactLauncher extends BlockContainer implements IMultiblock, IBom
 		placeDummy(world, x - 1, y, z + 1, x, y, z, ModBlocks.dummy_port_compact_launcher);
 		placeDummy(world, x, y, z + 1, x, y, z, ModBlocks.dummy_plate_compact_launcher);
 
-		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+		super.onBlockPlacedBy(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), player, itemStack);
 
 	}
 
 	private void placeDummy(World world, int x, int y, int z, int xCoord, int yCoord, int zCoord, Block block) {
 
-		world.setBlock(x, y, z, block);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, block);
 
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
@@ -107,16 +110,10 @@ public class CompactLauncher extends BlockContainer implements IMultiblock, IBom
 		}
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-		this.setBlockBounds(0, 1, 0, 1, 1, 1);
-	}
+	private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0, 1, 0, 1, 1, 1);
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-
-		this.setBlockBounds(0, 1, 0, 1, 1, 1);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return BOUNDS;
 	}
 
 	@Override
@@ -134,7 +131,10 @@ public class CompactLauncher extends BlockContainer implements IMultiblock, IBom
 	private final Random field_149933_a = new Random();
 
 	@Override
-	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
+	public void breakBlock(World p_149749_1_, BlockPos pos, IBlockState state) {
+		int p_149749_2_ = pos.getX(), p_149749_3_ = pos.getY(), p_149749_4_ = pos.getZ();
+		Block p_149749_5_ = state.getBlock();
+		int p_149749_6_ = p_149749_5_.getMetaFromState(state);
 		ISidedInventory tileentityfurnace = (ISidedInventory) p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
 
 		if(tileentityfurnace != null) {
@@ -173,8 +173,8 @@ public class CompactLauncher extends BlockContainer implements IMultiblock, IBom
 				}
 			}
 
-			p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
+			p_149749_1_.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_), p_149749_5_);
 		}
-		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+		super.breakBlock(p_149749_1_, pos, state);
 	}
 }

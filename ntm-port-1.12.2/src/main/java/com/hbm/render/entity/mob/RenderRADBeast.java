@@ -24,18 +24,18 @@ public class RenderRADBeast extends RenderLiving {
 	private static final ResourceLocation mask = new ResourceLocation(RefStrings.MODID, "textures/models/ModelM65Blaze.png");
 	private int blazeModel;
 
-	public RenderRADBeast() {
-		super(new ModelBlaze(), 0.5F);
-		this.blazeModel = ((ModelBlaze) this.mainModel).func_78104_a();
+	public RenderRADBeast(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+		super(renderManager, new ModelBlaze(), 0.5F);
+		
 	}
 
 	public void doRender(EntityRADBeast entity, double x, double y, double z, float r0, float r1) {
-		int i = ((ModelBlaze) this.mainModel).func_78104_a();
+		
 
-		if(i != this.blazeModel) {
-			this.blazeModel = i;
-			this.mainModel = new ModelBlaze();
-		}
+		
+			
+			
+		
 
 		Entity victim = entity.getUnfortunateSoul();
 
@@ -96,10 +96,10 @@ public class RenderRADBeast extends RenderLiving {
 				this.modelM65 = new ModelM65Blaze();
 			}
 
-			this.setRenderPassModel(modelM65);
+			
 			return 1;
 		}
 
-		return super.shouldRenderPass(p_77032_1_, p_77032_2_, p_77032_3_);
+		return 0;
 	}
 }

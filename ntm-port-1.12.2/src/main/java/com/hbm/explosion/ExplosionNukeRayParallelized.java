@@ -9,6 +9,8 @@ import com.hbm.util.SubChunkSnapshot;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
@@ -198,7 +200,7 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 				continue;
 			}
 
-			Chunk chunk = world.getChunkFromChunkCoords(cp.x, cp.z);
+			Chunk chunk = world.getChunk(cp.x, cp.z);
 			ExtendedBlockStorage[] storages = chunk.getBlockStorageArray();
 			boolean chunkModified = false;
 
@@ -218,28 +220,27 @@ public class ExplosionNukeRayParallelized implements IExplosionRay {
 					int xLocal = xGlobal & 0xF;
 					int yLocal = yGlobal & 0xF;
 					int zLocal = zGlobal & 0xF;
-					if (storage.getBlockByExtId(xLocal, yLocal, zLocal) != Blocks.AIR) {
-						if (world.getTileEntity(new net.minecraft.util.math.BlockPos(xGlobal, yGlobal, zGlobal)) != null) {
-							world.removeTileEntity(xGlobal, yGlobal, zGlobal);
-						}
-
-						storage.func_150818_a(xLocal, yLocal, zLocal, Blocks.AIR);
-						storage.setExtBlockMetadata(xLocal, yLocal, zLocal, 0);
-						chunkModified = true;
-
-						world.notifyBlocksOfNeighborChange(xGlobal, yGlobal, zGlobal, Blocks.AIR);
-						world.markBlockForUpdate(xGlobal, yGlobal, zGlobal);
-
-						world.updateLightByType(EnumSkyBlock.Sky, xGlobal, yGlobal, zGlobal);
-						world.updateLightByType(EnumSkyBlock.Block, xGlobal, yGlobal, zGlobal);
+				if (storage.get(xLocal, yLocal, zLocal).getBlock() != Blocks.AIR) {
+					if (world.getTileEntity(new net.minecraft.util.math.BlockPos(xGlobal, yGlobal, zGlobal)) != null) {
+						world.removeTileEntity(new BlockPos(xGlobal, yGlobal, zGlobal));
 					}
+
+					storage.set(xLocal, yLocal, zLocal, Blocks.AIR.getDefaultState());
+					chunkModified = true;
+
+					world.notifyNeighborsOfStateChange(new BlockPos(xGlobal, yGlobal, zGlobal), Blocks.AIR, true);
+					com.hbm.world.WorldBlockState.markBlockForUpdate(world, xGlobal, yGlobal, zGlobal);
+
+					world.checkLightFor(EnumSkyBlock.SKY, new BlockPos(xGlobal, yGlobal, zGlobal));
+					world.checkLightFor(EnumSkyBlock.BLOCK, new BlockPos(xGlobal, yGlobal, zGlobal));
+				}
 					bs.clear(bit);
 					bit = bs.nextSetBit(bit + 1);
 				}
 			}
 
 			if (chunkModified) {
-				chunk.setChunkModified();
+				chunk.markDirty();
 				world.markBlockRangeForRenderUpdate(cp.x << 4, 0, cp.z << 4, (cp.x << 4) | 15, WORLD_HEIGHT - 1, (cp.z << 4) | 15);
 			}
 			if (bs.isEmpty()) {

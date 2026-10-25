@@ -19,9 +19,9 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements IControlReceiver, IGUIProvider {
-	
+
 	public int selectedRecipe = -1;
-	
+
 	public AnimationState animState = AnimationState.LIFTING;
 
 	public int playAnimation = 0;
@@ -29,7 +29,7 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 	public float lift = 0F;
 	public float prevPress = 0F;
 	public float press = 0F;
-	
+
 	public static enum AnimationState {
 		LIFTING, PRESSING, RETRACTING, LOWERING
 	}
@@ -50,10 +50,10 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 			this.performRecipe();
 			this.networkPackNT(25);
 		} else {
-			
+
 			this.prevLift = this.lift;
 			this.prevPress = this.press;
-			
+
 			if(playAnimation > 0 || lift > 0) switch(animState) {
 			case LIFTING:
 				this.lift += 1F / 40F;
@@ -82,7 +82,7 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 			}
 		}
 	}
-	
+
 	// we want to update the output every time the grid changes, but producing output changes the grid again, so we just put a recursion brake on this fucker
 	public static boolean recipeLock = false;
 
@@ -90,7 +90,7 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 	public void setInventorySlotContents(int slot, ItemStack stack) {
 		super.setInventorySlotContents(slot, stack);
 		/*if(this.worldObj.isRemote) return;
-		
+
 		//while this allowed one shift click to process absolutely everything, it also caused a fuckton of issues
 		if(!recipeLock) {
 			recipeLock = true;
@@ -98,54 +98,54 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 			recipeLock = false;
 		}*/
 	}
-	
+
 	public void performRecipe() {
 		if(selectedRecipe < 0 || selectedRecipe >= AmmoPressRecipes.recipes.size()) return;
-		
+
 		AmmoPressRecipe recipe = AmmoPressRecipes.recipes.get(selectedRecipe);
-		
+
 		if(slots[9] != null) {
 			if(slots[9].getItem() != recipe.output.getItem()) return;
 			if(slots[9].getItemDamage() != recipe.output.getItemDamage()) return;
-			if(slots[9].stackSize +  recipe.output.stackSize > slots[9].getMaxStackSize()) return;
+			if(slots[9].getCount() +  recipe.output.getCount() > slots[9].getMaxStackSize()) return;
 		}
-		
+
 		if(this.hasIngredients(recipe)) {
 			this.produceAmmo(recipe);
 			performRecipe();
 		}
 	}
-	
+
 	public boolean hasIngredients(AmmoPressRecipe recipe) {
-		
+
 		for(int i = 0; i < 9; i++) {
 			if(recipe.input[i] == null && slots[i] == null) continue;
 			if(recipe.input[i] != null && slots[i] == null) return false;
 			if(recipe.input[i] == null && slots[i] != null) return false;
 			if(!recipe.input[i].matchesRecipe(slots[i], false)) return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	//implies hasIngredients returns true, will violently explode otherwise
 	protected void produceAmmo(AmmoPressRecipe recipe) {
-		
+
 		for(int i = 0; i < 9; i++) {
 			if(recipe.input[i] != null) this.decrStackSize(i, recipe.input[i].stacksize);
 		}
-		
+
 		if(slots[9] == null) {
 			slots[9] = recipe.output.copy();
 		} else {
-			slots[9].stackSize += recipe.output.stackSize;
+			slots[9].grow(recipe.output.getCount());
 		}
-		
+
 		this.playAnimation = 40;
 	}
 
 	public int[] access = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-	
+
 	@Override
 	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
 		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
@@ -162,7 +162,7 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
 		if(slot > 8) return false;
 		if(selectedRecipe < 0 || selectedRecipe >= AmmoPressRecipes.recipes.size()) return false;
-		
+
 		AmmoPressRecipe recipe = AmmoPressRecipes.recipes.get(selectedRecipe);
 		if(recipe.input[slot] == null) return false;
 		return recipe.input[slot].matchesRecipe(stack, true);
@@ -172,21 +172,21 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 		super.serialize(buf);
 		buf.writeInt(this.selectedRecipe);
 		buf.writeInt(this.playAnimation);
-		
+
 	}
-	
+
 	@Override public void deserialize(ByteBuf buf) {
 		super.deserialize(buf);
 		this.selectedRecipe = buf.readInt();
 		this.playAnimation = buf.readInt();
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		this.selectedRecipe = nbt.getInteger("recipe");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
@@ -206,14 +206,14 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 		else this.selectedRecipe = newRecipe;
 		this.markDirty();
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -222,10 +222,10 @@ public class TileEntityMachineAmmoPress extends TileEntityMachineBase implements
 					this.pos.getZ() + 2
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

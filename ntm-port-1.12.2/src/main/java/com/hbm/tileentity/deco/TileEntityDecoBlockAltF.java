@@ -35,7 +35,7 @@ public class TileEntityDecoBlockAltF extends TileEntity implements net.minecraft
         int i2 = MathHelper.floor(this.pos.getY() + wat + 1.0D);
         int l = MathHelper.floor(this.pos.getZ() - wat - 1.0D);
         int j2 = MathHelper.floor(this.pos.getZ() + wat + 1.0D);
-        List list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(i, k, l, j, i2, j2));
+        List list = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(i, k, l, j, i2, j2));
         new Vec3d(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
         for (int i1 = 0; i1 < list.size(); ++i1)
@@ -61,12 +61,12 @@ public class TileEntityDecoBlockAltF extends TileEntity implements net.minecraft
 
         strength = (int)f;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()

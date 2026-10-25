@@ -16,19 +16,24 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemBook extends Item implements IGUIProvider {
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
-		
+
 		list.add("Edition 4, gold lined pages");
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+
 		if(!world.isRemote)
 			player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
-		
+
 		return stack;
 	}
 

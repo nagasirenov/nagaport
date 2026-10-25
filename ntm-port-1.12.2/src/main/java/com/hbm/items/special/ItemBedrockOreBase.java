@@ -75,7 +75,7 @@ public class ItemBedrockOreBase extends Item {
 
 		double scale = 0.01D;
 
-		return MathHelper.clamp_double(Math.abs(level.func_151601_a(x * scale, z * scale) * ore.func_151601_a(x * scale, z * scale)) * 0.05, 0, 2);
+		return MathHelper.clamp(Math.abs(level.getValue(x * scale, z * scale) * ore.getValue(x * scale, z * scale)) * 0.05, 0, 2);
 	}
 
 	private static Map<Long, NoiseGeneratorPerlin> generators = new HashMap<>();
@@ -85,8 +85,16 @@ public class ItemBedrockOreBase extends Item {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 
 		for(SolarSystem.Body body : SolarSystem.Body.values()) {

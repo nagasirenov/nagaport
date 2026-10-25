@@ -47,7 +47,7 @@ public class ContainerFEL extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof api.hbm.energymk2.IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 0, 1, false)) return null;
 				} else {
@@ -55,7 +55,7 @@ public class ContainerFEL extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

@@ -38,16 +38,24 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(!ServerConfig.CRATE_OPEN_HELD.get()) return stack;
 
-		Block block = Block.getBlockFromItem(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem());
+		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
+		if(held == null) return stack;
+		Block block = Block.getBlockFromItem(held.getItem());
 		if(block == ModBlocks.mass_storage) return stack; // Genuinely can't figure out how to make this part work, so I'm just not gonna mess with it.
 
-		if(!world.isRemote && stack.stackSize == 1) {
+		if(!world.isRemote && stack.getCount() == 1) {
 			if(stack.getTagCompound() != null && stack.getTagCompound().hasKey("lock")) {
 				for(ItemStack item : player.inventory.mainInventory) {
-					if (item == ItemStack.EMPTY) item = null;
+					if (item == null || item.isEmpty()) continue;
 
 					if(item == null) continue; // Skip if no item.
 					if(!(item.getItem() instanceof ItemKey)) continue; // Skip if item isn't a key.
@@ -93,7 +101,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 	}
 
 	public static class InventoryCrate extends ItemInventory {
-		
+
 		public static Random rand = new Random();
 
 		public InventoryCrate(EntityPlayer player, ItemStack crate) {
@@ -140,7 +148,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 		public boolean hasCustomName() {
 			return target.hasDisplayName();
 		}
-		
+
 		@Override
 		public net.minecraft.util.text.ITextComponent getDisplayName() {
 			return hasCustomName() ? new net.minecraft.util.text.TextComponentString(getName()) : new net.minecraft.util.text.TextComponentTranslation(getName());
@@ -157,7 +165,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 			// Preserve existing NBT so we keep lock data and piders
 			NBTTagCompound nbt = target.getTagCompound() != null ? target.getTagCompound() : new NBTTagCompound();
 			int invSize = this.getSizeInventory();
-			
+
 			nbt.removeTag("stacklock");
 
 			for(int i = 0; i < invSize; i++) {
@@ -172,7 +180,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 				stack.writeToNBT(slot);
 				nbt.setTag("slot" + i, slot);
 			}
-			
+
 			// never, ever fucking ever remove the tag compound here, lack of tack compound makes the crate stackable
 			nbt.setLong("stacklock", rand.nextLong()); // add shit that prevents crates from stacking
 
@@ -186,10 +194,10 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 			// Check for 6kb item vomit
 			target.setTagCompound(checkNBT(target.getTagCompound()));
 			player.inventoryContainer.detectAndSendChanges();
-			
+
 			if(target.getTagCompound() != null) {
 				target.getTagCompound().removeTag("stacklock");
-				
+
 				if(target.getTagCompound().isEmpty()) {
 					target.setTagCompound(null); // if there's no tags left, clear compound to make the crate stackable again
 				} else {

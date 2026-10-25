@@ -17,14 +17,14 @@ public class ContainerOilburner extends Container {
 	public ContainerOilburner(InventoryPlayer invPlayer, TileEntityHeaterOilburner tedf) {
 
 		heater = tedf;
-		
+
 		//In
 		this.addSlotToContainer(new Slot(tedf, 0, 26, 17));
 		//Out
 		this.addSlotToContainer(new SlotTakeOnly(tedf, 1, 26, 53));
 		//Fluid ID
 		this.addSlotToContainer(new Slot(tedf, 2, 44, 71));
-		
+
 		int offset = 37;
 
 		for(int i = 0; i < 3; i++) {
@@ -52,7 +52,7 @@ public class ContainerOilburner extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(var5, 2, 3, false)) {
 						return null;
@@ -64,7 +64,7 @@ public class ContainerOilburner extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

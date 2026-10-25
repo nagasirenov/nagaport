@@ -15,14 +15,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
 public class BiomeSyncPacket implements IMessage {
-	
+
 	int chunkX;
 	int chunkZ;
 	byte blockX;
 	byte blockZ;
 	short biome;
 	short[] biomeArray;
-	
+
 	public BiomeSyncPacket() { }
 
 	public BiomeSyncPacket(int chunkX, int chunkZ, byte[] biomeArray) {
@@ -32,13 +32,13 @@ public class BiomeSyncPacket implements IMessage {
 	public BiomeSyncPacket(int blockX, int blockZ, byte biome) {
 		this(blockX, blockZ, (short) biome);
 	}
-	
+
 	public BiomeSyncPacket(int chunkX, int chunkZ, short[] biomeArray) {
 		this.chunkX = chunkX;
 		this.chunkZ = chunkZ;
 		this.biomeArray = biomeArray;
 	}
-	
+
 	public BiomeSyncPacket(int blockX, int blockZ, short biome) {
 		this.chunkX = blockX >> 4;
 		this.chunkZ = blockZ >> 4;
@@ -51,7 +51,7 @@ public class BiomeSyncPacket implements IMessage {
 	public void toBytes(ByteBuf buf) {
 		buf.writeInt(this.chunkX);
 		buf.writeInt(this.chunkZ);
-		
+
 		if(this.biomeArray == null) {
 			buf.writeBoolean(false);
 			buf.writeShort(this.biome);
@@ -69,7 +69,7 @@ public class BiomeSyncPacket implements IMessage {
 	public void fromBytes(ByteBuf buf) {
 		this.chunkX = buf.readInt();
 		this.chunkZ = buf.readInt();
-		
+
 		if(!buf.readBoolean()) {
 			this.biome = buf.readShort();
 			this.blockX = buf.readByte();
@@ -93,15 +93,15 @@ public class BiomeSyncPacket implements IMessage {
 	}
 
 	public static class Handler implements IMessageHandler<BiomeSyncPacket, IMessage> {
-		
+
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(BiomeSyncPacket m, MessageContext ctx) {
-			
+
 			World world = Minecraft.getMinecraft().world;
-			if(!world.getChunkProvider().chunkExists(m.chunkX, m.chunkZ)) return null;
-			Chunk chunk = world.getChunkFromChunkCoords(m.chunkX, m.chunkZ);
-			chunk.isModified = true;
+			if(world.getChunkProvider().getLoadedChunk(m.chunkX, m.chunkZ) == null) return null;
+			Chunk chunk = world.getChunk(m.chunkX, m.chunkZ);
+			chunk.markDirty();
 
 			if(Loader.isModLoaded(Compat.MOD_EIDS)) {
 				short[] target = WorldUtil.getBiomeShortArray(chunk);
@@ -126,7 +126,7 @@ public class BiomeSyncPacket implements IMessage {
 					}
 				}
 			}
-			
+
 			return null;
 		}
 	}

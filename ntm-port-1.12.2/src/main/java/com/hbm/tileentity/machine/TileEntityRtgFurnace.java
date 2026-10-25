@@ -21,6 +21,25 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
+
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
     @Override
     public boolean shouldRefresh(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos,
             net.minecraft.block.state.IBlockState oldState, net.minecraft.block.state.IBlockState newState) {
@@ -30,16 +49,16 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 
 
 	private ItemStack slots[];
-	
+
 	public int dualCookTime;
 	public static final int processingSpeed = 1000;
-	
+
 	private static final int[] slots_top = new int[] {0};
 	private static final int[] slots_bottom = new int[] {4};
 	private static final int[] slots_side = new int[] {1, 2, 3};
-	
+
 	private String customName;
-	
+
 	public TileEntityRtgFurnace() {
 		slots = new ItemStack[5];
 	}
@@ -77,15 +96,23 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.rtgFurnace";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.rtgFurnace";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
-	
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
+	}
+
 	public void setCustomName(String name) {
 		this.customName = name;
 		markDirty();
@@ -97,7 +124,7 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
@@ -105,7 +132,9 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
-	
+
+
+
 	//You scrubs aren't needed for anything (right now)
 	@Override
 	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
@@ -116,41 +145,41 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
 		return true;
 	}
-	
+
 	public boolean isLoaded() {
 		return RTGUtil.hasHeat(slots, slots_side);
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null)
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
-			
+
 			return itemStack1;
 		} else {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		NBTTagList list = nbt.getTagList("items", 10);
-		
+
 		dualCookTime = nbt.getShort("CookTime");
 		slots = new ItemStack[getSizeInventory()];
-		
+
 		for(int i = 0; i < list.tagCount(); i++)
 		{
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
@@ -163,13 +192,13 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 
 		customName = nbt.getString("name");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setShort("cookTime", (short) dualCookTime);
 		NBTTagList list = new NBTTagList();
-		
+
 		for(int i = 0; i < slots.length; i++)
 		{
 			if(slots[i] != null)
@@ -181,13 +210,13 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
 		return nbt;
 	}
-	
+
 	@Override
 	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace)
     {
@@ -206,84 +235,84 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return j != 0 || i != 1 || itemStack.getItem() == Items.BUCKET;
 	}
-	
+
 	public int getDiFurnaceProgressScaled(int i) {
 		return (dualCookTime * i) / processingSpeed;
 	}
-	
+
 	public boolean canProcess() {
 		if(slots[0] == null)
 		{
 			return false;
 		}
-        ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
+        ItemStack itemStack = FurnaceRecipes.instance().getSmeltingResult(this.slots[0]);
 		if(itemStack == null)
 		{
 			return false;
 		}
-		
+
 		if(slots[4] == null)
 		{
 			return true;
 		}
-		
+
 		if(!slots[4].isItemEqual(itemStack)) {
 			return false;
 		}
-		
-		if(slots[4].stackSize < getInventoryStackLimit() && slots[4].stackSize < slots[4].getMaxStackSize()) {
+
+		if(slots[4].getCount() < getInventoryStackLimit() && slots[4].getCount() < slots[4].getMaxStackSize()) {
 			return true;
 		}else{
-			return slots[4].stackSize < itemStack.getMaxStackSize();
+			return slots[4].getCount() < itemStack.getMaxStackSize();
 		}
 	}
-	
+
 	private void processItem() {
 		if(canProcess()) {
-	        ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
-			
+	        ItemStack itemStack = FurnaceRecipes.instance().getSmeltingResult(this.slots[0]);
+
 			if(slots[4] == null)
 			{
 				slots[4] = itemStack.copy();
 			}else if(slots[4].isItemEqual(itemStack)) {
-				slots[4].stackSize += itemStack.stackSize;
+				slots[4].grow(itemStack.getCount());
 			}
-			
+
 			for(int i = 0; i < 1; i++)
 			{
-				if(slots[i].stackSize <= 0)
+				if(slots[i].getCount() <= 0)
 				{
 					slots[i] = new ItemStack(slots[i].getItem());
 				}else{
-					slots[i].stackSize--;
+					slots[i].shrink(1);
 				}
-				if(slots[i].stackSize <= 0)
+				if(slots[i].getCount() <= 0)
 				{
 					slots[i] = null;
 				}
 			}
 		}
 	}
-	
+
 	public boolean hasPower() {
 		return isLoaded();
 	}
-	
+
 	public boolean isProcessing() {
 		return this.dualCookTime > 0;
 	}
-	
+
 	@Override
 	public void update() {
 		this.hasPower();
 		boolean flag1 = false;
-		
+
 		if(!this.world.isRemote)
 		{
 			if(hasPower() && canProcess())
 			{
 				dualCookTime += RTGUtil.updateRTGs(slots, slots_side);
-				
+
 				if(this.dualCookTime >= TileEntityRtgFurnace.processingSpeed)
 				{
 					this.dualCookTime = 0;
@@ -294,21 +323,21 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 				dualCookTime = 0;
 				RTGUtil.updateRTGs(slots, slots_side);
 			}
-			
+
 			boolean trigger = true;
-			
+
 			if(hasPower() && canProcess() && this.dualCookTime == 0)
 			{
 				trigger = false;
 			}
-			
+
 			if(trigger)
             {
                 flag1 = true;
                 MachineRtgFurnace.updateBlockState(this.dualCookTime > 0, this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
             }
 		}
-		
+
 		if(flag1)
 		{
 			this.markDirty();

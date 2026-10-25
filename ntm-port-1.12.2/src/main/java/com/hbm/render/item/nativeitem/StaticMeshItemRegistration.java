@@ -28,6 +28,7 @@ public final class StaticMeshItemRegistration {
     }
     @SubscribeEvent public void register(ModelRegistryEvent event) {
         location = modelLocation(item);
+        com.hbm.main.BakeOwnedModelLoader.registerMissing(location, "StaticMeshItemRegistration");
         for(int meta : metadata) ModelLoader.setCustomModelResourceLocation(item, meta, location);
     }
     @SubscribeEvent public void bake(ModelBakeEvent event) {

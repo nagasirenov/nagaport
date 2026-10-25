@@ -67,15 +67,19 @@ public class PlanetGen {
 	}
 
 	private static void registerDimension(int dimensionId, Class<? extends WorldProvider> clazz) {
-		DimensionManager.registerProviderType(dimensionId, clazz, false);
-		DimensionManager.registerDimension(dimensionId, dimensionId);
+		net.minecraft.world.DimensionType type = net.minecraft.world.DimensionType.register("hbm_dim_" + dimensionId, "_hbm" + dimensionId, dimensionId, clazz, false);
+		DimensionManager.registerDimension(dimensionId, type);
 
 		if(dimensionId != SpaceConfig.orbitDimension) spaceDimensions.add(dimensionId);
 	}
 
 	public static void overrideOverworldProvider() {
-		DimensionManager.unregisterProviderType(0);
-		DimensionManager.registerProviderType(0, WorldProviderEarth.class, true);
+		// Forge 1.12.2 registers dimension 0 as the vanilla Overworld during startup.
+		// Registering it again throws instead of replacing its provider.
+		if (DimensionManager.isDimensionRegistered(0)) return;
+
+		net.minecraft.world.DimensionType hbmOverworld = net.minecraft.world.DimensionType.register("hbm_overworld", "_hbm", 0, WorldProviderEarth.class, true);
+		DimensionManager.registerDimension(0, hbmOverworld);
 	}
 
 }

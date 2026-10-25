@@ -83,7 +83,7 @@ public class QMAWLoader implements IResourceManagerReloadListener {
 			dissectZip(modFile);
 		}
 
-		File devEnvManualFolder = new File(Minecraft.getMinecraft().mcDataDir.getAbsolutePath().replace("/eclipse/.".replace('/', File.separatorChar), "") + "/src/main/resources/assets/hbm/manual".replace('/', File.separatorChar));
+		File devEnvManualFolder = new File(Minecraft.getMinecraft().gameDir.getAbsolutePath().replace("/eclipse/.".replace('/', File.separatorChar), "") + "/src/main/resources/assets/hbm/manual".replace('/', File.separatorChar));
 		if(devEnvManualFolder.exists() && devEnvManualFolder.isDirectory()) {
 			MainRegistry.logger.info("[QMAW] Exploring " + devEnvManualFolder.getAbsolutePath());
 			dissectManualFolder(devEnvManualFolder);
@@ -98,11 +98,11 @@ public class QMAWLoader implements IResourceManagerReloadListener {
 			logPackAttempt(pack.getPackName());
 
 			if(pack instanceof FileResourcePack) {
-				dissectZip(((FileResourcePack) pack).resourcePackFile);
+				dissectZip(net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(net.minecraft.client.resources.AbstractResourcePack.class, (net.minecraft.client.resources.FileResourcePack) pack, "field_110597_b", "resourcePackFile"));
 			}
 
 			if(pack instanceof FolderResourcePack) {
-				dissectFolder(((FolderResourcePack) pack).resourcePackFile);
+				dissectFolder(net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(net.minecraft.client.resources.AbstractResourcePack.class, (net.minecraft.client.resources.FolderResourcePack) pack, "field_110597_b", "resourcePackFile"));
 			}
 		}
 	}

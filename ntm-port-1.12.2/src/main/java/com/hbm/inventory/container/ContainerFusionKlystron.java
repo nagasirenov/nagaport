@@ -12,14 +12,14 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerFusionKlystron extends Container {
-	
+
 	protected TileEntityFusionKlystron klystron;
-	
+
 	public ContainerFusionKlystron(InventoryPlayer invPlayer, TileEntityFusionKlystron tedf) {
 		this.klystron = tedf;
 
 		this.addSlotToContainer(new SlotNonRetarded(klystron, 0, 8, 72));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 17 + j * 18, 118 + i * 18));
@@ -30,7 +30,7 @@ public class ContainerFusionKlystron extends Container {
 			this.addSlotToContainer(new Slot(invPlayer, i, 17 + i * 18, 176));
 		}
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack copy = null;
@@ -43,7 +43,7 @@ public class ContainerFusionKlystron extends Container {
 			if(index == 0) {
 				if(!this.mergeItemStack(stack, 1, this.inventorySlots.size(), true)) return null;
 			} else {
-				
+
 				if(copy.getItem() instanceof IBatteryItem || copy.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 0, 1, false)) return null;
 				} else {
@@ -51,7 +51,7 @@ public class ContainerFusionKlystron extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
@@ -60,7 +60,7 @@ public class ContainerFusionKlystron extends Container {
 
 		return copy;
 	}
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return klystron.isUsableByPlayer(player);

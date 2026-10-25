@@ -36,9 +36,9 @@ public class ModItemsArmor {
 		mask_rag = NativeItemTextureRegistry.texture(new ModArmor(aMatRags, 0).setTranslationKey("mask_rag").setMaxStackSize(1), RefStrings.MODID + ":mask_rag");
 		mask_piss = NativeItemTextureRegistry.texture(new ModArmor(aMatRags, 0).setTranslationKey("mask_piss").setMaxStackSize(1), RefStrings.MODID + ":mask_piss");
 		hat = NativeItemTextureRegistry.texture(new ArmorHat(MainRegistry.aMatAlloy, 0).setTranslationKey("nossy_hat").setMaxStackSize(1), RefStrings.MODID + ":hat");
-		no9 = new ArmorNo9(MainRegistry.aMatSteel, 0).setTranslationKey("no9").setMaxStackSize(1).setTextureName(RefStrings.MODID + ":no9");
-		beta = new ItemDrop().setTranslationKey("beta").setMaxStackSize(1).setTextureName(RefStrings.MODID + ":beta");
-		
+		no9 = NativeItemTextureRegistry.texture(new ArmorNo9(MainRegistry.aMatSteel, 0).setTranslationKey("no9").setMaxStackSize(1), RefStrings.MODID + ":no9");
+		beta = NativeItemTextureRegistry.texture(new ItemDrop().setTranslationKey("beta").setMaxStackSize(1), RefStrings.MODID + ":beta");
+
 		euphemium_helmet = NativeItemTextureRegistry.texture(new ArmorEuphemium(MainRegistry.aMatEuph, 0).setTranslationKey("euphemium_helmet").setMaxStackSize(1), RefStrings.MODID + ":euphemium_helmet");
 		euphemium_plate = NativeItemTextureRegistry.texture(new ArmorEuphemium(MainRegistry.aMatEuph, 1).setTranslationKey("euphemium_plate").setMaxStackSize(1), RefStrings.MODID + ":euphemium_plate");
 		euphemium_legs = NativeItemTextureRegistry.texture(new ArmorEuphemium(MainRegistry.aMatEuph, 2).setTranslationKey("euphemium_legs").setMaxStackSize(1), RefStrings.MODID + ":euphemium_legs");
@@ -46,21 +46,21 @@ public class ModItemsArmor {
 
 
 		schrabidium_helmet = new ArmorFSB(MainRegistry.aMatSchrab, 0, RefStrings.MODID + ":textures/armor/schrabidium_1.png")
-				.addEffect(new PotionEffect(Potion.digSpeed.id, 20, 2))
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 2))
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 1))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 20, 2))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 2))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 1))
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 2))
-				.setUnlocalizedName("schrabidium_helmet").setTextureName(RefStrings.MODID + ":schrabidium_helmet");
+				.setTranslationKey("schrabidium_helmet");
 		schrabidium_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSchrab, 1, RefStrings.MODID + ":textures/armor/schrabidium_1.png").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey("schrabidium_plate"), RefStrings.MODID + ":schrabidium_plate");
 		schrabidium_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSchrab, 2, RefStrings.MODID + ":textures/armor/schrabidium_2.png").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey("schrabidium_legs"), RefStrings.MODID + ":schrabidium_legs");
 		schrabidium_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatSchrab, 3, RefStrings.MODID + ":textures/armor/schrabidium_1.png").cloneStats((ArmorFSB) schrabidium_helmet).setTranslationKey("schrabidium_boots"), RefStrings.MODID + ":schrabidium_boots");
 		bismuth_helmet = new ArmorBismuth(MainRegistry.aMatBismuth, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png")
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 6))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 6))
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 6))
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20, 1))
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION, 15 * 20, 0))
 				.setDashCount(3)
-				.setUnlocalizedName("bismuth_helmet").setTextureName(RefStrings.MODID + ":bismuth_helmet");
+				.setTranslationKey("bismuth_helmet");
 		bismuth_plate = NativeItemTextureRegistry.texture(new ArmorBismuth(MainRegistry.aMatBismuth, 1, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey("bismuth_plate"), RefStrings.MODID + ":bismuth_plate");
 		bismuth_legs = NativeItemTextureRegistry.texture(new ArmorBismuth(MainRegistry.aMatBismuth, 2, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey("bismuth_legs"), RefStrings.MODID + ":bismuth_legs");
 		bismuth_boots = NativeItemTextureRegistry.texture(new ArmorBismuth(MainRegistry.aMatBismuth, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey("bismuth_boots"), RefStrings.MODID + ":bismuth_boots");
@@ -78,17 +78,17 @@ public class ModItemsArmor {
 		alloy_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAlloy, 3, RefStrings.MODID + ":textures/armor/alloy_1.png").cloneStats((ArmorFSB) alloy_helmet).setTranslationKey("alloy_boots"), RefStrings.MODID + ":alloy_boots");
 		cmb_helmet = new ArmorFSB(MainRegistry.aMatCMB, 0, RefStrings.MODID + ":textures/armor/cmb_1.png")
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 2))
-				.addEffect(new PotionEffect(Potion.digSpeed.id, 20, 2))
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 4))
-				.setUnlocalizedName("cmb_helmet").setTextureName(RefStrings.MODID + ":cmb_helmet");
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 20, 2))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 4))
+				.setTranslationKey("cmb_helmet");
 		cmb_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCMB, 1, RefStrings.MODID + ":textures/armor/cmb_1.png").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey("cmb_plate"), RefStrings.MODID + ":cmb_plate");
 		cmb_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCMB, 2, RefStrings.MODID + ":textures/armor/cmb_2.png").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey("cmb_legs"), RefStrings.MODID + ":cmb_legs");
 		cmb_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatCMB, 3, RefStrings.MODID + ":textures/armor/cmb_1.png").cloneStats((ArmorFSB) cmb_helmet).setTranslationKey("cmb_boots"), RefStrings.MODID + ":cmb_boots");
 		paa_plate = new ArmorFSB(MainRegistry.aMatPaa, 1, RefStrings.MODID + ":textures/armor/paa_1.png").setNoHelmet(true)
-				.addEffect(new PotionEffect(Potion.digSpeed.id, 20, 0)).setUnlocalizedName("paa_plate").setTextureName(RefStrings.MODID + ":paa_plate");
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 20, 0)).setTranslationKey("paa_plate");
 		paa_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatPaa, 2, RefStrings.MODID + ":textures/armor/paa_2.png").cloneStats((ArmorFSB) paa_plate).setTranslationKey("paa_legs"), RefStrings.MODID + ":paa_legs");
 		paa_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatPaa, 3, RefStrings.MODID + ":textures/armor/paa_1.png").cloneStats((ArmorFSB) paa_plate).setTranslationKey("paa_boots"), RefStrings.MODID + ":paa_boots");
-		asbestos_helmet = new ArmorFSB(MainRegistry.aMatAsbestos, 0, RefStrings.MODID + ":textures/armor/asbestos_1.png").setOverlay(RefStrings.MODID + ":textures/misc/overlay_asbestos.png").setUnlocalizedName("asbestos_helmet").setTextureName(RefStrings.MODID + ":asbestos_helmet");
+		asbestos_helmet = new ArmorFSB(MainRegistry.aMatAsbestos, 0, RefStrings.MODID + ":textures/armor/asbestos_1.png").setOverlay(RefStrings.MODID + ":textures/misc/overlay_asbestos.png").setTranslationKey("asbestos_helmet");
 		asbestos_plate = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAsbestos, 1, RefStrings.MODID + ":textures/armor/asbestos_1.png").setTranslationKey("asbestos_plate"), RefStrings.MODID + ":asbestos_plate");
 		asbestos_legs = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAsbestos, 2, RefStrings.MODID + ":textures/armor/asbestos_2.png").setTranslationKey("asbestos_legs"), RefStrings.MODID + ":asbestos_legs");
 		asbestos_boots = NativeItemTextureRegistry.texture(new ArmorFSB(MainRegistry.aMatAsbestos, 3, RefStrings.MODID + ":textures/armor/asbestos_1.png").setTranslationKey("asbestos_boots"), RefStrings.MODID + ":asbestos_boots");
@@ -130,12 +130,12 @@ public class ModItemsArmor {
 				.enableVATS(true)
 				.setHasGeigerSound(true)
 				.setHasHardLanding(true)
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 0))
 				.setStep("hbm:step.metal").setJump("hbm:step.iron_jump").setFall("hbm:step.iron_land")
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_NO_LIGHT).setRadResist(1D /*90%*/)
-				.setUnlocalizedName("t51_helmet").setMaxStackSize(1).setTextureName(RefStrings.MODID + ":armor");
+				.setTranslationKey("t51_helmet").setMaxStackSize(1);
 		t51_plate = NativeItemTextureRegistry.texture(new ArmorT51(aMatT51, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey("t51_plate").setMaxStackSize(1), RefStrings.MODID + ":armor");
 		t51_legs = NativeItemTextureRegistry.texture(new ArmorT51(aMatT51, 2, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey("t51_legs").setMaxStackSize(1), RefStrings.MODID + ":armor");
 		t51_boots = NativeItemTextureRegistry.texture(new ArmorT51(aMatT51, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey("t51_boots").setMaxStackSize(1), RefStrings.MODID + ":armor");
@@ -144,11 +144,11 @@ public class ModItemsArmor {
 		aMatDesh.repairMaterial = new ItemStack(ModItems.ingot_desh, 1, OreDictionary.WILDCARD_VALUE);
 		steamsuit_helmet = new ArmorDesh(aMatDesh, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64_000, 500, 50, 1)
 				.setHasHardLanding(true)
-				.addEffect(new PotionEffect(Potion.digSpeed.id, 20, 4))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 20, 4))
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(1.3D /*95%*/)
-				.setUnlocalizedName("steamsuit_helmet").setMaxStackSize(1).setTextureName(RefStrings.MODID + ":steamsuit_helmet");
+				.setTranslationKey("steamsuit_helmet").setMaxStackSize(1);
 		steamsuit_plate = NativeItemTextureRegistry.texture(new ArmorDesh(aMatDesh, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey("steamsuit_plate").setMaxStackSize(1), RefStrings.MODID + ":steamsuit_plate");
 		steamsuit_legs = NativeItemTextureRegistry.texture(new ArmorDesh(aMatDesh, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey("steamsuit_legs").setMaxStackSize(1), RefStrings.MODID + ":steamsuit_legs");
 		steamsuit_boots = NativeItemTextureRegistry.texture(new ArmorDesh(aMatDesh, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey("steamsuit_boots").setMaxStackSize(1), RefStrings.MODID + ":steamsuit_boots");
@@ -157,10 +157,10 @@ public class ModItemsArmor {
 		aMatDiesel.repairMaterial = new ItemStack(ModItems.plate_copper, 1, OreDictionary.WILDCARD_VALUE);
 		dieselsuit_helmet = new ArmorDiesel(aMatDiesel, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64_000, 500, 50, 1)
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 2))
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 2))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 2))
 				.enableThermalSight(true)
 				.enableVATS(true)
-				.setUnlocalizedName("dieselsuit_helmet").setMaxStackSize(1).setTextureName(RefStrings.MODID + ":dieselsuit_helmet");
+				.setTranslationKey("dieselsuit_helmet").setMaxStackSize(1);
 		dieselsuit_plate = NativeItemTextureRegistry.texture(new ArmorDiesel(aMatDiesel, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey("dieselsuit_plate").setMaxStackSize(1), RefStrings.MODID + ":dieselsuit_plate");
 		dieselsuit_legs = NativeItemTextureRegistry.texture(new ArmorDiesel(aMatDiesel, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey("dieselsuit_legs").setMaxStackSize(1), RefStrings.MODID + ":dieselsuit_legs");
 		dieselsuit_boots = NativeItemTextureRegistry.texture(new ArmorDiesel(aMatDiesel, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey("dieselsuit_boots").setMaxStackSize(1), RefStrings.MODID + ":dieselsuit_boots");
@@ -171,13 +171,13 @@ public class ModItemsArmor {
 				.enableVATS(true)
 				.setHasGeigerSound(true)
 				.setHasHardLanding(true)
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 0))
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 0))
 				.setStep("hbm:step.metal").setJump("hbm:step.iron_jump").setFall("hbm:step.iron_land")
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(1.3D /*95%*/)
-				.setUnlocalizedName("ajr_helmet").setTextureName(RefStrings.MODID + ":ajr_helmet");
+				.setTranslationKey("ajr_helmet");
 		ajr_plate = NativeItemTextureRegistry.texture(new ArmorAJR(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey("ajr_plate"), RefStrings.MODID + ":ajr_plate");
 		ajr_legs = NativeItemTextureRegistry.texture(new ArmorAJR(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey("ajr_legs"), RefStrings.MODID + ":ajr_legs");
 		ajr_boots = NativeItemTextureRegistry.texture(new ArmorAJR(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey("ajr_boots"), RefStrings.MODID + ":ajr_boots");
@@ -186,13 +186,13 @@ public class ModItemsArmor {
 				.enableVATS(true)
 				.setHasGeigerSound(true)
 				.setHasHardLanding(true)
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 0))
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 0))
 				.setStep("hbm:step.metal").setJump("hbm:step.iron_jump").setFall("hbm:step.iron_land")
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(1.3D /*95%*/)
-				.setUnlocalizedName("ajro_helmet").setTextureName(RefStrings.MODID + ":ajro_helmet");
+				.setTranslationKey("ajro_helmet");
 		ajro_plate = NativeItemTextureRegistry.texture(new ArmorAJRO(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey("ajro_plate"), RefStrings.MODID + ":ajro_plate");
 		ajro_legs = NativeItemTextureRegistry.texture(new ArmorAJRO(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey("ajro_legs"), RefStrings.MODID + ":ajro_legs");
 		ajro_boots = NativeItemTextureRegistry.texture(new ArmorAJRO(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey("ajro_boots"), RefStrings.MODID + ":ajro_boots");
@@ -201,14 +201,14 @@ public class ModItemsArmor {
 				.enableVATS(true)
 				.setHasGeigerSound(true)
 				.setHasHardLanding(true)
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 3))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 3))
 				.setStep("hbm:step.powered")
 				.setJump("hbm:step.powered")
 				.setFall("hbm:step.powered")
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(2D /*99%*/)
-				.setUnlocalizedName("rpa_helmet").setTextureName(RefStrings.MODID + ":rpa_helmet");
+				.setTranslationKey("rpa_helmet");
 		rpa_plate = NativeItemTextureRegistry.texture(new ArmorRPA(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey("rpa_plate"), RefStrings.MODID + ":rpa_plate");
 		rpa_legs = NativeItemTextureRegistry.texture(new ArmorRPA(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey("rpa_legs"), RefStrings.MODID + ":rpa_legs");
 		rpa_boots = NativeItemTextureRegistry.texture(new ArmorRPA(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey("rpa_boots"), RefStrings.MODID + ":rpa_boots");
@@ -217,14 +217,14 @@ public class ModItemsArmor {
 				.enableVATS(true)
 				.setHasGeigerSound(true)
 				.setHasHardLanding(true)
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 3))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 3))
 				.setStep("hbm:step.powered")
 				.setJump("hbm:step.powered")
 				.setFall("hbm:step.powered")
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(1.7D /*97%*/)
-				.setUnlocalizedName("ncrpa_helmet").setTextureName(RefStrings.MODID + ":rpa_helmet");
+				.setTranslationKey("ncrpa_helmet");
 		ncrpa_plate = NativeItemTextureRegistry.texture(new ArmorNCRPA(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey("ncrpa_plate"), RefStrings.MODID + ":rpa_plate");
 		ncrpa_legs = NativeItemTextureRegistry.texture(new ArmorNCRPA(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey("ncrpa_legs"), RefStrings.MODID + ":rpa_legs");
 		ncrpa_boots = NativeItemTextureRegistry.texture(new ArmorNCRPA(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey("ncrpa_boots"), RefStrings.MODID + ":rpa_boots");
@@ -237,14 +237,14 @@ public class ModItemsArmor {
 				.setHasGeigerSound(true)
 				.setHasHardLanding(true)
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 1))
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 0))
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 20, 0))
-				.addEffect(new PotionEffect(HbmPotion.radx.id, 20, 0))
+				.addEffect(new PotionEffect(HbmPotion.radx, 20, 0))
 				.setStep("hbm:step.metal")
 				.setJump("hbm:step.iron_jump")
 				.setFall("hbm:step.iron_land")
 				.setRadResist(1D /*90%*/)
-				.setUnlocalizedName("bj_helmet").setTextureName(RefStrings.MODID + ":bj_helmet");
+				.setTranslationKey("bj_helmet");
 		bj_plate = NativeItemTextureRegistry.texture(new ArmorBJ(aMatBJ, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey("bj_plate"), RefStrings.MODID + ":bj_plate");
 		bj_plate_jetpack = NativeItemTextureRegistry.texture(new ArmorBJJetpack(aMatBJ, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey("bj_plate_jetpack"), RefStrings.MODID + ":bj_plate_jetpack");
 		bj_legs = NativeItemTextureRegistry.texture(new ArmorBJ(aMatBJ, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey("bj_legs"), RefStrings.MODID + ":bj_legs");
@@ -254,11 +254,11 @@ public class ModItemsArmor {
 		aMatEnv.repairMaterial = new ItemStack(ModItems.plate_armor_hev, 1, OreDictionary.WILDCARD_VALUE);
 		envsuit_helmet = new ArmorEnvsuit(aMatEnv, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100_000, 1_000, 250, 0)
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 1))
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 0))
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(1.0D /*90%*/)
-				.setUnlocalizedName("envsuit_helmet").setTextureName(RefStrings.MODID + ":envsuit_helmet");
+				.setTranslationKey("envsuit_helmet");
 		envsuit_plate = NativeItemTextureRegistry.texture(new ArmorEnvsuit(aMatEnv, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey("envsuit_plate"), RefStrings.MODID + ":envsuit_plate");
 		envsuit_legs = NativeItemTextureRegistry.texture(new ArmorEnvsuit(aMatEnv, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey("envsuit_legs"), RefStrings.MODID + ":envsuit_legs");
 		envsuit_boots = NativeItemTextureRegistry.texture(new ArmorEnvsuit(aMatEnv, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey("envsuit_boots"), RefStrings.MODID + ":envsuit_boots");
@@ -267,13 +267,13 @@ public class ModItemsArmor {
 		aMatHEV.repairMaterial = new ItemStack(ModItems.plate_armor_hev, 1, OreDictionary.WILDCARD_VALUE);
 		hev_helmet = new ArmorHEV(aMatHEV, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0)
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 1))
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 0))
 				.setHasGeigerSound(true)
 				.setHasCustomGeiger(true)
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(2.3D /*99.5%*/)
-				.setUnlocalizedName("hev_helmet").setTextureName(RefStrings.MODID + ":hev_helmet");
+				.setTranslationKey("hev_helmet");
 		hev_plate = NativeItemTextureRegistry.texture(new ArmorHEV(aMatHEV, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey("hev_plate"), RefStrings.MODID + ":hev_plate");
 		hev_legs = NativeItemTextureRegistry.texture(new ArmorHEV(aMatHEV, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey("hev_legs"), RefStrings.MODID + ":hev_legs");
 		hev_boots = NativeItemTextureRegistry.texture(new ArmorHEV(aMatHEV, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey("hev_boots"), RefStrings.MODID + ":hev_boots");
@@ -284,7 +284,7 @@ public class ModItemsArmor {
 		ArmorMaterial aMatFau = EnumHelper.addArmorMaterial("HBM_DIGAMMA", "leather", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
 		aMatFau.repairMaterial = new ItemStack(ModItems.plate_armor_fau, 1, OreDictionary.WILDCARD_VALUE);
 		fau_helmet = new ArmorDigamma(aMatFau, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 2500, 0)
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 1))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 1))
 				.setHasGeigerSound(true)
 				.enableThermalSight(true)
 				.setHasHardLanding(true)
@@ -294,17 +294,17 @@ public class ModItemsArmor {
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(4D /*99.99%*/)
-				.setUnlocalizedName("fau_helmet").setTextureName(RefStrings.MODID + ":fau_helmet");
-		fau_plate = new ArmorDigamma(aMatFau, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).setFullSetForHide().setUnlocalizedName("fau_plate").setTextureName(RefStrings.MODID + ":fau_plate");
-		fau_legs = new ArmorDigamma(aMatFau, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).hides(EnumPlayerPart.LEFT_LEG, EnumPlayerPart.RIGHT_LEG).setFullSetForHide().setUnlocalizedName("fau_legs").setTextureName(RefStrings.MODID + ":fau_legs");
+				.setTranslationKey("fau_helmet");
+		fau_plate = new ArmorDigamma(aMatFau, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).setFullSetForHide().setTranslationKey("fau_plate");
+		fau_legs = new ArmorDigamma(aMatFau, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).hides(EnumPlayerPart.LEFT_LEG, EnumPlayerPart.RIGHT_LEG).setFullSetForHide().setTranslationKey("fau_legs");
 		fau_boots = NativeItemTextureRegistry.texture(new ArmorDigamma(aMatFau, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).setTranslationKey("fau_boots"), RefStrings.MODID + ":fau_boots");
 
 		ArmorMaterial aMatDNS = EnumHelper.addArmorMaterial("HBM_DNT_NANO", "leather", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
 		aMatDNS.repairMaterial = new ItemStack(ModItems.plate_armor_dnt, 1, OreDictionary.WILDCARD_VALUE);
 		dns_helmet = new ArmorDNT(aMatDNS, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115)
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 9))
-				.addEffect(new PotionEffect(Potion.digSpeed.id, 20, 7))
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 2))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 9))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 20, 7))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 2))
 				.setHasGeigerSound(true)
 				.enableVATS(true)
 				.enableThermalSight(true)
@@ -315,7 +315,7 @@ public class ModItemsArmor {
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(5D /*99.999%*/)
-				.setUnlocalizedName("dns_helmet").setTextureName(RefStrings.MODID + ":dns_helmet");
+				.setTranslationKey("dns_helmet");
 		dns_plate = NativeItemTextureRegistry.texture(new ArmorDNT(aMatDNS, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey("dns_plate"), RefStrings.MODID + ":dns_plate");
 		dns_legs = NativeItemTextureRegistry.texture(new ArmorDNT(aMatDNS, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey("dns_legs"), RefStrings.MODID + ":dns_legs");
 		dns_boots = NativeItemTextureRegistry.texture(new ArmorDNT(aMatDNS, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey("dns_boots"), RefStrings.MODID + ":dns_boots");
@@ -323,28 +323,28 @@ public class ModItemsArmor {
 		ArmorMaterial aMatTaurun = EnumHelper.addArmorMaterial("HBM_TRENCH", "leather", 150, new int[] { 3, 6, 8, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
 		aMatTaurun.repairMaterial = new ItemStack(ModItems.plate_iron, 1, OreDictionary.WILDCARD_VALUE);
 		taurun_helmet = new ArmorTaurun(aMatTaurun, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png")
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 0))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 0))
 				.setStepSize(1)
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setHazardClass(ArmorUtil.FULL_PACKAGE).setRadResist(0.125D /*25%*/)
-				.setUnlocalizedName("taurun_helmet").setTextureName(RefStrings.MODID + ":taurun_helmet");
+				.setTranslationKey("taurun_helmet");
 		taurun_plate = NativeItemTextureRegistry.texture(new ArmorTaurun(aMatTaurun, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey("taurun_plate"), RefStrings.MODID + ":taurun_plate");
 		taurun_legs = NativeItemTextureRegistry.texture(new ArmorTaurun(aMatTaurun, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey("taurun_legs"), RefStrings.MODID + ":taurun_legs");
 		taurun_boots = NativeItemTextureRegistry.texture(new ArmorTaurun(aMatTaurun, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey("taurun_boots"), RefStrings.MODID + ":taurun_boots");
 		ArmorMaterial aMatTrench = EnumHelper.addArmorMaterial("HBM_TRENCH", "leather", 150, new int[] { 3, 6, 8, 3 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
 		aMatTrench.repairMaterial = new ItemStack(ModItems.plate_iron, 1, OreDictionary.WILDCARD_VALUE);
 		trenchmaster_helmet = new ArmorTrenchmaster(aMatTrench, 0, RefStrings.MODID + ":textures/armor/starmetal_1.png")
-				.addEffect(new PotionEffect(Potion.damageBoost.id, 20, 2))
-				.addEffect(new PotionEffect(Potion.digSpeed.id, 20, 1))
-				.addEffect(new PotionEffect(Potion.jump.id, 20, 1))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20, 2))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 20, 1))
+				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 20, 1))
 				.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 0))
 				.enableVATS(true)
 				.setStepSize(1)
 				.setSealed(true)
 				.hides(EnumPlayerPart.HAT)
 				.setRadResist(1D /*90%*/)
-				.setHazardClass(ArmorUtil.FULL_PACKAGE).setUnlocalizedName("trenchmaster_helmet").setTextureName(RefStrings.MODID + ":trenchmaster_helmet");
+				.setHazardClass(ArmorUtil.FULL_PACKAGE).setTranslationKey("trenchmaster_helmet");
 		trenchmaster_plate = NativeItemTextureRegistry.texture(new ArmorTrenchmaster(aMatTrench, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey("trenchmaster_plate"), RefStrings.MODID + ":trenchmaster_plate");
 		trenchmaster_legs = NativeItemTextureRegistry.texture(new ArmorTrenchmaster(aMatTrench, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey("trenchmaster_legs"), RefStrings.MODID + ":trenchmaster_legs");
 		trenchmaster_boots = NativeItemTextureRegistry.texture(new ArmorTrenchmaster(aMatTrench, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey("trenchmaster_boots"), RefStrings.MODID + ":trenchmaster_boots");

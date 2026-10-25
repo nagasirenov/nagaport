@@ -10,7 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 
 public class TileEntityChimneyBrick extends TileEntityChimneyBase {
-	
+
 	@Override
 	public void spawnParticles() {
 
@@ -33,14 +33,14 @@ public class TileEntityChimneyBrick extends TileEntityChimneyBase {
 	public double getPollutionMod() {
 		return MobConfig.rampantMode ? MobConfig.rampantSmokeStackOverride : 0.25D;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -49,10 +49,10 @@ public class TileEntityChimneyBrick extends TileEntityChimneyBase {
 					this.pos.getZ() + 2
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

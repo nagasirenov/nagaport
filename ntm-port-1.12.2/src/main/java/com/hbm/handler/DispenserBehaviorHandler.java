@@ -59,6 +59,7 @@ import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
@@ -67,227 +68,227 @@ public class DispenserBehaviorHandler {
 	public static void init() {
 
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_generic, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeGeneric(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_strong, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeStrong(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_frag, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeFrag(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_fire, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeFire(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_cluster, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeCluster(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_flare, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeFlare(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_electric, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeElectric(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_poison, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadePoison(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_gas, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeGas(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_schrabidium, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeSchrabidium(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_nuke, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeNuke(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_nuclear, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeNuclear(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_pulse, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadePulse(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_plasma, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadePlasma(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_tau, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeTau(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_lemon, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeLemon(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_mk2, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeMk2(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_aschrab, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeASchrab(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_zomg, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeZOMG(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_shrapnel, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeShrapnel(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_black_hole, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeBlackHole(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_gascan, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeGascan(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_cloud, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeCloud(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_pink_cloud, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadePC(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_smart, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeSmart(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_mirv, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeMIRV(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_breach, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeBreach(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_burst, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeBurst(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_generic, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFGeneric(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_he, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFHE(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_bouncy, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFBouncy(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_sticky, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFSticky(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_impact, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFImpact(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_incendiary, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFIncendiary(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_toxic, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFToxic(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_concussion, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFConcussion(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_brimstone, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFBrimstone(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_mystery, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFMystery(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_spark, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFSpark(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_hopwire, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFHopwire(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_null, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeIFNull(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.nuclear_waste_pearl, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityWastePearl(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.stick_dynamite, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeDynamite(world, position.getX(), position.getY(), position.getZ());
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_kyiv, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeImpactGeneric(world, position.getX(), position.getY(), position.getZ()).setType((ItemGenericGrenade) ModItems.grenade_kyiv);
 			}
 		});
 		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.stick_dynamite_fishing, new BehaviorProjectileDispense() {
-			protected IProjectile getProjectileEntity(World world, IPosition position) {
+			protected IProjectile getProjectileEntity(World world, IPosition position, ItemStack stack) {
 				return new EntityGrenadeImpactGeneric(world, position.getX(), position.getY(), position.getZ()).setType((ItemGenericGrenade) ModItems.stick_dynamite_fishing);
 			}
 		});
@@ -297,19 +298,20 @@ public class DispenserBehaviorHandler {
 			private boolean dispenseSound = true;
 			@Override protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
 
-				EnumFacing facing = BlockDispenser.func_149937_b(source.getBlockMetadata());
+				EnumFacing facing = source.getBlockState().getValue(BlockDispenser.FACING);
 				World world = source.getWorld();
-				int x = source.getXInt() + facing.getFrontOffsetX();
-				int y = source.getYInt() + facing.getFrontOffsetY();
-				int z = source.getZInt() + facing.getFrontOffsetZ();
+				BlockPos targetPos = source.getBlockPos().offset(facing);
+				int x = targetPos.getX();
+				int y = targetPos.getY();
+				int z = targetPos.getZ();
 				this.dispenseSound = ItemFertilizer.useFertillizer(stack, world, x, y, z);
 				return stack;
 			}
 			@Override protected void playDispenseSound(IBlockSource source) {
 				if(this.dispenseSound) {
-					source.getWorld().playAuxSFX(1000, source.getXInt(), source.getYInt(), source.getZInt(), 0);
+					source.getWorld().playEvent(1000, source.getBlockPos(), 0);
 				} else {
-					source.getWorld().playAuxSFX(1001, source.getXInt(), source.getYInt(), source.getZInt(), 0);
+					source.getWorld().playEvent(1001, source.getBlockPos(), 0);
 				}
 			}
 		});
@@ -321,14 +323,15 @@ public class DispenserBehaviorHandler {
 			public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
 				World world = source.getWorld();
 				if(world.provider instanceof WorldProviderCelestial) {
-					EnumFacing facing = BlockDispenser.func_149937_b(source.getBlockMetadata());
-					int x = source.getXInt() + facing.getFrontOffsetX();
-					int y = source.getYInt() + facing.getFrontOffsetY();
-					int z = source.getZInt() + facing.getFrontOffsetZ();
+					EnumFacing facing = source.getBlockState().getValue(BlockDispenser.FACING);
+					int x = source.getBlockPos().getX() + facing.getXOffset();
+					int y = source.getBlockPos().getY() + facing.getYOffset();
+					int z = source.getBlockPos().getZ() + facing.getZOffset();
 
 					CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(world, x, y, z);
 					if(ChunkAtmosphereManager.proxy.hasLiquidPressure(atmosphere)) {
-						world.provider.isHellWorld = false;
+						net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.world.WorldProvider.class,
+								world.provider, false, "field_76575_d", "doesWaterVaporize");
 					}
 				}
 

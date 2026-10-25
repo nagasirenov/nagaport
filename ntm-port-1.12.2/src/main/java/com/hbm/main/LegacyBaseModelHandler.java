@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 
 import com.hbm.blocks.BlockBase;
 import com.hbm.blocks.IBlockMulti;
@@ -26,7 +27,12 @@ import com.hbm.render.model.LegacyBaseBakedModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.vertex.VertexFormat;
+import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
@@ -37,39 +43,68 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ICustomModelLoader;
+import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
+import net.minecraftforge.common.model.IModelState;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Registers real atlas-backed baked models for the safe legacy base subset.
- * Only ItemBlockBase forms of eligible cubes and ItemEnumMulti subtype items
- * are mapped; other item implementations can depend on custom renderers or
- * layered behavior and remain untouched.
+ * Eligible cubes retain their original per-face icon callbacks. Both standard
+ * and legacy ItemBlockBase forms are supported; enum items keep subtype routes.
+ * Non-cube and specialized render paths remain excluded.
  */
 @SideOnly(Side.CLIENT)
 public final class LegacyBaseModelHandler {
 
-	private final Map<ResourceLocation, BlockBase> eligibleBlocks = new HashMap<>();
-	private final Map<ModelResourceLocation, ItemModelInfo> itemModels = new HashMap<>();
+	private static final String PREFIX = "native_legacy_base/";
 
-	@SubscribeEvent
+	private final Map<ResourceLocation, BlockBase> eligibleBlocks = new HashMap<>();
+	private final Map<String, BlockBase> blockRoutes = new HashMap<>();
+	private final Map<ModelResourceLocation, ItemModelInfo> itemModels = new HashMap<>();
+	private final Map<String, ItemModelInfo> itemRoutes = new HashMap<>();
+	private final Loader loader = new Loader();
+	private boolean loaderRegistered;
+
+	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onModelRegistry(ModelRegistryEvent event) {
+		if(!loaderRegistered) {
+			ModelLoaderRegistry.registerLoader(loader);
+			loaderRegistered = true;
+		}
 		eligibleBlocks.clear();
+		blockRoutes.clear();
 		itemModels.clear();
+		itemRoutes.clear();
 
 		for(Block block : net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValuesCollection()) {
 			ResourceLocation name = block.getRegistryName();
-			if(!isNTM(name) || !(block instanceof BlockBase) || !isEligibleCube((BlockBase) block)) continue;
-			eligibleBlocks.put(name, (BlockBase) block);
+			if(!isNTM(name) || BakeOwnedModelLoader.hasBlockstate(name) || !(block instanceof BlockBase) ||
+					!isEligibleCube((BlockBase) block)) continue;
+			BlockBase legacyBlock = (BlockBase) block;
+			eligibleBlocks.put(name, legacyBlock);
+			final String route = PREFIX + name.getPath() + "/block";
+			final ModelResourceLocation model = new ModelResourceLocation(
+					new ResourceLocation(RefStrings.MODID, route), "normal");
+			blockRoutes.put(route, legacyBlock);
+			ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
+				@Override
+				protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+					return model;
+				}
+			});
 		}
 
 		Collection<Item> items = net.minecraftforge.fml.common.registry.ForgeRegistries.ITEMS.getValuesCollection();
 		for(Item item : items) {
-			if(!isNTM(item.getRegistryName())) continue;
+			if(!isNTM(item.getRegistryName()) || BakeOwnedModelLoader.hasInventoryAsset(item.getRegistryName())) continue;
 
-			if(item instanceof ItemBlockBase && item instanceof ItemBlock) {
+			if(item instanceof ItemBlockBase || item.getClass() == ItemBlock.class) {
 				Block placedBlock = ((ItemBlock) item).getBlock();
 				if(!(placedBlock instanceof BlockBase) || !eligibleBlocks.containsKey(placedBlock.getRegistryName())) continue;
 				int count = placedBlock instanceof IBlockMulti ? ((IBlockMulti) placedBlock).getSubCount() : 16;
@@ -88,20 +123,24 @@ public final class LegacyBaseModelHandler {
 		if(name == null) return;
 		int count = Math.max(1, requestedCount);
 		for(int meta = 0; meta < count; meta++) {
-			String variant = meta == 0 ? "inventory" : "inventory_" + meta;
-			ModelResourceLocation location = new ModelResourceLocation(name, variant);
+			String route = PREFIX + name.getPath() + "/item/" + meta;
+			ModelResourceLocation location = new ModelResourceLocation(
+					new ResourceLocation(RefStrings.MODID, route), "inventory");
 			ModelLoader.setCustomModelResourceLocation(item, meta, location);
-			itemModels.put(location, new ItemModelInfo(item, block, meta, cube));
+			ItemModelInfo info = new ItemModelInfo(item, block, meta, cube);
+			itemModels.put(location, info);
+			itemRoutes.put(route, info);
 		}
 	}
 
 	@SubscribeEvent
 	public void onModelBake(ModelBakeEvent event) {
-		registerColorHandlers();
-
 		for(ModelResourceLocation location : event.getModelRegistry().getKeys()) {
-			if(isItemVariant(location)) continue;
+			if(isItemVariant(location) || !needsCompatibilityModel(event, location)) continue;
 			BlockBase block = eligibleBlocks.get(new ResourceLocation(location.getNamespace(), location.getPath()));
+			if(block == null && RefStrings.MODID.equals(location.getNamespace())) {
+				block = blockRoutes.get(normalized(location));
+			}
 			if(block != null) {
 				LegacyBaseBakedModel model = LegacyBaseBakedModel.forBlock(block);
 				if(model.getParticleTexture() != null) event.getModelRegistry().putObject(location, model);
@@ -109,6 +148,7 @@ public final class LegacyBaseModelHandler {
 		}
 
 		for(Map.Entry<ModelResourceLocation, ItemModelInfo> entry : itemModels.entrySet()) {
+			if(!needsCompatibilityModel(event, entry.getKey())) continue;
 			ItemModelInfo info = entry.getValue();
 			LegacyBaseBakedModel model;
 			if(info.cube) {
@@ -122,7 +162,19 @@ public final class LegacyBaseModelHandler {
 		}
 	}
 
-	private void registerColorHandlers() {
+	private static boolean needsCompatibilityModel(ModelBakeEvent event, ModelResourceLocation location) {
+		net.minecraft.client.renderer.block.model.IBakedModel current = event.getModelRegistry().getObject(location);
+		return current == null || current == event.getModelManager().getMissingModel();
+	}
+
+	private static String normalized(ResourceLocation location) {
+		String path = location.getPath();
+		if(path.startsWith("models/")) path = path.substring(7);
+		if(path.startsWith("block/")) path = path.substring(6);
+		return path;
+	}
+
+	public void registerColorHandlers() {
 		Minecraft minecraft = Minecraft.getMinecraft();
 		BlockColors blockColors = minecraft.getBlockColors();
 		for(final BlockBase block : eligibleBlocks.values()) {
@@ -249,6 +301,50 @@ public final class LegacyBaseModelHandler {
 
 	private static boolean isNTM(ResourceLocation location) {
 		return location != null && RefStrings.MODID.equals(location.getNamespace());
+	}
+
+	private final class Loader implements ICustomModelLoader {
+		@Override
+		public void onResourceManagerReload(IResourceManager resourceManager) { }
+
+		@Override
+		public boolean accepts(ResourceLocation location) {
+			return RefStrings.MODID.equals(location.getNamespace()) && normalized(location).startsWith(PREFIX);
+		}
+
+		@Override
+		public IModel loadModel(ResourceLocation location) {
+			String route = normalized(location);
+			final BlockBase block = blockRoutes.get(route);
+			if(block != null) {
+				return new IModel() {
+					@Override
+					public IBakedModel bake(IModelState state, VertexFormat format,
+							Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
+						return LegacyBaseBakedModel.forBlock(block);
+					}
+				};
+			}
+
+			final ItemModelInfo info = itemRoutes.get(route);
+			if(info != null) {
+				return new IModel() {
+					@Override
+					public IBakedModel bake(IModelState state, VertexFormat format,
+							Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter) {
+						if(info.cube) {
+							return LegacyBaseBakedModel.forBlockItem((BlockBase) info.block, info.item, info.metadata);
+						}
+						if(info.item instanceof ItemEnumMulti) {
+							return LegacyBaseBakedModel.forEnumItem((ItemEnumMulti) info.item, info.metadata);
+						}
+						throw new IllegalStateException("Unsupported legacy item route " + route);
+					}
+				};
+			}
+
+			throw new IllegalArgumentException("Unknown legacy base model route " + location);
+		}
 	}
 
 	private static final class ItemModelInfo {

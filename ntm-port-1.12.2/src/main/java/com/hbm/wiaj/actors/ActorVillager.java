@@ -30,7 +30,7 @@ public class ActorVillager implements ISpecialActor {
 		double yaw = data.getDouble("yaw");
 		GL11.glTranslated(x, y, z);
 		GL11.glRotated(yaw, 0, 1, 0);
-		RenderManager.instance.renderEntityWithPosYaw(villager, 0D, 0D, 0D, 0F, interp);
+		net.minecraft.client.Minecraft.getMinecraft().getRenderManager().renderEntity(villager, 0D, 0D, 0D, 0F, interp, false);
 	}
 
 	@Override

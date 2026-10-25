@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:leaves_layer_1"
+    },
+    "metadata=1": {
+      "model": "hbm:leaves_layer_2"
+    },
+    "metadata=2": {
+      "model": "hbm:leaves_layer_3"
+    },
+    "metadata=3": {
+      "model": "hbm:leaves_layer_4"
+    },
+    "metadata=4": {
+      "model": "hbm:leaves_layer_5"
+    },
+    "metadata=5": {
+      "model": "hbm:leaves_layer_6"
+    },
+    "metadata=6": {
+      "model": "hbm:leaves_layer_7"
+    },
+    "metadata=7": {
+      "model": "hbm:leaves_layer_8"
+    },
+    "metadata=8": {
+      "model": "hbm:leaves_layer_1"
+    },
+    "metadata=9": {
+      "model": "hbm:leaves_layer_2"
+    },
+    "metadata=10": {
+      "model": "hbm:leaves_layer_3"
+    },
+    "metadata=11": {
+      "model": "hbm:leaves_layer_4"
+    },
+    "metadata=12": {
+      "model": "hbm:leaves_layer_5"
+    },
+    "metadata=13": {
+      "model": "hbm:leaves_layer_6"
+    },
+    "metadata=14": {
+      "model": "hbm:leaves_layer_7"
+    },
+    "metadata=15": {
+      "model": "hbm:leaves_layer_8"
+    }
+  }
+}

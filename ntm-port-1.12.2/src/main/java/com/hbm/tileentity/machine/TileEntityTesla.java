@@ -29,13 +29,13 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityTesla extends TileEntityMachineBase implements IEnergyReceiverMK2 {
-	
+
 	public long power;
 	public static final long maxPower = 100000;
-	
+
 	public static int range = 10;
 	public static double offset = 1.75;
-	
+
 	public List<double[]> targets = new ArrayList();
 
 	public TileEntityTesla() {
@@ -49,90 +49,90 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.updateConnections();
-			
+
 			this.targets.clear();
-			
-			if(this.world.getBlock(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()) == ModBlocks.meteor_battery)
+
+			if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()).getBlock() == ModBlocks.meteor_battery)
 				power = maxPower;
-			
+
 			if(power >= 5000) {
 				power -= 5000;
 
 				double dx = this.pos.getX() + 0.5;
 				double dy = this.pos.getY() + offset;
 				double dz = this.pos.getZ() + 0.5;
-				
+
 				this.targets = zap(this.world, dx, dy, dz, range, null);
 			}
-			
+
 			this.networkPackNT(100);
 		}
 	}
-	
+
 	private void updateConnections() {
-		
+
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
 			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
-	
+
 	public static List<double[]> zap(World worldObj, double x, double y, double z, double radius, Entity source) {
 
 		List<double[]> ret = new ArrayList();
-		
-		List<EntityLivingBase> targets = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(x - radius, y - radius, z - radius, x + radius, y + radius, z + radius));
-		
+
+		List<EntityLivingBase> targets = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x - radius, y - radius, z - radius, x + radius, y + radius, z + radius));
+
 		for(EntityLivingBase e : targets) {
-			
+
 			if(e instanceof EntityOcelot || e == source)
 				continue;
-			
+
 			Vec3d vec = new Vec3d(e.posX - x, e.posY + e.height / 2 - y, e.posZ - z);
-			
+
 			if(vec.length() > range)
 				continue;
 
 			if(Library.isObstructed(worldObj, x, y, z, e.posX, e.posY + e.height / 2, e.posZ))
 				continue;
-			
+
 			if(e instanceof EntityTaintCrab) {
 				ret.add(new double[] {e.posX, e.posY + 1.25, e.posZ});
 				e.heal(15F);
 				continue;
 			}
-			
+
 			if(e instanceof EntityTeslaCrab) {
 				ret.add(new double[] {e.posX, e.posY + 1, e.posZ});
 				e.heal(10F);
 				continue;
 			}
-			
+
 			if(e instanceof EntityCyberCrab) {
 				ret.add(new double[] {e.posX, e.posY + e.height / 2, e.posZ});
 				continue;
 			}
-			
+
 			if(e instanceof EntityCreeper) {
-				((EntityCreeper)e).getDataWatcher().updateObject(17, Byte.valueOf((byte)1));
+				net.minecraft.network.datasync.DataParameter<Boolean> powered = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(net.minecraft.entity.monster.EntityCreeper.class, null, "field_184714_b", "POWERED"); ((EntityCreeper)e).getDataManager().set(powered, Boolean.TRUE);
 				ret.add(new double[] {e.posX, e.posY + e.height / 2, e.posZ});
 				continue;
 			}
-			
+
 			if(!(e instanceof EntityPlayer && ArmorUtil.checkForFaraday((EntityPlayer)e)))
 				if(e.attackEntityFrom(ModDamageSource.electricity, MathHelper.clamp(e.getMaxHealth() * 0.5F, (float) (3), (float) (20)) / (float)targets.size()))
-					worldObj.playSoundAtEntity(e, "hbm:weapon.tesla", 1.0F, 1.0F);
-			
+					worldObj.playSound(null, e.posX, e.posY, e.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.tesla"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
+
 			double offset = 0;
-			
+
 			if(source != null && e instanceof EntityPlayer && worldObj.isRemote)
 				offset = e.height;
-			
+
 			ret.add(new double[] {e.posX, e.posY + e.height / 2 - offset, e.posZ});
 		}
-		
+
 		return ret;
 	}
 
@@ -176,12 +176,12 @@ public class TileEntityTesla extends TileEntityMachineBase implements IEnergyRec
 	public long getMaxPower() {
 		return maxPower;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()

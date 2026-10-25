@@ -8,8 +8,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderCyberCrab extends RenderLiving {
 
-	public RenderCyberCrab() {
-        super(new ModelCrab(), 1.0F);
+	public RenderCyberCrab(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+        super(renderManager, new ModelCrab(), 1.0F);
 		this.shadowOpaque = 0.0F;
 	}
 
@@ -19,9 +19,9 @@ public class RenderCyberCrab extends RenderLiving {
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) p_76986_2_, (float) p_76986_4_, (float) p_76986_6_);
 		GL11.glRotatef(180, 1, 0, 0);
-		
+
 		bindTexture(new ResourceLocation(RefStrings.MODID + ":textures/entity/Crab.png"));
-		
+
 		mine2.renderAll(0.0625F);
 		GL11.glPopMatrix();
 	}*/

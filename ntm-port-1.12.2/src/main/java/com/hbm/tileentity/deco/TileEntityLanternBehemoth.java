@@ -43,7 +43,7 @@ public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements I
 			if(comTimer == 100) com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.hornFarDual", 10000F, 1F);
 
 			if(comTimer == 0) {
-				List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 10, this.pos.getY() - 10, this.pos.getZ() - 10, this.pos.getX() + 11, this.pos.getY() + 11, this.pos.getZ() + 11));
+				List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() - 10, this.pos.getY() - 10, this.pos.getZ() - 10, this.pos.getX() + 11, this.pos.getY() + 11, this.pos.getZ() + 11));
 				EntityPlayer first = players.isEmpty() ? null : players.get(0);
 				boolean bonus = first == null ? false : (HbmPlayerProps.getData(first).reputation >= 10);
 				EntityBobmazon shuttle = new EntityBobmazon(this.world);
@@ -57,7 +57,7 @@ public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements I
 						new ItemStack(Blocks.RED_FLOWER));
 				shuttle.payload = payload;
 
-				this.world.spawnEntityInWorld(shuttle);
+				this.world.spawnEntity(shuttle);
 			}
 
 			if(comTimer >= 0) {
@@ -71,7 +71,7 @@ public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements I
 	@Override
 	public void invalidate() {
 		super.invalidate();
-		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 50, this.pos.getY() - 50, this.pos.getZ() - 50, this.pos.getX() + 51, this.pos.getY() + 51, this.pos.getZ() + 51));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() - 50, this.pos.getY() - 50, this.pos.getZ() - 50, this.pos.getX() + 51, this.pos.getY() + 51, this.pos.getZ() + 51));
 		for(EntityPlayer player : players) {
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
 			if(props.reputation > -25) props.reputation--;
@@ -135,7 +135,7 @@ public class TileEntityLanternBehemoth extends TileEntityLoadedBase implements I
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX(),
 					this.pos.getY(),
 					this.pos.getZ(),

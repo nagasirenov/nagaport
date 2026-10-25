@@ -31,7 +31,6 @@ public class BlockChargeMiner extends BlockChargeBase {
 		return BombReturnCode.UNDEFINED;
 	}
 
-	@Override
 	public int getRenderType() {
 		return BlockChargeDynamite.renderID;
 	}

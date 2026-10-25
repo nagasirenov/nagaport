@@ -61,10 +61,10 @@ public class ExplosionVNT {
 		this.size = size;
 		this.exploder = exploder;
 		
-		this.compat = new Explosion(world, exploder, x, y, z, size) {
+		this.compat = new Explosion(world, exploder, x, y, z, size, false, true) {
 			
 			@Override
-			public Map func_77277_b() {
+			public Map getPlayerKnockbackMap() {
 				return ExplosionVNT.this.compatPlayers;
 			}
 		};
@@ -72,8 +72,8 @@ public class ExplosionVNT {
 	
 	public void explode() {
 
-		this.compat.exploder = this.exploder;
-		this.compat.explosionSize = this.size;
+		
+		
 		
 		boolean processBlocks = blockAllocator != null && blockProcessor != null;
 		boolean processEntities = entityProcessor != null && playerProcessor != null;

@@ -23,27 +23,27 @@ public class HazardTypeRadiation extends HazardTypeBase {
 
 	@Override
 	public void onUpdate(EntityLivingBase target, float level, ItemStack stack) {
-		
+
 		boolean reacher = false;
-		
+
 		if(target instanceof EntityPlayer)
-			reacher = ((EntityPlayer) target).inventory.hasItem(ModItems.reacher);
-		
-		level *= stack.stackSize;
-		
+			reacher = ((EntityPlayer) target).inventory.hasItemStack(new net.minecraft.item.ItemStack(ModItems.reacher));
+
+		level *= stack.getCount();
+
 		if(stack.hasTagCompound() && stack.getTagCompound().hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
 			level += stack.getTagCompound().getFloat(HazardTypeNeutron.NEUTRON_KEY);
 		}
-		
+
 		if(level > 0) {
 			float rad = level / 20F;
-			
+
 			if(GeneralConfig.enable528 && reacher) {
 				rad = (float) (rad / 49F);	//More realistic function for 528: x / distance^2
 			} else if(reacher) {
 				rad = (float) BobMathUtil.squirt(rad); //Reworked radiation function: sqrt(x+1/(x+2)^2)-1/(x+2)
-			}											
-			
+			}
+
 			ContaminationUtil.contaminate(target, HazardType.RADIATION, ContaminationType.CREATIVE, rad);
 		}
 	}
@@ -54,22 +54,22 @@ public class HazardTypeRadiation extends HazardTypeBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addHazardInformation(EntityPlayer player, List list, float level, ItemStack stack, List<HazardModifier> modifiers) {
-		
+
 		level = HazardModifier.evalAllModifiers(stack, player, level, modifiers);
-		
+
 		if(stack.hasTagCompound() && stack.getTagCompound().hasKey(HazardTypeNeutron.NEUTRON_KEY)) {
 			level += stack.getTagCompound().getFloat(HazardTypeNeutron.NEUTRON_KEY);
 		}
-		
+
 		if(level < 1e-5)
 			return;
-		
+
 		list.add(TextFormatting.GREEN + "[" + I18nUtil.resolveKey("trait.radioactive") + "]");
 		String rad = "" + (Math.floor(level* 1000) / 1000);
 		list.add(TextFormatting.YELLOW + (rad + "RAD/s"));
-		
-		if(stack.stackSize > 1) {
-			list.add(TextFormatting.YELLOW + "Stack: " + ((Math.floor(level * 1000 * stack.stackSize) / 1000) + "RAD/s"));
+
+		if(stack.getCount() > 1) {
+			list.add(TextFormatting.YELLOW + "Stack: " + ((Math.floor(level * 1000 * stack.getCount()) / 1000) + "RAD/s"));
 		}
 	}
 

@@ -6,7 +6,7 @@ import net.minecraft.block.material.Material;
 public class MaterialGas extends Material {
 
 	public MaterialGas() {
-		super(MapColor.airColor);
+		super(MapColor.AIR);
 		this.setNoPushMobility();
 		this.setReplaceable();
 	}

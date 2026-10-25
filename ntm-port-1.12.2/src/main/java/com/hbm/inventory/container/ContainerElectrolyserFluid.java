@@ -66,7 +66,7 @@ public class ContainerElectrolyserFluid extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IBatteryItem || var3.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(var5, 0, 1, false)) {
 						return null;
@@ -84,7 +84,7 @@ public class ContainerElectrolyserFluid extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

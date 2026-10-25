@@ -54,7 +54,7 @@ public class GUICoreEmitter extends GuiInfoContainer {
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 26, guiTop + 17, 16, 52, emitter.power, emitter.maxPower);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		this.field.mouseClicked(x, y, i);
@@ -107,7 +107,7 @@ public class GUICoreEmitter extends GuiInfoContainer {
 		emitter.tank.renderTank(guiLeft + 8, guiTop + 69, this.zLevel, 16, 52);
 	}
 
-	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
+	protected void keyTyped(char p_73869_1_, int p_73869_2_) throws java.io.IOException {
 
 		if(this.field.textboxKeyTyped(p_73869_1_, p_73869_2_)) {
 

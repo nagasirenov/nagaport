@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemCMStructure extends Item implements ILookOverlay {
-	
+
 	private static File file = new File(MainRegistry.configHbmDir, "CMstructureOutput.txt");
 
 	public static BlockPos getAnchor(ItemStack stack) {
@@ -64,18 +64,18 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 		int maxY = Math.max(y1, y2);
 		int minZ = Math.min(z1, z2);
 		int maxZ = Math.max(z1, z2);
-		
+
 		try {
 			JsonWriter writer = new JsonWriter(new FileWriter(config));
 			writer.setIndent("  ");
 			writer.beginObject();
 			writer.name("components").beginArray();
-			
+
 			for(int x = minX; x <= maxX; x++) {
 				for(int y = minY; y <= maxY; y++) {
 					for(int z = minZ; z <= maxZ; z++) {
-						
-						int compY = y - anchorY; 
+
+						int compY = y - anchorY;
 						int compX = 0;
 						int compZ = 0;
 
@@ -96,14 +96,14 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 							compZ = anchorX - x;
 							compX = z - anchorZ;
 						}
-						
+
 						if(x == anchorX && y == anchorY && z == anchorZ) continue;
 						Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 						int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-						if(block == Blocks.air) continue;
-						
+						if(block == Blocks.AIR) continue;
+
 						writer.beginObject().setIndent("");
-						writer.name("block").value(Block.blockRegistry.getNameForObject(block));
+						writer.name("block").value(block.getRegistryName().toString());
 						writer.name("x").value(compX);
 						writer.name("y").value(compY);
 						writer.name("z").value(compZ);
@@ -121,8 +121,15 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b == ModBlocks.cm_anchor) {
@@ -153,9 +160,14 @@ public class ItemCMStructure extends Item implements ILookOverlay {
 		return true;
 	}
 
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
-		super.addInformation(stack, player, list, ext);
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
 		list.add(TextFormatting.YELLOW + "Click Custom Machine Structure Positioning Anchor to");
 		list.add(TextFormatting.YELLOW + "Confirm the location of the custom machine core block.");
 		list.add(TextFormatting.YELLOW + "Output all blocks between Position1 and Position2 with");

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/trapdoor_top",
+  "textures": {
+    "texture": "hbm:blocks/trapdoor_steel",
+    "particle": "hbm:blocks/trapdoor_steel"
+  }
+}

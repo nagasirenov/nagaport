@@ -43,7 +43,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityFEL extends TileEntityMachineBase implements IEnergyReceiverMK2, IGUIProvider {
-	
+
 	public long power;
 	public static final long maxPower = 20000000;
 	public static final int powerReq = 1250;
@@ -54,8 +54,8 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 	public List<EntityLivingBase> entities = new ArrayList();
 	private int audioDuration = 0;
 	private AudioWrapper audio;
-	
-	
+
+
 	public TileEntityFEL() {
 		super(2);
 	}
@@ -69,35 +69,35 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 	@Override
 	@Spaghetti ("What the fuck were you thinking")
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX * -5, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ  * -5, dir.getOpposite());
 			this.power = Library.chargeTEFromItems(slots, 0, power, maxPower);
-			
+
 			if(this.isOn && !(this.slots[1] == null)) {
-				
+
 				if(this.slots[1].getItem() instanceof ItemFELCrystal) {
-					
+
 					ItemFELCrystal crystal = (ItemFELCrystal) this.slots[1].getItem();
 					this.mode = crystal.wavelength;
-					
+
 				} else { this.mode = EnumWavelengths.NULL; }
-				
+
 			} else { this.mode = EnumWavelengths.NULL; }
-			
+
 			int range = 24;
 			boolean silexSpacing = false;
-			
+
 			int req = (int) (powerReq * ((mode.ordinal() == 0) ? 0 : Math.pow(3, mode.ordinal())));
-			
+
 			if(this.isOn && this.mode != EnumWavelengths.NULL && power < req) {
 				this.power = 0;
 			}
-			
+
 			if(this.isOn && power >= req && this.mode != EnumWavelengths.NULL) {
-				
+
 				int distance = this.distance-1;
 				double blx = Math.min(this.pos.getX(), this.pos.getX() + dir.offsetX * distance) + 0.2;
 				double bux = Math.max(this.pos.getX(), this.pos.getX() + dir.offsetX * distance) + 0.8;
@@ -105,9 +105,9 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 				double buy = Math.max(this.pos.getY(), 1 + this.pos.getY() + dir.offsetY * distance) + 0.8;
 				double blz = Math.min(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * distance) + 0.2;
 				double buz = Math.max(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * distance) + 0.8;
-				
-				List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
-				
+
+				List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(blx, bly, blz, bux, buy, buz));
+
 				for(EntityLivingBase entity : list) {
 					switch(this.mode) {
 					case VISIBLE: entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 60 * 60 * 65536, 0));
@@ -117,26 +117,26 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 					case DRX: ContaminationUtil.applyDigammaData(entity, 0.1F); break;
 					}
 				}
-				
+
 				power -= req;
 				for(int i = 3; i < range; i++) {
-				
+
 					int x = this.pos.getX() + dir.offsetX * i;
 					int y = this.pos.getY() + 1;
 					int z = this.pos.getZ() + dir.offsetZ * i;
-					
+
 					Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
-					
+
 					if(!(b.getDefaultState().getMaterial().isOpaque()) && b != Blocks.TNT) {
 						this.distance = range;
 						silexSpacing = false;
 						continue;
 					}
-					
+
 					if(b == ModBlocks.machine_silex) {
-					
+
 						TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x + dir.offsetX, this.pos.getY(), z + dir.offsetZ));
-					
+
 						if(te instanceof TileEntitySILEX) {
 							TileEntitySILEX silex = (TileEntitySILEX) te;
 							int meta = silex.getBlockMetadata() - BlockDummyable.offset;
@@ -146,37 +146,37 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 									this.missingValidSilex = false;
 									silexSpacing = true;
 									continue;
-								} 
+								}
 							} else {
 								MachineSILEX silexBlock = (MachineSILEX)silex.getBlockType();
 								silexBlock.breakBlock(this.world, silex.getPos().getX(), silex.getPos().getY(), silex.getPos().getZ(), silexBlock, 0);
 								this.world.spawnEntity(new EntityItem(this.world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(Item.getItemFromBlock(ModBlocks.machine_silex))));
-							} 
+							}
 						}
-						
+
 					} else if(b.getDefaultState().getMaterial().isOpaque() || b == Blocks.TNT) {
-						
+
 						this.distance = i;
-						
+
 						if(b.getDefaultState().getMaterial().isLiquid()) {
 							com.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
 							com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 							break;
-						} 
-						
+						}
+
 						float hardness = b.getExplosionResistance(null);
 						if(hardness < 75 && this.world.rand.nextInt(5) == 0) {
 							com.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
 							Block block = (this.mode != EnumWavelengths.DRX) ? Blocks.FIRE : (MainRegistry.polaroidID == 11) ? ModBlocks.digamma_matter : ModBlocks.fire_digamma;
-							this.world.setBlock(x, y, z, block);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, block);
 							if(this.mode == EnumWavelengths.DRX)
-								this.world.setBlock(x, y-1, z, ModBlocks.ash_digamma);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y-1, z, ModBlocks.ash_digamma);
 						}
 						break;
 					}
 				}
 			}
-			
+
 			this.networkPackNT(250);
 		} else {
 
@@ -209,17 +209,17 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 			}
 		}
 	}
-	
+
 	public boolean rotationIsValid(int silexMeta, int felMeta) {
 		ForgeDirection silexDir = ForgeDirection.getOrientation(silexMeta);
 		ForgeDirection felDir = ForgeDirection.getOrientation(felMeta);
 		if(silexDir == felDir || silexDir == felDir.getOpposite()) {
 			return true;
 		}
-		 
+
 		return false;
 	}
-	
+
 	@Override
 	public void serialize(ByteBuf buf) {
 		super.serialize(buf);
@@ -229,7 +229,7 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 		buf.writeBoolean(missingValidSilex);
 		buf.writeInt(distance);
 	}
-	
+
 	@Override
 	public void deserialize(ByteBuf buf) {
 		super.deserialize(buf);
@@ -242,31 +242,31 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 
 	@Override
 	public void handleButtonPacket(int value, int meta) {
-		
+
 		if(meta == 2){
 			this.isOn = !this.isOn;
 		}
 	}
-	
+
 	public long getPowerScaled(long i) {
 		return (power * i) / maxPower;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		power = nbt.getLong("power");
 		mode = EnumWavelengths.valueOf(nbt.getString("mode"));
 		isOn = nbt.getBoolean("isOn");
 		missingValidSilex = nbt.getBoolean("valid");
 		distance = nbt.getInteger("distance");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		nbt.setString("mode", mode.toString());
 		nbt.setBoolean("isOn", isOn);
@@ -284,7 +284,7 @@ public class TileEntityFEL extends TileEntityMachineBase implements IEnergyRecei
 	public AxisAlignedBB getRenderBoundingBox() {
 		return INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

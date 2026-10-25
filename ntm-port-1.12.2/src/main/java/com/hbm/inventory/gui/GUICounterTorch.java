@@ -80,7 +80,7 @@ public class GUICounterTorch extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		for(int j = 0; j < 3; j++) this.frequency[j].mouseClicked(x, y, i);
@@ -123,7 +123,7 @@ public class GUICounterTorch extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int i) {
+	protected void keyTyped(char c, int i) throws java.io.IOException {
 		
 		for(int j = 0; j < 3; j++) if(this.frequency[j].textboxKeyTyped(c, i)) return;
 		

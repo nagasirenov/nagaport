@@ -39,7 +39,7 @@ public interface IRadioisotopeFuel
 	{
 		return (short) Math.ceil(fuel.getHeat() * (fuel.getLifespan(stack) * fuel.getMaxLifespan()));
 	}
-	
+
 	@CheckForNull
 	public static IRadioisotopeFuel getInstance(Item item)
 	{
@@ -50,7 +50,7 @@ public interface IRadioisotopeFuel
 	{
 		return stack == null ? null : getInstance(stack.getItem());
 	}
-	
+
 	public default void decay(ItemStack stack)
 	{
 		if (stack != null && stack.getItem() instanceof IRadioisotopeFuel)
@@ -66,7 +66,7 @@ public interface IRadioisotopeFuel
 			}
 		}
 	}
-	
+
 	public default long getLifespan(ItemStack stack)
 	{
 		if (stack != null && stack.getItem() instanceof IRadioisotopeFuel)
@@ -135,7 +135,7 @@ public interface IRadioisotopeFuel
 		tooltip.add(I18nUtil.resolveKey("desc.item.rtgHeat", instance.getDoesDecay() && VersatileConfig.scaleRTGPower() ? getScaledPower(instance, stack) : instance.getHeat()));
 		if (instance.getDoesDecay())
 		{
-			tooltip.add(I18nUtil.resolveKey("desc.item.rtgDecay", I18nUtil.resolveKey(instance.getDecayItem().getUnlocalizedName() + ".name"), instance.getDecayItem().stackSize));
+			tooltip.add(I18nUtil.resolveKey("desc.item.rtgDecay", I18nUtil.resolveKey(instance.getDecayItem().getTranslationKey() + ".name"), instance.getDecayItem().getCount()));
 			tooltip.add(BobMathUtil.toPercentage(instance.getLifespan(stack), instance.getMaxLifespan()));
 			if (showAdv)
 			{
@@ -148,7 +148,7 @@ public interface IRadioisotopeFuel
 			}
 		}
 	}
-	
+
 	public static double getDuraBar(ItemStack stack)
 	{
 		final IRadioisotopeFuel instance = (IRadioisotopeFuel) stack.getItem();

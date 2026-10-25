@@ -96,7 +96,7 @@ public class XFactory12ga {
 		pippo.posX = mop.hitVec.x;
 		pippo.posY = mop.hitVec.y + 50;
 		pippo.posZ = mop.hitVec.z;;
-		bullet.world.spawnEntityInWorld(pippo);
+		bullet.world.spawnEntity(pippo);
 		com.hbm.sound.WorldSoundEffects.play(bullet.world, pippo.posX, pippo.posY + 50, pippo.posZ, "hbm:weapon.boat", 100F, 1F);
 		bullet.setDead();
 	};
@@ -113,11 +113,11 @@ public class XFactory12ga {
 			if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 
 				net.minecraft.util.EnumFacing side = mop.sideHit;
-				Vec3d hitVec = mop.hitVec.addVector(side.getFrontOffsetX() * 0.1, side.getFrontOffsetY() * 0.1, side.getFrontOffsetZ() * 0.1);
+				Vec3d hitVec = mop.hitVec.add(side.getXOffset() * 0.1, side.getYOffset() * 0.1, side.getZOffset() * 0.1);
 
 				spawnPulse(beam.world, mop, hitVec, beam.rotationYaw, beam.rotationPitch);
 
-				List<Entity> blast = beam.world.getEntitiesWithinAABBExcludingEntity(beam, AxisAlignedBB.getBoundingBox(hitVec.x, hitVec.y, hitVec.z, hitVec.x, hitVec.y, hitVec.z).expand(0.75, 0.75, 0.75));
+				List<Entity> blast = beam.world.getEntitiesWithinAABBExcludingEntity(beam, new AxisAlignedBB(hitVec.x, hitVec.y, hitVec.z, hitVec.x, hitVec.y, hitVec.z).expand(0.75, 0.75, 0.75));
 				DamageSource source = BulletConfig.getDamage(beam, beam.getThrower(), DamageClass.LASER);
 
 				for(Entity e : blast) {
@@ -131,8 +131,8 @@ public class XFactory12ga {
 				}
 
 				for(int i = 0; i < projectiles; i++) {
-					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.world, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, hitVec.x, hitVec.y, hitVec.z, dir.offsetX, dir.offsetY, dir.offsetZ);
-					bullet.world.spawnEntityInWorld(bullet);
+					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.world, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, hitVec.x, hitVec.y, hitVec.z, side.getXOffset(), side.getYOffset(), side.getZOffset());
+					bullet.world.spawnEntity(bullet);
 				}
 			}
 
@@ -143,7 +143,7 @@ public class XFactory12ga {
 				for(int i = 0; i < projectiles; i++) {
 					Vec3NT vec = new Vec3NT(beam.world.rand.nextGaussian(), beam.world.rand.nextGaussian(), beam.world.rand.nextGaussian()).normalizeSelf();
 					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(beam.world, beam.thrower, submunition, beam.damage * submunition.damageMult, 0.2F, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, vec.x, vec.y, vec.z);
-					bullet.world.spawnEntityInWorld(bullet);
+					bullet.world.spawnEntity(bullet);
 				}
 			}
 		});
@@ -171,12 +171,12 @@ public class XFactory12ga {
 				((BlockDetonatable) b).onShot(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
 			}
 			if(b == ModBlocks.deco_crt) {
-				int meta = bullet.world.getBlockMetadata(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
-				bullet.world.setBlockMetadataWithNotify(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), meta % 4 + 4, 3);
+				int meta = com.hbm.world.WorldBlockState.readMetadata(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), meta % 4 + 4, 3);
 			}
 
 			net.minecraft.util.EnumFacing side = mop.sideHit;
-			Vec3d face = new Vec3d(side.getFrontOffsetX(), side.getFrontOffsetY(), side.getFrontOffsetZ());
+			Vec3d face = new Vec3d(side.getXOffset(), side.getYOffset(), side.getZOffset());
 			Vec3d vel = new Vec3d(bullet.motionX, bullet.motionY, bullet.motionZ).normalize();
 
 			double angle = Math.abs(BobMathUtil.getCrossAngle(vel, face) - 90);
@@ -185,7 +185,7 @@ public class XFactory12ga {
 
 				spawnPulse(bullet.world, mop, bullet.rotationYaw, bullet.rotationPitch);
 
-				List<Entity> blast = bullet.world.getEntitiesWithinAABBExcludingEntity(bullet, AxisAlignedBB.getBoundingBox(bullet.posX, bullet.posY, bullet.posZ, bullet.posX, bullet.posY, bullet.posZ).expand(0.5, 0.5, 0.5));
+				List<Entity> blast = bullet.world.getEntitiesWithinAABBExcludingEntity(bullet, new AxisAlignedBB(bullet.posX, bullet.posY, bullet.posZ, bullet.posX, bullet.posY, bullet.posZ).expand(0.5, 0.5, 0.5));
 				DamageSource source = BulletConfig.getDamage(bullet, bullet.getThrower(), DamageClass.LASER);
 
 				for(Entity e : blast) {
@@ -241,9 +241,9 @@ public class XFactory12ga {
 
 			net.minecraft.util.EnumFacing side = mop.sideHit;
 
-			x += side.getFrontOffsetX() * 0.05;
-			y += side.getFrontOffsetY() * 0.05;
-			z += side.getFrontOffsetZ() * 0.05;
+			x += side.getXOffset() * 0.05;
+			y += side.getYOffset() * 0.05;
+			z += side.getZOffset() * 0.05;
 		}
 
 		NBTTagCompound data = new NBTTagCompound();
@@ -388,7 +388,7 @@ public class XFactory12ga {
 	}
 
 	public static Function<ItemStack, String> LAMBDA_NAME_MARESLEG = (stack) -> {
-		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SAWED_OFF)) return stack.getUnlocalizedName() + "_short";
+		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SAWED_OFF)) return stack.getTranslationKey() + "_short";
 		return null;
 	};
 
@@ -425,7 +425,7 @@ public class XFactory12ga {
 						timeFired++;
 					}
 				}
-				if(rec.getFireSound(stack) != null) entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, rec.getFireSound(stack), rec.getFireVolume(stack), rec.getFirePitch(stack) * (timeFired > 1 ? 0.9F : 1F));
+				if(rec.getFireSound(stack) != null) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve(rec.getFireSound(stack)), net.minecraft.util.SoundCategory.BLOCKS, rec.getFireVolume(stack), rec.getFirePitch(stack) * (timeFired > 1 ? 0.9F : 1F));
 				ItemGunBaseNT.setState(stack, index, GunState.COOLDOWN);
 				ItemGunBaseNT.setTimer(stack, index, 20);
 			} else {

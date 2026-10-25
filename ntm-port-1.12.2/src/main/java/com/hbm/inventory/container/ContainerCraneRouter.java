@@ -6,6 +6,7 @@ import com.hbm.tileentity.network.TileEntityCraneRouter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
 public class ContainerCraneRouter extends ContainerBase {
@@ -27,8 +28,8 @@ public class ContainerCraneRouter extends ContainerBase {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
 		//L/R: 0
 		//M3: 3
 		//SHIFT: 1
@@ -39,22 +40,22 @@ public class ContainerCraneRouter extends ContainerBase {
 		}
 
 		Slot slot = this.getSlot(index);
-		
+
 		ItemStack ret = null;
 		ItemStack held = player.inventory.getItemStack();
-		
+
 		if(slot.getHasStack())
 			ret = slot.getStack().copy();
-		
-		if(button == 1 && mode == 0 && slot.getHasStack()) {
+
+		if(button == 1 && mode == ClickType.PICKUP && slot.getHasStack()) {
 			router.nextMode(index);
 			return ret;
-			
+
 		} else {
-	
+
 			slot.putStack(held);
 			router.initPattern(slot.getStack(), index);
-			
+
 			return ret;
 		}
 	}

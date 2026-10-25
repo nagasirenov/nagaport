@@ -9,12 +9,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerPARFC extends Container {
-	
+
 	private TileEntityPARFC rfc;
 
 	public ContainerPARFC(InventoryPlayer playerInv, TileEntityPARFC tile) {
 		rfc = tile;
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tile, 0, 53, 72));
 
@@ -51,7 +51,7 @@ public class ContainerPARFC extends Container {
 				if(!this.mergeItemStack(stack, 0, 1, false)) return null;
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

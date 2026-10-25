@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "hbm:blocks/pet_leaves",
+    "texture": "hbm:blocks/pet_leaves",
+    "particle": "hbm:blocks/pet_leaves"
+  }
+}

@@ -17,11 +17,10 @@ import net.minecraft.util.text.TextFormatting;
 
 public abstract class CommandReloadConfig extends CommandBase {
 
-	@Override
 	public boolean canCommandSenderUseCommand(ICommandSender sender) {
 		return sender instanceof EntityPlayer;
 	}
-	
+
 	public abstract void help(ICommandSender sender, String[] args);
 	public abstract HashMap<String, ConfigWrapper> getConfigMap();
 	public abstract void refresh();
@@ -29,17 +28,21 @@ public abstract class CommandReloadConfig extends CommandBase {
 	public abstract String getTitle();
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
-		
-		if(args.length < 1) throw new CommandException(getCommandUsage(sender));
-		
+	public void execute(net.minecraft.server.MinecraftServer server, net.minecraft.command.ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+		processCommand(sender, args);
+	}
+
+	public void processCommand(ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+
+		if(args.length < 1) throw new CommandException(getUsage(sender));
+
 		String operator = args[0];
-		
+
 		if("help".equals(operator)) {
 			help(sender, args);
 			return;
 		}
-		
+
 		if("list".equals(operator)) {
 			sender.sendMessage(new TextComponentString(TextFormatting.RED + getTitle()));
 			for(Entry<String, ConfigWrapper> line : getConfigMap().entrySet()) {
@@ -47,17 +50,17 @@ public abstract class CommandReloadConfig extends CommandBase {
 			}
 			return;
 		}
-		
+
 		if("reload".equals(operator)) {
 			reload();
 			sender.sendMessage(new TextComponentString(TextFormatting.YELLOW + "Variables loaded from config file."));
 			return;
 		}
 
-		if(args.length < 2) throw new CommandException(getCommandUsage(sender));
-		
+		if(args.length < 2) throw new CommandException(getUsage(sender));
+
 		String key = args[1];
-		
+
 		if("get".equals(operator)) {
 			ConfigWrapper wrapper = getConfigMap().get(key);
 			if(wrapper == null) throw new CommandException("Key does not exist.");
@@ -65,14 +68,14 @@ public abstract class CommandReloadConfig extends CommandBase {
 			return;
 		}
 
-		if(args.length < 3) throw new CommandException(getCommandUsage(sender));
-		
+		if(args.length < 3) throw new CommandException(getUsage(sender));
+
 		String value = args[2];
-		
+
 		if("set".equals(operator)) {
 			ConfigWrapper wrapper = getConfigMap().get(key);
 			if(wrapper == null) throw new CommandException("Key does not exist.");
-			
+
 			try {
 				wrapper.update(value);
 				refresh();
@@ -80,22 +83,22 @@ public abstract class CommandReloadConfig extends CommandBase {
 			} catch(Exception ex) {
 				throw new CommandException("Error parsing type for " + wrapper.value.getClass().getSimpleName() + ": " + ex.getLocalizedMessage());
 			}
-			
+
 			return;
 		}
-		
-		throw new CommandException(getCommandUsage(sender));
+
+		throw new CommandException(getUsage(sender));
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public java.util.List<String> getTabCompletions(net.minecraft.server.MinecraftServer server, ICommandSender sender, String[] args, net.minecraft.util.math.BlockPos pos) {
 		if(!(sender instanceof EntityPlayer)) return Collections.emptyList();
 		if(args.length < 1) return Collections.emptyList();
 		if(args.length == 1) return getListOfStringsMatchingLastWord(args, "list", "reload", "get", "set");
 		String operator = args[0];
 		if(args.length == 2 && ("get".equals(operator) || "set".equals(operator))) {
-			return getListOfStringsFromIterableMatchingLastWord(args, getConfigMap().keySet().stream().map(String::valueOf).collect(Collectors.toList()));
+			return getListOfStringsMatchingLastWord(args, getConfigMap().keySet().stream().map(String::valueOf).collect(Collectors.toList()));
 		}
 		return Collections.emptyList();
 	}

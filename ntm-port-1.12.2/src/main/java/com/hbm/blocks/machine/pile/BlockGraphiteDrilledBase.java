@@ -35,13 +35,13 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 
 	public BlockGraphiteDrilledBase() {
 		super(ModBlocks.block_graphite.getDefaultState().getMaterial(), ((BlockFlammable) ModBlocks.block_graphite).encouragement, ((BlockFlammable) ModBlocks.block_graphite).flammability);
-		
+
 		this.setCreativeTab(null);
 		this.setSoundType(com.hbm.blocks.ModSoundTypes.legacyMetal);
 		this.setHardness(5.0F);
 		this.setResistance(10.0F);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
@@ -49,69 +49,77 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 		this.sideIcon = iconRegister.registerIcon(RefStrings.MODID + ":block_graphite");
 		this.blockIconAluminum = iconRegister.registerIcon(RefStrings.MODID + ":block_graphite_drilled_aluminum");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
-		
+
 		int cfg = metadata & 3;
 		int meta = metadata & 4;
-		
+
 		if(side == cfg * 2 || side == cfg * 2 + 1) {
 			if(meta == 4)
 				return this.blockIconAluminum;
-			
+
 			return this.blockIcon;
 		}
-		
+
 		return this.sideIcon;
 	}
-	
+
 	protected static void ejectItem(World world, int x, int y, int z, ForgeDirection dir, ItemStack stack) {
-		
+
 		EntityItem dust = new EntityItem(world, x + 0.5D + dir.offsetX * 0.75D, y + 0.5D + dir.offsetY * 0.75D, z + 0.5D + dir.offsetZ * 0.75D, stack);
 		dust.motionX = dir.offsetX * 0.25;
 		dust.motionY = dir.offsetY * 0.25;
 		dust.motionZ = dir.offsetZ * 0.25;
 		world.spawnEntity(dust);
 	}
-	
+
 	@Override
 	public Item getItemDropped(net.minecraft.block.state.IBlockState meta, Random rand, int fortune) {
 		return null;
 	}
-	
+
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
-		
+
 		if(tool != ToolType.SCREWDRIVER)
 			return false;
-		
+
 		if(!world.isRemote) {
 
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			int cfg = meta & 3;
-			
+
 			if(side == cfg * 2 || side == cfg * 2 + 1) {
-				world.setBlock(x, y, z, ModBlocks.block_graphite_drilled, meta & 7, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_graphite_drilled, meta & 7, 3);
 				this.ejectItem(world, x, y, z, ForgeDirection.getOrientation(side), new ItemStack(getInsertedItem(meta)));
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	//Thank god getDrops passes meta
 	protected Item getInsertedItem(int meta) {
 		return getInsertedItem();
 	}
-	
+
 	protected Item getInsertedItem() {
 		return null;
 	}
-	
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune) {
+
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList();
 		drops.add(new ItemStack(ModItems.ingot_graphite, 8));
 		if((meta & 4) == 4)
@@ -120,7 +128,7 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 			drops.add(new ItemStack(getInsertedItem(meta), 1));
 		return drops;
 	}
-	
+
 	//Checks the relationship between specific items and placement.
 	//kinda cringe but anything other than hardcoding would be overengineering this for no reason so
 	//all of this is destined to be changed most likely anyway
@@ -136,15 +144,15 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 		if(item == ModItems.pile_rod_detector) return new MetaBlock(ModBlocks.block_graphite_detector);
 		return null;
 	}
-	
+
 	@Override
 	public boolean insertItem(World world, int x, int y, int z, ForgeDirection dir, ItemStack stack) {
-		
+
 		if(stack == null) return false;
-		
+
 		MetaBlock baseBlock = checkInteractions(stack);
 		if(baseBlock == null) return false;
-		
+
 		final int side = dir.ordinal();
 		final int pureMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) & 3; //in case it's shrouded in aluminum
 
@@ -154,15 +162,15 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 				int ix = x + dir.offsetX * i;
 				int iy = y + dir.offsetY * i;
 				int iz = z + dir.offsetZ * i;
-				
+
 				net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz);
 				Block b = nativeCubeState_b.getBlock();
-				
+
 				if(b instanceof BlockGraphiteDrilledBase) {
 					int baseMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) );
 					if((baseMeta & 3) != pureMeta) //wrong orientation
 						return false;
-					
+
 					if(((BlockGraphiteDrilledBase)b).getInsertedItem(baseMeta) == null) //if there's nothing to push
 						break;
 					else if(i >= 3) //if there is stuff to push and we reach our limit
@@ -174,27 +182,27 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 						break;
 				}
 			}
-			
+
 			//TODO convert old methods to use itemstack for flexibility
-			int oldMeta = pureMeta | baseBlock.meta; //metablocks are kinda inconvenient to work with so 
+			int oldMeta = pureMeta | baseBlock.meta; //metablocks are kinda inconvenient to work with so
 			Block oldBlock = baseBlock.block;
 			NBTTagCompound oldTag = new NBTTagCompound(); //In case of TEs
 			oldTag.setInteger("x", x); //giving tags prevents issues and resets any lingering tes.
 			oldTag.setInteger("y", y);
 			oldTag.setInteger("z", z);
-			
+
 			//now actually make the change
 			for(int i = 0; i <= 3; i++) { //yeah yeah we know it's safe but let's be *extra cautious* of infinite loops
 				int ix = x + dir.offsetX * i;
 				int iy = y + dir.offsetY * i;
 				int iz = z + dir.offsetZ * i;
-				
+
 				Block newBlock = com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock();
-				
+
 				if(newBlock instanceof BlockGraphiteDrilledBase) {
 					int newMeta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) );
 					NBTTagCompound newTag = new NBTTagCompound();
-					
+
 					if(newBlock instanceof BlockGraphiteDrilledTE) {
 						TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(ix, iy, iz));
 						te.writeToNBT(newTag);
@@ -202,34 +210,34 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 						newTag.setInteger("y", te.getPos().getY() + dir.offsetY);
 						newTag.setInteger("z", te.getPos().getZ() + dir.offsetZ);
 					}
-					
-					world.setBlock(ix, iy, iz, oldBlock, (oldMeta & ~0b100) | (newMeta & 0b100), 0);
-					
-					if(oldBlock instanceof BlockGraphiteDrilledTE && !oldTag.hasNoTags()) { //safety first
+
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, ix, iy, iz, oldBlock, (oldMeta & ~0b100) | (newMeta & 0b100), 0);
+
+					if(oldBlock instanceof BlockGraphiteDrilledTE && !oldTag.isEmpty()) { //safety first
 						TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(ix, iy, iz));
 						te.readFromNBT(oldTag);
 					}
-					
-					world.markAndNotifyBlock(ix, iy, iz, world.getChunkFromBlockCoords(ix, iz), newBlock, oldBlock, 3); //in case setBlock returns false due to = meta / block
-					
+
+					world.markAndNotifyBlock(new net.minecraft.util.math.BlockPos(ix, iy, iz), world.getChunk(new net.minecraft.util.math.BlockPos(ix, 0, iz)), newBlock.getDefaultState(), oldBlock.getDefaultState(), 3); //in case setBlock returns false due to = meta / block
+
 					oldMeta = newMeta;
 					oldBlock = newBlock;
 					oldTag = newTag;
-					
+
 					if(oldBlock instanceof BlockGraphiteDrilled) //if there's no need to eject an item
 						break;
 				} else {
 					Item eject = ((BlockGraphiteDrilledBase) oldBlock).getInsertedItem(oldMeta); //TODO old methods to itemstack
 					this.ejectItem(world, ix - dir.offsetX, iy - dir.offsetY, iz - dir.offsetZ, dir, new ItemStack(eject));
-					world.playSoundEffect(ix + 0.5, iy + 0.5, iz + 0.5, "hbm:item.upgradePlug", 1.25F, 1.0F);
-					
+					world.playSound(null, ix + 0.5, iy + 0.5, iz + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.25F, 1.0F);
+
 					break;
 				}
 			}
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
 }

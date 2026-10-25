@@ -4,6 +4,8 @@ import java.util.Random;
 
 import org.apache.logging.log4j.Level;
 
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -120,7 +122,8 @@ public class BombMulti extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
+	public void neighborChanged(IBlockState state, World p_149695_1_, BlockPos pos, Block p_149695_5_, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		TileEntityBombMulti entity = (TileEntityBombMulti) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			if(/* entity.getExplosionType() != 0 */entity.isLoaded()) {
@@ -185,7 +188,7 @@ public class BombMulti extends BlockContainer implements IBomb {
 					mist.setType(Fluids.CHLORINE);
 					mist.setPosition(x + 0.5, y + 0.5, z + 0.5);
 					mist.setArea(gasCloud * 15F / 50F, gasCloud * 7.5F / 50F);
-					world.spawnEntityInWorld(mist);
+					world.spawnEntity(mist);
 				}
 
 				return BombReturnCode.DETONATED;
@@ -215,36 +218,29 @@ public class BombMulti extends BlockContainer implements IBomb {
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 		}
 		if(i == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 2) {
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 		if(i == 3) {
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
-			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
+			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
 		}
 	}
 }
 
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-		float f = 0.0625F;
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 8 * f, 1.0F);
-	}
+	private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 8 * 0.0625F, 1.0F);
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		float f = 0.0625F;
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 8 * f, 1.0F);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return BOUNDS;
 	}
 
 	@Override

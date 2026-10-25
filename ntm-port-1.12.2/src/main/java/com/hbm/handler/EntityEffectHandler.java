@@ -226,7 +226,7 @@ public class EntityEffectHandler {
 			if(world.rand.nextInt(3) == 0) {
 				EntityCreeperNuclear creep = new EntityCreeperNuclear(world);
 				creep.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
-				world.spawnEntityInWorld(creep);
+				world.spawnEntity(creep);
 				entity.setDead();
 			} else {
 				entity.attackEntityFrom(ModDamageSource.radiation, 100F);
@@ -235,19 +235,19 @@ public class EntityEffectHandler {
 		} else if(entity instanceof EntityCow && !(entity instanceof EntityMooshroom) && eRad >= 50) {
 			EntityMooshroom cow = new EntityMooshroom(world);
 			cow.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
-			world.spawnEntityInWorld(cow);
+			world.spawnEntity(cow);
 			entity.setDead();
 			return;
 		} else if(entity instanceof EntityVillager && eRad >= 500) {
 			EntityZombie zomb = new EntityZombie(world);
 			zomb.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
-			world.spawnEntityInWorld(zomb);
+			world.spawnEntity(zomb);
 			entity.setDead();
 			return;
 		} else if(entity.getClass().equals(EntityDuck.class) && eRad >= 200) {
 			EntityQuackos quacc = new EntityQuackos(world);
 			quacc.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
-			world.spawnEntityInWorld(quacc);
+			world.spawnEntity(quacc);
 			entity.setDead();
 			return;
 		}
@@ -271,24 +271,24 @@ public class EntityEffectHandler {
 		} else if(eRad >= 800) {
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 2));
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 10 * 20, 2));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 10 * 20, 2));
 			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 3 * 20, 2));
 			if(world.rand.nextInt(700) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 3 * 20, 1));
 
 		} else if(eRad >= 600) {
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 2));
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 10 * 20, 2));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 10 * 20, 2));
 			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 3 * 20, 1));
 
 		} else if(eRad >= 400) {
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));
 			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 5 * 20, 0));
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 5 * 20, 1));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 5 * 20, 1));
 
 		} else if(eRad >= 200) {
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 0));
-			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 5 * 20, 0));
+			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 5 * 20, 0));
 
 			if(entity instanceof EntityPlayer) com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achRadPoison);
 		}
@@ -321,7 +321,7 @@ public class EntityEffectHandler {
 				rad = (float) RadiationConfig.hellRad;
 
 			if(world.provider instanceof WorldProviderCelestial || world.provider instanceof WorldProviderOrbit) {
-				if(world.getSavedLightValue(EnumSkyBlock.Sky, ix, iy, iz) - world.skylightSubtracted >= 14) {
+				if(world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(ix, iy, iz)) - world.getSkylightSubtracted() >= 14) {
 					Target target = CelestialBody.getTarget(world, ix, iz);
 					CBT_Atmosphere atmosphere = !target.inOrbit ? CelestialBody.getTrait(world, CBT_Atmosphere.class) : null;
 
@@ -358,7 +358,7 @@ public class EntityEffectHandler {
 
 					if((world.getTotalWorldTime() + r600) % 600 == 1) {
 						com.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F);
-						entity.addPotionEffect(new PotionEffect(Potion.hunger.id, 60, 19));
+						entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HUNGER, 60, 19));
 					}
 				}
 
@@ -373,7 +373,7 @@ public class EntityEffectHandler {
 
 				if((world.getTotalWorldTime() + r1200) % 1200 == 1) {
 					com.hbm.sound.WorldSoundEffects.play(world, ix, iy, iz, "hbm:player.vomit", 1.0F, 1.0F);
-					entity.addPotionEffect(new PotionEffect(Potion.hunger.id, 60, 19));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HUNGER, 60, 19));
 				}
 
 			}
@@ -514,7 +514,7 @@ public class EntityEffectHandler {
 						}
 
 						if(ent instanceof EntityItem) {
-							ItemStack stack = ((EntityItem)ent).getEntityItem();
+							ItemStack stack = ((EntityItem)ent).getItem();
 
 							if(!stack.hasTagCompound())
 								stack.setTagCompound(new NBTTagCompound());
@@ -532,7 +532,7 @@ public class EntityEffectHandler {
 				//two hours in, give 'em the full blast
 				if(contagion < 1 * hour && rand.nextInt(100) == 0) {
 					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 60, 0));
-					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 300, 4));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 300, 4));
 				}
 
 				//T-30 minutes, take damage every 20 seconds
@@ -608,7 +608,7 @@ public class EntityEffectHandler {
 		World world = entity.world;
 
 		if(total > 0.75D) {
-			entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 2));
+			entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 100, 2));
 		}
 
 		if(total > 0.95D) {
@@ -695,11 +695,11 @@ public class EntityEffectHandler {
 			if(poison > 25) {
 
 				if(poison < 50) {
-					entity.addPotionEffect(new PotionEffect(HbmPotion.lead.id, 100, 0));
+					entity.addPotionEffect(new PotionEffect(HbmPotion.lead, 100, 0));
 				} else if(poison < 75) {
-					entity.addPotionEffect(new PotionEffect(HbmPotion.lead.id, 100, 2));
+					entity.addPotionEffect(new PotionEffect(HbmPotion.lead, 100, 2));
 				} else {
-					entity.addPotionEffect(new PotionEffect(HbmPotion.lead.id, 100, 2));
+					entity.addPotionEffect(new PotionEffect(HbmPotion.lead, 100, 2));
 				}
 			}
 		}
@@ -730,14 +730,14 @@ public class EntityEffectHandler {
 		if(props.fire > 0) {
 			props.fire--;
 			if((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
-			if((living.ticksExisted + living.getEntityId()) % 40 == 0) living.attackEntityFrom(DamageSource.onFire, 2F);
+			if((living.ticksExisted + living.getEntityId()) % 40 == 0) living.attackEntityFrom(DamageSource.ON_FIRE, 2F);
 			FlameCreator.composeEffect(entity.world, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_FIRE);
 		}
 
 		if(props.phosphorus > 0) {
 			props.phosphorus--;
 			if((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
-			if((living.ticksExisted + living.getEntityId()) % 40 == 0) living.attackEntityFrom(DamageSource.onFire, 5F);
+			if((living.ticksExisted + living.getEntityId()) % 40 == 0) living.attackEntityFrom(DamageSource.ON_FIRE, 5F);
 			FlameCreator.composeEffect(entity.world, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_FIRE);
 		}
 
@@ -745,7 +745,7 @@ public class EntityEffectHandler {
 			props.balefire--;
 			if((living.ticksExisted + living.getEntityId()) % 15 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
 			ContaminationUtil.contaminate(living, HazardType.RADIATION, ContaminationType.CREATIVE, 5F);
-			if((living.ticksExisted + living.getEntityId()) % 20 == 0) living.attackEntityFrom(DamageSource.onFire, 5F);
+			if((living.ticksExisted + living.getEntityId()) % 20 == 0) living.attackEntityFrom(DamageSource.ON_FIRE, 5F);
 			FlameCreator.composeEffect(entity.world, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_BALEFIRE);
 		}
 
@@ -753,11 +753,11 @@ public class EntityEffectHandler {
 			props.blackFire--;
 			if((living.ticksExisted + living.getEntityId()) % 10 == 0) com.hbm.sound.VanillaWorldSoundEffects.play(living.world, living.posX, living.posY + living.height / 2, living.posZ, "random.fizz", 1F, 1.5F + rand.nextFloat() * 0.5F);
 			ContaminationUtil.contaminate(living, HazardType.RADIATION, ContaminationType.CREATIVE, 5F);
-			if((living.ticksExisted + living.getEntityId()) % 10 == 0) living.attackEntityFrom(DamageSource.onFire, 10F);
+			if((living.ticksExisted + living.getEntityId()) % 10 == 0) living.attackEntityFrom(DamageSource.ON_FIRE, 10F);
 			FlameCreator.composeEffect(entity.world, x - living.width / 2 + living.width * rand.nextDouble(), y + rand.nextDouble() * living.height, z - living.width / 2 + living.width * rand.nextDouble(), FlameCreator.META_BLACK);
 		}
 
-		if(props.fire > 0 || props.phosphorus > 0 || props.balefire > 0 || props.blackFire > 0) if(!entity.isEntityAlive()) ConfettiUtil.decideConfetti(living, DamageSource.onFire);
+		if(props.fire > 0 || props.phosphorus > 0 || props.balefire > 0 || props.blackFire > 0) if(!entity.isEntityAlive()) ConfettiUtil.decideConfetti(living, DamageSource.ON_FIRE);
 	}
 
 	private static void handleDashing(Entity entity) {
@@ -828,7 +828,7 @@ public class EntityEffectHandler {
 						player.addVelocity(lookingIn.x * forward + strafeVec.x * strafe, 0, lookingIn.z * forward + strafeVec.z * strafe);
 						player.motionY = 0;
 						player.fallDistance = 0F;
-						player.playSound("hbm:player.dash", 1.0F, 1.0F);
+						player.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:player.dash"), 1.0F, 1.0F);
 
 						props.setDashCooldown(HbmPlayerProps.dashCooldownLength);
 						stamina -= perDash;
@@ -841,7 +841,7 @@ public class EntityEffectHandler {
 					stamina++;
 
 					if(stamina % perDash == perDash-1) {
-						player.playSound("hbm:player.dashRecharge", 1.0F, (1.0F + ((1F/12F)*(stamina/perDash))));
+						player.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:player.dashRecharge"), 1.0F, (1.0F + ((1F/12F)*(stamina/perDash))));
 						stamina++;
 					}
 				}
@@ -863,7 +863,7 @@ public class EntityEffectHandler {
 	}
 
 	private static boolean canVomit(Entity e) {
-		if(e.isCreatureType(EnumCreatureType.waterCreature, false)) return false;
+		if(e.isCreatureType(EnumCreatureType.WATER_CREATURE, false)) return false;
 		return true;
 	}
 }

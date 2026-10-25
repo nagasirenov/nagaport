@@ -8,7 +8,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class SlotCraftingOutput extends Slot {
-	
+
 	private EntityPlayer player;
 	private int craftBuffer;
 
@@ -21,16 +21,16 @@ public class SlotCraftingOutput extends Slot {
 	public boolean isItemValid(ItemStack stack) {
 		return false;
 	}
-	
+
 	//ugly but nothing to be done
 	public static void checkAchievements(EntityPlayer player, ItemStack stack) {
 		AchievementHandler.fire(player, stack);
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int amount) {
 		if(this.getHasStack()) {
-			this.craftBuffer += Math.min(amount, this.getStack().stackSize);
+			this.craftBuffer += Math.min(amount, this.getStack().getCount());
 		}
 		return super.decrStackSize(amount);
 	}
@@ -46,7 +46,7 @@ public class SlotCraftingOutput extends Slot {
 		this.craftBuffer += amount;
 		this.onCrafting(stack);
 	}
-	
+
 	@Override
 	protected void onCrafting(ItemStack stack) {
 		stack.onCrafting(this.player.world, this.player, this.craftBuffer);

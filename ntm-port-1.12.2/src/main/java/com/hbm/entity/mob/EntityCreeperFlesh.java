@@ -22,7 +22,6 @@ public class EntityCreeperFlesh extends EntityCreeper {
 		super(world);
 	}
 
-	@Override
 	public void func_146077_cc() {
 		if(!this.world.isRemote) {
 			NBTTagCompound vdat = new NBTTagCompound();

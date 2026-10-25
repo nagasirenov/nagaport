@@ -46,7 +46,18 @@ public final class FallingTintModelHandler {
                 @Override protected ModelResourceLocation getModelResourceLocation(IBlockState state) { return WORLD; }
             });
             for(int meta = 0; meta < 16; meta++) ModelLoader.setCustomModelResourceLocation(item, meta, ITEM);
-            Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler((state, world, pos, tint) -> BlockFallingTint.color(block.getMetaFromState(state)), block);
+        }
+    }
+
+    public static void registerColorHandlers() {
+        for (Block block : ForgeRegistries.BLOCKS.getValuesCollection()) {
+            if (block.getClass() != BlockFallingTint.class
+                    || !new ResourceLocation(RefStrings.MODID, "tile.laythe_silt").equals(block.getRegistryName())) continue;
+            Item item = Item.getItemFromBlock(block);
+            if (!(item instanceof ItemBlock) || ((ItemBlock)item).getBlock() != block)
+                throw new IllegalStateException("Missing falling_tint ItemBlock " + block.getRegistryName());
+            Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(
+                    (state, world, pos, tint) -> BlockFallingTint.color(block.getMetaFromState(state)), block);
             Minecraft.getMinecraft().getItemColors().registerItemColorHandler((stack, tint) -> 0xFFFFFF, item);
         }
     }

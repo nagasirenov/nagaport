@@ -34,43 +34,43 @@ public class CoreComponent extends BlockContainer {
 			return new TileEntityCoreInjector();
 		if(this == ModBlocks.dfc_stabilizer)
 			return new TileEntityCoreStabilizer();
-		
+
 		return null;
 	}
-	
+
 	@Override
 	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
 		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
     public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
-    	
-        int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-        world.setBlockMetadataWithNotify(x, y, z, l, 2);
+
+        int l = net.minecraft.util.EnumFacing.getDirectionFromEntityLiving(new net.minecraft.util.math.BlockPos(x, y, z), player).getIndex();
+        com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, l, 2);
     }
-	
+
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
-		
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
-			
+
 			return true;
-			
+
 		} else {
 			return false;
 		}

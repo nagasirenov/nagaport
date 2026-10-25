@@ -30,6 +30,8 @@ import net.minecraftforge.client.IRenderHandler;
 
 public class WorldProviderOrbit extends WorldProvider {
 
+	public boolean isHellWorld;
+
 	// Orbit at an altitude that provides an hour-long realtime orbit (game time is fast so we go slow)
 	// We want a consistent orbital period to prevent orbiting too slow or fast (both for player comfort and feel)
 	private static final float ORBITAL_PERIOD = 7200;
@@ -64,8 +66,8 @@ public class WorldProviderOrbit extends WorldProvider {
 	}
 
 	@Override
-	public String getDimensionName() {
-		return "Orbit";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	@Override

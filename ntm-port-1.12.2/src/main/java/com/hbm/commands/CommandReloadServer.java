@@ -11,16 +11,31 @@ import net.minecraft.util.text.TextFormatting;
 
 public class CommandReloadServer extends CommandReloadConfig {
 
-	@Override
-	public String getCommandName() {
-		return "ntmserver";
+
+		@Override
+	public String getName() {
+		return getCommandName();
 	}
 
 	@Override
+	public String getUsage(net.minecraft.command.ICommandSender sender) {
+		return getCommandUsage(sender);
+	}
+
+	@Override
+	public void execute(net.minecraft.server.MinecraftServer server, net.minecraft.command.ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+		processCommand(sender, args);
+	}
+
+public String getCommandName() {
+		return "ntmserver";
+	}
+
+
 	public String getCommandUsage(ICommandSender sender) {
 		return "/ntmserver help";
 	}
-	
+
 	@Override public void help(ICommandSender sender, String[] args) {
 		if(args.length >= 2) {
 			String command = args[1];
@@ -37,7 +52,7 @@ public class CommandReloadServer extends CommandReloadConfig {
 			sender.sendMessage(new TextComponentString(TextFormatting.YELLOW + "/ntmserver " + TextFormatting.GOLD + "set " + TextFormatting.RED + "<name> <value>"));
 		}
 	}
-	
+
 	@Override public HashMap<String, ConfigWrapper> getConfigMap() { return ServerConfig.configMap; }
 	@Override public void refresh() { ServerConfig.refresh(); }
 	@Override public void reload() { ServerConfig.reload(); }

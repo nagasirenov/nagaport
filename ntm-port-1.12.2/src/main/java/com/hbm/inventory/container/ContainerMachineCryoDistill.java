@@ -16,11 +16,11 @@ import net.minecraft.item.ItemStack;
 public class ContainerMachineCryoDistill extends Container {
 
 	private TileEntityMachineCryoDistill cryo;
-	
+
 	public ContainerMachineCryoDistill(InventoryPlayer invPlayer, TileEntityMachineCryoDistill tedf) {
-		
+
 		cryo = tedf;
-		
+
 		this.addSlotToContainer(new Slot(tedf, 0, 26,  90));
 		this.addSlotToContainer(new Slot(tedf, 1, 80,  90));
 		this.addSlotToContainer(new SlotTakeOnly(tedf, 2, 80,  108));
@@ -42,12 +42,12 @@ public class ContainerMachineCryoDistill extends Container {
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 214));
 		}
 	}
-	
+
 	@Override
 	public void addListener(IContainerListener crafting) {
 		super.addListener(crafting);
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
 		ItemStack var3 = null;
@@ -62,7 +62,7 @@ public class ContainerMachineCryoDistill extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IBatteryItem) {
 					if(!this.mergeItemStack(var5, 0, 1, false)) {
 						return null;
@@ -81,7 +81,7 @@ public class ContainerMachineCryoDistill extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
@@ -90,7 +90,7 @@ public class ContainerMachineCryoDistill extends Container {
 
 		return var3;
 	}
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return cryo.isUsableByPlayer(player);

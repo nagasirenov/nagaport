@@ -12,12 +12,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineAmmoPress extends Container {
-	
+
 	private TileEntityMachineAmmoPress press;
 
 	public ContainerMachineAmmoPress(InventoryPlayer playerInv, TileEntityMachineAmmoPress tile) {
 		press = tile;
-		
+
 		//Inputs
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
@@ -51,10 +51,10 @@ public class ContainerMachineAmmoPress extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(press.selectedRecipe < 0 || press.selectedRecipe >= AmmoPressRecipes.recipes.size()) return null;
 				AmmoPressRecipe recipe = AmmoPressRecipes.recipes.get(press.selectedRecipe);
-				
+
 				for(int i = 0; i < 9; i++) {
 					if(recipe.input[i] == null) continue;
 					if(recipe.input[i].matchesRecipe(stack, true)) {
@@ -63,11 +63,11 @@ public class ContainerMachineAmmoPress extends Container {
 						}
 					}
 				}
-				
+
 				return null;
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

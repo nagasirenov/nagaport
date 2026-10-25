@@ -16,16 +16,23 @@ public class ItemModDoor extends Item {
 
 	public ItemModDoor() {
 		this.maxStackSize = 1;
-		this.setCreativeTab(CreativeTabs.tabRedstone);
+		this.setCreativeTab(CreativeTabs.REDSTONE);
 	}
 
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		if(side != 1) {
 			return false;
 		} else {
 			++y;
 
-			Block block = Blocks.air;
+			Block block = Blocks.AIR;
 
 			if(this == ModItems.door_metal) block = ModBlocks.door_metal;
 			if(this == ModItems.door_office) block = ModBlocks.door_office;
@@ -33,13 +40,13 @@ public class ItemModDoor extends Item {
 			if(this == ModItems.door_red) block = ModBlocks.door_red;
 			if(this == ModItems.fence_gate) block = ModBlocks.fence_gate;
 
-			if(player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack)) {
+			if(player.canPlayerEdit(new net.minecraft.util.math.BlockPos(x, y, z), net.minecraft.util.EnumFacing.byIndex(side), stack) && player.canPlayerEdit(new net.minecraft.util.math.BlockPos(x, y + 1, z), net.minecraft.util.EnumFacing.byIndex(side), stack)) {
 				if(!block.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 					return false;
 				} else {
 					int i1 = MathHelper.floor((double) ((player.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
 					placeDoorBlock(world, x, y, z, i1, block);
-					--stack.stackSize;
+					stack.shrink(1);
 					return true;
 				}
 			} else {
@@ -80,9 +87,9 @@ public class ItemModDoor extends Item {
 			flag2 = true;
 		}
 
-		world.setBlock(x, y, z, door, meta, 2);
-		world.setBlock(x, y + 1, z, door, 8 | (flag2 ? 1 : 0), 2);
-		world.notifyBlocksOfNeighborChange(x, y, z, door);
-		world.notifyBlocksOfNeighborChange(x, y + 1, z, door);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, door, meta, 2);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y + 1, z, door, 8 | (flag2 ? 1 : 0), 2);
+		world.notifyNeighborsOfStateChange(new net.minecraft.util.math.BlockPos(x, y, z), door, true);
+		world.notifyNeighborsOfStateChange(new net.minecraft.util.math.BlockPos(x, y + 1, z), door, true);
 	}
 }

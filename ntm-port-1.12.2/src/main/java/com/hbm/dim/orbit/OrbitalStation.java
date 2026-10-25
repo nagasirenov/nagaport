@@ -311,7 +311,7 @@ public class OrbitalStation {
 	}
 
 	private boolean isInStation(World world, ThreeInts pos) {
-		if(world.getHeightValue(pos.x, pos.z) > 1) return true;
+		if(world.getHeight(pos.x, pos.z) > 1) return true;
 		return Math.abs(pos.x - mainPort.getPos().getX()) < 5 && Math.abs(pos.z - mainPort.getPos().getZ()) < 5; // minimum station size
 	}
 
@@ -397,7 +397,7 @@ public class OrbitalStation {
 		BlockOrbitalStation block = (BlockOrbitalStation) ModBlocks.orbital_station;
 
 		BlockDummyable.safeRem = true;
-		world.setBlock(x, y, z, block, 12, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, block, 12, 3);
 		block.fillSpace(world, x, y, z, ForgeDirection.NORTH, 0);
 		BlockDummyable.safeRem = false;
 	}

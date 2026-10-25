@@ -30,16 +30,16 @@ public class DungeonSpawner extends BlockContainer {
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityDungeonSpawner();
 	}
-	
+
 	public static class TileEntityDungeonSpawner extends TileEntity implements net.minecraft.util.ITickable {
-		
+
 		public int phase = 0;
 		public int timer = 0;
 		public EnumSpawnerType type = EnumSpawnerType.ABERRATOR;
-		
+
 		@Override
 		public void update() {
-			
+
 			if(!this.world.isRemote) {
 				type.phase.accept(this);
 				if(type.phaseCondition.apply(this)) {
@@ -66,37 +66,37 @@ public class DungeonSpawner extends BlockContainer {
 			this.type = EnumUtil.grabEnumSafely(EnumSpawnerType.class, nbt.getByte("type"));
 		}
 	}
-	
+
 	public static enum EnumSpawnerType {
-		
+
 		ABERRATOR(CON_ABERRATOR, PHASE_ABERRATOR);
 
 		public Function<TileEntityDungeonSpawner, Boolean> phaseCondition;
 		public Consumer<TileEntityDungeonSpawner> phase;
-		
+
 		private EnumSpawnerType(Function<TileEntityDungeonSpawner, Boolean> con, Consumer<TileEntityDungeonSpawner> ph) {
 			this.phaseCondition = con;
 			this.phase = ph;
 		}
 	}
-	
+
 	public static Function<TileEntityDungeonSpawner, Boolean> CON_ABERRATOR = (tile) -> {
 		World world = tile.getWorld();
-		if(world.difficultySetting.ordinal() == 0) return false;
+		if(world.getDifficulty().ordinal() == 0) return false;
 		int x = tile.getPos().getX();
 		int y = tile.getPos().getY();
 		int z = tile.getPos().getZ();
 		if(tile.phase == 0) {
 			if(world.getTotalWorldTime() % 20 != 0) return false;
-			return !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(20, 10, 20)).isEmpty();
+			return !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y - 2, z + 1).expand(20, 10, 20)).isEmpty();
 		}
 		if(tile.phase < 3) {
 			if(world.getTotalWorldTime() % 20 != 0 || tile.timer < 60) return false;
-			return world.getEntitiesWithinAABB(EntityUndeadSoldier.class, AxisAlignedBB.getBoundingBox(x, y, z, x - 2, y + 1, z + 1).expand(50, 20, 50)).isEmpty();
+			return world.getEntitiesWithinAABB(EntityUndeadSoldier.class, new AxisAlignedBB(x, y, z, x - 2, y + 1, z + 1).expand(50, 20, 50)).isEmpty();
 		}
 		return false;
 	};
-	
+
 	public static Consumer<TileEntityDungeonSpawner> PHASE_ABERRATOR = (tile) -> {
 		World world = tile.getWorld();
 		int x = tile.getPos().getX();
@@ -110,12 +110,12 @@ public class DungeonSpawner extends BlockContainer {
 					for(int j = 0; j < 7; j++) {
 						mob.setPositionAndRotation(x + 0.5 + vec.x, y - 5, z + 0.5 + vec.z, i * 36F, 0);
 						if(mob.getCanSpawnHere()) {
-							mob.onSpawnWithEgg(null);
-							world.spawnEntityInWorld(mob);
+							mob.onInitialSpawn(world.getDifficultyForLocation(mob.getPosition()), null);
+							world.spawnEntity(mob);
 							break;
 						}
 					}
-					
+
 					vec.rotateAroundYDeg(36D);
 				}
 			}
@@ -130,7 +130,7 @@ public class DungeonSpawner extends BlockContainer {
 					skeleton.item = new ItemStack(ModItems.clay_tablet, 1, 1);
 				}
 				skeleton.markDirty();
-				world.markBlockForUpdate(x, y + 18, z);
+				com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y + 18, z);
 			}
 			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.OBSIDIAN; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}

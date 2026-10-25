@@ -171,7 +171,7 @@ public class GUIScreenBobmazon extends GuiScreen {
 				GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 				if(offer != null) {
 					RenderHelper.enableGUIStandardItemLighting();
-					itemRender.renderItemAndEffectIntoGUI(fontRenderer, mc.getTextureManager(), offer.offer, xPos + 1, yPos + 1);
+					itemRender.renderItemAndEffectIntoGUI(offer.offer, xPos + 1, yPos + 1);
 				}
 			} catch(Exception x) {
 			}
@@ -243,8 +243,8 @@ public class GUIScreenBobmazon extends GuiScreen {
 				gui.drawTexturedModalRect(x + 19, y - 4, 176 + 41, 54, rating, 8);
 
 				String count = "";
-				if(offer.stackSize > 1)
-					count = " x" + offer.stackSize;
+				if(offer.getCount() > 1)
+					count = " x" + offer.getCount();
 
 				GL11.glPushMatrix();
 				float scale = 0.5F;
@@ -269,7 +269,7 @@ public class GUIScreenBobmazon extends GuiScreen {
 				GL11.glPopMatrix();
 				if(offer != null) {
 					GL11.glEnable(GL11.GL_LIGHTING);
-					gui.itemRender.renderItemAndEffectIntoGUI(gui.fontRenderer, gui.mc.getTextureManager(), com.hbm.advancement.NtmAdvancements.icon(requirement.achievement), x + 1, y + 1);
+					gui.itemRender.renderItemAndEffectIntoGUI(com.hbm.advancement.NtmAdvancements.icon(requirement.achievement), x + 1, y + 1);
 				}
 
 			} catch(Exception ex) {

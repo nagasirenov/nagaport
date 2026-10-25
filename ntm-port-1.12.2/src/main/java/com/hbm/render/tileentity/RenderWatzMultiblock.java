@@ -16,7 +16,7 @@ public class RenderWatzMultiblock extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x, y, z);
 
-		bindTexture(TextureMap.locationBlocksTexture);
+		bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 		SmallBlockPronter.startDrawing();
 		
 		SmallBlockPronter.drawSmolBlockAt(ModBlocks.watz_cooler, 0, 0F, 1F, 0F);

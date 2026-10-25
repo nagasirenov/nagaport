@@ -52,7 +52,10 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(!CelestialBody.inOrbit(world)) return false;
 
 		if(world.isRemote) {
@@ -85,14 +88,14 @@ public class BlockOrbitalStationComputer extends BlockDummyable implements ILook
 					return false;
 
 				if(computer.travelTo(destination.body.getBody(), heldStack.copy())) {
-					heldStack.stackSize = 0;
-					world.playSoundEffect(x, y, z, "hbm:item.upgradePlug", 1.0F, 1.0F);
+					heldStack.setCount(0);
+					world.playSound(null, x, y, z, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 				} else {
 					return false;
 				}
 			} else if(heldStack == null && computer.slots[0] != null) {
 				if(!player.inventory.addItemStackToInventory(computer.slots[0].copy())) {
-					player.dropPlayerItemWithRandomChoice(computer.slots[0].copy(), false);
+					player.dropItem(computer.slots[0].copy(), false);
 				}
 				computer.slots[0] = null;
 				computer.markChanged();

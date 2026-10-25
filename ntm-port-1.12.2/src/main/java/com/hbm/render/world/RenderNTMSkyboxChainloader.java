@@ -54,7 +54,7 @@ public class RenderNTMSkyboxChainloader extends IRenderHandler { //why an abstra
 		} else{
 			RenderGlobal rg = Minecraft.getMinecraft().renderGlobal;
 			world.provider.setSkyRenderer(null);
-			rg.renderSky(partialTicks);
+			rg.renderSky(partialTicks, 0);
 			world.provider.setSkyRenderer(this);
 		}
 		

@@ -44,7 +44,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 		
 		if(radWorld != null) {
 			
-			if(world.blockExists(x, 0, z)) {
+			if(world.isBlockLoaded(new net.minecraft.util.math.BlockPos(x, 0, z))) {
 				
 				ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 				
@@ -54,7 +54,7 @@ public class ChunkRadiationHandler3D extends ChunkRadiationHandler {
 					radWorld.radiation.get(coords)[yReg] = rad;
 				}
 
-				world.getChunkFromBlockCoords(x, z).isModified = true;
+				world.getChunk(new net.minecraft.util.math.BlockPos(x, 0, z)).markDirty();
 			}
 		}
 	}

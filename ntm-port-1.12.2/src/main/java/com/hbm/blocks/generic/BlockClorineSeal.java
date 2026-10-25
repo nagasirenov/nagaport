@@ -14,6 +14,8 @@ import net.minecraft.world.World;
 
 public class BlockClorineSeal extends BlockContainer {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
@@ -21,7 +23,6 @@ public class BlockClorineSeal extends BlockContainer {
 		super(p_i45386_1_);
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		
@@ -29,7 +30,6 @@ public class BlockClorineSeal extends BlockContainer {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":vent_chlorine_seal_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		

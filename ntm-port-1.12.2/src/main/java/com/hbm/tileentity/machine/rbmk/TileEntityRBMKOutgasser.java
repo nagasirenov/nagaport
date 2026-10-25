@@ -34,6 +34,25 @@ import net.minecraft.world.World;
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implements IRBMKFluxReceiver, IFluidStandardSenderMK2, SimpleComponent, CompatHandler.OCComponent {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	public FluidTank gas;
 	public double progress;
 	public static final int duration = 10000;
@@ -127,7 +146,7 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 		if(slots[1] == null || out == null)
 			return true;
 
-		return slots[1].getItem() == out.getItem() && slots[1].getItemDamage() == out.getItemDamage() && slots[1].stackSize + out.stackSize <= slots[1].getMaxStackSize();
+		return slots[1].getItem() == out.getItem() && slots[1].getItemDamage() == out.getItemDamage() && slots[1].getCount() + out.getCount() <= slots[1].getMaxStackSize();
 	}
 
 	private void process() {
@@ -146,7 +165,7 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 			if(slots[1] == null) {
 				slots[1] = out.copy();
 			} else {
-				slots[1].stackSize += out.stackSize;
+				slots[1].grow(out.getCount());
 			}
 		}
 	}
@@ -278,7 +297,7 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 		if (slots[0] == null)
 			return new Object[] { "", 0 };
 		else
-			return new Object[]{slots[0].getUnlocalizedName(), slots[0].stackSize };
+			return new Object[]{slots[0].getTranslationKey(), slots[0].getCount() };
 	}
 
 	@Callback(direct = true)
@@ -292,7 +311,7 @@ public class TileEntityRBMKOutgasser extends TileEntityRBMKSlottedBase implement
 	public Object[] getInfo(Context context, Arguments args) {
 		ItemStack input = slots[0];
 		if (input != null)
-			return new Object[] {gas.getFill(), gas.getMaxFill(), progress, gas.getTankType().getID(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), input.getUnlocalizedName(), input.stackSize };
+			return new Object[] {gas.getFill(), gas.getMaxFill(), progress, gas.getTankType().getID(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), input.getTranslationKey(), input.getCount() };
 		else
 			return new Object[] {gas.getFill(), gas.getMaxFill(), progress, gas.getTankType().getID(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), "", 0 };
 	}

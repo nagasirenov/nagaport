@@ -16,11 +16,11 @@ import net.minecraft.util.ResourceLocation;
 public class RenderGlyphid extends RenderLiving {
 
 	public static final ResourceLocation glyphid_infested_tex = new ResourceLocation(RefStrings.MODID, "textures/entity/glyphid_infestation.png");
-	
-	public RenderGlyphid() {
-		super(new ModelGlyphid(), 1.0F);
+
+	public RenderGlyphid(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+		super(renderManager, new ModelGlyphid(), 1.0F);
 		this.shadowOpaque = 0.0F;
-		this.setRenderPassModel(this.mainModel);
+		
 	}
 
 	@Override
@@ -29,12 +29,11 @@ public class RenderGlyphid extends RenderLiving {
 		return glyphid.getSkin();
 	}
 
-	@Override
 	protected int shouldRenderPass(EntityLivingBase entity, int pass, float interp) {
 		if(pass != 0) {
 			return -1;
 		} else {
-			if(entity.getDataWatcher().getWatchableObjectByte(EntityGlyphid.DW_SUBTYPE) == EntityGlyphid.TYPE_INFECTED) {
+			if(entity.getDataManager().get(EntityGlyphid.SUBTYPE) == EntityGlyphid.TYPE_INFECTED) {
 				this.bindTexture(glyphid_infested_tex);
 				GL11.glEnable(GL11.GL_BLEND);
 				GL11.glDisable(GL11.GL_ALPHA_TEST);
@@ -43,9 +42,9 @@ public class RenderGlyphid extends RenderLiving {
 			return -1;
 		}
 	}
-	
+
 	public static class ModelGlyphid extends ModelBase {
-		
+
 		double bite = 0;
 
 		@Override
@@ -61,22 +60,22 @@ public class RenderGlyphid extends RenderLiving {
 			GL11.glTranslatef(0, -1.5F, 0);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glDisable(GL11.GL_CULL_FACE);
-			
+
 			this.renderModel(entity, limbSwing);
-			
+
 			GL11.glPopMatrix();
 		}
-		
+
 		public void renderModel(Entity entity, float limbSwing) {
-			
+
 			GL11.glPushMatrix();
-			
+
 			double s = ((EntityGlyphid) entity).getScale();
 			GL11.glScaled(s, s, s);
-			
+
 			EntityLivingBase living = (EntityLivingBase) entity;
-			byte armor = living.getDataWatcher().getWatchableObjectByte(EntityGlyphid.DW_ARMOR);
-			
+			byte armor = living.getDataManager().get(EntityGlyphid.ARMOR);
+
 			double walkCycle = limbSwing;
 
 			double cy0 = Math.sin(walkCycle % (Math.PI * 2));
@@ -86,7 +85,7 @@ public class RenderGlyphid extends RenderLiving {
 
 			double bite = MathHelper.clamp(Math.sin(this.bite * Math.PI * 2 - Math.PI * 0.5), (double) (0), (double) (1)) * 20;
 			double headTilt = Math.sin(this.bite * Math.PI) * 30;
-			
+
 			ResourceManager.glyphid.renderPart("Body");
 			if((armor & (1 << 0)) > 0) ResourceManager.glyphid.renderPart("ArmorFront");
 			if((armor & (1 << 1)) > 0) ResourceManager.glyphid.renderPart("ArmorLeft");
@@ -129,11 +128,11 @@ public class RenderGlyphid extends RenderLiving {
 			GL11.glPopMatrix();
 
 			GL11.glPushMatrix();
-			
+
 			GL11.glTranslated(0, 0.5, 0.25);
 			GL11.glRotated(headTilt, 0, 0, 1);
 			GL11.glTranslated(0, -0.5, -0.25);
-			
+
 			GL11.glPushMatrix();
 			GL11.glTranslated(0, 0.5, 0.25);
 			GL11.glRotated(-bite, 1, 0, 0);
@@ -160,12 +159,12 @@ public class RenderGlyphid extends RenderLiving {
 
 			double steppy = 15;
 			double bend = 60;
-			
+
 			for(int i = 0; i < 3; i++) {
-				
+
 				double c0 = cy0 * (i == 1 ? -1 : 1);
 				double c1 = cy1 * (i == 1 ? -1 : 1);
-				
+
 				GL11.glPushMatrix();
 				GL11.glTranslated(0, 0.25, 0);
 				GL11.glRotated(i * 30 - 15 + c0 * 7.5, 0, 1, 0);
@@ -177,7 +176,7 @@ public class RenderGlyphid extends RenderLiving {
 				GL11.glTranslated(-0.5625, -0.25, 0);
 				ResourceManager.glyphid.renderPart("LegLeftLower");
 				GL11.glPopMatrix();
-				
+
 				GL11.glPushMatrix();
 				GL11.glTranslated(0, 0.25, 0);
 				GL11.glRotated(i * 30 - 45 + c0 * 7.5, 0, 1, 0);
@@ -190,7 +189,7 @@ public class RenderGlyphid extends RenderLiving {
 				ResourceManager.glyphid.renderPart("LegRightLower");
 				GL11.glPopMatrix();
 			}
-			
+
 			GL11.glPopMatrix();
 		}
 	}

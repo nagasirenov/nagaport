@@ -43,7 +43,7 @@ public class XFactory35800 {
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 			EntityFireLingering fire = new EntityFireLingering(bullet.world).setArea(7.5F, 2F).setDuration(200).setType(EntityFireLingering.TYPE_BLACK);
 			fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
-			bullet.world.spawnEntityInWorld(fire);
+			bullet.world.spawnEntity(fire);
 		}
 
 		BulletConfig.LAMBDA_STANDARD_BEAM_HIT.accept(bullet, mop);

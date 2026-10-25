@@ -119,7 +119,7 @@ public class GUIScreenRadioTorchReader extends GuiScreen {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		for(GuiTextField field : frequencies) field.mouseClicked(x, y, i);

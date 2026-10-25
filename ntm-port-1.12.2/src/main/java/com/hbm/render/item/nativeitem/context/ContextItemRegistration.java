@@ -1,10 +1,12 @@
 package com.hbm.render.item.nativeitem.context;
 
 import com.hbm.render.item.nativeitem.AngelCoreFrameCorrection;
+import com.hbm.render.item.nativeitem.NativeItemParticles;
 import com.hbm.render.item.nativeitem.StaticMeshItemRegistration;
 import java.util.*;
 import java.util.function.Consumer;
 import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.util.registry.IRegistry;
@@ -19,6 +21,7 @@ public final class ContextItemRegistration {
     private final Map<Item, ContextItemRenderer> renderers;
     private final Consumer<String> warning;
     private IRegistry<ModelResourceLocation, IBakedModel> registry;
+    private IBakedModel missing;
     private boolean active;
     public ContextItemRegistration(Map<Item, ContextItemRenderer> source, Consumer<String> warning) {
         Map<Item, ContextItemRenderer> copy = new IdentityHashMap<>();
@@ -33,11 +36,16 @@ public final class ContextItemRegistration {
         for(Item item : renderers.keySet()) {
             ModelResourceLocation location = StaticMeshItemRegistration.modelLocation(item);
             ModelBakery.registerItemVariants(item, location);
+            // Serve a tracked placeholder during the model load phase so the
+            // variant lookup succeeds; the bake transaction swaps in the real
+            // contextual model.
+            com.hbm.main.BakeOwnedModelLoader.registerMissing(location, "ContextItemRegistration");
             ModelLoader.setCustomMeshDefinition(item, stack -> location);
         }
     }
     @SubscribeEvent public void bake(ModelBakeEvent event) {
         registry = event.getModelRegistry();
+        missing = event.getModelRegistry().getObject(net.minecraft.client.renderer.block.model.ModelBakery.MODEL_MISSING);
         if(active) {
             Activation activation = prepare();
             try { activation.commit(); }
@@ -70,11 +78,15 @@ public final class ContextItemRegistration {
                 IBakedModel original = target.getObject(key);
                 if(original == null || original.getParticleTexture() == null)
                     throw new IllegalStateException("Missing original native model/particle: " + key);
-                if(original.getParticleTexture() == net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite())
+                TextureAtlasSprite particle = NativeItemParticles.resolve(item, original);
+                if(particle == null) {
                     warning.accept("Native contextual mesh retains an unresolved atlas particle for " + key
                             + "; item texture registration still requires verification before visual acceptance.");
+                    particle = net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+                }
                 keys.add(key); before.add(original); previousRenderers.add(item.getTileEntityItemStackRenderer());
-                after.add(ContextItemModel.create(original, renderers.get(item)));
+                after.add(ContextItemModel.create(
+                        NativeItemParticles.baseModel(item, original, missing, particle), particle, renderers.get(item)));
             }
         }
         void commit() {

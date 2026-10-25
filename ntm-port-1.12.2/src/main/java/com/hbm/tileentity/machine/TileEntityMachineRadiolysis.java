@@ -217,18 +217,18 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 			output.setCount(1);
 
 			if(slots[13] == null) {
-				this.decrStackSize(12, output.stackSize);
+				this.decrStackSize(12, output.getCount());
 				slots[13] = output;
 				slots[13].getTagCompound().removeTag("ntmContagion");
-				if(slots[13].getTagCompound().hasNoTags()) {
+				if(slots[13].getTagCompound().isEmpty()) {
 					slots[13].setTagCompound(null);
 				}
-			} else if(slots[13].isItemEqual(output) && slots[13].stackSize + output.stackSize <= slots[13].getMaxStackSize()) {
-				this.decrStackSize(12, output.stackSize);
-				slots[13].stackSize += output.stackSize;
+			} else if(slots[13].isItemEqual(output) && slots[13].getCount() + output.getCount() <= slots[13].getMaxStackSize()) {
+				this.decrStackSize(12, output.getCount());
+				slots[13].grow(output.getCount());
 				if(slots[13].hasTagCompound()) { // redundant but just to be sure
 					slots[13].getTagCompound().removeTag("ntmContagion");
-					if(slots[13].getTagCompound().hasNoTags()) {
+					if(slots[13].getTagCompound().isEmpty()) {
 						slots[13].setTagCompound(null);
 					}
 				}
@@ -280,7 +280,7 @@ public class TileEntityMachineRadiolysis extends TileEntityMachineBase implement
 	}
 
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
+		return new AxisAlignedBB(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
 	}
 
 	@SideOnly(Side.CLIENT)

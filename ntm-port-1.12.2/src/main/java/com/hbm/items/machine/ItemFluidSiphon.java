@@ -19,8 +19,15 @@ import net.minecraft.world.World;
 
 public class ItemFluidSiphon extends Item {
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
 		TileEntity te = CompatExternal.getCoreFromPos(world, x, y, z);
 
 		if(te != null && te instanceof IFluidStandardReceiverMK2) {
@@ -61,11 +68,11 @@ public class ItemFluidSiphon extends Item {
 
 					ItemStack full = FluidContainerRegistry.getFullContainer(inventoryStack, tankType);
 
-					while(tank.getFill() >= container.content && inventoryStack.stackSize > 0) {
+					while(tank.getFill() >= container.content && inventoryStack.getCount() > 0) {
 						hasDrainedTank = true;
 
-						inventoryStack.stackSize--;
-						if(inventoryStack.stackSize <= 0) {
+						inventoryStack.shrink(1);
+						if(inventoryStack.getCount() <= 0) {
 							player.inventory.mainInventory.set(j, ItemStack.EMPTY);
 						}
 

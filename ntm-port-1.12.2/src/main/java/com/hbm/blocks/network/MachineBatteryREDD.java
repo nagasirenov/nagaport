@@ -42,14 +42,14 @@ public class MachineBatteryREDD extends BlockDummyable implements IPersistentInf
 
 	@Override public int[] getDimensions() { return new int[] {9, 0, 2, 2, 4, 4}; }
 	@Override public int getOffset() { return 2; }
-	
+
 	@Override
 	protected void fillSpace(World world, int x, int y, int z, ForgeDirection dir, int o) {
 		super.fillSpace(world, x, y, z, dir, o);
 
 		x += dir.offsetX * o;
 		z += dir.offsetZ * o;
-		
+
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
 
 		this.makeExtra(world, x + dir.offsetX * 2 + rot.offsetX * 2, y, z + dir.offsetZ * 2 + rot.offsetZ * 2);
@@ -59,25 +59,34 @@ public class MachineBatteryREDD extends BlockDummyable implements IPersistentInf
 		this.makeExtra(world, x + rot.offsetX * 4, y, z + rot.offsetZ * 4);
 		this.makeExtra(world, x - rot.offsetX * 4, y, z - rot.offsetZ * 4);
 	}
-	
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		return IPersistentNBT.getDrops(world, x, y, z, this);
 	}
 
 	@Override
 	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
-		
+
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
-			this.dropBlockAsItem(world, x, y, z, meta, 0);
+			this.dropBlockAsItem(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), 0);
 			harvesters.set(null);
 		}
 	}
-	
+
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
-		player.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);
+	public void harvestBlock(World world, EntityPlayer player, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.tileentity.TileEntity te, net.minecraft.item.ItemStack tool) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ(); int meta = state.getBlock().getMetaFromState(state);
+		player.addStat(net.minecraft.stats.StatList.getBlockStats(this), 1);
 		player.addExhaustion(0.025F);
 	}
 

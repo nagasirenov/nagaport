@@ -22,6 +22,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,8 +38,26 @@ import net.minecraft.world.World;
 
 public class BlockVolcano extends BlockContainer implements ITooltipProvider, IBlockMulti {
 
+	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
+
 	public BlockVolcano() {
 		super(Material.IRON);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(META, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, META);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(META, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(META);
 	}
 
 	@Override
@@ -123,11 +144,11 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 					this.volcanoTimer = 0;
 
 					if(this.shouldGrow()) {
-						this.world.setBlock(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.getBlockType(), this.getBlockMetadata(), 3);
-						this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), getLava());
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.getBlockType(), this.getBlockMetadata(), 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), getLava());
 						return;
 					} else if(this.isExtinguishing()) {
-						this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), getLava());
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), getLava());
 						return;
 					}
 				}
@@ -229,14 +250,14 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 				int x = (int) Math.floor(this.pos.getX() + this.world.rand.nextGaussian() * radius);
 				int z = (int) Math.floor(this.pos.getZ() + this.world.rand.nextGaussian() * radius);
 				//gaussian distribution makes conversions more likely on the surface and rarer at the bottom
-				int y = this.world.getHeightValue(x, z) + 1 - (int) Math.floor(Math.abs(this.world.rand.nextGaussian() * depth));
+				int y = this.world.getHeight(x, z) + 1 - (int) Math.floor(Math.abs(this.world.rand.nextGaussian() * depth));
 
 				net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);
 				Block b = nativeAirState.getBlock();
 
 				if(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && b.getExplosionResistance(null) < Blocks.OBSIDIAN.getExplosionResistance(null)) {
 					//turn into lava if solid block, otherwise just break
-					this.world.setBlock(x, y, z, b.isNormalCube(nativeAirState) ? this.getLava() : Blocks.AIR);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, b.isNormalCube(nativeAirState) ? this.getLava() : Blocks.AIR);
 				}
 			}
 		}
@@ -249,7 +270,7 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 			int rZ = this.pos.getZ() - 10 + this.world.rand.nextInt(21);
 
 			if(com.hbm.world.WorldBlockState.read(this.world, rX, rY, rZ).getBlock() == Blocks.AIR && com.hbm.world.WorldBlockState.read(this.world, rX, rY - 1, rZ).getBlock() == this.getLava())
-				this.world.setBlock(rX, rY, rZ, this.getLava());
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, rX, rY, rZ, this.getLava());
 		}
 
 		/** Creates a 3x3x3 lava sphere around the core. */
@@ -260,7 +281,7 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 					for(int k = -1; k <= 1; k++) {
 
 						if(i != 0 || j != 0 || k != 0) {
-							this.world.setBlock(this.pos.getX() + i, this.pos.getY() + j, this.pos.getZ() + k, this.getLava());
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + i, this.pos.getY() + j, this.pos.getZ() + k, this.getLava());
 						}
 					}
 				}
@@ -281,7 +302,7 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 				} else {
 					frag.setVolcano(true);
 				}
-				this.world.spawnEntityInWorld(frag);
+				this.world.spawnEntity(frag);
 			}
 		}
 
@@ -299,7 +320,7 @@ public class BlockVolcano extends BlockContainer implements ITooltipProvider, IB
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		if(!world.isRemote) {
 				if(GeneralConfig.enableExtendedLogging) {
-				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
+				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
 			}
 		}
 	}

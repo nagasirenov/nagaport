@@ -65,7 +65,7 @@ public class GUIOrbitalStationComputer extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		// Toggle gravity
@@ -76,7 +76,7 @@ public class GUIOrbitalStationComputer extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int key) {
+	protected void keyTyped(char c, int key) throws java.io.IOException {
 		if(stationName.textboxKeyTyped(c, key)) {
 			setName(stationName.getText());
 		} else {

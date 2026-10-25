@@ -30,15 +30,15 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase implements IEnergyReceiverMK2, IFluidStandardTransceiver, IPersistentNBT, IGUIProvider, IFluidCopiable {
-	
+
 	public long power;
 	public static final long maxPower = 1_000_000;
-	
+
 	public FluidTank[] tanks;
 
 	public TileEntityMachineCatalyticReformer() {
 		super(11);
-		
+
 		this.tanks = new FluidTank[4];
 		this.tanks[0] = new FluidTank(Fluids.NAPHTHA, 64_000);
 		this.tanks[1] = new FluidTank(Fluids.REFORMATE, 24_000);
@@ -53,20 +53,20 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			if(this.world.getTotalWorldTime() % 20 == 0) this.updateConnections();
 			power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			tanks[0].setType(9, slots);
 			tanks[0].loadTank(1, 2, slots);
-			
+
 			reform();
 
 			tanks[1].unloadTank(3, 4, slots);
 			tanks[2].unloadTank(5, 6, slots);
 			tanks[3].unloadTank(7, 8, slots);
-			
+
 			for(DirPos pos : getConPos()) {
 				for(int i = 1; i < 4; i++) {
 					if(tanks[i].getFill() > 0) {
@@ -92,9 +92,9 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 		this.power = buf.readLong();
 		for(int i = 0; i < 4; i++) tanks[i].deserialize(buf);
 	}
-	
+
 	private void reform() {
-		
+
 		Triplet<FluidStack, FluidStack, FluidStack> out = ReformingRecipes.getOutput(tanks[0].getTankType());
 		if(out == null) {
 			tanks[1].setTankType(Fluids.NONE);
@@ -106,7 +106,7 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 		tanks[1].setTankType(out.getX().type);
 		tanks[2].setTankType(out.getY().type);
 		tanks[3].setTankType(out.getZ().type);
-		
+
 		if(power < 20_000) return;
 		if(tanks[0].getFill() < 100) return;
 		if(slots[10] == null || slots[10].getItem() != ModItems.catalytic_converter) return;
@@ -119,21 +119,21 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 		tanks[1].setFill(tanks[1].getFill() + out.getX().fill);
 		tanks[2].setFill(tanks[2].getFill() + out.getY().fill);
 		tanks[3].setFill(tanks[3].getFill() + out.getZ().fill);
-		
+
 		power -= 20_000;
 	}
-	
+
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
 			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
-	
+
 	public DirPos[] getConPos() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-		
+
 		return new DirPos[] {
 				new DirPos(this.pos.getX() + dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ, dir),
 				new DirPos(this.pos.getX() + dir.offsetX * 2 - rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 - rot.offsetZ, dir),
@@ -143,7 +143,7 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 				new DirPos(this.pos.getX() - rot.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 3, rot.getOpposite())
 		};
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
@@ -154,11 +154,11 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 		tanks[2].readFromNBT(nbt, "o2");
 		tanks[3].readFromNBT(nbt, "o3");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		tanks[0].writeToNBT(nbt, "input");
 		tanks[1].writeToNBT(nbt, "o1");
@@ -166,14 +166,14 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 		tanks[3].writeToNBT(nbt, "o3");
 		return nbt;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,
@@ -182,10 +182,10 @@ public class TileEntityMachineCatalyticReformer extends TileEntityMachineBase im
 					this.pos.getZ() + 3
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

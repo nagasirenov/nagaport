@@ -67,7 +67,7 @@ public class EntityZirnoxDebris extends EntityDebrisBase {
 		this.prevPosZ = this.posZ;
 
 		this.motionY -= 0.04D;
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(net.minecraft.entity.MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 
 		this.lastRot = this.rot;
 
@@ -117,10 +117,10 @@ public class EntityZirnoxDebris extends EntityDebrisBase {
 
 			if(this.getType() == DebrisType.ELEMENT || this.getType() == DebrisType.GRAPHITE) {
 				List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(2.5, 2.5, 2.5));
-				
+
 				int level = this.getType() == DebrisType.ELEMENT ? 7 : 4;
 				for(EntityLivingBase e : entities) {
-					e.addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 60 * 20, level));
+					e.addPotionEffect(new PotionEffect(HbmPotion.radiation, 60 * 20, level));
 				}
 			}
 

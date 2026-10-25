@@ -90,7 +90,7 @@ public class GUIRBMKControlAuto extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		for(int j = 0; j < 4; j++) {
@@ -170,7 +170,7 @@ public class GUIRBMKControlAuto extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int i) {
+	protected void keyTyped(char c, int i) throws java.io.IOException {
 		
 		for(int j = 0; j < 4; j++) {
 			if(this.fields[j].textboxKeyTyped(c, i))

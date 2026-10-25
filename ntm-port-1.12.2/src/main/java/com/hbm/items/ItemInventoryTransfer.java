@@ -18,7 +18,7 @@ public final class ItemInventoryTransfer {
 	private static ItemStack current(Slot slot) {
 		// Preserve Slot's virtual read and its exact noncanonical stack reference.
 		ItemStack stack = slot.getStack();
-		return stack == ItemStack.EMPTY ? null : stack;
+		return (stack == null || stack.isEmpty()) ? null : stack;
 	}
 
 	private static Item rawItem(ItemStack stack) {

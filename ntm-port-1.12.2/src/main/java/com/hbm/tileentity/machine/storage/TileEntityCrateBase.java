@@ -106,13 +106,13 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if (slots[i] != null) {
-			if (slots[i].stackSize <= j) {
+			if (slots[i].getCount() <= j) {
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0) {
+			if (slots[i].getCount() == 0) {
 				slots[i] = null;
 			}
 
@@ -215,7 +215,7 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 				spider.setLocationAndAngles(crate.getPos().getX() + random.nextGaussian() * 2, crate.getPos().getY() + 1, crate.getPos().getZ() + random.nextGaussian() * 2, random.nextFloat(), 0);
 				spider.setAttackTarget(player);
 
-				worldObj.spawnEntityInWorld(spider);
+				worldObj.spawnEntity(spider);
 			}
 			crate.hasSpiders = false;
 			crate.markDirty();
@@ -233,7 +233,7 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 				spider.setLocationAndAngles(player.posX + random.nextGaussian() * 2, player.posY + 1, player.posZ + random.nextGaussian() * 2, random.nextFloat(), 0);
 				spider.setAttackTarget(player);
 
-				worldObj.spawnEntityInWorld(spider);
+				worldObj.spawnEntity(spider);
 			}
 			crate.getTagCompound().removeTag("spiders");
 		}

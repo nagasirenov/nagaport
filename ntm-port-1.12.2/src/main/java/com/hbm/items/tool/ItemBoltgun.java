@@ -56,7 +56,7 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 				if(slot != null) {
 					if(slot.getItem() == bolt.getItem() && slot.getItemDamage() == bolt.getItemDamage()) {
 						if(!world.isRemote) {
-							world.playSoundAtEntity(entity, "hbm:item.boltgun", 1.0F, 1.0F);
+							world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.boltgun"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 							player.inventory.decrStackSize(i, 1);
 							player.inventoryContainer.detectAndSendChanges();
 							EntityDamageUtil.attackEntityFromIgnoreIFrame(entity, DamageSource.causePlayerDamage(player).setDamageBypassesArmor(), 10F);
@@ -70,7 +70,7 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 							data.setString("mode", "largeexplode");
 							data.setFloat("size", 1F);
 							data.setByte("count", (byte)1);
-							PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, entity.posX, entity.posY + entity.height / 2 - entity.yOffset, entity.posZ), new TargetPoint(world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 50));
+							PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, entity.posX, entity.posY + entity.height / 2 - entity.getYOffset(), entity.posZ), new TargetPoint(world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 50));
 
 							playAnimation(player, ToolAnimation.SWING);
 						}
@@ -84,8 +84,15 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 		return false;
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
 
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
@@ -93,7 +100,7 @@ public class ItemBoltgun extends Item implements IAnimatedItem<ToolAnimation> {
 
 			if(!world.isRemote) {
 
-				world.playSoundAtEntity(player, "hbm:item.boltgun", 1.0F, 1.0F);
+				world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.boltgun"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				player.inventoryContainer.detectAndSendChanges();
 				ForgeDirection dir = ForgeDirection.getOrientation(side);
 				double off = 0.25;

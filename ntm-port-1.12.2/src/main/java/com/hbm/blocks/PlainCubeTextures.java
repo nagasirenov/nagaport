@@ -13,7 +13,7 @@ public final class PlainCubeTextures {
     private static final Map<Block, String> TEXTURES = new IdentityHashMap<>();
     private PlainCubeTextures() { }
 
-    public static Block bind(Block block, String texture) {
+    public static <T extends Block> T bind(T block, String texture) {
         if(block == null) throw new NullPointerException();
         String owner = block.getClass().getName();
         if(!owner.equals("com.hbm.blocks.generic.BlockOutgas") &&
@@ -24,6 +24,12 @@ public final class PlainCubeTextures {
                 !owner.equals("com.hbm.blocks.generic.BlockDepth") &&
                 !owner.equals("com.hbm.blocks.generic.BlockDepthOre") &&
                 !owner.equals("net.minecraft.block.BlockFalling") &&
+                !owner.equals("com.hbm.blocks.generic.BlockFallingLegacy") &&
+                !owner.equals("com.hbm.blocks.generic.BlockAshes") &&
+                !owner.equals("com.hbm.blocks.generic.TritiumLamp") &&
+                !owner.equals("com.hbm.blocks.generic.BlockDirt") &&
+                !owner.equals("com.hbm.blocks.generic.BlockNTMDirt") &&
+                !owner.equals("com.hbm.blocks.generic.BlockJungleCrate") &&
                 !owner.equals("com.hbm.blocks.generic.BlockHazardFalling") &&
                 !owner.equals("com.hbm.blocks.generic.BlockMeteoriteTreasure") &&
                 !owner.equals("com.hbm.blocks.generic.BlockNetherCoal") &&

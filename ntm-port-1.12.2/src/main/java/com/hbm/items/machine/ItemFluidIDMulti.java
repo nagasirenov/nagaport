@@ -28,10 +28,17 @@ import net.minecraft.world.World;
 
 public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IItemControlReceiver, IGUIProvider {
 
-	IIcon overlayIcon;
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
 		FluidType[] order = Fluids.getInNiceOrder();
 		for(int i = 1; i < order.length; ++i) {
@@ -44,22 +51,28 @@ public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IIte
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+
 		if(!world.isRemote && !player.isSneaking()) {
 			FluidType primary = getType(stack, true);
 			FluidType secondary = getType(stack, false);
 			setType(stack, secondary, true);
 			setType(stack, primary, false);
 			updateMeta(stack);
-			world.playSoundAtEntity(player, "random.orb", 0.25F, 1.25F);
+			world.playSound(null, player.posX, player.posY, player.posZ, net.minecraft.init.SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, net.minecraft.util.SoundCategory.PLAYERS, 0.25F, 1.25F);
 			PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.startTranslation(secondary.getConditionalName()).flush(), /*MainRegistry.proxy.ID_DETONATOR*/ 7, 3000), (EntityPlayerMP) player);
 		}
-		
+
 		if(world.isRemote && player.isSneaking()) {
 			player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
 		}
-		
+
 		return stack;
 	}
 
@@ -71,10 +84,10 @@ public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IIte
 		if(data.hasKey("secondary")) {
 			setType(stack, Fluids.fromID(data.getInteger("secondary")), false);
 		}
-		
+
 		updateMeta(stack);
 	}
-	
+
 	public static void updateMeta(ItemStack stack) {
 		if(stack.hasTagCompound()) stack.setItemDamage(stack.getTagCompound().getInteger("fluid1"));
 	}
@@ -93,11 +106,10 @@ public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IIte
 	}
 
 	@Override
-	public boolean hasContainerItem() {
+	public boolean hasContainerItem(ItemStack stack) {
 		return true;
 	}
 
-	@Override
 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
 		return false;
 	}
@@ -108,57 +120,21 @@ public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IIte
 	}
 
 	@Override
-	public boolean doesSneakBypassUse(World world, int x, int y, int z, EntityPlayer player) {
+	public boolean doesSneakBypassUse(ItemStack stack, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, EntityPlayer player) {
 		return true;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean requiresMultipleRenderPasses() {
-		return true;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister p_94581_1_) {
-		super.registerIcons(p_94581_1_);
-
-		this.overlayIcon = p_94581_1_.registerIcon("hbm:fluid_identifier_overlay");
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamageForRenderPass(int meta, int pass) {
-		return pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(meta, pass);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int pass) {
-		if(pass == 0) {
-			return 16777215;
-		} else {
-			int j = getType(stack, true).getColor();
-
-			if(j < 0) {
-				j = 16777215;
-			}
-
-			return j;
-		}
-	}
-	
 	public static void setType(ItemStack stack, FluidType type, boolean primary) {
 		if(!stack.hasTagCompound())
 			stack.setTagCompound(new NBTTagCompound());
-		
+
 		stack.getTagCompound().setInteger("fluid" + (primary ? 1 : 2), type.getID());
 	}
-	
+
 	public static FluidType getType(ItemStack stack, boolean primary) {
 		if(!stack.hasTagCompound())
 			return Fluids.NONE;
-		
+
 		int type = stack.getTagCompound().getInteger("fluid" + (primary ? 1 : 2));
 		return Fluids.fromID(type);
 	}

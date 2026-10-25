@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockPlasticExplosive extends BlockDetonatable implements IBomb {
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon topIcon;
 
@@ -28,8 +28,8 @@ public class BlockPlasticExplosive extends BlockDetonatable implements IBomb {
 
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_) {
-		this.blockIcon = p_149651_1_.registerIcon(this.getTextureName());
-		this.topIcon = p_149651_1_.registerIcon(this.getTextureName() + "_front");
+		this.blockIcon = p_149651_1_.registerIcon(this.getRegistryName().toString());
+		this.topIcon = p_149651_1_.registerIcon(this.getRegistryName().toString() + "_front");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -46,25 +46,25 @@ public class BlockPlasticExplosive extends BlockDetonatable implements IBomb {
 	public void onBlockPlacedBy(World p_149689_1_, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
 		int p_149689_2_ = nativePlacementPos.getX(), p_149689_3_ = nativePlacementPos.getY(), p_149689_4_ = nativePlacementPos.getZ();
 		int l = determineOrientation(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_, p_149689_5_);
-		p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, l, 2);
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_, l, 2);
 	}
 
 	public static int determineOrientation(World world, int x, int y, int z, EntityLivingBase player) {
 
 		if(MathHelper.abs((float) player.posX - (float) x) < 2.0F && MathHelper.abs((float) player.posZ - (float) z) < 2.0F) {
-			double d0 = player.posY + 1.82D - (double) player.yOffset;
-			
+			double d0 = player.posY + 1.82D - (double) player.getYOffset();
+
 			if(d0 - (double) y > 2.0D) {
 				return 0;
 			}
-			
+
 			if((double) y - d0 > 0.0D) {
 				return 1;
 			}
 		}
-		
+
 		int l = MathHelper.floor((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-		
+
 		return l == 0 ? 3 : (l == 1 ? 4 : (l == 2 ? 2 : (l == 3 ? 5 : 1)));
 	}
 
@@ -78,11 +78,11 @@ public class BlockPlasticExplosive extends BlockDetonatable implements IBomb {
 
 	@Override
 	public BombReturnCode explode(World world, int x, int y, int z) {
-		
+
 		if(!world.isRemote) {
 			new ExplosionVNT(world, x + 0.5, y + 0.5, z + 0.5, 20).makeStandard().setBlockProcessor(new BlockProcessorStandard().setNoDrop()).explode();
 		}
-		
+
 		return BombReturnCode.DETONATED;
 	}
 

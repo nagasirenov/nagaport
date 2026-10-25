@@ -42,7 +42,7 @@ public class GUIHydroponic extends GuiInfoContainer {
 			ItemStack[] validItems = hydro.getValidFertilizers();
 			int cycle = (int) ((System.currentTimeMillis() % (1000 * validItems.length)) / 1000);
 			ItemStack selected = validItems[cycle];
-			selected.stackSize = 0;
+			selected.setCount(0);
 
 			List<Object[]> lines = new ArrayList<>();
 			lines.add(validItems);

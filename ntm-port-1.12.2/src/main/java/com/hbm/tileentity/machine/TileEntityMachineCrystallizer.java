@@ -118,7 +118,7 @@ public class TileEntityMachineCrystallizer extends TileEntityMachineBase impleme
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.25, this.pos.getY() + 1, this.pos.getZ() + 0.25, this.pos.getX() + 0.75, this.pos.getY() + 6, this.pos.getZ() + 0.75).offset(rot.offsetX * 1.5, 0, rot.offsetZ * 1.5));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.25, this.pos.getY() + 1, this.pos.getZ() + 0.25, this.pos.getX() + 0.75, this.pos.getY() + 6, this.pos.getZ() + 0.75).offset(rot.offsetX * 1.5, 0, rot.offsetZ * 1.5));
 
 		for(EntityPlayer player : players) {
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
@@ -179,8 +179,8 @@ public class TileEntityMachineCrystallizer extends TileEntityMachineBase impleme
 
 		if(slots[2] == null)
 			slots[2] = stack;
-		else if(slots[2].stackSize + stack.stackSize <= slots[2].getMaxStackSize())
-			slots[2].stackSize += stack.stackSize;
+		else if(slots[2].getCount() + stack.getCount() <= slots[2].getMaxStackSize())
+			slots[2].grow(stack.getCount());
 
 		tank.setFill(tank.getFill() - getRequiredAcid(result.acidAmount));
 
@@ -206,7 +206,7 @@ public class TileEntityMachineCrystallizer extends TileEntityMachineBase impleme
 			return false;
 
 		//Not enough of the input item?
-		if(slots[0].stackSize < result.itemAmount)
+		if(slots[0].getCount() < result.itemAmount)
 			return false;
 
 		if(tank.getFill() < getRequiredAcid(result.acidAmount)) return false;
@@ -218,7 +218,7 @@ public class TileEntityMachineCrystallizer extends TileEntityMachineBase impleme
 			return false;
 
 		//Or is the output slot already full?
-		if(slots[2] != null && slots[2].stackSize + stack.stackSize > slots[2].getMaxStackSize())
+		if(slots[2] != null && slots[2].getCount() + stack.getCount() > slots[2].getMaxStackSize())
 			return false;
 
 		return true;
@@ -323,7 +323,7 @@ public class TileEntityMachineCrystallizer extends TileEntityMachineBase impleme
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -347,7 +347,7 @@ public class TileEntityMachineCrystallizer extends TileEntityMachineBase impleme
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && i >= 5 && i <= 6 && stack.getItem() instanceof ItemMachineUpgrade) {
-			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 		}
 	}
 

@@ -18,6 +18,8 @@ public class BiomeDecoratorCelestial extends BiomeDecorator {
 
 	// Same as BiomeDecorator, but skips any vanilla plant life and supports different stone types
 
+	public boolean generateLakes = true;
+
 	public int lavaCount = 20;
 
 	public int waterPlantsPerChunk = 0;
@@ -49,9 +51,9 @@ public class BiomeDecoratorCelestial extends BiomeDecorator {
 		int chunkX = chunkPos.getX();
 		int chunkZ = chunkPos.getZ();
 		MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(world, random, chunkPos));
-		this.generateOres();
+		this.generateOres(world, random);
 
-		boolean doGen = TerrainGen.decorate(world, random, chunkPos, LAKE);
+		boolean doGen = TerrainGen.decorate(world, random, chunkPos, LAKE_LAVA);
 		if(doGen && this.generateLakes) {
 			for (int i = 0; i < lavaCount; ++i) {
 				int x = chunkX + random.nextInt(16) + 8;

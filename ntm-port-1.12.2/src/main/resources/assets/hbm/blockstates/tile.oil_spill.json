@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:oil_spill_1"
+    },
+    "metadata=1": {
+      "model": "hbm:oil_spill_2"
+    },
+    "metadata=2": {
+      "model": "hbm:oil_spill_3"
+    },
+    "metadata=3": {
+      "model": "hbm:oil_spill_4"
+    },
+    "metadata=4": {
+      "model": "hbm:oil_spill_5"
+    },
+    "metadata=5": {
+      "model": "hbm:oil_spill_6"
+    },
+    "metadata=6": {
+      "model": "hbm:oil_spill_7"
+    },
+    "metadata=7": {
+      "model": "hbm:oil_spill_8"
+    },
+    "metadata=8": {
+      "model": "hbm:oil_spill_1"
+    },
+    "metadata=9": {
+      "model": "hbm:oil_spill_2"
+    },
+    "metadata=10": {
+      "model": "hbm:oil_spill_3"
+    },
+    "metadata=11": {
+      "model": "hbm:oil_spill_4"
+    },
+    "metadata=12": {
+      "model": "hbm:oil_spill_5"
+    },
+    "metadata=13": {
+      "model": "hbm:oil_spill_6"
+    },
+    "metadata=14": {
+      "model": "hbm:oil_spill_7"
+    },
+    "metadata=15": {
+      "model": "hbm:oil_spill_8"
+    }
+  }
+}

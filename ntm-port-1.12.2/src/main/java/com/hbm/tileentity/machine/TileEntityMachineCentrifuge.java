@@ -146,7 +146,7 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 			if(out[i] == null)
 				continue;
 
-			if(slots[i + 2].isItemEqual(out[i]) && slots[i + 2].stackSize + out[i].stackSize <= out[i].getMaxStackSize())
+			if(slots[i + 2].isItemEqual(out[i]) && slots[i + 2].getCount() + out[i].getCount() <= out[i].getMaxStackSize())
 				continue;
 
 			return false;
@@ -166,7 +166,7 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 			if(slots[i + 2] == null) {
 				slots[i + 2] = out[i].copy();
 			} else {
-				slots[i + 2].stackSize += out[i].stackSize;
+				slots[i + 2].grow(out[i].getCount());
 			}
 		}
 
@@ -309,7 +309,7 @@ public class TileEntityMachineCentrifuge extends TileEntityMachineBase implement
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX(),
 					this.pos.getY(),
 					this.pos.getZ(),

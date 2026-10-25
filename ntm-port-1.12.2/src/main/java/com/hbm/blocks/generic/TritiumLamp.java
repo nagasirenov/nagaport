@@ -9,6 +9,8 @@ import com.hbm.blocks.machine.Spotlight;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,6 +18,10 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TritiumLamp extends Block implements ISpotlight {
+	public TritiumLamp withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
 
 	private final boolean isOn;
 
@@ -29,31 +35,33 @@ public class TritiumLamp extends Block implements ISpotlight {
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-		
+	public void onBlockAdded(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		if(!world.isRemote) {
-			
+
 			if(this.isOn && !world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4);
-				
+
 			} else if(!this.isOn && world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
-				world.setBlock(x, y, z, getOn(), 0, 2);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, getOn(), 0, 2);
 			}
-			
+
 			updateBeam(world, x, y, z);
 		}
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {
-		
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block b, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		if(!world.isRemote) {
-			
+
 			if(this.isOn && !world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 4);
-				
+
 			} else if(!this.isOn && world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
-				world.setBlock(x, y, z, getOn(), 0, 2);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, getOn(), 0, 2);
 			}
 
 			updateBeam(world, x, y, z);
@@ -63,16 +71,17 @@ public class TritiumLamp extends Block implements ISpotlight {
 	@Override
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random p_149674_5_) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
-		
+
 		if(!world.isRemote && this.isOn && !world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
-			world.setBlock(x, y, z, getOff(), 0, 2);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, getOff(), 0, 2);
 		}
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int metadata) {
-		super.breakBlock(world, x, y, z, block, metadata);
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		super.breakBlock(world, pos, state);
 		if(world.isRemote) return;
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) Spotlight.unpropagateBeam(world, x, y, z, dir);
 	}
@@ -88,29 +97,28 @@ public class TritiumLamp extends Block implements ISpotlight {
 		return Item.getItemFromBlock(getOff());
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getItem(World world, int x, int y, int z) {
 		return Item.getItemFromBlock(getOff());
 	}
 
 	@Override
-	protected ItemStack createStackedBlock(int e) {
+	protected ItemStack getSilkTouchDrop(net.minecraft.block.state.IBlockState state) {
 		return new ItemStack(getOff());
 	}
-	
+
 	protected int getMeta() {
 		if(this == ModBlocks.lamp_tritium_green_off || this == ModBlocks.lamp_tritium_green_on) return Spotlight.META_GREEN;
 		if(this == ModBlocks.lamp_tritium_blue_off || this == ModBlocks.lamp_tritium_blue_on) return Spotlight.META_BLUE;
 		return Spotlight.META_YELLOW;
 	}
-	
+
 	protected Block getOff() {
 		if(this == ModBlocks.lamp_tritium_green_on) return ModBlocks.lamp_tritium_green_off;
 		if(this == ModBlocks.lamp_tritium_blue_on) return ModBlocks.lamp_tritium_blue_off;
 		return this;
 	}
-	
+
 	protected Block getOn() {
 		if(this == ModBlocks.lamp_tritium_green_off) return ModBlocks.lamp_tritium_green_on;
 		if(this == ModBlocks.lamp_tritium_blue_off) return ModBlocks.lamp_tritium_blue_on;

@@ -114,8 +114,8 @@ public class HbmAnimationPacket implements IMessage {
 			}
 
 			if(animation != null) {
-				Minecraft.getMinecraft().entityRenderer.itemRenderer.resetEquippedProgress();
-				Minecraft.getMinecraft().entityRenderer.itemRenderer.itemToRender = stack;
+				Minecraft.getMinecraft().entityRenderer.itemRenderer.resetEquippedProgress(net.minecraft.util.EnumHand.MAIN_HAND);
+				net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.client.renderer.ItemRenderer.class, Minecraft.getMinecraft().entityRenderer.itemRenderer, stack, "field_187467_d", "itemStackMainHand");
 				boolean isReloadAnimation = type == GunAnimation.RELOAD || type == GunAnimation.RELOAD_CYCLE;
 				if(isReloadAnimation && ArmorTrenchmaster.isTrenchMaster(player)) animation.setTimeMult(0.5D);
 				HbmAnimations.hotbar[slot][gunIndex] = new Animation(stack.getItem().getTranslationKey(), System.currentTimeMillis(), animation, isReloadAnimation && config.getReloadAnimSequential(stack));

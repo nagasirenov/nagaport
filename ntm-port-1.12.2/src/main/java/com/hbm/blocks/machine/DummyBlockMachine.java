@@ -1,5 +1,7 @@
 package com.hbm.blocks.machine;
 
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.main.MainRegistry;
 import com.hbm.tileentity.machine.TileEntityDummy;
 
@@ -33,7 +35,7 @@ public class DummyBlockMachine extends DummyOldBase {
 		super(mat, port);
 		this.drop = drop;
 	}
-	
+
 	public DummyBlockMachine setBounds(float oX, float oY, float oZ, float dX, float dY, float dZ) {
 
 		this.oX = oX * 0.0625F;
@@ -42,18 +44,21 @@ public class DummyBlockMachine extends DummyOldBase {
 		this.dX = dX * 0.0625F;
 		this.dY = dY * 0.0625F;
 		this.dZ = dZ * 0.0625F;
-		
+
 		return this;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
-	public Item getItem(World world, int x, int y, int z) {
-		return Item.getItemFromBlock(drop);
+	public net.minecraft.item.ItemStack getItem(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		return new net.minecraft.item.ItemStack(Item.getItemFromBlock(drop));
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -73,15 +78,7 @@ public class DummyBlockMachine extends DummyOldBase {
 		}
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-		this.setBlockBounds(oX, oY, oZ, dX, dY, dZ);
-	}
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-
-		this.setBlockBounds(oX, oY, oZ, dX, dY, dZ);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return new AxisAlignedBB(oX, oY, oZ, dX, dY, dZ);
 	}
 }

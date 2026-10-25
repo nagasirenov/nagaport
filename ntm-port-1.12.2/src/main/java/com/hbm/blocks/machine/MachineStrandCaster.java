@@ -119,7 +119,10 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		}
@@ -131,8 +134,8 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.mold && cast.slots[0] == null) {
 				cast.slots[0] = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
 				cast.slots[0].setCount(1);
-				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
-				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
+				world.playSound(null, x + 0.5, y + 0.5, z + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 				cast.markDirty();
 				return true;
 
@@ -142,7 +145,7 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 				if(cast.amount > 0) {
 					ItemStack scrap = ItemScraps.create(new Mats.MaterialStack(cast.type, cast.amount));
 					if(!player.inventory.addItemStackToInventory(scrap)) {
-						EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);
+						EntityItem item = new EntityItem(world, x + 0.5, y + 1.0, z + 0.5, scrap);
 						world.spawnEntity(item);
 					} else {
 						player.inventoryContainer.detectAndSendChanges();
@@ -166,7 +169,7 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 
 			if(cast.amount > 0) {
 				ItemStack scrap = ItemScraps.create(new Mats.MaterialStack(cast.type, cast.amount));
-				EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, scrap);
+				EntityItem item = new EntityItem(world, x + 0.5, y + 1.0, z + 0.5, scrap);
 				world.spawnEntity(item);
 				cast.amount = 0; // just for safety
 			}
@@ -214,7 +217,7 @@ public class MachineStrandCaster extends BlockDummyable implements ICrucibleAcce
 			return false;
 
 		if(!player.inventory.addItemStackToInventory(cast.slots[0].copy())) {
-			EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, cast.slots[0].copy());
+			EntityItem item = new EntityItem(world, x + 0.5, y + 1.0, z + 0.5, cast.slots[0].copy());
 			world.spawnEntity(item);
 		} else {
 			player.inventoryContainer.detectAndSendChanges();

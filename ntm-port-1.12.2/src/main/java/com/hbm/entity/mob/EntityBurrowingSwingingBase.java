@@ -40,12 +40,12 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTargetNT(this, EntityPlayer.class, 0, false, false, null, 128.0D));
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		this.prevRotationYaw = this.rotationYaw;
 		this.prevRotationPitch = this.rotationPitch;
-		
+
 		super.onUpdate();
 
 		double dx = motionX;
@@ -54,39 +54,38 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 		float f3 = MathHelper.sqrt(dx * dx + dz * dz);
 		this.rotationYaw = (float) (Math.atan2(dx, dz) * 180.0D / Math.PI);
 		this.rotationPitch = (float) (Math.atan2(dy, f3) * 180.0D / Math.PI);
-		
+
 		boolean inGround = isEntityInsideOpaqueBlock();
-		
+
 		if(this.lastInGround != inGround) {
-			this.world.playSoundAtEntity(this, "hbm:block.debris", 1.0F, 1.0F);
-			
+			this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:block.debris"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
+
 			double mod = 0.25D;
-			
+
 			if(inGround)
 				mod *= -1;
-			
+
 			for(int i = 0; i < 10; i++) {
 				double dev = 0.05D;
 				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, posX, posY, posZ, motionX * mod + rand.nextGaussian() * dev, motionY * mod + rand.nextGaussian() * dev, motionZ * mod + rand.nextGaussian() * dev);
 			}
 		}
-		
+
 		this.lastInGround = inGround;
 	}
 
 	@Override
 	protected void updateAITasks() {
 
-		this.updateEntityActionState();
+		this.updateEntityActionStateNT();
 		super.updateAITasks();
 
 		updateSwingingMovement();
 	}
 
-	@Override
-	protected void updateEntityActionState() {
-		
-		if(!this.world.isRemote && this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
+	protected void updateEntityActionStateNT() {
+
+		if(!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
 			setDead();
 		}
 		if((this.targetedEntity != null) && (this.targetedEntity.isDead)) {
@@ -97,16 +96,16 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 		} else if(this.posY < 3.0D) {
 			this.motionY = 0.3D;
 		}
-		
+
 		if(this.ticksExisted % 2 == 0) {
 			attackEntitiesInList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(0.5D, 0.5D, 0.5D)));
 		}
 	}
 
 	protected void attackEntitiesInList(List<Entity> targets) {
-		
+
 		for(Entity target : targets) {
-			if(target instanceof EntityLivingBase && canAttackClass(target.getClass())) {
+			if(target instanceof EntityLivingBase && canAttackClass((Class<? extends net.minecraft.entity.EntityLivingBase>) target.getClass())) {
 				attackEntityAsMob(target);
 			}
 		}
@@ -114,11 +113,11 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 
 	@Override
 	public boolean attackEntityAsMob(Entity target) {
-		
-		boolean hit = target.attackEntityFrom(DamageSource.causeMobDamage(this), (float) getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue());
-		
+
+		boolean hit = target.attackEntityFrom(DamageSource.causeMobDamage(this), (float) getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
+
 		if(hit) {
-			this.entityAge = 0;
+			
 			double tx = (this.getEntityBoundingBox().minX + this.getEntityBoundingBox().maxX) / 2.0D;
 			double tz = (this.getEntityBoundingBox().minZ + this.getEntityBoundingBox().maxZ) / 2.0D;
 			double ty = (this.getEntityBoundingBox().minY + this.getEntityBoundingBox().maxY) / 2.0D;
@@ -128,75 +127,75 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 			double knockback = 0.5 * (deltaX * deltaX + deltaZ * deltaZ + deltaY * deltaY + 0.1D);
 			target.addVelocity(deltaX / knockback, deltaY / knockback, deltaZ / knockback);
 		}
-		
+
 		return hit;
 	}
-	
+
 	protected void updateSwingingMovement() {
 
 		double deltaX = this.waypointX - this.posX;
 		double deltaY = this.waypointY - this.posY;
 		double deltaZ = this.waypointZ - this.posZ;
 		double delta = Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
-		
+
 		if(this.courseChangeCooldown-- <= 0) {
-			
+
 			this.courseChangeCooldown += this.getRNG().nextInt(5) + 5;
-			
-			double speed = this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getBaseValue();
-			
+
+			double speed = this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getBaseValue();
+
 			if(!this.canSupportMovement()) {
 				speed /= 4D;
 			}
-			
+
 			this.motionX += deltaX / delta * speed;
 			this.motionY += deltaY / delta * speed;
 			this.motionZ += deltaZ / delta * speed;
 		}
-		
+
 		if(!this.canSupportMovement() && !this.wasNearGround) {
 			this.motionY -= this.getGravity();
 		}
-		
+
 		this.aggroCooldown--;
-		
+
 		if(this.getAttackTarget() != null) {
-			
+
 			if(this.aggroCooldown <= 0) {
 				this.targetedEntity = this.getAttackTarget();
 				this.aggroCooldown = getAggroCooldown();
 			}
-			
+
 		} else if(this.targetedEntity == null) {
 			this.waypointX = this.spawnPoint.getX() - 50 + this.getRNG().nextInt(100);
 			this.waypointY = this.spawnPoint.getY() - 30 + this.getRNG().nextInt(60);
 			this.waypointZ = this.spawnPoint.getZ() - 50 + this.getRNG().nextInt(100);
 		}
-		
+
 		this.rotationYaw = -(float) -(Math.atan2(this.motionX, this.motionZ) * 180.0F / Math.PI);
 		this.rotationPitch = (float) -(Math.atan2(this.motionY, MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ)) * 180.0D / Math.PI);
-		
+
 		double range = 100;
-		if(this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < range * range) {
-			
+		if(this.targetedEntity != null && this.targetedEntity.getDistanceSq(this) < range * range) {
+
 			if(this.canSupportMovement() || this.wasNearGround) {
-				
+
 				this.waypointX = this.targetedEntity.posX;
 				this.waypointY = this.targetedEntity.posY + this.targetedEntity.height * 0.5;
 				this.waypointZ = this.targetedEntity.posZ;
-				
-				int surface = this.world.getHeightValue(MathHelper.floor(this.waypointX), MathHelper.floor(this.waypointZ));
-				
+
+				int surface = this.world.getHeight(MathHelper.floor(this.waypointX), MathHelper.floor(this.waypointZ));
+
 				if(this.getRNG().nextInt(80) == 0 && this.posY > surface && !this.canSupportMovement()) {
 					this.wasNearGround = false;
 				}
-				
+
 			} else {
-				
+
 				this.waypointX = this.targetedEntity.posX;
 				this.waypointY = 10.0D;
 				this.waypointZ = this.targetedEntity.posZ;
-				
+
 				if(this.posY < 15.0D) {
 					this.wasNearGround = true;
 				}
@@ -233,14 +232,14 @@ public abstract class EntityBurrowingSwingingBase extends EntityBurrowingBase {
 		this.spawnPoint.setPos(nbt.getInteger("spawnX"), nbt.getInteger("spawnY"), nbt.getInteger("spawnZ"));
 	}
 
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+	public IEntityLivingData onInitialSpawn(net.minecraft.world.DifficultyInstance difficulty, IEntityLivingData data) {
 
 		int x = MathHelper.floor(this.posX);
 		int y = MathHelper.floor(this.posY);
 		int z = MathHelper.floor(this.posZ);
-		
+
 		this.spawnPoint.setPos(x, y, z);
-		
-		return super.onSpawnWithEgg(data);
+
+		return super.onInitialSpawn(difficulty, data);
 	}
 }

@@ -60,21 +60,24 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 	public int getOffset() {
 		return 1;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(world.isRemote) {
 			return true;
-		} 
+		}
 		else if(!player.isSneaking()) {
 			int[] pos = this.findCore(world, x, y, z);
 
 			if(pos == null)
 				return false;
-			
+
 			TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
-			
+
 			if(tank != null) {
 				if(tank.hasExploded) return false;
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
@@ -86,9 +89,9 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 
 			if(pos == null)
 				return false;
-			
+
 			TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
-			
+
 			if(tank != null) {
 				if(tank.hasExploded) return false;
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
@@ -98,12 +101,12 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 				tank.markDirty();
 				player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 				}
-			} 
+			}
 			return true;
 		}else {
 			return true;
 		}
-		
+
 	}
 
 	@Override
@@ -115,9 +118,17 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 		this.makeExtra(world, x - dir.offsetX - 1, y, z - dir.offsetZ + 1);
 		this.makeExtra(world, x - dir.offsetX - 1, y, z - dir.offsetZ - 1);
 	}
-	
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		return IPersistentNBT.getDrops(world, x, y, z, this);
 	}
 
@@ -134,26 +145,27 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 	}
 
 	@Override
-	public void onBlockExploded(World world, int x, int y, int z, Explosion explosion) {
+	public void onBlockExploded(World world, net.minecraft.util.math.BlockPos nativeExplodedPos, Explosion explosion) {
+		int x = nativeExplodedPos.getX(), y = nativeExplodedPos.getY(), z = nativeExplodedPos.getZ();
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof TileEntityMachineFluidTank)) return;
-		
+
 		TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) core;
 		if(tank.lastExplosion == explosion) return;
 		tank.lastExplosion = explosion;
-		
+
 		if(!tank.hasExploded) {
 			tank.explode();
-			
-			if(explosion.exploder != null && explosion.exploder instanceof EntityBombletZeta) {
+
+			if(explosion.getExplosivePlacedBy() != null && ((net.minecraft.entity.Entity) explosion.getExplosivePlacedBy()) instanceof EntityBombletZeta) {
 				if(tank.tank.getTankType().getTrait(FT_Flammable.class) == null) return;
-				
+
 				List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class,
 						new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(100, 100, 100));
-				
+
 				for(EntityPlayer p : players) com.hbm.advancement.NtmAdvancements.award(p, MainRegistry.achInferno);
 			}
 		} else {
@@ -173,25 +185,25 @@ public class MachineFluidTank extends BlockDummyable implements IPersistentInfoP
 		int z = blockPos.getZ();
 
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-		
+
 		if(meta >= 6) {
 			int[] pos = this.findCore(world, x, y, z);
 			if(pos == null) return 0;
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
-	
+
 			if(!(te instanceof TileEntityMachineFluidTank))
 				return 0;
-	
+
 			TileEntityMachineFluidTank tank = (TileEntityMachineFluidTank) te;
 			return tank.getComparatorPower();
 		}
-		
+
 		return 0;
 	}
 
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
-		
+
 		if(tool != ToolType.TORCH) return false;
 		return IRepairable.tryRepairMultiblock(world, x, y, z, this, player);
 	}

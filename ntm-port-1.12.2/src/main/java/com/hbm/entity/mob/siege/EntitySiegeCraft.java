@@ -44,7 +44,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	private int lifetime = 0;
 	private boolean isRetreating = false;
 	private static final int MAX_LIFETIME = 60 * 4 * 20;
-	
+
 	public EntitySiegeCraft(World world) {
 		super(world);
 		this.setSize(7F, 1F);
@@ -55,7 +55,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float damage) {
 
-		if(this.isEntityInvulnerable())
+		if(this.isEntityInvulnerable(source))
 			return false;
 
 		SiegeTier tier = this.getTier();
@@ -72,7 +72,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 		damage -= tier.dt;
 
 		if(damage < 0) {
-			this.world.playSoundAtEntity(this, "random.break", 5F, 1.0F + rand.nextFloat() * 0.5F);
+			this.playSound(net.minecraft.init.SoundEvents.ENTITY_ITEM_BREAK, 5F, 1.0F + rand.nextFloat() * 0.5F);
 			return false;
 		}
 
@@ -113,8 +113,8 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	public void setTier(SiegeTier tier) {
 		this.getDataManager().set(SIEGE_TIER, tier.id);
 
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 25);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(tier.speedMod);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(tier.health * 25);
 		this.setHealth(this.getMaxHealth());
 	}
 
@@ -161,7 +161,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	}
 
 	@Override
-	protected void updateEntityActionState() {
+	protected void updateAITasks() {
 		super.updateEntityActionState();
 
 		if(this.courseChangeCooldown > 0) {
@@ -172,7 +172,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 		}
 
 		if(!this.world.isRemote) {
-			
+
 			lifetime++;
 			if(lifetime > MAX_LIFETIME) {
 				isRetreating = true;
@@ -187,8 +187,8 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 					return;
 				}
 			}
-		
-			
+
+
 			if(this.attackCooldown > 0) {
 				this.attackCooldown--;
 			}
@@ -203,7 +203,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 				dPart.setByte("count", (byte)(2 + rand.nextInt(3)));
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(dPart, posX + rand.nextGaussian() * 2, posY + rand.nextGaussian(), posZ + rand.nextGaussian() * 2), new TargetPoint(this.world.provider.getDimension(), posX, posY, posZ, 50));
 			}
-			
+
 			boolean beam = false;
 
 			if(this.target == null || this.beamCountdown <= 0) {
@@ -217,7 +217,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 					this.setLockon(x, y, z);
 
 					if(this.beamCountdown == 110) {
-						this.world.playSoundAtEntity(this.target, "hbm:weapon.stingerLockOn", 2F, 0.75F);
+						this.target.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:weapon.stingerLockOn"), 2F, 0.75F);
 					}
 				}
 
@@ -240,10 +240,10 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 						com.hbm.sound.WorldSoundEffects.play(this.world, lockon.x, lockon.y, lockon.z, "hbm:entity.ufoBlast", 5.0F, 0.9F + this.world.rand.nextFloat() * 0.2F);
 					}
 
-					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(lockon.x, lockon.y, lockon.z, lockon.x, lockon.y, lockon.z).expand(2, 2, 2));
+					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(lockon.x, lockon.y, lockon.z, lockon.x, lockon.y, lockon.z).expand(2, 2, 2));
 
 					for(Entity e : entities) {
-						if(this.canAttackClass(e.getClass())) {
+						if(e instanceof EntityLivingBase && this.canAttackClass(((EntityLivingBase) e).getClass())) {
 							e.attackEntityFrom(ModDamageSource.causeCombineDamage(this, e), 1000F);
 							e.setFire(5);
 
@@ -293,23 +293,23 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 
 					EntitySiegeLaser laser = new EntitySiegeLaser(this.world, this);
 					laser.setPosition(x, y, z);
-					laser.setThrowableHeading(copy.x, copy.y, copy.z, 1F, 0.0F);
+					laser.shoot(copy.x, copy.y, copy.z, 1F, 0.0F);
 					laser.setColor(color);
 					laser.setDamage(tier.damageMod);
 					laser.setBreakChance(tier.laserBreak * 2);
 					if(tier.laserIncendiary) laser.setIncendiary();
-					this.world.spawnEntityInWorld(laser);
+					this.world.spawnEntity(laser);
 				}
 
-				this.playSound("hbm:weapon.ballsLaser", 2.0F, 1.0F);
+				this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:weapon.ballsLaser"), 2.0F, 1.0F);
 			}
 		}
 
 		if(this.courseChangeCooldown > 0) {
-			    double speed = this.target == null ? 0.5D : 1.0D + (this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue() * 3.0D);
-			    
-			    if(isRetreating) speed *= 2.0D; 
-			    
+			    double speed = this.target == null ? 0.5D : 1.0D + (this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue() * 3.0D);
+
+			    if(isRetreating) speed *= 2.0D;
+
 			    approachPosition(speed);
 			    }
 	}
@@ -318,7 +318,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	protected void setCourseWithoutTaget() {
 		int x = (int) Math.floor(posX + rand.nextGaussian() * 15);
 		int z = (int) Math.floor(posZ + rand.nextGaussian() * 15);
-		this.setWaypoint(x, this.world.getHeightValue(x, z) + 5 + rand.nextInt(6),  z);
+		this.setWaypoint(x, this.world.getHeight(x, z) + 5 + rand.nextInt(6),  z);
 	}
 
 	@Override
@@ -334,9 +334,9 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	}
 
 	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+	public IEntityLivingData onInitialSpawn(net.minecraft.world.DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setTier(SiegeTier.tiers[rand.nextInt(SiegeTier.getLength())]);
-		return super.onSpawnWithEgg(data);
+		return super.onInitialSpawn(difficulty, data);
 	}
 
 	@Override

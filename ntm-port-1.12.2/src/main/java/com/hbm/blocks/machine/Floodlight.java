@@ -45,7 +45,6 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 	@Override public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }
 
 	//only method that respects sides, called first for orientation
-	@Override
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float fX, float fY, float fZ, int meta) {
 		return side;
 	}
@@ -76,7 +75,7 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 			TileEntityFloodlight floodlight = (TileEntityFloodlight) tile;
 
 			if(meta == 0 || meta == 1) {
-				if(i == 0 || i == 2) if(updateMeta) world.setBlockMetadataWithNotify(x, y, z, meta + 6, 3);
+				if(i == 0 || i == 2) if(updateMeta) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta + 6, 3);
 				if(meta == 1) if(i == 0 || i == 1) rotation = 180F - rotation;
 				if(meta == 0) if(i == 0 || i == 3) rotation = 180F - rotation;
 			}
@@ -160,8 +159,8 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 					if(!isOn) {
 						this.isOn = true;
 						this.castLights();
-						this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
-						this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+						this.world.markChunkDirty(this.pos, this);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 
 					} else {
 
@@ -177,8 +176,8 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 						this.isOn = false;
 						this.delay = 60;
 						this.destroyLights();
-						this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
-						this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+						this.world.markChunkDirty(this.pos, this);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 					}
 				}
 			}
@@ -204,7 +203,7 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 			if(newPos == null) return;
 
 			if(com.hbm.world.WorldBlockState.read(this.world, newPos.getX(), newPos.getY(), newPos.getZ()).getBlock() == Blocks.AIR) {
-				this.world.setBlock(newPos.getX(), newPos.getY(), newPos.getZ(), ModBlocks.floodlight_beam, 0, 2);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, newPos.getX(), newPos.getY(), newPos.getZ(), ModBlocks.floodlight_beam, 0, 2);
 				TileEntity tile = Compat.getTileStandard(this.world, newPos.getX(), newPos.getY(), newPos.getZ());
 				if(tile instanceof TileEntityFloodlightBeam) ((TileEntityFloodlightBeam) tile).setSource(this, newPos.getX(), newPos.getY(), newPos.getZ(), index);
 				this.lightPos[index] = newPos;
@@ -244,7 +243,7 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 				if(iX == this.pos.getX() && iY == this.pos.getY() && iZ == this.pos.getZ()) continue;
 
 				Block block = com.hbm.world.WorldBlockState.read(this.world, iX, iY, iZ).getBlock();
-				if(block.getLightOpacity(this.world, iX, iY, iZ) < 127) continue;
+				if(com.hbm.world.WorldBlockState.read(this.world, iX, iY, iZ).getLightOpacity() < 127) continue;
 
 				int fX = (int) Math.floor(this.pos.getX() + 0.5 + dir.x * (i - 1));
 				int fY = (int) Math.floor(this.pos.getY() + 0.5 + dir.y * (i - 1));
@@ -323,7 +322,7 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 		public AxisAlignedBB getRenderBoundingBox() {
 
 			if(bb == null) {
-				bb = AxisAlignedBB.getBoundingBox(
+				bb = new AxisAlignedBB(
 						this.pos.getX() - 1,
 						this.pos.getY() - 1,
 						this.pos.getZ() - 1,

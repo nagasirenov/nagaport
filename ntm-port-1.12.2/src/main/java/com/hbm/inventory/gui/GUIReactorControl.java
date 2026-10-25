@@ -77,7 +77,7 @@ public class GUIReactorControl extends GuiInfoContainer {
 		super.drawScreen(mouseX, mouseY, f);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		for(int j = 0; j < 4; j++) {
@@ -137,22 +137,22 @@ public class GUIReactorControl extends GuiInfoContainer {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		
+
 		GL11.glPushMatrix();
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glLineWidth(3F);
-		tess.startDrawing(3);
-		tess.setColorOpaque_I(0x08FF00);
+		net.minecraft.client.renderer.BufferBuilder buf = tess.getBuffer();
+		buf.begin(3, net.minecraft.client.renderer.vertex.DefaultVertexFormats.POSITION_COLOR);
 
 		for(int i = 0; i < 40; i++) {
-			tess.addVertex(guiLeft + 128 + i, guiTop + 39 + MathHelper.clamp(control.getTargetLevel(control.function, i * 1250) / 100 * 28, (double) (0), (double) (28)), this.zLevel);
+			buf.pos(guiLeft + 128 + i, guiTop + 39 + MathHelper.clamp(control.getTargetLevel(control.function, i * 1250) / 100 * 28, (double) (0), (double) (28)), this.zLevel).color(8, 255, 0, 255).endVertex();
 		}
 
 		tess.draw();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glPopMatrix();
-		
+
 		for(byte i = 0; i < 3; i++)
 			displays[i].drawNumber(control.getDisplayData()[i]);
 
@@ -161,7 +161,7 @@ public class GUIReactorControl extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int i) {
+	protected void keyTyped(char c, int i) throws java.io.IOException {
 
 		for(byte j = 0; j < 4; j++) {
 			if(this.fields[j].textboxKeyTyped(c, i))

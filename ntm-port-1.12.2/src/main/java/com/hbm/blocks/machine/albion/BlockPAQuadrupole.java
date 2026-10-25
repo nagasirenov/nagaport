@@ -21,7 +21,6 @@ public class BlockPAQuadrupole extends BlockDummyable implements ITooltipProvide
 	public BlockPAQuadrupole() {
 		super(Material.IRON);
 		this.setCreativeTab(MainRegistry.machineTab);
-		this.setBlockTextureName(RefStrings.MODID + ":block_steel");
 	}
 
 	@Override

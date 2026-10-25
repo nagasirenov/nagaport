@@ -19,8 +19,8 @@ public class BlockToolConversionPillar extends BlockToolConversion {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 
-		this.blockIcon = iconRegister.registerIcon(this.getTextureName() + "_side");
-		this.topIcon = iconRegister.registerIcon(this.getTextureName() + "_top");
+		this.blockIcon = iconRegister.registerIcon(this.getRegistryName().toString() + "_side");
+		this.topIcon = iconRegister.registerIcon(this.getRegistryName().toString() + "_top");
 		
 		if(names != null) {
 			icons = new IIcon[names.length];

@@ -1,10 +1,15 @@
 package com.hbm.blocks.generic;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumBlockRenderType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.LegacyBlockTextures;
 import com.hbm.tileentity.deco.TileEntityDecoBlock;
 import com.hbm.world.gen.nbt.INBTBlockTransformable;
 
@@ -27,6 +32,11 @@ import net.minecraft.world.World;
 
 public class DecoBlock extends BlockContainer implements IToolable, INBTBlockTransformable {
 
+	public DecoBlock withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 	Random rand = new Random();
 
 	public DecoBlock(Material p_i45386_1_) {
@@ -41,21 +51,21 @@ public class DecoBlock extends BlockContainer implements IToolable, INBTBlockTra
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		if(!player.isSneaking()) {
-			if(meta == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 3);
-			else if(meta == 4) world.setBlockMetadataWithNotify(x, y, z, 2, 3);
-			else if(meta == 2) world.setBlockMetadataWithNotify(x, y, z, 5, 3);
-			else if(meta == 5) world.setBlockMetadataWithNotify(x, y, z, 3, 3);
+			if(meta == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 3);
+			else if(meta == 4) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 3);
+			else if(meta == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 3);
+			else if(meta == 5) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 3);
 		} else {
-			if(meta == 3) world.setBlockMetadataWithNotify(x, y, z, 5, 3);
-			else if(meta == 4) world.setBlockMetadataWithNotify(x, y, z, 3, 3);
-			else if(meta == 2) world.setBlockMetadataWithNotify(x, y, z, 4, 3);
-			else if(meta == 5) world.setBlockMetadataWithNotify(x, y, z, 2, 3);
+			if(meta == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 3);
+			else if(meta == 4) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 3);
+			else if(meta == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 3);
+			else if(meta == 5) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 3);
 		}
 
 		return true;
 	}
 
-	@Override @SideOnly(Side.CLIENT) public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) { return true; }
+	@Override @SideOnly(Side.CLIENT) public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) { return true; }
 
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
@@ -63,16 +73,16 @@ public class DecoBlock extends BlockContainer implements IToolable, INBTBlockTra
 		return new TileEntityDecoBlock();
 	}
 
-	public static int renderIDBeam = RenderingRegistry.getNextAvailableRenderId();
-	public static int renderIDWall = RenderingRegistry.getNextAvailableRenderId();
-	public static int renderIDCorner = RenderingRegistry.getNextAvailableRenderId();
+	public static int renderIDBeam = 0;
+	public static int renderIDWall = 0;
+	public static int renderIDCorner = 0;
 
 	@Override
-	public int getRenderType(){
-		if(this == ModBlocks.steel_wall) return renderIDWall;
-		if(this == ModBlocks.steel_corner) return renderIDCorner;
-		if(this == ModBlocks.steel_beam) return renderIDBeam;
-		return -1;
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		if(this == ModBlocks.steel_wall || this == ModBlocks.steel_corner || this == ModBlocks.steel_beam) {
+			return EnumBlockRenderType.MODEL;
+		}
+		return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
 	}
 
 	@Override
@@ -95,92 +105,88 @@ public class DecoBlock extends BlockContainer implements IToolable, INBTBlockTra
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+		if(i == 0) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
+		if(i == 1) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
+		if(i == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
+		if(i == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		int te = world.getBlockMetadata(x, y, z);
-		float f = 0.0625F;
+	private static final AxisAlignedBB ROOF_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
+	private static final AxisAlignedBB BEAM_AABB = new AxisAlignedBB(7 * 0.0625D, 0.0D, 7 * 0.0625D, 9 * 0.0625D, 1.0D, 9 * 0.0625D);
+	private static final AxisAlignedBB SCAFFOLD_DEFAULT = new AxisAlignedBB(0.0D, 0.0D, 2 * 0.0625D, 1.0D, 1.0D, 14 * 0.0625D);
+	private static final AxisAlignedBB SCAFFOLD_SIDE = new AxisAlignedBB(2 * 0.0625D, 0.0D, 0.0D, 14 * 0.0625D, 1.0D, 1.0D);
+
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		int te = com.hbm.world.WorldBlockState.readMetadata(source, pos.getX(), pos.getY(), pos.getZ());
+		double f = 0.0625D;
 
 		if(this == ModBlocks.steel_wall) {
 			switch(te) {
-			case 4: this.setBlockBounds(14 * f, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
-			case 2: this.setBlockBounds(0.0F, 0.0F, 14 * f, 1.0F, 1.0F, 1.0F); break;
-			case 5: this.setBlockBounds(0.0F, 0.0F, 0.0F, 2 * f, 1.0F, 1.0F); break;
-			case 3: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 2 * f); break;
+			case 4: return new AxisAlignedBB(14 * f, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
+			case 2: return new AxisAlignedBB(0.0D, 0.0D, 14 * f, 1.0D, 1.0D, 1.0D);
+			case 5: return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 2 * f, 1.0D, 1.0D);
+			case 3: return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 2 * f);
 			}
 		}
 
 		if(this == ModBlocks.steel_corner) {
-			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+			return FULL_BLOCK_AABB;
 		}
 
 		if(this == ModBlocks.steel_roof) {
-			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1 * f, 1.0F);
+			return ROOF_AABB;
 		}
 
 		if(this == ModBlocks.steel_beam) {
-			this.setBlockBounds(7 * f, 0.0F, 7 * f, 9 * f, 1.0F, 9 * f);
+			return BEAM_AABB;
 		}
 
 		if(this == ModBlocks.steel_scaffold) {
-			this.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f);
 			switch(te) {
-			case 4: this.setBlockBounds(2 * f, 0.0F, 0.0F, 14 * f, 1.0F, 1.0F); break;
-			case 2: this.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f); break;
-			case 5: this.setBlockBounds(2 * f, 0.0F, 0.0F, 14 * f, 1.0F, 1.0F); break;
-			case 3: this.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f); break;
+			case 4:
+			case 5:
+				return SCAFFOLD_SIDE;
+			case 2:
+			case 3:
+			default:
+				return SCAFFOLD_DEFAULT;
 			}
 		}
+
+		return FULL_BLOCK_AABB;
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		this.setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
-
-	@Override
-	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB aabb, List list, Entity collider) {
-
+	public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entity, boolean actualState) {
 		if(this == ModBlocks.steel_corner) {
-			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-			List<AxisAlignedBB> bbs = new ArrayList();
-
+			int meta = this.getMetaFromState(state);
 			switch(meta) {
 			case 2:
-				bbs.add(new AxisAlignedBB(x + 0.25D, y + 0D, z + 0.875D, x + 1D, y + 1D, z + 1D));
-				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.75D, x + 0.25D, y + 1D, z + 1D));
-				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.125D, y + 1D, z + 0.75D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.25D, 0D, 0.875D, 1D, 1D, 1D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0D, 0D, 0.75D, 0.25D, 1D, 1D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0D, 0D, 0D, 0.125D, 1D, 0.75D));
 				break;
 			case 3:
-				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.75D, y + 1D, z + 0.125D));
-				bbs.add(new AxisAlignedBB(x + 0.75D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.25D));
-				bbs.add(new AxisAlignedBB(x + 0.875D, y + 0D, z + 0.25D, x + 1D, y + 1D, z + 1D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0D, 0D, 0D, 0.75D, 1D, 0.125D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.75D, 0D, 0D, 1D, 1D, 0.25D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.875D, 0D, 0.25D, 1D, 1D, 1D));
 				break;
 			case 4:
-				bbs.add(new AxisAlignedBB(x + 0.875D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.75D));
-				bbs.add(new AxisAlignedBB(x + 0.75D, y + 0D, z + 0.75D, x + 1D, y + 1D, z + 1D));
-				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.875D, x + 0.75D, y + 1D, z + 1D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.875D, 0D, 0D, 1D, 1D, 0.75D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.75D, 0D, 0.75D, 1D, 1D, 1D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0D, 0D, 0.875D, 0.75D, 1D, 1D));
 				break;
 			case 5:
-				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0.25D, x + 0.125D, y + 1D, z + 1D));
-				bbs.add(new AxisAlignedBB(x + 0D, y + 0D, z + 0D, x + 0.25D, y + 1D, z + 0.25D));
-				bbs.add(new AxisAlignedBB(x + 0.25D, y + 0D, z + 0D, x + 1D, y + 1D, z + 0.125D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0D, 0D, 0.25D, 0.125D, 1D, 1D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0D, 0D, 0D, 0.25D, 1D, 0.25D));
+				addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.25D, 0D, 0D, 1D, 1D, 0.125D));
+				break;
+			default:
+				super.addCollisionBoxToList(state, world, pos, entityBox, collidingBoxes, entity, actualState);
 				break;
 			}
-
-			for(AxisAlignedBB bb : bbs) {
-				if(aabb.intersectsWith(bb)) {
-					list.add(bb);
-				}
-			}
 		} else {
-			super.addCollisionBoxesToList(world, x, y, z, aabb, list, collider);
+			super.addCollisionBoxToList(state, world, pos, entityBox, collidingBoxes, entity, actualState);
 		}
 	}
 

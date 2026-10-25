@@ -52,7 +52,7 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 		if(stack == null) return false;
 		int color = ColorUtil.getColorFromDye(stack);
 		if(color == 0 || color == this.color) return false;
-		stack.stackSize--;
+		stack.shrink(1);
 		this.color = color;
 
 		this.markDirty();
@@ -132,7 +132,7 @@ public abstract class TileEntityPylonBase extends TileEntityCableBaseNT {
 		if(mounts == null || mounts.length == 0)
 			return new Vec3d(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5);
 
-		return mounts[0].addVector(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+		return mounts[0].add(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
 
 	public List<int[]> getConnected() {

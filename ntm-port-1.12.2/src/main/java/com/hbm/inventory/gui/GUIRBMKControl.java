@@ -41,7 +41,7 @@ public class GUIRBMKControl extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		for(int k = 0; k < 5; k++) {

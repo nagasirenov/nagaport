@@ -296,7 +296,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 
 				if(slot == null) continue;
 				if(!slot.isItemEqual(byproduct)) return false;
-				if(slot.stackSize + byproduct.stackSize > slot.getMaxStackSize()) return false;
+				if(slot.getCount() + byproduct.getCount() > slot.getMaxStackSize()) return false;
 			}
 		}
 
@@ -321,7 +321,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 				if(slot == null) {
 					slots[11 + i] = byproduct.copy();
 				} else {
-					slots[11 + i].stackSize += byproduct.stackSize;
+					slots[11 + i].grow(byproduct.getCount());
 				}
 			}
 		}
@@ -354,7 +354,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 
 				if(slot == null) continue;
 				if(!slot.isItemEqual(byproduct)) return false;
-				if(slot.stackSize + byproduct.stackSize > slot.getMaxStackSize()) return false;
+				if(slot.getCount() + byproduct.getCount() > slot.getMaxStackSize()) return false;
 			}
 		}
 
@@ -387,7 +387,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 				if(slot == null) {
 					slots[15 + i] = byproduct.copy();
 				} else {
-					slots[15 + i].stackSize += byproduct.stackSize;
+					slots[15 + i].grow(byproduct.getCount());
 				}
 			}
 		}
@@ -460,7 +460,7 @@ public class TileEntityElectrolyser extends TileEntityMachineBase implements IEn
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 5,
 					this.pos.getY() - 0,
 					this.pos.getZ() - 5,

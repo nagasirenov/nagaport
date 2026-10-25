@@ -25,7 +25,6 @@ public class BiomeGenThatmo extends BiomeGenBaseCelestial {
 		this.creatures.add(new Biome.SpawnListEntry(EntityWarBehemoth.class, 2, 1, 1));
 		this.creatures.add(new Biome.SpawnListEntry(EntityMoonCow.class, 10, 1, 1));
 
-		this.decorator.generateLakes = false;
 
 		this.topBlock = Blocks.SNOW;
 		this.fillerBlock = Blocks.SNOW;

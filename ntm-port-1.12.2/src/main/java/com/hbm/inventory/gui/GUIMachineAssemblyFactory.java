@@ -56,7 +56,7 @@ public class GUIMachineAssemblyFactory extends GuiInfoContainer {
 	}
 	
 	@Override
-	protected void mouseClicked(int x, int y, int button) {
+	protected void mouseClicked(int x, int y, int button) throws java.io.IOException {
 		super.mouseClicked(x, y, button);
 		
 		for(int i = 0; i < 4; i++) if(this.checkClick(x, y, 6 + (i % 2) * 109, 53 + (i / 2) * 56, 18, 18)) GUIScreenRecipeSelector.openSelector(AssemblyMachineRecipes.INSTANCE, assembler, assembler.assemblerModule[i].recipe, i, ItemBlueprints.grabPool(assembler.slots[4 + i * 14]), this);

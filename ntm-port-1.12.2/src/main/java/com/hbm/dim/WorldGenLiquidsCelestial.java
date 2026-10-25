@@ -21,7 +21,6 @@ public class WorldGenLiquidsCelestial extends WorldGenerator {
 		this.targetBlock = targetBlock;
 	}
 
-	@Override
 	public boolean generate(World world, Random rand, BlockPos origin) {
 		BlockPos pos = origin;
 

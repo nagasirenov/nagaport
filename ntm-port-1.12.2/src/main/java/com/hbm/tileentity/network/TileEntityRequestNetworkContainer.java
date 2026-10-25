@@ -14,26 +14,27 @@ import net.minecraft.nbt.NBTTagList;
  * no shit
  * just like how java operates already
  * you fucking dork
- * 
+ *
  * this class has to extend TileEntityRequestNetwork for all the network stuff to work
  * but it also needs slots and all the container boilerplate crap
  * since multiple inheritance is a sin punishable by stoning, i had to cram the entire contents of TileEntityMachineBase into this class
  * is this good code? is this what you wanted? was it worth avoiding those hypothetical scenarios where multiple inheritance is le bad?
  * i believe that neither heaven nor hell awaits me when all is said and done
  * saint peter will send me to southend
- * 
+ *
  * @author hbm
  */
 public abstract class TileEntityRequestNetworkContainer extends TileEntityRequestNetwork implements ISidedInventory {
 
 	public ItemStack slots[];
-	
+
 	private String customName;
-	
+
 	public TileEntityRequestNetworkContainer(int scount) {
 		slots = new ItemStack[scount];
 	}
 
+	@Override public void clear() { for(int i = 0; i < slots.length; i++) slots[i] = ItemStack.EMPTY; }
 	@Override public int getSizeInventory() { return slots.length; }
 	@Override public ItemStack getStackInSlot(int i) { return slots[i]; }
 	@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
@@ -45,9 +46,9 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return false; }
 	@Override public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
 		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return new int[] { }; }
-	
+
 	public void markChanged() {
-		this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+		this.world.markChunkDirty(this.pos, this);
 	}
 
 	@Override
@@ -72,36 +73,48 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 		}
 	}
 
-	@Override public String getInventoryName() { return this.hasCustomInventoryName() ? this.customName : getName(); }
+	public String getInventoryName() { return this.hasCustomName() ? this.customName : getName(); }
 	public abstract String getName();
-	@Override public boolean hasCustomInventoryName() { return this.customName != null && this.customName.length() > 0; }
+	@Override public boolean hasCustomName() { return this.customName != null && this.customName.length() > 0; }
+	public boolean hasCustomInventoryName() { return this.hasCustomName(); }
 	public void setCustomName(String name) { this.customName = name; markDirty(); }
 	@Override public int getInventoryStackLimit() { return 64; }
+	@Override public boolean isEmpty() {
+		for(ItemStack stack : this.slots) {
+			if(stack != null && !stack.isEmpty()) return false;
+		}
+		return true;
+	}
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 128;
 		}
 	}
-	
+
+
+
 	@Override
 	public ItemStack decrStackSize(int slot, int amount) {
 		if(slots[slot] != null) {
-			
-			if(slots[slot].stackSize <= amount) {
+
+			if(slots[slot].getCount() <= amount) {
 				ItemStack itemStack = slots[slot];
 				slots[slot] = null;
 				return itemStack;
 			}
-			
+
 			ItemStack itemStack1 = slots[slot].splitStack(amount);
-			if(slots[slot].stackSize == 0) {
+			if(slots[slot].getCount() == 0) {
 				slots[slot] = null;
 			}
-			
+
 			return itemStack1;
 		} else {
 			return null;
@@ -112,7 +125,7 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		NBTTagList list = nbt.getTagList("items", 10);
-		
+
 		for(int i = 0; i < list.tagCount(); i++)
 		{
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
@@ -125,12 +138,12 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 
 		customName = nbt.getString("name");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList list = new NBTTagList();
-		
+
 		for(int i = 0; i < slots.length; i++)
 		{
 			if(slots[i] != null)
@@ -142,7 +155,7 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}

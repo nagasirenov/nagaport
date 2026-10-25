@@ -20,7 +20,7 @@ import net.minecraft.item.ItemSword;
 
 public class ItemSwordAbility extends ItemSword {
 
-	private EnumRarity rarity = EnumRarity.common;
+	private EnumRarity rarity = EnumRarity.COMMON;
 	// was there a reason for this to be private?
 	protected float damage;
 	protected double movement;
@@ -44,7 +44,7 @@ public class ItemSwordAbility extends ItemSword {
 	}
 
 	public EnumRarity getRarity(ItemStack stack) {
-		return this.rarity != EnumRarity.common ? this.rarity : super.getRarity(stack);
+		return this.rarity != EnumRarity.COMMON ? this.rarity : super.getRarity(stack);
 	}
 
 	public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase attacker) {
@@ -53,7 +53,7 @@ public class ItemSwordAbility extends ItemSword {
 
 			// hacky hacky hack
 			if(this == ModItems.mese_gavel)
-				attacker.world.playSoundAtEntity(victim, "hbm:weapon.whack", 3.0F, 1.F);
+				attacker.world.playSound(null, victim.posX, victim.posY, victim.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.whack"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.F);
 
 			this.abilities.getWeaponAbilities().forEach((ability, level) -> {
 				ability.onHit(level, attacker.world, (EntityPlayer) attacker, victim, this);

@@ -11,21 +11,36 @@ import net.minecraft.util.text.TextFormatting;
 
 public class CommandReapNetworks extends CommandBase {
 
-	@Override
-	public String getCommandName() {
-		return "ntmreapnetworks";
+
+		@Override
+	public String getName() {
+		return getCommandName();
 	}
 
 	@Override
+	public String getUsage(net.minecraft.command.ICommandSender sender) {
+		return getCommandUsage(sender);
+	}
+
+	@Override
+	public void execute(net.minecraft.server.MinecraftServer server, net.minecraft.command.ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+		processCommand(sender, args);
+	}
+
+public String getCommandName() {
+		return "ntmreapnetworks";
+	}
+
+
 	public String getCommandUsage(ICommandSender sender) {
 		return "/ntmreapnetworks";
 	}
 
-	@Override
+
 	public void processCommand(ICommandSender sender, String[] args) {
 
 		try {
-			
+
 			UniNodespace.activeNodeNets.forEach((net) -> {
 				net.links.forEach((link) -> { ((GenNode)link).expired = true; });
 				net.links.clear();
@@ -36,7 +51,7 @@ public class CommandReapNetworks extends CommandBase {
 			UniNodespace.worlds.clear();
 
 			sender.sendMessage(new TextComponentString(TextFormatting.YELLOW + "Nodespace cleared :)"));
-			
+
 		} catch(Exception ex) {
 			sender.sendMessage(ChatBuilder.start("----------------------------------").color(TextFormatting.GRAY).flush());
 			sender.sendMessage(ChatBuilder.start("An error has occoured during network reap, consult the log for details.").color(TextFormatting.RED).flush());

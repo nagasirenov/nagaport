@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "hbm:flesh_block_layer"
+    }
+  }
+}

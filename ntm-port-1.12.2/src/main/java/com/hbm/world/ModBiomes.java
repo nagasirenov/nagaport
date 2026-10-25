@@ -180,7 +180,7 @@ public class ModBiomes
             validateCelestialBiomeRegistration(id, names[i], configuredIds, configuredNames);
         }
         for(int i = 0; i < biomes.length; i++) {
-            registerCelestialBiome(biomes[i], names[i]);
+            registerCelestialBiome(event, biomes[i], names[i]);
         }
 
         registerCelestialBiomeTypes();
@@ -204,11 +204,6 @@ public class ModBiomes
             throw biomeConflict("Celestial biome registry name " + name + " is configured more than once.");
         }
 
-        Biome idConflict = Biome.getBiome(id);
-        if(idConflict != null) {
-            throw biomeConflict(String.format("Biome ID conflict!\nAttempted to register NTM celestial biome at ID %d, already used by %s (%s).\nPlease modify hbm.cfg to fix this error.",
-                    id, idConflict.getRegistryName(), idConflict.getClass().getName()));
-        }
         Biome nameConflict = ForgeRegistries.BIOMES.getValue(name);
         if(nameConflict != null) {
             throw biomeConflict("Celestial biome registry name " + name + " is already assigned to "
@@ -216,19 +211,19 @@ public class ModBiomes
         }
     }
 
-    private static void registerCelestialBiome(BiomeGenBaseCelestial biome, ResourceLocation name)
+    private static void registerCelestialBiome(RegistryEvent.Register<Biome> event,
+            BiomeGenBaseCelestial biome, ResourceLocation name)
     {
-        int configuredId = biome.getConfiguredId();
         biome.synchronizeTerrainBlockStates();
-        Biome.registerBiome(configuredId, name.toString(), biome);
+        biome.setRegistryName(name);
+        event.getRegistry().register(biome);
         int registeredId = Biome.getIdForBiome(biome);
-        if(registeredId != configuredId
-                || ForgeRegistries.BIOMES.getID(biome) != configuredId
+        if(registeredId < 0
+                || (registeredId > 255 && !Loader.isModLoaded(Compat.MOD_EIDS))
+                || net.minecraft.world.biome.Biome.getIdForBiome(biome) != registeredId
                 || !name.equals(biome.getRegistryName())
                 || ForgeRegistries.BIOMES.getValue(name) != biome) {
-            throw biomeConflict("Celestial biome " + name + " registered with ID " + registeredId
-                    + " instead of configured ID " + configuredId
-                    + "; refusing to continue because celestial chunk data writes configured biome IDs.");
+            throw biomeConflict("Celestial biome " + name + " has invalid Forge registry ID " + registeredId);
         }
     }
 
@@ -278,16 +273,6 @@ public class ModBiomes
                     + " exceeds 255; EIDS is required, or the ID must be <= 255.");
         }
 
-        Biome idConflict = Biome.getBiome(id);
-        if (idConflict != null) {
-            String message = String.format("Biome ID conflict!\nAttempted to register NTM Orbit biome at ID %d, already used by %s (%s).\nPlease modify hbm.cfg to fix this error.",
-                    id, idConflict.getRegistryName(), idConflict.getClass().getName());
-            if (SpaceConfig.crashOnBiomeConflict) {
-                throw new BiomeCollisionException(message);
-            }
-            throw new IllegalStateException(message + "\ncrashOnBiomeConflict=false cannot safely overwrite a Forge biome registry entry.");
-        }
-
         Biome nameConflict = ForgeRegistries.BIOMES.getValue(ORBIT_BIOME_NAME);
         if (nameConflict != null) {
             throw new IllegalStateException("Orbit biome registry name " + ORBIT_BIOME_NAME
@@ -295,12 +280,11 @@ public class ModBiomes
         }
 
         BiomeGenOrbit orbitBiome = new BiomeGenOrbit();
-        Biome.registerBiome(id, ORBIT_BIOME_NAME.toString(), orbitBiome);
-
-        int registeredId = ForgeRegistries.BIOMES.getID(orbitBiome);
-        if (registeredId != id) {
-            throw new IllegalStateException("Orbit biome registered with ID " + registeredId
-                    + " instead of configured ID " + id + "; refusing to continue because Orbit chunks write the configured ID.");
+        orbitBiome.setRegistryName(ORBIT_BIOME_NAME);
+        event.getRegistry().register(orbitBiome);
+        int registeredId = Biome.getIdForBiome(orbitBiome);
+        if (registeredId < 0 || (registeredId > 255 && !Loader.isModLoaded(Compat.MOD_EIDS))) {
+            throw new IllegalStateException("Orbit biome has invalid Forge registry ID " + registeredId);
         }
 
         BiomeGenOrbit.biome = orbitBiome;
@@ -332,14 +316,15 @@ public class ModBiomes
         }
 
         for (int i = 0; i < biomes.length; i++) {
-            Biome.registerBiome(ids[i], names[i].toString(), biomes[i]);
+            biomes[i].setRegistryName(names[i]);
+            event.getRegistry().register(biomes[i]);
             int registeredId = Biome.getIdForBiome(biomes[i]);
-            if (registeredId != ids[i]
-                    || ForgeRegistries.BIOMES.getID(biomes[i]) != ids[i]
+            if (registeredId < 0
+                    || (registeredId > 255 && !Loader.isModLoaded(Compat.MOD_EIDS))
+                    || net.minecraft.world.biome.Biome.getIdForBiome(biomes[i]) != registeredId
                     || !names[i].equals(biomes[i].getRegistryName())
                     || ForgeRegistries.BIOMES.getValue(names[i]) != biomes[i]) {
-                throw biomeConflict("Crater biome " + names[i] + " registered with ID " + registeredId
-                        + " instead of configured ID " + ids[i] + "; refusing to continue because crater chunks write the configured ID.");
+                throw biomeConflict("Crater biome " + names[i] + " has invalid Forge registry ID " + registeredId);
             }
         }
 

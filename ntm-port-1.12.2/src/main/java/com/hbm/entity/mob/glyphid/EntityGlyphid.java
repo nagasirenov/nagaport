@@ -1,4 +1,5 @@
 package com.hbm.entity.mob.glyphid;
+import net.minecraft.util.math.AxisAlignedBB;
 
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.RayTraceResult;
@@ -12,6 +13,7 @@ import com.hbm.config.MobConfig;
 import com.hbm.entity.logic.EntityWaypoint;
 import com.hbm.entity.mob.EntityParasiteMaggot;
 import com.hbm.entity.mob.glyphid.GlyphidStats.StatBundle;
+import com.hbm.entity.mob.ai.EntityAINearestAttackableTargetNT;
 import com.hbm.entity.pathfinder.PathFinderUtils;
 import com.hbm.explosion.vanillant.ExplosionVNT;
 import com.hbm.explosion.vanillant.standard.*;
@@ -32,6 +34,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -43,6 +51,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
@@ -57,6 +68,8 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	public int homeY;
 	public int homeZ;
 	protected int currentTask = 0;
+	protected Entity entityToAttack;
+	private int blindedTargetCooldown;
 
 	//both of those below are used for digging, so the glyphid remembers what it was doing
 	protected int previousTask;
@@ -96,14 +109,44 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	public static final int TYPE_INFECTED = 1;
 	public static final int TYPE_RADIOACTIVE = 2;
 
-	//data watcher keys
+	// Retained numeric ids for existing glyphid code that refers to these fields.
 	public static final int DW_WALL = 16;
 	public static final int DW_ARMOR = 17;
 	public static final int DW_SUBTYPE = 18;
+	public static final DataParameter<Byte> WALL_CLIMBING = EntityDataManager.createKey(EntityGlyphid.class, DataSerializers.BYTE);
+	public static final DataParameter<Byte> ARMOR = EntityDataManager.createKey(EntityGlyphid.class, DataSerializers.BYTE);
+	public static final DataParameter<Byte> SUBTYPE = EntityDataManager.createKey(EntityGlyphid.class, DataSerializers.BYTE);
 
 	public EntityGlyphid(World world) {
 		super(world);
 		this.setSize(1.75F, 1F);
+	}
+
+	@Override
+	protected void initEntityAI() {
+		this.tasks.addTask(0, new EntityAISwimming(this));
+		this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
+		this.tasks.addTask(7, new EntityAIWander(this, 1.0D) {
+			@Override
+			public boolean shouldExecute() {
+				return getCurrentTask() == TASK_IDLE && getAttackTarget() == null && super.shouldExecute();
+			}
+
+			@Override
+			public boolean shouldContinueExecuting() {
+				return getCurrentTask() == TASK_IDLE && getAttackTarget() == null && super.shouldContinueExecuting();
+			}
+		});
+		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(8, new EntityAILookIdle(this));
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTargetNT(this, EntityPlayer.class, 0, false, false,
+				entity -> blindedTargetCooldown == 0 && !isPotionActive(net.minecraft.init.MobEffects.BLINDNESS) && entity == findPlayerToAttack(), 128.0D));
+	}
+
+	@Override
+	public void setAttackTarget(@Nullable EntityLivingBase target) {
+		super.setAttackTarget(target);
+		this.entityToAttack = target;
 	}
 
 	public ResourceLocation getSkin() {
@@ -117,18 +160,22 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(DW_WALL, new Byte((byte) 0));		//wall climbing
-		this.dataWatcher.addObject(DW_ARMOR, new Byte((byte) 0b11111));	//armor
-		this.dataWatcher.addObject(DW_SUBTYPE, new Byte((byte) 0));		//subtype (i.e. normal, infected, etc)
+		this.dataManager.register(WALL_CLIMBING, Byte.valueOf((byte) 0));		//wall climbing
+		this.dataManager.register(ARMOR, Byte.valueOf((byte) 0b11111));	//armor
+		this.dataManager.register(SUBTYPE, Byte.valueOf((byte) 0));		//subtype (i.e. normal, infected, etc)
+	}
+
+	public void setGlyphidType(byte type) {
+		this.dataManager.set(SUBTYPE, Byte.valueOf(type));
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		int variant = this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getGrunt().health);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getGrunt().speed * (variant == TYPE_RADIOACTIVE ? 2D : 1D));
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getGrunt().damage * (variant == TYPE_RADIOACTIVE ? 5D : 1D));
+		int variant = this.dataManager.get(SUBTYPE).byteValue();
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(GlyphidStats.getStats().getGrunt().health);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(GlyphidStats.getStats().getGrunt().speed * (variant == TYPE_RADIOACTIVE ? 2D : 1D));
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(GlyphidStats.getStats().getGrunt().damage * (variant == TYPE_RADIOACTIVE ? 5D : 1D));
 	}
 
 	public StatBundle getStats() {
@@ -162,6 +209,10 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 		super.onUpdate();
 
 		if(!this.world.isRemote) {
+			if(this.entityToAttack != this.getAttackTarget()) {
+				super.setAttackTarget(this.entityToAttack instanceof EntityLivingBase ? (EntityLivingBase) this.entityToAttack : null);
+			}
+
 			if(!hasHome) {
 				homeX = (int) posX;
 				homeY = (int) posY;
@@ -171,6 +222,8 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 			if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) {
 				onBlinded();
+			} else if(this.blindedTargetCooldown > 0) {
+				--this.blindedTargetCooldown;
 			}
 
 			if(getCurrentTask() == TASK_FOLLOW){
@@ -181,7 +234,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 				}
 			//the task cannot be 6 outside of rampant, so this is a non issue p much
 			} else if (getCurrentTask() == TASK_DIG && ticksExisted % 20 == 0 && isAtDestination()) {
-				swingItem();
+				this.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 
 				ExplosionVNT vnt = new ExplosionVNT(this.world, taskX, taskY + 2, taskZ, blastSize, this);
 				vnt.setBlockAllocator(new BlockAllocatorGlyphidDig(blastResToDig));
@@ -194,9 +247,10 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 			}
 
 			this.setBesideClimbableBlock(this.collidedHorizontally);
+			this.updateGlyphidNavigation();
 
 			if(ticksExisted % 100 == 0) {
-				this.swingItem();
+				this.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 			}
 		}
 	}
@@ -209,30 +263,19 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 		if(rand.nextInt(2) == 0) this.entityDropItem(new ItemStack(drop, ((int) getScale() * 2) + looting), 0F);
 	}
 
-	@Override
 	protected Entity findPlayerToAttack() {
-		if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;
+		if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS) || this.blindedTargetCooldown > 0) return null;
 
-		return this.world.getClosestVulnerablePlayerToEntity(this, useExtendedTargeting() ? 128D : 16D);
+		double range = useExtendedTargeting() ? 128D : 16D;
+		return this.world.getNearestAttackablePlayer(this, range, range);
 	}
 
-	@Override
-	protected void updateWanderPath() {
-		if(getCurrentTask() == TASK_IDLE) {
-			super.updateWanderPath();
-		}
-	}
-
-	@Override
-	protected void updateEntityActionState() {
-		super.updateEntityActionState();
-
-		if(!this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) {
-			if (!this.hasPath()) {
+	private void updateGlyphidNavigation() {
+		if(!this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS) && this.getNavigator().noPath()) {
 
 				// hell yeah!!
-				if(useExtendedTargeting() && this.entityToAttack != null) {
-					this.setPathToEntity(PathFinderUtils.getPathEntityToEntityPartial(world, this, this.entityToAttack, 16F, true, false, true, true));
+				if(useExtendedTargeting() && this.getAttackTarget() != null) {
+					this.getNavigator().setPath(PathFinderUtils.getPathEntityToEntityPartial(world, this, this.getAttackTarget(), 16F, true, false, true, true), 1.0D);
 				} else if (getCurrentTask() != TASK_IDLE) {
 
 					this.world.profiler.startSection("stroll");
@@ -246,7 +289,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 							taskZ = (int) taskWaypoint.posZ;
 
 							if (taskWaypoint.highPriority) {
-								setTarget(taskWaypoint);
+								this.getLookHelper().setLookPositionWithEntity(taskWaypoint, 10.0F, this.getVerticalFaceSpeed());
 							}
 
 						}
@@ -261,20 +304,19 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 								} else {
 									Vec3d vec = new Vec3d(posX, posY, posZ);
 									int maxDist = (int) (Math.sqrt(vec.squareDistanceTo(taskX, taskY, taskZ)) * 1.2);
-									this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
+									this.getNavigator().setPath(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true), 1.0D);
 								}
 
 							} else {
 								Vec3d vec = new Vec3d(posX, posY, posZ);
 								int maxDist = (int) (Math.sqrt(vec.squareDistanceTo(taskX, taskY, taskZ)) * 1.2);
-								this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
+								this.getNavigator().setPath(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true), 1.0D);
 							}
 						}
 					}
 
 					this.world.profiler.endSection();
 				}
-			}
 		}
 	}
 
@@ -283,9 +325,9 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	}
 
 	public void onBlinded(){
-		this.entityToAttack = null;
-		this.setPathToEntity(null);
-		this.fleeingTick = 80;
+		this.setAttackTarget(null);
+		this.getNavigator().clearPath();
+		this.blindedTargetCooldown = 80;
 
 		if(getScale() >= 1.25){
 			if(ticksExisted % 20 == 0) {
@@ -303,7 +345,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 						if (block == ModBlocks.lantern) {
 							rotationYaw = 360F / 16 * i;
-							swingItem();
+							this.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 							com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 						}
 
@@ -319,14 +361,14 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 	@Override
 	protected boolean canDespawn() {
-		return entityToAttack == null && getCurrentTask() == TASK_IDLE && this.ticksExisted > 100;
+		return this.getAttackTarget() == null && getCurrentTask() == TASK_IDLE && this.ticksExisted > 100;
 	}
 
 	@Override
 	public void onDeath(DamageSource source) {
 		super.onDeath(source);
 
-		if(!this.world.isRemote && doesInfectedSpawnMaggots() && this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED) {
+		if(!this.world.isRemote && doesInfectedSpawnMaggots() && this.dataManager.get(SUBTYPE).byteValue() == TYPE_INFECTED) {
 
 			int j = 2 + this.rand.nextInt(3);
 
@@ -338,7 +380,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 				maggot.motionX = f;
 				maggot.motionZ = f1;
 				maggot.velocityChanged = true;
-				this.world.spawnEntityInWorld(maggot);
+				this.world.spawnEntity(maggot);
 			}
 
 			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, "mob.zombie.woodbreak", 2.0F, 0.95F + this.world.rand.nextFloat() * 0.2F);
@@ -380,7 +422,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	}
 
 	public void breakOffArmor() {
-		byte armor = this.dataWatcher.getWatchableObjectByte(DW_ARMOR);
+		byte armor = this.dataManager.get(ARMOR).byteValue();
 		List<Integer> indices = Arrays.asList(0, 1, 2, 3, 4);
 		Collections.shuffle(indices);
 
@@ -389,8 +431,8 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 			if((armor & bit) > 0) {
 				armor &= ~bit;
 				armor = (byte) (armor & 0b11111);
-				this.dataWatcher.updateObject(DW_ARMOR, armor);
-				this.world.playSoundAtEntity(this, "mob.zombie.woodbreak", 1.0F, 1.25F);
+				this.dataManager.set(ARMOR, Byte.valueOf(armor));
+				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "mob.zombie.woodbreak", 1.0F, 1.25F);
 				break;
 			}
 		}
@@ -398,12 +440,16 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 	public int getGlyphidArmor() {
 		int total = 0;
-		byte armor = this.dataWatcher.getWatchableObjectByte(DW_ARMOR);
+		byte armor = this.dataManager.get(ARMOR).byteValue();
 		List<Integer> indices = Arrays.asList(0, 1, 2, 3, 4);
 		for(Integer i : indices) {
 			total += (armor & (1 << i)) != 0 ? 1 : 0;
 		}
 		return total;
+	}
+
+	protected byte getGlyphidSubtype() {
+		return this.dataManager.get(SUBTYPE).byteValue();
 	}
 
 	@Override
@@ -437,11 +483,11 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	}
 
 	public boolean isBesideClimbableBlock() {
-		return (this.dataWatcher.getWatchableObjectByte(DW_WALL) & 1) != 0;
+		return (this.dataManager.get(WALL_CLIMBING).byteValue() & 1) != 0;
 	}
 
 	public void setBesideClimbableBlock(boolean climbable) {
-		byte watchable = this.dataWatcher.getWatchableObjectByte(DW_WALL);
+		byte watchable = this.dataManager.get(WALL_CLIMBING).byteValue();
 
 		if(climbable) {
 			watchable = (byte) (watchable | 1);
@@ -449,15 +495,15 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 			watchable &= -2;
 		}
 
-		this.dataWatcher.updateObject(DW_WALL, Byte.valueOf(watchable));
+		this.dataManager.set(WALL_CLIMBING, Byte.valueOf(watchable));
 	}
 
 	@Override
 	public boolean attackEntityAsMob(Entity victim) {
 		if(this.isSwingInProgress) return false;
-		this.swingItem();
+		this.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 
-		if(this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED && victim instanceof EntityLivingBase) {
+		if(this.dataManager.get(SUBTYPE).byteValue() == TYPE_INFECTED && victim instanceof EntityLivingBase) {
 			((EntityLivingBase) victim).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 100, 2));
 			((EntityLivingBase) victim).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 100, 0));
 		}
@@ -496,8 +542,8 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 			taskZ = (int) taskWaypoint.posZ;
 
 			if(taskWaypoint.highPriority) {
-				this.entityToAttack = null;
-				this.setPathToEntity(null);
+				this.setAttackTarget(null);
+				this.getNavigator().clearPath();
 			}
 
 		}
@@ -533,7 +579,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 				home.setAdditionalWaypoint(additional);
 				home.setHighPriority();
 				home.setLocationAndAngles(homeX, homeY, homeZ, 0, 0);
-				this.world.spawnEntityInWorld(home);
+				this.world.spawnEntity(home);
 
 				this.taskWaypoint = home;
 				communicate(TASK_FOLLOW, home);
@@ -558,7 +604,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	/** Copies tasks and waypoint to nearby glyphids. Does not work on glyphid scouts */
 	public void communicate(int task, @Nullable EntityWaypoint waypoint) {
 		int radius = waypoint != null ? waypoint.radius : 4;
-		AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
+		AxisAlignedBB bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
 
 		List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 		for(Entity e : bugs) {
@@ -605,7 +651,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 		EntityWaypoint target =  new EntityWaypoint(this.world);
 		target.setLocationAndAngles(obstacle.getBlockPos().getX(), obstacle.getBlockPos().getY(), obstacle.getBlockPos().getZ(), 0 , 0);
 		target.radius = 5;
-		this.world.spawnEntityInWorld(target);
+		this.world.spawnEntity(target);
 
 		previousTask = getCurrentTask();
 		previousWaypoint =  getWaypoint();
@@ -614,7 +660,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 		Vec3d vec = new Vec3d(posX, posY, posZ);
 		int maxDist = (int) (Math.sqrt(vec.squareDistanceTo(taskX, taskY, taskZ)) * 1.2);
-		this.setPathToEntity(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true));
+		this.getNavigator().setPath(PathFinderUtils.getPathEntityToCoordPartial(world, this, taskX, taskY, taskZ, maxDist, true, false, true, true), 1.0D);
 
 		communicate(TASK_DIG, target);
 
@@ -624,8 +670,8 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setByte("armor", this.dataWatcher.getWatchableObjectByte(DW_ARMOR));
-		nbt.setByte("subtype", this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE));
+		nbt.setByte("armor", this.dataManager.get(ARMOR).byteValue());
+		nbt.setByte("subtype", this.dataManager.get(SUBTYPE).byteValue());
 
 		nbt.setBoolean("hasHome", hasHome);
 		nbt.setInteger("homeX", homeX);
@@ -643,8 +689,8 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.dataWatcher.updateObject(DW_ARMOR, nbt.getByte("armor"));
-		this.dataWatcher.updateObject(DW_SUBTYPE, nbt.getByte("subtype"));
+		this.dataManager.set(ARMOR, Byte.valueOf(nbt.getByte("armor")));
+		this.dataManager.set(SUBTYPE, Byte.valueOf(nbt.getByte("subtype")));
 
 		this.hasHome = nbt.getBoolean("hasHome");
 		this.homeX = nbt.getInteger("homeX");
@@ -661,6 +707,6 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return this.world.difficultySetting != EnumDifficulty.PEACEFUL && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && this.world.getCollidingBoundingBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.isAnyLiquid(this.getEntityBoundingBox());
+		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.containsAnyLiquid(this.getEntityBoundingBox());
 	}
 }

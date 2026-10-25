@@ -45,6 +45,11 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class BlockDummyable extends BlockContainer implements ICustomBlockHighlight, ICopiable, INBTBlockTransformable {
+	public <T extends BlockDummyable> T withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return (T) this;
+	}
+
 
 	public BlockDummyable(Material mat) {
 		super(mat);
@@ -81,9 +86,6 @@ public abstract class BlockDummyable extends BlockContainer implements ICustomBl
 	@Override public boolean isFullCube(IBlockState state) { return renderAsNormalBlock(); }
 	@Override public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 		onBlockHarvested(world, pos.getX(), pos.getY(), pos.getZ(), getMetaFromState(state), player);
-	}
-	@Override public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack tool) {
-		harvestBlock(world, player, pos.getX(), pos.getY(), pos.getZ(), getMetaFromState(state));
 	}
 	@Override public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB query, List<AxisAlignedBB> boxes, Entity entity, boolean actualState) {
 		addCollisionBoxesToList(world, pos.getX(), pos.getY(), pos.getZ(), query, boxes, entity);
@@ -534,7 +536,8 @@ public abstract class BlockDummyable extends BlockContainer implements ICustomBl
 	/*
 	 * Called after the block and TE are already gone, so this method is of no use to us.
 	 */
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
+	public void harvestBlock(World world, EntityPlayer player, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.tileentity.TileEntity te, net.minecraft.item.ItemStack tool) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ(); int meta = state.getBlock().getMetaFromState(state);
 		player.addStat(StatList.getBlockStats(this), 1);
 		player.addExhaustion(0.025F);
 	}

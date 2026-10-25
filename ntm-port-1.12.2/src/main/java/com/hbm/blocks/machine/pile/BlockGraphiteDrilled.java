@@ -13,15 +13,18 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockGraphiteDrilled extends BlockGraphiteDrilledBase implements IToolable {
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
-			
+
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			int cfg = meta & 3;
-			
+
 			if(side == cfg * 2 || side == cfg * 2 + 1) {
 				if(checkInteraction(world, x, y, z, meta, player, ModItems.pile_rod_uranium, ModBlocks.block_graphite_fuel)) return true;
 				if(checkInteraction(world, x, y, z, meta | 8, player, ModItems.pile_rod_pu239, ModBlocks.block_graphite_fuel)) return true;
@@ -37,43 +40,43 @@ public class BlockGraphiteDrilled extends BlockGraphiteDrilledBase implements IT
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
-	private boolean checkInteraction(World world, int x, int y, int z, int meta, EntityPlayer player, Item item, Block block) {
-		
-		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == item) {
-			
-			if(item == ModItems.shell && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage() != Mats.MAT_ALUMINIUM.id) return false; //shitty workaround
-			
-			com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
-			world.setBlock(x, y, z, block, meta, 3);
 
-			world.playSoundEffect(x + 0.5, y + 1.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
-			
+	private boolean checkInteraction(World world, int x, int y, int z, int meta, EntityPlayer player, Item item, Block block) {
+
+		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == item) {
+
+			if(item == ModItems.shell && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage() != Mats.MAT_ALUMINIUM.id) return false; //shitty workaround
+
+			com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, block, meta, 3);
+
+			world.playSound(null, x + 0.5, y + 1.5, z + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
+
 			return true;
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
-		
+
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		int cfg = meta & 3;
-		
+
 		if(tool != ToolType.SCREWDRIVER)
 			return false;
-		
+
 		if(!world.isRemote && (side == cfg * 2 || side == cfg * 2 + 1) && meta >> 2 == 1) {
-			world.setBlock(x, y, z, ModBlocks.block_graphite_drilled, cfg, 3);
-			world.playSoundEffect(x + 0.5, y + 1.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 0.85F);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_graphite_drilled, cfg, 3);
+			world.playSound(null, x + 0.5, y + 1.5, z + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 0.85F);
 
 			BlockGraphiteRod.ejectItem(world, x, y, z, ForgeDirection.getOrientation(side), new ItemStack(ModItems.shell, 1, Mats.MAT_ALUMINIUM.id));
 		}
-		
+
 		return true;
 	}
 }

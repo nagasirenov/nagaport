@@ -26,7 +26,7 @@ public abstract class EntityMissileTier2 extends EntityMissileBaseNT {
 		list.add(new ItemStack(ModItems.plate_steel, 10));
 		list.add(new ItemStack(ModItems.plate_titanium, 6));
 		list.add(new ItemStack(ModItems.thruster_medium, 1));
-		
+
 		return list;
 	}
 
@@ -93,7 +93,7 @@ public abstract class EntityMissileTier2 extends EntityMissileBaseNT {
 			emp.posX = posX;
 			emp.posY = posY;
 			emp.posZ = posZ;
-			this.world.spawnEntityInWorld(emp);
+			this.world.spawnEntity(emp);
 		}
 		@Override public ItemStack getDebrisRareDrop() { return new ItemStack(ModItems.warhead_generic_medium); }
 		@Override public ItemStack getMissileItemForInfo() { return new ItemStack(ModItems.missile_emp_strong); }

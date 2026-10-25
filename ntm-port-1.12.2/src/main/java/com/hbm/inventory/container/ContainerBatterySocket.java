@@ -10,14 +10,14 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerBatterySocket extends Container {
-	
+
 	protected TileEntityBatterySocket socket;
-	
+
 	public ContainerBatterySocket(InventoryPlayer invPlayer, TileEntityBatterySocket tedf) {
 		this.socket = tedf;
 
 		this.addSlotToContainer(new SlotNonRetarded(socket, 0, 35, 35));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 99 + i * 18));
@@ -33,7 +33,7 @@ public class ContainerBatterySocket extends Container {
 	public boolean canInteractWith(EntityPlayer player) {
 		return socket.isUsableByPlayer(player);
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack copy = null;
@@ -49,7 +49,7 @@ public class ContainerBatterySocket extends Container {
 				if(!this.mergeItemStack(stack, 0, 1, false)) return null;
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

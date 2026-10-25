@@ -29,7 +29,7 @@ public class GUIDiFurnace extends GuiContainer {
 		this.xSize = 176;
 		this.ySize = 166;
 	}
-	
+
 	@Override
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
@@ -37,21 +37,21 @@ public class GUIDiFurnace extends GuiContainer {
 		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 3; i++) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
-				
+
 				if(this.isMouseOverSlot(slot, x, y)) {
-					
+
 					String label = TextFormatting.YELLOW + "Accepts items from: ";
 					byte dir = i == 0 ? diFurnace.sideUpper : i == 1 ? diFurnace.sideLower : diFurnace.sideFuel;
 					label += ForgeDirection.getOrientation(dir);
-					
+
 					this.drawHoveringText(Arrays.asList(new String[] { label }), x, y - (slot.getHasStack() ? 15 : 0));
-					
+
 					return;
 				}
 			}
 		}
 	}
-	
+
 	protected boolean isMouseOverSlot(Slot slot, int x, int y) {
 		return this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y);
 	}
@@ -70,8 +70,8 @@ public class GUIDiFurnace extends GuiContainer {
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
-		if(diFurnace.isInvalid() && diFurnace.getWorld().getTileEntity(diFurnace.getPos().getX(), diFurnace.getPos().getY(), diFurnace.getPos().getZ()) instanceof TileEntityDiFurnace)
-			diFurnace = (TileEntityDiFurnace) diFurnace.getWorld().getTileEntity(diFurnace.getPos().getX(), diFurnace.getPos().getY(), diFurnace.getPos().getZ());
+		if(diFurnace.isInvalid() && diFurnace.getWorld().getTileEntity(diFurnace.getPos()) instanceof TileEntityDiFurnace)
+			diFurnace = (TileEntityDiFurnace) diFurnace.getWorld().getTileEntity(diFurnace.getPos());
 
 		if(diFurnace.hasPower()) {
 			int i1 = diFurnace.getPowerRemainingScaled(52);

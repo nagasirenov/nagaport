@@ -25,6 +25,8 @@ import net.minecraft.world.World;
 
 public class BombThermo extends Block implements IBomb {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
@@ -32,7 +34,6 @@ public class BombThermo extends Block implements IBomb {
 		super(p_i45394_1_);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":therm_top");
@@ -48,7 +49,6 @@ public class BombThermo extends Block implements IBomb {
 		return Item.getItemFromBlock(ModBlocks.therm_exo);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);
@@ -94,8 +94,8 @@ public class BombThermo extends Block implements IBomb {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 	if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
-			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
-		}	
+			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
+		}
 	}
 }
 }

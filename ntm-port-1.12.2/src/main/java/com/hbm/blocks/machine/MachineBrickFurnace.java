@@ -40,7 +40,6 @@ public class MachineBrickFurnace extends BlockThermalFurnace implements IBlockSe
 		return new TileEntityFurnaceBrick();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
 		return new ItemStack(ModBlocks.machine_furnace_brick_off);

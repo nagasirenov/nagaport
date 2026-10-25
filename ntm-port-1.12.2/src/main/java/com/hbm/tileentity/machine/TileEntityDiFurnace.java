@@ -224,7 +224,7 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
 					this.slots[2].shrink(1);
 					if(this.slots[2].getCount() == 0) {
 						ItemStack residue = fuelItem.getContainerItem(this.slots[2]);
-						this.slots[2] = residue == ItemStack.EMPTY ? null : residue;
+						this.slots[2] = (residue == null || residue.isEmpty()) ? null : residue;
 					}
 				}
 			}

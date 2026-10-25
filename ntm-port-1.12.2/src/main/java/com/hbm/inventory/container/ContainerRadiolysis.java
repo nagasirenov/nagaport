@@ -10,30 +10,30 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerRadiolysis extends Container {
-	
+
 	private TileEntityMachineRadiolysis radiolysis;
-	
+
 	public ContainerRadiolysis(InventoryPlayer playerInv, TileEntityMachineRadiolysis tile) {
 		radiolysis = tile;
-		
+
 		//RTG
 		for(byte i = 0; i < 2; i++) {
 			for(byte j = 0; j < 5; j++) {
 				this.addSlotToContainer(new Slot(tile, j + i * 5, 188 + i * 18, 8 + j * 18));
 			}
 		}
-		
+
 		//Fluid IO
 		this.addSlotToContainer(new Slot(tile, 10, 34, 17));
 		this.addSlotToContainer(new SlotTakeOnly(tile, 11, 34, 53));
-		
+
 		//Sterilization
 		this.addSlotToContainer(new Slot(tile, 12, 148, 17));
 		this.addSlotToContainer(new SlotTakeOnly(tile, 13, 148, 53));
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tile, 14, 8, 53));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(playerInv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
@@ -49,7 +49,7 @@ public class ContainerRadiolysis extends Container {
 	public boolean canInteractWith(EntityPlayer player) {
 		return radiolysis.isUsableByPlayer(player);
 	}
-	
+
 	/** my eye, my eye, coctor coctor coctor **/
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
@@ -68,7 +68,7 @@ public class ContainerRadiolysis extends Container {
 				return null;
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

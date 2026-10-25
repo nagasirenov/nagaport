@@ -23,18 +23,18 @@ public class BlockGraphite extends BlockFlammable implements IToolable {
 
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
-		
+
 		if(tool != ToolType.HAND_DRILL)
 			return false;
-		
+
 		if(!world.isRemote) {
-			world.setBlock(x, y, z, ModBlocks.block_graphite_drilled, side / 2, 3);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_graphite_drilled, side / 2, 3);
 			PacketDispatcher.wrapper.sendToAllAround(new ParticleBurstPacket(x, y, z, Block.getIdFromBlock(this), 0), new TargetPoint(world.provider.getDimension(), x, y, z, 50));
-			world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, this.stepSound.func_150496_b(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getPitch() * 0.8F);
+			world.playSound(null, x + 0.5, y + 0.5, z + 0.5, this.getSoundType().getBreakSound(), net.minecraft.util.SoundCategory.BLOCKS, (this.getSoundType().getVolume() + 1.0F) / 2.0F, this.getSoundType().getPitch() * 0.8F);
 
 			BlockGraphiteRod.ejectItem(world, x, y, z, ForgeDirection.getOrientation(side), new ItemStack(ModItems.ingot_graphite));
 		}
-		
+
 		return true;
 	}
 

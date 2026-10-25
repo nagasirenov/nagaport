@@ -21,12 +21,12 @@ public class ItemGunDrill extends ItemGunBaseNT implements IFillableItem, IBatte
 	}
 	
 	@Override
-	public int getHarvestLevel(ItemStack stack, String toolClass) {
+	public int getHarvestLevel(ItemStack stack, String toolClass, net.minecraft.entity.player.EntityPlayer player, net.minecraft.block.state.IBlockState state) {
 		return XFactoryDrill.getModdableHarvestLevel(stack, ToolMaterial.IRON.getHarvestLevel());
 	}
 	
 	@Override
-	public boolean canHarvestBlock(Block par1Block, ItemStack itemStack) {
+	public boolean canHarvestBlock(net.minecraft.block.state.IBlockState state, ItemStack itemStack) {
 		return true; // this lets us break things that have no set harvest level (i.e. most NTM shit)
 	}
 

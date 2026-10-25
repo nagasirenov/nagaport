@@ -16,8 +16,8 @@ public class BlockMutatorBalefire implements IBlockMutator {
 
 		Block block = com.hbm.world.WorldBlockState.read(explosion.world, x, y, z).getBlock();
 		Block block1 = com.hbm.world.WorldBlockState.read(explosion.world, x, y - 1, z).getBlock();
-		if(block.getDefaultState().getMaterial() == Material.AIR && block1.func_149730_j() && explosion.world.rand.nextInt(3) == 0) {
-			explosion.world.setBlock(x, y, z, ModBlocks.balefire);
+		if(block.getDefaultState().getMaterial() == Material.AIR && block1.getDefaultState().isFullBlock() && explosion.world.rand.nextInt(3) == 0) {
+			com.hbm.world.WorldBlockState.writeLegacyBlock(explosion.world, x, y, z, ModBlocks.balefire);
 		}
 	}
 }

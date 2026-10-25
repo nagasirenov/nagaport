@@ -52,7 +52,7 @@ public class XFactory44 {
 		pippo.posX = mop.hitVec.x;
 		pippo.posY = mop.hitVec.y + 50;
 		pippo.posZ = mop.hitVec.z;;
-		bullet.world.spawnEntityInWorld(pippo);
+		bullet.world.spawnEntity(pippo);
 		com.hbm.sound.WorldSoundEffects.play(bullet.world, pippo.posX, pippo.posY + 50, pippo.posZ, "hbm:alarm.trainHorn", 100F, 1F);
 		bullet.setDead();
 	};
@@ -62,7 +62,7 @@ public class XFactory44 {
 		murky.posX = mop.hitVec.x;
 		murky.posY = mop.hitVec.y + 50;
 		murky.posZ = mop.hitVec.z;;
-		bullet.world.spawnEntityInWorld(murky);
+		bullet.world.spawnEntity(murky);
 		bullet.setDead();
 	};
 
@@ -151,7 +151,7 @@ public class XFactory44 {
 	}
 
 	public static Function<ItemStack, String> LAMBDA_NAME_NOPIP = (stack) -> {
-		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SCOPE)) return stack.getUnlocalizedName() + "_scoped";
+		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SCOPE)) return stack.getTranslationKey() + "_scoped";
 		return null;
 	};
 

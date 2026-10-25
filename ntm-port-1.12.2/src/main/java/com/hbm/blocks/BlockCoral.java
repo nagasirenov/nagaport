@@ -13,6 +13,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.properties.PropertyInteger;
 public class BlockCoral extends Block implements IBlockMulti {
+
+	@Override
+	public BlockCoral setSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
  public enum EnumCoral { TUBE,BRAIN,BUBBLE,FIRE,HORN }
  public static final PropertyInteger META=PropertyInteger.create("meta",0,15);
  public BlockCoral() { super(Material.WATER);setDefaultState(blockState.getBaseState().withProperty(META,0)); }

@@ -21,10 +21,10 @@ public class ItemModServos extends ItemArmorMod {
 	public ItemModServos() {
 		super(ArmorModHandler.servos, false, true, true, false);
 	}
-    
+
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		
+
 		if(this == ModItems.servo_set) {
 			list.add(TextFormatting.DARK_PURPLE + "Chestplate: Haste I / Damage +50%");
 			list.add(TextFormatting.DARK_PURPLE + "Leggings: Speed +25% / Jump II");
@@ -33,16 +33,16 @@ public class ItemModServos extends ItemArmorMod {
 			list.add(TextFormatting.DARK_PURPLE + "Chestplate: Haste III / Damage +150%");
 			list.add(TextFormatting.DARK_PURPLE + "Leggings: Speed +50% / Jump III");
 		}
-		
+
 		list.add("");
 		super.addInformation(itemstack, player, list, bool);
 	}
 
 	@Override
 	public void addDesc(List list, ItemStack stack, ItemStack armor) {
-		
+
 		ItemArmor item = (ItemArmor)armor.getItem();
-		
+
 		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {
 
 			if(this == ModItems.servo_set) {
@@ -52,7 +52,7 @@ public class ItemModServos extends ItemArmorMod {
 				list.add(TextFormatting.DARK_PURPLE + "  " + stack.getDisplayName() + " (Haste III / Damage +150%)");
 			}
 		}
-		
+
 		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {
 
 			if(this == ModItems.servo_set) {
@@ -63,58 +63,58 @@ public class ItemModServos extends ItemArmorMod {
 			}
 		}
 	}
-	
+
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
-		
+
 		ItemArmor item = (ItemArmor)armor.getItem();
-		
+
 		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {
 
 			if(this == ModItems.servo_set) {
-				entity.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60, 0));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 60, 0));
 			}
 			if(this == ModItems.servo_set_desh) {
-				entity.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60, 2));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 60, 2));
 			}
 		}
-		
+
 		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {
 
 			if(this == ModItems.servo_set) {
-				entity.addPotionEffect(new PotionEffect(Potion.jump.id, 60, 1));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 60, 1));
 			}
 			if(this == ModItems.servo_set_desh) {
-				entity.addPotionEffect(new PotionEffect(Potion.jump.id, 60, 2));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 60, 2));
 			}
 		}
 	}
-	
+
 	@Override
 	public Multimap getModifiers(ItemStack armor) {
 		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
-		
+
 		ItemArmor item = (ItemArmor)armor.getItem();
-		
+
 		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 1) {
 			if(this == ModItems.servo_set)
 				multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
 						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.5, 2));
-			
+
 			if(this == ModItems.servo_set_desh)
 				multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
 						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 1.5, 2));
 		}
-		
+
 		if(com.hbm.util.ArmorSlotOrder.index(item.armorType) == 2) {
 			if(this == ModItems.servo_set)
 				multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
 						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.25, 2));
-			
+
 			if(this == ModItems.servo_set_desh)
 				multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
 						new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Servos", 0.5, 2));
 		}
-		
+
 		return multimap;
 	}
 }

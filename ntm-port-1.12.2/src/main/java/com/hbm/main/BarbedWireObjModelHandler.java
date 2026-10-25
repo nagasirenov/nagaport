@@ -87,7 +87,7 @@ public final class BarbedWireObjModelHandler {
 
 			// Inventory icons use metadata zero; all current BarbedWire metadata values
 			// resolve to this identity's same icon, as in the legacy block callback.
-			String texture = block.getIcon(0, 0).getIconName();
+			String texture = RefStrings.MODID + ":blocks/" + name.getPath() + "_model";
 			IBakedModel blockMesh = bakeObj(texture, DefaultVertexFormats.BLOCK);
 			List<BakedQuad> blockSource = collectAllQuads(blockMesh);
 			List<List<BakedQuad>> orientedQuads = new ArrayList<>(6);

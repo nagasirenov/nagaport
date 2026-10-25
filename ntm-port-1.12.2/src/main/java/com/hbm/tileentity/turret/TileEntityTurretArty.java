@@ -52,8 +52,10 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 
 		ammoStacks = new ArrayList();
 
-		List list = new ArrayList();
-		ModItems.ammo_arty.getSubItems(ModItems.ammo_arty, MainRegistry.weaponTab, list);
+		List list = new java.util.ArrayList();
+		net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> sublist = net.minecraft.util.NonNullList.create();
+		ModItems.ammo_arty.getSubItems(MainRegistry.weaponTab, sublist);
+		list.addAll(sublist);
 		this.ammoStacks.addAll(list);
 
 		return ammoStacks;
@@ -143,7 +145,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 		 * as the math tries to properly calculate the >after< angle. This should not be a problem due to the detector grace distance being
 		 * rather high, but it is still important to note.
 		 */
-		pos = pos.addVector(barrel.x, barrel.y, barrel.z);
+		pos = pos.add(barrel.x, barrel.y, barrel.z);
 
 		Vec3d delta = new Vec3d(tPos.x - pos.x, tPos.y - pos.y, tPos.z - pos.z);
 		double targetYaw = -Math.atan2(delta.x, delta.z);
@@ -212,7 +214,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 		if(this.mode != this.MODE_CANNON)
 			proj.setWhistle(true);
 
-		this.world.spawnEntityInWorld(proj);
+		this.world.spawnEntity(proj);
 
 		casingDelay = this.casingDelay();
 	}
@@ -435,7 +437,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 		Vec3d spawn = this.getCasingSpawnPos();
 		float yaw = (float) Math.toDegrees(rotationYaw);
 		float pitch = (float) -Math.toDegrees(this.rotationPitch);
-		
+
 		CasingCreator.composeEffect(this.world,
 				spawn.x, spawn.y, spawn.z,
 				yaw, pitch,
@@ -443,7 +445,7 @@ public class TileEntityTurretArty extends TileEntityTurretBaseArtillery implemen
 				0.01, this.world.rand.nextFloat() * 20F - 10F, 0,
 				cachedCasingConfig.getName(),
 				true, 200, 1, 20);
-		
+
 		cachedCasingConfig = null;
 	}
 

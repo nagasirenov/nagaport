@@ -18,7 +18,7 @@ public class CustomDamageHandlerDyson implements ICustomDamageHandler {
 	@Override
 	public void handleAttack(ExplosionVNT explosion, Entity entity, double distanceScaled) {
 		if(entity instanceof EntityLivingBase)
-			entity.attackEntityFrom(DamageSource.setExplosionSource(explosion.compat), (float)energy / 1_000);
+			entity.attackEntityFrom(DamageSource.causeExplosionDamage(explosion.compat), (float)energy / 1_000);
 	}
 	
 }

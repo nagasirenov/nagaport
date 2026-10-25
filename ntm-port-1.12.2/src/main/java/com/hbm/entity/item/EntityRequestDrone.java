@@ -25,11 +25,11 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntityRequestDrone extends EntityDroneBase {
-	
+
 	public ItemStack heldItem;
 	public List program = new ArrayList();
 	int nextActionTimer = 0;
-	
+
 	public static enum DroneProgram {
 		UNLOAD, DOCK
 	}
@@ -58,33 +58,33 @@ public class EntityRequestDrone extends EntityDroneBase {
 	public EntityRequestDrone(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 		if(!this.world.isRemote) {
-			
+
 			if(new Vec3d(motionX, motionY, motionZ).length() < 0.01) {
-				
+
 				if(nextActionTimer > 0) {
 					nextActionTimer--;
 				} else {
-					
+
 					if(program.isEmpty()) {
 						this.setDead(); //self-destruct if no further operations are pending
 						this.entityDropItem(new ItemStack(ModItems.drone, 1, EnumDroneType.REQUEST.ordinal()), 1F);
 						return;
 					}
-					
+
 					Object next = program.get(0);
 					program.remove(0);
-					
+
 					if(next instanceof BlockPos) {
 						BlockPos pos = (BlockPos) next;
 						this.setTarget(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
 					} else if(next instanceof AStack && heldItem == null) {
-						
+
 						AStack aStack = (AStack) next;
 						//to make DAMN sure this fuckin idiot doesnt miss the dock
 						Vec3d pos = new Vec3d(this.posX, this.posY, this.posZ);
@@ -126,13 +126,13 @@ public class EntityRequestDrone extends EntityDroneBase {
 								for (int i = 9; i < 18; i++) {
 									ItemStack stack = requester.slots[i];
 									if (stack != null && stack.getItem() == heldItem.getItem() && stack.getItemDamage() == heldItem.getItemDamage()) {
-										int toTransfer = Math.min(stack.getMaxStackSize() - stack.stackSize, heldItem.stackSize);
-										requester.slots[i].stackSize += toTransfer;
-										this.heldItem.stackSize -= toTransfer;
+										int toTransfer = Math.min(stack.getMaxStackSize() - stack.getCount(), heldItem.getCount());
+										requester.slots[i].grow(toTransfer);
+										this.heldItem.shrink(toTransfer);
 									}
 								}
 
-								if (this.heldItem.stackSize <= 0) this.heldItem = null;
+								if (this.heldItem.getCount() <= 0) this.heldItem = null;
 
 								if (this.heldItem != null) for (int i = 9; i < 18; i++) {
 									if (requester.slots[i] == null) {
@@ -173,14 +173,14 @@ public class EntityRequestDrone extends EntityDroneBase {
 										dock.slots[i] = drone.copy();
 										com.hbm.sound.WorldSoundEffects.play(this.world, dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, "hbm:block.storageClose", 2.0F, 1.0F);
 										break;
-									} else if (dock.slots[i].isItemEqual(drone) && dock.slots[i].stackSize < 64){
+									} else if (dock.slots[i].isItemEqual(drone) && dock.slots[i].getCount() < 64){
 										this.setDead();
 										if(heldItem != null){
 											if(i != 9 && dock.slots[i + 1] == null){
 												dock.slots[i + 1] = heldItem.copy();
 											}
 										}
-										dock.slots[i].stackSize++;
+										dock.slots[i].grow(1);
 										com.hbm.sound.WorldSoundEffects.play(this.world, dock.getPos().getX() + 0.5, dock.getPos().getY() + 0.5, dock.getPos().getZ() + 0.5, "hbm:block.storageClose", 2.0F, 1.0F);
 										break;
 									}
@@ -208,22 +208,22 @@ public class EntityRequestDrone extends EntityDroneBase {
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		
+
 		if(nbt.hasKey("held")) {
 			NBTTagCompound stack = nbt.getCompoundTag("held");
 			this.heldItem = NullableInventoryStackNbt.read(stack);
 		}
-		
+
 		nextActionTimer = 5;
 
 		this.dataManager.set(APPEARANCE, nbt.getByte("app"));
-		
+
 		int size = nbt.getInteger("programSize");
-		
+
 		for(int i = 0; i < size; i++) {
 			NBTTagCompound data = nbt.getCompoundTag("program" + i);
 			String pType = data.getString("type");
-			
+
 			if("pos".equals(pType)) {
 				int[] pos = data.getIntArray("pos");
 				this.program.add(new BlockPos(pos[0], pos[1], pos[2]));
@@ -244,7 +244,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		
+
 		if(heldItem != null) {
 			NBTTagCompound stack = new NBTTagCompound();
 			this.heldItem.writeToNBT(stack);
@@ -252,20 +252,20 @@ public class EntityRequestDrone extends EntityDroneBase {
 		}
 
 		nbt.setByte("app", this.dataManager.get(APPEARANCE));
-		
+
 		int size = this.program.size();
 		nbt.setInteger("programSize", size);
-		
+
 		for(int i = 0; i < size; i++) {
 			NBTTagCompound data = new NBTTagCompound();
 			Object p = this.program.get(i);
-			
+
 			if(p instanceof BlockPos) {
 				BlockPos pos = (BlockPos) p;
 				data.setString("type", "pos");
 				data.setIntArray("pos", new int[] {pos.getX(), pos.getY(), pos.getZ()});
 			} else if(p instanceof AStack) {
-				
+
 				// neither of these wretched fungii works correctly, but so long as the pathing works (which it does), it means that the drone will
 				// eventually return to the dock and not got lost, and simply retry the task
 				if(p instanceof ComparableStack) {
@@ -278,15 +278,15 @@ public class EntityRequestDrone extends EntityDroneBase {
 					data.setString("type", "dict");
 					data.setString("dict", dict.name);
 				}
-				
+
 			} else if(p == DroneProgram.UNLOAD) {
 				data.setString("type", "unload");
-				
+
 			} else if(p == DroneProgram.DOCK) {
 				data.setString("type", "dock");
-				
+
 			}
-			
+
 			nbt.setTag("program" + i, data);
 		}
 	}

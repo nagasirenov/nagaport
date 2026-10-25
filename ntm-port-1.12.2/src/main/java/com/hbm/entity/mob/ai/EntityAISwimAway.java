@@ -42,9 +42,14 @@ public class EntityAISwimAway extends EntityAIBase {
 		this.fish.getNavigator().tryMoveToXYZ(this.randPosX, this.randPosY, this.randPosZ, this.speed);
 	}
 
-	@Override
-	public boolean continueExecuting() {
+
+		@Override
+	public boolean shouldContinueExecuting() {
+		return continueExecuting();
+	}
+
+public boolean continueExecuting() {
 		// Ensure that the fish continues to flee as long as the player is close
-		return fish.getDistanceToEntity(closestPlayer) < 10.0F;
+		return fish.getDistance(closestPlayer) < 10.0F;
 	}
 }

@@ -6,6 +6,7 @@ import com.hbm.tileentity.machine.TileEntityDiFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -34,22 +35,22 @@ public class ContainerDiFurnace extends Container {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
-		if(index >= 0 && index < 3 && button == 1 && mode == 0) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
+		if(index >= 0 && index < 3 && button == 1 && mode == ClickType.PICKUP) {
 			Slot slot = this.getSlot(index);
 			if(!slot.getHasStack() && player.inventory.getItemStack() == null) {
 				if(!player.world.isRemote) {
 					if(index == 0) diFurnace.sideUpper = (byte) ((diFurnace.sideUpper + 1) % 6);
 					if(index == 1) diFurnace.sideLower = (byte) ((diFurnace.sideLower + 1) % 6);
 					if(index == 2) diFurnace.sideFuel = (byte) ((diFurnace.sideFuel + 1) % 6);
-					
+
 					diFurnace.markDirty();
 				}
 				return null;
 			}
 		}
-		
+
 		return super.slotClick(index, button, mode, player);
 	}
 
@@ -70,7 +71,7 @@ public class ContainerDiFurnace extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

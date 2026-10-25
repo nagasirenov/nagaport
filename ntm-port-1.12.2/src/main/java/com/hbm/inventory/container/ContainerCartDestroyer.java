@@ -5,6 +5,7 @@ import com.hbm.inventory.SlotPattern;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -41,33 +42,33 @@ public class ContainerCartDestroyer extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return diFurnace.isUseableByPlayer(player);
+		return diFurnace.isUsableByPlayer(player);
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
 		//L/R: 0
 		//M3: 3
 		//SHIFT: 1
 		//DRAG: 5
 		//System.out.println("Mode " + mode);
 		//System.out.println("Slot " + index);
-		
+
 		if(index < 0 || index >= diFurnace.getSizeInventory()) {
 			return super.slotClick(index, button, mode, player);
 		}
 
 		Slot slot = this.getSlot(index);
-		
+
 		ItemStack ret = null;
 		ItemStack held = player.inventory.getItemStack();
-		
+
 		if(slot.getHasStack())
 			ret = slot.getStack().copy();
 
 		slot.putStack(held);
-		
+
 		return ret;
 	}
 }

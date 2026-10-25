@@ -1426,7 +1426,7 @@ public class ModBlocks {
 
 	private static void initializeBlock() {
 
-		event_tester = new TestEventTester(Material.IRON).setTranslationKey("event_tester").setCreativeTab(null).setHardness(2.5F).setResistance(0.0F).setBlockTextureName(RefStrings.MODID + ":event_tester");
+		event_tester = com.hbm.blocks.LegacyBlockTextures.bind(new TestEventTester(Material.IRON).setTranslationKey("event_tester").setCreativeTab(null).setHardness(2.5F).setResistance(0.0F), RefStrings.MODID + ":event_tester");
 		obj_tester = new TestObjTester(Material.IRON).setTranslationKey("obj_tester").setCreativeTab(null).setHardness(2.5F).setResistance(10.0F);
 		structure_anchor = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("structure_anchor").setCreativeTab(null).setHardness(2.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":structure_anchor");
 
@@ -1512,7 +1512,7 @@ public class ModBlocks {
 		cluster_depth_tungsten = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey("cluster_depth_tungsten").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":cluster_depth_tungsten");
 		ore_alexandrite = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey("ore_alexandrite").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ore_alexandrite");
 
-		stone_keyhole = new BlockKeyhole().setTranslationKey("stone_keyhole").setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":stone_keyhole");
+		stone_keyhole = com.hbm.blocks.LegacyBlockTextures.bind(new BlockKeyhole().setTranslationKey("stone_keyhole").setCreativeTab(null), RefStrings.MODID + ":stone_keyhole");
 		stone_keyhole_meta = new BlockRedBrickKeyhole(Material.ROCK).setCreativeTab(null).setTranslationKey("stone_keyhole_meta").setResistance(10_000);
 
 		ore_bedrock = new BlockBedrockOreTE().setTranslationKey("ore_bedrock").setCreativeTab(null);
@@ -1527,7 +1527,7 @@ public class ModBlocks {
 		stone_depth_nether = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepth().setTranslationKey("stone_depth_nether").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":stone_depth_nether");
 		ore_depth_nether_neodymium = com.hbm.blocks.PlainCubeTextures.bind(new BlockDepthOre().setTranslationKey("ore_depth_nether_neodymium").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ore_depth_nether_neodymium");
 
-		stone_porous = new BlockPorous().setTranslationKey("stone_porous").setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":stone_porous");
+		stone_porous = com.hbm.blocks.LegacyBlockTextures.bind(new BlockPorous().setTranslationKey("stone_porous").setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":stone_porous");
 		stone_resource = new BlockResourceStone().setBlockName("stone_resource").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
 		stalagmite = new BlockStalagmite().setBlockName("stalagmite").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.0F);
 		stalactite = new BlockStalagmite().setBlockName("stalactite").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.0F);
@@ -1549,7 +1549,7 @@ public class ModBlocks {
 
 		ore_oil_empty = new BlockOre(Material.ROCK).setTranslationKey("ore_oil_empty").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
 		ore_oil = new BlockOreFluid(Material.ROCK, ore_oil_empty, ReserveType.OIL).setTranslationKey("ore_oil").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
-		ore_oil_sand = new BlockFalling(Material.SAND).setTranslationKey("ore_oil_sand").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.SAND).setHardness(0.5F).setResistance(1.0F).setBlockTextureName(RefStrings.MODID + ":ore_oil_sand_alt");
+		ore_oil_sand = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("ore_oil_sand").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(1.0F), RefStrings.MODID + ":ore_oil_sand_alt");
 		ore_bedrock_oil = new BlockOreFluid(Material.ROCK, null, ReserveType.OIL).setTranslationKey("ore_bedrock_oil").setCreativeTab(MainRegistry.blockTab).setBlockUnbreakable().setResistance(1_000_000);
 		ore_gas_empty = new BlockOre(Material.ROCK).setTranslationKey("ore_gas_empty").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
 		ore_gas = new BlockOreFluid(Material.ROCK, ore_gas_empty, ReserveType.GAS).setTranslationKey("ore_gas").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
@@ -1605,8 +1605,8 @@ public class ModBlocks {
 		ancient_scrap = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.IRON, true, 1, true, true).setTranslationKey("ancient_scrap").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F), RefStrings.MODID + ":ancient_scrap");
 		block_corium = com.hbm.blocks.PlainCubeTextures.bind(new BlockHazard(Material.IRON).setTranslationKey("block_corium").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F), RefStrings.MODID + ":block_corium");
 		block_corium_cobble = com.hbm.blocks.PlainCubeTextures.bind(new BlockOutgas(Material.IRON, true, 1, true, true).setTranslationKey("block_corium_cobble").setCreativeTab(MainRegistry.blockTab).setHardness(100.0F).setResistance(6000.0F), RefStrings.MODID + ":block_corium_cobble");
-		block_scrap = new BlockFalling(Material.SAND).setTranslationKey("block_scrap").setCreativeTab(MainRegistry.blockTab).setHardness(2.5F).setResistance(5.0F).setStepSound(SoundType.GROUND).setBlockTextureName(RefStrings.MODID + ":block_scrap");
-		block_electrical_scrap = new BlockFalling(Material.IRON).setTranslationKey("block_electrical_scrap").setCreativeTab(MainRegistry.blockTab).setHardness(2.5F).setResistance(5.0F).setStepSound(ModSoundTypes.legacyMetal).setBlockTextureName(RefStrings.MODID + ":electrical_scrap");
+		block_scrap = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.GROUND).setTranslationKey("block_scrap").setCreativeTab(MainRegistry.blockTab).setHardness(2.5F).setResistance(5.0F), RefStrings.MODID + ":block_scrap");
+		block_electrical_scrap = PlainCubeTextures.bind(new BlockFallingLegacy(Material.IRON).withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("block_electrical_scrap").setCreativeTab(MainRegistry.blockTab).setHardness(2.5F).setResistance(5.0F), RefStrings.MODID + ":electrical_scrap");
 		block_beryllium = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_beryllium").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(20.0F)).setBlockTextureName(RefStrings.MODID + ":block_beryllium");
 		block_schraranium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey("block_schraranium").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(250.0F), RefStrings.MODID + ":block_schraranium");
 		block_schrabidium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey("block_schrabidium").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + ":block_schrabidium");
@@ -1615,8 +1615,8 @@ public class ModBlocks {
 		block_schrabidium_fuel = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setDisplayEffect(ExtDisplayEffect.SCHRAB).setTranslationKey("block_schrabidium_fuel").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F), RefStrings.MODID + ":block_schrabidium_fuel");
 		block_euphemium = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_euphemium").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(60000.0F)).setBlockTextureName(RefStrings.MODID + ":block_euphemium");
 		block_dineutronium = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_dineutronium").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(60000.0F)).setBlockTextureName(RefStrings.MODID + ":block_dineutronium");
-		block_schrabidium_cluster = new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":block_schrabidium_cluster_top").setTranslationKey("block_schrabidium_cluster").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(60000.0F).setBlockTextureName(RefStrings.MODID + ":block_schrabidium_cluster_side");
-		block_euphemium_cluster = new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":block_euphemium_cluster_top").setTranslationKey("block_euphemium_cluster").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(60000.0F).setBlockTextureName(RefStrings.MODID + ":block_euphemium_cluster_side");
+		block_schrabidium_cluster = com.hbm.blocks.LegacyBlockTextures.bind(new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":block_schrabidium_cluster_top").setTranslationKey("block_schrabidium_cluster").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(60000.0F), RefStrings.MODID + ":block_schrabidium_cluster_side");
+		block_euphemium_cluster = com.hbm.blocks.LegacyBlockTextures.bind(new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":block_euphemium_cluster_top").setTranslationKey("block_euphemium_cluster").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(60000.0F), RefStrings.MODID + ":block_euphemium_cluster_side");
 		block_advanced_alloy = ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_advanced_alloy").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(60.0F)).setBlockTextureName(RefStrings.MODID + ":block_advanced_alloy");
 		block_magnetized_tungsten = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_magnetized_tungsten").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(75.0F)).setBlockTextureName(RefStrings.MODID + ":block_magnetized_tungsten");
 		block_combine_steel = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_combine_steel").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(600.0F)).setBlockTextureName(RefStrings.MODID + ":block_combine_steel");
@@ -1627,8 +1627,8 @@ public class ModBlocks {
 		block_bakelite = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.ROCK).setBlockName("block_bakelite").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.STONE).setHardness(3.0F).setResistance(5.0F)).setBlockTextureName(RefStrings.MODID + ":block_bakelite");
 		block_rubber = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.ROCK).setBlockName("block_rubber").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.STONE).setHardness(3.0F).setResistance(15.0F)).setBlockTextureName(RefStrings.MODID + ":block_rubber");
 		block_yellowcake = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazardFalling) new BlockHazardFalling().makeBeaconable().setTranslationKey("block_yellowcake").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.SAND).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + ":block_yellowcake");
-		block_insulator = ((BlockRotatablePillar) new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + ":block_insulator_top").setTranslationKey("block_insulator").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":block_insulator_side");
-		block_fiberglass = ((BlockRotatablePillar) new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + ":block_fiberglass_top").setTranslationKey("block_fiberglass").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + ":block_fiberglass_side");
+		block_insulator = com.hbm.blocks.LegacyBlockTextures.bind(((BlockRotatablePillar) new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + ":block_insulator_top").setTranslationKey("block_insulator").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + ":block_insulator_side");
+		block_fiberglass = com.hbm.blocks.LegacyBlockTextures.bind(((BlockRotatablePillar) new BlockRotatablePillar(Material.CLOTH, RefStrings.MODID + ":block_fiberglass_top").setTranslationKey("block_fiberglass").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F), RefStrings.MODID + ":block_fiberglass_side");
 		block_asbestos = com.hbm.blocks.PlainCubeTextures.bind(((BlockOutgas) new BlockOutgas(Material.CLOTH, true, 5, true).setTranslationKey("block_asbestos").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.CLOTH).setHardness(5.0F).setResistance(15.0F), RefStrings.MODID + ":block_asbestos");
 		block_cobalt = ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_cobalt").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(50.0F)).setBlockTextureName(RefStrings.MODID + ":block_cobalt");
 		block_lithium = ((BlockBase) ((BlockBase) new BlockLithium(Material.IRON).setBlockName("block_lithium")).setSoundType(ModSoundTypes.legacyMetal).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":block_lithium");
@@ -1651,7 +1651,7 @@ public class ModBlocks {
 		block_lanthanium = ((BlockBase) ((BlockBase) new BlockBeaconable(Material.IRON).setBlockName("block_lanthanium").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":block_lanthanium");
 		block_ra226 = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey("block_ra226").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + ":block_ra226");
 		block_actinium = com.hbm.blocks.PlainCubeTextures.bind(((BlockHazard) new BlockHazard().makeBeaconable().setTranslationKey("block_actinium").setCreativeTab(MainRegistry.blockTab)).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + ":block_actinium");
-		block_tritium = ((BlockRotatablePillar) new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + ":block_tritium_top").setTranslationKey("block_tritium").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.GLASS).setHardness(3.0F).setResistance(2.0F).setBlockTextureName(RefStrings.MODID + ":block_tritium_side");
+		block_tritium = com.hbm.blocks.LegacyBlockTextures.bind(((BlockRotatablePillar) new BlockRotatablePillar(Material.GLASS, RefStrings.MODID + ":block_tritium_top").setTranslationKey("block_tritium").setCreativeTab(MainRegistry.blockTab)).withSoundType(SoundType.GLASS).setHardness(3.0F).setResistance(2.0F), RefStrings.MODID + ":block_tritium_side");
 		block_semtex = ((BlockBase) ((BlockBase) new BlockPlasticExplosive(Material.TNT).setBlockName("block_semtex").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(2.0F).setResistance(2.0F)).setBlockTextureName(RefStrings.MODID + ":block_semtex");
 		block_c4 = ((BlockBase) ((BlockBase) new BlockPlasticExplosive(Material.TNT).setBlockName("block_c4").setCreativeTab(MainRegistry.blockTab)).setSoundType(ModSoundTypes.legacyMetal).setHardness(2.0F).setResistance(2.0F)).setBlockTextureName(RefStrings.MODID + ":block_c4");
 		block_smore = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + ":block_smore_top").setTranslationKey("block_smore").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(600.0F)).setBlockTextureName(RefStrings.MODID + ":block_smore_side");
@@ -1674,43 +1674,47 @@ public class ModBlocks {
 		deco_rbmk_smooth = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("deco_rbmk_smooth").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(100.0F)).setBlockTextureName(RefStrings.MODID + ":rbmk/rbmk_blank_top");
 		deco_stainless = new BlockDecoCT(Material.IRON).setTranslationKey("deco_stainless").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
 
-		deco_emitter = new BlockEmitter().setTranslationKey("deco_emitter").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + ":emitter");
-		part_emitter = new PartEmitter().setTranslationKey("part_emitter").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + ":part_top");
-		deco_loot = new BlockLoot().setTranslationKey("deco_loot").setCreativeTab(null).setHardness(0.0F).setResistance(0.0F).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		deco_emitter = com.hbm.blocks.LegacyBlockTextures.bind(new BlockEmitter().setTranslationKey("deco_emitter").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(20.0F), RefStrings.MODID + ":emitter");
+		part_emitter = com.hbm.blocks.LegacyBlockTextures.bind(new PartEmitter().setTranslationKey("part_emitter").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(20.0F), RefStrings.MODID + ":part_top");
+		deco_loot = com.hbm.blocks.LegacyBlockTextures.bind(new BlockLoot().setTranslationKey("deco_loot").setCreativeTab(null).setHardness(0.0F).setResistance(0.0F), RefStrings.MODID + ":block_steel");
 		pedestal = new BlockPedestal().setTranslationKey("pedestal").setCreativeTab(null).setHardness(2.0F).setResistance(10.0F);
-		skeleton_holder = new BlockSkeletonHolder().setTranslationKey("skeleton_holder").setCreativeTab(null).setHardness(2.0F).setResistance(10.0F).setBlockTextureName("soul_sand");
-		bobblehead = new BlockBobble().setTranslationKey("bobblehead").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F).setResistance(0.0F).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		snowglobe = new BlockSnowglobe().setTranslationKey("snowglobe").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F).setResistance(0.0F).setBlockTextureName(RefStrings.MODID + ":glass_boron");
-		plushie = new BlockPlushie().setTranslationKey("plushie").setStepSound(SoundType.CLOTH).setResistance(50_0000.0F).setCreativeTab(MainRegistry.blockTab).setHardness(0.0F).setResistance(0.0F).setBlockTextureName(RefStrings.MODID + ":block_fiberglass_side");
-		dungeon_spawner = new DungeonSpawner().setTranslationKey("dungeon_spawner").setResistance(50_0000.0F).setBlockUnbreakable().setBlockTextureName(RefStrings.MODID + ":dungeon_spawner");
+		skeleton_holder = com.hbm.blocks.LegacyBlockTextures.bind(new BlockSkeletonHolder().setTranslationKey("skeleton_holder").setCreativeTab(null).setHardness(2.0F).setResistance(10.0F), "soul_sand");
+		bobblehead = com.hbm.blocks.LegacyBlockTextures.bind(new BlockBobble().setTranslationKey("bobblehead").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F).setResistance(0.0F), RefStrings.MODID + ":block_steel");
+		snowglobe = com.hbm.blocks.LegacyBlockTextures.bind(new BlockSnowglobe().setTranslationKey("snowglobe").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F).setResistance(0.0F), RefStrings.MODID + ":glass_boron");
+		plushie = new BlockPlushie().withSoundType(SoundType.CLOTH).setTranslationKey("plushie").setResistance(50_0000.0F).setCreativeTab(MainRegistry.blockTab).setHardness(0.0F).setResistance(0.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(plushie, RefStrings.MODID + ":block_fiberglass_side");
+		dungeon_spawner = com.hbm.blocks.LegacyBlockTextures.bind(new DungeonSpawner().setTranslationKey("dungeon_spawner").setResistance(50_0000.0F).setBlockUnbreakable(), RefStrings.MODID + ":dungeon_spawner");
 
-		gravel_obsidian = new BlockFalling(Material.IRON).setTranslationKey("gravel_obsidian").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.GROUND).setHardness(5.0F).setResistance(240.0F).setBlockTextureName(RefStrings.MODID + ":gravel_obsidian");
-		gravel_diamond = new BlockFalling(Material.SAND).setTranslationKey("gravel_diamond").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.GROUND).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + ":gravel_diamond");
+		gravel_obsidian = PlainCubeTextures.bind(new BlockFallingLegacy(Material.IRON).withSoundType(SoundType.GROUND).setTranslationKey("gravel_obsidian").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(240.0F), RefStrings.MODID + ":gravel_obsidian");
+		gravel_diamond = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.GROUND).setTranslationKey("gravel_diamond").setCreativeTab(MainRegistry.blockTab).setHardness(0.6F), RefStrings.MODID + ":gravel_diamond");
 		asphalt = com.hbm.blocks.PlainCubeTextures.bind(new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey("asphalt").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(120.0F), RefStrings.MODID + ":asphalt");
 		asphalt_light = com.hbm.blocks.PlainCubeTextures.bind(new BlockSpeedy(Material.ROCK, 1.5).setTranslationKey("asphalt_light").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(15.0F).setResistance(120.0F), RefStrings.MODID + ":asphalt_light");
 
 		sandbags = new BlockSandbags(Material.GROUND).setTranslationKey("sandbags").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(30.0F);
 		wood_barrier = new BlockBarrier(Material.WOOD).setSoundType(net.minecraft.block.SoundType.WOOD).setTranslationKey("wood_barrier").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);
-		wood_structure = ((BlockBase) new BlockWoodStructure(Material.WOOD)).setSoundType(net.minecraft.block.SoundType.WOOD).setTranslationKey("wood_structure").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);
+		wood_structure = com.hbm.blocks.LegacyBlockTextures.bind((BlockBase) new BlockWoodStructure(Material.WOOD).setSoundType(net.minecraft.block.SoundType.WOOD).setTranslationKey("wood_structure").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F), RefStrings.MODID + ":wood_barrier");
 
 		reinforced_brick = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("reinforced_brick").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(300.0F)).setBlockTextureName(RefStrings.MODID + ":reinforced_brick");
 		reinforced_glass = new BlockNTMGlassCT(0, RefStrings.MODID + ":reinforced_glass", Material.ROCK).setTranslationKey("reinforced_glass").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(2.0F).setResistance(25.0F);
 		reinforced_glass_pane = new BlockNTMGlassPane(0, RefStrings.MODID + ":reinforced_glass_pane", RefStrings.MODID + ":reinforced_glass_pane_edge", Material.ROCK, false).setTranslationKey("reinforced_glass_pane").setCreativeTab(MainRegistry.blockTab).setLightOpacity(1).setHardness(2.0F).setResistance(25.0F);
 		reinforced_light = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("reinforced_light").setCreativeTab(MainRegistry.blockTab).setLightLevel(1.0F).setHardness(15.0F).setResistance(80.0F)).setBlockTextureName(RefStrings.MODID + ":reinforced_light");
 		reinforced_sand = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("reinforced_sand").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(40.0F)).setBlockTextureName(RefStrings.MODID + ":reinforced_sand");
-		reinforced_lamp_off = new ReinforcedLamp(Material.ROCK, false).setTranslationKey("reinforced_lamp_off").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(80.0F).setBlockTextureName(RefStrings.MODID + ":reinforced_lamp_off");
-		reinforced_lamp_on = new ReinforcedLamp(Material.ROCK, true).setTranslationKey("reinforced_lamp_on").setHardness(15.0F).setResistance(80.0F).setBlockTextureName(RefStrings.MODID + ":reinforced_lamp_on");
+		reinforced_lamp_off = com.hbm.blocks.LegacyBlockTextures.bind(new ReinforcedLamp(Material.ROCK, false).setTranslationKey("reinforced_lamp_off").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(80.0F), RefStrings.MODID + ":reinforced_lamp_off");
+		reinforced_lamp_on = com.hbm.blocks.LegacyBlockTextures.bind(new ReinforcedLamp(Material.ROCK, true).setTranslationKey("reinforced_lamp_on").setHardness(15.0F).setResistance(80.0F), RefStrings.MODID + ":reinforced_lamp_on");
 		reinforced_laminate = new BlockNTMGlassCT(1, RefStrings.MODID + ":reinforced_laminate", Material.ROCK, true).setTranslationKey("reinforced_laminate").setCreativeTab(MainRegistry.blockTab).setLightOpacity(0).setHardness(15.0F).setResistance(300.0F);
 		reinforced_laminate_pane = new BlockNTMGlassPane(1, RefStrings.MODID + ":reinforced_laminate_pane", RefStrings.MODID + ":reinforced_laminate_pane_edge", Material.ROCK, true).setTranslationKey("reinforced_laminate_pane").setCreativeTab(MainRegistry.blockTab).setLightOpacity(1).setHardness(15.0F).setResistance(300.0F);
 
-		lamp_tritium_green_off = new TritiumLamp(Material.REDSTONE_LIGHT, false).setTranslationKey("lamp_tritium_green_off").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setBlockTextureName(RefStrings.MODID + ":lamp_tritium_green_off");
-		lamp_tritium_green_on = new TritiumLamp(Material.REDSTONE_LIGHT, true).setTranslationKey("lamp_tritium_green_on").setStepSound(SoundType.GLASS).setHardness(3.0F).setBlockTextureName(RefStrings.MODID + ":lamp_tritium_green_on");
-		lamp_tritium_blue_off = new TritiumLamp(Material.REDSTONE_LIGHT, false).setTranslationKey("lamp_tritium_blue_off").setStepSound(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(3.0F).setBlockTextureName(RefStrings.MODID + ":lamp_tritium_blue_off");
-		lamp_tritium_blue_on = new TritiumLamp(Material.REDSTONE_LIGHT, true).setTranslationKey("lamp_tritium_blue_on").setStepSound(SoundType.GLASS).setHardness(3.0F).setBlockTextureName(RefStrings.MODID + ":lamp_tritium_blue_on");
+		lamp_tritium_green_off = PlainCubeTextures.bind(new TritiumLamp(Material.REDSTONE_LIGHT, false).withSoundType(SoundType.GLASS).setTranslationKey("lamp_tritium_green_off").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F), RefStrings.MODID + ":lamp_tritium_green_off");
+		lamp_tritium_green_on = PlainCubeTextures.bind(new TritiumLamp(Material.REDSTONE_LIGHT, true).withSoundType(SoundType.GLASS).setTranslationKey("lamp_tritium_green_on").setHardness(3.0F), RefStrings.MODID + ":lamp_tritium_green_on");
+		lamp_tritium_blue_off = PlainCubeTextures.bind(new TritiumLamp(Material.REDSTONE_LIGHT, false).withSoundType(SoundType.GLASS).setTranslationKey("lamp_tritium_blue_off").setCreativeTab(MainRegistry.blockTab).setHardness(3.0F), RefStrings.MODID + ":lamp_tritium_blue_off");
+		lamp_tritium_blue_on = PlainCubeTextures.bind(new TritiumLamp(Material.REDSTONE_LIGHT, true).withSoundType(SoundType.GLASS).setTranslationKey("lamp_tritium_blue_on").setHardness(3.0F), RefStrings.MODID + ":lamp_tritium_blue_on");
 
-		lamp_demon = new DemonLamp().setTranslationKey("lamp_demon").setStepSound(ModSoundTypes.legacyMetal).setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(3.0F).setBlockTextureName(RefStrings.MODID + ":lamp_demon");
-		lantern = new BlockLantern().setTranslationKey("lantern").setStepSound(ModSoundTypes.legacyMetal).setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(3.0F).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		lantern_behemoth = new BlockLanternBehemoth().setTranslationKey("lantern_behemoth").setStepSound(ModSoundTypes.legacyMetal).setCreativeTab(null).setHardness(3.0F).setBlockTextureName(RefStrings.MODID + ":block_rust");
+		lamp_demon = new DemonLamp().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("lamp_demon").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(3.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(lamp_demon, RefStrings.MODID + ":lamp_demon");
+		lantern = new BlockLantern().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("lantern").setCreativeTab(MainRegistry.blockTab).setLightLevel(1F).setHardness(3.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(lantern, RefStrings.MODID + ":block_steel");
+		lantern_behemoth = new BlockLanternBehemoth().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("lantern_behemoth").setCreativeTab(null).setHardness(3.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(lantern_behemoth, RefStrings.MODID + ":block_rust");
 
 		spotlight_incandescent = new Spotlight(Material.IRON, 2, LightType.INCANDESCENT, true).setTranslationKey("spotlight_incandescent").setCreativeTab(MainRegistry.blockTab);
 		spotlight_incandescent_off = new Spotlight(Material.IRON, 2, LightType.INCANDESCENT, false).setTranslationKey("spotlight_incandescent_off");
@@ -1719,25 +1723,25 @@ public class ModBlocks {
 		spotlight_halogen = new Spotlight(Material.IRON, 32, LightType.HALOGEN, true).setTranslationKey("spotlight_halogen").setCreativeTab(MainRegistry.blockTab);
 		spotlight_halogen_off = new Spotlight(Material.IRON, 32, LightType.HALOGEN, false).setTranslationKey("spotlight_halogen_off");
 		spotlight_beam = new SpotlightBeam().setTranslationKey("spotlight_beam");
-		floodlight = new Floodlight(Material.IRON).setTranslationKey("floodlight").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		floodlight = com.hbm.blocks.LegacyBlockTextures.bind(new Floodlight(Material.IRON).setTranslationKey("floodlight").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":block_steel");
 		floodlight_beam = new FloodlightBeam().setTranslationKey("floodlight_beam");
 
 		rebar = new BlockRebar().setTranslationKey("rebar").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(20.0F);
 		reinforced_stone = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("reinforced_stone").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(100.0F)).setBlockTextureName(RefStrings.MODID + ":reinforced_stone");
 		concrete_smooth = com.hbm.blocks.PlainCubeTextures.bind(new BlockRadResistant(Material.ROCK).setTranslationKey("concrete_smooth").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F), RefStrings.MODID + ":concrete");
-		concrete_colored = new BlockConcreteColored(Material.ROCK).setTranslationKey("concrete_colored").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F).setBlockTextureName(RefStrings.MODID + ":concrete");
+		concrete_colored = com.hbm.blocks.LegacyBlockTextures.bind(new BlockConcreteColored(Material.ROCK).setTranslationKey("concrete_colored").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F), RefStrings.MODID + ":concrete");
 		concrete_colored_ext = ((BlockBase) new BlockConcreteColoredExt(Material.ROCK).setBlockName("concrete_colored_ext").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F)).setBlockTextureName(RefStrings.MODID + ":concrete_colored_ext");
 		concrete = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("concrete").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(140.0F)).setBlockTextureName(RefStrings.MODID + ":concrete_tile");
 		concrete_asbestos = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("concrete_asbestos").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(150.0F)).setBlockTextureName(RefStrings.MODID + ":concrete_asbestos");
 		concrete_rebar = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("concrete_rebar").setCreativeTab(MainRegistry.blockTab).setHardness(50.0F).setResistance(240.0F)).setBlockTextureName(RefStrings.MODID + ":concrete_rebar");
 		concrete_super = new BlockUberConcrete().setBlockName("concrete_super").setCreativeTab(MainRegistry.blockTab).setHardness(150.0F).setResistance(1000.0F);
 		concrete_super_broken = com.hbm.blocks.PlainCubeTextures.bind(new BlockFalling(Material.ROCK).setTranslationKey("concrete_super_broken").setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(20.0F), RefStrings.MODID + ":concrete_super_broken");
-		concrete_pillar = new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":concrete_pillar_top").setTranslationKey("concrete_pillar").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(180.0F).setBlockTextureName(RefStrings.MODID + ":concrete_pillar_side");
+		concrete_pillar = com.hbm.blocks.LegacyBlockTextures.bind(new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":concrete_pillar_top").setTranslationKey("concrete_pillar").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(180.0F), RefStrings.MODID + ":concrete_pillar_side");
 		brick_concrete = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("brick_concrete").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F)).setBlockTextureName(RefStrings.MODID + ":brick_concrete");
 		brick_concrete_mossy = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("brick_concrete_mossy").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F)).setBlockTextureName(RefStrings.MODID + ":brick_concrete_mossy");
 		brick_concrete_cracked = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("brick_concrete_cracked").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(60.0F)).setBlockTextureName(RefStrings.MODID + ":brick_concrete_cracked");
 		brick_concrete_broken = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("brick_concrete_broken").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(45.0F)).setBlockTextureName(RefStrings.MODID + ":brick_concrete_broken");
-		brick_concrete_marked = new BlockWriting(Material.ROCK, RefStrings.MODID + ":brick_concrete").setTranslationKey("brick_concrete_marked").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F).setBlockTextureName(RefStrings.MODID + ":brick_concrete_marked");
+		brick_concrete_marked = com.hbm.blocks.LegacyBlockTextures.bind(new BlockWriting(Material.ROCK, RefStrings.MODID + ":brick_concrete").setTranslationKey("brick_concrete_marked").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(160.0F), RefStrings.MODID + ":brick_concrete_marked");
 		brick_obsidian = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("brick_obsidian").setCreativeTab(MainRegistry.blockTab).setLightOpacity(15).setHardness(15.0F).setResistance(120.0F)).setBlockTextureName(RefStrings.MODID + ":brick_obsidian");
 		brick_light = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("brick_light").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(20.0F)).setBlockTextureName(RefStrings.MODID + ":brick_light");
 		brick_compound = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("brick_compound").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(400.0F)).setBlockTextureName(RefStrings.MODID + ":brick_compound");
@@ -1753,7 +1757,7 @@ public class ModBlocks {
 
 		lightstone = ((BlockBase) new BlockLightstone(Material.ROCK, LightstoneType.class, true, true).setBlockName("lightstone").setCreativeTab(MainRegistry.blockTab).setHardness(2F).setResistance(15.0F)).setBlockTextureName(RefStrings.MODID + ":lightstone");
 		brick_forgotten = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + ":brick_forgotten_top").setTranslationKey("brick_forgotten").setBlockUnbreakable().setResistance(666_666F)).setBlockTextureName(RefStrings.MODID + ":brick_forgotten");
-		brick_forgotten_lock = new BlockForgottenLock(Material.ROCK, RefStrings.MODID + ":brick_forgotten_top").setTranslationKey("brick_forgotten_lock").setBlockUnbreakable().setResistance(666_666F).setBlockTextureName(RefStrings.MODID + ":brick_forgotten_lock");
+		brick_forgotten_lock = com.hbm.blocks.LegacyBlockTextures.bind(new BlockForgottenLock(Material.ROCK, RefStrings.MODID + ":brick_forgotten_top").setTranslationKey("brick_forgotten_lock").setBlockUnbreakable().setResistance(666_666F), RefStrings.MODID + ":brick_forgotten_lock");
 
 		concrete_slab = new BlockMultiSlab(null, Material.ROCK, concrete_smooth, concrete, concrete_asbestos, ducrete_smooth, ducrete, asphalt).setTranslationKey("concrete_slab").setCreativeTab(MainRegistry.blockTab);
 		concrete_double_slab = new BlockMultiSlab(concrete_slab, Material.ROCK, concrete_smooth, concrete, concrete_asbestos, ducrete_smooth, ducrete, asphalt).setTranslationKey("concrete_double_slab").setCreativeTab(MainRegistry.blockTab);
@@ -1801,28 +1805,28 @@ public class ModBlocks {
 		meteor_brick_mossy = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("meteor_brick_mossy").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + ":meteor_brick_mossy");
 		meteor_brick_cracked = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("meteor_brick_cracked").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + ":meteor_brick_cracked");
 		meteor_brick_chiseled = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("meteor_brick_chiseled").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + ":meteor_brick_chiseled");
-		meteor_pillar = new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":meteor_pillar_top").setTranslationKey("meteor_pillar").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + ":meteor_pillar");
+		meteor_pillar = com.hbm.blocks.LegacyBlockTextures.bind(new BlockRotatablePillar(Material.ROCK, RefStrings.MODID + ":meteor_pillar_top").setTranslationKey("meteor_pillar").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + ":meteor_pillar");
 		meteor_spawner = new BlockCybercrab(Material.ROCK).setTranslationKey("meteor_spawner").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F);
 		meteor_battery = ((BlockPillar) new BlockPillar(Material.ROCK, RefStrings.MODID + ":meteor_power").setTranslationKey("meteor_battery").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F)).setBlockTextureName(RefStrings.MODID + ":meteor_spawner_side");
 
-		moon_turf = new BlockFalling(Material.SAND).setTranslationKey("moon_turf").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":moon_turf");
+		moon_turf = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("moon_turf").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F), RefStrings.MODID + ":moon_turf");
 		moon_rock = ((BlockBase) ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("moon_rock")).setSoundType(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":moon_rock");
 
-		tumor = new BlockTint(Material.CLAY, "tumor_base2", "tumor_base3", "fleshv2").setTranslationKey("tumor").setStepSound(SoundType.SNOW).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setBlockTextureName(RefStrings.MODID + ":tumor_base");
+		tumor = new BlockTint(Material.CLAY, "tumor_base2", "tumor_base3", "fleshv2").setBlockTextureName(RefStrings.MODID + ":tumor_base").withSoundType(SoundType.SNOW).setTranslationKey("tumor").setCreativeTab(MainRegistry.blockTab).setHardness(1.0F);
 
-		duna_sands = new BlockFalling(Material.SAND).setTranslationKey("duna_sands").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":duna_sands");
+		duna_sands = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("duna_sands").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F), RefStrings.MODID + ":duna_sands");
 		duna_cobble = ((BlockBase) ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("duna_cobble")).setSoundType(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":duna_cobble");
 		duna_rock = ((BlockBase) ((BlockBase) new BlockGenericDrop(Material.ROCK, duna_cobble).setBlockName("duna_rock")).setSoundType(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":duna_rock");
 		dry_ice = ((BlockBase) ((BlockBase) new BlockGeneric(Material.ICE).setBlockName("dry_ice")).setSoundType(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F)).setBlockTextureName(RefStrings.MODID + ":ice_dry");
 		ferric_clay = ((BlockBase) ((BlockBase) new BlockGeneric(Material.CLAY).setBlockName("ferric_clay")).setSoundType(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F)).setBlockTextureName(RefStrings.MODID + ":ferric_clay");
 
-		eve_silt = new BlockFalling(Material.SAND).setTranslationKey("eve_silt").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":eve_silt");
+		eve_silt = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("eve_silt").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F), RefStrings.MODID + ":eve_silt");
 		eve_rock = ((BlockBase) ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("eve_rock")).setSoundType(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":eve_stone_2");
 
-		laythe_silt = new BlockFallingTint(Material.SAND).setTranslationKey("laythe_silt").setSoundType(net.minecraft.block.SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F);
+		laythe_silt = new BlockFallingTint(Material.SAND).setSoundType(net.minecraft.block.SoundType.SAND).setTranslationKey("laythe_silt").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F);
 
 
-		ike_regolith = new BlockTint(Material.ROCK, "ike_regolith2", "ike_regolith3", "ike_regolith4", "ike_regolith5").setTranslationKey("ike_regolith").setStepSound(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":ike_regolith");
+		ike_regolith = new BlockTint(Material.ROCK, "ike_regolith2", "ike_regolith3", "ike_regolith4", "ike_regolith5").setBlockTextureName(RefStrings.MODID + ":ike_regolith").withSoundType(SoundType.STONE).setTranslationKey("ike_regolith").setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F);
 		ike_stone = ((BlockBase) ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("ike_stone")).setSoundType(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":ike_stone");
 
 		dres_rock = ((BlockBase) ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("dres_rock")).setSoundType(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(1.5F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":dresbase");
@@ -1841,28 +1845,28 @@ public class ModBlocks {
 		brick_jungle_lava = ((BlockBase) new BlockGeneric(Material.ROCK).setBlockName("brick_jungle_lava").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F)).setBlockTextureName(RefStrings.MODID + ":brick_jungle_lava");
 		brick_jungle_ooze = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey("brick_jungle_ooze").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F), RefStrings.MODID + ":brick_jungle_ooze");
 		brick_jungle_mystic = com.hbm.blocks.PlainCubeTextures.bind(new BlockStepEffect(Material.ROCK).setTranslationKey("brick_jungle_mystic").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setLightLevel(5F/15F), RefStrings.MODID + ":brick_jungle_mystic");
-		brick_jungle_trap = new TrappedBrick(Material.ROCK).setTranslationKey("brick_jungle_trap").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + ":brick_jungle_trap");
+		brick_jungle_trap = com.hbm.blocks.LegacyBlockTextures.bind(new TrappedBrick(Material.ROCK).setTranslationKey("brick_jungle_trap").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + ":brick_jungle_trap");
 		brick_jungle_glyph = new BlockGlyph(Material.ROCK).setTranslationKey("brick_jungle_glyph").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F);
-		brick_jungle_circle = new BlockBallsSpawner(Material.ROCK).setTranslationKey("brick_jungle_circle").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F).setBlockTextureName(RefStrings.MODID + ":brick_jungle_circle");
+		brick_jungle_circle = com.hbm.blocks.LegacyBlockTextures.bind(new BlockBallsSpawner(Material.ROCK).setTranslationKey("brick_jungle_circle").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(360.0F), RefStrings.MODID + ":brick_jungle_circle");
 
 		brick_red = new BlockRedBrick(Material.ROCK).setTranslationKey("brick_red").setResistance(10_000);
 
 		deco_computer = new BlockDecoModel(Material.IRON, DecoComputerEnum.class, true, false).setBlockBoundsTo(.125F, 0F, 0F, .875F, .875F, .625F).setBlockName("deco_computer").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
-		deco_crt = new BlockDecoCRT(Material.IRON).setBlockName("deco_crt").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
-		deco_toaster = new BlockDecoToaster(Material.IRON).setBlockName("deco_toaster").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F);
-		filing_cabinet = new BlockDecoContainer(Material.IRON, DecoCabinetEnum.class, true, false, TileEntityFileCabinet.class).setBlockBoundsTo(.1875F, 0F, 0F, .8125F, 1F, .75F).setBlockName("filing_cabinet").setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(15.0F);
+		deco_crt = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDecoCRT(Material.IRON).setBlockName("deco_crt").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + ":block_steel");
+		deco_toaster = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDecoToaster(Material.IRON).setBlockName("deco_toaster").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + ":block_steel");
+		filing_cabinet = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDecoContainer(Material.IRON, DecoCabinetEnum.class, true, false, TileEntityFileCabinet.class).setBlockBoundsTo(.1875F, 0F, 0F, .8125F, 1F, .75F).setBlockName("filing_cabinet").setCreativeTab(MainRegistry.blockTab).setHardness(10.0F).setResistance(15.0F), RefStrings.MODID + ":block_steel");
 
 		tape_recorder = new DecoTapeRecorder(Material.IRON).setTranslationKey("tape_recorder").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);
 		steel_poles = new DecoSteelPoles(Material.IRON).setTranslationKey("steel_poles").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);
 		pole_top = new DecoPoleTop(Material.IRON).setTranslationKey("pole_top").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);
-		pole_satellite_receiver = new DecoPoleSatelliteReceiver(Material.IRON).setTranslationKey("pole_satellite_receiver").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + ":deco_satellite_receiver");
+		pole_satellite_receiver = com.hbm.blocks.LegacyBlockTextures.bind(new DecoPoleSatelliteReceiver(Material.IRON).setTranslationKey("pole_satellite_receiver").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F), RefStrings.MODID + ":deco_satellite_receiver");
 		steel_wall = new BlockSteelDecoration(Material.IRON, false).setTranslationKey("steel_wall").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);
 		steel_corner = new BlockSteelDecoration(Material.IRON, true).setTranslationKey("steel_corner").setCreativeTab(MainRegistry.blockTab).setHardness(15.0F).setResistance(15.0F);
-		steel_roof = new DecoBlock(Material.IRON).setTranslationKey("steel_roof").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + ":steel_roof");
+		steel_roof = com.hbm.blocks.LegacyBlockTextures.bind(new DecoBlock(Material.IRON).setTranslationKey("steel_roof").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F), RefStrings.MODID + ":steel_roof");
 		steel_beam = new BlockSteelBeam(Material.IRON).setTranslationKey("steel_beam").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);
 		steel_scaffold = new BlockScaffold().setTranslationKey("steel_scaffold").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(15.0F);
-		steel_grate = new BlockGrate(Material.IRON, false).setTranslationKey("steel_grate").setSoundType(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
-		steel_grate_wide = new BlockGrate(Material.IRON, true).setTranslationKey("steel_grate_wide").setSoundType(ModSoundTypes.grate).setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
+		steel_grate = new BlockGrate(Material.IRON, false).setSoundType(ModSoundTypes.grate).setTranslationKey("steel_grate").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
+		steel_grate_wide = new BlockGrate(Material.IRON, true).setSoundType(ModSoundTypes.grate).setTranslationKey("steel_grate_wide").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
 
 		//TODO: dear god
 		deco_pipe = new BlockPipe(Material.IRON, RefStrings.MODID + ":pipe_side", 0).setTranslationKey("deco_pipe").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
@@ -1890,110 +1894,121 @@ public class ModBlocks {
 		deco_pipe_quad_red = new BlockPipe(Material.IRON, RefStrings.MODID + ":pipe_side_red", 2).setTranslationKey("deco_pipe_quad_red").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
 		deco_pipe_quad_marked = new BlockPipe(Material.IRON, RefStrings.MODID + ":pipe_side_marked", 2).setTranslationKey("deco_pipe_quad_marked").setCreativeTab(MainRegistry.blockTab).setHardness(2.0F).setResistance(5.0F);
 
-		broadcaster_pc = new PinkCloudBroadcaster(Material.IRON).setTranslationKey("broadcaster_pc").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(15.0F).setBlockTextureName(RefStrings.MODID + ":broadcaster_pc");
-		geiger = new GeigerCounter(Material.IRON).setTranslationKey("geiger").setCreativeTab(MainRegistry.machineTab).setHardness(15.0F).setResistance(0.25F).setBlockTextureName(RefStrings.MODID + ":geiger");
+		broadcaster_pc = com.hbm.blocks.LegacyBlockTextures.bind(new PinkCloudBroadcaster(Material.IRON).setTranslationKey("broadcaster_pc").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(15.0F), RefStrings.MODID + ":broadcaster_pc");
+		geiger = com.hbm.blocks.LegacyBlockTextures.bind(new GeigerCounter(Material.IRON).setTranslationKey("geiger").setCreativeTab(MainRegistry.machineTab).setHardness(15.0F).setResistance(0.25F), RefStrings.MODID + ":geiger");
 		hev_battery = new HEVBattery(Material.IRON).setTranslationKey("hev_battery").setCreativeTab(MainRegistry.machineTab).setLightLevel(10F/15F).setHardness(0.5F).setResistance(0.25F);
 
 		fence_metal = new BlockMetalFence(Material.IRON).setTranslationKey("fence_metal").setCreativeTab(MainRegistry.machineTab).setHardness(15.0F).setResistance(0.25F);
 
-		ash_digamma = new BlockAshes(Material.SAND).setTranslationKey("ash_digamma").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.machineTab).setHardness(0.5F).setResistance(150.0F).setBlockTextureName(RefStrings.MODID + ":ash_digamma");
+		ash_digamma = PlainCubeTextures.bind(new BlockAshes(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("ash_digamma").setCreativeTab(MainRegistry.machineTab).setHardness(0.5F).setResistance(150.0F), RefStrings.MODID + ":ash_digamma");
 		sand_mix = ((BlockBase) new BlockNTMSand(Material.SAND).setBlockName("sand_mix")).setSoundType(SoundType.SAND).setCreativeTab(MainRegistry.machineTab).setHardness(0.5F);
-		glass_boron = new BlockNTMGlassCT(0, RefStrings.MODID + ":glass_boron", Material.GLASS).setTranslationKey("glass_boron").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
-		glass_lead = new BlockNTMGlassCT(0, RefStrings.MODID + ":glass_lead", Material.GLASS).setTranslationKey("glass_lead").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
-		glass_uranium = new BlockNTMGlassCT(1, RefStrings.MODID + ":glass_uranium", Material.GLASS).setTranslationKey("glass_uranium").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
-		glass_trinitite = new BlockNTMGlassCT(1, RefStrings.MODID + ":glass_trinitite", Material.GLASS).setTranslationKey("glass_trinitite").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
-		glass_polonium = new BlockNTMGlassCT(1, RefStrings.MODID + ":glass_polonium", Material.GLASS).setTranslationKey("glass_polonium").setLightLevel(5F/15F).setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
-		glass_ash = new BlockNTMGlassCT(1, RefStrings.MODID + ":glass_ash", Material.GLASS).setTranslationKey("glass_ash").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(3F);
-		glass_quartz = new BlockNTMGlassCT(0, RefStrings.MODID + ":glass_quartz", Material.PACKED_ICE, true).setTranslationKey("glass_quartz").setCreativeTab(MainRegistry.blockTab).setSoundType(net.minecraft.block.SoundType.GLASS).setHardness(1.0F).setResistance(40.0F);
-		glass_polarized = new BlockNTMGlassCT(0, RefStrings.MODID + ":glass_polarized", Material.GLASS).setTranslationKey("glass_polarized").setSoundType(net.minecraft.block.SoundType.GLASS).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
+		glass_boron = new BlockNTMGlassCT(0, RefStrings.MODID + ":glass_boron", Material.GLASS).setSoundType(net.minecraft.block.SoundType.GLASS).setTranslationKey("glass_boron").setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
+		glass_lead = new BlockNTMGlassCT(0, RefStrings.MODID + ":glass_lead", Material.GLASS).setSoundType(net.minecraft.block.SoundType.GLASS).setTranslationKey("glass_lead").setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
+		glass_uranium = new BlockNTMGlassCT(1, RefStrings.MODID + ":glass_uranium", Material.GLASS).setSoundType(net.minecraft.block.SoundType.GLASS).setTranslationKey("glass_uranium").setLightLevel(5F/15F).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
+		glass_trinitite = new BlockNTMGlassCT(1, RefStrings.MODID + ":glass_trinitite", Material.GLASS).setSoundType(net.minecraft.block.SoundType.GLASS).setTranslationKey("glass_trinitite").setLightLevel(5F/15F).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
+		glass_polonium = new BlockNTMGlassCT(1, RefStrings.MODID + ":glass_polonium", Material.GLASS).setSoundType(net.minecraft.block.SoundType.GLASS).setTranslationKey("glass_polonium").setLightLevel(5F/15F).setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
+		glass_ash = new BlockNTMGlassCT(1, RefStrings.MODID + ":glass_ash", Material.GLASS).setSoundType(net.minecraft.block.SoundType.GLASS).setTranslationKey("glass_ash").setCreativeTab(MainRegistry.machineTab).setHardness(3F);
+		glass_quartz = new BlockNTMGlassCT(0, RefStrings.MODID + ":glass_quartz", Material.PACKED_ICE, true).setSoundType(net.minecraft.block.SoundType.GLASS).setTranslationKey("glass_quartz").setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(40.0F);
+		glass_polarized = new BlockNTMGlassCT(0, RefStrings.MODID + ":glass_polarized", Material.GLASS).setSoundType(net.minecraft.block.SoundType.GLASS).setTranslationKey("glass_polarized").setCreativeTab(MainRegistry.machineTab).setHardness(0.3F);
 
-		mush = new BlockMush(Material.PLANTS).setTranslationKey("mush").setCreativeTab(MainRegistry.blockTab).setLightLevel(0.5F).setStepSound(SoundType.PLANT).setBlockTextureName(RefStrings.MODID + ":mush");
-		mush_block = new BlockMushHuge(Material.PLANTS).setTranslationKey("mush_block").setLightLevel(1.0F).setStepSound(SoundType.PLANT).setHardness(0.2F).setBlockTextureName(RefStrings.MODID + ":mush_block_skin");
-		mush_block_stem = new BlockMushHuge(Material.PLANTS).setTranslationKey("mush_block_stem").setLightLevel(1.0F).setStepSound(SoundType.PLANT).setHardness(0.2F).setBlockTextureName(RefStrings.MODID + ":mush_block_stem");
-		glyphid_base = new BlockGlyphid(Material.CORAL).setTranslationKey("glyphid_base").setStepSound(SoundType.CLOTH).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":glyphid_base");
-		glyphid_spawner = new BlockGlyphidSpawner(Material.CORAL).setTranslationKey("glyphid_spawner").setStepSound(SoundType.CLOTH).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":glyphid_eggs_alt");
+		mush = new BlockMush(Material.PLANTS).withSoundType(SoundType.PLANT).setTranslationKey("mush").setCreativeTab(MainRegistry.blockTab).setLightLevel(0.5F);
+		com.hbm.blocks.LegacyBlockTextures.bind(mush, RefStrings.MODID + ":mush");
+		mush_block = new BlockMushHuge(Material.PLANTS).withSoundType(SoundType.PLANT).setTranslationKey("mush_block").setLightLevel(1.0F).setHardness(0.2F);
+		mush_block_stem = new BlockMushHuge(Material.PLANTS).withSoundType(SoundType.PLANT).setTranslationKey("mush_block_stem").setLightLevel(1.0F).setHardness(0.2F);
+		glyphid_base = new BlockGlyphid(Material.CORAL).withSoundType(SoundType.CLOTH).setTranslationKey("glyphid_base").setHardness(0.5F);
+		glyphid_spawner = new BlockGlyphidSpawner(Material.CORAL).withSoundType(SoundType.CLOTH).setTranslationKey("glyphid_spawner").setHardness(0.5F);
 
-		rubber_farmland = new BlockRubberFarm(Material.SAND).setTranslationKey("rubber_farmland").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F).setBlockTextureName(RefStrings.MODID + ":rubber_silt");
+		rubber_farmland = new BlockRubberFarm(Material.SAND).withSoundType(SoundType.GROUND).setTranslationKey("rubber_farmland").setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F);
 
 		plant_flower = ((BlockBase) new BlockNTMFlower().setBlockName("plant_flower").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);
 		plant_tall = ((BlockBase) new BlockTallPlant().setBlockName("plant_tall").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);
 		plant_dead = ((BlockBase) new BlockDeadPlant().setBlockName("plant_dead").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);
-		reeds = new BlockReeds().setTranslationKey("plant_reeds").setCreativeTab(MainRegistry.blockTab).setSoundType(SoundType.PLANT).setHardness(0.0F);
+		reeds = new BlockReeds().setSoundType(SoundType.PLANT).setTranslationKey("plant_reeds").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F);
 		plant_tall_laythe = ((BlockBase) new BlockTallPlantWater().setBlockName("plant_tall_laythe").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);
-		laythe_kelp = new BlockKelp().setTranslationKey("laythe_kelp").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.PLANT).setHardness(0.0F);
-		laythe_short = new BlockWaterPlant().setTranslationKey("laythe_seagrass").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.PLANT).setHardness(0.0F).setBlockTextureName(RefStrings.MODID + ":laythe_seagrass");
-		laythe_glow = new BlockWaterPlant().setTranslationKey("laythe_glowgrass").setCreativeTab(MainRegistry.blockTab).setStepSound(SoundType.PLANT).setHardness(0.0F).setLightLevel(1.0F).setBlockTextureName(RefStrings.MODID + ":laythe_glowgrass");
-		crop_strawberry = new BlockCrop(Blocks.FARMLAND, (atmosphere) -> atmosphere.hasFluid(Fluids.EARTHAIR, 0.1) || atmosphere.hasFluid(Fluids.OXYGEN, 0.1), true).setTranslationKey("crop_strawberry").setStepSound(SoundType.PLANT).setHardness(0.0F).setBlockTextureName(RefStrings.MODID + ":strawberry");
-		crop_mint = new BlockCrop(Blocks.FARMLAND, (atmosphere) -> atmosphere.hasFluid(Fluids.EARTHAIR, 0.1) || atmosphere.hasFluid(Fluids.OXYGEN, 0.1), true).setTranslationKey("crop_mint").setStepSound(SoundType.PLANT).setHardness(0.0F).setBlockTextureName(RefStrings.MODID + ":mint");
-		crop_coffee = new BlockCrop(Blocks.FARMLAND, (atmosphere) -> atmosphere.hasFluid(Fluids.EARTHAIR, 0.1) || atmosphere.hasFluid(Fluids.OXYGEN, 0.1), true).setTranslationKey("crop_coffee").setStepSound(SoundType.PLANT).setHardness(0.0F).setBlockTextureName(RefStrings.MODID + ":coffee");
-		crop_tea = new BlockCrop(Blocks.FARMLAND, (atmosphere) -> atmosphere.hasFluid(Fluids.EARTHAIR, 0.1) || atmosphere.hasFluid(Fluids.OXYGEN, 0.1), true).setTranslationKey("crop_tea").setStepSound(SoundType.PLANT).setHardness(0.0F).setBlockTextureName(RefStrings.MODID + ":tea");
-		laythe_coral = new BlockCoral().setTranslationKey("laythe_coral").setCreativeTab(MainRegistry.blockTab).setSoundType(SoundType.PLANT).setHardness(0.0F);
+		laythe_kelp = new BlockKelp().withSoundType(SoundType.PLANT).setTranslationKey("laythe_kelp").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F);
+		laythe_short = new BlockWaterPlant().withSoundType(SoundType.PLANT).setTranslationKey("laythe_seagrass").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(laythe_short, RefStrings.MODID + ":laythe_seagrass");
+		laythe_glow = new BlockWaterPlant().withSoundType(SoundType.PLANT).setTranslationKey("laythe_glowgrass").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F).setLightLevel(1.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(laythe_glow, RefStrings.MODID + ":laythe_glowgrass");
+		crop_strawberry = new BlockCrop(Blocks.FARMLAND, (atmosphere) -> atmosphere.hasFluid(Fluids.EARTHAIR, 0.1) || atmosphere.hasFluid(Fluids.OXYGEN, 0.1), true).setBlockTextureName(RefStrings.MODID + ":strawberry").withSoundType(SoundType.PLANT).setTranslationKey("crop_strawberry").setHardness(0.0F);
+		crop_mint = new BlockCrop(Blocks.FARMLAND, (atmosphere) -> atmosphere.hasFluid(Fluids.EARTHAIR, 0.1) || atmosphere.hasFluid(Fluids.OXYGEN, 0.1), true).setBlockTextureName(RefStrings.MODID + ":mint").withSoundType(SoundType.PLANT).setTranslationKey("crop_mint").setHardness(0.0F);
+		crop_coffee = new BlockCrop(Blocks.FARMLAND, (atmosphere) -> atmosphere.hasFluid(Fluids.EARTHAIR, 0.1) || atmosphere.hasFluid(Fluids.OXYGEN, 0.1), true).setBlockTextureName(RefStrings.MODID + ":coffee").withSoundType(SoundType.PLANT).setTranslationKey("crop_coffee").setHardness(0.0F);
+		crop_tea = new BlockCrop(Blocks.FARMLAND, (atmosphere) -> atmosphere.hasFluid(Fluids.EARTHAIR, 0.1) || atmosphere.hasFluid(Fluids.OXYGEN, 0.1), true).setBlockTextureName(RefStrings.MODID + ":tea").withSoundType(SoundType.PLANT).setTranslationKey("crop_tea").setHardness(0.0F);
+		laythe_coral = new BlockCoral().setSoundType(SoundType.PLANT).setTranslationKey("laythe_coral").setCreativeTab(MainRegistry.blockTab).setHardness(0.0F);
 		laythe_coral_block = ((BlockBase) ((BlockBase) new BlockEnumMulti(Material.CORAL, BlockCoral.EnumCoral.class, false, true).setHardness(0.5F).setBlockName("laythe_coral_block").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT)).setBlockTextureName(RefStrings.MODID + ":laythe_coral_block");
-		vine_phosphor = new BlockHangingVine(thick_foliage).setTranslationKey("vine_phosphor").setCreativeTab(MainRegistry.blockTab).setSoundType(SoundType.PLANT).setHardness(0.5F);
-		crop_paraffin = new BlockCrop(ModBlocks.rubber_farmland, (atmosphere) -> atmosphere.hasFluid(Fluids.TEKTOAIR, 0.1) || atmosphere.hasFluid(Fluids.CHLORINE, 0.1), false).setTranslationKey("crop_paraffin").setStepSound(SoundType.PLANT).setHardness(0.0F).setBlockTextureName(RefStrings.MODID + ":paraffin");
+		vine_phosphor = new BlockHangingVine(thick_foliage).setSoundType(SoundType.PLANT).setTranslationKey("vine_phosphor").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F);
+		crop_paraffin = new BlockCrop(ModBlocks.rubber_farmland, (atmosphere) -> atmosphere.hasFluid(Fluids.TEKTOAIR, 0.1) || atmosphere.hasFluid(Fluids.CHLORINE, 0.1), false).setBlockTextureName(RefStrings.MODID + ":paraffin").withSoundType(SoundType.PLANT).setTranslationKey("crop_paraffin").setHardness(0.0F);
 		sapling_pvc = new BlockNTSapling().setTranslationKey("sapling").setCreativeTab(MainRegistry.blockTab);
 
-		waste_earth = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey("waste_earth")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + ":waste_earth");
-		waste_mycelium = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey("waste_mycelium")).withSoundType(SoundType.PLANT).setLightLevel(1F).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + ":waste_mycelium_side");
+		waste_earth = com.hbm.blocks.LegacyBlockTextures.bind(((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey("waste_earth")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F), RefStrings.MODID + ":waste_earth");
+		waste_mycelium = com.hbm.blocks.LegacyBlockTextures.bind(((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey("waste_mycelium")).withSoundType(SoundType.PLANT).setLightLevel(1F).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F), RefStrings.MODID + ":waste_mycelium_side");
 		waste_trinitite = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey("waste_trinitite")).withSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":waste_trinitite");
 		waste_trinitite_red = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.SAND).noFortune().setTranslationKey("waste_trinitite_red")).withSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":waste_trinitite_red");
 		waste_log = ((WasteLog) new WasteLog(Material.WOOD).setTranslationKey("waste_log")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setResistance(2.5F);
-		waste_leaves = ((WasteLeaves) new WasteLeaves(Material.LEAVES).setTranslationKey("waste_leaves")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setBlockTextureName(RefStrings.MODID + ":waste_leaves");
+		waste_leaves = com.hbm.blocks.LegacyBlockTextures.bind(((WasteLeaves) new WasteLeaves(Material.LEAVES).setTranslationKey("waste_leaves")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F), RefStrings.MODID + ":waste_leaves");
 		waste_planks = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey("waste_planks")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":waste_planks");
 		frozen_dirt = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.GROUND).setTranslationKey("frozen_dirt")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":frozen_dirt");
 		frozen_grass = ((WasteEarth) new WasteEarth(Material.GROUND, false).setTranslationKey("frozen_grass")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
 		frozen_log = ((WasteLog) new WasteLog(Material.WOOD).setTranslationKey("frozen_log")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
 		frozen_planks = com.hbm.blocks.PlainCubeTextures.bind(((BlockStepEffect) new BlockStepEffect(Material.WOOD).setTranslationKey("frozen_planks")).withSoundType(SoundType.GLASS).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":frozen_planks");
-		fallout = new BlockFallout(Material.SAND).setTranslationKey("fallout").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":ash");
-		salted_fallout = new BlockFallout(Material.SNOW).setTranslationKey("salted_fallout").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":ash");
-		foam_layer = new BlockLayering(Material.SNOW).setTranslationKey("foam_layer").setStepSound(SoundType.SNOW).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":foam");
-		sand_boron_layer = new BlockLayering(Material.SAND).setTranslationKey("sand_boron_layer").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":sand_boron");
-		leaves_layer = new BlockLayering(Material.LEAVES).setTranslationKey("leaves_layer").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":waste_leaves");
-		oil_spill = new BlockLayering(Material.GROUND).setTranslationKey("oil_spill").setStepSound(SoundType.SNOW).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":oil_spill");
+		fallout = new BlockFallout(Material.SAND).withSoundType(SoundType.GROUND).setTranslationKey("fallout").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(fallout, RefStrings.MODID + ":ash");
+		salted_fallout = new BlockFallout(Material.SNOW).withSoundType(SoundType.GROUND).setTranslationKey("salted_fallout").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(salted_fallout, RefStrings.MODID + ":ash");
+		foam_layer = new BlockLayering(Material.SNOW).withSoundType(SoundType.SNOW).setTranslationKey("foam_layer").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(foam_layer, RefStrings.MODID + ":foam");
+		sand_boron_layer = new BlockLayering(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("sand_boron_layer").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(sand_boron_layer, RefStrings.MODID + ":sand_boron");
+		leaves_layer = new BlockLayering(Material.LEAVES).withSoundType(SoundType.PLANT).setTranslationKey("leaves_layer").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(leaves_layer, RefStrings.MODID + ":waste_leaves");
+		oil_spill = new BlockLayering(Material.GROUND).withSoundType(SoundType.SNOW).setTranslationKey("oil_spill").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(oil_spill, RefStrings.MODID + ":oil_spill");
 
-		burning_earth = ((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey("burning_earth")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F).setBlockTextureName(RefStrings.MODID + ":burning_earth");
+		burning_earth = com.hbm.blocks.LegacyBlockTextures.bind(((WasteEarth) new WasteEarth(Material.GROUND, true).setTranslationKey("burning_earth")).withSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F), RefStrings.MODID + ":burning_earth");
 		tektite = ((BlockBase) ((BlockBase) new BlockGeneric(Material.SAND).setBlockName("tektite")).setSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F)).setBlockTextureName(RefStrings.MODID + ":tektite");
 		ore_tektite_osmiridium = ((BlockBase) ((BlockBase) new BlockGeneric(Material.SAND).setBlockName("ore_tektite_osmiridium")).setSoundType(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F)).setBlockTextureName(RefStrings.MODID + ":ore_tektite_osmiridium");
-		impact_dirt = new BlockDirt(Material.GROUND, true).setTranslationKey("impact_dirt").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":waste_earth_bottom");
-		dirt_dead = new BlockFalling(Material.GROUND).setTranslationKey("dirt_dead").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":dirt_dead");
-		dirt_oily = new BlockFalling(Material.GROUND).setTranslationKey("dirt_oily").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":dirt_oily");
-		sand_dirty = new BlockFalling(Material.SAND).setTranslationKey("sand_dirty").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":sand_dirty");
-		sand_dirty_red = new BlockFalling(Material.SAND).setTranslationKey("sand_dirty_red").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setBlockTextureName(RefStrings.MODID + ":sand_dirty_red");
-		stone_cracked = new BlockFalling(Material.ROCK).setTranslationKey("stone_cracked").setStepSound(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + ":stone_cracked");
+		impact_dirt = PlainCubeTextures.bind(new BlockDirt(Material.GROUND, true).withSoundType(SoundType.GROUND).setTranslationKey("impact_dirt").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F), RefStrings.MODID + ":waste_earth_bottom");
+		dirt_dead = PlainCubeTextures.bind(new BlockFallingLegacy(Material.GROUND).withSoundType(SoundType.GROUND).setTranslationKey("dirt_dead").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F), RefStrings.MODID + ":dirt_dead");
+		dirt_oily = PlainCubeTextures.bind(new BlockFallingLegacy(Material.GROUND).withSoundType(SoundType.GROUND).setTranslationKey("dirt_oily").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F), RefStrings.MODID + ":dirt_oily");
+		sand_dirty = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("sand_dirty").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F), RefStrings.MODID + ":sand_dirty");
+		sand_dirty_red = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("sand_dirty_red").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F), RefStrings.MODID + ":sand_dirty_red");
+		stone_cracked = PlainCubeTextures.bind(new BlockFallingLegacy(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("stone_cracked").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F), RefStrings.MODID + ":stone_cracked");
 
-		sellafield_slaked = new BlockSellafieldSlaked(Material.ROCK).setTranslationKey("sellafield_slaked").setStepSound(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + ":sellafield_slaked");
-		sellafield_bedrock = new BlockSellafieldSlaked(Material.ROCK).setTranslationKey("sellafield_bedrock").setBlockUnbreakable().setResistance(6000000.0F).setStepSound(SoundType.STONE).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":sellafield_slaked");
-		sellafield = new BlockSellafield(Material.ROCK).setTranslationKey("sellafield").setStepSound(SoundType.STONE).setHardness(5.0F).setBlockTextureName(RefStrings.MODID + ":sellafield_0");
+		sellafield_slaked = new BlockSellafieldSlaked(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("sellafield_slaked").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);
+		sellafield_bedrock = new BlockSellafieldSlaked(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("sellafield_bedrock").setBlockUnbreakable().setResistance(6000000.0F).setCreativeTab(MainRegistry.blockTab);
+		sellafield = new BlockSellafield(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("sellafield").setHardness(5.0F);
 		ore_sellafield_diamond = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey("ore_sellafield_diamond").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);
 		ore_sellafield_emerald = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey("ore_sellafield_emerald").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);
 		ore_sellafield_uranium_scorched = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey("ore_sellafield_uranium_scorched").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);
 		ore_sellafield_schrabidium = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey("ore_sellafield_schrabidium").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);
 		ore_sellafield_radgem = new BlockSellafieldOre(Material.ROCK).withSoundType(net.minecraft.block.SoundType.STONE).setTranslationKey("ore_sellafield_radgem").setCreativeTab(MainRegistry.blockTab).setHardness(5.0F);
 
-		geysir_water = new BlockGeysir(Material.ROCK).setTranslationKey("geysir_water").setStepSound(SoundType.STONE).setHardness(5.0F);
-		geysir_chlorine = new BlockGeysir(Material.ROCK).setTranslationKey("geysir_chlorine").setStepSound(SoundType.STONE).setHardness(5.0F);
-		geysir_vapor = new BlockGeysir(Material.ROCK).setTranslationKey("geysir_vapor").setStepSound(SoundType.STONE).setHardness(5.0F);
-		geysir_nether = new BlockGeysir(Material.ROCK).setTranslationKey("geysir_nether").setLightLevel(1.0F).setStepSound(SoundType.STONE).setHardness(2.0F);
-		geysir_volcanic = new BlockGeysir(Material.ROCK).setTranslationKey("geysir_volcanic").setLightLevel(1.0F).setStepSound(SoundType.STONE).setHardness(2.0F);
-		geysir_electric = new BlockVolcanoV2(Material.ROCK).setTranslationKey("geysir_electric").setLightLevel(1.0F).setStepSound(SoundType.STONE).setHardness(2.0F).setBlockTextureName(RefStrings.MODID + ":basalt");
-		geysir_chloric = new BlockGeysierDCM(Material.ROCK).setTranslationKey("geysir_chloric").setLightLevel(1.0F).setStepSound(SoundType.STONE).setHardness(2.0F).setBlockTextureName(RefStrings.MODID + ":basalt");;
+		geysir_water = new BlockGeysir(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("geysir_water").setHardness(5.0F);
+		geysir_chlorine = new BlockGeysir(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("geysir_chlorine").setHardness(5.0F);
+		geysir_vapor = new BlockGeysir(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("geysir_vapor").setHardness(5.0F);
+		geysir_nether = new BlockGeysir(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("geysir_nether").setLightLevel(1.0F).setHardness(2.0F);
+		geysir_volcanic = new BlockGeysir(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("geysir_volcanic").setLightLevel(1.0F).setHardness(2.0F);
+		geysir_electric = new BlockVolcanoV2(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("geysir_electric").setLightLevel(1.0F).setHardness(2.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(geysir_electric, RefStrings.MODID + ":basalt");
+		geysir_chloric = new BlockGeysierDCM(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("geysir_chloric").setLightLevel(1.0F).setHardness(2.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(geysir_chloric, RefStrings.MODID + ":basalt");
 
-		nuke_gadget = new NukeGadget(Material.IRON).setTranslationKey("nuke_gadget").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":theGadget");
-		nuke_boy = new NukeBoy(Material.IRON).setTranslationKey("nuke_boy").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":lilBoy");
-		nuke_man = new NukeMan(Material.IRON).setTranslationKey("nuke_man").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":fatMan");
-		nuke_mike = new NukeMike(Material.IRON).setTranslationKey("nuke_mike").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":ivyMike");
-		nuke_tsar = new NukeTsar(Material.IRON).setTranslationKey("nuke_tsar").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":tsarBomba");
-		nuke_fleija = new NukeFleija(Material.IRON).setTranslationKey("nuke_fleija").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":fleija");
-		nuke_prototype = new NukePrototype(Material.IRON).setTranslationKey("nuke_prototype").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200).setBlockTextureName(RefStrings.MODID + ":prototype");
-		nuke_custom = new NukeCustom(Material.IRON).setTranslationKey("nuke_custom").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":custom");
-		nuke_solinium = new NukeSolinium(Material.IRON).setTranslationKey("nuke_solinium").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":nuke_solinium");
-		nuke_n2 = new NukeN2(Material.IRON).setTranslationKey("nuke_n2").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":nuke_n2");
-		nuke_fstbmb = new NukeBalefire(Material.IRON).setTranslationKey("nuke_fstbmb").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":nuke_fstbmb");
-		nuke_antimatter = new NukeAntimatter(Material.IRON).setTranslationKey("nuke_antimatter").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(6000.0F).setBlockTextureName(RefStrings.MODID + ":theGadget");
+		nuke_gadget = com.hbm.blocks.LegacyBlockTextures.bind(new NukeGadget(Material.IRON).setTranslationKey("nuke_gadget").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":theGadget");
+		nuke_boy = com.hbm.blocks.LegacyBlockTextures.bind(new NukeBoy(Material.IRON).setTranslationKey("nuke_boy").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":lilBoy");
+		nuke_man = com.hbm.blocks.LegacyBlockTextures.bind(new NukeMan(Material.IRON).setTranslationKey("nuke_man").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":fatMan");
+		nuke_mike = com.hbm.blocks.LegacyBlockTextures.bind(new NukeMike(Material.IRON).setTranslationKey("nuke_mike").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":ivyMike");
+		nuke_tsar = com.hbm.blocks.LegacyBlockTextures.bind(new NukeTsar(Material.IRON).setTranslationKey("nuke_tsar").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":tsarBomba");
+		nuke_fleija = com.hbm.blocks.LegacyBlockTextures.bind(new NukeFleija(Material.IRON).setTranslationKey("nuke_fleija").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":fleija");
+		nuke_prototype = com.hbm.blocks.LegacyBlockTextures.bind(new NukePrototype(Material.IRON).setTranslationKey("nuke_prototype").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200), RefStrings.MODID + ":prototype");
+		nuke_custom = com.hbm.blocks.LegacyBlockTextures.bind(new NukeCustom(Material.IRON).setTranslationKey("nuke_custom").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":custom");
+		nuke_solinium = com.hbm.blocks.LegacyBlockTextures.bind(new NukeSolinium(Material.IRON).setTranslationKey("nuke_solinium").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":nuke_solinium");
+		nuke_n2 = com.hbm.blocks.LegacyBlockTextures.bind(new NukeN2(Material.IRON).setTranslationKey("nuke_n2").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":nuke_n2");
+		nuke_fstbmb = com.hbm.blocks.LegacyBlockTextures.bind(new NukeBalefire(Material.IRON).setTranslationKey("nuke_fstbmb").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":nuke_fstbmb");
+		nuke_antimatter = com.hbm.blocks.LegacyBlockTextures.bind(new NukeAntimatter(Material.IRON).setTranslationKey("nuke_antimatter").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(6000.0F), RefStrings.MODID + ":theGadget");
 
-		bomb_multi = new BombMulti(Material.IRON).setTranslationKey("bomb_multi").setCreativeTab(MainRegistry.nukeTab).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		bomb_multi = com.hbm.blocks.LegacyBlockTextures.bind(new BombMulti(Material.IRON).setTranslationKey("bomb_multi").setCreativeTab(MainRegistry.nukeTab).setResistance(200.0F), RefStrings.MODID + ":block_steel");
 
-		flame_war = new BombFlameWar(Material.IRON).setTranslationKey("flame_war").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F).setBlockTextureName(RefStrings.MODID + ":flame_war");
+		flame_war = com.hbm.blocks.LegacyBlockTextures.bind(new BombFlameWar(Material.IRON).setTranslationKey("flame_war").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F), RefStrings.MODID + ":flame_war");
 		float_bomb = new BombFloat(Material.IRON).setTranslationKey("float_bomb").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F);
 		therm_endo = new BombThermo(Material.IRON).setTranslationKey("therm_endo").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F);
 		therm_exo = new BombThermo(Material.IRON).setTranslationKey("therm_exo").setCreativeTab(MainRegistry.nukeTab).setHardness(5.0F).setResistance(200.0F);
@@ -2002,55 +2017,55 @@ public class ModBlocks {
 		det_charge = ((BlockBase) new ExplosiveCharge(Material.IRON).setBlockName("det_charge").setCreativeTab(MainRegistry.nukeTab).setHardness(0.1F).setResistance(0.0F)).setBlockTextureName(RefStrings.MODID + ":det_charge");
 		det_nuke = ((BlockBase) new ExplosiveCharge(Material.IRON).setBlockName("det_nuke").setCreativeTab(MainRegistry.nukeTab).setHardness(0.1F).setResistance(0.0F)).setBlockTextureName(RefStrings.MODID + ":det_nuke");
 		det_salt = ((BlockBase) new ExplosiveCharge(Material.IRON).setBlockName("det_salt").setCreativeTab(MainRegistry.nukeTab).setHardness(0.1F).setResistance(0.0F)).setBlockTextureName(RefStrings.MODID + ":det_nuke");
-		det_miner = new DetMiner(Material.IRON, RefStrings.MODID + ":det_miner_top").setTranslationKey("det_miner").setCreativeTab(MainRegistry.nukeTab).setHardness(0.1F).setResistance(0.0F).setBlockTextureName(RefStrings.MODID + ":det_miner_side");
-		red_barrel = new RedBarrel(Material.IRON, true).setTranslationKey("red_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);
-		pink_barrel = new RedBarrel(Material.IRON, true).setTranslationKey("pink_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);
-		yellow_barrel = new YellowBarrel(Material.IRON).setTranslationKey("yellow_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);
+		det_miner = com.hbm.blocks.LegacyBlockTextures.bind(new DetMiner(Material.IRON, RefStrings.MODID + ":det_miner_top").setTranslationKey("det_miner").setCreativeTab(MainRegistry.nukeTab).setHardness(0.1F).setResistance(0.0F), RefStrings.MODID + ":det_miner_side");
+		red_barrel = com.hbm.blocks.LegacyBlockTextures.bind(new RedBarrel(Material.IRON, true).setTranslationKey("red_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":barrel_red");
+		pink_barrel = com.hbm.blocks.LegacyBlockTextures.bind(new RedBarrel(Material.IRON, true).setTranslationKey("pink_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":barrel_pink");
+		yellow_barrel = com.hbm.blocks.LegacyBlockTextures.bind(new YellowBarrel(Material.IRON).setTranslationKey("yellow_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":barrel_yellow");
 		oil_barrel = new BrownBarrel(Material.IRON).setTranslationKey("oil_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);
-		vitrified_barrel = new YellowBarrel(Material.IRON).setTranslationKey("vitrified_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);
-		lox_barrel = new RedBarrel(Material.IRON, false).setTranslationKey("lox_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);
-		taint_barrel = new RedBarrel(Material.IRON, false).setTranslationKey("taint_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F);
+		vitrified_barrel = com.hbm.blocks.LegacyBlockTextures.bind(new YellowBarrel(Material.IRON).setTranslationKey("vitrified_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":barrel_vitrified");
+		lox_barrel = com.hbm.blocks.LegacyBlockTextures.bind(new RedBarrel(Material.IRON, false).setTranslationKey("lox_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":barrel_lox");
+		taint_barrel = com.hbm.blocks.LegacyBlockTextures.bind(new RedBarrel(Material.IRON, false).setTranslationKey("taint_barrel").setCreativeTab(MainRegistry.nukeTab).setHardness(0.5F).setResistance(2.5F), RefStrings.MODID + ":barrel_taint");
 		crashed_balefire = ((BlockBase) new BlockCrashedBomb(Material.IRON).setBlockName("crashed_bomb").setCreativeTab(MainRegistry.nukeTab).setBlockUnbreakable().setResistance(6000.0F)).setBlockTextureName(RefStrings.MODID + ":block_rust");
 		fireworks = new BlockFireworks(Material.IRON).setTranslationKey("fireworks").setCreativeTab(MainRegistry.nukeTab).setResistance(5.0F);
 		charge_dynamite = new BlockChargeDynamite().setBlockName("charge_dynamite").setCreativeTab(MainRegistry.nukeTab).setResistance(1.0F);
 		charge_miner = new BlockChargeMiner().setBlockName("charge_miner").setCreativeTab(MainRegistry.nukeTab).setResistance(1.0F);
 		charge_c4 = new BlockChargeC4().setBlockName("charge_c4").setCreativeTab(MainRegistry.nukeTab).setResistance(1.0F);
 		charge_semtex = new BlockChargeSemtex().setBlockName("charge_semtex").setCreativeTab(MainRegistry.nukeTab).setResistance(1.0F);
-		mine_ap = new Landmine(Material.IRON, 1.5D, 1D).setTranslationKey("mine_ap").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F).setBlockTextureName(RefStrings.MODID + ":mine_ap");
-		mine_he = new Landmine(Material.IRON, 2D, 5D).setTranslationKey("mine_he").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F).setBlockTextureName(RefStrings.MODID + ":mine_he");
-		mine_shrap = new Landmine(Material.IRON, 1.5D, 1D).setTranslationKey("mine_shrap").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F).setBlockTextureName(RefStrings.MODID + ":mine_shrap");
-		mine_fat = new Landmine(Material.IRON, 2.5D, 1D).setTranslationKey("mine_fat").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F).setBlockTextureName(RefStrings.MODID + ":mine_fat");
-		mine_naval = new Landmine(Material.IRON, 2.5D, 1D).setTranslationKey("mine_naval").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F).setBlockTextureName(RefStrings.MODID + ":mine_naval");
+		mine_ap = com.hbm.blocks.LegacyBlockTextures.bind(new Landmine(Material.IRON, 1.5D, 1D).setTranslationKey("mine_ap").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F), RefStrings.MODID + ":mine_ap");
+		mine_he = com.hbm.blocks.LegacyBlockTextures.bind(new Landmine(Material.IRON, 2D, 5D).setTranslationKey("mine_he").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F), RefStrings.MODID + ":mine_he");
+		mine_shrap = com.hbm.blocks.LegacyBlockTextures.bind(new Landmine(Material.IRON, 1.5D, 1D).setTranslationKey("mine_shrap").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F), RefStrings.MODID + ":mine_shrap");
+		mine_fat = com.hbm.blocks.LegacyBlockTextures.bind(new Landmine(Material.IRON, 2.5D, 1D).setTranslationKey("mine_fat").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F), RefStrings.MODID + ":mine_fat");
+		mine_naval = com.hbm.blocks.LegacyBlockTextures.bind(new Landmine(Material.IRON, 2.5D, 1D).setTranslationKey("mine_naval").setCreativeTab(MainRegistry.nukeTab).setHardness(1.0F), RefStrings.MODID + ":mine_naval");
 		dynamite = ((BlockBase) ((BlockBase) new BlockDynamite().setBlockName("dynamite")).setSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.nukeTab).setHardness(0.0F)).setBlockTextureName(RefStrings.MODID + ":dynamite");
 		tnt = ((BlockBase) ((BlockBase) new BlockTNT().setBlockName("tnt_ntm")).setSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.nukeTab).setHardness(0.0F)).setBlockTextureName(RefStrings.MODID + ":tnt");
 		semtex = ((BlockBase) ((BlockBase) new BlockSemtex().setBlockName("semtex")).setSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.nukeTab).setHardness(0.0F)).setBlockTextureName(RefStrings.MODID + ":semtex");
 		c4 = ((BlockBase) ((BlockBase) new BlockC4().setBlockName("c4")).setSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.nukeTab).setHardness(0.0F)).setBlockTextureName(RefStrings.MODID + ":c4");
 		fissure_bomb = ((BlockBase) ((BlockBase) new BlockFissureBomb().setBlockName("fissure_bomb")).setSoundType(SoundType.PLANT).setCreativeTab(MainRegistry.nukeTab).setHardness(0.0F)).setBlockTextureName(RefStrings.MODID + ":fissure_bomb");
 
-		pump_steam = new MachinePump().setTranslationKey("pump_steam").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_copper");
-		pump_electric = new MachinePump().setTranslationKey("pump_electric").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		pump_steam = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePump().setTranslationKey("pump_steam").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_copper");
+		pump_electric = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePump().setTranslationKey("pump_electric").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
-		heater_firebox = new HeaterFirebox().setTranslationKey("heater_firebox").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		heater_oven = new HeaterOven().setTranslationKey("heater_oven").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":brick_fire");
-		heater_oilburner = new HeaterOilburner().setTranslationKey("heater_oilburner").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		heater_electric = new HeaterElectric().setTranslationKey("heater_electric").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		heater_heatex = new HeaterHeatex().setTranslationKey("heater_heatex").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_ashpit = new MachineAshpit().setTranslationKey("machine_ashpit").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName("stonebrick");
+		heater_firebox = com.hbm.blocks.LegacyBlockTextures.bind(new HeaterFirebox().setTranslationKey("heater_firebox").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		heater_oven = com.hbm.blocks.LegacyBlockTextures.bind(new HeaterOven().setTranslationKey("heater_oven").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":brick_fire");
+		heater_oilburner = com.hbm.blocks.LegacyBlockTextures.bind(new HeaterOilburner().setTranslationKey("heater_oilburner").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		heater_electric = com.hbm.blocks.LegacyBlockTextures.bind(new HeaterElectric().setTranslationKey("heater_electric").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		heater_heatex = com.hbm.blocks.LegacyBlockTextures.bind(new HeaterHeatex().setTranslationKey("heater_heatex").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_ashpit = com.hbm.blocks.LegacyBlockTextures.bind(new MachineAshpit().setTranslationKey("machine_ashpit").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), "stonebrick");
 
-		furnace = new BlockFurnaceSpace(false).setHardness(3.5F).setStepSound(SoundType.STONE).setTranslationKey("furnace");
-		lit_furnace = new BlockFurnaceSpace(true).setHardness(3.5F).setStepSound(SoundType.STONE).setTranslationKey("lit_furnace").setLightLevel(0.875F);
+		furnace = new BlockFurnaceSpace(false).withSoundType(SoundType.STONE).setHardness(3.5F).setTranslationKey("furnace");
+		lit_furnace = new BlockFurnaceSpace(true).withSoundType(SoundType.STONE).setHardness(3.5F).setTranslationKey("lit_furnace").setLightLevel(0.875F);
 
-		furnace_iron = new FurnaceIron().setTranslationKey("furnace_iron").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_aluminium");
-		furnace_steel = new FurnaceSteel().setTranslationKey("furnace_steel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		furnace_combination = new FurnaceCombination().setTranslationKey("furnace_combination").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":brick_light_alt");
-		machine_stirling = new MachineStirling().setTranslationKey("machine_stirling").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_stirling_steel = new MachineStirling().setTranslationKey("machine_stirling_steel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_stirling_creative = new MachineStirling().setTranslationKey("machine_stirling_creative").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_sawmill = new MachineSawmill().setTranslationKey("machine_sawmill").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_strand_caster = new MachineStrandCaster().setTranslationKey("machine_strand_caster").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":brick_fire");
-		machine_crucible = new MachineCrucible().setTranslationKey("machine_crucible").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":brick_fire");
-		machine_boiler = new MachineHeatBoiler().setTranslationKey("machine_boiler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_copper");
-		machine_industrial_boiler = new MachineHeatBoilerIndustrial().setTranslationKey("machine_industrial_boiler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		furnace_iron = com.hbm.blocks.LegacyBlockTextures.bind(new FurnaceIron().setTranslationKey("furnace_iron").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_aluminium");
+		furnace_steel = com.hbm.blocks.LegacyBlockTextures.bind(new FurnaceSteel().setTranslationKey("furnace_steel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		furnace_combination = com.hbm.blocks.LegacyBlockTextures.bind(new FurnaceCombination().setTranslationKey("furnace_combination").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":brick_light_alt");
+		machine_stirling = com.hbm.blocks.LegacyBlockTextures.bind(new MachineStirling().setTranslationKey("machine_stirling").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_stirling_steel = com.hbm.blocks.LegacyBlockTextures.bind(new MachineStirling().setTranslationKey("machine_stirling_steel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_stirling_creative = com.hbm.blocks.LegacyBlockTextures.bind(new MachineStirling().setTranslationKey("machine_stirling_creative").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_sawmill = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSawmill().setTranslationKey("machine_sawmill").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_strand_caster = com.hbm.blocks.LegacyBlockTextures.bind(new MachineStrandCaster().setTranslationKey("machine_strand_caster").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":brick_fire");
+		machine_crucible = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCrucible().setTranslationKey("machine_crucible").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":brick_fire");
+		machine_boiler = com.hbm.blocks.LegacyBlockTextures.bind(new MachineHeatBoiler().setTranslationKey("machine_boiler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_copper");
+		machine_industrial_boiler = com.hbm.blocks.LegacyBlockTextures.bind(new MachineHeatBoilerIndustrial().setTranslationKey("machine_industrial_boiler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
 		foundry_mold = new FoundryMold().setTranslationKey("foundry_mold").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		foundry_basin = new FoundryBasin().setTranslationKey("foundry_basin").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
@@ -2058,7 +2073,7 @@ public class ModBlocks {
 		foundry_tank = new FoundryTank().setTranslationKey("foundry_tank").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		foundry_outlet = new FoundryOutlet().setTranslationKey("foundry_outlet").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		foundry_slagtap = new FoundrySlagtap().setTranslationKey("foundry_slagtap").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		slag = new BlockDynamicSlag().setTranslationKey("slag").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":slag");
+		slag = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDynamicSlag().setTranslationKey("slag").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":slag");
 
 		machine_difurnace_off = new MachineDiFurnace(false).setTranslationKey("machine_difurnace_off").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		machine_difurnace_on = new MachineDiFurnace(true).setTranslationKey("machine_difurnace_on").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);
@@ -2066,27 +2081,27 @@ public class ModBlocks {
 		machine_difurnace_rtg_off = new MachineDiFurnaceRTG(false).setTranslationKey("machine_difurnace_rtg_off").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		machine_difurnace_rtg_on = new MachineDiFurnaceRTG(true).setTranslationKey("machine_difurnace_rtg_on").setHardness(5.0F).setResistance(10.0F).setLightLevel(1.0F).setCreativeTab(null);
 
-		machine_centrifuge = new MachineCentrifuge(Material.IRON).setTranslationKey("machine_centrifuge").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_gascent = new MachineGasCent(Material.IRON).setTranslationKey("machine_gascent").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_fel = new MachineFEL(Material.IRON).setTranslationKey("machine_fel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_silex = new MachineSILEX(Material.IRON).setTranslationKey("machine_silex").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_rotary_furnace = new MachineRotaryFurnace(Material.IRON).setTranslationKey("machine_rotary_furnace").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":brick_fire");
-		machine_crystallizer = new MachineCrystallizer(Material.IRON).setTranslationKey("machine_crystallizer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_crystallizer");
+		machine_centrifuge = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCentrifuge(Material.IRON).setTranslationKey("machine_centrifuge").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_gascent = com.hbm.blocks.LegacyBlockTextures.bind(new MachineGasCent(Material.IRON).setTranslationKey("machine_gascent").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_fel = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFEL(Material.IRON).setTranslationKey("machine_fel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_silex = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSILEX(Material.IRON).setTranslationKey("machine_silex").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_rotary_furnace = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRotaryFurnace(Material.IRON).setTranslationKey("machine_rotary_furnace").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":brick_fire");
+		machine_crystallizer = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCrystallizer(Material.IRON).setTranslationKey("machine_crystallizer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_crystallizer");
 
 		machine_uf6_tank = new MachineUF6Tank(Material.IRON).setTranslationKey("machine_uf6_tank").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		machine_puf6_tank = new MachinePuF6Tank(Material.IRON).setTranslationKey("machine_puf6_tank").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 
-		machine_reactor_breeding = new MachineReactorBreeding(Material.IRON).setTranslationKey("machine_reactor").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_reactor");
+		machine_reactor_breeding = com.hbm.blocks.LegacyBlockTextures.bind(new MachineReactorBreeding(Material.IRON).setTranslationKey("machine_reactor").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_reactor");
 
 		machine_furnace_brick_off = new MachineBrickFurnace(false).setTranslationKey("machine_furnace_brick_off").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		machine_furnace_brick_on = new MachineBrickFurnace(true).setTranslationKey("machine_furnace_brick_on").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);
 		machine_rtg_furnace_off = new MachineRtgFurnace(false).setTranslationKey("machine_rtg_furnace_off").setHardness(5.0F).setResistance(10.0F);
 		machine_rtg_furnace_on = new MachineRtgFurnace(true).setTranslationKey("machine_rtg_furnace_on").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);
 
-		machine_industrial_generator = new MachineIGenerator(Material.IRON).setTranslationKey("machine_industrial_generator").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName("gold_block");
-		machine_cyclotron = new MachineCyclotron(Material.IRON).setTranslationKey("machine_cyclotron").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":cyclotron");
-		machine_exposure_chamber = new MachineExposureChamber(Material.IRON).setTranslationKey("machine_exposure_chamber").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_aluminium");
-		machine_radgen = new MachineRadGen(Material.IRON).setTranslationKey("machine_radgen").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_radgen");
+		machine_industrial_generator = com.hbm.blocks.LegacyBlockTextures.bind(new MachineIGenerator(Material.IRON).setTranslationKey("machine_industrial_generator").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), "gold_block");
+		machine_cyclotron = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCyclotron(Material.IRON).setTranslationKey("machine_cyclotron").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":cyclotron");
+		machine_exposure_chamber = com.hbm.blocks.LegacyBlockTextures.bind(new MachineExposureChamber(Material.IRON).setTranslationKey("machine_exposure_chamber").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_aluminium");
+		machine_radgen = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRadGen(Material.IRON).setTranslationKey("machine_radgen").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_radgen");
 
 		hadron_coil_alloy = new BlockHadronCoil(Material.IRON, 10).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey("hadron_coil_alloy").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		hadron_coil_gold = new BlockHadronCoil(Material.IRON, 25).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey("hadron_coil_gold").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
@@ -2098,27 +2113,27 @@ public class ModBlocks {
 		hadron_coil_chlorophyte = new BlockHadronCoil(Material.IRON, 2500).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey("hadron_coil_chlorophyte").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		hadron_coil_mese = new BlockHadronCoil(Material.IRON, 10000).setSoundType(ModSoundTypes.legacyMetal).setTranslationKey("hadron_coil_mese").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 
-		pa_source = new BlockPASource().setStepSound(ModSoundTypes.legacyMetal).setTranslationKey("pa_source").setHardness(5.0F).setResistance(10.0F);
-		pa_beamline = new BlockPABeamline().setStepSound(ModSoundTypes.legacyMetal).setTranslationKey("pa_beamline").setHardness(5.0F).setResistance(10.0F);
-		pa_rfc = new BlockPARFC().setStepSound(ModSoundTypes.legacyMetal).setTranslationKey("pa_rfc").setHardness(5.0F).setResistance(10.0F);
-		pa_quadrupole = new BlockPAQuadrupole().setStepSound(ModSoundTypes.legacyMetal).setTranslationKey("pa_quadrupole").setHardness(5.0F).setResistance(10.0F);
-		pa_dipole = new BlockPADipole().setStepSound(ModSoundTypes.legacyMetal).setTranslationKey("pa_dipole").setHardness(5.0F).setResistance(10.0F);
-		pa_detector = new BlockPADetector().setStepSound(ModSoundTypes.legacyMetal).setTranslationKey("pa_detector").setHardness(5.0F).setResistance(10.0F);
+		pa_source = new BlockPASource().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("pa_source").setHardness(5.0F).setResistance(10.0F);
+		pa_beamline = new BlockPABeamline().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("pa_beamline").setHardness(5.0F).setResistance(10.0F);
+		pa_rfc = new BlockPARFC().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("pa_rfc").setHardness(5.0F).setResistance(10.0F);
+		pa_quadrupole = new BlockPAQuadrupole().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("pa_quadrupole").setHardness(5.0F).setResistance(10.0F);
+		pa_dipole = new BlockPADipole().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("pa_dipole").setHardness(5.0F).setResistance(10.0F);
+		pa_detector = new BlockPADetector().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("pa_detector").setHardness(5.0F).setResistance(10.0F);
 
 		machine_electric_furnace_off = new MachineElectricFurnace(false).setTranslationKey("machine_electric_furnace_off").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		machine_electric_furnace_on = new MachineElectricFurnace(true).setTranslationKey("machine_electric_furnace_on").setHardness(5.0F).setLightLevel(1.0F).setResistance(10.0F);
-		machine_arc_furnace = new MachineArcFurnaceLarge().setTranslationKey("machine_arc_furnace").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_microwave = new MachineMicrowave(Material.IRON).setTranslationKey("machine_microwave").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_microwave");
+		machine_arc_furnace = com.hbm.blocks.LegacyBlockTextures.bind(new MachineArcFurnaceLarge().setTranslationKey("machine_arc_furnace").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_microwave = com.hbm.blocks.LegacyBlockTextures.bind(new MachineMicrowave(Material.IRON).setTranslationKey("machine_microwave").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_microwave");
 
-		machine_battery_socket = new MachineBatterySocket().setTranslationKey("machine_battery_socket").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_battery_redd = new MachineBatteryREDD().setTranslationKey("machine_battery_redd").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_battery_socket = com.hbm.blocks.LegacyBlockTextures.bind(new MachineBatterySocket().setTranslationKey("machine_battery_socket").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_battery_redd = com.hbm.blocks.LegacyBlockTextures.bind(new MachineBatteryREDD().setTranslationKey("machine_battery_redd").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
 		machine_battery_potato = new MachineBattery(Material.IRON, 10_000).setTranslationKey("machine_battery_potato").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		machine_battery = new MachineBattery(Material.IRON, 1_000_000).setTranslationKey("machine_battery").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		machine_lithium_battery = new MachineBattery(Material.IRON, 50_000_000).setTranslationKey("machine_lithium_battery").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		machine_schrabidium_battery = new MachineBattery(Material.IRON, 25_000_000_000L).setTranslationKey("machine_schrabidium_battery").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		machine_dineutronium_battery = new MachineBattery(Material.IRON, 1_000_000_000_000L).setTranslationKey("machine_dineutronium_battery").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
-		machine_fensu = new MachineFENSU(Material.IRON).setTranslationKey("machine_fensu").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":machine_fensu");
+		machine_fensu = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFENSU(Material.IRON).setTranslationKey("machine_fensu").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":machine_fensu");
 
 		capacitor_bus = new MachineCapacitorBus(Material.IRON).setTranslationKey("capacitor_bus").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		capacitor_copper = new MachineCapacitor(Material.IRON, 1_000_000L, "copper").setTranslationKey("capacitor_copper").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
@@ -2129,27 +2144,27 @@ public class ModBlocks {
 		capacitor_tantalium = new MachineCapacitor(Material.IRON, 150_000_000L, "tantalium").setTranslationKey("capacitor_tantalium").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		capacitor_schrabidate = new MachineCapacitor(Material.IRON, 50_000_000_000L, "schrabidate").setTranslationKey("capacitor_schrabidate").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 
-		machine_wood_burner = new MachineWoodBurner(Material.IRON).setTranslationKey("machine_wood_burner").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_diesel = new MachineDiesel().setTranslationKey("machine_diesel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_combustion_engine = new MachineCombustionEngine().setTranslationKey("machine_combustion_engine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_wood_burner = com.hbm.blocks.LegacyBlockTextures.bind(new MachineWoodBurner(Material.IRON).setTranslationKey("machine_wood_burner").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_diesel = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDiesel().setTranslationKey("machine_diesel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_combustion_engine = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCombustionEngine().setTranslationKey("machine_combustion_engine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
 		machine_shredder = new MachineShredder(Material.IRON).setTranslationKey("machine_shredder").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 
 		machine_teleporter = new MachineTeleporter(Material.IRON).setTranslationKey("machine_teleporter").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		teleanchor = new MachineTeleanchor().setBlockName("teleanchor").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		field_disturber = new MachineFieldDisturber().setTranslationKey("field_disturber").setHardness(5.0F).setResistance(200.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":field_disturber");
-		troll_disturber = new MachineTrollDisturber(10000000F).setTranslationKey("troll_disturber").setHardness(5.0F).setResistance(200.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":field_disturber");
+		field_disturber = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFieldDisturber().setTranslationKey("field_disturber").setHardness(5.0F).setResistance(200.0F).setCreativeTab(null), RefStrings.MODID + ":field_disturber");
+		troll_disturber = com.hbm.blocks.LegacyBlockTextures.bind(new MachineTrollDisturber(10000000F).setTranslationKey("troll_disturber").setHardness(5.0F).setResistance(200.0F).setCreativeTab(null), RefStrings.MODID + ":field_disturber");
 
 
 		machine_rtg_grey = new MachineRTG(Material.IRON).setTranslationKey("machine_rtg_grey").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		machine_minirtg = new MachineMiniRTG(Material.IRON).setTranslationKey("machine_minirtg").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		machine_powerrtg = new MachineMiniRTG(Material.IRON).setTranslationKey("machine_powerrtg").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		machine_radiolysis = new MachineRadiolysis(Material.IRON).setTranslationKey("machine_radiolysis").setHardness(10.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_hephaestus = new MachineHephaestus(Material.IRON).setTranslationKey("machine_hephaestus").setHardness(10.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_solar = new MachineSolar(Material.IRON).setTranslationKey("machine_solar").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_stardar = new MachineStardar(Material.IRON).setTranslationKey("machine_stardar").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_drive_processor = new MachineDriveProcessor(Material.IRON).setTranslationKey("machine_drive_processor").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_alkylation = new MachineAlkylation(Material.IRON).setTranslationKey("machine_alkylation").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		machine_radiolysis = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRadiolysis(Material.IRON).setTranslationKey("machine_radiolysis").setHardness(10.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_hephaestus = com.hbm.blocks.LegacyBlockTextures.bind(new MachineHephaestus(Material.IRON).setTranslationKey("machine_hephaestus").setHardness(10.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_solar = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSolar(Material.IRON).setTranslationKey("machine_solar").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_stardar = com.hbm.blocks.LegacyBlockTextures.bind(new MachineStardar(Material.IRON).setTranslationKey("machine_stardar").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_drive_processor = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDriveProcessor(Material.IRON).setTranslationKey("machine_drive_processor").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_alkylation = com.hbm.blocks.LegacyBlockTextures.bind(new MachineAlkylation(Material.IRON).setTranslationKey("machine_alkylation").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 
 		red_wire_coated = new WireCoated(Material.IRON).setTranslationKey("red_wire_coated").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		red_cable = new BlockCable(Material.IRON).setTranslationKey("red_cable").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
@@ -2157,38 +2172,39 @@ public class ModBlocks {
 		red_cable_paintable = new BlockCablePaintable().setTranslationKey("red_cable_paintable").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		red_cable_gauge = new BlockCableGauge().setTranslationKey("red_cable_gauge").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		red_cable_box = new PowerCableBox(Material.IRON).setTranslationKey("red_cable_box").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		red_connector = new ConnectorRedWire(Material.IRON).setTranslationKey("red_connector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_connector");
-		red_connector_super = new ConnectorRedWireSuper(Material.IRON).setTranslationKey("red_connector_super").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_connector");
-		red_pylon = new PylonRedWire(Material.IRON).setTranslationKey("red_pylon").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_pylon");
-		red_pylon_medium_wood = new PylonMedium(Material.WOOD).setTranslationKey("red_pylon_medium_wood").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_pylon");
-		red_pylon_medium_wood_transformer = new PylonMedium(Material.WOOD).setTranslationKey("red_pylon_medium_wood_transformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_pylon");
-		red_pylon_medium_steel = new PylonMedium(Material.IRON).setTranslationKey("red_pylon_medium_steel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_pylon");
-		red_pylon_medium_steel_transformer = new PylonMedium(Material.IRON).setTranslationKey("red_pylon_medium_steel_transformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_pylon");
-		red_pylon_large = new PylonLarge(Material.IRON).setTranslationKey("red_pylon_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":red_pylon_large");
-		substation = new Substation(Material.IRON).setTranslationKey("substation").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":substation");
+		red_connector = com.hbm.blocks.LegacyBlockTextures.bind(new ConnectorRedWire(Material.IRON).setTranslationKey("red_connector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":red_connector");
+		red_connector_super = com.hbm.blocks.LegacyBlockTextures.bind(new ConnectorRedWireSuper(Material.IRON).setTranslationKey("red_connector_super").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":red_connector");
+		red_pylon = com.hbm.blocks.LegacyBlockTextures.bind(new PylonRedWire(Material.IRON).setTranslationKey("red_pylon").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":red_pylon");
+		red_pylon_medium_wood = com.hbm.blocks.LegacyBlockTextures.bind(new PylonMedium(Material.WOOD).setTranslationKey("red_pylon_medium_wood").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":red_pylon");
+		red_pylon_medium_wood_transformer = com.hbm.blocks.LegacyBlockTextures.bind(new PylonMedium(Material.WOOD).setTranslationKey("red_pylon_medium_wood_transformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":red_pylon");
+		red_pylon_medium_steel = com.hbm.blocks.LegacyBlockTextures.bind(new PylonMedium(Material.IRON).setTranslationKey("red_pylon_medium_steel").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":red_pylon");
+		red_pylon_medium_steel_transformer = com.hbm.blocks.LegacyBlockTextures.bind(new PylonMedium(Material.IRON).setTranslationKey("red_pylon_medium_steel_transformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":red_pylon");
+		red_pylon_large = com.hbm.blocks.LegacyBlockTextures.bind(new PylonLarge(Material.IRON).setTranslationKey("red_pylon_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":red_pylon_large");
+		substation = com.hbm.blocks.LegacyBlockTextures.bind(new Substation(Material.IRON).setTranslationKey("substation").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":substation");
 		cable_switch = new CableSwitch(Material.IRON).setTranslationKey("cable_switch").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		cable_detector = new CableDetector(Material.IRON).setTranslationKey("cable_detector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		cable_diode = new CableDiode(Material.IRON).setTranslationKey("cable_diode").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		machine_detector = new PowerDetector(Material.IRON).setTranslationKey("machine_detector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_detector_off");
+		machine_detector = com.hbm.blocks.LegacyBlockTextures.bind(new PowerDetector(Material.IRON).setTranslationKey("machine_detector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_detector_off");
 		fluid_duct_neo = new FluidDuctStandard(Material.IRON).setTranslationKey("fluid_duct_neo").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		fluid_duct_box = new FluidDuctBox(Material.IRON).setTranslationKey("fluid_duct_box").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		fluid_duct_exhaust = new FluidDuctBoxExhaust(Material.IRON).setTranslationKey("fluid_duct_exhaust").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		fluid_duct_paintable_block_exhaust = new FluidDuctPaintableBlockExhaust().setTranslationKey("fluid_duct_paintable_block_exhaust").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		pipe_anchor = new FluidPipeAnchor().setTranslationKey("pipe_anchor").setStepSound(ModSoundTypes.pipe).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		pipe_anchor = new FluidPipeAnchor().withSoundType(ModSoundTypes.pipe).setTranslationKey("pipe_anchor").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+		com.hbm.blocks.LegacyBlockTextures.bind(pipe_anchor, RefStrings.MODID + ":block_steel");
 		fluid_duct_paintable = new FluidDuctPaintable().setTranslationKey("fluid_duct_paintable").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		fluid_duct_gauge = new FluidDuctGauge().setTranslationKey("fluid_duct_gauge").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		fluid_valve = new FluidValve(Material.IRON).setTranslationKey("fluid_valve").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		fluid_switch = new FluidSwitch(Material.IRON).setTranslationKey("fluid_switch").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		fluid_counter_valve = new FluidCounterValve(Material.IRON).setTranslationKey("fluid_counter_valve").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		fluid_pump = new FluidPump(Material.IRON).setTranslationKey("fluid_pump").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_drain = new MachineDrain(Material.IRON).setTranslationKey("machine_drain").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":concrete");
+		fluid_pump = com.hbm.blocks.LegacyBlockTextures.bind(new FluidPump(Material.IRON).setTranslationKey("fluid_pump").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_drain = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDrain(Material.IRON).setTranslationKey("machine_drain").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":concrete");
 		radio_torch_sender = new RadioTorchSender().setBlockName("radio_torch_sender").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		radio_torch_receiver = new RadioTorchReceiver().setBlockName("radio_torch_receiver").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		radio_torch_counter = new RadioTorchCounter().setBlockName("radio_torch_counter").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		radio_torch_logic = new RadioTorchLogic().setBlockName("radio_torch_logic").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		radio_torch_reader = new RadioTorchReader().setBlockName("radio_torch_reader").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		radio_torch_controller = new RadioTorchController().setBlockName("radio_torch_controller").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		radio_telex = new RadioTelex().setTranslationKey("radio_telex").setHardness(3F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":radio_telex");
+		radio_telex = com.hbm.blocks.LegacyBlockTextures.bind(new RadioTelex().setTranslationKey("radio_telex").setHardness(3F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":radio_telex");
 
 		conveyor = new BlockConveyor().setTranslationKey("conveyor").setHardness(2.0F).setResistance(2.0F).setCreativeTab(null);
 		conveyor_express = new BlockConveyorExpress().setTranslationKey("conveyor_express").setHardness(2.0F).setResistance(2.0F).setCreativeTab(null);
@@ -2204,33 +2220,34 @@ public class ModBlocks {
 		crane_unboxer = new CraneUnboxer().setTranslationKey("crane_unboxer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		crane_splitter = new CraneSplitter().setTranslationKey("crane_splitter").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		crane_partitioner = new CranePartitioner().setTranslationKey("crane_partitioner").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		fan = new MachineFan().setTranslationKey("fan").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		fan = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFan().setTranslationKey("fan").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 		piston_inserter = ((BlockBase) new PistonInserter().setBlockName("piston_inserter").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":block_steel");
 
-		drone_waypoint = new DroneWaypoint().setTranslationKey("drone_waypoint").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":drone_waypoint");
+		drone_waypoint = com.hbm.blocks.LegacyBlockTextures.bind(new DroneWaypoint().setTranslationKey("drone_waypoint").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_waypoint");
 		drone_crate = new DroneCrate().setTranslationKey("drone_crate").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		drone_waypoint_request = new DroneWaypointRequest().setTranslationKey("drone_waypoint_request").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":drone_waypoint_request");
-		drone_dock = new DroneDock().setTranslationKey("drone_dock").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":drone_dock");
-		drone_crate_provider = new DroneDock().setTranslationKey("drone_crate_provider").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":drone_crate_provider");
-		drone_crate_requester = new DroneDock().setTranslationKey("drone_crate_requester").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":drone_crate_requester");
+		drone_waypoint_request = com.hbm.blocks.LegacyBlockTextures.bind(new DroneWaypointRequest().setTranslationKey("drone_waypoint_request").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_waypoint_request");
+		drone_dock = com.hbm.blocks.LegacyBlockTextures.bind(new DroneDock().setTranslationKey("drone_dock").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_dock");
+		drone_crate_provider = com.hbm.blocks.LegacyBlockTextures.bind(new DroneDock().setTranslationKey("drone_crate_provider").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_crate_provider");
+		drone_crate_requester = com.hbm.blocks.LegacyBlockTextures.bind(new DroneDock().setTranslationKey("drone_crate_requester").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_crate_requester");
 
-		pneumatic_tube = new PneumoTube().setTranslationKey("pneumatic_tube").setSoundType(ModSoundTypes.pipe).setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+		pneumatic_tube = new PneumoTube().setSoundType(ModSoundTypes.pipe).setTranslationKey("pneumatic_tube").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		pneumatic_tube_paintable = new PneumoTubePaintableBlock().setTranslationKey("pneumatic_tube_paintable").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 
 		chain = new BlockChain(Material.IRON).setTranslationKey("dungeon_chain").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab);
 
-		ladder_sturdy = new BlockNTMLadder().setTranslationKey("ladder_sturdy").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_sturdy");
-		ladder_iron = new BlockNTMLadder().setTranslationKey("ladder_iron").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_iron");
-		ladder_gold = new BlockNTMLadder().setTranslationKey("ladder_gold").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_gold");
-		ladder_aluminium = new BlockNTMLadder().setTranslationKey("ladder_aluminium").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_aluminium");
-		ladder_copper = new BlockNTMLadder().setTranslationKey("ladder_copper").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_copper");
-		ladder_titanium = new BlockNTMLadder().setTranslationKey("ladder_titanium").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_titanium");
-		ladder_lead = new BlockNTMLadder().setTranslationKey("ladder_lead").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_lead");
-		ladder_cobalt = new BlockNTMLadder().setTranslationKey("ladder_cobalt").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_cobalt");
-		ladder_steel = new BlockNTMLadder().setTranslationKey("ladder_steel").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_steel");
-		ladder_tungsten = new BlockNTMLadder().setTranslationKey("ladder_tungsten").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":ladder_tungsten");
+		ladder_sturdy = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_sturdy").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_sturdy");
+		ladder_iron = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_iron").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_iron");
+		ladder_gold = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_gold").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_gold");
+		ladder_aluminium = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_aluminium").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_aluminium");
+		ladder_copper = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_copper").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_copper");
+		ladder_titanium = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_titanium").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_titanium");
+		ladder_lead = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_lead").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_lead");
+		ladder_cobalt = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_cobalt").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_cobalt");
+		ladder_steel = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_steel").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_steel");
+		ladder_tungsten = com.hbm.blocks.LegacyBlockTextures.bind(new BlockNTMLadder().setTranslationKey("ladder_tungsten").setHardness(0.25F).setResistance(2.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":ladder_tungsten");
 
-		trapdoor_steel = new BlockNTMTrapdoor(Material.IRON).setTranslationKey("trapdoor_steel").setHardness(3F).setResistance(8.0F).setStepSound(ModSoundTypes.legacyMetal).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":trapdoor_steel");
+		trapdoor_steel = new BlockNTMTrapdoor(Material.IRON).withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("trapdoor_steel").setHardness(3F).setResistance(8.0F).setCreativeTab(MainRegistry.blockTab);
+		com.hbm.blocks.LegacyBlockTextures.bind(trapdoor_steel, RefStrings.MODID + ":trapdoor_steel");
 
 		barrel_plastic = new BlockFluidBarrel(Material.IRON, 12000, net.minecraft.block.SoundType.STONE).setTranslationKey("barrel_plastic").setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab);
 		barrel_corroded = new BlockFluidBarrel(Material.IRON, 6000, ModSoundTypes.legacyMetal).setTranslationKey("barrel_corroded").setHardness(2.0F).setResistance(5.0F).setCreativeTab(null);
@@ -2239,24 +2256,24 @@ public class ModBlocks {
 		barrel_tcalloy = new BlockFluidBarrel(Material.IRON, 24000, ModSoundTypes.legacyMetal).setTranslationKey("barrel_tcalloy").setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab);
 		barrel_antimatter = new BlockFluidBarrel(Material.IRON, 16000, ModSoundTypes.legacyMetal).setTranslationKey("barrel_antimatter").setHardness(2.0F).setResistance(5.0F).setCreativeTab(MainRegistry.machineTab);
 
-		machine_transformer = new MachineTransformer(Material.IRON).setTranslationKey("machine_transformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_transformer_iron");
+		machine_transformer = com.hbm.blocks.LegacyBlockTextures.bind(new MachineTransformer(Material.IRON).setTranslationKey("machine_transformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_transformer_iron");
 
-		machine_satlinker = new MachineSatLinker(Material.IRON).setTranslationKey("machine_satlinker").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":machine_satlinker_side");
-		machine_keyforge = new MachineKeyForge(Material.IRON).setTranslationKey("machine_keyforge").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + ":machine_keyforge_side");
+		machine_satlinker = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSatLinker(Material.IRON).setTranslationKey("machine_satlinker").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":machine_satlinker_side");
+		machine_keyforge = com.hbm.blocks.LegacyBlockTextures.bind(new MachineKeyForge(Material.IRON).setTranslationKey("machine_keyforge").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":machine_keyforge_side");
 		machine_armor_table = new BlockArmorTable(Material.IRON).setTranslationKey("machine_armor_table").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab);
 		machine_weapon_table = new BlockWeaponTable().setTranslationKey("machine_weapon_table").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab);
 
-		machine_solar_boiler = new MachineSolarBoiler(Material.IRON).setTranslationKey("machine_solar_boiler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_solar_boiler");
+		machine_solar_boiler = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSolarBoiler(Material.IRON).setTranslationKey("machine_solar_boiler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_solar_boiler");
 		solar_mirror = new SolarMirror(Material.IRON).setTranslationKey("solar_mirror").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 
 		struct_launcher = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("struct_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab)).setBlockTextureName(RefStrings.MODID + ":struct_launcher");
 		struct_scaffold = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("struct_scaffold").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab)).setBlockTextureName(RefStrings.MODID + ":struct_scaffold");
-		struct_launcher_core = new BlockStruct(Material.IRON).setTranslationKey("struct_launcher_core").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":struct_launcher_core");
-		struct_launcher_core_large = new BlockStruct(Material.IRON).setTranslationKey("struct_launcher_core_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":struct_launcher_core_large");
-		struct_soyuz_core = new BlockSoyuzStruct(Material.IRON).setTranslationKey("struct_soyuz_core").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":struct_soyuz_core");
-		struct_torus_core = new BlockFusionTorusStruct(Material.IRON).setTranslationKey("struct_torus_core").setLightLevel(1F).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":struct_torus_core");
-		struct_watz_core = new BlockWatzStruct(Material.IRON).setTranslationKey("struct_watz_core").setLightLevel(1F).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":struct_watz_core");
-		struct_icf_core = new BlockICFStruct(Material.IRON).setTranslationKey("struct_icf_core").setLightLevel(1F).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":struct_icf_core");
+		struct_launcher_core = com.hbm.blocks.LegacyBlockTextures.bind(new BlockStruct(Material.IRON).setTranslationKey("struct_launcher_core").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":struct_launcher_core");
+		struct_launcher_core_large = com.hbm.blocks.LegacyBlockTextures.bind(new BlockStruct(Material.IRON).setTranslationKey("struct_launcher_core_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":struct_launcher_core_large");
+		struct_soyuz_core = com.hbm.blocks.LegacyBlockTextures.bind(new BlockSoyuzStruct(Material.IRON).setTranslationKey("struct_soyuz_core").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":struct_soyuz_core");
+		struct_torus_core = com.hbm.blocks.LegacyBlockTextures.bind(new BlockFusionTorusStruct(Material.IRON).setTranslationKey("struct_torus_core").setLightLevel(1F).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":struct_torus_core");
+		struct_watz_core = com.hbm.blocks.LegacyBlockTextures.bind(new BlockWatzStruct(Material.IRON).setTranslationKey("struct_watz_core").setLightLevel(1F).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":struct_watz_core");
+		struct_icf_core = com.hbm.blocks.LegacyBlockTextures.bind(new BlockICFStruct(Material.IRON).setTranslationKey("struct_icf_core").setLightLevel(1F).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":struct_icf_core");
 
 		factory_titanium_hull = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("factory_titanium_hull").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":factory_titanium_hull");
 		factory_advanced_hull = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("factory_advanced_hull").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":factory_advanced_hull");
@@ -2267,8 +2284,8 @@ public class ModBlocks {
 		cm_tank = ((BlockBase) new BlockCMGlass(Material.IRON, EnumCMMaterials.class, true, true).setBlockName("cm_tank").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":cm_tank");
 		cm_circuit = ((BlockBase) new BlockCM(Material.IRON, EnumCMCircuit.class, true, true).setBlockName("cm_circuit").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":cm_circuit");
 		cm_port = ((BlockBase) new BlockCMPort(Material.IRON, EnumCMMaterials.class, true, true).setBlockName("cm_port").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F)).setBlockTextureName(RefStrings.MODID + ":cm_port");
-		cm_flux = new BlockCMFlux(Material.IRON, RefStrings.MODID + ":cm_flux_top").setTranslationKey("cm_flux").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":cm_flux_side");
-		cm_heat = new BlockCMHeat(Material.IRON, RefStrings.MODID +":cm_heat_top").setTranslationKey("cm_heat").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":cm_heat_side");
+		cm_flux = com.hbm.blocks.LegacyBlockTextures.bind(new BlockCMFlux(Material.IRON, RefStrings.MODID + ":cm_flux_top").setTranslationKey("cm_flux").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + ":cm_flux_side");
+		cm_heat = com.hbm.blocks.LegacyBlockTextures.bind(new BlockCMHeat(Material.IRON, RefStrings.MODID +":cm_heat_top").setTranslationKey("cm_heat").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F), RefStrings.MODID + ":cm_heat_side");
 		custom_machine = new BlockCustomMachine().setTranslationKey("custom_machine").setCreativeTab(MainRegistry.machineTab).setLightLevel(1F).setHardness(5.0F).setResistance(10.0F);
 		cm_anchor = new BlockCMAnchor().setTranslationKey("custom_machine_anchor").setCreativeTab(MainRegistry.machineTab).setHardness(5.0F).setResistance(10.0F);
 
@@ -2281,77 +2298,77 @@ public class ModBlocks {
 		pwr_reflector = ((BlockBase) new BlockGenericPWR(Material.IRON).setBlockName("pwr_reflector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_reflector");
 		pwr_casing = ((BlockBase) new BlockGenericPWR(Material.IRON).setBlockName("pwr_casing").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_casing");
 		pwr_port = ((BlockBase) new BlockGenericPWR(Material.IRON).setBlockName("pwr_port").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":pwr_port");
-		pwr_controller = new MachinePWRController(Material.IRON).setTranslationKey("pwr_controller").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":pwr_casing_blank");
+		pwr_controller = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePWRController(Material.IRON).setTranslationKey("pwr_controller").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":pwr_casing_blank");
 		pwr_block = new BlockPWR(Material.IRON).setTranslationKey("pwr_block").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 
 		fusion_heater = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + ":fusion_heater_top").setTranslationKey("fusion_heater").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + ":fusion_heater_side");
-		fusion_hatch = new FusionHatch(Material.IRON).setTranslationKey("fusion_hatch").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":fusion_hatch");
-		plasma = new BlockPlasma(Material.IRON).setTranslationKey("plasma").setHardness(5.0F).setResistance(6000.0F).setLightLevel(1.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":plasma");
-		iter = new MachineITER().setTranslationKey("iter").setHardness(5.0F).setResistance(60.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":iter");
-		plasma_heater = new MachinePlasmaHeater().setTranslationKey("plasma_heater").setHardness(5.0F).setResistance(60.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":plasma_heater");
+		fusion_hatch = com.hbm.blocks.LegacyBlockTextures.bind(new FusionHatch(Material.IRON).setTranslationKey("fusion_hatch").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":fusion_hatch");
+		plasma = com.hbm.blocks.LegacyBlockTextures.bind(new BlockPlasma(Material.IRON).setTranslationKey("plasma").setHardness(5.0F).setResistance(6000.0F).setLightLevel(1.0F).setCreativeTab(null), RefStrings.MODID + ":plasma");
+		iter = com.hbm.blocks.LegacyBlockTextures.bind(new MachineITER().setTranslationKey("iter").setHardness(5.0F).setResistance(60.0F).setCreativeTab(null), RefStrings.MODID + ":iter");
+		plasma_heater = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePlasmaHeater().setTranslationKey("plasma_heater").setHardness(5.0F).setResistance(60.0F).setCreativeTab(null), RefStrings.MODID + ":plasma_heater");
 
 		fusion_component = ((BlockBase) new BlockFusionComponent().setBlockName("fusion_component").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":fusion_component");
-		fusion_torus = new MachineFusionTorus().setTranslationKey("fusion_torus").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		fusion_klystron = new MachineFusionKlystron().setTranslationKey("fusion_klystron").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		fusion_klystron_creative = new MachineFusionKlystronCreative().setTranslationKey("fusion_klystron_creative").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		fusion_breeder = new MachineFusionBreeder().setTranslationKey("fusion_breeder").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		fusion_collector = new MachineFusionCollector().setTranslationKey("fusion_collector").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		fusion_boiler = new MachineFusionBoiler().setTranslationKey("fusion_boiler").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		fusion_mhdt = new MachineFusionMHDT().setTranslationKey("fusion_mhdt").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		fusion_coupler = new MachineFusionCoupler().setTranslationKey("fusion_coupler").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		fusion_torus = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFusionTorus().setTranslationKey("fusion_torus").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		fusion_klystron = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFusionKlystron().setTranslationKey("fusion_klystron").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		fusion_klystron_creative = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFusionKlystronCreative().setTranslationKey("fusion_klystron_creative").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		fusion_breeder = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFusionBreeder().setTranslationKey("fusion_breeder").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		fusion_collector = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFusionCollector().setTranslationKey("fusion_collector").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		fusion_boiler = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFusionBoiler().setTranslationKey("fusion_boiler").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		fusion_mhdt = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFusionMHDT().setTranslationKey("fusion_mhdt").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		fusion_coupler = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFusionCoupler().setTranslationKey("fusion_coupler").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
-		machine_icf_press = new MachineICFPress().setTranslationKey("machine_icf_press").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		icf = new MachineICF().setTranslationKey("icf").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_icf_press = com.hbm.blocks.LegacyBlockTextures.bind(new MachineICFPress().setTranslationKey("machine_icf_press").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		icf = com.hbm.blocks.LegacyBlockTextures.bind(new MachineICF().setTranslationKey("icf").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 		icf_component = ((BlockBase) new BlockICFComponent().setBlockName("icf_component").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":icf_component");
-		icf_controller = new MachineICFController().setTranslationKey("icf_controller").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":icf_casing");
+		icf_controller = com.hbm.blocks.LegacyBlockTextures.bind(new MachineICFController().setTranslationKey("icf_controller").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":icf_casing");
 		icf_laser_component = new BlockICFLaserComponent().setBlockName("icf_laser_component").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.machineTab);
 		icf_block = new BlockICF(Material.IRON).setTranslationKey("icf_block").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 
 		watz_element = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + ":watz_element_top").setTranslationKey("watz_element").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":watz_element_side");
 		watz_cooler = ((BlockPillar) new BlockPillar(Material.IRON, RefStrings.MODID + ":watz_cooler_top").setTranslationKey("watz_cooler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":watz_cooler_side");
 		watz_end = ((BlockBase) new BlockToolConversion(Material.IRON).addVariant("_bolted").setBlockName("watz_end").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":watz_casing");
-		watz = new Watz().setTranslationKey("watz").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		watz_pump = new WatzPump().setTranslationKey("watz_pump").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		watz = com.hbm.blocks.LegacyBlockTextures.bind(new Watz().setTranslationKey("watz").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		watz_pump = com.hbm.blocks.LegacyBlockTextures.bind(new WatzPump().setTranslationKey("watz_pump").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
-		balefire = new Balefire().setTranslationKey("balefire").setHardness(0.0F).setLightLevel(1.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":balefire");
-		fire_digamma = new DigammaFlame().setTranslationKey("fire_digamma").setHardness(0.0F).setResistance(150F).setLightLevel(1.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":fire_digamma");
-		digamma_matter = new DigammaMatter().setTranslationKey("digamma_matter").setBlockUnbreakable().setResistance(18000000).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":digamma_matter");
+		balefire = com.hbm.blocks.LegacyBlockTextures.bind(new Balefire().setTranslationKey("balefire").setHardness(0.0F).setLightLevel(1.0F).setCreativeTab(null), RefStrings.MODID + ":balefire");
+		fire_digamma = com.hbm.blocks.LegacyBlockTextures.bind(new DigammaFlame().setTranslationKey("fire_digamma").setHardness(0.0F).setResistance(150F).setLightLevel(1.0F).setCreativeTab(null), RefStrings.MODID + ":fire_digamma");
+		digamma_matter = com.hbm.blocks.LegacyBlockTextures.bind(new DigammaMatter().setTranslationKey("digamma_matter").setBlockUnbreakable().setResistance(18000000).setCreativeTab(null), RefStrings.MODID + ":digamma_matter");
 
-		machine_converter_he_rf = new BlockConverterHeRf(Material.IRON).setTranslationKey("machine_converter_he_rf").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_converter_he_rf");
-		machine_converter_rf_he = new BlockConverterRfHe(Material.IRON).setTranslationKey("machine_converter_rf_he").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_converter_rf_he");
+		machine_converter_he_rf = com.hbm.blocks.LegacyBlockTextures.bind(new BlockConverterHeRf(Material.IRON).setTranslationKey("machine_converter_he_rf").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_converter_he_rf");
+		machine_converter_rf_he = com.hbm.blocks.LegacyBlockTextures.bind(new BlockConverterRfHe(Material.IRON).setTranslationKey("machine_converter_rf_he").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_converter_rf_he");
 
-		dfc_emitter = new CoreComponent(Material.IRON).setTranslationKey("dfc_emitter").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":dfc_emitter");
-		dfc_injector = new CoreComponent(Material.IRON).setTranslationKey("dfc_injector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":dfc_injector");
-		dfc_receiver = new CoreComponent(Material.IRON).setTranslationKey("dfc_receiver").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":dfc_receiver");
-		dfc_stabilizer = new CoreComponent(Material.IRON).setTranslationKey("dfc_stabilizer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":dfc_stabilizer");
-		dfc_core = new CoreCore(Material.IRON).setTranslationKey("dfc_core").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":dfc_core");
+		dfc_emitter = com.hbm.blocks.LegacyBlockTextures.bind(new CoreComponent(Material.IRON).setTranslationKey("dfc_emitter").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":dfc_emitter");
+		dfc_injector = com.hbm.blocks.LegacyBlockTextures.bind(new CoreComponent(Material.IRON).setTranslationKey("dfc_injector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":dfc_injector");
+		dfc_receiver = com.hbm.blocks.LegacyBlockTextures.bind(new CoreComponent(Material.IRON).setTranslationKey("dfc_receiver").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":dfc_receiver");
+		dfc_stabilizer = com.hbm.blocks.LegacyBlockTextures.bind(new CoreComponent(Material.IRON).setTranslationKey("dfc_stabilizer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":dfc_stabilizer");
+		dfc_core = com.hbm.blocks.LegacyBlockTextures.bind(new CoreCore(Material.IRON).setTranslationKey("dfc_core").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":dfc_core");
 
 		seal_frame = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("seal_frame").setHardness(10.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":seal_frame");
 		seal_controller = new BlockSeal(Material.IRON).setTranslationKey("seal_controller").setHardness(10.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab);
-		seal_hatch = new BlockHatch(Material.IRON).setTranslationKey("seal_hatch").setHardness(Float.POSITIVE_INFINITY).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":seal_hatch_3");
+		seal_hatch = com.hbm.blocks.LegacyBlockTextures.bind(new BlockHatch(Material.IRON).setTranslationKey("seal_hatch").setHardness(Float.POSITIVE_INFINITY).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null), RefStrings.MODID + ":seal_hatch_3");
 
-		vault_door = new BlockDoorGeneric(Material.IRON, DoorDecl.VAULT_DOOR).setTranslationKey("vault_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":concrete");
-		blast_door = new BlastDoor(Material.IRON).setTranslationKey("blast_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":blast_door");
+		vault_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.VAULT_DOOR).setTranslationKey("vault_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":concrete");
+		blast_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlastDoor(Material.IRON).setTranslationKey("blast_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":blast_door");
 
-		sliding_blast_door = new BlockDoorGeneric(Material.IRON, DoorDecl.SLIDE_DOOR).setTranslationKey("sliding_blast_door").setHardness(10.0F).setResistance(750.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":sliding_blast_door");
-		fire_door = new BlockDoorGeneric(Material.IRON, DoorDecl.FIRE_DOOR).setTranslationKey("fire_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":fire_door");
-		transition_seal = new BlockDoorGeneric(Material.IRON, DoorDecl.TRANSITION_SEAL).setTranslationKey("transition_seal").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":transition_seal");
-		silo_hatch = new BlockDoorGeneric(Material.IRON, DoorDecl.SILO_HATCH).setTranslationKey("silo_hatch").setHardness(10.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		silo_hatch_large = new BlockDoorGeneric(Material.IRON, DoorDecl.SILO_HATCH_LARGE).setTranslationKey("silo_hatch_large").setHardness(10.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		secure_access_door = new BlockDoorGeneric(Material.IRON, DoorDecl.SECURE_ACCESS_DOOR).setTranslationKey("secure_access_door").setHardness(20.0F).setResistance(2_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		large_vehicle_door = new BlockDoorGeneric(Material.IRON, DoorDecl.LARGE_VEHICLE_DOOR).setTranslationKey("large_vehicle_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		qe_containment = new BlockDoorGeneric(Material.IRON, DoorDecl.QE_CONTAINMENT).setTranslationKey("qe_containment").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		qe_sliding_door = new BlockDoorGeneric(Material.IRON, DoorDecl.QE_SLIDING).setTranslationKey("qe_sliding_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		round_airlock_door = new BlockDoorGeneric(Material.IRON, DoorDecl.ROUND_AIRLOCK_DOOR).setTranslationKey("round_airlock_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		sliding_seal_door = new BlockDoorGeneric(Material.IRON, DoorDecl.SLIDING_SEAL_DOOR).setTranslationKey("sliding_seal_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		water_door = new BlockDoorGeneric(Material.IRON, DoorDecl.WATER_DOOR).setTranslationKey("water_door").setHardness(5.0F).setResistance(50.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		sliding_blast_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.SLIDE_DOOR).setTranslationKey("sliding_blast_door").setHardness(10.0F).setResistance(750.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":sliding_blast_door");
+		fire_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.FIRE_DOOR).setTranslationKey("fire_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":fire_door");
+		transition_seal = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.TRANSITION_SEAL).setTranslationKey("transition_seal").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":transition_seal");
+		silo_hatch = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.SILO_HATCH).setTranslationKey("silo_hatch").setHardness(10.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		silo_hatch_large = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.SILO_HATCH_LARGE).setTranslationKey("silo_hatch_large").setHardness(10.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		secure_access_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.SECURE_ACCESS_DOOR).setTranslationKey("secure_access_door").setHardness(20.0F).setResistance(2_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		large_vehicle_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.LARGE_VEHICLE_DOOR).setTranslationKey("large_vehicle_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		qe_containment = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.QE_CONTAINMENT).setTranslationKey("qe_containment").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		qe_sliding_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.QE_SLIDING).setTranslationKey("qe_sliding_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		round_airlock_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.ROUND_AIRLOCK_DOOR).setTranslationKey("round_airlock_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		sliding_seal_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.SLIDING_SEAL_DOOR).setTranslationKey("sliding_seal_door").setHardness(10.0F).setResistance(1_000.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		water_door = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDoorGeneric(Material.IRON, DoorDecl.WATER_DOOR).setTranslationKey("water_door").setHardness(5.0F).setResistance(50.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
-		door_metal = new BlockModDoor(Material.IRON).setTranslationKey("door_metal").setHardness(5.0F).setResistance(5.0F).setBlockTextureName(RefStrings.MODID + ":door_metal");
-		door_office = new BlockModDoor(Material.IRON).setTranslationKey("door_office").setHardness(10.0F).setResistance(10.0F).setBlockTextureName(RefStrings.MODID + ":door_office");
-		door_bunker = new BlockModDoor(Material.IRON).setTranslationKey("door_bunker").setHardness(10.0F).setResistance(100.0F).setBlockTextureName(RefStrings.MODID + ":door_bunker");
-		door_red = new BlockModDoor(Material.IRON).setTranslationKey("door_red").setHardness(10.0F).setResistance(100.0F).setBlockTextureName(RefStrings.MODID + ":door_red");
+		door_metal = com.hbm.blocks.LegacyBlockTextures.bind(new BlockModDoor(Material.IRON).setTranslationKey("door_metal").setHardness(5.0F).setResistance(5.0F), RefStrings.MODID + ":door_metal");
+		door_office = com.hbm.blocks.LegacyBlockTextures.bind(new BlockModDoor(Material.IRON).setTranslationKey("door_office").setHardness(10.0F).setResistance(10.0F), RefStrings.MODID + ":door_office");
+		door_bunker = com.hbm.blocks.LegacyBlockTextures.bind(new BlockModDoor(Material.IRON).setTranslationKey("door_bunker").setHardness(10.0F).setResistance(100.0F), RefStrings.MODID + ":door_bunker");
+		door_red = com.hbm.blocks.LegacyBlockTextures.bind(new BlockModDoor(Material.IRON).setTranslationKey("door_red").setHardness(10.0F).setResistance(100.0F), RefStrings.MODID + ":door_red");
 
-		fence_gate = new BlockFenceGate(Material.IRON).setTranslationKey("fence_gate").setHardness(5.0F).setResistance(1.0F).setBlockTextureName(RefStrings.MODID + ":fence_metal");
+		fence_gate = com.hbm.blocks.LegacyBlockTextures.bind(new BlockFenceGate(Material.IRON).setTranslationKey("fence_gate").setHardness(5.0F).setResistance(1.0F), RefStrings.MODID + ":fence_metal");
 
 		barbed_wire = createBarbedWire("barbed_wire");
 		barbed_wire_fire = createBarbedWire("barbed_wire_fire");
@@ -2359,46 +2376,46 @@ public class ModBlocks {
 		barbed_wire_acid = createBarbedWire("barbed_wire_acid");
 		barbed_wire_wither = createBarbedWire("barbed_wire_wither");
 		barbed_wire_ultradeath = createBarbedWire("barbed_wire_ultradeath");
-		spikes = new Spikes(Material.IRON).setTranslationKey("spikes").setHardness(2.5F).setResistance(5.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":spikes");
+		spikes = com.hbm.blocks.LegacyBlockTextures.bind(new Spikes(Material.IRON).setTranslationKey("spikes").setHardness(2.5F).setResistance(5.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":spikes");
 
-		charger = new Charger(Material.IRON).setTranslationKey("charger").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		refueler = new BlockRefueler(Material.IRON).setTranslationKey("refueler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		charger = com.hbm.blocks.LegacyBlockTextures.bind(new Charger(Material.IRON).setTranslationKey("charger").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":block_steel");
+		refueler = com.hbm.blocks.LegacyBlockTextures.bind(new BlockRefueler(Material.IRON).setTranslationKey("refueler").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":block_steel");
 
-		tesla = new MachineTesla(Material.IRON).setTranslationKey("tesla").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":tesla");
+		tesla = com.hbm.blocks.LegacyBlockTextures.bind(new MachineTesla(Material.IRON).setTranslationKey("tesla").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab), RefStrings.MODID + ":tesla");
 
-		launch_pad = new LaunchPad(Material.IRON).setTranslationKey("launch_pad").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":launch_pad");
-		launch_pad_rocket = new LaunchPadRocket(Material.IRON).setTranslationKey("launch_pad_rocket").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":launch_pad");
-		launch_pad_rusted = new LaunchPadRusted(Material.IRON).setTranslationKey("launch_pad_rusted").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":block_rust");
-		launch_pad_large = new LaunchPadLarge(Material.IRON).setTranslationKey("launch_pad_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_radar = new MachineRadar(Material.IRON).setTranslationKey("machine_radar").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":machine_radar");
-		machine_radar_large = new MachineRadarLarge(Material.IRON).setTranslationKey("machine_radar_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		radar_screen = new MachineRadarScreen(Material.IRON).setTranslationKey("radar_screen").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		launch_pad = com.hbm.blocks.LegacyBlockTextures.bind(new LaunchPad(Material.IRON).setTranslationKey("launch_pad").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":launch_pad");
+		launch_pad_rocket = com.hbm.blocks.LegacyBlockTextures.bind(new LaunchPadRocket(Material.IRON).setTranslationKey("launch_pad_rocket").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":launch_pad");
+		launch_pad_rusted = com.hbm.blocks.LegacyBlockTextures.bind(new LaunchPadRusted(Material.IRON).setTranslationKey("launch_pad_rusted").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":block_rust");
+		launch_pad_large = com.hbm.blocks.LegacyBlockTextures.bind(new LaunchPadLarge(Material.IRON).setTranslationKey("launch_pad_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":block_steel");
+		machine_radar = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRadar(Material.IRON).setTranslationKey("machine_radar").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":machine_radar");
+		machine_radar_large = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRadarLarge(Material.IRON).setTranslationKey("machine_radar_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":block_steel");
+		radar_screen = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRadarScreen(Material.IRON).setTranslationKey("radar_screen").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":block_steel");
 
-		machine_missile_assembly = new MachineMissileAssembly(Material.IRON).setTranslationKey("machine_missile_assembly").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":machine_missile_assembly");
-		machine_rocket_assembly = new MachineRocketAssembly(Material.IRON).setTranslationKey("machine_rocket_assembly").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":machine_missile_assembly");
-		compact_launcher = new CompactLauncher(Material.IRON).setTranslationKey("compact_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":compact_launcher");
-		launch_table = new LaunchTable(Material.IRON).setTranslationKey("launch_table").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":launch_table");
-		soyuz_launcher = new SoyuzLauncher(Material.IRON).setTranslationKey("soyuz_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":soyuz_launcher");
+		machine_missile_assembly = com.hbm.blocks.LegacyBlockTextures.bind(new MachineMissileAssembly(Material.IRON).setTranslationKey("machine_missile_assembly").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":machine_missile_assembly");
+		machine_rocket_assembly = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRocketAssembly(Material.IRON).setTranslationKey("machine_rocket_assembly").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":machine_missile_assembly");
+		compact_launcher = com.hbm.blocks.LegacyBlockTextures.bind(new CompactLauncher(Material.IRON).setTranslationKey("compact_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":compact_launcher");
+		launch_table = com.hbm.blocks.LegacyBlockTextures.bind(new LaunchTable(Material.IRON).setTranslationKey("launch_table").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":launch_table");
+		soyuz_launcher = com.hbm.blocks.LegacyBlockTextures.bind(new SoyuzLauncher(Material.IRON).setTranslationKey("soyuz_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":soyuz_launcher");
 
-		sat_dock = new MachineSatDock(Material.IRON).setTranslationKey("sat_dock").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":sat_dock");
-		soyuz_capsule = new SoyuzCapsule(Material.IRON).setTranslationKey("soyuz_capsule").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":soyuz_capsule");
-		gas_dock = new MachineGasDock(Material.IRON).setTranslationKey("gas_dock").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":sat_dock");
+		sat_dock = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSatDock(Material.IRON).setTranslationKey("sat_dock").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":sat_dock");
+		soyuz_capsule = com.hbm.blocks.LegacyBlockTextures.bind(new SoyuzCapsule(Material.IRON).setTranslationKey("soyuz_capsule").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":soyuz_capsule");
+		gas_dock = com.hbm.blocks.LegacyBlockTextures.bind(new MachineGasDock(Material.IRON).setTranslationKey("gas_dock").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":sat_dock");
 		crate_supply = new BlockSupplyCrate(Material.WOOD).setTranslationKey("crate_supply").setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.missileTab);
-		combat_drop = new CombatDropPod(Material.IRON).setTranslationKey("combat_drop").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":crate_can");
+		combat_drop = com.hbm.blocks.LegacyBlockTextures.bind(new CombatDropPod(Material.IRON).setTranslationKey("combat_drop").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":crate_can");
 
-		turret_chekhov = new TurretChekhov(Material.IRON).setTranslationKey("turret_chekhov").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_friendly = new TurretFriendly(Material.IRON).setTranslationKey("turret_friendly").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_jeremy = new TurretJeremy(Material.IRON).setTranslationKey("turret_jeremy").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_tauon = new TurretTauon(Material.IRON).setTranslationKey("turret_tauon").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_richard = new TurretRichard(Material.IRON).setTranslationKey("turret_richard").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_howard = new TurretHoward(Material.IRON).setTranslationKey("turret_howard").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_howard_damaged = new TurretHowardDamaged(Material.IRON).setTranslationKey("turret_howard_damaged").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_rust");
-		turret_maxwell = new TurretMaxwell(Material.IRON).setTranslationKey("turret_maxwell").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_fritz = new TurretFritz(Material.IRON).setTranslationKey("turret_fritz").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_arty = new TurretArty(Material.IRON).setTranslationKey("turret_arty").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_himars = new TurretHIMARS(Material.IRON).setTranslationKey("turret_himars").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_sentry = new TurretSentry().setTranslationKey("turret_sentry").setHardness(5.0F).setResistance(5.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		turret_sentry_damaged = new TurretSentryDamaged().setTranslationKey("turret_sentry_damaged").setHardness(5.0F).setResistance(5.0F).setCreativeTab(MainRegistry.weaponTab).setBlockTextureName(RefStrings.MODID + ":block_rust");
+		turret_chekhov = com.hbm.blocks.LegacyBlockTextures.bind(new TurretChekhov(Material.IRON).setTranslationKey("turret_chekhov").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_friendly = com.hbm.blocks.LegacyBlockTextures.bind(new TurretFriendly(Material.IRON).setTranslationKey("turret_friendly").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_jeremy = com.hbm.blocks.LegacyBlockTextures.bind(new TurretJeremy(Material.IRON).setTranslationKey("turret_jeremy").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_tauon = com.hbm.blocks.LegacyBlockTextures.bind(new TurretTauon(Material.IRON).setTranslationKey("turret_tauon").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_richard = com.hbm.blocks.LegacyBlockTextures.bind(new TurretRichard(Material.IRON).setTranslationKey("turret_richard").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_howard = com.hbm.blocks.LegacyBlockTextures.bind(new TurretHoward(Material.IRON).setTranslationKey("turret_howard").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_howard_damaged = com.hbm.blocks.LegacyBlockTextures.bind(new TurretHowardDamaged(Material.IRON).setTranslationKey("turret_howard_damaged").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_rust");
+		turret_maxwell = com.hbm.blocks.LegacyBlockTextures.bind(new TurretMaxwell(Material.IRON).setTranslationKey("turret_maxwell").setHardness(5.0F).setResistance(60.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_fritz = com.hbm.blocks.LegacyBlockTextures.bind(new TurretFritz(Material.IRON).setTranslationKey("turret_fritz").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_arty = com.hbm.blocks.LegacyBlockTextures.bind(new TurretArty(Material.IRON).setTranslationKey("turret_arty").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_himars = com.hbm.blocks.LegacyBlockTextures.bind(new TurretHIMARS(Material.IRON).setTranslationKey("turret_himars").setHardness(5.0F).setResistance(600.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_sentry = com.hbm.blocks.LegacyBlockTextures.bind(new TurretSentry().setTranslationKey("turret_sentry").setHardness(5.0F).setResistance(5.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_steel");
+		turret_sentry_damaged = com.hbm.blocks.LegacyBlockTextures.bind(new TurretSentryDamaged().setTranslationKey("turret_sentry_damaged").setHardness(5.0F).setResistance(5.0F).setCreativeTab(MainRegistry.weaponTab), RefStrings.MODID + ":block_rust");
 
 		rbmk_rod = new RBMKRod(false).setTranslationKey("rbmk_rod").setCreativeTab(MainRegistry.machineTab);
 		rbmk_rod_mod = new RBMKRod(true).setTranslationKey("rbmk_rod_mod").setCreativeTab(MainRegistry.machineTab);
@@ -2418,15 +2435,15 @@ public class ModBlocks {
 		rbmk_storage = new RBMKStorage().setTranslationKey("rbmk_storage").setCreativeTab(MainRegistry.machineTab);
 		rbmk_cooler = new RBMKCooler().setTranslationKey("rbmk_cooler").setCreativeTab(MainRegistry.machineTab);
 		rbmk_heater = new RBMKHeater().setTranslationKey("rbmk_heater").setCreativeTab(MainRegistry.machineTab);
-		rbmk_console = new RBMKConsole().setTranslationKey("rbmk_console").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":rbmk/rbmk_console");
-		rbmk_crane_console = new RBMKCraneConsole().setTranslationKey("rbmk_crane_console").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":rbmk/rbmk_crane_console");
+		rbmk_console = com.hbm.blocks.LegacyBlockTextures.bind(new RBMKConsole().setTranslationKey("rbmk_console").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":rbmk/rbmk_console");
+		rbmk_crane_console = com.hbm.blocks.LegacyBlockTextures.bind(new RBMKCraneConsole().setTranslationKey("rbmk_crane_console").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":rbmk/rbmk_crane_console");
 		rbmk_display = new RBMKDisplay().setTranslationKey("rbmk_display").setCreativeTab(MainRegistry.machineTab);
 		rbmk_key_pad = new RBMKKeyPad().setTranslationKey("rbmk_key_pad").setCreativeTab(MainRegistry.machineTab);
 		rbmk_gauge = new RBMKGauge().setTranslationKey("rbmk_gauge").setCreativeTab(MainRegistry.machineTab);
-		rbmk_autoloader = new RBMKAutoloader().setTranslationKey("rbmk_autoloader").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(60.0F).setBlockTextureName(RefStrings.MODID + ":rbmk_autoloader");
+		rbmk_autoloader = com.hbm.blocks.LegacyBlockTextures.bind(new RBMKAutoloader().setTranslationKey("rbmk_autoloader").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(60.0F), RefStrings.MODID + ":rbmk_autoloader");
 		rbmk_loader = ((BlockBase) new RBMKLoader(Material.IRON).setBlockName("rbmk_loader").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(60.0F)).setBlockTextureName(RefStrings.MODID + ":rbmk_loader");
-		rbmk_steam_inlet = new RBMKInlet(Material.IRON).setTranslationKey("rbmk_steam_inlet").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(60.0F).setBlockTextureName(RefStrings.MODID + ":rbmk_steam_inlet");
-		rbmk_steam_outlet = new RBMKOutlet(Material.IRON).setTranslationKey("rbmk_steam_outlet").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(60.0F).setBlockTextureName(RefStrings.MODID + ":rbmk_steam_outlet");
+		rbmk_steam_inlet = com.hbm.blocks.LegacyBlockTextures.bind(new RBMKInlet(Material.IRON).setTranslationKey("rbmk_steam_inlet").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(60.0F), RefStrings.MODID + ":rbmk_steam_inlet");
+		rbmk_steam_outlet = com.hbm.blocks.LegacyBlockTextures.bind(new RBMKOutlet(Material.IRON).setTranslationKey("rbmk_steam_outlet").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(60.0F), RefStrings.MODID + ":rbmk_steam_outlet");
 		pribris = new RBMKDebris().setTranslationKey("pribris").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F);
 		pribris_burning = new RBMKDebrisBurning().setTranslationKey("pribris_burning").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F);
 		pribris_radiating = new RBMKDebrisRadiating().setTranslationKey("pribris_radiating").setCreativeTab(MainRegistry.machineTab).setHardness(50.0F).setResistance(600.0F);
@@ -2434,10 +2451,10 @@ public class ModBlocks {
 
 		book_guide = new Guide(Material.IRON).setTranslationKey("book_guide").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.nukeTab);
 
-		rail_wood = new RailGeneric("axe", 0).setMaxSpeed(0.2F).setTranslationKey("rail_wood").setHardness(5.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.tabTransport).setBlockTextureName(RefStrings.MODID + ":rail_wood");
-		rail_narrow = new RailGeneric("pickaxe", 0).setTranslationKey("rail_narrow").setHardness(5.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.tabTransport).setBlockTextureName(RefStrings.MODID + ":rail_narrow");
-		rail_highspeed = new RailGeneric("pickaxe", 0).setMaxSpeed(1F).setFlexible(false).setTranslationKey("rail_highspeed").setHardness(5.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.tabTransport).setBlockTextureName(RefStrings.MODID + ":rail_highspeed");
-		rail_booster = new RailBooster("pickaxe", 0).setTranslationKey("rail_booster").setHardness(5.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.tabTransport).setBlockTextureName(RefStrings.MODID + ":rail_booster");
+		rail_wood = com.hbm.blocks.LegacyBlockTextures.bind(new RailGeneric("axe", 0).setMaxSpeed(0.2F).setTranslationKey("rail_wood").setHardness(5.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.TRANSPORTATION), RefStrings.MODID + ":rail_wood");
+		rail_narrow = com.hbm.blocks.LegacyBlockTextures.bind(new RailGeneric("pickaxe", 0).setTranslationKey("rail_narrow").setHardness(5.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.TRANSPORTATION), RefStrings.MODID + ":rail_narrow");
+		rail_highspeed = com.hbm.blocks.LegacyBlockTextures.bind(new RailGeneric("pickaxe", 0).setMaxSpeed(1F).setFlexible(false).setTranslationKey("rail_highspeed").setHardness(5.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.TRANSPORTATION), RefStrings.MODID + ":rail_highspeed");
+		rail_booster = com.hbm.blocks.LegacyBlockTextures.bind(new RailBooster("pickaxe", 0).setTranslationKey("rail_booster").setHardness(5.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.TRANSPORTATION), RefStrings.MODID + ":rail_booster");
 		rail_narrow_straight = new RailNarrowStraight().setTranslationKey("rail_narrow_straight").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		rail_narrow_curve = new RailNarrowCurve().setTranslationKey("rail_narrow_curve").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		rail_large_straight = new RailStandardStraight().setTranslationKey("rail_large_straight").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
@@ -2450,112 +2467,115 @@ public class ModBlocks {
 		rail_large_switch = new RailStandardSwitch().setTranslationKey("rail_large_switch").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 		rail_large_switch_flipped = new RailStandardSwitchFlipped().setTranslationKey("rail_large_switch_flipped").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
 
-		crate = ((BlockCrate) new BlockCrate(Material.WOOD).setTranslationKey("crate")).withSoundType(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + ":crate");
-		crate_weapon = ((BlockCrate) new BlockCrate(Material.WOOD).setTranslationKey("crate_weapon")).withSoundType(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + ":crate_weapon");
-		crate_lead = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey("crate_lead")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + ":crate_lead");
-		crate_metal = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey("crate_metal")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + ":crate_metal");
-		crate_red = ((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey("crate_red")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":crate_red");
+		crate = com.hbm.blocks.LegacyBlockTextures.bind(((BlockCrate) new BlockCrate(Material.WOOD).setTranslationKey("crate")).withSoundType(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":crate");
+		crate_weapon = com.hbm.blocks.LegacyBlockTextures.bind(((BlockCrate) new BlockCrate(Material.WOOD).setTranslationKey("crate_weapon")).withSoundType(SoundType.WOOD).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":crate_weapon");
+		crate_lead = com.hbm.blocks.LegacyBlockTextures.bind(((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey("crate_lead")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":crate_lead");
+		crate_metal = com.hbm.blocks.LegacyBlockTextures.bind(((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey("crate_metal")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":crate_metal");
+		crate_red = com.hbm.blocks.LegacyBlockTextures.bind(((BlockCrate) new BlockCrate(Material.IRON).setTranslationKey("crate_red")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":crate_red");
 		crate_can = new BlockCanCrate(Material.WOOD).setTranslationKey("crate_can").setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.consumableTab);
-		crate_ammo = new BlockAmmoCrate(Material.IRON).setTranslationKey("crate_ammo").setStepSound(ModSoundTypes.legacyMetal).setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.consumableTab);
-		crate_jungle = new BlockJungleCrate(Material.ROCK).setTranslationKey("crate_jungle").setStepSound(SoundType.STONE).setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.consumableTab).setBlockTextureName(RefStrings.MODID + ":crate_jungle");
+		crate_ammo = new BlockAmmoCrate(Material.IRON).withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("crate_ammo").setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.consumableTab);
+		crate_jungle = PlainCubeTextures.bind(new BlockJungleCrate(Material.ROCK).withSoundType(SoundType.STONE).setTranslationKey("crate_jungle").setHardness(1.0F).setResistance(2.5F).setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":crate_jungle");
 		crate_iron = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey("crate_iron")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		crate_steel = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey("crate_steel")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		crate_desh = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey("crate_desh")).withSoundType(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		crate_tungsten = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey("crate_tungsten")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);
 		crate_template = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey("crate_template")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(300.0F).setCreativeTab(MainRegistry.machineTab);
 		safe = ((BlockStorageCrate) new BlockStorageCrate(Material.IRON).setTranslationKey("safe")).withSoundType(ModSoundTypes.legacyMetal).setHardness(7.5F).setResistance(10000.0F).setCreativeTab(MainRegistry.machineTab);
-		mass_storage = new BlockMassStorage().setTranslationKey("mass_storage").setStepSound(ModSoundTypes.legacyMetal).setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+		mass_storage = new BlockMassStorage().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("mass_storage").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 
-		boxcar = new DecoBlock(Material.IRON).setTranslationKey("boxcar").setStepSound(ModSoundTypes.legacyMetal).setHardness(10.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":boxcar");
-		boat = new DecoBlock(Material.IRON).setTranslationKey("boat").setStepSound(ModSoundTypes.legacyMetal).setHardness(10.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab).setBlockTextureName(RefStrings.MODID + ":asphalt");
+		boxcar = new DecoBlock(Material.IRON).withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("boxcar").setHardness(10.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab);
+		com.hbm.blocks.LegacyBlockTextures.bind(boxcar, RefStrings.MODID + ":boxcar");
+		boat = new DecoBlock(Material.IRON).withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("boat").setHardness(10.0F).setResistance(10.0F).setCreativeTab(MainRegistry.blockTab);
+		com.hbm.blocks.LegacyBlockTextures.bind(boat, RefStrings.MODID + ":asphalt");
 
-		war_controller = new WarController().setTranslationKey("war_controller").setStepSound(ModSoundTypes.legacyMetal).setHardness(10.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		war_controller = new WarController().withSoundType(ModSoundTypes.legacyMetal).setTranslationKey("war_controller").setHardness(10.0F).setResistance(10.0F).setCreativeTab(null);
+		com.hbm.blocks.LegacyBlockTextures.bind(war_controller, RefStrings.MODID + ":block_steel");
 
 
-		machine_well = new MachineOilWell().setTranslationKey("machine_well").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_pumpjack = new MachinePumpjack().setTranslationKey("machine_pumpjack").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_fracking_tower = new MachineFrackingTower().setTranslationKey("machine_fracking_tower").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_well = com.hbm.blocks.LegacyBlockTextures.bind(new MachineOilWell().setTranslationKey("machine_well").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_pumpjack = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePumpjack().setTranslationKey("machine_pumpjack").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_fracking_tower = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFrackingTower().setTranslationKey("machine_fracking_tower").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 		oil_pipe = com.hbm.blocks.PlainCubeTextures.bind(new BlockNoDrop(Material.IRON).setTranslationKey("oil_pipe").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":oil_pipe");
-		machine_flare = new MachineGasFlare(Material.IRON).setTranslationKey("machine_flare").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		chimney_brick = new MachineChimneyBrick(Material.IRON).setTranslationKey("chimney_brick").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":brick_fire");
-		chimney_industrial = new MachineChimneyIndustrial(Material.IRON).setTranslationKey("chimney_industrial").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":concrete_colored_ext.machine");
-		machine_refinery = new MachineRefinery(Material.IRON).setTranslationKey("machine_refinery").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_refinery");
-		machine_vacuum_distill = new MachineVacuumDistill(Material.IRON).setTranslationKey("machine_vacuum_distill").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_fraction_tower = new MachineFractionTower(Material.IRON).setTranslationKey("machine_fraction_tower").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		fraction_spacer = new FractionSpacer(Material.IRON).setTranslationKey("fraction_spacer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_catalytic_cracker = new MachineCatalyticCracker(Material.IRON).setTranslationKey("machine_catalytic_cracker").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_catalytic_reformer = new MachineCatalyticReformer(Material.IRON).setTranslationKey("machine_catalytic_reformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_milk_reformer = new MachineMilkReformer(Material.IRON).setTranslationKey("machine_milk_reformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_hydrotreater = new MachineHydrotreater(Material.IRON).setTranslationKey("machine_hydrotreater").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_coker = new MachineCoker(Material.IRON).setTranslationKey("machine_coker").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_pyrooven = new MachinePyroOven(Material.IRON).setTranslationKey("machine_pyrooven").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_autosaw = new MachineAutosaw().setTranslationKey("machine_autosaw").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_excavator = new MachineExcavator().setTranslationKey("machine_excavator").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_magma = new MachineMagma().setTranslationKey("machine_magma").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_ore_slopper = new MachineOreSlopper().setTranslationKey("machine_ore_slopper").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_annihilator = new MachineAnnihilator().setTranslationKey("machine_annihilator").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_mining_laser = new MachineMiningLaser(Material.IRON).setTranslationKey("machine_mining_laser").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_mining_laser");
+		machine_flare = com.hbm.blocks.LegacyBlockTextures.bind(new MachineGasFlare(Material.IRON).setTranslationKey("machine_flare").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		chimney_brick = com.hbm.blocks.LegacyBlockTextures.bind(new MachineChimneyBrick(Material.IRON).setTranslationKey("chimney_brick").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":brick_fire");
+		chimney_industrial = com.hbm.blocks.LegacyBlockTextures.bind(new MachineChimneyIndustrial(Material.IRON).setTranslationKey("chimney_industrial").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":concrete_colored_ext.machine");
+		machine_refinery = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRefinery(Material.IRON).setTranslationKey("machine_refinery").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_refinery");
+		machine_vacuum_distill = com.hbm.blocks.LegacyBlockTextures.bind(new MachineVacuumDistill(Material.IRON).setTranslationKey("machine_vacuum_distill").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_fraction_tower = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFractionTower(Material.IRON).setTranslationKey("machine_fraction_tower").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		fraction_spacer = com.hbm.blocks.LegacyBlockTextures.bind(new FractionSpacer(Material.IRON).setTranslationKey("fraction_spacer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_catalytic_cracker = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCatalyticCracker(Material.IRON).setTranslationKey("machine_catalytic_cracker").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_catalytic_reformer = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCatalyticReformer(Material.IRON).setTranslationKey("machine_catalytic_reformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_milk_reformer = com.hbm.blocks.LegacyBlockTextures.bind(new MachineMilkReformer(Material.IRON).setTranslationKey("machine_milk_reformer").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_hydrotreater = com.hbm.blocks.LegacyBlockTextures.bind(new MachineHydrotreater(Material.IRON).setTranslationKey("machine_hydrotreater").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_coker = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCoker(Material.IRON).setTranslationKey("machine_coker").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_pyrooven = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePyroOven(Material.IRON).setTranslationKey("machine_pyrooven").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_autosaw = com.hbm.blocks.LegacyBlockTextures.bind(new MachineAutosaw().setTranslationKey("machine_autosaw").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_excavator = com.hbm.blocks.LegacyBlockTextures.bind(new MachineExcavator().setTranslationKey("machine_excavator").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_magma = com.hbm.blocks.LegacyBlockTextures.bind(new MachineMagma().setTranslationKey("machine_magma").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_ore_slopper = com.hbm.blocks.LegacyBlockTextures.bind(new MachineOreSlopper().setTranslationKey("machine_ore_slopper").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_annihilator = com.hbm.blocks.LegacyBlockTextures.bind(new MachineAnnihilator().setTranslationKey("machine_annihilator").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_mining_laser = com.hbm.blocks.LegacyBlockTextures.bind(new MachineMiningLaser(Material.IRON).setTranslationKey("machine_mining_laser").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_mining_laser");
 		barricade = com.hbm.blocks.PlainCubeTextures.bind(new BlockNoDrop(Material.SAND).setTranslationKey("barricade").setHardness(1.0F).setResistance(2.5F).setCreativeTab(null), RefStrings.MODID + ":barricade");
-		machine_assembly_machine = new MachineAssemblyMachine(Material.IRON).setTranslationKey("machine_assembly_machine").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_assembly_factory = new MachineAssemblyFactory(Material.IRON).setTranslationKey("machine_assembly_factory").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_precass = new MachinePrecAss(Material.IRON).setTranslationKey("machine_precass").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_arc_welder = new MachineArcWelder(Material.IRON).setTranslationKey("machine_arc_welder").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_soldering_station = new MachineSolderingStation(Material.IRON).setTranslationKey("machine_soldering_station").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_assembly_machine = com.hbm.blocks.LegacyBlockTextures.bind(new MachineAssemblyMachine(Material.IRON).setTranslationKey("machine_assembly_machine").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_assembly_factory = com.hbm.blocks.LegacyBlockTextures.bind(new MachineAssemblyFactory(Material.IRON).setTranslationKey("machine_assembly_factory").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_precass = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePrecAss(Material.IRON).setTranslationKey("machine_precass").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_arc_welder = com.hbm.blocks.LegacyBlockTextures.bind(new MachineArcWelder(Material.IRON).setTranslationKey("machine_arc_welder").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_soldering_station = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSolderingStation(Material.IRON).setTranslationKey("machine_soldering_station").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
-		machine_vacuum_circuit = new MachineVacuumCircuit(Material.IRON).setTranslationKey("machine_vacuum_circuit").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_chemical_plant = new MachineChemicalPlant(Material.IRON).setTranslationKey("machine_chemical_plant").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_chemical_factory = new MachineChemicalFactory(Material.IRON).setTranslationKey("machine_chemical_factory").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_purex = new MachinePUREX(Material.IRON).setTranslationKey("machine_purex").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_mixer = new MachineMixer(Material.IRON).setTranslationKey("machine_mixer").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_fluidtank = new MachineFluidTank(Material.IRON).setTranslationKey("machine_fluidtank").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_bat9000 = new MachineBigAssTank9000(Material.IRON).setTranslationKey("machine_bat9000").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_orbus = new MachineOrbus(Material.IRON).setTranslationKey("machine_orbus").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_turbofan = new MachineTurbofan(Material.IRON).setTranslationKey("machine_turbofan").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_turbinegas = new MachineTurbineGas(Material.IRON).setTranslationKey("machine_turbinegas").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_lpw2 = new MachineLPW2().setTranslationKey("machine_lpw2").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_htr3 = new MachineHTR3().setTranslationKey("machine_htr3").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_htrf4 = new MachineHTRF4().setTranslationKey("machine_htrf4").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_htrf4neo = new MachineHTRFNeo().setTranslationKey("machine_htrf4neo").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_xenon_thruster = new MachineXenonThruster(Material.IRON).setTranslationKey("machine_xenon_thruster").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_vacuum_circuit = com.hbm.blocks.LegacyBlockTextures.bind(new MachineVacuumCircuit(Material.IRON).setTranslationKey("machine_vacuum_circuit").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_chemical_plant = com.hbm.blocks.LegacyBlockTextures.bind(new MachineChemicalPlant(Material.IRON).setTranslationKey("machine_chemical_plant").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_chemical_factory = com.hbm.blocks.LegacyBlockTextures.bind(new MachineChemicalFactory(Material.IRON).setTranslationKey("machine_chemical_factory").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_purex = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePUREX(Material.IRON).setTranslationKey("machine_purex").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_mixer = com.hbm.blocks.LegacyBlockTextures.bind(new MachineMixer(Material.IRON).setTranslationKey("machine_mixer").setHardness(5.0F).setResistance(30.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_fluidtank = com.hbm.blocks.LegacyBlockTextures.bind(new MachineFluidTank(Material.IRON).setTranslationKey("machine_fluidtank").setHardness(5.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_bat9000 = com.hbm.blocks.LegacyBlockTextures.bind(new MachineBigAssTank9000(Material.IRON).setTranslationKey("machine_bat9000").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_orbus = com.hbm.blocks.LegacyBlockTextures.bind(new MachineOrbus(Material.IRON).setTranslationKey("machine_orbus").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_turbofan = com.hbm.blocks.LegacyBlockTextures.bind(new MachineTurbofan(Material.IRON).setTranslationKey("machine_turbofan").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_turbinegas = com.hbm.blocks.LegacyBlockTextures.bind(new MachineTurbineGas(Material.IRON).setTranslationKey("machine_turbinegas").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_lpw2 = com.hbm.blocks.LegacyBlockTextures.bind(new MachineLPW2().setTranslationKey("machine_lpw2").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_htr3 = com.hbm.blocks.LegacyBlockTextures.bind(new MachineHTR3().setTranslationKey("machine_htr3").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_htrf4 = com.hbm.blocks.LegacyBlockTextures.bind(new MachineHTRF4().setTranslationKey("machine_htrf4").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_htrf4neo = com.hbm.blocks.LegacyBlockTextures.bind(new MachineHTRFNeo().setTranslationKey("machine_htrf4neo").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_xenon_thruster = com.hbm.blocks.LegacyBlockTextures.bind(new MachineXenonThruster(Material.IRON).setTranslationKey("machine_xenon_thruster").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 		press_preheater = ((BlockBase) new BlockBase(Material.IRON).setBlockName("press_preheater").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab)).setBlockTextureName(RefStrings.MODID + ":press_preheater");
-		machine_press = new MachinePress(Material.IRON).setTranslationKey("machine_press").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_press");
-		machine_epress = new MachineEPress(Material.IRON).setTranslationKey("machine_epress").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_epress");
-		machine_conveyor_press = new MachineConveyorPress(Material.IRON).setTranslationKey("machine_conveyor_press").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_ammo_press = new MachineAmmoPress().setTranslationKey("machine_ammo_press").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		reactor_research = new ReactorResearch(Material.IRON).setTranslationKey("machine_reactor_small").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_reactor_small");
-		reactor_zirnox = new ReactorZirnox(Material.IRON).setTranslationKey("machine_zirnox").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		zirnox_destroyed = new ZirnoxDestroyed(Material.IRON).setTranslationKey("zirnox_destroyed").setHardness(100.0F).setResistance(800.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_press = com.hbm.blocks.LegacyBlockTextures.bind(new MachinePress(Material.IRON).setTranslationKey("machine_press").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_press");
+		machine_epress = com.hbm.blocks.LegacyBlockTextures.bind(new MachineEPress(Material.IRON).setTranslationKey("machine_epress").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_epress");
+		machine_conveyor_press = com.hbm.blocks.LegacyBlockTextures.bind(new MachineConveyorPress(Material.IRON).setTranslationKey("machine_conveyor_press").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_ammo_press = com.hbm.blocks.LegacyBlockTextures.bind(new MachineAmmoPress().setTranslationKey("machine_ammo_press").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		reactor_research = com.hbm.blocks.LegacyBlockTextures.bind(new ReactorResearch(Material.IRON).setTranslationKey("machine_reactor_small").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_reactor_small");
+		reactor_zirnox = com.hbm.blocks.LegacyBlockTextures.bind(new ReactorZirnox(Material.IRON).setTranslationKey("machine_zirnox").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		zirnox_destroyed = com.hbm.blocks.LegacyBlockTextures.bind(new ZirnoxDestroyed(Material.IRON).setTranslationKey("zirnox_destroyed").setHardness(100.0F).setResistance(800.0F).setCreativeTab(null), RefStrings.MODID + ":block_steel");
 		machine_controller = new MachineReactorControl(Material.IRON).setTranslationKey("machine_controller").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
-		machine_dish_controller = new MachineDishControl(Material.IRON).setTranslationKey("dish_control").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		machine_dish_controller = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDishControl(Material.IRON).setTranslationKey("dish_control").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 
-		machine_cryo_distill = new MachineCryoDistill(Material.IRON).setTranslationKey("machine_cryo_distill").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		machine_cryo_distill = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCryoDistill(Material.IRON).setTranslationKey("machine_cryo_distill").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
-		machine_boiler_off = new MachineBoiler(false).setTranslationKey("machine_boiler_off").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":machine_boiler_off");
+		machine_boiler_off = com.hbm.blocks.LegacyBlockTextures.bind(new MachineBoiler(false).setTranslationKey("machine_boiler_off").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":machine_boiler_off");
 
-		machine_steam_engine = new MachineSteamEngine().setTranslationKey("machine_steam_engine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_turbine = new MachineTurbine(Material.IRON).setTranslationKey("machine_turbine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_turbine");
-		machine_large_turbine = new MachineLargeTurbine(Material.IRON).setTranslationKey("machine_large_turbine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_large_turbine");
-		machine_industrial_turbine = new MachineIndustrialTurbine().setTranslationKey("machine_industrial_turbine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_chungus = new MachineChungus(Material.IRON).setTranslationKey("machine_chungus").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		machine_condenser = new MachineCondenser(Material.IRON).setTranslationKey("machine_condenser").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":condenser");
-		machine_tower_small = new MachineTowerSmall(Material.IRON).setTranslationKey("machine_tower_small").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":brick_concrete");
-		machine_tower_large = new MachineTowerLarge(Material.IRON).setTranslationKey("machine_tower_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":concrete");
-		machine_condenser_powered = new MachineCondenserPowered(Material.IRON).setTranslationKey("machine_condenser_powered").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_radiator = new MachineRadiator(Material.IRON).setTranslationKey("machine_radiator").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		machine_steam_engine = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSteamEngine().setTranslationKey("machine_steam_engine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_turbine = com.hbm.blocks.LegacyBlockTextures.bind(new MachineTurbine(Material.IRON).setTranslationKey("machine_turbine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_turbine");
+		machine_large_turbine = com.hbm.blocks.LegacyBlockTextures.bind(new MachineLargeTurbine(Material.IRON).setTranslationKey("machine_large_turbine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_large_turbine");
+		machine_industrial_turbine = com.hbm.blocks.LegacyBlockTextures.bind(new MachineIndustrialTurbine().setTranslationKey("machine_industrial_turbine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_chungus = com.hbm.blocks.LegacyBlockTextures.bind(new MachineChungus(Material.IRON).setTranslationKey("machine_chungus").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		machine_condenser = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCondenser(Material.IRON).setTranslationKey("machine_condenser").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":condenser");
+		machine_tower_small = com.hbm.blocks.LegacyBlockTextures.bind(new MachineTowerSmall(Material.IRON).setTranslationKey("machine_tower_small").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":brick_concrete");
+		machine_tower_large = com.hbm.blocks.LegacyBlockTextures.bind(new MachineTowerLarge(Material.IRON).setTranslationKey("machine_tower_large").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":concrete");
+		machine_condenser_powered = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCondenserPowered(Material.IRON).setTranslationKey("machine_condenser_powered").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_radiator = com.hbm.blocks.LegacyBlockTextures.bind(new MachineRadiator(Material.IRON).setTranslationKey("machine_radiator").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 
-		machine_deuterium_extractor = new MachineDeuteriumExtractor(Material.IRON).setTranslationKey("machine_deuterium_extractor").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_deuterium_extractor_side");
-		machine_deuterium_tower = new DeuteriumTower(Material.IRON).setTranslationKey("machine_deuterium_tower").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":concrete");
-		machine_atmo_tower = new AtmoTower(Material.IRON).setTranslationKey("machine_atmo_tower").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":concrete");
-		machine_atmo_vent = new BlockAtmosphericCompressor(Material.IRON).setTranslationKey("machine_atmo_vent").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":concrete");
+		machine_deuterium_extractor = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDeuteriumExtractor(Material.IRON).setTranslationKey("machine_deuterium_extractor").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_deuterium_extractor_side");
+		machine_deuterium_tower = com.hbm.blocks.LegacyBlockTextures.bind(new DeuteriumTower(Material.IRON).setTranslationKey("machine_deuterium_tower").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":concrete");
+		machine_atmo_tower = com.hbm.blocks.LegacyBlockTextures.bind(new AtmoTower(Material.IRON).setTranslationKey("machine_atmo_tower").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":concrete");
+		machine_atmo_vent = com.hbm.blocks.LegacyBlockTextures.bind(new BlockAtmosphericCompressor(Material.IRON).setTranslationKey("machine_atmo_vent").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":concrete");
 
-		machine_liquefactor = new MachineLiquefactor().setTranslationKey("machine_liquefactor").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_solidifier = new MachineSolidifier().setTranslationKey("machine_solidifier").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_intake = new MachineIntake().setTranslationKey("machine_intake").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_atmo_emitter = new MachineAtmosphericEmitter().setTranslationKey("machine_atmo_emitter").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_compressor = new MachineCompressor().setTranslationKey("machine_compressor").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		machine_compressor_compact = new MachineCompressorCompact().setTranslationKey("machine_compressor_compact").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		machine_liquefactor = com.hbm.blocks.LegacyBlockTextures.bind(new MachineLiquefactor().setTranslationKey("machine_liquefactor").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_solidifier = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSolidifier().setTranslationKey("machine_solidifier").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_intake = com.hbm.blocks.LegacyBlockTextures.bind(new MachineIntake().setTranslationKey("machine_intake").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_atmo_emitter = com.hbm.blocks.LegacyBlockTextures.bind(new MachineAtmosphericEmitter().setTranslationKey("machine_atmo_emitter").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_compressor = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCompressor().setTranslationKey("machine_compressor").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		machine_compressor_compact = com.hbm.blocks.LegacyBlockTextures.bind(new MachineCompressorCompact().setTranslationKey("machine_compressor_compact").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 
-		machine_electrolyser = new MachineElectrolyser().setTranslationKey("machine_electrolyser").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		machine_electrolyser = com.hbm.blocks.LegacyBlockTextures.bind(new MachineElectrolyser().setTranslationKey("machine_electrolyser").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 
 		machine_autocrafter = new MachineAutocrafter().setTranslationKey("machine_autocrafter").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab);
 		machine_funnel = new MachineFunnel().setTranslationKey("machine_funnel").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab);
@@ -2573,44 +2593,44 @@ public class ModBlocks {
 		anvil_osmiridium = new NTMAnvil(Material.IRON, NTMAnvil.TIER_GERALD).setTranslationKey("anvil_osmiridium").setCreativeTab(MainRegistry.machineTab);
 		anvil_murky = new NTMAnvil(Material.IRON, 1916169).setTranslationKey("anvil_murky").setCreativeTab(MainRegistry.machineTab);
 
-		machine_waste_drum = new WasteDrum(Material.IRON).setTranslationKey("machine_waste_drum").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":waste_drum");
-		machine_storage_drum = new StorageDrum(Material.IRON).setTranslationKey("machine_storage_drum").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_storage_drum");
+		machine_waste_drum = com.hbm.blocks.LegacyBlockTextures.bind(new WasteDrum(Material.IRON).setTranslationKey("machine_waste_drum").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":waste_drum");
+		machine_storage_drum = com.hbm.blocks.LegacyBlockTextures.bind(new StorageDrum(Material.IRON).setTranslationKey("machine_storage_drum").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_storage_drum");
 
-		machine_siren = new MachineSiren(Material.IRON).setTranslationKey("machine_siren").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":machine_siren");
+		machine_siren = com.hbm.blocks.LegacyBlockTextures.bind(new MachineSiren(Material.IRON).setTranslationKey("machine_siren").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":machine_siren");
 
-		radiobox = new Radiobox(Material.IRON).setTranslationKey("radiobox").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":radiobox");
-		radiorec = new RadioRec(Material.IRON).setTranslationKey("radiorec").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":radiorec");
+		radiobox = com.hbm.blocks.LegacyBlockTextures.bind(new Radiobox(Material.IRON).setTranslationKey("radiobox").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":radiobox");
+		radiorec = com.hbm.blocks.LegacyBlockTextures.bind(new RadioRec(Material.IRON).setTranslationKey("radiorec").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":radiorec");
 
-		machine_forcefield = new MachineForceField(Material.IRON).setTranslationKey("machine_forcefield").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.missileTab).setBlockTextureName(RefStrings.MODID + ":machine_forcefield");
+		machine_forcefield = com.hbm.blocks.LegacyBlockTextures.bind(new MachineForceField(Material.IRON).setTranslationKey("machine_forcefield").setHardness(5.0F).setResistance(100.0F).setCreativeTab(MainRegistry.missileTab), RefStrings.MODID + ":machine_forcefield");
 
-		cheater_virus = new CheaterVirus(Material.IRON).setTranslationKey("cheater_virus").setHardness(Float.POSITIVE_INFINITY).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":cheater_virus");
-		cheater_virus_seed = new CheaterVirusSeed(Material.IRON).setTranslationKey("cheater_virus_seed").setHardness(Float.POSITIVE_INFINITY).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":cheater_virus_seed");
-		crystal_virus = new CrystalVirus(Material.IRON).setTranslationKey("crystal_virus").setHardness(15.0F).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":crystal_virus");
+		cheater_virus = com.hbm.blocks.LegacyBlockTextures.bind(new CheaterVirus(Material.IRON).setTranslationKey("cheater_virus").setHardness(Float.POSITIVE_INFINITY).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null), RefStrings.MODID + ":cheater_virus");
+		cheater_virus_seed = com.hbm.blocks.LegacyBlockTextures.bind(new CheaterVirusSeed(Material.IRON).setTranslationKey("cheater_virus_seed").setHardness(Float.POSITIVE_INFINITY).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null), RefStrings.MODID + ":cheater_virus_seed");
+		crystal_virus = com.hbm.blocks.LegacyBlockTextures.bind(new CrystalVirus(Material.IRON).setTranslationKey("crystal_virus").setHardness(15.0F).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null), RefStrings.MODID + ":crystal_virus");
 		crystal_hardened = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("crystal_hardened").setHardness(15.0F).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + ":crystal_hardened");
-		crystal_pulsar = new CrystalPulsar(Material.IRON).setTranslationKey("crystal_pulsar").setHardness(15.0F).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":crystal_pulsar");
-		taint = new BlockTaint(Material.IRON).setTranslationKey("taint").setHardness(15.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":taint");
+		crystal_pulsar = com.hbm.blocks.LegacyBlockTextures.bind(new CrystalPulsar(Material.IRON).setTranslationKey("crystal_pulsar").setHardness(15.0F).setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null), RefStrings.MODID + ":crystal_pulsar");
+		taint = com.hbm.blocks.LegacyBlockTextures.bind(new BlockTaint(Material.IRON).setTranslationKey("taint").setHardness(15.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":taint");
 
-		vent_chlorine = new BlockVent(Material.IRON).setTranslationKey("vent_chlorine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":vent_chlorine");
-		vent_cloud = new BlockVent(Material.IRON).setTranslationKey("vent_cloud").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":vent_cloud");
-		vent_pink_cloud = new BlockVent(Material.IRON).setTranslationKey("vent_pink_cloud").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":vent_pink_cloud");
+		vent_chlorine = com.hbm.blocks.LegacyBlockTextures.bind(new BlockVent(Material.IRON).setTranslationKey("vent_chlorine").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":vent_chlorine");
+		vent_cloud = com.hbm.blocks.LegacyBlockTextures.bind(new BlockVent(Material.IRON).setTranslationKey("vent_cloud").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":vent_cloud");
+		vent_pink_cloud = com.hbm.blocks.LegacyBlockTextures.bind(new BlockVent(Material.IRON).setTranslationKey("vent_pink_cloud").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":vent_pink_cloud");
 		vent_chlorine_seal = new BlockClorineSeal(Material.IRON).setTranslationKey("vent_chlorine_seal").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		chlorine_gas = new BlockGasClorine().setTranslationKey("chlorine_gas").setHardness(0.0F).setResistance(0.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":chlorine_gas");
+		chlorine_gas = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasClorine().setTranslationKey("chlorine_gas").setHardness(0.0F).setResistance(0.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":chlorine_gas");
 
-		air_vent = new BlockAirPump(Material.IRON).setTranslationKey("air_vent").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		air_scrubber = new BlockAirScrubber(Material.IRON).setTranslationKey("air_scrubber").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		air_vent = com.hbm.blocks.LegacyBlockTextures.bind(new BlockAirPump(Material.IRON).setTranslationKey("air_vent").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		air_scrubber = com.hbm.blocks.LegacyBlockTextures.bind(new BlockAirScrubber(Material.IRON).setTranslationKey("air_scrubber").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 		algae_film = new BlockAlgaeFilm(Material.IRON).setTranslationKey("algae_film").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		hydrobay = new MachineHydroponic(Material.IRON).setTranslationKey("hydrobay").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		hydrobay = com.hbm.blocks.LegacyBlockTextures.bind(new MachineHydroponic(Material.IRON).setTranslationKey("hydrobay").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 
-		gas_radon = new BlockGasRadon().setTranslationKey("gas_radon").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_radon");
-		gas_radon_dense = new BlockGasRadonDense().setTranslationKey("gas_radon_dense").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_radon_dense");
-		gas_radon_tomb = new BlockGasRadonTomb().setTranslationKey("gas_radon_tomb").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_radon_tomb");
-		gas_meltdown = new BlockGasMeltdown().setTranslationKey("gas_meltdown").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_meltdown");
-		gas_monoxide = new BlockGasMonoxide().setTranslationKey("gas_monoxide").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_monoxide");
-		gas_asbestos = new BlockGasAsbestos().setTranslationKey("gas_asbestos").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_asbestos");
-		gas_coal = new BlockGasCoal().setTranslationKey("gas_coal").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_coal");
-		gas_flammable = new BlockGasFlammable().setTranslationKey("gas_flammable").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_flammable");
-		gas_explosive = new BlockGasExplosive().setTranslationKey("gas_explosive").setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":gas_explosive");
-		vacuum = new BlockVacuum().setTranslationKey("vacuum").setResistance(1000000F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":vacuum");
+		gas_radon = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasRadon().setTranslationKey("gas_radon").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_radon");
+		gas_radon_dense = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasRadonDense().setTranslationKey("gas_radon_dense").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_radon_dense");
+		gas_radon_tomb = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasRadonTomb().setTranslationKey("gas_radon_tomb").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_radon_tomb");
+		gas_meltdown = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasMeltdown().setTranslationKey("gas_meltdown").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_meltdown");
+		gas_monoxide = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasMonoxide().setTranslationKey("gas_monoxide").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_monoxide");
+		gas_asbestos = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasAsbestos().setTranslationKey("gas_asbestos").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_asbestos");
+		gas_coal = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasCoal().setTranslationKey("gas_coal").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_coal");
+		gas_flammable = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasFlammable().setTranslationKey("gas_flammable").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_flammable");
+		gas_explosive = com.hbm.blocks.LegacyBlockTextures.bind(new BlockGasExplosive().setTranslationKey("gas_explosive").setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":gas_explosive");
+		vacuum = com.hbm.blocks.LegacyBlockTextures.bind(new BlockVacuum().setTranslationKey("vacuum").setResistance(1000000F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":vacuum");
 
 		absorber = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("absorber").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + ":block_deprecated");
 		absorber_red = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("absorber_red").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + ":block_deprecated");
@@ -2618,14 +2638,14 @@ public class ModBlocks {
 		absorber_pink = ((BlockBase) new BlockGeneric(Material.IRON).setBlockName("absorber_pink").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + ":block_deprecated");
 
 		rad_absorber = new BlockAbsorber(Material.IRON).setBlockName("rad_absorber").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
-		decon = new BlockDecon(Material.IRON).setTranslationKey("decon").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":decon_side");
+		decon = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDecon(Material.IRON).setTranslationKey("decon").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":decon_side");
 
 		if(Loader.isModLoaded("OpenComputers")) {
 			oc_cable_paintable = new BlockOpenComputersCablePaintable().setTranslationKey("oc_cable_paintable").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		}
 
-		volcano_core = new BlockVolcano().setTranslationKey("volcano_core").setBlockUnbreakable().setResistance(10000.0F).setCreativeTab(MainRegistry.nukeTab).setBlockTextureName(RefStrings.MODID + ":volcano_core");
-		volcano_rad_core = new BlockVolcano().setTranslationKey("volcano_rad_core").setBlockUnbreakable().setResistance(10000.0F).setCreativeTab(MainRegistry.nukeTab).setBlockTextureName(RefStrings.MODID + ":volcano_rad_core");
+		volcano_core = com.hbm.blocks.LegacyBlockTextures.bind(new BlockVolcano().setTranslationKey("volcano_core").setBlockUnbreakable().setResistance(10000.0F).setCreativeTab(MainRegistry.nukeTab), RefStrings.MODID + ":volcano_core");
+		volcano_rad_core = com.hbm.blocks.LegacyBlockTextures.bind(new BlockVolcano().setTranslationKey("volcano_rad_core").setBlockUnbreakable().setResistance(10000.0F).setCreativeTab(MainRegistry.nukeTab), RefStrings.MODID + ":volcano_rad_core");
 
 		statue_elb_f = new DecoBlockAlt(Material.IRON).setTranslationKey("#undef").setHardness(Float.POSITIVE_INFINITY).setLightLevel(1.0F).setResistance(Float.POSITIVE_INFINITY);
 
@@ -2672,44 +2692,53 @@ public class ModBlocks {
 		Fluid liquidConcrete = new GenericFluid("concrete_liquid").setViscosity(2000);
 		concrete_liquid = new GenericFiniteFluid(liquidConcrete, Material.ROCK, "concrete_liquid", "concrete_liquid_flowing").setQuantaPerBlock(4).setTranslationKey("concrete_liquid").setResistance(500F);
 
-		flesh_block = new MeltedFlesh(Material.SNOW).setTranslationKey("flesh_block").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":meltedFlesh");
-		charred_flesh_block = new MeltedFlesh(Material.SNOW).setTranslationKey("charred_flesh_block").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":charredFlesh");
-		carbonized_flesh_block = new MeltedFlesh(Material.SNOW).setTranslationKey("carbonized_flesh_block").setStepSound(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0).setBlockTextureName(RefStrings.MODID + ":carbonizedFlesh");
+		flesh_block = new MeltedFlesh(Material.SNOW).withSoundType(SoundType.GROUND).setTranslationKey("flesh_block").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(flesh_block, RefStrings.MODID + ":meltedFlesh");
+		charred_flesh_block = new MeltedFlesh(Material.SNOW).withSoundType(SoundType.GROUND).setTranslationKey("charred_flesh_block").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(charred_flesh_block, RefStrings.MODID + ":charredFlesh");
+		carbonized_flesh_block = new MeltedFlesh(Material.SNOW).withSoundType(SoundType.GROUND).setTranslationKey("carbonized_flesh_block").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
+		com.hbm.blocks.LegacyBlockTextures.bind(carbonized_flesh_block, RefStrings.MODID + ":carbonizedFlesh");
 
 		ccl_fluid = new GenericFluid("ccl_fluid").setDensity(1840).setViscosity(1000).setTemperature(273);
 		FluidRegistry.registerFluid(ccl_fluid);
 		ccl_block = new GenericFluidBlock(ccl_fluid, Material.WATER, "ccl", "ccl_flowing").setDamage(ModDamageSource.lead, 1F).setTranslationKey("ccl_block").setResistance(500F);
 
 
-		dummy_block_blast = new DummyBlockBlast(Material.IRON).setTranslationKey("dummy_block_blast").setHardness(10.0F).setResistance(10000.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		dummy_plate_compact_launcher = new DummyBlockMachine(Material.IRON, compact_launcher, false).setBounds(0, 16, 0, 16, 16, 16).setTranslationKey("dummy_plate_compact_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		dummy_port_compact_launcher = new DummyBlockMachine(Material.IRON, compact_launcher, true).setTranslationKey("dummy_port_compact_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		dummy_plate_launch_table = new DummyBlockMachine(Material.IRON, launch_table, false).setBounds(0, 16, 0, 16, 16, 16).setTranslationKey("dummy_plate_launch_table").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		dummy_port_launch_table = new DummyBlockMachine(Material.IRON, launch_table, true).setTranslationKey("dummy_port_launch_table").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		dummy_plate_cargo = new DummyBlockMachine(Material.IRON, sat_dock, false).setBounds(0, 0, 0, 16, 8, 16).setTranslationKey("dummy_plate_cargo").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		dummy_block_blast = com.hbm.blocks.LegacyBlockTextures.bind(new DummyBlockBlast(Material.IRON).setTranslationKey("dummy_block_blast").setHardness(10.0F).setResistance(10000.0F).setCreativeTab(null), RefStrings.MODID + ":block_steel");
+		dummy_plate_compact_launcher = com.hbm.blocks.LegacyBlockTextures.bind(new DummyBlockMachine(Material.IRON, compact_launcher, false).setBounds(0, 16, 0, 16, 16, 16).setTranslationKey("dummy_plate_compact_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":block_steel");
+		dummy_port_compact_launcher = com.hbm.blocks.LegacyBlockTextures.bind(new DummyBlockMachine(Material.IRON, compact_launcher, true).setTranslationKey("dummy_port_compact_launcher").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":block_steel");
+		dummy_plate_launch_table = com.hbm.blocks.LegacyBlockTextures.bind(new DummyBlockMachine(Material.IRON, launch_table, false).setBounds(0, 16, 0, 16, 16, 16).setTranslationKey("dummy_plate_launch_table").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":block_steel");
+		dummy_port_launch_table = com.hbm.blocks.LegacyBlockTextures.bind(new DummyBlockMachine(Material.IRON, launch_table, true).setTranslationKey("dummy_port_launch_table").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":block_steel");
+		dummy_plate_cargo = com.hbm.blocks.LegacyBlockTextures.bind(new DummyBlockMachine(Material.IRON, sat_dock, false).setBounds(0, 0, 0, 16, 8, 16).setTranslationKey("dummy_plate_cargo").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null), RefStrings.MODID + ":block_steel");
 
-		ntm_dirt = new BlockNTMDirt().setTranslationKey("ntm_dirt").setHardness(0.5F).setStepSound(SoundType.GROUND).setCreativeTab(null).setBlockTextureName("dirt");
+		ntm_dirt = PlainCubeTextures.bind(new BlockNTMDirt().withSoundType(SoundType.GROUND).setTranslationKey("ntm_dirt").setHardness(0.5F).setCreativeTab(null), "dirt");
 
 		pink_log = ((BlockLogNT) new BlockLogNT("log_oak", RefStrings.MODID + ":pink_log").setTranslationKey("pink_log").setHardness(0.5F)).withSoundType(SoundType.WOOD).setCreativeTab(null);
 		pink_planks = ((BlockBase) ((BlockBase) new BlockGeneric(Material.WOOD).setBlockName("pink_planks")).setSoundType(SoundType.WOOD).setCreativeTab(null)).setBlockTextureName(RefStrings.MODID + ":pink_planks");
-		pink_slab = new BlockPinkSlab(false, Material.WOOD).setTranslationKey("pink_slab").setStepSound(SoundType.WOOD).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":pink_planks");
-		pink_double_slab = new BlockPinkSlab(true, Material.WOOD).setTranslationKey("pink_double_slab").setStepSound(SoundType.WOOD).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":pink_planks");
-		pink_stairs = new BlockGenericStairs(pink_planks, 0).setTranslationKey("pink_stairs").setStepSound(SoundType.WOOD).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":pink_planks");
+		pink_slab = new BlockPinkSlab(false, Material.WOOD).withSoundType(SoundType.WOOD).setTranslationKey("pink_slab").setCreativeTab(null);
+		com.hbm.blocks.LegacyBlockTextures.bind(pink_slab, RefStrings.MODID + ":pink_planks");
+		pink_double_slab = new BlockPinkSlab(true, Material.WOOD).withSoundType(SoundType.WOOD).setTranslationKey("pink_double_slab").setCreativeTab(null);
+		com.hbm.blocks.LegacyBlockTextures.bind(pink_double_slab, RefStrings.MODID + ":pink_planks");
+		pink_stairs = new BlockGenericStairs(pink_planks, 0).withSoundType(SoundType.WOOD).setTranslationKey("pink_stairs").setCreativeTab(null);
+		com.hbm.blocks.LegacyBlockTextures.bind(pink_stairs, RefStrings.MODID + ":pink_planks");
 
 		vinyl_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + ":vinyl_log_side", RefStrings.MODID + ":vinyl_log_top").setTranslationKey("vinyl_log")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
 		pvc_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + ":pvc_log_side", RefStrings.MODID + ":pvc_log_top").setTranslationKey("pvc_log")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
-		rubber_leaves = new BlockRubberLeaves().setTranslationKey("rubber_leaves").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + ":rubber_leaves");
-		rubber_grass = new RubberGrass(Material.GRASS, false).setTranslationKey("rubber_grass").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		rubber_leaves = new BlockRubberLeaves().withSoundType(SoundType.PLANT).setTranslationKey("rubber_leaves").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		com.hbm.blocks.LegacyBlockTextures.bind(rubber_leaves, RefStrings.MODID + ":rubber_leaves");
+		rubber_grass = new RubberGrass(Material.GRASS, false).withSoundType(SoundType.PLANT).setTranslationKey("rubber_grass").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
 		rubber_silt = ((BlockBase) ((BlockBase) new BlockGeneric(Material.SAND).setBlockName("rubber_silt")).setSoundType(SoundType.GROUND).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F)).setBlockTextureName(RefStrings.MODID + ":rubber_silt");
 		rubber_plant = ((BlockBase) new BlockRubberPlant().setBlockName("rubber_plant").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);
 		spike_cacti = ((BlockBase) new BlockRubberCacti(Material.GRASS).setBlockName("rubber_tall").setCreativeTab(MainRegistry.blockTab)).setSoundType(SoundType.PLANT).setHardness(0.0F);
-		vinyl_sand = new BlockFalling(Material.SAND).setTranslationKey("vinyl_sand").setStepSound(SoundType.SAND).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F).setBlockTextureName(RefStrings.MODID + ":sand_vinyl");
-		vinyl_vines = new BlockVinylVine().setTranslationKey("vinyl_vine").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F).setBlockTextureName(RefStrings.MODID + ":vine");
-		pet_leaves = new BlockRubberLeaves().setTranslationKey("pet_leaves").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F).setBlockTextureName(RefStrings.MODID + ":pet_leaves");
+		vinyl_sand = PlainCubeTextures.bind(new BlockFallingLegacy(Material.SAND).withSoundType(SoundType.SAND).setTranslationKey("vinyl_sand").setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F), RefStrings.MODID + ":sand_vinyl");
+		vinyl_vines = new BlockVinylVine().withSoundType(SoundType.PLANT).setTranslationKey("vinyl_vine").setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F);
+		com.hbm.blocks.LegacyBlockTextures.bind(vinyl_vines, RefStrings.MODID + ":vine");
+		pet_leaves = new BlockRubberLeaves().withSoundType(SoundType.PLANT).setTranslationKey("pet_leaves").setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
+		com.hbm.blocks.LegacyBlockTextures.bind(pet_leaves, RefStrings.MODID + ":pet_leaves");
 		vinyl_planks = ((BlockBase) ((BlockBase) new BlockGeneric(Material.WOOD).setBlockName("vinyl_planks")).setSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F)).setBlockTextureName(RefStrings.MODID + ":vinyl_planks");
 		pvc_planks = ((BlockBase) ((BlockBase) new BlockGeneric(Material.WOOD).setBlockName("pvc_planks")).setSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(1.0F).setResistance(1.0F)).setBlockTextureName(RefStrings.MODID + ":pvc_planks");
 
-		astroturf = new BlockAstroturf(Material.GRASS).setTranslationKey("astroturf").setStepSound(SoundType.PLANT).setCreativeTab(MainRegistry.blockTab).setHardness(0.6F);
+		astroturf = new BlockAstroturf(Material.GRASS).withSoundType(SoundType.PLANT).setTranslationKey("astroturf").setCreativeTab(MainRegistry.blockTab).setHardness(0.6F);
 
 		// stop self flagellating and do something about it
 		lattice_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + ":rad_log_side", RefStrings.MODID + ":rad_log_top").setTranslationKey("lattice_log")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
@@ -2717,26 +2746,27 @@ public class ModBlocks {
 		primed_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + ":primed_log_side", RefStrings.MODID + ":primed_log_top").setTranslationKey("primed_log")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
 		eu_log = ((BlockLogNT) new BlockLogNT(RefStrings.MODID + ":eu_log_side", RefStrings.MODID + ":eu_log_top").setTranslationKey("eu_log")).withSoundType(SoundType.WOOD).setCreativeTab(MainRegistry.blockTab).setHardness(0.5F).setResistance(2.5F);
 
-		ff = new BlockFF(Material.IRON).setTranslationKey("ff").setHardness(0.5F).setStepSound(SoundType.GROUND).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":code");
+		ff = new BlockFF(Material.IRON).withSoundType(SoundType.GROUND).setTranslationKey("ff").setHardness(0.5F).setCreativeTab(null);
+		com.hbm.blocks.LegacyBlockTextures.bind(ff, RefStrings.MODID + ":code");
 
-		atmosphere_editor = new BlockAtmosphereEditor(Material.IRON).setTranslationKey("atmosphere_editor").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":atmosphere_editor");
+		atmosphere_editor = com.hbm.blocks.LegacyBlockTextures.bind(new BlockAtmosphereEditor(Material.IRON).setTranslationKey("atmosphere_editor").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":atmosphere_editor");
 
-		transporter_rocket = new BlockTransporterRocket(Material.IRON).setTranslationKey("transporter_rocket").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		orbital_station = new BlockOrbitalStation(Material.IRON).setTranslationKey("orbital_station").setBlockUnbreakable().setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		orbital_station_port = new BlockOrbitalStation(Material.IRON).setTranslationKey("orbital_station_port").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		orbital_station_launcher = new BlockOrbitalStationLauncher(Material.IRON).setTranslationKey("orbital_station_launcher").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		orbital_station_computer = new BlockOrbitalStationComputer(Material.IRON).setTranslationKey("orbital_station_computer").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
-		propulsion_creative = new BlockStationPropulsionCreative(Material.IRON).setTranslationKey("propulsion_creative").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel");
+		transporter_rocket = com.hbm.blocks.LegacyBlockTextures.bind(new BlockTransporterRocket(Material.IRON).setTranslationKey("transporter_rocket").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		orbital_station = com.hbm.blocks.LegacyBlockTextures.bind(new BlockOrbitalStation(Material.IRON).setTranslationKey("orbital_station").setBlockUnbreakable().setResistance(Float.POSITIVE_INFINITY).setCreativeTab(null), RefStrings.MODID + ":block_steel");
+		orbital_station_port = com.hbm.blocks.LegacyBlockTextures.bind(new BlockOrbitalStation(Material.IRON).setTranslationKey("orbital_station_port").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		orbital_station_launcher = com.hbm.blocks.LegacyBlockTextures.bind(new BlockOrbitalStationLauncher(Material.IRON).setTranslationKey("orbital_station_launcher").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		orbital_station_computer = com.hbm.blocks.LegacyBlockTextures.bind(new BlockOrbitalStationComputer(Material.IRON).setTranslationKey("orbital_station_computer").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
+		propulsion_creative = com.hbm.blocks.LegacyBlockTextures.bind(new BlockStationPropulsionCreative(Material.IRON).setTranslationKey("propulsion_creative").setHardness(1.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel");
 
-		dyson_launcher = new MachineDysonLauncher(Material.IRON).setTranslationKey("dyson_launcher").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		dyson_receiver = new MachineDysonReceiver(Material.IRON).setTranslationKey("dyson_receiver").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		dyson_converter_tu = new MachineDysonConverterTU(Material.IRON).setTranslationKey("dyson_converter_tu").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		dyson_converter_he = new MachineDysonConverterHE(Material.IRON).setTranslationKey("dyson_converter_he").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
-		dyson_converter_anatmogenesis = new MachineDysonConverterAnatmogenesis(Material.IRON).setTranslationKey("dyson_converter_anatmogenesis").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		dyson_launcher = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDysonLauncher(Material.IRON).setTranslationKey("dyson_launcher").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		dyson_receiver = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDysonReceiver(Material.IRON).setTranslationKey("dyson_receiver").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		dyson_converter_tu = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDysonConverterTU(Material.IRON).setTranslationKey("dyson_converter_tu").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		dyson_converter_he = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDysonConverterHE(Material.IRON).setTranslationKey("dyson_converter_he").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
+		dyson_converter_anatmogenesis = com.hbm.blocks.LegacyBlockTextures.bind(new MachineDysonConverterAnatmogenesis(Material.IRON).setTranslationKey("dyson_converter_anatmogenesis").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 
-		orrery = new BlockOrrery(Material.IRON).setTranslationKey("orrery").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		orrery = com.hbm.blocks.LegacyBlockTextures.bind(new BlockOrrery(Material.IRON).setTranslationKey("orrery").setHardness(10.0F).setResistance(20.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":block_steel_machine");
 
-		dummy_beam = new BlockDummyableBeam(Material.IRON).setTranslationKey("dummy_beam").setHardness(10.0F).setResistance(20.0F).setBlockTextureName(RefStrings.MODID + ":block_steel_machine");
+		dummy_beam = com.hbm.blocks.LegacyBlockTextures.bind(new BlockDummyableBeam(Material.IRON).setTranslationKey("dummy_beam").setHardness(10.0F).setResistance(20.0F), RefStrings.MODID + ":block_steel_machine");
 
 		wand_air = new BlockWand(Blocks.AIR).setTranslationKey("wand_air");
 		wand_loot = new BlockWandLoot().setTranslationKey("wand_loot");
@@ -2745,7 +2775,7 @@ public class ModBlocks {
 		wand_tandem = new BlockWandTandem().setTranslationKey("wand_tandem");
 		wand_structure = new BlockWandStructure().setTranslationKey("wand_structure");
 
-		logic_block = new LogicBlock().setTranslationKey("logic_block").setBlockTextureName(RefStrings.MODID + ":logic_block");
+		logic_block = com.hbm.blocks.LegacyBlockTextures.bind(new LogicBlock().setTranslationKey("logic_block"), RefStrings.MODID + ":logic_block");
 
 	}
 
@@ -4068,9 +4098,10 @@ public class ModBlocks {
 	public static ArrayList<ItemStack> getDropsWithoutDamage(World world, Block block, int metadata, int fortune) {
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-		int count = block.quantityDropped(metadata, fortune, world.rand);
+		net.minecraft.block.state.IBlockState state = block.getStateFromMeta(metadata);
+		int count = block.quantityDropped(state, fortune, world.rand);
 		for(int i = 0; i < count; i++) {
-			Item item = block.getItemDropped(metadata, world.rand, fortune);
+			Item item = block.getItemDropped(state, world.rand, fortune);
 			if(item != null) {
 				ret.add(new ItemStack(item, 1, 0));
 			}
@@ -4083,7 +4114,7 @@ public class ModBlocks {
 		if(stack == null) return null;
 		if(!(stack.getItem() instanceof ItemBlock)) return null;
 
-		return ((ItemBlock) stack.getItem()).field_150939_a;
+		return ((ItemBlock) stack.getItem()).getBlock();
 	}
 
 	// Is this block a special structure handling block, so we can ignore it for blacklist selection, etc.

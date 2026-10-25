@@ -14,7 +14,7 @@ public class BlockNTMGlassPane extends BlockPane
 {
 	int renderLayer;
 	boolean doesDrop = false;
-	
+
     //NOTE when you have eclipse make the constructor for you it *WILL BE 'protected'* so make sure to make this public like below.
 	/*public BlockNTMGlassPane(String flatFaceTextureName, String rimTextureName,
 		Material mat, boolean bool) {
@@ -23,22 +23,22 @@ public class BlockNTMGlassPane extends BlockPane
 		this.setLightOpacity(1);
 		this.opaque = true;
 	}*/
-	
+
 	public BlockNTMGlassPane(int layer, String name, String rimTextureName, Material material, boolean doesDrop) {
-		super(name, rimTextureName, material, false);
+		super(material, false);
 		this.renderLayer = layer;
 		this.doesDrop = doesDrop;
-		this.opaque = true;
+		
 		this.setLightOpacity(1);
 	}
 
 	@Override
-	public boolean canPaneConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {
-		Block b = world.getBlock(x, y, z);
-		return super.canPaneConnectTo(world, x, y, z, dir) || b instanceof BlockNTMGlass;
+	public boolean canPaneConnectTo(net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing dir) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		return super.canPaneConnectTo(world, pos, dir) || b instanceof BlockNTMGlass;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass() {
 		return renderLayer;

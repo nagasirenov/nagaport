@@ -40,7 +40,7 @@ import java.util.List;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEnergyReceiverMK2, ILaserable, IFluidStandardReceiver, SimpleComponent, IGUIProvider, IInfoProviderEC, CompatHandler.OCComponent, IRORInteractive {
-	
+
 	public long power;
 	public static final long maxPower = 1000000000L;
 	public int watts;
@@ -49,7 +49,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 	public boolean isOn;
 	public FluidTank tank;
 	public long prev;
-	
+
 	public static final int range = 50;
 
 	public TileEntityCoreEmitter() {
@@ -68,12 +68,12 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 		if (!this.world.isRemote) {
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			this.subscribeToAllAround(tank.getTankType(), this);
-			
+
 			watts = MathHelper.clamp(watts, 1, 100);
 			long demand = maxPower * watts / 2000;
-			
+
 			beam = 0;
-			
+
 			if(joules > 0 || prev > 0) {
 
 				if(tank.getFill() >= 20) {
@@ -83,71 +83,71 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 					return;
 				}
 			}
-			
+
 			if(isOn) {
-				
+
 				//i.e. 50,000,000 HE = 10,000 SPK
 				//1 SPK = 5,000HE
-				
+
 				if(power >= demand) {
 					power -= demand;
 					long add = watts * 100;
 					joules += add;
 				}
 				prev = joules;
-				
+
 				if(joules > 0) {
-					
+
 					long out = joules * 95 / 100;
-					
+
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 					for(int i = 1; i <= range; i++) {
-						
+
 						beam = i;
-		
+
 						int x = this.pos.getX() + dir.offsetX * i;
 						int y = this.pos.getY() + dir.offsetY * i;
 						int z = this.pos.getZ() + dir.offsetZ * i;
-						
+
 						Block block = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 						TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-						
+
 						if(block instanceof ILaserable) { ((ILaserable)block).addEnergy(this.world, x, y, z, out, dir); break; }
 						if(te instanceof ILaserable) { ((ILaserable)te).addEnergy(this.world, x, y, z, out, dir); break; }
 						if(te instanceof TileEntityCore) { out = ((TileEntityCore)te).burn(out); continue; }
-						
+
 						net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);
 						Block b = nativeAirState.getBlock();
-						
+
 						if(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(x, y, z))) {
-							
+
 							if(b.getDefaultState().getMaterial().isLiquid()) {
 								com.hbm.sound.VanillaWorldSoundEffects.play(this.world, x + 0.5, y + 0.5, z + 0.5, "random.fizz", 1.0F, 1.0F);
 								com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 								break;
 							}
-							
+
 							float hardness = b.getExplosionResistance(null);
 							if(hardness < 6000 && this.world.rand.nextInt(20) == 0) {
 								com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);
 							}
-							
+
 							break;
 						}
 					}
-					
-					
+
+
 					joules = 0;
-		
+
 					double blx = Math.min(this.pos.getX(), this.pos.getX() + dir.offsetX * beam) + 0.2;
 					double bux = Math.max(this.pos.getX(), this.pos.getX() + dir.offsetX * beam) + 0.8;
 					double bly = Math.min(this.pos.getY(), this.pos.getY() + dir.offsetY * beam) + 0.2;
 					double buy = Math.max(this.pos.getY(), this.pos.getY() + dir.offsetY * beam) + 0.8;
 					double blz = Math.min(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * beam) + 0.2;
 					double buz = Math.max(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * beam) + 0.8;
-					
-					List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
-					
+
+					List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(blx, bly, blz, bux, buy, buz));
+
 					for(Entity e : list) {
 						e.attackEntityFrom(ModDamageSource.amsCore, 50);
 						e.setFire(10);
@@ -157,7 +157,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 				joules = 0;
 				prev = 0;
 			}
-			
+
 			this.markDirty();
 
 			this.networkPackNT(250);
@@ -187,11 +187,11 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 		this.isOn = buf.readBoolean();
 		tank.deserialize(buf);
 	}
-	
+
 	public long getPowerScaled(long i) {
 		return (power * i) / maxPower;
 	}
-	
+
 	public int getWattsScaled(int i) {
 		return (watts * i) / 100;
 	}
@@ -218,28 +218,28 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 
 	@Override
 	public void addEnergy(World world, int x, int y, int z, long energy, ForgeDirection dir) {
-		
+
 		//do not accept lasers from the front
 		if(dir.getOpposite().ordinal() != this.getBlockMetadata())
 			joules += energy;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()
 	{
 		return 65536.0D;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		power = nbt.getLong("power");
 		watts = nbt.getInteger("watts");
 		joules = nbt.getLong("joules");
@@ -247,11 +247,11 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 		isOn = nbt.getBoolean("isOn");
 		tank.readFromNBT(nbt, "tank");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		nbt.setInteger("watts", watts);
 		nbt.setLong("joules", joules);
@@ -270,7 +270,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 	public FluidTank[] getAllTanks() {
 		return new FluidTank[] { tank };
 	}
-	
+
 	// do some opencomputer stuff
 	@Override
 	@Optional.Method(modid = "OpenComputers")
@@ -351,21 +351,21 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 
 	@Override
 	public String runRORFunction(String name, String[] params) {
-		
+
 		if((PREFIX_FUNCTION + "setpower").equals(name) && params.length > 0) {
 			int watts = IRORInteractive.parseInt(params[0], 0, 100);
 			this.watts = watts;
 			this.markChanged();
 			return null;
 		}
-		
+
 		if((PREFIX_FUNCTION + "toggle").equals(name)) {
 			this.isOn = !this.isOn;
 			this.markChanged();
 			return null;
 		}
-			
-		
+
+
 		if((PREFIX_FUNCTION + "switch").equals(name) && params.length > 0) {
 			if("on".equals(params[0])) {
 				this.isOn = true;
@@ -378,7 +378,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements IEne
 				return null;
 			}
 		}
-		
+
 		return null;
 	}
 }

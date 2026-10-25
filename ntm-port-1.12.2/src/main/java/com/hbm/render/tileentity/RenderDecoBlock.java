@@ -42,7 +42,7 @@ public class RenderDecoBlock extends TileEntitySpecialRenderer {
 
 		GL11.glEnable(GL11.GL_LIGHTING);
 
-		Block b = tileentity.getWorld().getBlock(tileentity.getPos().getX(), tileentity.getPos().getY(), tileentity.getPos().getZ());
+		Block b = com.hbm.world.WorldBlockState.read(tileentity.getWorld(), tileentity.getPos().getX(), tileentity.getPos().getY(), tileentity.getPos().getZ()).getBlock();
 
 		if(b == ModBlocks.steel_roof) {
 			this.bindTexture(texture3);

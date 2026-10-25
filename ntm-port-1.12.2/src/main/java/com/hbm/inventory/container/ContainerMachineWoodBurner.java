@@ -13,9 +13,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class ContainerMachineWoodBurner extends Container {
-	
+
 	protected TileEntityMachineWoodBurner burner;
-	
+
 	public ContainerMachineWoodBurner(InventoryPlayer invPlayer, TileEntityMachineWoodBurner burner) {
 		this.burner = burner;
 		this.burner.openInventory(invPlayer.player);
@@ -31,7 +31,7 @@ public class ContainerMachineWoodBurner extends Container {
 		this.addSlotToContainer(new SlotTakeOnly(burner, 4, 98, 36));
 		//Battery
 		this.addSlotToContainer(new Slot(burner, 5, 143, 54));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 104 + i * 18));
@@ -56,11 +56,11 @@ public class ContainerMachineWoodBurner extends Container {
 				if(!this.mergeItemStack(originalStack, 6, this.inventorySlots.size(), true)) {
 					return null;
 				}
-				
+
 				slot.onSlotChange(originalStack, stack);
-				
+
 			} else {
-				
+
 				if(stack.getItem() instanceof IBatteryItem) {
 					if(!this.mergeItemStack(originalStack, 5, 6, false)) {
 						return null;
@@ -80,7 +80,7 @@ public class ContainerMachineWoodBurner extends Container {
 				}
 			}
 
-			if(originalStack.stackSize == 0) {
+			if(originalStack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

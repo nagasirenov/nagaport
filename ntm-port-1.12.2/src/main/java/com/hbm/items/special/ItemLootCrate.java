@@ -20,6 +20,11 @@ public class ItemLootCrate extends Item {
 	private static Random rand = new Random();
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		player.inventoryContainer.detectAndSendChanges();
@@ -30,19 +35,19 @@ public class ItemLootCrate extends Item {
 			player.inventory.addItemStackToInventory(new ItemStack(choose(list15)));
 		if(stack.getItem() == ModItems.loot_misc)
 			player.inventory.addItemStackToInventory(new ItemStack(choose(listMisc)));
-		
-		stack.stackSize--;
+
+		stack.shrink(1);
 		return stack;
 	}
-	
+
 	private ItemCustomMissilePart choose(List<ItemCustomMissilePart> parts) {
-		
+
 		boolean flag = true;
 		ItemCustomMissilePart item = null;
-		
+
 		while(flag) {
 			item = parts.get(rand.nextInt(parts.size()));
-			
+
 			switch(item.rarity) {
 			case COMMON:
 				flag = false;
@@ -62,10 +67,10 @@ public class ItemLootCrate extends Item {
 			case SEWS_CLOTHES_AND_SUCKS_HORSE_COCK:
 				if(rand.nextInt(100) == 0) flag = false;
 				break;
-			
+
 			}
 		}
-		
+
 		return item;
 	}
 }

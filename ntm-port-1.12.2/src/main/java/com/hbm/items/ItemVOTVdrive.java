@@ -100,13 +100,11 @@ public class ItemVOTVdrive extends ItemEnumMulti {
 		itemIcon = iconRegister.registerIcon(RefStrings.MODID + ":votv_f"); // Base icon for unprocessed drives
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
 	}
 
-	@Override
 	public int getRenderPasses(int metadata) {
 		return 2;
 	}
@@ -236,6 +234,12 @@ public class ItemVOTVdrive extends ItemEnumMulti {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		boolean isProcessed = getProcessed(stack);
 		boolean onDestination = world.provider.getDimension() == getDestination(stack).body.getDimensionId();
@@ -257,7 +261,7 @@ public class ItemVOTVdrive extends ItemEnumMulti {
 					if(rocket.navDrive != null) {
 						newStack = rocket.navDrive;
 					} else {
-						newStack.stackSize = 0;
+						newStack.setCount(0);
 					}
 
 					rocket.navDrive = stack.copy();
@@ -267,7 +271,7 @@ public class ItemVOTVdrive extends ItemEnumMulti {
 						rocket.setState(RocketState.AWAITING);
 					}
 
-					world.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:item.upgradePlug", 1.0F, 1.0F);
+					world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.ITEM_UPGRADE_PLUG, net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				}
 			}
 		}
@@ -276,8 +280,15 @@ public class ItemVOTVdrive extends ItemEnumMulti {
 	}
 
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
 		Destination destination = getDestination(stack);
 		if(destination.body == SolarSystem.Body.ORBIT) {
 			if(world.provider.getDimension() == SpaceConfig.orbitDimension) return false;

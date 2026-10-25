@@ -19,6 +19,8 @@ import net.minecraft.world.World;
 
 public class BlockWeaponTable extends Block implements IGUIProvider {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT) private IIcon iconTop;
 	@SideOnly(Side.CLIENT) private IIcon iconBottom;
 
@@ -26,7 +28,6 @@ public class BlockWeaponTable extends Block implements IGUIProvider {
 		super(Material.IRON);
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":gun_table_top");
@@ -34,7 +35,6 @@ public class BlockWeaponTable extends Block implements IGUIProvider {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":gun_table_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 0 ? this.iconBottom : (side == 1 ? this.iconTop : this.blockIcon);

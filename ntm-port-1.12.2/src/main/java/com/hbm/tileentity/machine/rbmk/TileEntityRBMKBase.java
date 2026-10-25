@@ -57,7 +57,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 	public int reasimSteam;
 	public static final int maxSteam = 16000;
 	public int craneIndicator;
-	
+
 	public static boolean explodeOnBroken = true;
 
 	public boolean hasLid() {
@@ -106,7 +106,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 	public void update() {
 
 		if(!this.world.isRemote) {
-			
+
 			if(this.craneIndicator > 0) this.craneIndicator--;
 
 			this.world.profiler.startSection("rbmkBase_heat_movement");
@@ -247,7 +247,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 	public void markDirty() {
 
 		if(this.world != null) {
-			this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+			this.world.markChunkDirty(this.pos, this);
 		}
 	}
 
@@ -325,7 +325,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 		TileEntityRBMKBase te = (TileEntityRBMKBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		NBTTagCompound flush = new NBTTagCompound();
 		te.getDiagData(flush);
-		Set<String> keys = flush.func_150296_c();
+		Set<String> keys = flush.getKeySet();
 
 		GL11.glPushMatrix();
 
@@ -371,7 +371,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 		GL11.glDisable(GL11.GL_BLEND);
 
 		GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 
 	public void onOverheat() {
@@ -402,15 +402,15 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 			if(i <= h + 1 - reduce) {
 
 				if(reduce > 1 && i == h + 1 - reduce) {
-					this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.pribris_burning);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.pribris_burning);
 				} else {
-					this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.pribris);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.pribris);
 				}
 
 			} else {
 				com.hbm.world.WorldBlockState.write(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), Blocks.AIR.getStateFromMeta(0), 3);
 			}
-			this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY() + i, this.pos.getZ());
+			com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ());
 		}
 	}
 
@@ -427,7 +427,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 			debris.motionZ *= 0.5D;
 		}
 
-		this.world.spawnEntityInWorld(debris);
+		this.world.spawnEntity(debris);
 	}
 
 	public static HashSet<TileEntityRBMKBase> columns = new HashSet<>();
@@ -486,9 +486,9 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 							if(this.world.rand.nextInt(3) == 0 && (b == ModBlocks.pribris || b == ModBlocks.pribris_burning)) {
 
 								if(RBMKBase.digamma)
-									this.world.setBlock(x, y, z, ModBlocks.pribris_digamma);
+									com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.pribris_digamma);
 								else
-									this.world.setBlock(x, y, z, ModBlocks.pribris_radiating);
+									com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.pribris_radiating);
 							}
 						}
 					}
@@ -562,7 +562,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 			spear.posX = avgX + 0.5;
 			spear.posZ = avgZ + 0.5;
 			spear.posY = this.pos.getY() + 100;
-			this.world.spawnEntityInWorld(spear);
+			this.world.spawnEntity(spear);
 		}
 
 		RBMKBase.dropLids = true;
@@ -606,6 +606,6 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 17, this.pos.getZ() + 1);
+		return new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 17, this.pos.getZ() + 1);
 	}
 }

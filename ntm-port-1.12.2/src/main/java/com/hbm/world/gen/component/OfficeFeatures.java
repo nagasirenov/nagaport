@@ -18,61 +18,61 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 
 //Oh my fucking god TM
 public class OfficeFeatures {
-	
+
 	public static void registerComponents() {
 		MapGenStructureIO.registerStructureComponent(LargeOffice.class, "NTMLargeOffice");
 		MapGenStructureIO.registerStructureComponent(LargeOfficeCorner.class, "NTMLargeOfficeCorner");
 	}
-	
+
 	public static class LargeOffice extends Component {
-		
+
 		private static ConcreteBricks ConcreteBricks = new ConcreteBricks();
-		
+
 		private boolean[] hasPlacedLoot = new boolean[2];
-		
+
 		public LargeOffice() {
 			super();
 		}
-		
+
 		public LargeOffice(Random rand, int minX, int minZ) {
 			super(rand, minX, 64, minZ, 14, 5, 12);
 			this.hasPlacedLoot[0] = false;
 			this.hasPlacedLoot[1] = false;
 		}
-		
+
 		@Override
 		protected void writeStructureToNBT(NBTTagCompound nbt) {
 			super.writeStructureToNBT(nbt);
 			nbt.setBoolean("hasLoot1", this.hasPlacedLoot[0]);
 			nbt.setBoolean("hasLoot2", this.hasPlacedLoot[1]);
 		}
-		
+
 		@Override
 		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
 			super.readStructureFromNBT(nbt, templateManager);
 			this.hasPlacedLoot[0] = nbt.getBoolean("hasLoot1");
 			this.hasPlacedLoot[1] = nbt.getBoolean("hasLoot2");
 		}
-		
+
 		//Holy shit I despise this method so goddamn much
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			if(!this.setAverageHeight(world, box, this.boundingBox.minY)) {
 				return false;
 			}
-			
+
 			this.boundingBox.offset(0, -1, 0);
-			
+
 			placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 5, 0, 14, 1, -1, box);
 			placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 0, 2, 14, 7, -1, box);
 			placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 0, 8, 8, 12, 0, box);
 			placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 9, 8, 14, 12, -1, box);
-			
+
 			fillWithAir(world, box, 1, 1, 3, 4, 3, 6);
 			fillWithAir(world, box, 6, 1, 1, 14 - 1, 3, 6);
 			fillWithAir(world, box, 10, 1, 7, 14 - 1, 3, 12 - 1);
-			
+
 			//Pillars
 			//Back
 			fillWithBlocks(world, box, 0, 0, 2, 0, 4, 2, ModBlocks.concrete_pillar);
@@ -86,12 +86,12 @@ public class OfficeFeatures {
 			fillWithBlocks(world, box, 9, 0, 12, 9, 3, 12, ModBlocks.concrete_pillar);
 			fillWithBlocks(world, box, 9, 0, 7, 9, 3, 7, ModBlocks.concrete_pillar);
 			fillWithBlocks(world, box, 14, 0, 12, 14, 4, 12, ModBlocks.concrete_pillar);
-			
+
 			//Walls
 			//Back
 			fillWithRandomizedBlocks(world, box, 1, 0, 2, 5, 4, 2, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 5, 0, 1, 5, 4, 1, rand, ConcreteBricks);
-			
+
 			fillWithRandomizedBlocks(world, box, 6, 0, 0, 14 - 1, 1, 0, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 6, 2, 0, 6, 2, 0, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 9, 2, 0, 10, 2, 0, rand, ConcreteBricks);
@@ -109,9 +109,9 @@ public class OfficeFeatures {
 			fillWithRandomizedBlocks(world, box, 10, 2, 12, 10, 2, 12, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 14 - 1, 2, 12, 14 - 1, 2, 12, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 10, 3, 12, 14 - 1, 3, 12, rand, ConcreteBricks);
-			
+
 			fillWithRandomizedBlocks(world, box, 9, 0, 8, 9, 3, 12 - 1, rand, ConcreteBricks);
-			
+
 			fillWithRandomizedBlocks(world, box, 1, 0, 7, 8, 0, 7, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 1, 1, 7, 1, 2, 7, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 4, 1, 7, 8, 3, 7, rand, ConcreteBricks);
@@ -124,7 +124,7 @@ public class OfficeFeatures {
 			//Interior
 			fillWithRandomizedBlocks(world, box, 5, 1, 3, 5, 3, 5, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 5, 3, 6, 5, 3, 6, rand, ConcreteBricks);
-			
+
 			//Trim
 			randomlyFillWithBlocks(world, box, rand, 0.85F, 0, 5, 2, 5, 5, 2, Blocks.STONE_SLAB);
 			randomlyFillWithBlocks(world, box, rand, 0.85F, 5, 5, 1, 5, 5, 1, Blocks.STONE_SLAB);
@@ -132,7 +132,7 @@ public class OfficeFeatures {
 			randomlyFillWithBlocks(world, box, rand, 0.85F, 14, 5, 1, 14, 5, 12, Blocks.STONE_SLAB);
 			randomlyFillWithBlocks(world, box, rand, 0.85F, 0, 5, 12, 14 - 1, 5, 12, Blocks.STONE_SLAB);
 			randomlyFillWithBlocks(world, box, rand, 0.85F, 0, 5, 3, 0, 5, 12 - 1, Blocks.STONE_SLAB);
-			
+
 			//Floor
 			fillWithMetadataBlocks(world, box, 1, 0, 3, 4, 0, 6, Blocks.WOOL, 13); //Green Wool
 			fillWithBlocks(world, box, 5, 0, 3, 5, 0, 6, ModBlocks.brick_light);
@@ -141,7 +141,7 @@ public class OfficeFeatures {
 			//Ceiling
 			fillWithBlocks(world, box, 6, 4, 1, 14 - 1, 4, 2, ModBlocks.brick_light);
 			fillWithBlocks(world, box, 1, 4, 3, 14 - 1, 4, 12 - 1, ModBlocks.brick_light);
-			
+
 			//Decorations
 			//Carpet
 			fillWithMetadataBlocks(world, box, 9, 1, 3, 11, 1, 6, Blocks.CARPET, 8); //Light gray
@@ -159,7 +159,7 @@ public class OfficeFeatures {
 			int stairMetaWU = getStairMeta(0) | 4; //West, Upside-down
 			int stairMetaEU = stairMetaE | 4; //East, Upside-down
 			int stairMetaNU = stairMetaN | 4; //North, Upside-down uwu
-			int stairMetaSU = stairMetaS | 4; //South, Upside-down 
+			int stairMetaSU = stairMetaS | 4; //South, Upside-down
 			//Desk 1 :3
 			placeBlockAtCurrentPosition(world, Blocks.SPRUCE_STAIRS, stairMetaEU, 1, 1, 4, box);
 			placeBlockAtCurrentPosition(world, Blocks.SPRUCE_STAIRS, stairMetaNU, 2, 1, 4, box);
@@ -208,7 +208,7 @@ public class OfficeFeatures {
 			placeDoor(world, box, ModBlocks.door_office, 3, false, rand.nextBoolean(), 2, 1, 7);
 			placeDoor(world, box, ModBlocks.door_office, 3, true, rand.nextBoolean(), 3, 1, 7);
 			placeDoor(world, box, ModBlocks.door_office, 0, false, rand.nextBoolean(), 5, 1, 6);
-			
+
 			//Woot
 			if(!this.hasPlacedLoot[0])
 				this.hasPlacedLoot[0] = generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 14 - 4, 1, 12 - 1, ItemPool.getPool(ItemPoolsComponent.POOL_OFFICE_TRASH), 8);
@@ -217,51 +217,51 @@ public class OfficeFeatures {
 				if(rand.nextInt(2) == 0)
 					generateLoreBook(world, box, 6, 1, 1, 7, HbmChestContents.generateOfficeBook(rand));
 			}
-			
+
 			//0b00/0 West, 0b01/1 East, 0b10/2 North, 0b11/3 South, 0b100/4 West UD, 0b101 East UD, 0b110 North UD, 0b111 South UD
 			return true;
 		}
-		
+
 	}
-	
+
 	//bob i could kiss you
 	public static class LargeOfficeCorner extends Component {
-		
+
 		private static ConcreteBricks ConcreteBricks = new ConcreteBricks();
-		
+
 		//no placed loot? it's because i would've had to do fucking 12 of them and i don't have an easy standardized system for that
-		
+
 		public LargeOfficeCorner() {
 			super();
 		}
-		
+
 		public LargeOfficeCorner(Random rand, int minX, int minZ) {
 			super(rand, minX, 64, minZ, 11, 15, 14);
 		}
-		
+
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			if(!this.setAverageHeight(world, box, this.boundingBox.minY)) {
 				return false;
 			}
-			
+
 			this.boundingBox.offset(0, -1, 0);
-			
+
 			int pillarMetaWE = getPillarMeta(4);
 			int pillarMetaNS = getPillarMeta(8);
-			
+
 			placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 4, 0, 11, 2, -1, box);
 			placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 1, 3, 11, 13, -1, box);
 			placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 0, 14, 4, 14, -1, box);
 			placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 0, 10, 0, 13, -1, box);
-			
+
 			fillWithAir(world, box, 1, 1, 11, 3, 12, 13);
 			fillWithAir(world, box, 4, 1, 4, 10, 12, 12);
 			fillWithAir(world, box, 2, 1, 4, 3, 12, 10);
 			fillWithAir(world, box, 5, 1, 1, 10, 12, 2);
 			fillWithAir(world, box, 5, 13, 1, 8, 14, 2);
-			
+
 			//Back Wall
 			fillWithBlocks(world, box, 1, 0, 3, 5, 0, 3, ModBlocks.concrete_pillar);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_pillar, pillarMetaWE, 6, 0, 3, box);
@@ -345,7 +345,7 @@ public class OfficeFeatures {
 			fillWithRandomizedBlocks(world, box, 1, 10, 9, 1, 11, 10, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 1, 10, 4, 1, 11, 4, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 1, 12, 4, 1, 12, 10, rand, ConcreteBricks);
-			
+
 			//Floor 1
 			fillWithMetadataBlocks(world, box, 5, 0, 1, 10, 0, 2, ModBlocks.concrete_pillar, pillarMetaWE);
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_pillar, pillarMetaWE, 6, 0, 3, box);
@@ -401,7 +401,7 @@ public class OfficeFeatures {
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, EastStairMeta, 7, 11, 1, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, WestStairMetaUD, 6, 11, 1, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, EastStairMeta, 6, 12, 1, box);
-			
+
 			//Decoration already? holy fuck it's been like 20 minutes
 			//Windows
 			randomlyFillWithBlocks(world, box, rand, 0.75F, 11, 10, 5, 11, 10, 7, Blocks.GLASS_PANE);
@@ -433,10 +433,10 @@ public class OfficeFeatures {
 			fillWithRandomizedBlocks(world, box, 2, 11, 10, 3, 11, 10, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 2, 9, 10, 2, 10, 10, rand, ConcreteBricks);
 			//Doors
-			placeDoor(world, box, Blocks.wooden_door, 3, false, rand.nextBoolean(), 1, 1, 14);
-			placeDoor(world, box, Blocks.wooden_door, 3, true, rand.nextBoolean(), 2, 1, 14);
-			placeDoor(world, box, Blocks.wooden_door, 0, false, rand.nextBoolean(), 0, 1, 12);
-			placeDoor(world, box, Blocks.wooden_door, 0, true, rand.nextBoolean(), 0, 1, 13);
+			placeDoor(world, box, Blocks.OAK_DOOR, 3, false, rand.nextBoolean(), 1, 1, 14);
+			placeDoor(world, box, Blocks.OAK_DOOR, 3, true, rand.nextBoolean(), 2, 1, 14);
+			placeDoor(world, box, Blocks.OAK_DOOR, 0, false, rand.nextBoolean(), 0, 1, 12);
+			placeDoor(world, box, Blocks.OAK_DOOR, 0, true, rand.nextBoolean(), 0, 1, 13);
 			placeDoor(world, box, ModBlocks.door_office, 3, false, rand.nextBoolean(), 6, 1, 3);
 			placeDoor(world, box, ModBlocks.door_office, 3, false, rand.nextBoolean(), 5, 5, 3);
 			placeDoor(world, box, ModBlocks.door_office, 2, false, rand.nextBoolean(), 4, 5, 11);
@@ -460,7 +460,7 @@ public class OfficeFeatures {
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, WestStairMeta, 9, 1, 5, box);
 			placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 9, 1, 4, box);
 			placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 10, 8, 2, 7, box);
-			
+
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, EastStairMeta, 6, 1, 12, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, NorthStairMeta, 7, 1, 12, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, WestStairMeta, 8, 1, 12, box);
@@ -483,7 +483,7 @@ public class OfficeFeatures {
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, NorthStairMetaUD, 10, 5, 6, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, NorthStairMeta, 8, 5, 6, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, getDecoModelMeta(2), 10, 6, 6, box);
-			
+
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, NorthStairMetaUD, 8, 5, 11, box);
 			placeBlockAtCurrentPosition(world, Blocks.WOODEN_SLAB, 13, 8, 5, 10, box);
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, EastStairMetaUD, 8, 5, 9, box);
@@ -491,7 +491,7 @@ public class OfficeFeatures {
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, WestStairMetaUD, 10, 5, 9, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, WestStairMeta, 10, 5, 10, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, getDecoModelMeta(1), 9, 6, 9, box);
-			
+
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, NorthStairMetaUD, 1, 5, 13, box);
 			placeBlockAtCurrentPosition(world, Blocks.WOODEN_SLAB, 13, 1, 5, 12, box);
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, SouthStairMetaUD, 1, 5, 11, box);
@@ -508,7 +508,7 @@ public class OfficeFeatures {
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, EastStairMetaUD, 2, 9, 6, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, SouthStairMeta, 3, 9, 5, box);
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, getDecoModelMeta(0), 3, 10, 6, box);
-			
+
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, WestStairMetaUD, 9, 9, 10, box);
 			fillWithMetadataBlocks(world, box, 7, 9, 10, 8, 9, 10, Blocks.WOODEN_SLAB, 13);
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, SouthStairMetaUD, 6, 9, 10, box);
@@ -525,11 +525,11 @@ public class OfficeFeatures {
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, WestStairMetaUD, 2, 9, 11, box);
 			placeBlockAtCurrentPosition(world, Blocks.DARK_OAK_STAIRS, EastStairMetaUD, 1, 9, 11, box);
 			placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 2, 10, 11, box);
-			
+
 			//Roof
 			placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 5, 13, 9, box);
 			placeBlockAtCurrentPosition(world, Blocks.FLOWER_POT, 0, 7, 13, 11, box);
-			
+
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(3), 9, 1, 7, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(1), 7, 5, 4, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(1), 7, 6, 4, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
@@ -537,24 +537,24 @@ public class OfficeFeatures {
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 10, 5, 12, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 10, 6, 12, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 2, 9, 5, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
-			
+
 			generateLockableContents(world, box, rand, ModBlocks.safe, getDecoMeta(2), 1, 9, 13, ItemPool.getPool(ItemPoolsComponent.POOL_OFFICE_TRASH), 10, 1.0D);
 			if(rand.nextInt(2) == 0)
 				generateLoreBook(world, box, 1, 9, 13, 7, HbmChestContents.generateOfficeBook(rand));
-			
+
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 2, 9, 13, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
 			generateInvContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 3, 9, 13, ItemPool.getPool(ItemPoolsComponent.POOL_FILING_CABINET), 4);
 			generateLockableContents(world, box, rand, ModBlocks.filing_cabinet, getDecoModelMeta(0), 3, 10, 13, ItemPool.getPool(ItemPoolsLegacy.POOL_EXPENSIVE), 8, 0.1D);
-			
+
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_loot, 0, 6, 13, 11, box);
 			LootGenerator.lootCapStash(world, this.getXWithOffset(6, 11), this.getYWithOffset(13), this.getZWithOffset(6, 11));
 			placeBlockAtCurrentPosition(world, ModBlocks.deco_loot, 0, 1, 10, 11, box);
 			LootGenerator.lootMedicine(world, this.getXWithOffset(1, 11), this.getYWithOffset(10), this.getZWithOffset(1, 11));
 			//this hurt my soul
-			
+
 			return true;
 		}
 	}
-	
-	
+
+
 }

@@ -23,7 +23,9 @@ public class ItemAlexandrite extends Item {
 	public void registerIcons(IIconRegister register) {
 		if(!(register instanceof LegacyIconRegister)) throw new IllegalArgumentException("ItemAlexandrite requires the NTM texture-atlas adapter");
 		if(getRegistryName() == null) throw new IllegalStateException("ItemAlexandrite must be registered before its icon callback");
-		TextureAlexandrite texture = new TextureAlexandrite(getRegistryName().toString());
+		// 1.12 resolves sprite base files under textures/<path>; the gem frames
+		// live at items/gem_alexandrite.png.
+		TextureAlexandrite texture = new TextureAlexandrite(com.hbm.lib.RefStrings.MODID + ":items/gem_alexandrite");
 		this.itemIcon = ((LegacyIconRegister) register).registerGeneratedSprite(texture);
 	}
 
@@ -51,7 +53,7 @@ public class ItemAlexandrite extends Item {
 			int y = (int) Math.floor(player.posY);
 			int z = (int) Math.floor(player.posZ);
 			
-			int light = player.world.getSavedLightValue(EnumSkyBlock.Block, x, y, z);
+			int light = player.world.getLightFor(EnumSkyBlock.BLOCK, new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(light != lastLight) {
 				lastLight = light;

@@ -29,7 +29,7 @@ public class GUIElectrolyser extends GuiInfoContainer {
 		super.drawScreen(mouseX, mouseY, f);
 	}
 	
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 	}
 

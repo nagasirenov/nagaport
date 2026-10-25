@@ -18,48 +18,47 @@ public class TileEntitySolarMirror extends TileEntityTickingBase {
 	public int tZ;
 	public boolean isOn;
 
-	@Override
 	public String getInventoryName() {
 		return null;
 	}
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			if(this.world.getTotalWorldTime() % 20 == 0)
 				this.networkPackNT(200);
-			
+
 			if(tY < this.pos.getY()) {
 				isOn = false;
 				return;
 			}
-			
+
 			int sun = this.world.getLightFor(EnumSkyBlock.SKY, this.pos) - this.world.getSkylightSubtracted() - 11;
-			
+
 			if(sun <= 0 || !this.world.canSeeSky(this.pos.up())) {
 				isOn = false;
 				return;
 			}
-			
+
 			isOn = true;
-			
+
 			TileEntity te = this.world.getTileEntity(new BlockPos(tX, tY - 1, tZ));
-			
+
 			if(te instanceof TileEntitySolarBoiler) {
 				TileEntitySolarBoiler boiler = (TileEntitySolarBoiler)te;
 				boiler.heat += sun;
 			}
 		} else {
-			
+
 			TileEntity te = this.world.getTileEntity(new BlockPos(tX, tY - 1, tZ));
-			
+
 			if(isOn && te instanceof TileEntitySolarBoiler) {
 				TileEntitySolarBoiler boiler = (TileEntitySolarBoiler)te;
 				boiler.primary.add(new SolarMirrorPosition(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 			}
-			
+
 			if(this.world.getTotalWorldTime() % 20 == 0)
 				this.world.markBlockRangeForRenderUpdate(this.pos, this.pos);
 		}
@@ -78,7 +77,7 @@ public class TileEntitySolarMirror extends TileEntityTickingBase {
 		this.tZ = buf.readInt();
 		this.isOn = buf.readBoolean();
 	}
-	
+
 	public void setTarget(int x, int y, int z) {
 		tX = x;
 		tY = y;
@@ -101,12 +100,12 @@ public class TileEntitySolarMirror extends TileEntityTickingBase {
 		nbt.setInteger("targetZ", tZ);
 		return nbt;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
 			bb = new AxisAlignedBB(
 					this.pos.getX() - 25,
@@ -117,10 +116,10 @@ public class TileEntitySolarMirror extends TileEntityTickingBase {
 					this.pos.getZ() + 25
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

@@ -8,6 +8,7 @@ import api.hbm.energymk2.IBatteryItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
 public class ContainerAutocrafter extends ContainerBase {
@@ -30,7 +31,7 @@ public class ContainerAutocrafter extends ContainerBase {
 		addSlots(tedf,10, 44, 86, 3, 3);
 
 		this.addSlotToContainer(new Slot(tedf, 19, 116, 104));
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tedf, 20, 17, 99));
 
@@ -38,8 +39,8 @@ public class ContainerAutocrafter extends ContainerBase {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
 		//L/R: 0
 		//M3: 3
 		//SHIFT: 1
@@ -50,34 +51,34 @@ public class ContainerAutocrafter extends ContainerBase {
 		}
 
 		Slot slot = this.getSlot(index);
-		
+
 		ItemStack ret = null;
 		ItemStack held = player.inventory.getItemStack();
-		
+
 		if(slot.getHasStack())
 			ret = slot.getStack().copy();
-		
+
 		//Don't allow any interaction for the template's output
 		if(index == 9) {
-			
-			if(button == 1 && mode == 0 && slot.getHasStack()) {
+
+			if(button == 1 && mode == ClickType.PICKUP && slot.getHasStack()) {
 				autocrafter.nextTemplate();
 				this.detectAndSendChanges();
 			}
-			
+
 			return ret;
 		}
-		
-		if(button == 1 && mode == 0 && slot.getHasStack()) {
+
+		if(button == 1 && mode == ClickType.PICKUP && slot.getHasStack()) {
 			autocrafter.nextMode(index);
 			return ret;
-			
+
 		} else {
-	
+
 			slot.putStack(held);
 			autocrafter.matcher.initPatternSmart(autocrafter.getWorld(), slot.getStack(), index);
 			autocrafter.updateTemplateGrid();
-			
+
 			return ret;
 		}
 	}
@@ -96,7 +97,7 @@ public class ContainerAutocrafter extends ContainerBase {
 					return null;
 				}
 			} else if(index > 20){
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 20, 21, false)) return null;
 				} else {
@@ -104,7 +105,7 @@ public class ContainerAutocrafter extends ContainerBase {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

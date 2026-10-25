@@ -98,7 +98,7 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 		float atmosphericDust = ImpactWorldHandler.getDustForClient(world);
 
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		Vec3d vec3 = world.getSkyColor(mc.renderViewEntity, partialTicks);
+		Vec3d vec3 = world.getSkyColor(mc.getRenderViewEntity(), partialTicks);
 		float f1 = (float) vec3.x;
 		float f2 = (float) vec3.y;
 		float f3 = (float) vec3.z;
@@ -250,7 +250,7 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 		GL11.glPopMatrix();
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glColor3f(0.0F, 0.0F, 0.0F);
-		double d0 = mc.player.getPosition(partialTicks).y - world.getHorizon();
+		double d0 = (mc.player.lastTickPosY + (mc.player.posY - mc.player.lastTickPosY) * (double) partialTicks) - world.getHorizon();
 
 		if(d0 < 0.0D) {
 			GL11.glPushMatrix();

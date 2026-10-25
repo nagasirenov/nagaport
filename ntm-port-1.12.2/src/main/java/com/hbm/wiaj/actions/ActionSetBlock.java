@@ -10,17 +10,17 @@ import net.minecraft.block.Block;
  * @author hmb
  */
 public class ActionSetBlock implements IJarAction {
-	
+
 	int x;
 	int y;
 	int z;
 	Block b;
 	int meta;
-	
+
 	public ActionSetBlock(int x, int y, int z, Block b) {
 		this(x, y, z, b, 0);
 	}
-	
+
 	public ActionSetBlock(int x, int y, int z, Block b, int meta) {
 		this.x = x;
 		this.y = y;

@@ -3,6 +3,7 @@ package com.hbm.render.util;
 import com.hbm.render.loader.HFRWavefrontObject;
 import com.hbm.render.mesh.ObjMesh;
 
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.Vec3d;
@@ -19,8 +20,12 @@ public class ObjUtil {
 	}
 
 	public static void renderWithIcon(HFRWavefrontObject model, IIcon icon, Tessellator tes, float rot, float pitch, float roll, boolean shadow) {
+		renderWithIcon(model, icon, tes.getBuffer(), rot, pitch, roll, shadow);
+	}
+
+	public static void renderWithIcon(HFRWavefrontObject model, IIcon icon, BufferBuilder buf, float rot, float pitch, float roll, boolean shadow) {
 		for(ObjMesh.Part go : model.getMesh().parts) {
-			
+
 			for(ObjMesh.Face f : go.faces) {
 
 				ObjMesh.Vec n = f.normal;
@@ -28,7 +33,13 @@ public class ObjUtil {
 				com.hbm.util.Vec3NT normal = new com.hbm.util.Vec3NT(n.x, n.y, n.z);
 				normal.rotateAroundZRad(pitch);
 				normal.rotateAroundYRad(rot);
-				tes.setNormal((float)normal.x, (float)normal.y, (float)normal.z);
+				float nx = (float)normal.x;
+				float ny = (float)normal.y;
+				float nz = (float)normal.z;
+
+				float r = 1.0F;
+				float g = 1.0F;
+				float b = 1.0F;
 
 				if(shadow) {
 					float brightness = ((float)normal.y + 0.7F) * 0.9F - (float)Math.abs(normal.x) * 0.1F + (float)Math.abs(normal.z) * 0.1F;
@@ -36,7 +47,9 @@ public class ObjUtil {
 					if(brightness < 0.45F)
 						brightness = 0.45F;
 
-					tes.setColorOpaque_F(brightness, brightness, brightness);
+					r = brightness;
+					g = brightness;
+					b = brightness;
 				}
 
 				for(int i = 0; i < f.corners.size(); i++) {
@@ -53,12 +66,12 @@ public class ObjUtil {
 					float z = (float) vec.z;
 
 					ObjMesh.Vec t = f.corners.get(i).uv;
-					tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16), icon.getInterpolatedV(t.y * 16));
+					buf.pos(x, y, z).tex(icon.getInterpolatedU(t.x * 16), icon.getInterpolatedV(t.y * 16)).color(r, g, b, 1.0F).normal(nx, ny, nz).endVertex();
 
 					// The shoddy way of rendering a tringulated model with a
 					// quad tessellator
 					if(i % 3 == 2)
-						tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16), icon.getInterpolatedV(t.y * 16));
+						buf.pos(x, y, z).tex(icon.getInterpolatedU(t.x * 16), icon.getInterpolatedV(t.y * 16)).color(r, g, b, 1.0F).normal(nx, ny, nz).endVertex();
 				}
 			}
 		}
@@ -73,6 +86,10 @@ public class ObjUtil {
 	}
 
 	public static void renderPartWithIcon(HFRWavefrontObject model, String name, IIcon icon, Tessellator tes, float rot, float pitch, float roll, boolean shadow) {
+		renderPartWithIcon(model, name, icon, tes.getBuffer(), rot, pitch, roll, shadow);
+	}
+
+	public static void renderPartWithIcon(HFRWavefrontObject model, String name, IIcon icon, BufferBuilder buf, float rot, float pitch, float roll, boolean shadow) {
 
 		ObjMesh.Part go = null;
 
@@ -91,23 +108,33 @@ public class ObjUtil {
 			com.hbm.util.Vec3NT normal = new com.hbm.util.Vec3NT(n.x, n.y, n.z);
 			normal.rotateAroundZRad(pitch);
 			normal.rotateAroundYRad(rot);
-			tes.setNormal((float)normal.x, (float)normal.y, (float)normal.z);
+			float nx = (float)normal.x;
+			float ny = (float)normal.y;
+			float nz = (float)normal.z;
+
+			float r = 1.0F;
+			float g = 1.0F;
+			float b = 1.0F;
 
 			if(shadow || hasColor) {
-				
+
 				float brightness = 1.0F;
-				
+
 				if(shadow) {
 					brightness = ((float)normal.y * 0.3F + 0.7F) - (float)Math.abs(normal.x) * 0.1F + (float)Math.abs(normal.z) * 0.1F;
-	
+
 					if(brightness < 0.45F)
 						brightness = 0.45F;
 				}
 
 				if(hasColor) {
-					tes.setColorOpaque((int)(red * brightness), (int)(green * brightness), (int)(blue * brightness));
+					r = (red * brightness) / 255.0F;
+					g = (green * brightness) / 255.0F;
+					b = (blue * brightness) / 255.0F;
 				} else {
-					tes.setColorOpaque_F(brightness, brightness, brightness);
+					r = brightness;
+					g = brightness;
+					b = brightness;
 				}
 			}
 
@@ -125,12 +152,12 @@ public class ObjUtil {
 				float z = (float) vec.z;
 
 				ObjMesh.Vec t = f.corners.get(i).uv;
-				tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16D), icon.getInterpolatedV(t.y * 16D));
+				buf.pos(x, y, z).tex(icon.getInterpolatedU(t.x * 16D), icon.getInterpolatedV(t.y * 16D)).color(r, g, b, 1.0F).normal(nx, ny, nz).endVertex();
 
 				// The shoddy way of rendering a tringulated model with a quad
 				// tessellator
 				if(f.corners.size() == 3 && i % 3 == 2)
-					tes.addVertexWithUV(x, y, z, icon.getInterpolatedU(t.x * 16D), icon.getInterpolatedV(t.y * 16D));
+					buf.pos(x, y, z).tex(icon.getInterpolatedU(t.x * 16D), icon.getInterpolatedV(t.y * 16D)).color(r, g, b, 1.0F).normal(nx, ny, nz).endVertex();
 			}
 		}
 	}

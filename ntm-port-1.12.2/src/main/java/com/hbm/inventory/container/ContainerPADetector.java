@@ -12,12 +12,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerPADetector extends Container {
-	
+
 	private TileEntityPADetector detector;
 
 	public ContainerPADetector(InventoryPlayer playerInv, TileEntityPADetector tile) {
 		detector = tile;
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tile, 0, 8, 72));
 		//Containers
@@ -57,7 +57,7 @@ public class ContainerPADetector extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 0, 1, false)) return null;
 				} else {
@@ -65,7 +65,7 @@ public class ContainerPADetector extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

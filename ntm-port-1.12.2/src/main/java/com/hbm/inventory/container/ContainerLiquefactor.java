@@ -10,12 +10,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerLiquefactor extends Container {
-	
+
 	private TileEntityMachineLiquefactor liquefactor;
 
 	public ContainerLiquefactor(InventoryPlayer playerInv, TileEntityMachineLiquefactor tile) {
 		liquefactor = tile;
-		
+
 		//Input
 		this.addSlotToContainer(new Slot(tile, 0, 35, 54));
 		//Battery
@@ -57,7 +57,7 @@ public class ContainerLiquefactor extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

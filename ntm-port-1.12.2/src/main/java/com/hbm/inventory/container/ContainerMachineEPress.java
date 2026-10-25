@@ -19,7 +19,7 @@ public class ContainerMachineEPress extends Container {
 private TileEntityMachineEPress nukeBoy;
 
 	public ContainerMachineEPress(InventoryPlayer invPlayer, TileEntityMachineEPress tedf) {
-		
+
 		nukeBoy = tedf;
 
 		//Battery
@@ -32,7 +32,7 @@ private TileEntityMachineEPress nukeBoy;
 		this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, tedf, 3, 140, 35));
 		//Upgrade
 		this.addSlotToContainer(new SlotUpgrade(tedf, 4, 44, 21));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
@@ -58,7 +58,7 @@ private TileEntityMachineEPress nukeBoy;
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IBatteryItem || var3.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(var5, 0, 1, false)) {
 						return null;
@@ -78,7 +78,7 @@ private TileEntityMachineEPress nukeBoy;
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

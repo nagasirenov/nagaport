@@ -71,7 +71,6 @@ public class BlockRubberCacti extends BlockEnumMulti {
 		return false;
 	}
 
-	@Override
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}

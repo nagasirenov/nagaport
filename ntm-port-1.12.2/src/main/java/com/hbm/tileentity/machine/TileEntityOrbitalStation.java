@@ -210,7 +210,7 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 		EntityRideableRocket rocket = new EntityRideableRocket(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F, stack);
 		rocket.posY -= rocket.height;
 		rocket.setState(rocket.isReusable() ? RocketState.NEEDSFUEL : RocketState.LANDED);
-		this.world.spawnEntityInWorld(rocket);
+		this.world.spawnEntity(rocket);
 
 		dockRocket(rocket);
 	}
@@ -231,7 +231,7 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 		for(int i = 0; i < slots.length; i++) {
 			if(slots[i] != null) {
 				if(!player.inventory.addItemStackToInventory(slots[i].copy())) {
-					player.dropPlayerItemWithRandomChoice(slots[i].copy(), false);
+					player.dropItem(slots[i].copy(), false);
 				}
 				slots[i] = null;
 			}
@@ -339,7 +339,7 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 2,
 				this.pos.getY() - 2,
 				this.pos.getZ() - 2,

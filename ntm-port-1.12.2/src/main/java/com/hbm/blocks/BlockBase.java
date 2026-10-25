@@ -49,6 +49,48 @@ public class BlockBase extends Block {
 		return this;
 	}
 
+	@Override
+	public BlockBase setTranslationKey(String key) {
+		super.setTranslationKey(key);
+		return this;
+	}
+
+	@Override
+	public BlockBase setCreativeTab(net.minecraft.creativetab.CreativeTabs tab) {
+		super.setCreativeTab(tab);
+		return this;
+	}
+
+	@Override
+	public BlockBase setHardness(float hardness) {
+		super.setHardness(hardness);
+		return this;
+	}
+
+	@Override
+	public BlockBase setResistance(float resistance) {
+		super.setResistance(resistance);
+		return this;
+	}
+
+	@Override
+	public BlockBase setLightLevel(float lightLevel) {
+		super.setLightLevel(lightLevel);
+		return this;
+	}
+
+	@Override
+	public BlockBase setLightOpacity(int opacity) {
+		super.setLightOpacity(opacity);
+		return this;
+	}
+
+	@Override
+	public BlockBase setBlockUnbreakable() {
+		super.setBlockUnbreakable();
+		return this;
+	}
+
 	/** Original explicit texture assignment, consumed by the native atlas adapter. */
 	public BlockBase setBlockTextureName(String texture) {
 		this.textureName = texture;
@@ -97,12 +139,10 @@ public class BlockBase extends Block {
 		return this;
 	}
 
-	@Override
 	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type) {
 		return this.canSpawn ? super.canCreatureSpawn(state, world, pos, type) : false;
 	}
 
-	@Override
 	public boolean isBeaconBase(IBlockAccess world, BlockPos pos, BlockPos beaconPos) {
 		return this.beaconable;
 	}

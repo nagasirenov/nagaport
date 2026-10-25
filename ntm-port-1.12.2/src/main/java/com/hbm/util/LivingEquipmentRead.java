@@ -28,7 +28,7 @@ public final class LivingEquipmentRead {
     public static ItemStack getEquipmentNullable(EntityLivingBase entity, int slot) {
         Objects.requireNonNull(entity);
         ItemStack stack = entity.getItemStackFromSlot(EQUIPMENT[slot]);
-        return stack == ItemStack.EMPTY ? null : stack;
+        return (stack == null || stack.isEmpty()) ? null : stack;
     }
 
     /**
@@ -40,6 +40,6 @@ public final class LivingEquipmentRead {
     @Nullable
     public static ItemStack getArmorNullable(EntityPlayer player, int slot) {
         ItemStack stack = player.inventory.armorItemInSlot(slot);
-        return stack == ItemStack.EMPTY ? null : stack;
+        return (stack == null || stack.isEmpty()) ? null : stack;
     }
 }

@@ -75,8 +75,16 @@ public class ItemAmmoArty extends Item {
 		init();
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, NORMAL));
 		list.add(new ItemStack(item, 1, CLASSIC));
@@ -174,7 +182,6 @@ public class ItemAmmoArty extends Item {
 		return this.getIconFromDamage(stack.getItemDamage());
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int meta) {
 		return this.icons[meta];
@@ -240,7 +247,7 @@ public class ItemAmmoArty extends Item {
 			double[] target = shell.getTarget();
 			cluster.setTarget(target[0], target[1], target[2]);
 			cluster.setWhistle(shell.getWhistle() && !shell.didWhistle());
-			shell.world.spawnEntityInWorld(cluster);
+			shell.world.spawnEntity(cluster);
 		}
 	}
 
@@ -262,7 +269,7 @@ public class ItemAmmoArty extends Item {
 		/* FULL NUKE */
 		this.itemTypes[NUKE] = new ArtilleryShell("ammo_arty_nuke", SpentCasing.COLOR_CASE_16INCH_NUKE) {
 			public void onImpact(EntityArtilleryShell shell, RayTraceResult mop) {
-				shell.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(shell.world, BombConfig.missileRadius, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
+				shell.world.spawnEntity(EntityNukeExplosionMK5.statFac(shell.world, BombConfig.missileRadius, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
 				EntityNukeTorex.statFacStandard(shell.world, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, BombConfig.missileRadius);
 				shell.setDead();
 			}
@@ -277,11 +284,11 @@ public class ItemAmmoArty extends Item {
 				ExplosionLarge.spawnShrapnels(shell.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 15);
 				ExplosionChaos.burn(shell.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 12);
 				int radius = 15;
-				List<Entity> hit = shell.world.getEntitiesWithinAABBExcludingEntity(shell, AxisAlignedBB.getBoundingBox(shell.posX - radius, shell.posY - radius, shell.posZ - radius, shell.posX + radius, shell.posY + radius, shell.posZ + radius));
+				List<Entity> hit = shell.world.getEntitiesWithinAABBExcludingEntity(shell, new AxisAlignedBB(shell.posX - radius, shell.posY - radius, shell.posZ - radius, shell.posX + radius, shell.posY + radius, shell.posZ + radius));
 				for(Entity e : hit) {
 					e.setFire(5);
 					if(e instanceof EntityLivingBase) {
-						PotionEffect eff = new PotionEffect(HbmPotion.phosphorus.id, 30 * 20, 0, true);
+						PotionEffect eff = new PotionEffect(HbmPotion.phosphorus, 30 * 20, 0, true, false);
 						eff.getCurativeItems().clear();
 						((EntityLivingBase)e).addPotionEffect(eff);
 					}
@@ -316,7 +323,7 @@ public class ItemAmmoArty extends Item {
 				mist.setType(Fluids.CHLORINE);
 				mist.setPosition(mop.hitVec.x - vec.x, mop.hitVec.y - vec.y - 3, mop.hitVec.z - vec.z);
 				mist.setArea(15, 7.5F);
-				shell.world.spawnEntityInWorld(mist);
+				shell.world.spawnEntity(mist);
 				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 5F);
 			}
 		};
@@ -336,7 +343,7 @@ public class ItemAmmoArty extends Item {
 					}
 					mist.setPosition(x, mop.hitVec.y - vec.y - 5, z);
 					mist.setArea(15, 10);
-					shell.world.spawnEntityInWorld(mist);
+					shell.world.spawnEntity(mist);
 				}
 				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 10F);
 				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.POISON, 15F);
@@ -358,7 +365,7 @@ public class ItemAmmoArty extends Item {
 					}
 					mist.setPosition(x, mop.hitVec.y - vec.y - 5, z);
 					mist.setArea(20, 10);
-					shell.world.spawnEntityInWorld(mist);
+					shell.world.spawnEntity(mist);
 				}
 				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.HEAVYMETAL, 15F);
 				PollutionHandler.incrementPollution(shell.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), PollutionType.POISON, 30F);

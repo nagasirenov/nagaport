@@ -25,7 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvider, IConfigurableMachine {
-	
+
 	private int playersUsing = 0;
 	public float doorAngle = 0;
 	public float prevDoorAngle = 0;
@@ -36,7 +36,7 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 	public int ashLevelMisc;
 	public int ashLevelFly;
 	public int ashLevelSoot;
-	
+
 	//Configurable values
 	public static int thresholdWood = 2000;
 	public static int thresholdCoal = 2000;
@@ -47,7 +47,7 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 	public TileEntityAshpit() {
 		super(5);
 	}
-	
+
 	@Override
 	public String getConfigName() {
 		return "ashpit";
@@ -70,12 +70,12 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 		writer.name("I:thresholdFly").value(thresholdFly);
 		writer.name("I:thresholdSoot").value(thresholdSoot);
 	}
-	
+
 	@Override
 	public void openInventory(EntityPlayer player) {
 		if(!world.isRemote) this.playersUsing++;
 	}
-	
+
 	@Override
 	public void closeInventory(EntityPlayer player) {
 		if(!world.isRemote) this.playersUsing--;
@@ -88,7 +88,7 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
 
 
@@ -97,44 +97,44 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 			if(processAsh(ashLevelMisc, EnumAshType.MISC, thresholdMisc)) ashLevelMisc -= thresholdMisc;
 			if(processAsh(ashLevelFly, EnumAshType.FLY, thresholdFly)) ashLevelFly -= thresholdFly;
 			if(processAsh(ashLevelSoot, EnumAshType.SOOT, thresholdSoot)) ashLevelSoot -= thresholdSoot;
-			
+
 			isFull = false;
-			
+
 			for(int i = 0; i < 5; i++) {
 				if(slots[i] != null) isFull = true;
 			}
 
 			this.networkPackNT(50);
-			
+
 		} else {
 			this.prevDoorAngle = this.doorAngle;
 			float swingSpeed = (doorAngle / 10F) + 3;
-			
+
 			if(this.playersUsing > 0) {
 				this.doorAngle += swingSpeed;
 			} else {
 				this.doorAngle -= swingSpeed;
 			}
-			
+
 			this.doorAngle = MathHelper.clamp(this.doorAngle, 0F, 135F);
 		}
 	}
-	
+
 	protected boolean processAsh(int level, EnumAshType type, int threshold) {
-		
+
 		if(level >= threshold) {
 			for(int i = 0; i < 5; i++) {
 				if(slots[i] == null) {
 					slots[i] = DictFrame.fromOne(ModItems.powder_ash, type);
 					ashLevelWood -= threshold;
 					return true;
-				} else if(slots[i].stackSize < slots[i].getMaxStackSize() && slots[i].getItem() == ModItems.powder_ash && slots[i].getItemDamage() == type.ordinal()) {
-					slots[i].stackSize++;
+				} else if(slots[i].getCount() < slots[i].getMaxStackSize() && slots[i].getItem() == ModItems.powder_ash && slots[i].getItemDamage() == type.ordinal()) {
+					slots[i].grow(1);
 					return true;
 				}
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -165,7 +165,7 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
@@ -176,7 +176,7 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 		this.ashLevelFly = nbt.getInteger("ashLevelFly");
 		this.ashLevelSoot = nbt.getInteger("ashLevelSoot");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
@@ -188,14 +188,14 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 		nbt.setInteger("ashLevelSoot", ashLevelSoot);
 		return nbt;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -204,10 +204,10 @@ public class TileEntityAshpit extends TileEntityMachineBase implements IGUIProvi
 					this.pos.getZ() + 2
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

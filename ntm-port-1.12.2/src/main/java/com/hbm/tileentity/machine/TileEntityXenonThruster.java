@@ -156,7 +156,7 @@ public class TileEntityXenonThruster extends TileEntityMachineBase implements IP
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 2, this.pos.getY() - 1, this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 2, this.pos.getZ() + 3);
+		if(bb == null) bb = new AxisAlignedBB(this.pos.getX() - 2, this.pos.getY() - 1, this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 2, this.pos.getZ() + 3);
 		return bb;
 	}
 

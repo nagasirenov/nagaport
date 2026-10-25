@@ -55,8 +55,13 @@ public class EntitySawblade extends EntityThrowableInterp {
 		return this.dataManager.get(META);
 	}
 
-	@Override
-	public boolean interactFirst(EntityPlayer player) {
+
+		@Override
+	public boolean processInitialInteract(net.minecraft.entity.player.EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		return interactFirst(player);
+	}
+
+public boolean interactFirst(EntityPlayer player) {
 
 		if(!this.world.isRemote) {
 
@@ -102,9 +107,9 @@ public class EntitySawblade extends EntityThrowableInterp {
 					orientation += 6;
 				} else {
 					net.minecraft.util.EnumFacing side = mop.sideHit;
-					this.motionX *= 1 - (Math.abs(side.getFrontOffsetX()) * 2);
-					this.motionY *= 1 - (Math.abs(side.getFrontOffsetY()) * 2);
-					this.motionZ *= 1 - (Math.abs(side.getFrontOffsetZ()) * 2);
+					this.motionX *= 1 - (Math.abs(side.getXOffset()) * 2);
+					this.motionY *= 1 - (Math.abs(side.getYOffset()) * 2);
+					this.motionZ *= 1 - (Math.abs(side.getZOffset()) * 2);
 					this.world.createExplosion(this, posX, posY, posZ, 3F, false);
 
 					if(this.world.getBlockState(mop.getBlockPos()).getBlock().getExplosionResistance(this) < 50) {

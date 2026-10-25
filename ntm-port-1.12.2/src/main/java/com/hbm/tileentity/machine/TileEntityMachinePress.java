@@ -135,12 +135,12 @@ public class TileEntityMachinePress extends TileEntityMachineBase implements IGU
 								vnt.explode();
 							}
 						}
-						this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), squish, getVolume(1.5F), 1.0F);
+						this.world.playSound(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.main.ModSoundEvents.resolve(squish), net.minecraft.util.SoundCategory.BLOCKS, getVolume(1.5F), 1.0F);
 						ItemStack output = PressRecipes.getOutput(slots[2], slots[1]);
 						if(slots[3] == null) {
 							slots[3] = output.copy();
 						} else {
-							slots[3].stackSize += output.stackSize;
+							slots[3].grow(output.getCount());
 						}
 						this.decrStackSize(2, 1);
 
@@ -169,7 +169,7 @@ public class TileEntityMachinePress extends TileEntityMachineBase implements IGU
 			if(slots[0] != null && burnTime < 200 && TileEntityFurnace.getItemBurnTime(slots[0]) > 0) { // less than one operation stored? burn more fuel!
 				burnTime += TileEntityFurnace.getItemBurnTime(slots[0]);
 
-				if(slots[0].stackSize == 1 && slots[0].getItem().hasContainerItem(slots[0])) {
+				if(slots[0].getCount() == 1 && slots[0].getItem().hasContainerItem(slots[0])) {
 					slots[0] = slots[0].getItem().getContainerItem(slots[0]).copy();
 				} else {
 					this.decrStackSize(0, 1);
@@ -228,7 +228,7 @@ public class TileEntityMachinePress extends TileEntityMachineBase implements IGU
 		if(output == null) return false;
 
 		if(slots[3] == null) return true;
-		if(slots[3].stackSize + output.stackSize <= slots[3].getMaxStackSize() && slots[3].getItem() == output.getItem() && slots[3].getItemDamage() == output.getItemDamage()) return true;
+		if(slots[3].getCount() + output.getCount() <= slots[3].getMaxStackSize() && slots[3].getItem() == output.getItem() && slots[3].getItemDamage() == output.getItemDamage()) return true;
 		return false;
 	}
 
@@ -289,7 +289,7 @@ public class TileEntityMachinePress extends TileEntityMachineBase implements IGU
 		if(aabb != null)
 			return aabb;
 
-		aabb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 3, this.pos.getZ() + 1);
+		aabb = new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 3, this.pos.getZ() + 1);
 		return aabb;
 	}
 

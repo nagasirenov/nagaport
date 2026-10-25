@@ -26,31 +26,38 @@ public class ItemModRecord extends ItemRecord {
 	public final String recordName;
 
 	public ItemModRecord(String string) {
-		super(string);
+		super(string, com.hbm.main.ModSoundEvents.resolve(getRecordResource("records." + string).toString()));
 		recordName = string;
 		modRecords.put(string, this);
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
 
-		if(com.hbm.world.WorldBlockState.read(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_).getBlock() == Blocks.jukebox && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_) ) == 0) {
-			
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
+
+		if(com.hbm.world.WorldBlockState.read(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_).getBlock() == Blocks.JUKEBOX && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_) ) == 0) {
+
 			if(p_77648_3_.isRemote) {
 				return true;
-				
+
 			} else {
-				((BlockJukebox) Blocks.jukebox).func_149926_b(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, p_77648_1_);
-				p_77648_3_.playAuxSFXAtEntity((EntityPlayer) null, 1005, p_77648_4_, p_77648_5_, p_77648_6_, Item.getIdFromItem(this));
-				--p_77648_1_.stackSize;
+				net.minecraft.tileentity.TileEntity jukeTe = p_77648_3_.getTileEntity(new net.minecraft.util.math.BlockPos(p_77648_4_, p_77648_5_, p_77648_6_)); if(jukeTe instanceof net.minecraft.block.BlockJukebox.TileEntityJukebox) ((net.minecraft.block.BlockJukebox.TileEntityJukebox) jukeTe).setRecord(p_77648_1_);
+				p_77648_3_.playEvent((EntityPlayer) null, 1005, new net.minecraft.util.math.BlockPos(p_77648_4_, p_77648_5_, p_77648_6_), Item.getIdFromItem(this));
+				p_77648_1_.shrink(1);
 				return true;
 			}
-			
+
 		} else {
 			return false;
 		}
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> p_77624_3_, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
@@ -68,7 +75,7 @@ public class ItemModRecord extends ItemRecord {
 	 */
 	@Override
 	public EnumRarity getRarity(ItemStack p_77613_1_) {
-		return EnumRarity.rare;
+		return EnumRarity.RARE;
 	}
 
 	/**
@@ -78,33 +85,33 @@ public class ItemModRecord extends ItemRecord {
 	public static ItemRecord getRecord(String p_150926_0_) {
 		return (ItemRecord) modRecords.get(p_150926_0_);
 	}
-	
-	@Override
-	public ResourceLocation getRecordResource(String name) {
+
+	public static ResourceLocation getRecordResource(String name) {
 
 		String s = "";
 
 		if(name.equals("records.lc"))
 			s = RefStrings.MODID + ":music.recordLambdaCore";
-		if(name.equals("records.ss"))
+		else if(name.equals("records.ss"))
 			s = RefStrings.MODID + ":music.recordSectorSweep";
-		if(name.equals("records.vc"))
+		else if(name.equals("records.vc"))
 			s = RefStrings.MODID + ":music.recordVortalCombat";
-		if(name.equals("records.glass"))
+		else if(name.equals("records.glass"))
 			s = RefStrings.MODID + ":music.transmission";
-		if(name.equals("records.gs"))
+		else if(name.equals("records.gs"))
 			s = RefStrings.MODID + ":music.recordGodSpeed";
-		if(name.equals("records.gp"))
+		else if(name.equals("records.gp"))
 			s = RefStrings.MODID + ":music.recordGoop";
-		if(name.equals("records.el"))
+		else if(name.equals("records.el"))
 			s = RefStrings.MODID + ":music.recordEthereal";
-
+		else
+			throw new IllegalArgumentException("Unknown NTM record sound: " + name);
 		return new ResourceLocation(s);
 	}
 
 	@Override
 	public String getItemStackDisplayName(ItemStack p_77653_1_) {
-		String s = (I18nUtil.resolveKey(Items.record_11.getUnlocalizedName() + ".name")).trim();
+		String s = (I18nUtil.resolveKey(Items.RECORD_11.getTranslationKey() + ".name")).trim();
 
 		return s;
 	}

@@ -11,14 +11,14 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderMaskMan extends RenderLiving {
 
-	public RenderMaskMan() {
-        super(new ModelMaskMan(), 1.0F);
+	public RenderMaskMan(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+        super(renderManager, new ModelMaskMan(), 1.0F);
 		this.shadowOpaque = 0.0F;
 	}
 
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float f0, float f1) {
-		
+
         ClientBossDisplay.capture((EntityMaskMan)entity, true);
         super.doRender(entity, x, y, z, f0, f1);
 	}

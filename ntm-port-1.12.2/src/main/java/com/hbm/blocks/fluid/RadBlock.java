@@ -42,23 +42,28 @@ public class RadBlock extends VolcanicBlock {
 		return (side == 0 || side == 1) ? stillIconRad : flowingIconRad;
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if(entity instanceof EntityLivingBase) ContaminationUtil.contaminate((EntityLivingBase) entity, HazardType.RADIATION, ContaminationType.CREATIVE, 5F);
 	}
 
 	@Override
 	public void onSolidify(World world, int x, int y, int z, int lavaCount, int basaltCount, Random rand) {
 		int r = rand.nextInt(400);
-		
+
 		Block above = com.hbm.world.WorldBlockState.read(world, x, y + 10, z).getBlock();
 		boolean canMakeGem = lavaCount + basaltCount == 6 && lavaCount < 3 && (above == ModBlocks.sellafield_slaked || above == ModBlocks.rad_lava_block);
 		int meta = 5 + rand.nextInt(3);
-		
-		if(r < 2) world.setBlock(x, y, z, ModBlocks.ore_sellafield_diamond, meta, 3);
-		else if(r == 2) world.setBlock(x, y, z, ModBlocks.ore_sellafield_emerald, meta, 3);
-		else if(r < 20 && canMakeGem) world.setBlock(x, y, z, ModBlocks.ore_sellafield_radgem, meta, 3);
-		else world.setBlock(x, y, z, ModBlocks.sellafield_slaked, meta, 3);
+
+		if(r < 2) com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.ore_sellafield_diamond, meta, 3);
+		else if(r == 2) com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.ore_sellafield_emerald, meta, 3);
+		else if(r < 20 && canMakeGem) com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.ore_sellafield_radgem, meta, 3);
+		else com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.sellafield_slaked, meta, 3);
 	}
 
 	@Override
@@ -68,7 +73,7 @@ public class RadBlock extends VolcanicBlock {
 
 	@Override
 	public Block getReaction(World world, int x, int y, int z) {
-		
+
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		if(b.getDefaultState().getMaterial() == Material.WATER) return Blocks.STONE;
 		if(b == Blocks.LOG || b == Blocks.LOG2) return ModBlocks.waste_log;

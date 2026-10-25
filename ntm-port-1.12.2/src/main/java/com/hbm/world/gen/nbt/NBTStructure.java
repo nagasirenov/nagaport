@@ -26,13 +26,11 @@ import com.hbm.util.fauxpointtwelve.BlockPos;
 import com.hbm.world.gen.nbt.SpawnCondition.WorldCoordinate;
 import com.hbm.world.gen.nbt.selector.BiomeBlockSelector;
 
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.block.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.CompressedStreamTools;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.nbt.NBTTagList;
@@ -82,7 +80,7 @@ public class NBTStructure {
 	private Map<String, List<JigsawConnection>> toTopConnections;
 	private Map<String, List<JigsawConnection>> toBottomConnections;
 	private Map<String, List<JigsawConnection>> toHorizontalConnections;
-	
+
 	// incredibly shitty system for translating legacy block definitions to new ones
 	@Untested // i can't find a god damn factory
 	private static Map<String, String> substitutions = new HashMap() {{
@@ -91,12 +89,12 @@ public class NBTStructure {
 
 	public NBTStructure(ResourceLocation resource) {
 		// Can't use regular resource loading, servers don't know how!
-		InputStream stream = NBTStructure.class.getResourceAsStream("/assets/" + resource.getResourceDomain() + "/" + resource.getResourcePath());
+		InputStream stream = NBTStructure.class.getResourceAsStream("/assets/" + resource.getNamespace() + "/" + resource.getPath());
 		if(stream != null) {
-			name = resource.getResourcePath();
+			name = resource.getPath();
 			loadStructure(stream);
 		} else {
-			MainRegistry.logger.error("NBT Structure not found: " + resource.getResourcePath());
+			MainRegistry.logger.error("NBT Structure not found: " + resource.getPath());
 		}
 	}
 
@@ -216,7 +214,7 @@ public class NBTStructure {
 						palette.put(block, paletteId);
 
 						NBTTagCompound nbtBlock = new NBTTagCompound();
-						nbtBlock.setString("Name", GameRegistry.findUniqueIdentifierFor(block.key).toString());
+						nbtBlock.setString("Name", block.key.getRegistryName().toString());
 
 						NBTTagCompound nbtProp = new NBTTagCompound();
 						nbtProp.setString("meta", block.value.toString());
@@ -256,7 +254,7 @@ public class NBTStructure {
 							for(int i = 0; i < items.tagCount(); i++) {
 								NBTTagCompound item = items.getCompoundTagAt(i);
 								short id = item.getShort("id");
-								String name = GameRegistry.findUniqueIdentifierFor(Item.getItemById(id)).toString();
+								String name = Item.getItemById(id).getRegistryName().toString();
 
 								if(!itemPalette.containsKey(id)) {
 									int itemPaletteId = itemPalette.size();
@@ -297,7 +295,7 @@ public class NBTStructure {
 		NBTTagCompound structure = saveArea(world, x1, y1, z1, x2, y2, z2, exclude);
 
 		try {
-			File structureDirectory = new File(Minecraft.getMinecraft().mcDataDir, "structures");
+			File structureDirectory = new File(Minecraft.getMinecraft().gameDir, "structures");
 			structureDirectory.mkdir();
 
 			File structureFile = new File(structureDirectory, filename);
@@ -330,7 +328,7 @@ public class NBTStructure {
 
 				String blockName = p.getString("Name");
 				NBTTagCompound prop = p.getCompoundTag("Properties");
-				
+
 				/// BOB PATCH ///
 				if(substitutions.containsKey(blockName)) blockName = substitutions.get(blockName);
 				/// BOB PATCH ///
@@ -469,7 +467,7 @@ public class NBTStructure {
 		HashMap<Short, Short> worldItemPalette = new HashMap<>();
 
 		for(Pair<Short, String> entry : itemPalette) {
-			Item item = (Item)Item.itemRegistry.getObject(entry.getValue());
+			Item item = Item.getByNameOrId(entry.getValue());
 
 			worldItemPalette.put(entry.getKey(), (short)Item.getIdFromItem(item));
 		}
@@ -482,7 +480,7 @@ public class NBTStructure {
 
 		if(worldItemPalette != null) relinkItems(worldItemPalette, nbt);
 
-		TileEntity te = TileEntity.createAndLoadEntity(nbt);
+		TileEntity te = TileEntity.create(world, nbt);
 
 		if(te instanceof INBTTileEntityTransformable) {
 			((INBTTileEntityTransformable) te).transformTE(world, coordBaseMode);
@@ -539,11 +537,11 @@ public class NBTStructure {
 
 					if(ry < 1) continue;
 
-					world.setBlock(rx, ry, rz, block, meta, 2);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, rx, ry, rz, block, meta, 2);
 
 					if(state.nbt != null) {
 						TileEntity te = buildTileEntity(world, block, worldItemPalette, state.nbt, coordBaseMode, null);
-						world.setTileEntity(rx, ry, rz, te);
+						world.setTileEntity(new net.minecraft.util.math.BlockPos(rx, ry, rz), te);
 					}
 				}
 			}
@@ -598,7 +596,9 @@ public class NBTStructure {
 		int maxZ = Math.max(rotMinZ, rotMaxZ);
 
 		if(piece.blockTable != null || piece.platform != null) {
-			Biome biome = world.getBiome(new net.minecraft.util.math.BlockPos(generatingBounds.getCenterX(), 0, generatingBounds.getCenterZ()));
+			int centerX = generatingBounds.minX + (generatingBounds.maxX - generatingBounds.minX) / 2;
+			int centerZ = generatingBounds.minZ + (generatingBounds.maxZ - generatingBounds.minZ) / 2;
+			Biome biome = world.getBiome(new net.minecraft.util.math.BlockPos(centerX, 0, centerZ));
 
 			if(piece.blockTable != null) {
 				for(BlockSelector selector : piece.blockTable.values()) {
@@ -617,7 +617,9 @@ public class NBTStructure {
 			for(int bz = minZ; bz <= maxZ; bz++) {
 				int rx = rotateX(bx, bz, coordBaseMode) + totalBounds.minX;
 				int rz = rotateZ(bx, bz, coordBaseMode) + totalBounds.minZ;
-				int oy = piece.conformToTerrain ? world.getTopSolidOrLiquidBlock(rx, rz) + piece.heightOffset : totalBounds.minY;
+				int oy = piece.conformToTerrain
+						? world.getTopSolidOrLiquidBlock(new net.minecraft.util.math.BlockPos(rx, 0, rz)).getY() + piece.heightOffset
+						: totalBounds.minY;
 
 				boolean hasBase = false;
 
@@ -632,11 +634,11 @@ public class NBTStructure {
 
 					if(ry < 1) continue;
 
-					world.setBlock(rx, ry, rz, block, meta, 2);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, rx, ry, rz, block, meta, 2);
 
 					if(state.nbt != null) {
 						TileEntity te = buildTileEntity(world, block, worldItemPalette, state.nbt, coordBaseMode, structureName);
-						world.setTileEntity(rx, ry, rz, te);
+						world.setTileEntity(new net.minecraft.util.math.BlockPos(rx, ry, rz), te);
 					}
 
 					if(by == 0 && piece.platform != null && !block.getDefaultState().getMaterial().isReplaceable()) hasBase = true;
@@ -667,14 +669,7 @@ public class NBTStructure {
 
 	// What a fucken mess, why even implement the IntArray NBT if ye aint gonna use it Moe Yang?
 	private ThreeInts parsePos(NBTTagList pos) {
-		NBTBase xb = (NBTBase)pos.tagList.get(0);
-		int x = ((NBTTagInt)xb).func_150287_d();
-		NBTBase yb = (NBTBase)pos.tagList.get(1);
-		int y = ((NBTTagInt)yb).func_150287_d();
-		NBTBase zb = (NBTBase)pos.tagList.get(2);
-		int z = ((NBTTagInt)zb).func_150287_d();
-
-		return new ThreeInts(x, y, z);
+		return new ThreeInts(pos.getIntAt(0), pos.getIntAt(1), pos.getIntAt(2));
 	}
 
 	// NON-STANDARD, items are serialized with IDs, which will differ from world to world!
@@ -956,7 +951,7 @@ public class NBTStructure {
 
 			for(int z = box.minZ; z <= box.maxZ; z++) {
 				for(int x = box.minX; x <= box.maxX; x++) {
-					total += world.getTopSolidOrLiquidBlock(x, z);
+					total += world.getTopSolidOrLiquidBlock(new net.minecraft.util.math.BlockPos(x, 0, z)).getY();
 					iterations++;
 				}
 			}
@@ -984,7 +979,7 @@ public class NBTStructure {
 			return getCoordMode();
 		}
 
-		protected boolean hasIntersectionIgnoringSelf(LinkedList<StructureComponent> components, StructureBoundingBox box) {
+		protected boolean hasIntersectionIgnoringSelf(List<StructureComponent> components, StructureBoundingBox box) {
 			for(StructureComponent component : components) {
 				if(component == this) continue;
 				if(component.getBoundingBox() == null) continue;
@@ -995,12 +990,12 @@ public class NBTStructure {
 			return false;
 		}
 
-		protected boolean isInsideIgnoringSelf(LinkedList<StructureComponent> components, int x, int y, int z) {
+		protected boolean isInsideIgnoringSelf(List<StructureComponent> components, int x, int y, int z) {
 			for(StructureComponent component : components) {
 				if(component == this) continue;
 				if(component.getBoundingBox() == null) continue;
 
-				if(component.getBoundingBox().isVecInside(x, y, z)) return true;
+				if(component.getBoundingBox().isVecInside(new net.minecraft.util.math.BlockPos(x, y, z))) return true;
 			}
 
 			return false;
@@ -1199,8 +1194,8 @@ public class NBTStructure {
 		}
 
 		private int getDistanceTo(StructureBoundingBox box) {
-			int x = box.getCenterX();
-			int z = box.getCenterZ();
+			int x = box.minX + (box.maxX - box.minX) / 2;
+			int z = box.minZ + (box.maxZ - box.minZ) / 2;
 
 			return Math.max(Math.abs(x - (getChunkPosX() << 4)), Math.abs(z - (getChunkPosZ() << 4)));
 		}

@@ -44,10 +44,13 @@ public class MachineRefinery extends BlockDummyable implements IPersistentInfoPr
 		if(meta >= 6) return new TileEntityProxyCombo().fluid().power().inventory();
 		return null;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -55,9 +58,9 @@ public class MachineRefinery extends BlockDummyable implements IPersistentInfoPr
 
 			if(pos == null)
 				return false;
-			
+
 			TileEntityMachineRefinery refinery = (TileEntityMachineRefinery) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
-			
+
 			if(refinery.hasExploded) return false;
 
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
@@ -86,15 +89,23 @@ public class MachineRefinery extends BlockDummyable implements IPersistentInfoPr
 	public int getOffset() {
 		return 1;
 	}
-	
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		return IPersistentNBT.getDrops(world, x, y, z, this);
 	}
 
 	@Override
 	public void addInformation(ItemStack stack, NBTTagCompound persistentTag, EntityPlayer player, List list, boolean ext) {
-		
+
 		for(int i = 0; i < 5; i++) {
 			FluidTank tank = new FluidTank(Fluids.NONE, 0);
 			tank.readFromNBT(persistentTag, "" + i);
@@ -108,24 +119,25 @@ public class MachineRefinery extends BlockDummyable implements IPersistentInfoPr
 	}
 
 	@Override
-	public void onBlockExploded(World world, int x, int y, int z, Explosion explosion) {
+	public void onBlockExploded(World world, net.minecraft.util.math.BlockPos nativeExplodedPos, Explosion explosion) {
+		int x = nativeExplodedPos.getX(), y = nativeExplodedPos.getY(), z = nativeExplodedPos.getZ();
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof TileEntityMachineRefinery)) return;
-		
+
 		TileEntityMachineRefinery refinery = (TileEntityMachineRefinery) core;
 		if(refinery.lastExplosion == explosion) return;
 		refinery.lastExplosion = explosion;
-		
+
 		if(!refinery.hasExploded) {
 			refinery.explode(world, x, y, z);
-			
-			if(explosion.exploder != null && explosion.exploder instanceof EntityBombletZeta) {
+
+			if(explosion.getExplosivePlacedBy() != null && ((net.minecraft.entity.Entity) explosion.getExplosivePlacedBy()) instanceof EntityBombletZeta) {
 				List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class,
 						new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(100, 100, 100));
-				
+
 				for(EntityPlayer p : players) com.hbm.advancement.NtmAdvancements.award(p, MainRegistry.achInferno);
 			}
 		} else {

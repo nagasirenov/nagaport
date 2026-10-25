@@ -30,11 +30,11 @@ public class EntityFireLingering extends Entity {
 	public static int TYPE_OXY = 3;
 	public static int TYPE_BLACK = 4;
 	public int maxAge = 150;
-	
+
 	public EntityFireLingering(World world) {
 		super(world);
 	}
-	
+
 	public EntityFireLingering setArea(float width, float height) {
 		this.dataManager.set(AREA_WIDTH, width);
 		this.dataManager.set(AREA_HEIGHT, height);
@@ -51,32 +51,31 @@ public class EntityFireLingering extends Entity {
 		this.dataManager.register(AREA_WIDTH, new Float(0));
 		this.dataManager.register(AREA_HEIGHT, new Float(0));
 	}
-	
+
 	public EntityFireLingering setType(int type) {
 		this.dataManager.set(FIRE_TYPE, type);
 		return this;
 	}
-	
+
 	public int getType() {
 		return this.dataManager.get(FIRE_TYPE);
 	}
 
 	@Override
 	public void onEntityUpdate() {
-		
+
 		float height = this.dataManager.get(AREA_HEIGHT);
-		this.yOffset = 0;
 		this.setSize(this.dataManager.get(AREA_WIDTH), height);
 		this.setPosition(this.posX, this.posY, this.posZ);
-		
+
 		if(!this.world.isRemote) {
-			
+
 			if(this.ticksExisted >= maxAge) {
 				this.setDead();
 			}
-			
-			List<Entity> affected = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(posX - width / 2, posY, posZ - width / 2, posX + width / 2, posY + height, posZ + width / 2));
-			
+
+			List<Entity> affected = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(posX - width / 2, posY, posZ - width / 2, posX + width / 2, posY + height, posZ + width / 2));
+
 			for(Entity e : affected) {
 				if(e instanceof EntityLivingBase) {
 					EntityLivingBase livng = (EntityLivingBase) e;
@@ -94,7 +93,7 @@ public class EntityFireLingering extends Entity {
 			for(int i = 0; i < (width >= 5 ? 2 : 1); i++) {
 				double x = posX - width / 2 + rand.nextDouble() * width;
 				double z = posZ - width / 2 + rand.nextDouble() * width;
-	
+
 				Vec3d up = new Vec3d(x, posY + height, z);
 				Vec3d down = new Vec3d(x, posY - height, z);
 				RayTraceResult mop = this.world.rayTraceBlocks(up, down, false, true, true);
@@ -110,6 +109,6 @@ public class EntityFireLingering extends Entity {
 	@Override @SideOnly(Side.CLIENT) public boolean canRenderOnFire() { return false; }
 	@Override protected void writeEntityToNBT(NBTTagCompound nbt) { }
 	@Override public boolean writeToNBTOptional(NBTTagCompound nbt) { return false; }
-	@Override public void writeToNBT(NBTTagCompound nbt) { }
+	@Override public NBTTagCompound writeToNBT(NBTTagCompound nbt) { return nbt; }
 	@Override public void readEntityFromNBT(NBTTagCompound nbt) { this.setDead(); }
 }

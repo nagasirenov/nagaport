@@ -28,8 +28,8 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockPWR extends BlockContainer implements IBlockCT {
-	
-	
+
+
 	public BlockPWR(Material mat) {
 		super(mat);
         setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA, 0));
@@ -43,7 +43,7 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
         return CTContext.extend(state, world, pos, this);
     }
 
-	
+
 	@Override
 	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j)  {
 		return null;
@@ -63,58 +63,80 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		
-		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
+
+		TileEntity tile = world.getTileEntity(pos);
+
 		if(tile instanceof TileEntityBlockPWR) {
 			TileEntityBlockPWR pwr = (TileEntityBlockPWR) tile;
-			world.removeTileEntity(x, y, z);
+			world.removeTileEntity(pos);
 			if(pwr.block != null) {
-				world.setBlock(x, y, z, pwr.block);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, pwr.block);
 				TileEntity controller = world.getTileEntity(new net.minecraft.util.math.BlockPos(pwr.coreX, pwr.coreY, pwr.coreZ));
-				
+
 				if(controller instanceof TileEntityPWRController) {
 					((TileEntityPWRController) controller).assembled = false;
 				}
 			}
 		} else {
-			world.removeTileEntity(x, y, z);
+			world.removeTileEntity(pos);
 		}
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
-	
+
 	public static class TileEntityBlockPWR extends TileEntity implements IFluidReceiverMK2, ISidedInventory, IRORValueProvider, IRORInteractive, net.minecraft.util.ITickable {
-		
+
+		@Override
+		public boolean isEmpty() {
+			for(int i = 0; i < this.getSizeInventory(); i++) {
+				if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+			}
+			return true;
+		}
+
+		@Override public int getField(int id) { return 0; }
+		@Override public void setField(int id, int value) {}
+		@Override public int getFieldCount() { return 0; }
+
+		@Override
+		public void clear() {
+			for(int i = 0; i < this.getSizeInventory(); i++) {
+				this.setInventorySlotContents(i, null);
+			}
+		}
+
 		public Block block;
 		public int coreX;
 		public int coreY;
 		public int coreZ;
-		
+
 		@Override
 		public void update() {
-			
+
 			if(!this.world.isRemote) {
-				
+
 				if(this.world.getTotalWorldTime() % 20 == 0 && block != null) {
-					
+
 					TileEntityPWRController controller = getCore();
-					
+
 					if(controller != null) {
 						if(!controller.assembled) {
-							this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+							this.getBlockType().breakBlock(this.world, this.pos, this.world.getBlockState(this.pos));
 						}
-					} else if(this.world.getChunkProvider().chunkExists(coreX >> 4, coreZ >> 4)) {
-						this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+					} else if(this.world.getChunkProvider().getLoadedChunk(coreX >> 4, coreZ >> 4) != null) {
+						this.getBlockType().breakBlock(this.world, this.pos, this.world.getBlockState(this.pos));
 					}
 				}
 			}
 		}
-		
+
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
-			
+
 			block = Block.getBlockById(nbt.getInteger("block"));
 			if(block != Blocks.AIR) {
 				coreX = nbt.getInteger("cX");
@@ -124,7 +146,7 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 				block = null;
 			}
 		}
-		
+
 		@Override
 		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
@@ -137,22 +159,22 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 			}
 			return nbt;
 		}
-		
+
 		@Override
 		public void markDirty() {
 			if(this.world != null) {
-				this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+				this.world.markChunkDirty(this.pos, this);
 			}
 		}
-		
+
 		public TileEntityPWRController cachedCore;
-		
+
 		protected TileEntityPWRController getCore() {
-			
+
 			if(cachedCore != null && !cachedCore.isInvalid()) return cachedCore;
 
-			if(this.world.getChunkProvider().chunkExists(coreX >> 4, coreZ >> 4)) {
-				
+			if(this.world.getChunkProvider().getLoadedChunk(coreX >> 4, coreZ >> 4) != null) {
+
 				TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(coreX, coreY, coreZ));
 				if(tile instanceof TileEntityPWRController) {
 					TileEntityPWRController controller = (TileEntityPWRController) tile;
@@ -160,18 +182,18 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 					return controller;
 				}
 			}
-			
+
 			return null;
 		}
 
 		@Override
 		public long transferFluid(FluidType type, int pressure, long fluid) {
-			
+
 			if(this.getBlockMetadata() != 1) return fluid;
 			if(block == null) return fluid;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return controller.transferFluid(type, pressure, fluid);
-			
+
 			return fluid;
 		}
 
@@ -200,12 +222,12 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 
 		@Override
 		public int getSizeInventory() {
-			
+
 			if(this.getBlockMetadata() != 1) return 0;
 			if(block == null) return 0;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return controller.getSizeInventory();
-			
+
 			return 0;
 		}
 
@@ -215,40 +237,40 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 
 		@Override
 		public ItemStack getStackInSlot(int slot) {
-			
+
 			if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
 			if(block == null) return ItemStack.EMPTY;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return nativeStack(controller.getStackInSlot(slot));
-			
+
 			return ItemStack.EMPTY;
 		}
 
 		@Override
 		public ItemStack decrStackSize(int slot, int amount) {
-			
+
 			if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
 			if(block == null) return ItemStack.EMPTY;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return nativeStack(controller.decrStackSize(slot, amount));
-			
+
 			return ItemStack.EMPTY;
 		}
 
 		@Override
 		public ItemStack removeStackFromSlot(int slot) {
-			
+
 			if(this.getBlockMetadata() != 1) return ItemStack.EMPTY;
 			if(block == null) return ItemStack.EMPTY;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return nativeStack(controller.removeStackFromSlot(slot));
-			
+
 			return ItemStack.EMPTY;
 		}
 
 		@Override
 		public void setInventorySlotContents(int slot, ItemStack stack) {
-			
+
 			if(this.getBlockMetadata() != 1) return;
 			if(block == null) return;
 			TileEntityPWRController controller = this.getCore();
@@ -257,70 +279,72 @@ public class BlockPWR extends BlockContainer implements IBlockCT {
 
 		@Override
 		public int getInventoryStackLimit() {
-			
+
 			if(this.getBlockMetadata() != 1) return 0;
 			if(block == null) return 0;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return controller.getInventoryStackLimit();
-			
+
 			return 0;
 		}
 
 		@Override public boolean isUsableByPlayer(EntityPlayer player) { return false; }
 		@Override public void openInventory(EntityPlayer player) { }
 		@Override public void closeInventory(EntityPlayer player) { }
-		@Override public String getInventoryName() { return ""; }
-		@Override public boolean hasCustomInventoryName() { return false; }
+		@Override public String getName() { return ""; }
+		@Override public boolean hasCustomName() { return false; }
+		public String getInventoryName() { return getName(); }
+		public boolean hasCustomInventoryName() { return hasCustomName(); }
 
 		@Override
 		public boolean isItemValidForSlot(int slot, ItemStack stack) {
-			
+
 			if(this.getBlockMetadata() != 1) return false;
 			if(block == null) return false;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return controller.isItemValidForSlot(slot, stack);
-			
+
 			return false;
 		}
 
 		@Override
 		public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
 			int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
-			
+
 			if(this.getBlockMetadata() != 1) return new int[0];
 			if(block == null) return new int[0];
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return controller.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
-			
+
 			return new int[0];
 		}
 
 		@Override
 		public boolean canInsertItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
 			int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
-			
+
 			if(this.getBlockMetadata() != 1) return false;
 			if(block == null) return false;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return controller.canInsertItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
-			
+
 			return false;
 		}
 
 		@Override
 		public boolean canExtractItem(int slot, ItemStack stack, net.minecraft.util.EnumFacing nativeFace) {
 			int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
-			
+
 			if(this.getBlockMetadata() != 1) return false;
 			if(block == null) return false;
 			TileEntityPWRController controller = this.getCore();
 			if(controller != null) return controller.canExtractItem(slot, stack, com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
-			
+
 			return false;
 		}
 
 		public boolean isLoaded = true;
-		
+
 		@Override
 		public boolean isLoaded() {
 			return isLoaded;

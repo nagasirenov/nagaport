@@ -26,6 +26,11 @@ public class ItemMeteorRemote extends Item {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		stack.damageItem(1, player);
@@ -35,8 +40,8 @@ public class ItemMeteorRemote extends Item {
 			player.sendMessage(new TextComponentString("Watch your head!"));
 		}
 
-		world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
-		player.swingItem();
+		world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
+		player.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 
 		return stack;
 	}

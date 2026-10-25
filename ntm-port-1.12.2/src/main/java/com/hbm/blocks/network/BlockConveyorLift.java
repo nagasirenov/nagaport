@@ -25,7 +25,6 @@ public class BlockConveyorLift extends BlockConveyorBase implements IToolable {
 
 	private static final AxisAlignedBB TOP_BOUNDS = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
 
-	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		boolean bottom = !(world.getBlockState(pos.down()).getBlock() instanceof IConveyorBelt);
 		boolean top = !(world.getBlockState(pos.up()).getBlock() instanceof IConveyorBelt) && !bottom && !(world.getBlockState(pos.up()).getBlock() instanceof IEnterableBlock);

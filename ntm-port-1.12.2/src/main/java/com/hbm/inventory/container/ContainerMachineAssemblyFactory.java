@@ -23,7 +23,7 @@ public class ContainerMachineAssemblyFactory extends ContainerBase {
 		this.addSlotToContainer(new SlotNonRetarded(assemFac, 0, 234, 112));
 		// Upgrades
 		this.addSlots(assemFac, 1, 214, 149, 3, 1);
-		
+
 		for(int i = 0; i < 4; i++) {
 			// Template
 			this.addSlots(assemFac, 4 + i * 14, 25 + (i % 2) * 109, 54 + (i / 2) * 56, 1, 1);
@@ -32,7 +32,7 @@ public class ContainerMachineAssemblyFactory extends ContainerBase {
 			// Solid Output
 			this.addOutputSlots(invPlayer.player, assemFac, 17 + i * 14, 87 + (i % 2) * 109, 54 + (i / 2) * 56, 1, 1);
 		}
-		
+
 		this.playerInv(invPlayer, 33, 158);
 	}
 
@@ -51,7 +51,7 @@ public class ContainerMachineAssemblyFactory extends ContainerBase {
 					return null;
 				}
 			} else {
-				
+
 				if(slotOriginal.getItem() instanceof IBatteryItem || slotOriginal.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(slotStack, 0, 1, false)) return null;
 				} else if(slotOriginal.getItem() instanceof ItemBlueprints) {
@@ -72,7 +72,7 @@ public class ContainerMachineAssemblyFactory extends ContainerBase {
 				}
 			}
 
-			if(slotStack.stackSize == 0) {
+			if(slotStack.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();

@@ -33,7 +33,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 	public int burnHeat;
 	public boolean wasOn = false;
 	private int playersUsing = 0;
-	
+
 	public float doorAngle = 0;
 	public float prevDoorAngle = 0;
 
@@ -43,12 +43,12 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 	public TileEntityFireboxBase() {
 		super(2, 50);
 	}
-	
+
 	@Override
 	public void openInventory(EntityPlayer player) {
 		if(!world.isRemote) this.playersUsing++;
 	}
-	
+
 	@Override
 	public void closeInventory(EntityPlayer player) {
 		if(!world.isRemote) this.playersUsing--;
@@ -56,34 +56,34 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
 			boolean canOperate = false;
 
 			for(int i = 2; i < 6; i++) {
 				ForgeDirection dir = ForgeDirection.getOrientation(i);
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-				
+
 				for(int j = -1; j <= 1; j++) {
 					this.sendSmoke(this.pos.getX() + dir.offsetX * 2 + rot.offsetX * j, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 2 + rot.offsetZ * j, dir);
 				}
 			}
-			
+
 			wasOn = false;
-			
+
 			if(burnTime <= 0) {
 				canOperate = breatheAir(0);
-				
+
 				for(int i = 0; i < 2; i++) {
 					if(slots[i] != null) {
-						
+
 						int baseTime = getModule().getBurnTime(slots[i]);
-						
+
 						if(baseTime > 0) {
 							int fuel = (int) (baseTime * getTimeMult());
-							
+
 							TileEntity below = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()));
-							
+
 							if(below instanceof TileEntityAshpit) {
 								TileEntityAshpit ashpit = (TileEntityAshpit) below;
 								EnumAshType type = getAshFromFuel(slots[i]);
@@ -91,12 +91,12 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 								if(type == EnumAshType.COAL) ashpit.ashLevelCoal += baseTime;
 								if(type == EnumAshType.MISC) ashpit.ashLevelMisc += baseTime;
 							}
-							
+
 							this.maxBurnTime = this.burnTime = fuel;
 							this.burnHeat = getModule().getBurnHeat(getBaseHeat(), slots[i]);
-							slots[i].stackSize--;
+							slots[i].shrink(1);
 
-							if(slots[i].stackSize == 0) {
+							if(slots[i].getCount() == 0) {
 								slots[i] = slots[i].getItem().getContainerItem(slots[i]);
 							}
 
@@ -104,7 +104,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 							break;
 						}
 					}
-				} 
+				}
 			} else {
 				if(this.heatEnergy < getMaxHeat()) {
 					// firebox consumes 1mB every 5 ticks, heating oven every tick
@@ -120,33 +120,33 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 
 				if(canOperate) {
 					this.wasOn = true;
-					
+
 					if(this.world.rand.nextInt(15) == 0 && !this.muffled) {
 						com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "fire.fire", 1.0F, 0.5F + this.world.rand.nextFloat() * 0.5F);
 					}
 				}
 			}
-			
+
 			if(wasOn) {
 				this.heatEnergy = Math.min(this.heatEnergy + this.burnHeat, getMaxHeat());
 			} else {
 				this.heatEnergy = Math.max(this.heatEnergy - Math.max(this.heatEnergy / 1000, 1), 0);
 				if(canOperate) this.burnHeat = 0;
 			}
-			
+
 			this.networkPackNT(50);
 		} else {
 			this.prevDoorAngle = this.doorAngle;
 			float swingSpeed = (doorAngle / 10F) + 3;
-			
+
 			if(this.playersUsing > 0) {
 				this.doorAngle += swingSpeed;
 			} else {
 				this.doorAngle -= swingSpeed;
 			}
-			
+
 			this.doorAngle = MathHelper.clamp(this.doorAngle, 0F, 135F);
-			
+
 			if(wasOn && this.world.getTotalWorldTime() % 5 == 0) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 				double x = this.pos.getX() + 0.5 + dir.offsetX;
@@ -156,7 +156,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 			}
 		}
 	}
-	
+
 	@Override
 	public void serialize(ByteBuf buf) {
 		super.serialize(buf);
@@ -167,7 +167,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 		buf.writeInt(playersUsing);
 		buf.writeBoolean(wasOn);
 	}
-	
+
 	@Override
 	public void deserialize(ByteBuf buf) {
 		super.deserialize(buf);
@@ -178,11 +178,11 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 		playersUsing = buf.readInt();
 		wasOn = buf.readBoolean();
 	}
-	
+
 	public static EnumAshType getAshFromFuel(ItemStack stack) {
 
 		List<String> names = ItemStackUtil.getOreDictNames(stack);
-		
+
 		for(String name : names) {
 			if(name.contains("Coke"))		return EnumAshType.COAL;
 			if(name.contains("Coal"))		return EnumAshType.COAL;
@@ -205,12 +205,12 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 		int meta = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] { 0, 1 };
 	}
-	
+
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
 		return getModule().getBurnTime(itemStack) > 0;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
@@ -220,7 +220,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 		this.burnHeat = nbt.getInteger("burnHeat");
 		this.heatEnergy = nbt.getInteger("heatEnergy");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
@@ -241,14 +241,14 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 	public void useUpHeat(int heat) {
 		this.heatEnergy = Math.max(0, this.heatEnergy - heat);
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -257,10 +257,10 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 					this.pos.getZ() + 2
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {
@@ -276,7 +276,7 @@ public abstract class TileEntityFireboxBase extends TileEntityMachinePolluting i
 	public FluidTank[] getSendingTanks() {
 		return this.getSmokeTanks();
 	}
-	
+
 	@Override
 	public boolean canConnect(FluidType type, ForgeDirection dir) {
 		return dir != ForgeDirection.UNKNOWN && dir != ForgeDirection.DOWN;

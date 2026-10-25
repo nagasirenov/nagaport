@@ -30,8 +30,10 @@ import net.minecraft.world.World;
 
 //no model yet, im gonna take this low n slow
 public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuffocationImmune {
+	public static final net.minecraft.network.datasync.DataParameter<Integer> TARGET = net.minecraft.network.datasync.EntityDataManager.createKey(EntityWarBehemoth.class, net.minecraft.network.datasync.DataSerializers.VARINT);
     private int stepTimer = 0;
-    public double headTargetYaw; 
+    public double headTargetYaw;
+    public double newRotationYaw;
 
     private static final Predicate<Entity> selector = new Predicate<Entity>() {
 		public boolean apply(Entity p_82704_1_) {
@@ -43,9 +45,9 @@ public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuf
     {
         super(p_i1733_1_);
         this.setSize(1.75F, 6.35F);
-        this.getNavigator().setAvoidsWater(true);
+        this.getNavigator().getNodeProcessor().setCanSwim(false);
         this.stepHeight = 5.0F;
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, true, true, selector));
         //this.tasks.addTask(3, new EntityAIStepTowardsTarget(this, 4, 0.18, 20, 60, 0.6));
 		this.tasks.addTask(3, new EntityAIStepTowardsTarget(this, 50, 0.3D, 50, 10, 0.6));
@@ -55,11 +57,11 @@ public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuf
 		this.jumpMovementFactor = 0;
 
     }
-    
+
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		
+
 		if(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getImmediateSource() instanceof EntityEgg && rand.nextInt(10) == 0) {
 			this.experienceValue = 0;
 			this.setHealth(0);
@@ -81,22 +83,21 @@ public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuf
 
 		return super.attackEntityFrom(source, amount);
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(15.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(100.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200.0D);
 	}
 
     @Override
-	protected String getHurtSound()
+	protected net.minecraft.util.SoundEvent getHurtSound(net.minecraft.util.DamageSource src)
     {
-        return "hbm:entity.cybercrab";
+        return com.hbm.main.ModSoundEvents.resolve("hbm:entity.cybercrab");
     }
-	@Override
 	public boolean isAIEnabled() {
 		return true;
 	}
@@ -108,21 +109,21 @@ public class EntityWarBehemoth extends EntityMob implements IMob, IAnimals, ISuf
         }
 
     }
-   
-    
+
+
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(19, (int) 0);
-		
+		this.dataManager.register(TARGET, 0);
+
 	}
-	
+
 	protected boolean canDespawn() {
 		return false;
 	}
-	
+
     @Override
     public void setAttackTarget(EntityLivingBase entity) {
         super.setAttackTarget(entity);
-        this.dataWatcher.updateObject(19, entity != null ? entity.getEntityId() : 0);
+        this.dataManager.set(TARGET, entity != null ? entity.getEntityId() : 0);
     }
 }

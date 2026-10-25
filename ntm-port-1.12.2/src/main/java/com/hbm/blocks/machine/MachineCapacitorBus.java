@@ -21,6 +21,8 @@ import java.util.List;
 
 public class MachineCapacitorBus extends Block implements IEnergyConnectorBlock, ITooltipProvider {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT) private IIcon topIcon;
 
 	public MachineCapacitorBus(Material mat) {
@@ -41,13 +43,13 @@ public class MachineCapacitorBus extends Block implements IEnergyConnectorBlock,
 	@Override
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
-		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		int l = net.minecraft.util.EnumFacing.getDirectionFromEntityLiving(new net.minecraft.util.math.BlockPos(x, y, z), player).getIndex();
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, l, 2);
 	}
 
 	@Override
 	public boolean canConnect(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.readMetadata(world, x, y, z);
 		ForgeDirection busDir = ForgeDirection.getOrientation(meta);
 		return dir == busDir;
 	}

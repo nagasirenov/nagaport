@@ -30,6 +30,12 @@ import net.minecraft.world.World;
 
 public class BlockLayering extends Block {
 
+	public BlockLayering withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+
     // Keep the complete stored nibble. Geometry uses the low three bits, but
     // original replacement uses the unmasked value (including values 8..15).
     public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
@@ -54,7 +60,6 @@ public class BlockLayering extends Block {
         return state.getValue(METADATA);
     }
 
-    @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
         return new AxisAlignedBB(0, 0, 0, 1, ((getMetaFromState(state) & 7) + 1) / 8.0D, 1);
     }

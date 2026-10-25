@@ -31,9 +31,9 @@ public class HazardTypeNeutron extends HazardTypeBase {
 		boolean reacher = false;
 
 		if(target instanceof EntityPlayer && !GeneralConfig.enable528)
-			reacher = ((EntityPlayer) target).inventory.hasItem(ModItems.reacher);
+			reacher = ((EntityPlayer) target).inventory.hasItemStack(new net.minecraft.item.ItemStack(ModItems.reacher));
 
-		level *= stack.stackSize;
+		level *= stack.getCount();
 
 		if(level > 0) {
 			float rad = (level / 20F)*ContaminationUtil.calculateRadiationMod(target);
@@ -75,8 +75,8 @@ public class HazardTypeNeutron extends HazardTypeBase {
 		String neut = "" + (Math.floor(level* 1000) / 1000);
 		list.add(TextFormatting.LIGHT_PURPLE+ (neut + "RAD/s^2"));
 
-		if(stack.stackSize > 1) {
-			list.add(TextFormatting.LIGHT_PURPLE + "Stack: " + ((Math.floor(level * 1000 * stack.stackSize) / 1000) + "RAD/s^2"));
+		if(stack.getCount() > 1) {
+			list.add(TextFormatting.LIGHT_PURPLE + "Stack: " + ((Math.floor(level * 1000 * stack.getCount()) / 1000) + "RAD/s^2"));
 		}
 	}
 
@@ -87,7 +87,7 @@ public class HazardTypeNeutron extends HazardTypeBase {
 			stack.setTagCompound(new NBTTagCompound());
 
 		float activation = stack.getTagCompound().getFloat(NEUTRON_KEY);
-		stack.getTagCompound().setFloat(NEUTRON_KEY, activation + (rad / stack.stackSize) / 10);
+		stack.getTagCompound().setFloat(NEUTRON_KEY, activation + (rad / stack.getCount()) / 10);
 	}
 
 	public static void decay(ItemStack stack, float factor) {
@@ -100,7 +100,7 @@ public class HazardTypeNeutron extends HazardTypeBase {
 		if(activation < 1e-5)
 			stack.getTagCompound().removeTag(NEUTRON_KEY);
 
-		if(stack.getTagCompound().hasNoTags())
+		if(stack.getTagCompound().isEmpty())
 			stack.setTagCompound((NBTTagCompound) null);
 	}
 

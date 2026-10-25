@@ -23,26 +23,31 @@ public class FragileBrick extends Block {
 	@Override
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
-		
+
 		if(world.isRemote)
 			return;
-		
+
 		com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 		notifyNeighbors(world, x, y, z);
 	}
-	
-	@Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
-		
+
+
+		@Override
+	public void onEntityWalk(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entityIn) {
+		onEntityWalking(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+
 		if(world.isRemote)
 			return;
-		
+
 		com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 		notifyNeighbors(world, x, y, z);
 	}
-	
+
 	private void notifyNeighbors(World world, int x, int y, int z) {
-		
+
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
 			Block n = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
@@ -53,7 +58,9 @@ public class FragileBrick extends Block {
 		}
 	}
 
-	public void breakBlock(World world, int x, int y, int z, Block b, int m) {
-		notifyNeighbors(world, x, y, z);
+	@Override
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		super.breakBlock(world, pos, state);
+		notifyNeighbors(world, pos.getX(), pos.getY(), pos.getZ());
 	}
 }

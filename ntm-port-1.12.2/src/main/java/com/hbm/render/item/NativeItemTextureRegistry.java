@@ -4,6 +4,9 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import com.hbm.render.LegacyTexturePath;
+
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
@@ -36,9 +39,6 @@ public final class NativeItemTextureRegistry {
 
     /** Old item atlas names are relative to textures/items, not textures/. */
     public static ResourceLocation atlasLocation(String texture) {
-        ResourceLocation source = new ResourceLocation(texture);
-        String path = source.getPath();
-        return new ResourceLocation(source.getNamespace(),
-                path.startsWith("items/") || path.startsWith("blocks/") ? path : "items/" + path);
+        return LegacyTexturePath.itemAtlasLocation(texture);
     }
 }

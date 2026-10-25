@@ -72,7 +72,7 @@ public class TileEntityMachineSolderingStation extends TileEntityMachineBase imp
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && stack.getItem() instanceof ItemMachineUpgrade && i >= 9 && i <= 10) {
-			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 		}
 	}
 
@@ -118,7 +118,7 @@ public class TileEntityMachineSolderingStation extends TileEntityMachineBase imp
 						if(slots[6] == null) {
 							slots[6] = recipe.output.copy();
 						} else {
-							slots[6].stackSize += recipe.output.stackSize;
+							slots[6].grow(recipe.output.getCount());
 						}
 
 						this.markDirty();
@@ -163,7 +163,7 @@ public class TileEntityMachineSolderingStation extends TileEntityMachineBase imp
 		if(slots[6] != null) {
 			if(slots[6].getItem() != recipe.output.getItem()) return false;
 			if(slots[6].getItemDamage() != recipe.output.getItemDamage()) return false;
-			if(slots[6].stackSize + recipe.output.stackSize > slots[6].getMaxStackSize()) return false;
+			if(slots[6].getCount() + recipe.output.getCount() > slots[6].getMaxStackSize()) return false;
 		}
 
 		return true;
@@ -174,21 +174,21 @@ public class TileEntityMachineSolderingStation extends TileEntityMachineBase imp
 		for(AStack aStack : recipe.toppings) {
 			for(int i = 0; i < 3; i++) {
 				ItemStack stack = slots[i];
-				if(aStack.matchesRecipe(stack, true) && stack.stackSize >= aStack.stacksize) { this.decrStackSize(i, aStack.stacksize); break; }
+				if(aStack.matchesRecipe(stack, true) && stack.getCount() >= aStack.stacksize) { this.decrStackSize(i, aStack.stacksize); break; }
 			}
 		}
 
 		for(AStack aStack : recipe.pcb) {
 			for(int i = 3; i < 5; i++) {
 				ItemStack stack = slots[i];
-				if(aStack.matchesRecipe(stack, true) && stack.stackSize >= aStack.stacksize) { this.decrStackSize(i, aStack.stacksize); break; }
+				if(aStack.matchesRecipe(stack, true) && stack.getCount() >= aStack.stacksize) { this.decrStackSize(i, aStack.stacksize); break; }
 			}
 		}
 
 		for(AStack aStack : recipe.solder) {
 			for(int i = 5; i < 6; i++) {
 				ItemStack stack = slots[i];
-				if(aStack.matchesRecipe(stack, true) && stack.stackSize >= aStack.stacksize) { this.decrStackSize(i, aStack.stacksize); break; }
+				if(aStack.matchesRecipe(stack, true) && stack.getCount() >= aStack.stacksize) { this.decrStackSize(i, aStack.stacksize); break; }
 			}
 		}
 
@@ -345,7 +345,7 @@ public class TileEntityMachineSolderingStation extends TileEntityMachineBase imp
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

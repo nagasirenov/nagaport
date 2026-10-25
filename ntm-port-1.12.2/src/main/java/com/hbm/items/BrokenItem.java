@@ -10,13 +10,13 @@ import com.hbm.util.i18n.I18nUtil;
 
 public class BrokenItem extends Item {
 
-	@Override
+	protected IIcon itemIcon;
+
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
 	}
 
-	@Override
 	public int getRenderPasses(int meta) {
 		return 2;
 	}
@@ -28,31 +28,31 @@ public class BrokenItem extends Item {
 
 		String id = stack.getTagCompound().getString("itemID");
 		int meta = stack.getTagCompound().getInteger("itemMeta");
-		
-		Item item = (Item) Item.itemRegistry.getObject(id);
+
+		Item item = Item.getByNameOrId(id);
 		if(item == null) return this.itemIcon;
-		
-		return item.getIconFromDamage(meta);
+
+		return com.hbm.render.icon.LegacyIconRegister.wrapSprite(net.minecraft.client.Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(item, meta));
 	}
-	
+
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		if(stack.getTagCompound() == null) return super.getItemStackDisplayName(stack);
 
 		String id = stack.getTagCompound().getString("itemID");
 		int meta = stack.getTagCompound().getInteger("itemMeta");
-		
-		Item item = (Item) Item.itemRegistry.getObject(id);
+
+		Item item = Item.getByNameOrId(id);
 		if(item == null) return super.getItemStackDisplayName(stack);
-		
+
 		ItemStack sta = new ItemStack(item, 1, meta);
 		return I18nUtil.format(this.getUnlocalizedNameInefficiently(stack) + ".prefix", sta.getDisplayName());
 	}
-	
-	public static ItemStack make(ItemStack stack) {		return make(stack.getItem(), stack.stackSize, stack.getItemDamage()); }
+
+	public static ItemStack make(ItemStack stack) {		return make(stack.getItem(), stack.getCount(), stack.getItemDamage()); }
 	public static ItemStack make(Item item) {			return make(item, 1, 0); }
 	public static ItemStack make(Item item, int meta) {	return make(item, 1, meta); }
-	
+
 	public static ItemStack make(Item item, int stacksize, int meta) {
 		ItemStack stack = new ItemStack(ModItems.broken_item, stacksize);
 		NBTTagCompound nbt = new NBTTagCompound();

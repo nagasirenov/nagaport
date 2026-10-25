@@ -108,7 +108,7 @@ public class GUIScreenRBMKKeyPad extends GuiScreen {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int b) {
+	protected void mouseClicked(int x, int y, int b) throws java.io.IOException {
 		super.mouseClicked(x, y, b);
 		
 		for(int i = 0; i < 4; i++) {

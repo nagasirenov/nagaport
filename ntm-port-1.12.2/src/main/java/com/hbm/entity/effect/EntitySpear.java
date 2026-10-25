@@ -21,7 +21,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntitySpear extends Entity {
-	
+
 	public int ticksInGround;
 
 	public EntitySpear(World p_i1582_1_) {
@@ -36,11 +36,11 @@ public class EntitySpear extends Entity {
 
 	@Override
 	public void onUpdate() {
-		
+
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
-		
+
 		this.motionX = 0;
 		this.motionY = -0.2;
 		this.motionZ = 0;
@@ -48,35 +48,35 @@ public class EntitySpear extends Entity {
 		int x = (int) Math.floor(posX);
 		int y = (int) Math.floor(posY);
 		int z = (int) Math.floor(posZ);
-		
-		if(com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getBlock().getMaterial() == Material.AIR) {
+
+		if(com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getMaterial() == Material.AIR) {
 			this.setPositionAndRotation(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ, 0, 0);
 
 			if(!this.world.isRemote) {
 				double ix = posX + rand.nextGaussian() * 25;
 				double iz = posZ + rand.nextGaussian() * 25;
-				double iy = this.world.getHeightValue((int)Math.floor(ix), (int)Math.floor(iz)) + 2;
-				
+				double iy = this.world.getHeight((int)Math.floor(ix), (int)Math.floor(iz)) + 2;
+
 				ExAttrib at = new Vec3d(ix - posX, 0, iz - posZ).length() < 20 ? ExAttrib.DIGAMMA_CIRCUIT : ExAttrib.DIGAMMA;
-				
+
 				new ExplosionNT(this.world, this, ix, iy, iz, 7.5F)
 				.addAttrib(ExAttrib.NOHURT)
 				.addAttrib(ExAttrib.NOPARTICLE)
 				.addAttrib(ExAttrib.NODROP)
 				.addAttrib(ExAttrib.NOSOUND)
 				.addAttrib(at).explode();
-				
+
 				for(Object obj : this.world.playerEntities) {
 					EntityPlayer player = (EntityPlayer) obj;
 					ContaminationUtil.contaminate(player, HazardType.DIGAMMA, ContaminationType.DIGAMMA, 0.05F);
 					com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.digammaKauaiMoho);
 				}
 			}
-			
+
 			if(this.world.isRemote) {
-				
-				double dy = this.world.getHeightValue((int)Math.floor(posX), (int)Math.floor(posZ)) + 2;
-				
+
+				double dy = this.world.getHeight((int)Math.floor(posX), (int)Math.floor(posZ)) + 2;
+
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "smoke");
 				data.setString("mode", "radialDigamma");
@@ -87,26 +87,26 @@ public class EntitySpear extends Entity {
 				MainRegistry.proxy.effectNT(data);
 			}
 
-			
-			if(com.hbm.world.WorldBlockState.read(this.world, x, y - 3, z).getBlock().getMaterial() == Material.AIR)
+
+			if(com.hbm.world.WorldBlockState.read(this.world, x, y - 3, z).getMaterial() == Material.AIR)
 				ticksInGround = 0;
-			
+
 		} else {
-			
+
 			ticksInGround++;
-			
+
 			if(!this.world.isRemote && ticksInGround > 100) {
-				
+
 				List entities =  new ArrayList(this.world.loadedEntityList);
 				for(Object obj : entities) {
-					
+
 					if(obj instanceof EntityLivingBase)
 						ContaminationUtil.contaminate((EntityLivingBase) obj, HazardType.DIGAMMA, ContaminationType.DIGAMMA2, 10F);
 				}
 				this.setDead();
-				
+
 				com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY, posZ, "hbm:weapon.dFlash", 25000.0F, 1.0F);
-				
+
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "smoke");
 				data.setString("mode", "radialDigamma");
@@ -124,7 +124,7 @@ public class EntitySpear extends Entity {
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound p_70014_1_) { }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isInRangeToRenderDist(double distance) {
@@ -133,12 +133,12 @@ public class EntitySpear extends Entity {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getBrightnessForRender(float p_70070_1_) {
+	public int getBrightnessForRender() {
 		return 15728880;
 	}
 
 	@Override
-	public float getBrightness(float p_70013_1_) {
+	public float getBrightness() {
 		return 1.0F;
 	}
 }

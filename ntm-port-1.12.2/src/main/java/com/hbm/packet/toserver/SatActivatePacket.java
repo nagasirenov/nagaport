@@ -42,7 +42,7 @@ public class SatActivatePacket implements IMessage {
 
 		@Override
 		public IMessage onMessage(SatActivatePacket m, MessageContext ctx) {
-			EntityPlayer p = ctx.getServerHandler().playerEntity;
+			EntityPlayer p = ctx.getServerHandler().player;
 			//how gross is this...
 			Satellite sat = SatelliteSavedData.getData(p.world, (int)p.posX, (int)p.posZ).getSatFromFreq(m.freq);
 			if(sat != null) {

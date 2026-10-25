@@ -45,6 +45,25 @@ import com.hbm.lib.ForgeDirection;
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 public class TileEntityMachineTurbine extends TileEntityLoadedBase implements ISidedInventory, IEnergyProviderMK2, IFluidStandardTransceiver, IBufPacketReceiver, IGUIProvider, SimpleComponent, IInfoProviderEC, CompatHandler.OCComponent, IConfigurableMachine, IFluidCopiable, net.minecraft.util.ITickable{
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack slots[];
 
 	public long power;
@@ -127,13 +146,21 @@ public class TileEntityMachineTurbine extends TileEntityLoadedBase implements IS
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.machineTurbine";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.machineTurbine";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
+	}
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
 	}
 
 	public void setCustomName(String name) {
@@ -147,7 +174,7 @@ public class TileEntityMachineTurbine extends TileEntityLoadedBase implements IS
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
@@ -155,6 +182,8 @@ public class TileEntityMachineTurbine extends TileEntityLoadedBase implements IS
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
+
+
 
 	//You scrubs aren't needed for anything (right now)
 	@Override
@@ -176,14 +205,14 @@ public class TileEntityMachineTurbine extends TileEntityLoadedBase implements IS
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null)
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
@@ -288,7 +317,7 @@ public class TileEntityMachineTurbine extends TileEntityLoadedBase implements IS
 			tanks[0].setType(0, 1, slots);
 			tanks[0].loadTank(2,  3, slots);
 			power = Library.chargeItemsFromTE(slots, 4, power, maxPower);
-			
+
 			this.power *= 0.95;
 
 			FluidType in = tanks[0].getTankType();

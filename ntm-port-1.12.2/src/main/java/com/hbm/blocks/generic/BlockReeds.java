@@ -10,6 +10,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 public class BlockReeds extends Block {
+	@Override
+	public net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
  public BlockReeds() { super(Material.PLANTS); }
  @Override public boolean canPlaceBlockAt(World world,BlockPos pos) { Block below=world.getBlockState(pos.down()).getBlock(); return below==Blocks.WATER || below==Blocks.FLOWING_WATER; }
  public boolean canBlockStay(World world,int x,int y,int z) { return canPlaceBlockAt(world,new BlockPos(x,y,z)); }

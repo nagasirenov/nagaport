@@ -19,6 +19,8 @@ import com.hbm.packet.toclient.AuxParticlePacketNT;
 import com.hbm.tileentity.bomb.TileEntityLandmine;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockFence;
@@ -64,18 +66,17 @@ public class Landmine extends BlockContainer implements IBomb {
 		return null;
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		float f = 0.0625F;
-		if(this == ModBlocks.mine_ap) this.setBlockBounds(5 * f, 0.0F, 5 * f, 11 * f, 1 * f, 11 * f);
-		if(this == ModBlocks.mine_he) this.setBlockBounds(4 * f, 0.0F, 4 * f, 12 * f, 2 * f, 12 * f);
-		if(this == ModBlocks.mine_shrap) this.setBlockBounds(5 * f, 0.0F, 5 * f, 11 * f, 1 * f, 11 * f);
-		if(this == ModBlocks.mine_fat) this.setBlockBounds(5 * f, 0.0F, 4 * f, 11 * f, 6 * f, 12 * f);}
+	private static final AxisAlignedBB BOUNDS_AP = new AxisAlignedBB(5 * 0.0625F, 0.0F, 5 * 0.0625F, 11 * 0.0625F, 1 * 0.0625F, 11 * 0.0625F);
+	private static final AxisAlignedBB BOUNDS_HE = new AxisAlignedBB(4 * 0.0625F, 0.0F, 4 * 0.0625F, 12 * 0.0625F, 2 * 0.0625F, 12 * 0.0625F);
+	private static final AxisAlignedBB BOUNDS_SHRAP = new AxisAlignedBB(5 * 0.0625F, 0.0F, 5 * 0.0625F, 11 * 0.0625F, 1 * 0.0625F, 11 * 0.0625F);
+	private static final AxisAlignedBB BOUNDS_FAT = new AxisAlignedBB(5 * 0.0625F, 0.0F, 4 * 0.0625F, 11 * 0.0625F, 6 * 0.0625F, 12 * 0.0625F);
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		if(this == ModBlocks.mine_ap) return BOUNDS_AP;
+		if(this == ModBlocks.mine_he) return BOUNDS_HE;
+		if(this == ModBlocks.mine_shrap) return BOUNDS_SHRAP;
+		if(this == ModBlocks.mine_fat) return BOUNDS_FAT;
+		return FULL_BLOCK_AABB;
 	}
 
 	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
@@ -92,7 +93,7 @@ public class Landmine extends BlockContainer implements IBomb {
 			explode(world, x, y, z);
 		}
 
-		if(!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !BlockFence.func_149825_a(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock())) {
+		if(!com.hbm.world.WorldBlockState.read(world, x, y - 1, z).isTopSolid() && !com.hbm.world.WorldBlockState.read(world, x, y - 1, z).isOpaqueCube()) {
 			if(!safeMode) {
 				explode(world, x, y, z);
 			} else {
@@ -102,16 +103,25 @@ public class Landmine extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int meta) {
+	public void onPlayerDestroy(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(!safeMode) {
 			explode(world, x, y, z);
 		}
 
-		super.onBlockDestroyedByPlayer(world, x, y, z, meta);
+		super.onPlayerDestroy(world, pos, state);
 	}
 
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
+	public void onBlockDestroyedByPlayer(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, EntityPlayer player) {
+		onPlayerDestroy(world, pos, state);
+	}
+
+	@Override
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fx, float fy, float fz) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int i = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.defuser) {
 
 			safeMode = true;
@@ -227,7 +237,7 @@ public class Landmine extends BlockContainer implements IBomb {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
-				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
+				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
 			}
 		}
 	}

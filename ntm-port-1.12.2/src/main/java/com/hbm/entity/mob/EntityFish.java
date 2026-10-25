@@ -17,11 +17,11 @@ public abstract class EntityFish extends EntityWaterMob {
 
 	public EntityFish(World world, double swimSpeed, float watchDistance) {
 		super(world);
-		this.getNavigator().setCanSwim(true);
+		this.getNavigator().getNodeProcessor().setCanSwim(true);
 
 		this.tasks.addTask(0, new EntityAIWatchClosest(this, EntityPlayer.class, watchDistance));
 		this.tasks.addTask(1, new EntityAILookIdle(this));
-		this.tasks.addTask(2, new EntityAIWander(this, swimSpeed));
+		
 
 		this.currentSwimTarget = new Vec3d(posX, posY, posZ);
 		this.setSize(2.0F, 2.0F);
@@ -30,7 +30,7 @@ public abstract class EntityFish extends EntityWaterMob {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15.0);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15.0);
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0);
 	}
 
@@ -53,7 +53,6 @@ public abstract class EntityFish extends EntityWaterMob {
 		}
 	}
 
-	@Override
 	protected boolean isAIEnabled() {
 	   return true;
 	}
@@ -69,7 +68,7 @@ public abstract class EntityFish extends EntityWaterMob {
 	private void updateSwimTarget() {
 		if(rand.nextInt(200) == 0 || !this.isInWater()) {
 			double targetX = this.posX + (rand.nextDouble() - 0.5) * 20.0;
-			double targetY = MathHelper.clamp_double(this.posY + (rand.nextDouble() - 0.5) * 8.0, 0, this.world.getHeight() - 1);
+			double targetY = MathHelper.clamp(this.posY + (rand.nextDouble() - 0.5) * 8.0, 0, this.world.getHeight() - 1);
 			double targetZ = this.posZ + (rand.nextDouble() - 0.5) * 20.0;
 			this.currentSwimTarget = new Vec3d(targetX, targetY, targetZ);
 		}
@@ -94,10 +93,10 @@ public abstract class EntityFish extends EntityWaterMob {
 	}
 
 	@Override
-	public void moveEntityWithHeading(float strafe, float forward) {
+	public void travel(float strafe, float vertical, float forward) {
 		if(this.isInWater()) {
 			this.motionY *= 0.8F;
-			this.moveEntity(this.motionX, this.motionY, this.motionZ);
+			this.move(net.minecraft.entity.MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 
 			this.prevLimbSwingAmount = this.limbSwingAmount;
 			double d0 = this.posX - this.prevPosX;
@@ -111,7 +110,7 @@ public abstract class EntityFish extends EntityWaterMob {
 			this.limbSwingAmount += (f6 - this.limbSwingAmount) * 0.4F;
 			this.limbSwing += this.limbSwingAmount;
 		} else {
-			super.moveEntityWithHeading(strafe, forward);
+			super.travel(strafe, 0.0F, forward);
 		}
 	}
 

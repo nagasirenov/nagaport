@@ -25,7 +25,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -57,9 +59,9 @@ public class ModEventHandlerRenderer {
 		if(event.phase == Phase.START) {
 			// Zoom out third person view when inside a rocket
 			if(player != null && player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRideableRocket) {
-				mc.entityRenderer.thirdPersonDistance = 12.0F;
+				net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.client.renderer.EntityRenderer.class, mc.entityRenderer, 12.0F, "field_78490_B", "thirdPersonDistance");
 			} else {
-				mc.entityRenderer.thirdPersonDistance = 4.0F;
+				net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.client.renderer.EntityRenderer.class, mc.entityRenderer, 4.0F, "field_78490_B", "thirdPersonDistance");
 			}
 		}
 	}
@@ -174,7 +176,7 @@ public class ModEventHandlerRenderer {
 	public void tintFog(FogColors event) {
 
 		EntityPlayer player = MainRegistry.proxy.me();
-		if(com.hbm.world.WorldBlockState.read(player.world, (int) Math.floor(player.posX), (int) Math.floor(player.posY), (int) Math.floor(player.posZ)).getBlock().getMaterial() != Material.WATER) {
+		if(com.hbm.world.WorldBlockState.read(player.world, (int) Math.floor(player.posX), (int) Math.floor(player.posY), (int) Math.floor(player.posZ)).getMaterial() != Material.WATER) {
 			Vec3d color = getFogBlendColor(player.world, (int) Math.floor(player.posX), (int) Math.floor(player.posZ), event.getRed(), event.getGreen(), event.getBlue(), event.getRenderPartialTicks());
 			if(color != null) {
 				event.setRed((float) color.x);
@@ -198,8 +200,8 @@ public class ModEventHandlerRenderer {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onRenderHUD(RenderGameOverlayEvent.Pre event) {
-		Tessellator tess = Tessellator.instance;
-		
+		Tessellator tess = Tessellator.getInstance();
+
 		//TODO: using ALL doesn't work as anticipated - still hides in F1. need a different event for this
 		if(event.getType() == ElementType.ALL) {
 			if(ClientConfig.BADGES_HUD.get()) RenderScreenOverlay.renderBadges(event.getResolution(), Minecraft.getMinecraft().ingameGUI);
@@ -247,17 +249,19 @@ public class ModEventHandlerRenderer {
 				GL11.glDisable(GL11.GL_TEXTURE_2D);
 				int right = width / 2 + 91;
 				int top = height - GuiIngameForge.right_height + 3;
-				tess.startDrawingQuads();
-				tess.setColorOpaque_F(0.25F, 0.25F, 0.25F);
-				tess.addVertex(right - 81.5, top - 0.5, 0);
-				tess.addVertex(right - 81.5, top + 4.5, 0);
-				tess.addVertex(right + 0.5, top + 4.5, 0);
-				tess.addVertex(right + 0.5, top - 0.5, 0);
-				tess.setColorOpaque_F(1F - tot, tot, tot);
-				tess.addVertex(right - 81 * tot, top, 0);
-				tess.addVertex(right - 81 * tot, top + 4, 0);
-				tess.addVertex(right, top + 4, 0);
-				tess.addVertex(right, top, 0);
+				BufferBuilder tessBuffer = tess.getBuffer();
+				tessBuffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
+				int tessColor0Packed = 64;
+				tessBuffer.pos(right - 81.5, top - 0.5, 0).color(tessColor0Packed, tessColor0Packed, tessColor0Packed, 255).endVertex();
+				tessBuffer.pos(right - 81.5, top + 4.5, 0).color(tessColor0Packed, tessColor0Packed, tessColor0Packed, 255).endVertex();
+				tessBuffer.pos(right + 0.5, top + 4.5, 0).color(tessColor0Packed, tessColor0Packed, tessColor0Packed, 255).endVertex();
+				tessBuffer.pos(right + 0.5, top - 0.5, 0).color(tessColor0Packed, tessColor0Packed, tessColor0Packed, 255).endVertex();
+				int tessColor1R = (int) ((1F - tot) * 255);
+				int tessColor1G = (int) (tot * 255);
+				tessBuffer.pos(right - 81 * tot, top, 0).color(tessColor1R, tessColor1G, tessColor1G, 255).endVertex();
+				tessBuffer.pos(right - 81 * tot, top + 4, 0).color(tessColor1R, tessColor1G, tessColor1G, 255).endVertex();
+				tessBuffer.pos(right, top + 4, 0).color(tessColor1R, tessColor1G, tessColor1G, 255).endVertex();
+				tessBuffer.pos(right, top, 0).color(tessColor1R, tessColor1G, tessColor1G, 255).endVertex();
 				tess.draw();
 				GL11.glEnable(GL11.GL_TEXTURE_2D);
 

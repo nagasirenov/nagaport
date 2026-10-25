@@ -51,7 +51,7 @@ public class SatLaserPacket implements IMessage {
 		@Override
 		public IMessage onMessage(SatLaserPacket m, MessageContext ctx) {
 
-			EntityPlayer p = ctx.getServerHandler().playerEntity;
+			EntityPlayer p = ctx.getServerHandler().player;
 
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(p) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(p).getItem() instanceof ItemSatInterface) {
 

@@ -43,7 +43,7 @@ public class HazardTypeGlitch extends HazardTypeBase{
 			Random rand = new Random(System.currentTimeMillis() / 500);
 
 			if(setSize == 0)
-				setSize = Item.itemRegistry.getKeys().size();
+				setSize = Item.REGISTRY.getKeys().size();
 
 			int r = rand.nextInt(setSize);
 

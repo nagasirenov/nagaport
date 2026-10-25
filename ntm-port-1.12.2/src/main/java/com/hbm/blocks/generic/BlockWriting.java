@@ -16,12 +16,15 @@ public class BlockWriting extends BlockPillar {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
-			
+
 		} else if(!player.isSneaking()) {
-			
+
 			Style red = new Style().setColor(TextFormatting.RED);
 			player.sendMessage(new TextComponentString("You should not have come here.").setStyle(red));
 			player.sendMessage(new TextComponentString("This is not a place of honor. No great deed is commemorated here.").setStyle(red));
@@ -34,7 +37,7 @@ public class BlockWriting extends BlockPillar {
 			player.sendMessage(new TextComponentString("If this place is opened, the fire will not be isolated from the world, and we will have failed to protect you.").setStyle(red));
 			player.sendMessage(new TextComponentString("Leave this place and never come back.").setStyle(red));
 			return true;
-			
+
 		} else {
 			return false;
 		}

@@ -234,7 +234,7 @@ public class TileEntityFusionMHDT extends TileEntityLoadedBase implements IEnerg
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 7,
 					this.pos.getY(),
 					this.pos.getZ() - 7,

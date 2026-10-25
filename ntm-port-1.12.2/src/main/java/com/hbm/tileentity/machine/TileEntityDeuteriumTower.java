@@ -28,7 +28,7 @@ public class TileEntityDeuteriumTower extends TileEntityDeuteriumExtractor {
 			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
-	
+
 	@Override
 	public void subscribeToAllAround(FluidType type, World world, int x, int y, int z) {
 
@@ -44,22 +44,22 @@ public class TileEntityDeuteriumTower extends TileEntityDeuteriumExtractor {
 			this.sendFluid(tank, this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
-	
+
 	private DirPos[] getConPos() {
-		
+
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 		return new DirPos[] {
 				new DirPos(this.pos.getX() - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite()),
 				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite()),
-				
+
 				new DirPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, dir),
 				new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ  + rot.offsetZ, dir),
-				
+
 				new DirPos(this.pos.getX() - rot.offsetX, this.pos.getY(), this.pos.getZ() - rot.offsetZ, rot.getOpposite()),
 				new DirPos(this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY(), this.pos.getZ() - dir.offsetZ - rot.offsetZ, rot.getOpposite()),
-				
+
 				new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
 				new DirPos(this.pos.getX() - dir.offsetX + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - dir.offsetZ + rot.offsetZ * 2, rot),
 		};
@@ -71,7 +71,7 @@ public class TileEntityDeuteriumTower extends TileEntityDeuteriumExtractor {
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

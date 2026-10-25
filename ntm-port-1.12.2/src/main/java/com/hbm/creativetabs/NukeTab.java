@@ -12,9 +12,14 @@ public class NukeTab extends CreativeTabs {
 		this.setBackgroundImageName("nuke.png");
 	}
 
-	@Override
-	public Item getTabIconItem() {
-		
+
+		@Override
+	public net.minecraft.item.ItemStack createIcon() {
+		return new net.minecraft.item.ItemStack(getTabIconItem());
+	}
+
+public Item getTabIconItem() {
+
 		if(ModBlocks.nuke_man != null) return Item.getItemFromBlock(ModBlocks.nuke_man);
 		return Items.IRON_PICKAXE;
 	}

@@ -15,10 +15,14 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class Ruin001 extends WorldGenerator {
 
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
+
 	Block Block1 = ModBlocks.brick_concrete;
 	Block Block2 = ModBlocks.brick_concrete_cracked;
 	Block Block3 = ModBlocks.brick_concrete_broken;
-	
+
 	protected Block[] GetValidSpawnBlocks() {
 		return new Block[] {Blocks.GRASS};
 	}
@@ -52,7 +56,7 @@ public class Ruin001 extends WorldGenerator {
 	}
 
 	public boolean generate(World world, Random rand, int x, int y, int z) {
-		
+
 		int i = rand.nextInt(1);
 
 		if(i == 0)
@@ -64,7 +68,7 @@ public class Ruin001 extends WorldGenerator {
 	}
 
 	public boolean generate_r0(World world, Random rand, int x, int y, int z) {
-		
+
 		if(!LocationIsValidSpawn(world, x, y, z) || !LocationIsValidSpawn(world, x + 12, y, z) || !LocationIsValidSpawn(world, x + 12, y, z + 14) || !LocationIsValidSpawn(world, x, y, z + 14)) {
 		//	return false;
 		}
@@ -274,7 +278,7 @@ public class Ruin001 extends WorldGenerator {
 		{ BlockPos dungeonPos = new BlockPos(x + 11, y + 3, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 3; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 3; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 1, y + 3, z + 7, Blocks.NETHER_WART, 5, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 3, z + 7, Blocks.NETHER_WART, 5, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 3, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 3, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 3, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -307,7 +311,7 @@ public class Ruin001 extends WorldGenerator {
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 3, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 3; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 3; int nativePlacementZ = z + 10; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 1, y + 3, z + 10, ModBlocks.machine_shredder, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 3, z + 10, ModBlocks.machine_shredder, 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 3, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 3, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 3, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -401,7 +405,7 @@ public class Ruin001 extends WorldGenerator {
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + 4, z + 6); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + 4; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 0; int nativePlacementY = y + 4; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Block1; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 1, y + 4, z + 7, Blocks.NETHER_WART, 5, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 4, z + 7, Blocks.NETHER_WART, 5, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 4, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 3, y + 4, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 4, y + 4, z + 7); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }

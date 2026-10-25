@@ -11,6 +11,8 @@ import com.hbm.render.icon.IIcon;
 
 public class MachineTransformer extends Block {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
@@ -18,7 +20,6 @@ public class MachineTransformer extends Block {
 		super(p_i45394_1_);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 
@@ -28,7 +29,6 @@ public class MachineTransformer extends Block {
 		}
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);

@@ -67,7 +67,7 @@ public class GUIFusionTorus extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int button) {
+	protected void mouseClicked(int x, int y, int button) throws java.io.IOException {
 		super.mouseClicked(x, y, button);
 
 		if(this.checkClick(x, y, 43, 80, 18, 18)) GUIScreenRecipeSelector.openSelector(FusionRecipes.INSTANCE, torus, torus.fusionModule.recipe, 0, ItemBlueprints.grabPool(torus.slots[1]), this);

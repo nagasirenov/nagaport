@@ -15,14 +15,14 @@ public class RenderRadGen extends TileEntitySpecialRenderer {
 
 	@Override
 	public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
-		
+
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5D, y, z + 0.5D);
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glDisable(GL11.GL_CULL_FACE);
-		
+
 		TileEntityMachineRadGen radgen = (TileEntityMachineRadGen) tileEntity;
-		
+
 		switch(tileEntity.getBlockMetadata() - BlockDummyable.offset) {
 		case 2: GL11.glRotatef(90, 0F, 1F, 0F); break;
 		case 4: GL11.glRotatef(180, 0F, 1F, 0F); break;
@@ -34,7 +34,7 @@ public class RenderRadGen extends TileEntitySpecialRenderer {
 		bindTexture(ResourceManager.radgen_tex);
 
 		ResourceManager.radgen.renderPart("Base");
-		
+
 		GL11.glPushMatrix();
 		if(radgen.isOn) {
 			GL11.glTranslated(0, 1.5, 0);
@@ -45,7 +45,7 @@ public class RenderRadGen extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		
+
 		GL11.glPushAttrib(GL11.GL_LIGHTING_BIT);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240F, 240F);
@@ -57,8 +57,8 @@ public class RenderRadGen extends TileEntitySpecialRenderer {
 		GL11.glColor3f(1F, 1F, 1F);
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glPopAttrib();
-		
-		int brightness = radgen.getWorld().getLightBrightnessForSkyBlocks(MathHelper.floor_double(radgen.getPos().getX()), MathHelper.floor_double(radgen.getPos().getY()), MathHelper.floor_double(radgen.getPos().getZ()), 0);
+
+		int brightness = radgen.getWorld().getCombinedLight(radgen.getPos(), 0);
 		int lX = brightness % 65536;
 		int lY = brightness / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lX / 1.0F, (float)lY / 1.0F);
@@ -76,11 +76,11 @@ public class RenderRadGen extends TileEntitySpecialRenderer {
 		GL11.glDepthMask(true);
 		GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
 		GL11.glDisable(GL11.GL_BLEND);
-		
+
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
-		
+
 		ResourceManager.radgen.renderPart("Glass");
-		
+
 		GL11.glShadeModel(GL11.GL_FLAT);
 
 		GL11.glPopMatrix();

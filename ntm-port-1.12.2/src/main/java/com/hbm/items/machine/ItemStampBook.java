@@ -13,7 +13,7 @@ public class ItemStampBook extends ItemStamp {
 
 	public ItemStampBook() {
 		super(0, null);
-		
+
 		for(int i = 0; i < 8; i++) {
 			StampType type = getStampType(this, i);
 			this.addStampToList(this, i, type);
@@ -26,14 +26,22 @@ public class ItemStampBook extends ItemStamp {
 		return StampType.values()[StampType.PRINTING1.ordinal() + meta];
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for(int i = 0; i < 8; i++) {
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
-	
+
 	@Override
 	public String getTranslationKey(ItemStack stack) {
 		StampType type = this.getStampType(stack.getItem(), stack.getItemDamage());

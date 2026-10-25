@@ -30,16 +30,16 @@ public class EntityProcessorCross implements IEntityProcessor {
 	protected ICustomDamageHandler damage;
 	protected double knockbackMult = 1D;
 	protected boolean allowSelfDamage = false;
-	
+
 	public EntityProcessorCross(double nodeDist) {
 		this.nodeDist = nodeDist;
 	}
-	
+
 	public EntityProcessorCross setAllowSelfDamage() {
 		this.allowSelfDamage = true;
 		return this;
 	}
-	
+
 	public EntityProcessorCross setKnockback(double mult) {
 		this.knockbackMult = mult;
 		return this;
@@ -51,35 +51,35 @@ public class EntityProcessorCross implements IEntityProcessor {
 		HashMap<EntityPlayer, Vec3d> affectedPlayers = new HashMap();
 
 		size *= 2.0F;
-		
+
 		if(range != null) {
 			size = range.mutateRange(explosion, size);
 		}
-		
+
 		double minX = x - (double) size - 1.0D;
 		double maxX = x + (double) size + 1.0D;
 		double minY = y - (double) size - 1.0D;
 		double maxY = y + (double) size + 1.0D;
 		double minZ = z - (double) size - 1.0D;
 		double maxZ = z + (double) size + 1.0D;
-		
-		List list = world.getEntitiesWithinAABBExcludingEntity(allowSelfDamage ? null : explosion.exploder, AxisAlignedBB.getBoundingBox(minX, minY, minZ, maxX, maxY, maxZ));
-		
+
+		List list = world.getEntitiesWithinAABBExcludingEntity(allowSelfDamage ? null : explosion.exploder, new AxisAlignedBB(minX, minY, minZ, maxX, maxY, maxZ));
+
 		ForgeEventFactory.onExplosionDetonate(world, explosion.compat, list, size);
-		
+
 		Vec3d[] nodes = new Vec3d[7];
-		
+
 		for(int i = 0; i < 7; i++) {
 			ForgeDirection dir = ForgeDirection.getOrientation(i);
 			nodes[i] = new Vec3d(x + dir.offsetX * nodeDist, y + dir.offsetY * nodeDist, z + dir.offsetZ * nodeDist);
 		}
-		
+
 		HashMap<Entity, Float> damageMap = new HashMap();
 
 		for(int index = 0; index < list.size(); ++index) {
-			
+
 			Entity entity = (Entity) list.get(index);
-			
+
 			double xDist = (entity.getEntityBoundingBox().minX <= x && entity.getEntityBoundingBox().maxX >= x) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minX - x), Math.abs(entity.getEntityBoundingBox().maxX - x));
 			double yDist = (entity.getEntityBoundingBox().minY <= y && entity.getEntityBoundingBox().maxY >= y) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minY - y), Math.abs(entity.getEntityBoundingBox().maxY - y));
 			double zDist = (entity.getEntityBoundingBox().minZ <= z && entity.getEntityBoundingBox().maxZ >= z) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minZ - z), Math.abs(entity.getEntityBoundingBox().maxZ - z));
@@ -87,33 +87,33 @@ public class EntityProcessorCross implements IEntityProcessor {
 			double distanceScaled = dist / size;
 
 			if(distanceScaled <= 1.0D) {
-				
+
 				double deltaX = entity.posX - x;
 				double deltaY = entity.posY + entity.getEyeHeight() - y;
 				double deltaZ = entity.posZ - z;
 				double distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 
 				if(distance != 0.0D) {
-					
+
 					deltaX /= distance;
 					deltaY /= distance;
 					deltaZ /= distance;
-					
+
 					double density = 0;
-					
+
 					for(Vec3d vec : nodes) {
 						double d = world.getBlockDensity(vec, entity.getEntityBoundingBox());
 						if(d > density) {
 							density = d;
 						}
 					}
-					
+
 					double knockback = (1.0D - distanceScaled) * density;
 
 					float dmg = calculateDamage(distanceScaled, density, knockback, size);
 					if(!damageMap.containsKey(entity) || damageMap.get(entity) < dmg) damageMap.put(entity, dmg);
-					double enchKnockback = EnchantmentProtection.func_92092_a(entity, knockback);
-					
+					double enchKnockback = EnchantmentProtection.getBlastDamageReduction((net.minecraft.entity.EntityLivingBase) entity, knockback);
+
 					if(!(entity instanceof EntityBulletBaseMK4)) {
 						entity.motionX += deltaX * enchKnockback * knockbackMult;
 						entity.motionY += deltaY * enchKnockback * knockbackMult;
@@ -126,12 +126,12 @@ public class EntityProcessorCross implements IEntityProcessor {
 				}
 			}
 		}
-		
+
 		for(Entry<Entity, Float> entry : damageMap.entrySet()) {
-			
+
 			Entity entity = entry.getKey();
 			attackEntity(entity, explosion, entry.getValue());
-			
+
 			if(damage != null) {
 				double xDist = (entity.getEntityBoundingBox().minX <= x && entity.getEntityBoundingBox().maxX >= x) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minX - x), Math.abs(entity.getEntityBoundingBox().maxX - x));
 				double yDist = (entity.getEntityBoundingBox().minY <= y && entity.getEntityBoundingBox().maxY >= y) ? 0 : Math.min(Math.abs(entity.getEntityBoundingBox().minY - y), Math.abs(entity.getEntityBoundingBox().maxY - y));
@@ -141,14 +141,14 @@ public class EntityProcessorCross implements IEntityProcessor {
 				damage.handleAttack(explosion, entity, distanceScaled);
 			}
 		}
-		
+
 		return affectedPlayers;
 	}
-	
+
 	public void attackEntity(Entity entity, ExplosionVNT source, float amount) {
 		entity.attackEntityFrom(setExplosionSource(source.compat), amount);
 	}
-	
+
 	public float calculateDamage(double distanceScaled, double density, double knockback, float size) {
 		return (float) ((int) ((knockback * knockback + knockback) / 2.0D * 8.0D * size + 1.0D));
 	}
@@ -158,7 +158,7 @@ public class EntityProcessorCross implements IEntityProcessor {
 				(new EntityDamageSource("explosion.player", explosion.getExplosivePlacedBy())).setExplosion() :
 					(new DamageSource("explosion")).setExplosion();
 	}
-	
+
 	public EntityProcessorCross withRangeMod(float mod) {
 		range = new IEntityRangeMutator() {
 			@Override
@@ -168,7 +168,7 @@ public class EntityProcessorCross implements IEntityProcessor {
 		};
 		return this;
 	}
-	
+
 	public EntityProcessorCross withDamageMod(ICustomDamageHandler damage) {
 		this.damage = damage;
 		return this;

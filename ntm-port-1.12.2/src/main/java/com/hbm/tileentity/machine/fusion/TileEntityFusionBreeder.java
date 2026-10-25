@@ -105,7 +105,7 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 
 	public boolean canProcessSolid() {
 		if(slots[1] == null) return false;
-		
+
 		if(slots[1].getItem() == ModItems.meteorite_sword_bred && slots[2] == null) return true;
 
 		OutgasserRecipe output = OutgasserRecipes.getOutput(slots[1]);
@@ -122,7 +122,7 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 		ItemStack out = output.solidOutput;
 		if(slots[2] == null || out == null) return true;
 
-		return slots[2].getItem() == out.getItem() && slots[2].getItemDamage() == out.getItemDamage() && slots[2].stackSize + out.stackSize <= slots[2].getMaxStackSize();
+		return slots[2].getItem() == out.getItem() && slots[2].getItemDamage() == out.getItemDamage() && slots[2].getCount() + out.getCount() <= slots[2].getMaxStackSize();
 	}
 
 	public boolean canProcessLiquid() {
@@ -141,7 +141,7 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 	}
 
 	private void processSolid() {
-		
+
 		if(slots[1].getItem() == ModItems.meteorite_sword_bred) {
 			this.decrStackSize(1, 1);
 			slots[2] = new ItemStack(ModItems.meteorite_sword_fused);
@@ -163,7 +163,7 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 			if(slots[2] == null) {
 				slots[2] = out.copy();
 			} else {
-				slots[2].stackSize += out.stackSize;
+				slots[2].grow(out.getCount());
 			}
 		}
 	}
@@ -292,7 +292,7 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,
@@ -345,16 +345,16 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 		String inputName = "";
 		int inputSize = 0;
 		if (input != null) {
-			inputName = input.getUnlocalizedName();
-			inputSize = input.stackSize;
+			inputName = input.getTranslationKey();
+			inputSize = input.getCount();
 		}
 
 		ItemStack output = slots[2];
 		String outputName = "";
 		int outputSize = 0;
 		if (output != null) {
-			outputName = output.getUnlocalizedName();
-			outputSize = output.stackSize;
+			outputName = output.getTranslationKey();
+			outputSize = output.getCount();
 		}
 
 		return new Object[] {
@@ -370,16 +370,16 @@ public class TileEntityFusionBreeder extends TileEntityMachineBase implements IF
 		String inputName = "";
 		int inputSize = 0;
 		if (input != null) {
-			inputName = input.getUnlocalizedName();
-			inputSize = input.stackSize;
+			inputName = input.getTranslationKey();
+			inputSize = input.getCount();
 		}
 
 		ItemStack output = slots[2];
 		String outputName = "";
 		int outputSize = 0;
 		if (output != null) {
-			outputName = output.getUnlocalizedName();
-			outputSize = output.stackSize;
+			outputName = output.getTranslationKey();
+			outputSize = output.getCount();
 		}
 
 		return new Object[] {

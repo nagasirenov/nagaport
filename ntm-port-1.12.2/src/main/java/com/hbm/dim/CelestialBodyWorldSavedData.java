@@ -1,6 +1,7 @@
 package com.hbm.dim;
 
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldSavedData;
 
 public class CelestialBodyWorldSavedData extends WorldSavedData {
@@ -18,11 +19,15 @@ public class CelestialBodyWorldSavedData extends WorldSavedData {
 	private NBTTagCompound nbt;
 	
 	public static CelestialBodyWorldSavedData get(WorldProviderCelestial provider) {
-		CelestialBodyWorldSavedData result = (CelestialBodyWorldSavedData) provider.worldObj.getMapStorage().getOrLoadData(CelestialBodyWorldSavedData.class, DATA_NAME);
+		if(provider == null || provider.getWorldObj() == null) return null;
+		MapStorage storage = provider.getWorldObj().getMapStorage();
+		if(storage == null) return null;
+
+		CelestialBodyWorldSavedData result = (CelestialBodyWorldSavedData) storage.getOrLoadData(CelestialBodyWorldSavedData.class, DATA_NAME);
 		
 		if(result == null) {
-			provider.worldObj.getMapStorage().setData(DATA_NAME, new CelestialBodyWorldSavedData(DATA_NAME));
-			result = (CelestialBodyWorldSavedData) provider.worldObj.getMapStorage().getOrLoadData(CelestialBodyWorldSavedData.class, DATA_NAME);
+			result = new CelestialBodyWorldSavedData(DATA_NAME);
+			storage.setData(DATA_NAME, result);
 		}
 
 		// readFromNBT is called before the result is returned and a WorldProvider is made available, so we call this here

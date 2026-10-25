@@ -337,7 +337,7 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 
 			for(int i = 0; i < 3; i++) {
 				ItemStack stack = slots[i];
-				if(aStack.matchesRecipe(stack, true) && stack.stackSize >= aStack.stacksize) {
+				if(aStack.matchesRecipe(stack, true) && stack.getCount() >= aStack.stacksize) {
 					this.decrStackSize(i, aStack.stacksize);
 					break;
 				}
@@ -379,7 +379,7 @@ public class TileEntityMachineRotaryFurnace extends TileEntityMachinePolluting i
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,

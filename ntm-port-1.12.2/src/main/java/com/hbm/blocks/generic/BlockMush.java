@@ -9,17 +9,26 @@ import com.hbm.config.GeneralConfig;
 import com.hbm.world.feature.HugeMush;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
 public class BlockMush extends Block implements IGrowable, IPlantable {
+
+	public BlockMush withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 
 	private final net.minecraft.util.math.AxisAlignedBB shape;
 
@@ -31,7 +40,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	}
 
 	protected boolean canPlaceBlockOn(Block block) {
-		return block.func_149730_j();
+		return block.getDefaultState().isFullBlock();
 	}
 
 	@Override
@@ -40,9 +49,13 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 		return super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z);
 	}
 
-	@Override
-	public boolean canBlockStay(World world, int x, int y, int z) {
-		
+
+	public boolean canBlockStay(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		return canBlockStay(worldIn, pos.getX(), pos.getY(), pos.getZ());
+	}
+
+public boolean canBlockStay(World world, int x, int y, int z) {
+
 		if(y >= 0 && y < 256) {
 			Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 			return block.canSustainPlant(block.getDefaultState(), world, new BlockPos(x, y - 1, z), EnumFacing.UP, this) || canMushGrowHere(world, x, y, z);
@@ -50,9 +63,9 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 			return false;
 		}
 	}
-	
+
 	private static final Set<Block> canGrowOn = new HashSet();
-	
+
 	public boolean canMushGrowHere(World world, int x, int y, int z) {
 		if(canGrowOn.isEmpty()) {
 			canGrowOn.add(ModBlocks.waste_earth);
@@ -63,7 +76,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 			canGrowOn.add(ModBlocks.block_waste_painted);
 			canGrowOn.add(ModBlocks.block_waste_vitrified);
 		}
-		
+
 		Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		return canGrowOn.contains(block);
 	}
@@ -76,26 +89,29 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 		return true;
 	}
 
-	/**
-	 * General grow condition ("has space?")
-	 */
 	@Override
+	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
+		return canBlockStay(worldIn, pos.getX(), pos.getY(), pos.getZ());
+	}
+
+	@Override
+	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+		return rand.nextFloat() < 0.4D;
+	}
+
+	@Override
+	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+		this.growHuge(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
 	public boolean func_149851_a(World world, int x, int y, int z, boolean b) {
 		return canBlockStay(world, x, y, z);
 	}
 
-	/**
-	 * Grow chance (40%)
-	 */
-	@Override
 	public boolean func_149852_a(World p_149852_1_, Random p_149852_2_, int p_149852_3_, int p_149852_4_, int p_149852_5_) {
 		return p_149852_2_.nextFloat() < 0.4D;
 	}
 
-	/**
-	 * On successful bonemeal grow
-	 */
-	@Override
 	public void func_149853_b(World world, Random rand, int x, int y, int z) {
 		this.growHuge(world, x, y, z, rand);
 	}
@@ -127,24 +143,23 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	/**
 	 * The type of render function that is called for this block
 	 */
-	@Override
 	public int getRenderType() {
 		return 1;
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {
-		super.onNeighborBlockChange(world, x, y, z, b);
-		this.checkAndDropBlock(world, x, y, z);
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block b, BlockPos fromPos) {
+		super.neighborChanged(state, world, pos, b, fromPos);
+		this.checkAndDropBlock(world, pos.getX(), pos.getY(), pos.getZ());
 	}
 
 	/**
 	 * checks if the block can stay, if not drop as item
 	 */
 	protected void checkAndDropBlock(World world, int x, int y, int z) {
-		
+
 		if(!this.canBlockStay(world, x, y, z)) {
-			this.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
+			BlockPos dpos = new BlockPos(x, y, z); this.dropBlockAsItem(world, dpos, world.getBlockState(dpos), 0);
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
 	}
@@ -153,11 +168,11 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		this.checkAndDropBlock(world, x, y, z);
-		
+
 		if(GeneralConfig.enableMycelium && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.waste_earth && rand.nextInt(5) == 0) {
-			world.setBlock(x, y - 1, z, ModBlocks.waste_mycelium);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y - 1, z, ModBlocks.waste_mycelium);
 		}
-		
+
 		if(rand.nextInt(25) == 0) {
 			byte range = 4;
 			int maxShroom = 3;
@@ -196,29 +211,35 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 			}
 
 			if(world.isAirBlock(new net.minecraft.util.math.BlockPos(ix, iy, iz)) && this.canMushGrowHere(world, ix, iy, iz)) {
-				world.setBlock(ix, iy, iz, this, 0, 2);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, ix, iy, iz, this, 0, 2);
 			}
 		}
 	}
 
 	@Override
-	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
+	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
 		return EnumPlantType.Cave;
 	}
 
 	@Override
+	public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
+		return world.getBlockState(pos);
+	}
+
+	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
+		return EnumPlantType.Cave;
+	}
+
 	public Block getPlant(IBlockAccess world, int x, int y, int z) {
 		return this;
 	}
 
-	@Override
 	public int getPlantMetadata(IBlockAccess world, int x, int y, int z) {
-		return world.getBlockMetadata(x, y, z);
+		return com.hbm.world.WorldBlockState.readMetadata(world, x, y, z);
 	}
 
 
 
-	@Override
 	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return shape;
 	}

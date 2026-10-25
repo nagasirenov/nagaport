@@ -19,8 +19,9 @@ public class EntityDuck extends EntityChicken {
 		return "hbm:entity.ducc";
 	}
 
-	protected String getDeathSound() {
-		return "hbm:entity.ducc";
+	@Override
+	protected net.minecraft.util.SoundEvent getDeathSound() {
+		return com.hbm.main.ModSoundEvents.resolve("hbm:entity.ducc");
 	}
 
 	public EntityDuck createChild(EntityAgeable entity) {

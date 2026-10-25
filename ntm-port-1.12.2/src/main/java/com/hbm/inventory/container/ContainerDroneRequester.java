@@ -6,6 +6,7 @@ import com.hbm.tileentity.network.TileEntityDroneRequester;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
 public class ContainerDroneRequester extends ContainerCrateBase {
@@ -47,7 +48,7 @@ public class ContainerDroneRequester extends ContainerCrateBase {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
@@ -60,7 +61,7 @@ public class ContainerDroneRequester extends ContainerCrateBase {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 
 		//L/R: 0
 		//M3: 3
@@ -80,7 +81,7 @@ public class ContainerDroneRequester extends ContainerCrateBase {
 		if(slot.getHasStack())
 			ret = slot.getStack().copy();
 
-		if(button == 1 && mode == 0 && slot.getHasStack()) {
+		if(button == 1 && mode == ClickType.PICKUP && slot.getHasStack()) {
 			requester.nextMode(index);
 			return ret;
 

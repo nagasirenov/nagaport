@@ -30,19 +30,19 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implements IEnergyReceiverMK2, IFluidStandardTransceiver, IPersistentNBT, IGUIProvider, IFluidCopiable {
-	
+
 	public long power;
 	public static final long maxPower = 1_000_000;
-	
+
 	public FluidTank[] tanks;
-	
+
 	private AudioWrapper audio;
 	private int audioTime;
 	public boolean isOn;
 
 	public TileEntityMachineVacuumDistill() {
 		super(12);
-		
+
 		this.tanks = new FluidTank[5];
 		this.tanks[0] = new FluidTank(Fluids.OIL, 64_000).withPressure(2);
 		this.tanks[1] = new FluidTank(Fluids.HEAVYOIL_VACUUM, 24_000);
@@ -58,23 +58,23 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.isOn = false;
-			
+
 			this.updateConnections();
 			power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			tanks[0].setType(11, slots);
 			tanks[0].loadTank(1, 2, slots);
-			
+
 			refine();
 
 			tanks[1].unloadTank(3, 4, slots);
 			tanks[2].unloadTank(5, 6, slots);
 			tanks[3].unloadTank(7, 8, slots);
 			tanks[4].unloadTank(9, 10, slots);
-			
+
 			for(DirPos pos : getConPos()) {
 				for(int i = 1; i < 5; i++) {
 					if(tanks[i].getFill() > 0) {
@@ -86,13 +86,13 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 			this.networkPackNT(150);
 
 		} else {
-			
+
 			if(this.isOn) audioTime = 20;
-			
+
 			if(audioTime > 0) {
-				
+
 				audioTime--;
-				
+
 				if(audio == null) {
 					audio = createAudioLoop();
 					audio.startSound();
@@ -102,9 +102,9 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 
 				audio.updateVolume(getVolume(1F));
 				audio.keepAlive();
-				
+
 			} else {
-				
+
 				if(audio != null) {
 					audio.stopSound();
 					audio = null;
@@ -112,7 +112,7 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 			}
 		}
 	}
-	
+
 	@Override
 	public AudioWrapper createAudioLoop() {
 		return MainRegistry.proxy.getLoopedSound("hbm:block.boiler", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.25F, 15F, 1.0F, 20);
@@ -153,17 +153,17 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 		this.isOn = buf.readBoolean();
 		for(int i = 0; i < 5; i++) tanks[i].deserialize(buf);
 	}
-	
+
 	private void refine() {
 		VacuumRefineryRecipe refinery = VacuumRefineryRecipes.getVacuum(tanks[0].getTankType());
 		if(refinery == null) {
 			for(int i = 1; i < 5; i++) tanks[i].setTankType(Fluids.NONE);
 			return;
 		}
-		
+
 		FluidStack[] stacks = refinery.outputs;
 		for(int i = 0; i < stacks.length; i++) tanks[i + 1].setTankType(stacks[i].type);
-		
+
 		if(power < 10_000) return;
 		if(tanks[0].getFill() < 100) return;
 		for(int i = 0; i < stacks.length; i++) if(tanks[i + 1].getFill() + stacks[i].fill > tanks[i + 1].getMaxFill()) return;
@@ -171,17 +171,17 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 		this.isOn = true;
 		power -= 10_000;
 		tanks[0].setFill(tanks[0].getFill() - 100);
-		
+
 		for(int i = 0; i < stacks.length; i++) tanks[i + 1].setFill(tanks[i + 1].getFill() + stacks[i].fill);
 	}
-	
+
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
 			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
-	
+
 	public DirPos[] getConPos() {
 		return new DirPos[] {
 				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
@@ -194,7 +194,7 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
@@ -206,11 +206,11 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 		tanks[3].readFromNBT(nbt, "light");
 		tanks[4].readFromNBT(nbt, "gas");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		tanks[0].writeToNBT(nbt, "input");
 		tanks[1].writeToNBT(nbt, "heavy");
@@ -219,14 +219,14 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 		tanks[4].writeToNBT(nbt, "gas");
 		return nbt;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -235,10 +235,10 @@ public class TileEntityMachineVacuumDistill extends TileEntityMachineBase implem
 					this.pos.getZ() + 2
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

@@ -42,7 +42,6 @@ public class ItemBedrockOreNew extends Item {
 		this.setMaxDamage(0);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
 		if(!(reg instanceof LegacyIconRegister)) throw new IllegalArgumentException("ItemBedrockOreNew requires the NTM texture-atlas adapter");
@@ -62,8 +61,16 @@ public class ItemBedrockOreNew extends Item {
 		}
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for(int i = 0; i < BedrockOreGrade.values().length; i++) { BedrockOreGrade grade = BedrockOreGrade.values()[i];
 			if(tab != null && grade != BedrockOreGrade.BASE) continue;
@@ -73,13 +80,11 @@ public class ItemBedrockOreNew extends Item {
 		}
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
 	}
 
-	@Override
 	public int getRenderPasses(int metadata) {
 		return 1 + this.getGrade(metadata).traits.length;
 	}
@@ -90,7 +95,6 @@ public class ItemBedrockOreNew extends Item {
 		return this.overlays[this.getGrade(meta).traits[pass - 1].ordinal()];
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int meta) {
 		int icon = this.getGrade(meta).ordinal() * CelestialBedrockOre.oreTypes.size() + this.getType(meta).index;
@@ -352,7 +356,6 @@ public class ItemBedrockOreNew extends Item {
 		return new ItemStack(ModItems.bedrock_ore_fragment, Math.min((int) Math.ceil(o.amount * amount), 64), o.mat.id);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
 		if(pass != 0) return 0xFFFFFF;

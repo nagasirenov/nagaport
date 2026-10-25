@@ -29,6 +29,7 @@ import net.minecraft.util.WeightedRandom;
 import com.hbm.lib.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldGeneratorIke implements IWorldGenerator {
 
@@ -48,8 +49,7 @@ public class WorldGeneratorIke implements IWorldGenerator {
 		BlockOre.addValidBody(ModBlocks.ore_brine, SolarSystem.Body.IKE);
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.getDimension() == SpaceConfig.ikeDimension) {
 			generateIke(world, random, chunkX * 16, chunkZ * 16);
 		}
@@ -68,7 +68,7 @@ public class WorldGeneratorIke implements IWorldGenerator {
 		//okay okay okay, lets say on duna you DO make solvent, this is now awesome because you can now make gallium arsenide to then head to
 		//dres and the likes :)
 
-	
+
 		// the HACKIEST hack i ever hacked.
 		for (int x = 0; x < 16; x++) {
 			for (int z = 0; z < 16; z++) {
@@ -85,7 +85,7 @@ public class WorldGeneratorIke implements IWorldGenerator {
 						if (te instanceof TileEntityPedestal) {
 							TileEntityPedestal pedestal = (TileEntityPedestal) te;
 							pedestal.item = new ItemStack(ModItems.divine_shard, 1);
-							world.markBlockForUpdate(ox, y, oz);
+							com.hbm.world.WorldBlockState.markBlockForUpdate(world, ox, y, oz);
 						}
 					}
 				}
@@ -98,7 +98,7 @@ public class WorldGeneratorIke implements IWorldGenerator {
 		if(WorldConfig.pyramidStructure > 0 && rand.nextInt(WorldConfig.pyramidStructure) == 0) {
 			int x = i + rand.nextInt(16);
 			int z = j + rand.nextInt(16);
-			int y = world.getHeightValue(x, z);
+			int y = world.getHeight(x, z);
 
 			new AncientTomb().build(world, rand, x, y, z);
 		}

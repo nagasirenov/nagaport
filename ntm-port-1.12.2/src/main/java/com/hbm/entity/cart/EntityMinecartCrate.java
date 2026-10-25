@@ -37,10 +37,16 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 			}
 		}
 	}
-	
+
+
 	@Override
-	public boolean interactFirst(EntityPlayer player) {
-		if(net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.minecart.MinecartInteractEvent(this, player)))
+	public Type getType() {
+		return Type.CHEST;
+	}
+
+	@Override
+	public boolean processInitialInteract(EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		if(net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.minecart.MinecartInteractEvent(this, player, hand)))
 			return true;
 		if(!this.world.isRemote) {
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, this.world, this.getEntityId(), 0, 0);
@@ -49,7 +55,15 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 		return true;
 	}
 
+	public boolean interactFirst(EntityPlayer player) {
+		return processInitialInteract(player, net.minecraft.util.EnumHand.MAIN_HAND);
+	}
+
 	@Override
+	public net.minecraft.block.state.IBlockState getDefaultDisplayTile() {
+		return ModBlocks.crate_steel.getDefaultState();
+	}
+
 	public Block func_145817_o() {
 		return ModBlocks.crate_steel;
 	}
@@ -60,39 +74,48 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 	}
 
 	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			this.setInventorySlotContents(i, ItemStack.EMPTY);
+		}
+	}
+
+	@Override
 	public void killMinecart(DamageSource p_94095_1_) {
 		this.setDead();
 		ItemStack itemstack = ItemModMinecart.createCartItem(EnumCartBase.VANILLA, EnumMinecart.CRATE);
-		
+
 		NBTTagCompound nbt = new NBTTagCompound();
-			
+
 			for(int i = 0; i < getSizeInventory(); i++) {
-				
+
 			ItemStack stack = getStackInSlot(i);
 			if(stack == null)
 				continue;
-			
+
 			NBTTagCompound slot = new NBTTagCompound();
 			stack.writeToNBT(slot);
 			nbt.setTag("slot" + i, slot);
 		}
-		
-		if(!nbt.hasNoTags()) {
+
+		if(!nbt.isEmpty()) {
 			itemstack.setTagCompound(nbt);
 		}
 
-		if(this.func_95999_t() != null) {
-			itemstack.setStackDisplayName(this.func_95999_t());
+		if(this.hasCustomName()) {
+			itemstack.setStackDisplayName(this.getCustomNameTag());
 		}
-		
+
 		try {
-			byte[] abyte = CompressedStreamTools.compress(nbt);
-			
+			java.io.ByteArrayOutputStream compressed = new java.io.ByteArrayOutputStream();
+			CompressedStreamTools.writeCompressed(nbt, compressed);
+			byte[] abyte = compressed.toByteArray();
+
 			if(abyte.length > 6000) {
 				this.world.newExplosion(this, posX, posY, posZ, 2F, true, true);
 				this.entityDropItem(ItemModMinecart.createCartItem(EnumCartBase.VANILLA, EnumMinecart.CRATE), 0.0F);
 			}
-			
+
 		} catch(IOException e) { }
 
 		this.entityDropItem(itemstack, 0.0F);

@@ -25,6 +25,6 @@ public class ItemRadarLinker extends ItemCoordinateBase {
 	
 	@Override
 	public void onTargetSet(World world, int x, int y, int z, EntityPlayer player) {
-		world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+		world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 	}
 }

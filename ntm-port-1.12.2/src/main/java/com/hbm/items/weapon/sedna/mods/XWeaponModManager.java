@@ -156,10 +156,10 @@ public class XWeaponModManager {
 		new WeaponModDefinition(EnumModSpecial.NICKEL).addMod(new Item[] {ModItems.gun_n_i_4_n_i}, new WeaponModNickel(ID_NI4NI_NICKEL, "COIN1"));
 		new WeaponModDefinition(EnumModSpecial.DOUBLOONS).addMod(new Item[] {ModItems.gun_n_i_4_n_i}, new WeaponModNickel(ID_NI4NI_DOUBLOONS, "COIN2"));
 		
-		new WeaponModDefinition(EnumModSpecial.DRILL_HSS).addMod(new Item[] {ModItems.gun_drill}, new WeaponModDrill(ID_DRILL_HSS).damage(1.25F).dt(3F).pierce(0.15F).harvest(ToolMaterial.EMERALD.ordinal()));
-		new WeaponModDefinition(EnumModSpecial.DRILL_WEAPONSTEEL).addMod(new Item[] {ModItems.gun_drill}, new WeaponModDrill(ID_DRILL_WSTEEL).damage(1.5F).dt(5F).pierce(0.2F).aoe(2).harvest(ToolMaterial.EMERALD.ordinal()));
-		new WeaponModDefinition(EnumModSpecial.DRILL_TCALLOY).addMod(new Item[] {ModItems.gun_drill}, new WeaponModDrill(ID_DRILL_TCALLOY).damage(2F).dt(7.5F).pierce(0.2F).reach(2).aoe(3).harvest(ToolMaterial.EMERALD.ordinal() + 1));
-		new WeaponModDefinition(EnumModSpecial.DRILL_SATURNITE).addMod(new Item[] {ModItems.gun_drill}, new WeaponModDrill(ID_DRILL_SATURN).damage(3F).dt(10F).pierce(0.25F).reach(2).aoe(3).harvest(ToolMaterial.EMERALD.ordinal() + 2));
+		new WeaponModDefinition(EnumModSpecial.DRILL_HSS).addMod(new Item[] {ModItems.gun_drill}, new WeaponModDrill(ID_DRILL_HSS).damage(1.25F).dt(3F).pierce(0.15F).harvest(ToolMaterial.DIAMOND.ordinal()));
+		new WeaponModDefinition(EnumModSpecial.DRILL_WEAPONSTEEL).addMod(new Item[] {ModItems.gun_drill}, new WeaponModDrill(ID_DRILL_WSTEEL).damage(1.5F).dt(5F).pierce(0.2F).aoe(2).harvest(ToolMaterial.DIAMOND.ordinal()));
+		new WeaponModDefinition(EnumModSpecial.DRILL_TCALLOY).addMod(new Item[] {ModItems.gun_drill}, new WeaponModDrill(ID_DRILL_TCALLOY).damage(2F).dt(7.5F).pierce(0.2F).reach(2).aoe(3).harvest(ToolMaterial.DIAMOND.ordinal() + 1));
+		new WeaponModDefinition(EnumModSpecial.DRILL_SATURNITE).addMod(new Item[] {ModItems.gun_drill}, new WeaponModDrill(ID_DRILL_SATURN).damage(3F).dt(10F).pierce(0.25F).reach(2).aoe(3).harvest(ToolMaterial.DIAMOND.ordinal() + 2));
 		new WeaponModDefinition(EnumModSpecial.ENGINE_DIESEL).addMod(new Item[] {ModItems.gun_drill}, new WeaponModEngine(ID_ENGINE_DIESEL).mag(WeaponModEngine.ENGINE_DIESEL).delay(15));
 		new WeaponModDefinition(EnumModSpecial.ENGINE_AVIATION).addMod(new Item[] {ModItems.gun_drill}, new WeaponModEngine(ID_ENGINE_AVIATION).mag(WeaponModEngine.ENGINE_AVIATION).delay(10));
 		new WeaponModDefinition(EnumModSpecial.ENGINE_ELECTRIC).addMod(new Item[] {ModItems.gun_drill}, new WeaponModEngine(ID_ENGINE_ELECTRIC).mag(WeaponModEngine.ENGINE_ELECTRIC).delay(15));

@@ -115,7 +115,7 @@ public abstract class ItemInventory implements IInventory {
 
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack) {
-		stack = stack == ItemStack.EMPTY ? null : stack;
+		stack = (stack == null || stack.isEmpty()) ? null : stack;
 		if(stack != null) {
 			stack.setCount(Math.min(quantity(stack), this.getInventoryStackLimit()));
 		}

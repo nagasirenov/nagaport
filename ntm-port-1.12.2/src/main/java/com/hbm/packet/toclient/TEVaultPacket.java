@@ -60,7 +60,7 @@ public class TEVaultPacket implements IMessage {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(TEVaultPacket m, MessageContext ctx) {
-			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(m.x, m.y, m.z);
+			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(new net.minecraft.util.math.BlockPos(m.x, m.y, m.z));
 
 			try {
 				if (te != null && te instanceof TileEntityBlastDoor) {

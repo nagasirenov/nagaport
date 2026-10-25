@@ -21,15 +21,20 @@ public class ItemPlasticBag extends Item implements IGUIProvider {
 	public ItemPlasticBag() {
 		this.setMaxStackSize(1);
 	}
-	
+
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
 		return 1;
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+
 		if(!world.isRemote) player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
 		return stack;
 	}
@@ -44,23 +49,47 @@ public class ItemPlasticBag extends Item implements IGUIProvider {
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return new GUIPlasticBag(player.inventory, new InventoryPlasticBag(player, com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
-	
+
 	public static class InventoryPlasticBag implements IInventory {
-		
+
+		@Override
+		public net.minecraft.util.text.ITextComponent getDisplayName() {
+			return new net.minecraft.util.text.TextComponentString(this.getName());
+		}
+
+		@Override
+		public boolean isEmpty() {
+			for(int i = 0; i < this.getSizeInventory(); i++) {
+				if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+			}
+			return true;
+		}
+
+		@Override public int getField(int id) { return 0; }
+		@Override public void setField(int id, int value) {}
+		@Override public int getFieldCount() { return 0; }
+
+		@Override
+		public void clear() {
+			for(int i = 0; i < this.getSizeInventory(); i++) {
+				this.setInventorySlotContents(i, null);
+			}
+		}
+
 		public final EntityPlayer player;
 		public final ItemStack bag;
 		public ItemStack[] slots;
-		
+
 		public InventoryPlasticBag(EntityPlayer player, ItemStack box) {
 			this.player = player;
 			this.bag = box;
 			slots = new ItemStack[this.getSizeInventory()];
-			
+
 			if(!box.hasTagCompound())
 				box.setTagCompound(new NBTTagCompound());
-			
+
 			ItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);
-			
+
 			if(fromNBT != null) {
 				for(int i = 0; i < slots.length; i++) {
 					slots[i] = fromNBT[i];
@@ -72,7 +101,7 @@ public class ItemPlasticBag extends Item implements IGUIProvider {
 		public ItemStack decrStackSize(int slot, int amount) {
 			ItemStack stack = getStackInSlot(slot);
 			if (stack != null) {
-				if (stack.stackSize > amount) {
+				if (stack.getCount() > amount) {
 					stack = stack.splitStack(amount);
 					markDirty();
 				} else {
@@ -92,33 +121,35 @@ public class ItemPlasticBag extends Item implements IGUIProvider {
 		@Override
 		public void setInventorySlotContents(int slot, ItemStack stack) {
 			stack = stack == null || stack.isEmpty() ? null : stack;
-			
+
 			if(stack != null) {
 				stack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));
 			}
-			
+
 			slots[slot] = stack;
 			markDirty();
 		}
 
 		@Override
 		public void markDirty() {
-			
+
 			for(int i = 0; i < getSizeInventory(); ++i) {
-				if(getStackInSlot(i) != null && getStackInSlot(i).stackSize == 0) {
+				if(getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
 					slots[i] = null;
 				}
 			}
-			
+
 			ItemStackUtil.addStacksToNBT(bag, slots);
 		}
 
 		@Override public int getSizeInventory() { return 1; }
 		@Override public ItemStack getStackInSlot(int slot) { return slots[slot]; }
-		@Override public String getInventoryName() { return "container.plasticBag"; }
-		@Override public boolean hasCustomInventoryName() { return bag.hasDisplayName(); }
+		@Override public String getName() { return "container.plasticBag"; }
+		@Override public boolean hasCustomName() { return bag.hasDisplayName(); }
+		public String getInventoryName() { return getName(); }
+		public boolean hasCustomInventoryName() { return hasCustomName(); }
 		@Override public int getInventoryStackLimit() { return 1; }
-		@Override public boolean isUseableByPlayer(EntityPlayer player) { return true; }
+		@Override public boolean isUsableByPlayer(EntityPlayer player) { return true; }
 		@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 		@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 		@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return true; }

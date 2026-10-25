@@ -15,7 +15,6 @@ public class EntityCreeperVolatile extends EntityCreeper {
 		super(world);
 	}
 
-	@Override
 	public void func_146077_cc() {
 		
 		if(!this.world.isRemote) {

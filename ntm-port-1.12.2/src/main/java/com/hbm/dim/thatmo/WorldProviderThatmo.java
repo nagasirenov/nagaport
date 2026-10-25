@@ -31,8 +31,8 @@ public class WorldProviderThatmo extends WorldProviderCelestial {
 	}
 
 	@Override
-	public String getDimensionName() {
-		return "Thatmo";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	public static int chargetime;
@@ -91,7 +91,7 @@ public class WorldProviderThatmo extends WorldProviderCelestial {
 					flashd = Math.min(100.0f, flashd + 0.3f * (100.0f - flashd) * 0.15f);
 
 					if(flashd <= 5) {
-						player.playSound("hbm:misc.fireflash", 10F, 1F);
+						player.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:misc.fireflash"), net.minecraft.util.SoundCategory.NEUTRAL, 10F, 1F);
 					}
 
 					if(flashd >= 100) {
@@ -100,7 +100,7 @@ public class WorldProviderThatmo extends WorldProviderCelestial {
 				}
 
 				if(chargetime == 285) {
-					player.playSound("hbm:misc.impact", 10F, 1F);
+					player.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:misc.impact"), net.minecraft.util.SoundCategory.NEUTRAL, 10F, 1F);
 				}
 
 				if(chargetime >= 300 && chargetime <= 430) {

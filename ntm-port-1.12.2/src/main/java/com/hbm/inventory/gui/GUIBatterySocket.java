@@ -70,7 +70,7 @@ public class GUIBatterySocket extends GuiInfoContainer {
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft + 125, guiTop + 35, 16, 16, mouseX, mouseY, priority);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		NBTTagCompound data = new NBTTagCompound();
@@ -79,7 +79,7 @@ public class GUIBatterySocket extends GuiInfoContainer {
 		if(this.checkClick(x, y, 106, 52, 18, 18)) { this.click(); data.setBoolean("high", true); }
 		if(this.checkClick(x, y, 125, 35, 16, 16)) { this.click(); data.setBoolean("priority", true); }
 		
-		if(!data.hasNoTags()) PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, battery.getPos().getX(), battery.getPos().getY(), battery.getPos().getZ()));
+		if(!data.isEmpty()) PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, battery.getPos().getX(), battery.getPos().getY(), battery.getPos().getZ()));
 	}
 
 	@Override

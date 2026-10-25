@@ -51,7 +51,7 @@ public class GUIMachineAnnihilator extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		this.pool.mouseClicked(x, y, i);
 	}
@@ -89,7 +89,7 @@ public class GUIMachineAnnihilator extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int i) {
+	protected void keyTyped(char c, int i) throws java.io.IOException {
 		if(this.pool.textboxKeyTyped(c, i)) {
 			String text = this.pool.getText();
 			NBTTagCompound data = new NBTTagCompound();

@@ -33,7 +33,7 @@ public class GUIMicrowave extends GuiInfoContainer {
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 51 - 34, 16, 34, microwave.power, microwave.maxPower);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
     	super.mouseClicked(x, y, i);
 
 	    if(guiLeft + 43 <= x && guiLeft + 43 + 18 > x && guiTop + 25 < y && guiTop + 25 + 18 >= y) {

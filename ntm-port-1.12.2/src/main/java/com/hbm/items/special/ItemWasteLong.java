@@ -21,26 +21,39 @@ public class ItemWasteLong extends ItemNuclearWaste {
 		this.setCreativeTab(MainRegistry.controlTab);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
 		for(int i = 0; i < WasteClass.values().length; ++i) {
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
-	
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		
-		list.add(TextFormatting.ITALIC + WasteClass.values()[rectify(stack.getItemDamage())].name);
-		
-		super.addInformation(stack, player, list, bool);
+
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
 	}
-	
+
+public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+
+		list.add(TextFormatting.ITALIC + WasteClass.values()[rectify(stack.getItemDamage())].name);
+
+	}
+
 	public static int rectify(int meta) {
 		return Math.abs(meta) % WasteClass.values().length;
 	}
-	
+
 	public enum WasteClass {
 
 		//all decayed versions include lead-types and classic nuclear waste
@@ -49,11 +62,11 @@ public class ItemWasteLong extends ItemNuclearWaste {
 		NEPTUNIUM("Neptunium-237", 0, 100),	//plutonium 239 and uranium 238 / -
 		THORIUM("Thorium-232", 0, 0),		//uranium 233 and uranium 235 / -
 		SCHRABIDIUM("Schrabidium-326", 0, 250); //tantalum, neodymium, solinium, euphemium, ghiorsium-336 / -
-		
+
 		public String name;
 		public int liquid;
 		public int gas;
-		
+
 		private WasteClass(String name, int liquid, int gas) {
 			this.name = name;
 			this.liquid = liquid;

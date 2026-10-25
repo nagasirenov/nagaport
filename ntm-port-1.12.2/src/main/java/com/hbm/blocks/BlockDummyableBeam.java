@@ -95,8 +95,13 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 		}
 	}
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
 		if(world.isRemote) return;
 
 		int metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
@@ -113,7 +118,10 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		int metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		// if it's an extra, remove the extra-ness
@@ -128,7 +136,8 @@ public class BlockDummyableBeam extends BlockDummyable implements ILookOverlay {
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
 		if(b instanceof BlockDummyable && !(b instanceof BlockDummyableBeam)) {
-			return ((BlockDummyable) b).onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ);
+			net.minecraft.util.math.BlockPos targetPos = new net.minecraft.util.math.BlockPos(x, y, z);
+			return b.onBlockActivated(world, targetPos, world.getBlockState(targetPos), player, nativeHand, nativeFacing, hitX, hitY, hitZ);
 		}
 
 		return false;

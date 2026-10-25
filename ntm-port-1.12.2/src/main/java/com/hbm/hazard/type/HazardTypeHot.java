@@ -25,7 +25,7 @@ public class HazardTypeHot extends HazardTypeBase {
 		boolean reacher = false;
 		
 		if(target instanceof EntityPlayer && !GeneralConfig.enable528)
-			reacher = ((EntityPlayer) target).inventory.hasItem(ModItems.reacher);
+			reacher = ((EntityPlayer) target).inventory.hasItemStack(new net.minecraft.item.ItemStack(ModItems.reacher));
 		
 		if(!reacher && !target.isWet() && level > 0)
 			target.setFire((int) Math.ceil(level));

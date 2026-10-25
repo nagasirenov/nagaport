@@ -24,12 +24,7 @@ public class NBTItemControlPacket implements IMessage {
 
 		this.buffer = new PacketBuffer(Unpooled.buffer());
 
-		try {
-			buffer.writeNBTTagCompoundToBuffer(nbt);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		buffer.writeCompoundTag(nbt);
 	}
 
 	@Override
@@ -55,11 +50,11 @@ public class NBTItemControlPacket implements IMessage {
 		@Override
 		public IMessage onMessage(NBTItemControlPacket m, MessageContext ctx) {
 
-			EntityPlayer p = ctx.getServerHandler().playerEntity;
+			EntityPlayer p = ctx.getServerHandler().player;
 
 			try {
 
-				NBTTagCompound nbt = m.buffer.readNBTTagCompoundFromBuffer();
+				NBTTagCompound nbt = m.buffer.readCompoundTag();
 
 				if(nbt != null) {
 					ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(p);

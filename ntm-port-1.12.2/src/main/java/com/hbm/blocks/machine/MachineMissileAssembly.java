@@ -46,7 +46,10 @@ public class MachineMissileAssembly extends BlockContainer {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -66,8 +69,10 @@ public class MachineMissileAssembly extends BlockContainer {
     private final Random field_149933_a = new Random();
 
 	@Override
-	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,
-			int p_149749_6_) {
+	public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int p_149749_2_ = pos.getX(), p_149749_3_ = pos.getY(), p_149749_4_ = pos.getZ();
+		Block p_149749_5_ = state.getBlock();
+		int p_149749_6_ = p_149749_5_.getMetaFromState(state);
 		ISidedInventory tileentityfurnace = (ISidedInventory) p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_,
 				p_149749_4_));
 
@@ -109,10 +114,10 @@ public class MachineMissileAssembly extends BlockContainer {
 				}
 			}
 
-			p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
+			p_149749_1_.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_), p_149749_5_);
 		}
 
-		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+		super.breakBlock(p_149749_1_, pos, state);
 	}
 
 	@Override
@@ -122,19 +127,19 @@ public class MachineMissileAssembly extends BlockContainer {
 
 		if(i == 0)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 1)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 		}
 		if(i == 2)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 3)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 
 		if(itemStack.hasDisplayName())

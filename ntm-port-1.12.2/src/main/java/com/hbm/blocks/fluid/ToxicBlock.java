@@ -11,6 +11,8 @@ import com.hbm.util.ContaminationUtil.HazardType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -40,64 +42,66 @@ public class ToxicBlock extends BlockFluidClassic {
 		displacements.put(this, false);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return (side == 0 || side == 1) ? stillIcon : flowingIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 		stillIcon = register.registerIcon(RefStrings.MODID + ":toxic_still");
 		flowingIcon = register.registerIcon(RefStrings.MODID + ":toxic_flowing");
 	}
 
-	@Override
 	public boolean canDisplace(IBlockAccess world, int x, int y, int z) {
 
-		if (world.getBlock(x, y, z).getMaterial().isLiquid()) {
+		if (com.hbm.world.WorldBlockState.read(world, x, y, z).getMaterial().isLiquid()) {
 			return false;
 		}
-		return super.canDisplace(world, x, y, z);
+		return super.canDisplace(world, new net.minecraft.util.math.BlockPos(x, y, z));
 	}
 
-	@Override
 	public boolean displaceIfPossible(World world, int x, int y, int z) {
 
 		if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {
 			return false;
 		}
-		return super.displaceIfPossible(world, x, y, z);
+		return super.displaceIfPossible(world, new net.minecraft.util.math.BlockPos(x, y, z));
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		entity.setInWeb();
-		
+
 		if(entity instanceof EntityLivingBase)
 			ContaminationUtil.contaminate((EntityLivingBase)entity, HazardType.RADIATION, ContaminationType.CREATIVE, 1.0F);
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos)
     {
-		super.onNeighborBlockChange(world, x, y, z, block);
-		
+		super.neighborChanged(state, world, pos, block, fromPos);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		if(reactToBlocks(world, x + 1, y, z))
-			world.setBlock(x, y, z, ModBlocks.sellafield_slaked);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.sellafield_slaked);
 		if(reactToBlocks(world, x - 1, y, z))
-			world.setBlock(x, y, z, ModBlocks.sellafield_slaked);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.sellafield_slaked);
 		if(reactToBlocks(world, x, y + 1, z))
-			world.setBlock(x, y, z, ModBlocks.sellafield_slaked);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.sellafield_slaked);
 		if(reactToBlocks(world, x, y - 1, z))
-			world.setBlock(x, y, z, ModBlocks.sellafield_slaked);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.sellafield_slaked);
 		if(reactToBlocks(world, x, y, z + 1))
-			world.setBlock(x, y, z, ModBlocks.sellafield_slaked);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.sellafield_slaked);
 		if(reactToBlocks(world, x, y, z - 1))
-			world.setBlock(x, y, z, ModBlocks.sellafield_slaked);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.sellafield_slaked);
     }
-	
+
 	public boolean reactToBlocks(World world, int x, int y, int z) {
 		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial() != ModBlocks.fluidtoxic) {
 			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {

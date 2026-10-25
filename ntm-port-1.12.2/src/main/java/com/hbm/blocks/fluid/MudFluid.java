@@ -8,22 +8,19 @@ import net.minecraftforge.fluids.Fluid;
 public class MudFluid extends Fluid {
 
 	public MudFluid() {
-		super("mud_fluid");
+		super("mud_fluid", new net.minecraft.util.ResourceLocation("hbm", "blocks/mud_still"), new net.minecraft.util.ResourceLocation("hbm", "blocks/mud_flowing"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon() {
     	return getStillIcon();
     }
 
-	@Override
 	@SideOnly(Side.CLIENT)
     public IIcon getStillIcon() {
         return MudBlock.stillIcon;
     }
 
-	@Override
 	@SideOnly(Side.CLIENT)
     public IIcon getFlowingIcon() {
         return MudBlock.flowingIcon;

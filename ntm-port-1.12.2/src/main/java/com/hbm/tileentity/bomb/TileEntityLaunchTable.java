@@ -53,6 +53,25 @@ import com.hbm.lib.ForgeDirection;
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IFluidStandardReceiver, IGUIProvider, IBufPacketReceiver, IRadarCommandReceiver, CompatHandler.OCComponent, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack slots[];
 
 	public long power;
@@ -109,13 +128,21 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.launchTable";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.launchTable";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
+	}
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
 	}
 
 	public void setCustomName(String name) {
@@ -129,13 +156,15 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if (this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64;
 		}
 	}
+
+
 
 	// You scrubs aren't needed for anything (right now)
 	@Override
@@ -154,13 +183,13 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if (slots[i] != null) {
-			if (slots[i].stackSize <= j) {
+			if (slots[i].getCount() <= j) {
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0) {
+			if (slots[i].getCount() == 0) {
 				slots[i] = null;
 			}
 
@@ -220,7 +249,7 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 			}
 		} else {
 
-			List<EntityMissileCustom> entities = this.world.getEntitiesWithinAABB(EntityMissileCustom.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
+			List<EntityMissileCustom> entities = this.world.getEntitiesWithinAABB(EntityMissileCustom.class, new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(int i = 0; i < 15; i++) {
@@ -330,7 +359,7 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 		target = target.rotateYaw(this.world.rand.nextFloat() * 360);
 
 		EntityMissileCustom missile = new EntityMissileCustom(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 2.5F, this.pos.getZ() + 0.5F, tX + (int)target.x, tZ + (int)target.z, getStruct(slots[0]));
-		this.world.spawnEntityInWorld(missile);
+		this.world.spawnEntity(missile);
 
 		subtractFuel();
 
@@ -546,7 +575,7 @@ public class TileEntityLaunchTable extends TileEntityLoadedBase implements ISide
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}

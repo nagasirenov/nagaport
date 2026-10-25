@@ -7,6 +7,8 @@ import com.hbm.render.loader.ModelRendererObj;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 
 public class ModelArmorWingsPheo extends ModelArmorBase {
@@ -110,8 +112,9 @@ public class ModelArmorWingsPheo extends ModelArmorBase {
 
 	private static void renderFlame() {
 
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawing(GL11.GL_TRIANGLES);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder buffer = tess.getBuffer();
+		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
 
 		double b = 0.125D;
 		double t = 0.375;
@@ -121,103 +124,71 @@ public class ModelArmorWingsPheo extends ModelArmorBase {
 		int colorFlame = 0x004040;
 		int colorTip = 0x000000;
 
-		tess.setColorOpaque_I(colorBase);
-		tess.addVertex(0, 0, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(w, b, 0);
-		tess.addVertex(s2, b, s2);
+		buffer.pos(0, 0, 0).color((colorBase >> 16) & 255, (colorBase >> 8) & 255, colorBase & 255, 255).endVertex();
+		buffer.pos(w, b, 0).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(s2, b, s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorBase);
-		tess.addVertex(0, 0, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(s2, b, s2);
-		tess.addVertex(0, b, w);
+		buffer.pos(0, 0, 0).color((colorBase >> 16) & 255, (colorBase >> 8) & 255, colorBase & 255, 255).endVertex();
+		buffer.pos(s2, b, s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(0, b, w).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorBase);
-		tess.addVertex(0, 0, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(0, b, w);
-		tess.addVertex(-s2, b, s2);
+		buffer.pos(0, 0, 0).color((colorBase >> 16) & 255, (colorBase >> 8) & 255, colorBase & 255, 255).endVertex();
+		buffer.pos(0, b, w).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(-s2, b, s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorBase);
-		tess.addVertex(0, 0, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(-s2, b, s2);
-		tess.addVertex(-w, b, 0);
+		buffer.pos(0, 0, 0).color((colorBase >> 16) & 255, (colorBase >> 8) & 255, colorBase & 255, 255).endVertex();
+		buffer.pos(-s2, b, s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(-w, b, 0).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorBase);
-		tess.addVertex(0, 0, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(-w, b, 0);
-		tess.addVertex(-s2, b, -s2);
+		buffer.pos(0, 0, 0).color((colorBase >> 16) & 255, (colorBase >> 8) & 255, colorBase & 255, 255).endVertex();
+		buffer.pos(-w, b, 0).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(-s2, b, -s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorBase);
-		tess.addVertex(0, 0, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(-s2, b, -s2);
-		tess.addVertex(0, b, -w);
+		buffer.pos(0, 0, 0).color((colorBase >> 16) & 255, (colorBase >> 8) & 255, colorBase & 255, 255).endVertex();
+		buffer.pos(-s2, b, -s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(0, b, -w).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorBase);
-		tess.addVertex(0, 0, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(0, b, -w);
-		tess.addVertex(s2, b, -s2);
+		buffer.pos(0, 0, 0).color((colorBase >> 16) & 255, (colorBase >> 8) & 255, colorBase & 255, 255).endVertex();
+		buffer.pos(0, b, -w).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(s2, b, -s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorBase);
-		tess.addVertex(0, 0, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(s2, b, -s2);
-		tess.addVertex(w, b, 0);
+		buffer.pos(0, 0, 0).color((colorBase >> 16) & 255, (colorBase >> 8) & 255, colorBase & 255, 255).endVertex();
+		buffer.pos(s2, b, -s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(w, b, 0).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
 		////////////////////////
 
-		tess.setColorOpaque_I(colorTip);
-		tess.addVertex(0, t, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(w, b, 0);
-		tess.addVertex(s2, b, s2);
+		buffer.pos(0, t, 0).color((colorTip >> 16) & 255, (colorTip >> 8) & 255, colorTip & 255, 255).endVertex();
+		buffer.pos(w, b, 0).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(s2, b, s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorTip);
-		tess.addVertex(0, t, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(s2, b, s2);
-		tess.addVertex(0, b, w);
+		buffer.pos(0, t, 0).color((colorTip >> 16) & 255, (colorTip >> 8) & 255, colorTip & 255, 255).endVertex();
+		buffer.pos(s2, b, s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(0, b, w).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorTip);
-		tess.addVertex(0, t, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(0, b, w);
-		tess.addVertex(-s2, b, s2);
+		buffer.pos(0, t, 0).color((colorTip >> 16) & 255, (colorTip >> 8) & 255, colorTip & 255, 255).endVertex();
+		buffer.pos(0, b, w).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(-s2, b, s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorTip);
-		tess.addVertex(0, t, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(-s2, b, s2);
-		tess.addVertex(-w, b, 0);
+		buffer.pos(0, t, 0).color((colorTip >> 16) & 255, (colorTip >> 8) & 255, colorTip & 255, 255).endVertex();
+		buffer.pos(-s2, b, s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(-w, b, 0).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorTip);
-		tess.addVertex(0, t, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(-w, b, 0);
-		tess.addVertex(-s2, b, -s2);
+		buffer.pos(0, t, 0).color((colorTip >> 16) & 255, (colorTip >> 8) & 255, colorTip & 255, 255).endVertex();
+		buffer.pos(-w, b, 0).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(-s2, b, -s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorTip);
-		tess.addVertex(0, t, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(-s2, b, -s2);
-		tess.addVertex(0, b, -w);
+		buffer.pos(0, t, 0).color((colorTip >> 16) & 255, (colorTip >> 8) & 255, colorTip & 255, 255).endVertex();
+		buffer.pos(-s2, b, -s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(0, b, -w).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorTip);
-		tess.addVertex(0, t, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(0, b, -w);
-		tess.addVertex(s2, b, -s2);
+		buffer.pos(0, t, 0).color((colorTip >> 16) & 255, (colorTip >> 8) & 255, colorTip & 255, 255).endVertex();
+		buffer.pos(0, b, -w).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(s2, b, -s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
-		tess.setColorOpaque_I(colorTip);
-		tess.addVertex(0, t, 0);
-		tess.setColorOpaque_I(colorFlame);
-		tess.addVertex(s2, b, -s2);
-		tess.addVertex(w, b, 0);
+		buffer.pos(0, t, 0).color((colorTip >> 16) & 255, (colorTip >> 8) & 255, colorTip & 255, 255).endVertex();
+		buffer.pos(s2, b, -s2).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
+		buffer.pos(w, b, 0).color((colorFlame >> 16) & 255, (colorFlame >> 8) & 255, colorFlame & 255, 255).endVertex();
 
 		tess.draw();
 	}

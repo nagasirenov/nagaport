@@ -49,12 +49,12 @@ public class FluidDuctPaintableBlockExhaust extends FluidDuctBase implements ITo
         return MultipassContext.basic(metadata);
     }
 
-	
-	
+
+
 	public FluidDuctPaintableBlockExhaust() {
         super(Material.IRON);
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityPipeExhaustPaintable();
@@ -84,15 +84,18 @@ public class FluidDuctPaintableBlockExhaust extends FluidDuctBase implements ITo
 
 		return false;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fX, float fY, float fZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 		if(stack != null && stack.getItem() instanceof ItemBlock) {
 			ItemBlock ib = (ItemBlock) stack.getItem();
-			Block block = ib.field_150939_a;
+			Block block = net.minecraft.block.Block.getBlockFromItem(ib);
 
 			if(BlockCablePaintable.allowedPaint(block, this)) {
 
@@ -104,7 +107,7 @@ public class FluidDuctPaintableBlockExhaust extends FluidDuctBase implements ITo
 					if(pipe.block == null) {
 						pipe.block = block;
 						pipe.meta = stack.getItemDamage() & 15;
-						world.markBlockForUpdate(x, y, z);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 						pipe.markDirty();
 						return true;
 					}
@@ -112,7 +115,7 @@ public class FluidDuctPaintableBlockExhaust extends FluidDuctBase implements ITo
 			}
 		}
 
-		return super.onBlockActivated(world, x, y, z, player, side, fX, fY, fZ);
+		return super.onBlockActivated(world, nativePos, nativeState, player, nativeHand, nativeFacing, fX, fY, fZ);
 	}
 
 	@Override
@@ -130,25 +133,25 @@ public class FluidDuctPaintableBlockExhaust extends FluidDuctBase implements ITo
 		text.add(Fluids.SMOKE_POISON.getLocalizedName());
 		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
-	
+
 	public static class TileEntityPipeExhaustPaintable extends TileEntityPipeExhaust implements ICopiable {
 
 		private Block block;
 		private int meta;
 		private Block lastBlock;
 		private int lastMeta;
-		
+
 		@Override
 		public void update() {
 			super.update();
-			
+
 			if(this.world.isRemote && (lastBlock != block || lastMeta != meta)) {
-				this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				lastBlock = block;
 				lastMeta = meta;
 			}
 		}
-		
+
 		@Override
 		public SPacketUpdateTileEntity getUpdatePacket() {
 			NBTTagCompound nbt = new NBTTagCompound();

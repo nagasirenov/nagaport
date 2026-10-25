@@ -22,7 +22,7 @@ public class ContainerVacuumCircuit extends Container {
 
 	public ContainerVacuumCircuit(InventoryPlayer playerInv, TileEntityMachineVacuumCircuit tile) {
 		sucker = tile;
-		
+
 		//Inputs
 		for(int i = 0; i < 2; i++) for(int j = 0; j < 2; j++) this.addSlotToContainer(new SlotNonRetarded(tile, i * 2 + j, 26 + j * 18, 18 + i * 18));
 		//Output
@@ -59,7 +59,7 @@ public class ContainerVacuumCircuit extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 5, 6, false)) return null;
 				} else if(rStack.getItem() instanceof ItemMachineUpgrade ) {
@@ -71,7 +71,7 @@ public class ContainerVacuumCircuit extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

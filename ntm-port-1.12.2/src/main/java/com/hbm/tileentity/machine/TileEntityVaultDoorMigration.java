@@ -12,10 +12,10 @@ public class TileEntityVaultDoorMigration extends TileEntity implements net.mine
 	public void update() {
 
 		if(!this.world.isRemote) {
-			
+
 			int meta = getBlockMetadata();
 			if(meta <= 5) {
-				getWorld().setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.vault_door, meta + 10, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(getWorld(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.vault_door, meta + 10, 3);
 				((BlockDoorGeneric) ModBlocks.vault_door).fillSpace(getWorld(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), ForgeDirection.getOrientation(meta), 0);
 			}
 		}

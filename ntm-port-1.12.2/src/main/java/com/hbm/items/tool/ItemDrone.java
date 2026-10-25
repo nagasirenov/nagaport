@@ -33,14 +33,21 @@ public class ItemDrone extends ItemEnumMulti {
 		REQUEST
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer entity, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer entity, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
 
 		if(side != 1) return false;
 		if(world.isRemote) return true;
-		
+
 		Entity toSpawn = null;
-		
+
 		if(stack.getItemDamage() < 4) {
 			toSpawn = new EntityDeliveryDrone(world);
 			if(stack.getItemDamage() % 2 == 1) {
@@ -50,21 +57,21 @@ public class ItemDrone extends ItemEnumMulti {
 				((EntityDeliveryDrone) toSpawn).setLoad((byte) 1);
 			}
 		}
-		
+
 		if(toSpawn != null) {
 			toSpawn.setPosition(x + 0.5, y + 1, z + 0.5);
-			world.spawnEntityInWorld(toSpawn);
+			world.spawnEntity(toSpawn);
 		}
-		
-		stack.stackSize--;
-		
+
+		stack.shrink(1);
+
 		return false;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
-		
+
 		if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
 			for(String s : I18nUtil.resolveKeyArray(stack.getTranslationKey() + ".desc"))
 				list.add(TextFormatting.YELLOW + s);

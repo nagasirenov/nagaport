@@ -45,7 +45,7 @@ public class GUICalculator extends GuiScreen {
 	}
 
 	@Override
-	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
+	protected void keyTyped(char p_73869_1_, int p_73869_2_) throws java.io.IOException {
 		if (!inputField.textboxKeyTyped(p_73869_1_, p_73869_2_))
 			super.keyTyped(p_73869_1_, p_73869_2_);
 

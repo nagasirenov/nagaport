@@ -192,7 +192,7 @@ public class TileEntityCondenserPowered extends TileEntityCondenser implements I
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 3,
 					this.pos.getY(),
 					this.pos.getZ() - 3,

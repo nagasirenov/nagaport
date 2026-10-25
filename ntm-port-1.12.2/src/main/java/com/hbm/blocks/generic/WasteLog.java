@@ -19,22 +19,22 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class WasteLog extends Block {
-	
+
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
 	public WasteLog(Material p_i45394_1_) {
 		super(p_i45394_1_);
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + (this == ModBlocks.waste_log ? ":waste_log_top" : ":frozen_log_top"));
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + (this == ModBlocks.waste_log ? ":waste_log_side" : ":frozen_log"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);
@@ -51,30 +51,41 @@ public class WasteLog extends Block {
 		{
 			return Items.SNOWBALL;
 		}
-		
+
 		return null;
     }
 
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-    	
+        @Override
+    public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+        int meta = state.getBlock().getMetaFromState(state);
+        net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+        java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+        if(ret != null) drops.addAll(ret);
+    }
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
     	if(this == ModBlocks.waste_log && world.rand.nextInt(1000) == 0) {
 	        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 	        ret.add(new ItemStack(ModItems.burnt_bark));
 	        return ret;
     	}
-    	
-    	return super.getDrops(world, x, y, z, metadata, fortune);
+
+		net.minecraft.util.NonNullList<ItemStack> nativeDrops = net.minecraft.util.NonNullList.create();
+		super.getDrops(nativeDrops, world, new net.minecraft.util.math.BlockPos(x, y, z), this.getStateFromMeta(metadata), fortune);
+		return new ArrayList<ItemStack>(nativeDrops);
     }
-    
+
     @Override
 	public int quantityDropped(Random p_149745_1_)
     {
     	return 2 + p_149745_1_.nextInt(3);
     }
-    
+
     @Override
-	public int damageDropped(int p_149692_1_)
+	public int damageDropped(net.minecraft.block.state.IBlockState state)
     {
+		int p_149692_1_ = state.getBlock().getMetaFromState(state);
         return 1;
     }
 

@@ -33,6 +33,11 @@ public class ItemWandD extends Item {
 
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(world.isRemote)
@@ -60,7 +65,7 @@ public class ItemWandD extends Item {
 
 			} else {
 
-				
+
 				int targetId = stack.getTagCompound().getInteger("dim");
 				targetId++;
 

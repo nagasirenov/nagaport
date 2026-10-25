@@ -13,6 +13,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class Dud extends WorldGenerator {
+
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
 	
 	protected Block[] GetValidSpawnBlocks() {
 		return new Block[] {
@@ -45,7 +49,6 @@ public class Dud extends WorldGenerator {
 		return false;
 	}
 
-	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z) {
 		int i = rand.nextInt(1);
 

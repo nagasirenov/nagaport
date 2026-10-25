@@ -58,13 +58,16 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fX, float fY, float fZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 
 		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 		if(stack != null && stack.getItem() instanceof ItemBlock) {
 			ItemBlock ib = (ItemBlock) stack.getItem();
-			Block block = ib.field_150939_a;
+			Block block = net.minecraft.block.Block.getBlockFromItem(ib);
 
 			if(allowedPaint(block, this)) {
 
@@ -76,7 +79,7 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 					if(pipe.block == null) {
 						pipe.block = block;
 						pipe.meta = stack.getItemDamage() & 15;
-						world.markBlockForUpdate(x, y, z);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 						pipe.markDirty();
 						return true;
 					}
@@ -84,12 +87,12 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 			}
 		}
 
-		return super.onBlockActivated(world, x, y, z, player, side, fX, fY, fZ);
+		return super.onBlockActivated(world, nativePos, nativeState, player, nativeHand, nativeFacing, fX, fY, fZ);
 	}
-	
+
 	public static boolean allowedPaint(Block paint, Block that) {
 		if(paint == Blocks.GRASS) return false;
-		return paint.renderAsNormalBlock() && paint != that;
+		return paint.getDefaultState().isOpaqueCube() && paint != that;
 	}
 
 	@Override
@@ -132,7 +135,7 @@ public class BlockCablePaintable extends BlockContainer implements IToolable, IB
 			super.update();
 
 			if(this.world.isRemote && (lastBlock != block || lastMeta != meta)) {
-				this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				lastBlock = block;
 				lastMeta = meta;
 			}

@@ -18,28 +18,41 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ItemDisperser extends ItemFluidTank {
-	
+
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(!player.capabilities.isCreativeMode) {
-			--stack.stackSize;
+			stack.shrink(1);
 		}
 
-		world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("random.bow"), net.minecraft.util.SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
 		if(!world.isRemote) {
 
 			EntityDisperserCanister canister = new EntityDisperserCanister(world, player);
 			canister.setType(Item.getIdFromItem(this));
 			canister.setFluid(stack.getItemDamage());
-			world.spawnEntityInWorld(canister);
+			world.spawnEntity(canister);
 		}
 		return stack;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
 
 		FluidType[] order = Fluids.getInNiceOrder();

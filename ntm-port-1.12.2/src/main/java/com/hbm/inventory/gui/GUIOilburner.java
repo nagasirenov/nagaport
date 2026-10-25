@@ -44,7 +44,7 @@ public class GUIOilburner extends GuiInfoContainer {
 		diFurnace.tank.renderTankInfo(this, x, y, guiLeft + 44, guiTop + 17, 16, 52);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		if(guiLeft + 80 <= x && guiLeft + 80 + 16 > x && guiTop + 54 < y && guiTop + 54 + 14 >= y) {

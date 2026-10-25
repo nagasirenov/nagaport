@@ -19,6 +19,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class Antenna extends WorldGenerator
 {
+
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
 	protected Block[] GetValidSpawnBlocks()
 	{
 		return new Block[]
@@ -59,7 +63,6 @@ public class Antenna extends WorldGenerator
 		return false;
 	}
 
-	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z)
 	{
 		int i = rand.nextInt(1);
@@ -85,18 +88,18 @@ public class Antenna extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 0, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 0; int nativeOwnedWriteY = y + 0; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 0, z + 1, ModBlocks.deco_steel);
-		world.setBlock(x + 2, y + 0, z + 1, ModBlocks.tape_recorder, 5, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 2, y + 0, z + 1, ModBlocks.tape_recorder, 5, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 0, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 0; int nativeOwnedWriteZ = z + 2; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 3; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }
-		world.setBlock(x + 2, y + 0, z + 2, Blocks.CHEST, 0, 3);
-		world.setBlockMetadataWithNotify(x + 2, y + 0, z + 2, 5, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 2, y + 0, z + 2, Blocks.CHEST, 0, 3);
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x + 2, y + 0, z + 2, 5, 3);
         WeightedRandomChestContent.generateChestContents(rand, ItemPool.getPool(ItemPoolsLegacy.POOL_ANTENNA), (TileEntityChest)world.getTileEntity(new BlockPos(x + 2, y, z + 2)), 8);
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 1, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 0; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 2; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 0; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 1; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 4; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 1, y + 1, z + 1, ModBlocks.deco_steel);
-		world.setBlock(x + 2, y + 1, z + 1, ModBlocks.tape_recorder, 5, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 2, y + 1, z + 1, ModBlocks.tape_recorder, 5, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativeOwnedWriteWorld = world; int nativeOwnedWriteX = x + 1; int nativeOwnedWriteY = y + 1; int nativeOwnedWriteZ = z + 2; net.minecraft.block.Block nativeOwnedWriteBlock = ModBlocks.steel_poles; int nativeOwnedWriteMeta = 3; int nativeOwnedWriteFlags = 3; if (nativeOwnedWriteWorld == null) throw new NullPointerException(); if (nativeOwnedWriteX >= -30000000 && nativeOwnedWriteX < 30000000 && nativeOwnedWriteZ >= -30000000 && nativeOwnedWriteZ < 30000000 && nativeOwnedWriteY >= 0 && nativeOwnedWriteY < 256) com.hbm.world.WorldBlockState.write(nativeOwnedWriteWorld, nativeOwnedWriteX, nativeOwnedWriteY, nativeOwnedWriteZ, nativeOwnedWriteBlock.getStateFromMeta(nativeOwnedWriteMeta), nativeOwnedWriteFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -203,7 +206,7 @@ public class Antenna extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 13, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 13, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 13, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 1, y + 13, z + 1, ModBlocks.pole_satellite_receiver, 3, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 13, z + 1, ModBlocks.pole_satellite_receiver, 3, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 13, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 13, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 13, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -239,7 +242,7 @@ public class Antenna extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 17, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 17, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 17, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 1, y + 17, z + 1, ModBlocks.pole_satellite_receiver, 2, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 17, z + 1, ModBlocks.pole_satellite_receiver, 2, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 17, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 17, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 17, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -248,7 +251,7 @@ public class Antenna extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 18, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 18, z + 0); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 18, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 1, y + 18, z + 1, ModBlocks.pole_satellite_receiver, 4, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 1, y + 18, z + 1, ModBlocks.pole_satellite_receiver, 4, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 2, y + 18, z + 1); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 0, y + 18, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 1, y + 18, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }

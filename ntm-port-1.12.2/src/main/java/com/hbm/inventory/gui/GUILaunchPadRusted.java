@@ -45,7 +45,7 @@ public class GUILaunchPadRusted extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		if(guiLeft + 26 <= x && guiLeft + 26 + 16 > x && guiTop + 36 < y && guiTop + 36 + 16 >= y) {

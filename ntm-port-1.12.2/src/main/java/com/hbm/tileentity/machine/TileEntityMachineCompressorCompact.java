@@ -6,7 +6,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineCompressorCompact extends TileEntityMachineCompressorBase {
-	
+
 	public float fanSpin;
 	public float prevFanSpin;
 
@@ -28,13 +28,13 @@ public class TileEntityMachineCompressorCompact extends TileEntityMachineCompres
 			}
 		}
 	}
-	
+
 	@Override
 	public DirPos[] getConPos() {
-		
+
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-		
+
 		return new DirPos[] {
 				new DirPos(this.pos.getX() + rot.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() + rot.offsetZ * 4, rot),
 				new DirPos(this.pos.getX() - rot.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() - rot.offsetZ * 4, rot.getOpposite()),
@@ -44,14 +44,14 @@ public class TileEntityMachineCompressorCompact extends TileEntityMachineCompres
 				new DirPos(this.pos.getX() - dir.offsetX * 2 + rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 2 + rot.offsetZ, dir.getOpposite())
 		};
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 3,
 					this.pos.getY(),
 					this.pos.getZ() - 3,
@@ -60,7 +60,7 @@ public class TileEntityMachineCompressorCompact extends TileEntityMachineCompres
 					this.pos.getZ() + 4
 					);
 		}
-		
+
 		return bb;
 	}
 }

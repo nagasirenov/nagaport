@@ -18,7 +18,27 @@ import net.minecraft.world.World;
 /** Native state stores the original variant * 4 + yaw metadata unchanged. */
 public class BlockDecoToaster extends BlockMulti implements INBTBlockTransformable {
     public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
+    private static final String[] VARIANTS = new String[] {"toaster_iron", "toaster_steel", "toaster_wood"};
+    @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+    private com.hbm.render.icon.IIcon[] variantIcons;
     public BlockDecoToaster(Material material) { super(material); setDefaultState(blockState.getBaseState().withProperty(META, 0)); }
+
+    @Override
+    @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+    public void registerBlockIcons(com.hbm.render.icon.IIconRegister reg) {
+        super.registerBlockIcons(reg);
+        com.hbm.render.icon.IIcon[] icons = new com.hbm.render.icon.IIcon[VARIANTS.length];
+        for(int i = 0; i < VARIANTS.length; i++)
+            icons[i] = reg.registerIcon(com.hbm.lib.RefStrings.MODID + ":" + VARIANTS[i]);
+        this.variantIcons = icons;
+    }
+
+    @Override
+    @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+    public com.hbm.render.icon.IIcon getIcon(int side, int meta) {
+        if(this.variantIcons == null) return super.getIcon(side, meta);
+        return this.variantIcons[Math.abs(damageDropped(meta)) % VARIANTS.length];
+    }
     @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, META); }
     @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(META, meta & 15); }
     @Override public int getMetaFromState(IBlockState state) { return state.getValue(META); }

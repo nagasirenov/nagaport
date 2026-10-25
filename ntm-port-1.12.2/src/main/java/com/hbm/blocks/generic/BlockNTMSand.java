@@ -7,6 +7,8 @@ import com.hbm.blocks.BlockEnumMulti;
 import com.hbm.lib.RefStrings;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityFallingBlock;
@@ -19,12 +21,14 @@ public class BlockNTMSand extends BlockEnumMulti {
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
+	public void onBlockAdded(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block b, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 
@@ -37,18 +41,18 @@ public class BlockNTMSand extends BlockEnumMulti {
 	}
 
 	private void fall(World world, int x, int y, int z) {
-		if(BlockFalling.func_149831_e(world, x, y - 1, z) && y >= 0) {
+		if(BlockFalling.canFallThrough(com.hbm.world.WorldBlockState.read(world, x, y - 1, z)) && y >= 0) {
 			byte b0 = 32;
 
-			if(!BlockFalling.fallInstantly && world.checkChunksExist(x - b0, y - b0, z - b0, x + b0, y + b0, z + b0)) {
+			if(!BlockFalling.fallInstantly && world.isAreaLoaded(new net.minecraft.util.math.BlockPos(x - b0, y - b0, z - b0), new net.minecraft.util.math.BlockPos(x + b0, y + b0, z + b0))) {
 				if(!world.isRemote) {
-					EntityFallingBlock entityfallingblock = new EntityFallingBlock(world, x + 0.5, y + 0.5, z + 0.5, this, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
-					world.spawnEntityInWorld(entityfallingblock);
+					EntityFallingBlock entityfallingblock = new EntityFallingBlock(world, x + 0.5, y + 0.5, z + 0.5, com.hbm.world.WorldBlockState.read(world, x, y, z));
+					world.spawnEntity(entityfallingblock);
 				}
 			} else {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 
-				while(BlockFalling.func_149831_e(world, x, y - 1, z) && y > 0) {
+				while(BlockFalling.canFallThrough(com.hbm.world.WorldBlockState.read(world, x, y - 1, z)) && y > 0) {
 					--y;
 				}
 

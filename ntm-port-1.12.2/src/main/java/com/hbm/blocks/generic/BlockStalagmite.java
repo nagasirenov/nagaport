@@ -9,6 +9,8 @@ import com.hbm.blocks.ModBlocks;
 import com.hbm.items.ModItems;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,23 +34,23 @@ public class BlockStalagmite extends BlockEnumMulti {
 		return false;
 	}
 
-	@Override
 	public int getRenderType() {
 		return 1;
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rang, int fortune) {
-		
+	public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState state, Random rang, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+
 		switch(meta) {
 		case 0: return ModItems.sulfur;
 		case 1: return ModItems.powder_asbestos;
 		case 2: return ModItems.flesh;
 		}
-		
+
 		return null;
 	}
-	
+
 	public static int getMetaFromResource(Block block, int meta) {
 		if(block == ModBlocks.tumor) return 2;
 		return meta;
@@ -63,24 +65,38 @@ public class BlockStalagmite extends BlockEnumMulti {
 			return nativeSupportState.getBlock().isSideSolid(nativeSupportState, world, new net.minecraft.util.math.BlockPos(x, y - 1, z), net.minecraft.util.EnumFacing.UP);
 		}
 		if(this == ModBlocks.stalactite) return com.hbm.lib.FacingCompat.isWorldSideSolid(world, x, y + 1, z, ForgeDirection.DOWN);
-		
+
 		return true;
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(!canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, true);
 		}
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		return null;
+	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess source, net.minecraft.util.math.BlockPos pos) {
+		return FULL_BLOCK_AABB;
 	}
 
 	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+	public net.minecraft.util.math.AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess worldIn, net.minecraft.util.math.BlockPos pos) {
+		return NULL_AABB;
+	}
+
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		return ModBlocks.getDropsWithoutDamage(world, this, metadata, fortune);
 	}
 

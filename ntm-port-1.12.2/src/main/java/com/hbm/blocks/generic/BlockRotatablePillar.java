@@ -19,6 +19,8 @@ public class BlockRotatablePillar extends BlockRotatedPillar implements ITooltip
 
 	@SideOnly(Side.CLIENT)
 	protected IIcon iconSide;
+	@SideOnly(Side.CLIENT)
+	protected IIcon field_150164_N;
 
 	private String textureTop;
 
@@ -37,12 +39,24 @@ public class BlockRotatablePillar extends BlockRotatedPillar implements ITooltip
 	public void registerBlockIcons(IIconRegister reg) {
 
 		this.field_150164_N = reg.registerIcon(textureTop);
-		this.iconSide = reg.registerIcon(this.getTextureName());
+		// The side bind carries the legacy side texture; the registry name does not.
+		String side = com.hbm.blocks.LegacyBlockTextures.texture(this);
+		this.iconSide = reg.registerIcon(side != null ? side : this.getRegistryName().toString());
 	}
 
-	@Override
 	protected IIcon getSideIcon(int p_150163_1_) {
 		return iconSide;
+	}
+
+	/** Legacy icon view for the native fallback models. */
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public IIcon getLegacySideIcon() {
+		return iconSide;
+	}
+
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public IIcon getLegacyTopIcon() {
+		return field_150164_N;
 	}
 
 	@Override
@@ -50,10 +64,10 @@ public class BlockRotatablePillar extends BlockRotatedPillar implements ITooltip
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
-		
+
 		if(this == ModBlocks.block_schrabidium_cluster)
-			return EnumRarity.rare;
-		
-		return EnumRarity.common;
+			return EnumRarity.RARE;
+
+		return EnumRarity.COMMON;
 	}
 }

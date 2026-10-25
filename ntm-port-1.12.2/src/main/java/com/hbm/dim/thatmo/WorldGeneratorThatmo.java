@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.structure.StructureComponent.BlockSelector;
 
 public class WorldGeneratorThatmo implements IWorldGenerator {
@@ -23,17 +24,17 @@ public class WorldGeneratorThatmo implements IWorldGenerator {
 	public WorldGeneratorThatmo() {
 		NBTStructure.registerStructure(SpaceConfig.thatmoDimension, new SpawnCondition("thatmotest") {{
 			structure = new JigsawPiece("thatmotest", StructureManager.THATMOTESTMO, -1);
-			canSpawn = biome -> biome.heightVariation < 0.1F;
+			canSpawn = biome -> biome.getHeightVariation() < 0.1F;
 		}});
 		NBTStructure.registerStructure(SpaceConfig.thatmoDimension, new SpawnCondition("thatmo2") {{
 			structure = new JigsawPiece("thatmotest2", StructureManager.thatmo2, 1);
-			canSpawn = biome -> biome.heightVariation < 0.1F;
+			canSpawn = biome -> biome.getHeightVariation() < 0.1F;
 		}});
 		NBTStructure.registerStructure(SpaceConfig.thatmoDimension, new SpawnCondition("trenches") {{
 			JigsawPiece rupture = new JigsawPiece("trenches", StructureManager.trenches, -1);
 			rupture.conformToTerrain = true;
 			spawnWeight = 2;
-			canSpawn = biome -> biome.heightVariation < 0.1F;
+			canSpawn = biome -> biome.getHeightVariation() < 0.1F;
 			rupture.blockTable = new HashMap<Block, BlockSelector>() {{
 				put(ModBlocks.brick_concrete_cracked, new ConcreteBricks());
 			}};
@@ -57,7 +58,7 @@ public class WorldGeneratorThatmo implements IWorldGenerator {
 
 		NBTStructure.registerStructure(SpaceConfig.thatmoDimension, new SpawnCondition("city") {{
 			sizeLimit = 128;
-			canSpawn = biome -> biome.heightVariation < 0.1F;
+			canSpawn = biome -> biome.getHeightVariation() < 0.1F;
 			startPool = "default";
 			pools = new HashMap<String, JigsawPool>() {{
 				put("default", new JigsawPool() {{
@@ -80,8 +81,7 @@ public class WorldGeneratorThatmo implements IWorldGenerator {
 
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.getDimension() == SpaceConfig.thatmoDimension) {
 			generateThatmo(world, random, chunkX * 16, chunkZ * 16);
 		}

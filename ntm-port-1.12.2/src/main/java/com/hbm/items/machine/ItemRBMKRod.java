@@ -76,7 +76,7 @@ public class ItemRBMKRod extends Item {
 		this.setMaxStackSize(1);
 		this.setCreativeTab(MainRegistry.controlTab);
 	}
-	
+
 	public ItemRBMKRod setTint(int tint) {
 		this.colorTint = tint;
 		return this;
@@ -106,7 +106,7 @@ public class ItemRBMKRod extends Item {
 		this.depFunc = func;
 		return this;
 	}
-	
+
 	public ItemRBMKRod setHeatCoeff(double start, double length) {
 		this.heatCoeffStart = start;
 		this.heatCoeffLength = length;
@@ -170,7 +170,7 @@ public class ItemRBMKRod extends Item {
 
 		double mult = 1D;
 		double coreHeat = this.getCoreHeat(stack);
-		
+
 		if(this.heatCoeffStart != 0) {
 			if(coreHeat >= this.heatCoeffStart) {
 				double prog = (coreHeat - this.heatCoeffStart) / this.heatCoeffLength;
@@ -178,7 +178,7 @@ public class ItemRBMKRod extends Item {
 				mult = Math.sin((prog * Math.PI + Math.PI) / 2);
 			}
 		}
-		
+
 		double outFlux = reactivityFunc(inFlux, getEnrichment(stack) * mult) * RBMKDials.getReactivityMod(world);
 
 		//if depletion is enabled
@@ -268,7 +268,7 @@ public class ItemRBMKRod extends Item {
 		SQUARE_ROOT(TextFormatting.YELLOW + "MEDIUM / SQUARE ROOT"),	//sqrt(x) * 10 * reactivity
 		LINEAR(TextFormatting.RED + "DANGEROUS / LINEAR"),				//x * reactivity
 		QUADRATIC(TextFormatting.RED + "DANGEROUS / QUADRATIC"),		//x^2 / 100 * reactivity
-		SLOW_LINEAR(TextFormatting.YELLOW + "MEDIUM / SLOW LINEAR"),  
+		SLOW_LINEAR(TextFormatting.YELLOW + "MEDIUM / SLOW LINEAR"),
 		EXPERIMENTAL(TextFormatting.RED + "EXPERIMENTAL / SINE SLOPE");		//x * (sin(x) + 1)
 
 		public String title = "";
@@ -438,7 +438,7 @@ public class ItemRBMKRod extends Item {
 	}
 
 	public double fluxRatioOut(double fluxRatioIn, double depletion) {
-		return MathHelper.clamp_double(ratioCurve.apply(fluxRatioIn, depletion), 0, 1);
+		return MathHelper.clamp(ratioCurve.apply(fluxRatioIn, depletion), 0, 1);
 	}
 
 	public double fluxFromRatio(double quantity, double ratio) {
@@ -447,8 +447,14 @@ public class ItemRBMKRod extends Item {
 
 	// END Special flux curve handling.
 
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 
 		list.add(TextFormatting.ITALIC + this.fullName);
 
@@ -514,7 +520,6 @@ public class ItemRBMKRod extends Item {
 		list.add(EnumChatFormatting.RED + "Core temp: " + ((int)(getCoreHeat(stack) * 10D) / 10D) + "°C");
 		list.add(EnumChatFormatting.DARK_RED + "Melting point: " + meltingPoint + "°C");*/
 
-		super.addInformation(stack, player, list, bool);
 	}
 
 	/*  __    __   ____     ________

@@ -65,8 +65,8 @@ public class BlockCableGauge extends BlockContainer implements IBlockMultiPass, 
 	@Override
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
-		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		int l = net.minecraft.util.EnumFacing.getDirectionFromEntityLiving(new net.minecraft.util.math.BlockPos(x, y, z), player).getIndex();
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, l, 2);
 	}
 
 	@Override

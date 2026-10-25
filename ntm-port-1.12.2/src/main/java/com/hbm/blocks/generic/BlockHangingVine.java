@@ -11,6 +11,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.IShearable;
 public class BlockHangingVine extends Block implements IShearable {
+	@Override
+	public net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
  public BlockHangingVine(Material material) { super(material); }
  @Override public void onEntityCollision(World world,BlockPos pos,IBlockState state,Entity entity) { entity.motionX*=.5;entity.motionY*=.5;entity.motionZ*=.5;entity.fallDistance=0; }
  @Override public boolean canPlaceBlockAt(World world,BlockPos pos) { return world.isSideSolid(pos.up(),EnumFacing.UP,false) || world.getBlockState(pos.up()).getBlock()==this; }

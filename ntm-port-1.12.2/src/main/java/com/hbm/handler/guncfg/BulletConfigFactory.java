@@ -145,7 +145,7 @@ public class BulletConfigFactory {
 					if(bullet.world.rayTraceBlocks(new Vec3d(bullet.posX, bullet.posY, bullet.posZ), new Vec3d(e.posX, e.posY + e.height / 2, e.posZ), false, true, false) != null)
 						continue;
 
-					double dist = e.getDistanceSqToEntity(bullet);
+					double dist = e.getDistanceSq(bullet);
 
 					if(dist < range * range) {
 

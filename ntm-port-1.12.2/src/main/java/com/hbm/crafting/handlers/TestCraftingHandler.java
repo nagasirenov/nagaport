@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
-public class TestCraftingHandler implements IRecipe {
+public class TestCraftingHandler extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<net.minecraft.item.crafting.IRecipe> implements net.minecraft.item.crafting.IRecipe {
 
 	ItemStack input;
 	ItemStack output;
@@ -39,8 +39,8 @@ public class TestCraftingHandler implements IRecipe {
 	}
 
 	@Override
-	public int getRecipeSize() {
-		return 1;
+	public boolean canFit(int width, int height) {
+		return width >= 1 && height >= 1;
 	}
 
 	@Override

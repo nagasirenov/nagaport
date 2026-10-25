@@ -64,7 +64,7 @@ public class LootGenerator {
 	}
 
 	public static void setBlock(World world, int x, int y, int z) {
-		world.setBlock(x, y, z, ModBlocks.deco_loot);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.deco_loot);
 	}
 
 	public static void addItemWithDeviation(TileEntityLoot loot, Random rand, ItemStack stack, double  x, double y, double z) {

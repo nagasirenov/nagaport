@@ -27,17 +27,22 @@ public final class DirectMeshItemRegistration {
         for(Item item:renderers.keySet()){
             ModelResourceLocation key=location(item);
             ModelBakery.registerItemVariants(item,key);
+            com.hbm.main.BakeOwnedModelLoader.registerMissing(key, "DirectMeshItemRegistration");
             ModelLoader.setCustomMeshDefinition(item,stack->key);
         }
     }
     @SubscribeEvent public void bake(ModelBakeEvent event){
         Map<Item,DirectMeshItemModel> models=new IdentityHashMap<>();
+        IBakedModel missing=event.getModelRegistry().getObject(net.minecraft.client.renderer.block.model.ModelBakery.MODEL_MISSING);
         for(Map.Entry<Item,DirectMeshItemRenderer> e:renderers.entrySet()){
             IBakedModel original=event.getModelRegistry().getObject(location(e.getKey()));
-            TextureAtlasSprite sprite=original==null?Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite():original.getParticleTexture();
-            if(sprite==Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite())
+            TextureAtlasSprite sprite=com.hbm.render.item.nativeitem.NativeItemParticles.resolve(e.getKey(),original);
+            if(sprite==null) {
                 org.apache.logging.log4j.LogManager.getLogger("hbm").warn("Native direct mesh is retained, but its atlas particle is unresolved: {}. Verify the item texture registration before gameplay acceptance.",e.getKey().getRegistryName());
-            models.put(e.getKey(),new DirectMeshItemModel(sprite,e.getValue(),original));
+                sprite=Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+            }
+            models.put(e.getKey(),new DirectMeshItemModel(sprite,e.getValue(),
+                    com.hbm.render.item.nativeitem.NativeItemParticles.baseModel(e.getKey(),original,missing,sprite)));
         }
         for(Map.Entry<Item,DirectMeshItemModel> e:models.entrySet()){
             event.getModelRegistry().putObject(location(e.getKey()),e.getValue());

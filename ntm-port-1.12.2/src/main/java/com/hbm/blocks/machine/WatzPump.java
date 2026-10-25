@@ -22,7 +22,7 @@ public class WatzPump extends BlockDummyable {
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		if(meta >= 12) return new TileEntityWatzPump();
-		
+
 		return null;
 	}
 
@@ -38,15 +38,15 @@ public class WatzPump extends BlockDummyable {
 
 	@Override
 	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
-		int meta = world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ());
+		int meta = com.hbm.world.WorldBlockState.readMetadata(world, pos.getX(), pos.getY(), pos.getZ());
 		return side == EnumFacing.UP && meta == 1;
 	}
-	
+
 	public static class TileEntityWatzPump extends TileEntity {
 		@Override @SideOnly(Side.CLIENT) public double getMaxRenderDistanceSquared() { return 65536.0D; }
 		AxisAlignedBB bb = null;
 		@Override public AxisAlignedBB getRenderBoundingBox() {
-			if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 2, this.pos.getZ() + 2);
+			if(bb == null) bb = new AxisAlignedBB(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 2, this.pos.getZ() + 2);
 			return bb;
 		}
 	}

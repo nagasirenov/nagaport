@@ -23,6 +23,8 @@ import net.minecraft.world.World;
 
 public class MachineKeyForge extends BlockContainer {
 
+	protected IIcon blockIcon;
+
     private final Random field_149933_a = new Random();
 	private static boolean keepInventory;
 
@@ -39,8 +41,7 @@ public class MachineKeyForge extends BlockContainer {
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		return new TileEntityMachineKeyForge();
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 
@@ -49,12 +50,11 @@ public class MachineKeyForge extends BlockContainer {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_keyforge_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 0 ? this.iconBottom : (side == 1 ? this.iconTop : this.blockIcon);
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
@@ -73,10 +73,13 @@ public class MachineKeyForge extends BlockContainer {
 			return false;
 		}
 	}
-	
+
 	@Override
-	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)
+	public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)
     {
+		int p_149749_2_ = pos.getX(), p_149749_3_ = pos.getY(), p_149749_4_ = pos.getZ();
+		Block p_149749_5_ = state.getBlock();
+		int p_149749_6_ = p_149749_5_.getMetaFromState(state);
         if (!keepInventory)
         {
         	ISidedInventory tileentityfurnace = (ISidedInventory)p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
@@ -123,10 +126,10 @@ public class MachineKeyForge extends BlockContainer {
                     }
                 }
 
-                p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
+                p_149749_1_.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_), p_149749_5_);
             }
         }
 
-        super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+        super.breakBlock(p_149749_1_, pos, state);
     }
 }

@@ -394,7 +394,7 @@ public class SolarSystem {
 		Vec3d position = calculatePositionSatellite(orbiting, altitude, ticks);
 		for(AstroMetric metric : metrics) {
 			if(metric.body == orbiting) {
-				position = position.addVector(metric.position.x, metric.position.y, metric.position.z);
+				position = position.add(metric.position.x, metric.position.y, metric.position.z);
 				break;
 			}
 		}
@@ -423,10 +423,10 @@ public class SolarSystem {
 		Vec3d toPos = calculatePositionSatellite(to, toAltitude, ticks);
 		for(AstroMetric metric : metrics) {
 			if(metric.body == from) {
-				fromPos = fromPos.addVector(metric.position.x, metric.position.y, metric.position.z);
+				fromPos = fromPos.add(metric.position.x, metric.position.y, metric.position.z);
 			}
 			if(metric.body == to) {
-				toPos = toPos.addVector(metric.position.x, metric.position.y, metric.position.z);
+				toPos = toPos.add(metric.position.x, metric.position.y, metric.position.z);
 			}
 		}
 
@@ -483,7 +483,7 @@ public class SolarSystem {
 			Vec3d position = satellite == lockBody
 				? calculatePositionFromAngle(satellite, solarAngle + calculateSiderealAngle(satellite, ticks) - Math.toDegrees(satellite.argumentPeriapsis) - Math.toDegrees(satellite.ascendingNode) + rotOffset)
 				: calculatePositionFromTime(satellite, ticks);
-			position = position.addVector(parentPosition.x, parentPosition.y, parentPosition.z);
+			position = position.add(parentPosition.x, parentPosition.y, parentPosition.z);
 			AstroMetric metric = new AstroMetric(satellite, position);
 
 			metrics.add(metric);
@@ -507,12 +507,12 @@ public class SolarSystem {
 			distance += extraDistance;
 
 			Vec3d position = calculatePositionFromTime(satellite, ticks, distance);
-			position = position.addVector(parentPosition.x, parentPosition.y, parentPosition.z);
+			position = position.add(parentPosition.x, parentPosition.y, parentPosition.z);
 
 			OrreryMetric metric = new OrreryMetric(satellite, position);
 			for(int i = 0; i < metric.orbitalPath.length; i++) {
 				metric.orbitalPath[i] = calculatePositionFromAngle(satellite, (float)i / metric.orbitalPath.length * 360, distance)
-					.addVector(parentPosition.x, parentPosition.y, parentPosition.z);
+					.add(parentPosition.x, parentPosition.y, parentPosition.z);
 			}
 
 			metrics.add(metric);
@@ -703,7 +703,7 @@ public class SolarSystem {
 		for(AstroMetric metric : metrics) {
 			if(metric.body == orbiting) {
 				to = metric.position;
-				from = from.addVector(to.x, to.y, to.z);
+				from = from.add(to.x, to.y, to.z);
 				break;
 			}
 		}

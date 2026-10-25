@@ -12,6 +12,8 @@ import com.hbm.render.icon.IIcon;
 
 public class ItemMarshmallow extends Item {
 
+	protected com.hbm.render.icon.IIcon itemIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconRoasted;
 
@@ -19,26 +21,33 @@ public class ItemMarshmallow extends Item {
 		this.setHasSubtypes(true);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, 0));
 		list.add(new ItemStack(item, 1, 1));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister p_94581_1_) {
-		super.registerIcons(p_94581_1_);
-		this.iconRoasted = p_94581_1_.registerIcon(this.getIconString() + "_roasted");
+		this.itemIcon = p_94581_1_.registerIcon(this.getRegistryName().toString());
+		this.iconRoasted = p_94581_1_.registerIcon(this.getRegistryName().toString() + "_roasted");
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int damage) {
-		
+
 		if(damage == 1)
 			return this.iconRoasted;
-		
-		return super.getIconFromDamage(damage);
+
+		return this.itemIcon;
 	}
 }

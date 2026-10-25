@@ -10,6 +10,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockFallingTint extends BlockFallingNT {
+	@Override
+	public net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
     public static final PropertyInteger TEXTURE = PropertyInteger.create("texture", 0, 3);
     private final String[] textureNames;
     public BlockFallingTint(Material mat) { this(mat, new String[0]); }

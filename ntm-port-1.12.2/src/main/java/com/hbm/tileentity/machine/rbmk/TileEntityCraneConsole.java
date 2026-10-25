@@ -66,7 +66,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 	private boolean hasLoaded = false;
 	public double loadedHeat;
 	public double loadedEnrichment;
-	
+
 	private int turnProgress;
 
 	@Override
@@ -75,7 +75,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 		if(this.world.isRemote) {
 			lastTiltFront = tiltFront;
 			lastTiltLeft = tiltLeft;
-			
+
 			lastPosFront = posFront;
 			lastPosLeft = posLeft;
 			lastProgress = progress;
@@ -91,19 +91,19 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 				this.progress = this.syncProgress;
 			}
 		}
-		
+
 		if(!this.world.isRemote) {
 			TileEntityRBMKBase aboveColumn = this.getColumnAtPos();
 			if(aboveColumn != null) aboveColumn.craneIndicator = 10;
-	
+
 			if(goesDown) {
-	
+
 				if(progress > 0) {
 					progress -= 0.04D;
 				} else {
 					progress = 0;
 					goesDown = false;
-					
+
 					if(aboveColumn instanceof IRBMKLoadable && this.canTargetInteract((IRBMKLoadable) aboveColumn)) {
 						IRBMKLoadable column = (IRBMKLoadable) aboveColumn;
 						if(column != null) { // canTargetInteract already assumes this, but there seems to be some freak race  conditions that cause the  column to be null anyway
@@ -118,12 +118,12 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 							this.markDirty();
 						}
 					}
-	
+
 				}
 			} else if(progress != 1) {
-	
+
 				progress += 0.04D;
-	
+
 				if(progress > 1D) {
 					progress = 1D;
 				}
@@ -137,7 +137,7 @@ public class TileEntityCraneConsole extends TileEntityLoadedBase implements Simp
 		double minZ = this.pos.getZ() + 0.5 - side.offsetZ * 1.5;
 		double maxZ = this.pos.getZ() + 0.5 + side.offsetZ * 1.5 + dir.offsetZ * 2;
 
-		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(
 				Math.min(minX, maxX),
 				this.pos.getY(),
 				Math.min(minZ, maxZ),

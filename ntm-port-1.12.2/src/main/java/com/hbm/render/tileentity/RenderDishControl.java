@@ -41,7 +41,7 @@ public class RenderDishControl extends TileEntitySpecialRenderer {
 			}
 
 			//if(control.isLinked) {
-				//TileEntityMachineStardar stardar = (TileEntityMachineStardar) te.getWorldObj().getTileEntity(control.linkPosition[0], control.linkPosition[1], control.linkPosition[2]);
+				//TileEntityMachineStardar stardar = (TileEntityMachineStardar) te.getWorldObj().getTileEntity(new net.minecraft.util.math.BlockPos(control.linkPosition[0], control.linkPosition[1], control.linkPosition[2]));
 			//}
 
 			GL11.glShadeModel(GL11.GL_FLAT);

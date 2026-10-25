@@ -54,7 +54,7 @@ public class RenderAccessoryUtility {
 	public static ResourceLocation getCloakFromPlayer(EntityPlayer player) {
 
 		String uuid = player.getUniqueID().toString();
-		String name = player.getDisplayName();
+		String name = player.getDisplayName().getUnformattedText();
 
 		if(uuid.equals(ShadyUtil.HbMinecraft)) {
 			return (MainRegistry.polaroidID == 11 ? hbm2 : hbm);
@@ -155,7 +155,7 @@ public class RenderAccessoryUtility {
 			wingModels[mode] = new ModelArmorWings(mode);
 
 		RenderPlayer renderer = event.getRenderer();
-		ModelBiped model = renderer.modelArmor;
+		ModelBiped model = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel());
 		EntityPlayer player = event.getEntityPlayer();
 
 		wingModels[mode].isSneak = model.isSneak;
@@ -177,7 +177,7 @@ public class RenderAccessoryUtility {
 			axePackModel = new ModelArmorWingsPheo();
 
 		RenderPlayer renderer = event.getRenderer();
-		ModelBiped model = renderer.modelArmor;
+		ModelBiped model = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel());
 		EntityPlayer player = event.getEntityPlayer();
 
 		axePackModel.isSneak = model.isSneak;
@@ -199,7 +199,7 @@ public class RenderAccessoryUtility {
 			tailModel = new ModelArmorTailPeep();
 
 		RenderPlayer renderer = event.getRenderer();
-		ModelBiped model = renderer.modelArmor;
+		ModelBiped model = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel());
 		EntityPlayer player = event.getEntityPlayer();
 
 		tailModel.isSneak = model.isSneak;

@@ -106,7 +106,7 @@ public class HbmKeybinds {
 		handleProps(Keyboard.getEventKeyState(), Keyboard.getEventKey());
 
 		/// CALCULATOR ///
-		if(calculatorKey.getIsKeyPressed()) {
+		if(calculatorKey.isKeyDown()) {
 			MainRegistry.proxy.me().closeScreen();
 			FMLCommonHandler.instance().showGuiScreen(new GUICalculator());
 		}
@@ -132,7 +132,7 @@ public class HbmKeybinds {
 		// in practice, this shit doesn't fucking work. detection fails when the click is sub one tick long
 		if(Minecraft.getMinecraft().gameSettings.keyBindUseItem.getKeyCode() == abilityCycle.getKeyCode()) {
 			boolean last = props.getKeyPressed(EnumKeybind.ABILITY_CYCLE);
-			boolean current = abilityCycle.pressed;
+			boolean current = abilityCycle.isKeyDown();
 
 			if(last != current) {
 				PacketDispatcher.wrapper.sendToServer(new KeybindPacket(EnumKeybind.ABILITY_CYCLE, current));
@@ -148,17 +148,9 @@ public class HbmKeybinds {
 		if(GeneralConfig.enableKeybindOverlap && (mc.currentScreen == null || mc.currentScreen.allowUserInput)) {
 
 			//if anything errors here, run ./gradlew clean setupDecompWorkSpace
-			for(Object o : KeyBinding.keybindArray) {
-				KeyBinding key = (KeyBinding) o;
-
-				if(keyCode != 0 && key.getKeyCode() == keyCode && KeyBinding.hash.lookup(key.getKeyCode()) != key) {
-
-					key.pressed = state;
-					if(state && key.pressTime == 0) {
-						key.pressTime = 1;
-					}
-				}
-			}
+			// Forge's public setter updates every binding assigned to this input code,
+			// including bindings which lose the key conflict lookup.
+			KeyBinding.setKeyBindState(keyCode, state);
 
 			/// GUN HANDLING ///
 			boolean gunKey = keyCode == HbmKeybinds.gunPrimaryKey.getKeyCode() || keyCode == HbmKeybinds.gunSecondaryKey.getKeyCode() ||
@@ -170,8 +162,8 @@ public class HbmKeybinds {
 
 				/* Shoot in favor of attacking */
 				if(gunKey && keyCode == mc.gameSettings.keyBindAttack.getKeyCode()) {
-					mc.gameSettings.keyBindAttack.pressed = false;
-					mc.gameSettings.keyBindAttack.pressTime = 0;
+					KeyBinding.setKeyBindState(mc.gameSettings.keyBindAttack.getKeyCode(), false);
+					while(mc.gameSettings.keyBindAttack.isPressed()) { }
 				}
 
 				/* Shoot in favor of interacting */
@@ -182,8 +174,8 @@ public class HbmKeybinds {
 
 				/* Scope in favor of picking */
 				if(gunKey && keyCode == mc.gameSettings.keyBindPickBlock.getKeyCode()) {
-					mc.gameSettings.keyBindPickBlock.pressed = false;
-					mc.gameSettings.keyBindPickBlock.pressTime = 0;
+					KeyBinding.setKeyBindState(mc.gameSettings.keyBindPickBlock.getKeyCode(), false);
+					while(mc.gameSettings.keyBindPickBlock.isPressed()) { }
 				}
 			}
 		}

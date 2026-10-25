@@ -11,6 +11,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,39 +28,62 @@ import net.minecraft.world.World;
 
 public class TrappedBrick extends BlockContainer {
 
+	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
+
 	public TrappedBrick(Material mat) {
 		super(mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(META, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, META);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(META, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(META);
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		
+
 		if(Trap.get(meta).type == TrapType.DETECTOR)
 				return new TileEntityTrappedBrick();
-		
+
 		return null;
 	}
-	
+
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-    	
+
         for (int i = 0; i < Trap.values().length; ++i) {
             list.add(new ItemStack(item, 1, i));
         }
     }
 
     @SuppressWarnings("incomplete-switch")
-	@Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
-    	
+
+		@Override
+	public void onEntityWalk(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entityIn) {
+		onEntityWalking(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+
     	int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-    	
+
     	if(world.isRemote || Trap.get(meta).type != TrapType.ON_STEP || !(entity instanceof EntityPlayer)) {
     		return;
     	}
-    	
+
     	EntityPlayer player = (EntityPlayer)entity;
-    		
+
 		switch(Trap.get(meta)) {
 		case FIRE:
 			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))
@@ -65,11 +91,11 @@ public class TrappedBrick extends BlockContainer {
 			break;
 		case SPIKES:
 			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y + 1, z)))
-				world.setBlock(x, y + 1, z, ModBlocks.spikes);
-			List<Entity> targets = world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(x, y + 1, z, x + 1, y + 2, z + 1));
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y + 1, z, ModBlocks.spikes);
+			List<Entity> targets = world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(x, y + 1, z, x + 1, y + 2, z + 1));
 			for(Entity e : targets)
 				e.attackEntityFrom(ModDamageSource.spikes, 10);
-			world.playSoundEffect(x + 0.5, y + 1.5, z + 0.5, "hbm:entity.slicer", 1.0F, 1.0F);
+			world.playSound(null, x + 0.5, y + 1.5, z + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:entity.slicer"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 			break;
 		case MINE:
 			world.createExplosion(null, x + 0.5, y + 1.5, z + 0.5, 1F, false);
@@ -82,10 +108,10 @@ public class TrappedBrick extends BlockContainer {
 			for(int a = - 3; a <= 3; a++) {
 				for(int b = - 3; b <= 3; b++) {
 					for(int c = - 3; c <= 3; c++) {
-						
+
 						if(world.rand.nextBoolean())
 							continue;
-						
+
 						Block bl = com.hbm.world.WorldBlockState.read(world, x + a, y + b, z + c).getBlock();
 						if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 							{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + a; int nativeRegisteredWriteY = y + b; int nativeRegisteredWriteZ = z + c; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_ooze; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
@@ -98,10 +124,10 @@ public class TrappedBrick extends BlockContainer {
 			for(int a = - 3; a <= 3; a++) {
 				for(int b = - 3; b <= 3; b++) {
 					for(int c = - 3; c <= 3; c++) {
-						
+
 						if(world.rand.nextBoolean())
 							continue;
-						
+
 						Block bl = com.hbm.world.WorldBlockState.read(world, x + a, y + b, z + c).getBlock();
 						if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
 							{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + a; int nativeRegisteredWriteY = y + b; int nativeRegisteredWriteZ = z + c; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle_mystic; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
@@ -114,21 +140,21 @@ public class TrappedBrick extends BlockContainer {
 			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 300, 2));
 			break;
 		case WEAKNESS:
-			player.addPotionEffect(new PotionEffect(Potion.weakness.id, 300, 2));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 300, 2));
 			break;
 		}
 
 		com.hbm.sound.VanillaWorldSoundEffects.play(world, x + 0.5D, y + 0.5D, z + 0.5D, "random.click", 0.3F, 0.6F);
 		{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_jungle; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
     }
-	
+
 	public static enum TrapType {
 		ON_STEP,
 		DETECTOR
 	}
-	
+
 	public static enum Trap {
-		
+
 		FALLING_ROCKS(TrapType.DETECTOR),
 		FIRE(TrapType.ON_STEP),
 		ARROW(TrapType.DETECTOR),
@@ -144,18 +170,18 @@ public class TrappedBrick extends BlockContainer {
 		POISON_DART(TrapType.DETECTOR),
 		ZOMBIE(TrapType.DETECTOR),
 		SPIDERS(TrapType.DETECTOR);
-		
+
 		public TrapType type;
-		
+
 		private Trap(TrapType type) {
 			this.type = type;
 		}
-		
+
 		public static Trap get(int i) {
-			
+
 			if(i >= 0 && i < Trap.values().length)
 				return Trap.values()[i];
-			
+
 			return FIRE;
 		}
 	}

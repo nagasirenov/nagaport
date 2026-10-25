@@ -28,16 +28,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class HazmatRegistry {
-	
+
 	public static List<Pair<Item, Double>> external = new ArrayList();
-	
+
 	public static double helmet = 0.2D;
 	public static double chest = 0.4D;
 	public static double legs = 0.3D;
 	public static double boots = 0.1D;
-	
+
 	public static void initDefault() {
-		
+
 		for(Pair<Item, Double> pair : external) {
 			HazmatRegistry.registerHazmat(pair.getKey(), pair.getValue());
 		}
@@ -52,7 +52,7 @@ public class HazmatRegistry {
 		double titanium = 0.045D; // 10%
 		double alloy = 0.07D; // 15%
 		double cobalt = 0.125D; // 25%
-		
+
 		double hazYellow = 0.6D; // 50%
 		double hazRed = 1.0D; // 90%
 		double hazGray = 2D; // 99%
@@ -64,7 +64,7 @@ public class HazmatRegistry {
 		double cmb = 1.3D; // 95%
 		double schrab = 3D; // 99.9%
 		double euph = 10D; // <100%
-		
+
 		HazmatRegistry.registerHazmat(ModItems.hazmat_helmet, hazYellow * helmet);
 		HazmatRegistry.registerHazmat(ModItems.hazmat_plate, hazYellow * chest);
 		HazmatRegistry.registerHazmat(ModItems.hazmat_legs, hazYellow * legs);
@@ -154,67 +154,67 @@ public class HazmatRegistry {
 		HazmatRegistry.registerHazmat(ModItems.euphemium_plate, euph * chest);
 		HazmatRegistry.registerHazmat(ModItems.euphemium_legs, euph * legs);
 		HazmatRegistry.registerHazmat(ModItems.euphemium_boots, euph * boots);
-		
+
 		Compat.registerCompatHazmat();
 	}
-	
+
 	private static HashMap<Item, Double> entries = new HashMap();
-	
+
 	public static void registerHazmat(Item item, double resistance) {
-		
+
 		entries.put(item, resistance);
 	}
-	
+
 	public static double getResistance(ItemStack stack) {
-		
+
 		if(stack == null)
 			return 0;
-		
+
 		double cladding = getCladding(stack);
-		
+
 		Double f = entries.get(stack.getItem());
-		
+
 		if(f != null)
 			return f + cladding;
-		
+
 		return cladding;
 	}
-	
+
 	public static double getCladding(ItemStack stack) {
 
 		if(stack.hasTagCompound() && stack.getTagCompound().getFloat("hfr_cladding") > 0)
 			return stack.getTagCompound().getFloat("hfr_cladding");
-		
+
 		if(ArmorModHandler.hasMods(stack)) {
-			
+
 			ItemStack[] mods = ArmorModHandler.pryMods(stack);
 			ItemStack cladding = mods[ArmorModHandler.cladding];
-			
+
 			if(cladding != null && cladding.getItem() instanceof ItemModCladding) {
 				return ((ItemModCladding)cladding.getItem()).rad;
 			}
 		}
-		
+
 		return 0;
 	}
-	
+
 	public static float getResistance(EntityPlayer player) {
-		
+
 		float res = 0.0F;
-		
+
 		if(player.getUniqueID().toString().equals(ShadyUtil.Pu_238)) {
 			res += 0.4F;
 		}
-		
+
 		for(int i = 0; i < 4; i++) {
 			res += getResistance(com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, i));
 		}
-		
+
 		if(player.isPotionActive(HbmPotion.radx))
 			res += 0.2F;
-		
+
 		return res;
-		
+
 	}
 
 	public static final Gson gson = new Gson();
@@ -223,21 +223,21 @@ public class HazmatRegistry {
 
 		File config = new File(folder.getAbsolutePath() + File.separatorChar + "hbmRadResist.json");
 		File template = new File(folder.getAbsolutePath() + File.separatorChar + "_hbmRadResist.json");
-		
+
 		initDefault();
-		
+
 		if(!config.exists()) {
 			writeDefault(template);
 		} else {
 			HashMap<Item, Double> conf = readConfig(config);
-			
+
 			if(conf != null) {
 				entries.clear();
 				entries.putAll(conf);
 			}
 		}
 	}
-	
+
 	private static void writeDefault(File file) {
 
 		try {
@@ -246,14 +246,14 @@ public class HazmatRegistry {
 			writer.beginObject();					//initial '{'
 			writer.name("comment").value("Template file, remove the underscore ('_') from the name to enable the config.");
 			writer.name("entries").beginArray();	//all recipes are stored in an array called "entries"
-			
+
 			for(Entry<Item, Double> entry : entries.entrySet()) {
 				writer.beginObject();				//begin object for a single recipe
 				writer.name("item").value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(entry.getKey()), null));
 				writer.name("resistance").value(entry.getValue());
 				writer.endObject();					//end recipe object
 			}
-			
+
 			writer.endArray();						//end recipe array
 			writer.endObject();						//final '}'
 			writer.close();
@@ -261,20 +261,20 @@ public class HazmatRegistry {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static HashMap<Item, Double> readConfig(File config) {
-		
+
 		try {
 			JsonObject json = gson.fromJson(new FileReader(config), JsonObject.class);
 			JsonArray array = json.get("entries").getAsJsonArray();
 			HashMap<Item, Double> conf = new HashMap();
-			
+
 			for(JsonElement element : array) {
 				JsonObject object = (JsonObject) element;
-				
+
 				try {
 					String name = object.get("item").getAsString();
-					Item item = (Item) Item.itemRegistry.getObject(name);
+					Item item = Item.getByNameOrId(name);
 					double resistance = object.get("resistance").getAsDouble();
 					if(item != null) {
 						conf.put(item, resistance);
@@ -286,11 +286,11 @@ public class HazmatRegistry {
 				}
 			}
 			return conf;
-			
+
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		
+
 		return null;
 	}
 }

@@ -23,7 +23,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.world.World;
 
 public interface IToolHarvestAbility extends IBaseAbility {
-	
+
 	public default void preHarvestAll(int level, World world, EntityPlayer player) { }
 	public default void postHarvestAll(int level, World world, EntityPlayer player) { }
 
@@ -79,7 +79,7 @@ public interface IToolHarvestAbility extends IBaseAbility {
 		@Override
 		public void preHarvestAll(int level, World world, EntityPlayer player) {
 			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
-			if(stack != null) EnchantmentUtil.addEnchantment(stack, Enchantment.silkTouch, 1);
+			if(stack != null) EnchantmentUtil.addEnchantment(stack, net.minecraft.init.Enchantments.SILK_TOUCH, 1);
 		}
 
 		@Override
@@ -89,7 +89,7 @@ public interface IToolHarvestAbility extends IBaseAbility {
 			// Even if can be forced somehow, the player doesn't gain any
 			// benefit from it.
 			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
-			if(stack != null) EnchantmentUtil.removeEnchantment(stack, Enchantment.silkTouch);
+			if(stack != null) EnchantmentUtil.removeEnchantment(stack, net.minecraft.init.Enchantments.SILK_TOUCH);
 		}
 	};
 
@@ -124,7 +124,7 @@ public interface IToolHarvestAbility extends IBaseAbility {
 		@Override
 		public void preHarvestAll(int level, World world, EntityPlayer player) {
 			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
-			if(stack != null) EnchantmentUtil.addEnchantment(stack, Enchantment.fortune, powerAtLevel[level]);
+			if(stack != null) EnchantmentUtil.addEnchantment(stack, net.minecraft.init.Enchantments.FORTUNE, powerAtLevel[level]);
 		}
 
 		@Override
@@ -134,7 +134,7 @@ public interface IToolHarvestAbility extends IBaseAbility {
 			// Even if can be forced somehow, the player doesn't gain any
 			// benefit from it.
 			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
-			if(stack != null) EnchantmentUtil.removeEnchantment(stack, Enchantment.fortune);
+			if(stack != null) EnchantmentUtil.removeEnchantment(stack, net.minecraft.init.Enchantments.FORTUNE);
 		}
 	};
 
@@ -156,17 +156,17 @@ public interface IToolHarvestAbility extends IBaseAbility {
 
 		@Override
 		public void onHarvestBlock(int level, World world, int x, int y, int z, EntityPlayer player, Block block, int meta) {
-			List<ItemStack> drops = block.getDrops(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
+			List<ItemStack> drops = block.getDrops(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), 0);
 
 			boolean doesSmelt = false;
 
 			for(int i = 0; i < drops.size(); i++) {
 				ItemStack stack = drops.get(i).copy();
-				ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(stack);
+				ItemStack result = FurnaceRecipes.instance().getSmeltingResult(stack);
 
 				if(result != null) {
 					result = result.copy();
-					result.stackSize *= stack.stackSize;
+					result.setCount(result.getCount() * (stack.getCount()));
 					drops.set(i, result);
 					doesSmelt = true;
 				}

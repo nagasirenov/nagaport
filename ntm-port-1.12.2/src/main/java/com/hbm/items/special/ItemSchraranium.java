@@ -15,11 +15,13 @@ import com.hbm.render.icon.IIcon;
 
 public class ItemSchraranium extends ItemCustomLore {
 
+	protected IIcon itemIcon;
+
 	IIcon nikonium;
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
-		this.itemIcon = reg.registerIcon(this.getIconString());
+		this.itemIcon = reg.registerIcon(this.getRegistryName().toString());
 		this.nikonium = reg.registerIcon("hbm:ingot_nikonium");
 	}
 

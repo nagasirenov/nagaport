@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class MachineFusionTorus extends BlockDummyable implements ITooltipProvider {
-	
+
 	public static final int[][][] layout = new int[][][] {
 
 		new int[][] {
@@ -79,10 +79,10 @@ public class MachineFusionTorus extends BlockDummyable implements ITooltipProvid
 	public TileEntity createNewTileEntity(World world, int meta) {
 		if(meta >= 12) return new TileEntityFusionTorus();
 		if(meta >= 6) return new TileEntityProxyCombo().inventory().power().fluid();
-		
+
 		return null;
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
@@ -101,52 +101,52 @@ public class MachineFusionTorus extends BlockDummyable implements ITooltipProvid
 
 	@Override
 	public boolean checkRequirement(World world, int x, int y, int z, ForgeDirection dir, int o) {
-		
+
 		x = x + dir.offsetX * o;
 		z = z + dir.offsetZ * o;
-		
+
 		for(int iy = 0; iy < 5; iy++) {
-			
+
 			int l = iy > 2 ? 4 - iy : iy;
 			int[][] layer = layout[l];
-			
+
 			for(int ix = 0; ix < layer.length; ix++) {
 
 				for(int iz = 0; iz < layer.length; iz++) {
 
 					int ex = ix - layer.length / 2;
 					int ez = iz - layer.length / 2;
-					
+
 					if(layout[l][ix][iz] > 0 && !com.hbm.world.WorldBlockState.read(world, x + ex, y + iy, z + ez).getBlock().canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x + ex, y + iy, z + ez))) {
 						return false;
 					}
 				}
 			}
 		}
-		
+
 		return true;
 	}
 
 	@Override
 	public void fillSpace(World world, int x, int y, int z, ForgeDirection dir, int o) {
-		
+
 		x = x + dir.offsetX * o;
 		z = z + dir.offsetZ * o;
-		
+
 		for(int iy = 0; iy < 5; iy++) {
-			
+
 			int l = iy > 2 ? 4 - iy : iy;
 			int[][] layer = layout[l];
-			
+
 			for(int ix = 0; ix < layer.length; ix++) {
 
 				for(int iz = 0; iz < layer[0].length; iz++) {
 
 					int ex = ix - layer.length / 2;
 					int ez = iz - layer.length / 2;
-					
+
 					int meta = 0;
-					
+
 					if(iy > 0) {
 						meta = ForgeDirection.UP.ordinal();
 					} else if(ex < 0) {
@@ -160,9 +160,9 @@ public class MachineFusionTorus extends BlockDummyable implements ITooltipProvid
 					} else {
 						continue;
 					}
-					
+
 					if(layout[l][ix][iz] > 0)
-						world.setBlock(x + ex, y + iy, z + ez, this, meta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + ex, y + iy, z + ez, this, meta, 3);
 				}
 			}
 		}

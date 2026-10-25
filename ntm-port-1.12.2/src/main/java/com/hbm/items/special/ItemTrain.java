@@ -29,7 +29,7 @@ public class ItemTrain extends ItemEnumMulti {
 		this.setCreativeTab(null);//CreativeTabs.tabTransport);
 		this.setMaxStackSize(1);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
@@ -44,11 +44,11 @@ public class ItemTrain extends ItemEnumMulti {
 	}
 
 	public static enum EnumTrainType {
-		
+
 		//                                              Engine          Gauge               Max Speed   Accel.      Eng. Brake  Parking Brake
 		CARGO_TRAM(TrainCargoTram.class, 				"Electric",		"Standard Gauge",	"10m/s",	"0.2m/s²",	"<1m/s",	"Yes"),
 		CARGO_TRAM_TRAILER(TrainCargoTramTrailer.class,	null,			"Standard Gauge",	"Yes",		null,		null,		"No");
-		
+
 		public Class<? extends EntityRailCarBase> train;
 		public String engine;
 		public String maxSpeed;
@@ -67,19 +67,26 @@ public class ItemTrain extends ItemEnumMulti {
 		}
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer entity, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
-		
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer entity, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
+
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-		
+
 		if(b instanceof IRailNTM) {
-			
+
 			EnumTrainType type = EnumUtil.grabEnumSafely(theEnum, stack.getItemDamage());
 			EntityRailCarBase train = null;
 			try { train = type.train.getConstructor(World.class).newInstance(world); } catch(Exception e) { }
-			
+
 			if(train != null && train.getGauge() == ((IRailNTM) b).getGauge(world, x, y, z)) {
-				
+
 				train.setPosition(x + fx, y + fy, z + fz);
 				BlockPos anchor = train.getCurrentAnchorPos();
 				train.rotationYaw = entity.rotationYaw;
@@ -91,15 +98,15 @@ public class ItemTrain extends ItemEnumMulti {
 					if(frontPos != null && backPos != null) {
 						if(!world.isRemote) {
 							train.rotationYaw = train.generateYaw(frontPos, backPos);
-							world.spawnEntityInWorld(train);
+							world.spawnEntity(train);
 						}
-						stack.stackSize--;
+						stack.shrink(1);
 						return true;
 					}
 				}
 			}
 		}
-		
+
 		return false;
 	}
 }

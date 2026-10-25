@@ -282,7 +282,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 						ignoreAll = false;
 
-						combinedHardness += b.getBlockHardness(this.world, x, y, z);
+						combinedHardness += com.hbm.world.WorldBlockState.getBlockHardness(this.world, x, y, z);
 					}
 				}
 			}
@@ -351,7 +351,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 				supplyContainer((IInventory) tile, stacks, dir.getOpposite());
 			}
 
-			if(stack.stackSize <= 0) return;
+			if(stack.getCount() <= 0) return;
 
 			/* try to place on conveyor belt */
 			Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
@@ -359,18 +359,18 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 				supplyConveyor((IConveyorBelt) b, stacks, x, y, z);
 			}
 
-			if(stack.stackSize <= 0) return;
+			if(stack.getCount() <= 0) return;
 
 			for(int i = 5; i < 14; i++) {
 
-				if(slots[i] != null && slots[i].stackSize < slots[i].getMaxStackSize() && stack.isItemEqual(slots[i]) && ItemStack.areItemStackTagsEqual(stack, slots[i])) {
-					int toAdd = Math.min(slots[i].getMaxStackSize() - slots[i].stackSize, stack.stackSize);
-					slots[i].stackSize += toAdd;
-					stack.stackSize -= toAdd;
+				if(slots[i] != null && slots[i].getCount() < slots[i].getMaxStackSize() && stack.isItemEqual(slots[i]) && ItemStack.areItemStackTagsEqual(stack, slots[i])) {
+					int toAdd = Math.min(slots[i].getMaxStackSize() - slots[i].getCount(), stack.getCount());
+					slots[i].grow(toAdd);
+					stack.shrink(toAdd);
 
 					chuteTimer = 40;
 
-					if(stack.stackSize <= 0) {
+					if(stack.getCount() <= 0) {
 						return;
 					}
 				}
@@ -426,7 +426,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 				recursionBrake.clear();
 
 				/* move all excavated items to the last drillable position which is also within collection range */
-				List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(minX, minY, minZ, maxX + 1, maxY + 1, maxZ + 1));
+				List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(minX, minY, minZ, maxX + 1, maxY + 1, maxZ + 1));
 				for(EntityItem item : items) item.setPosition(x + 0.5, y + 0.5, z + 0.5);
 
 				return;
@@ -490,13 +490,13 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 	protected void breakSingleBlock(Block b, int x ,int y, int z) {
 
-		List<ItemStack> items = b.getDrops(this.world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) ), this.getFortuneLevel());
+		List<ItemStack> items = com.hbm.world.WorldBlockState.getDrops(b, this.world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) ), this.getFortuneLevel());
 
 		if(this.canSilkTouch()) {
 
 			try {
-				Method createStackedBlock = ReflectionHelper.findMethod(Block.class, b, new String[] {"createStackedBlock", "func_149644_j"}, int.class);
-				ItemStack result = (ItemStack) createStackedBlock.invoke(b, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, x, y, z) ));
+				Method createStackedBlock = ReflectionHelper.findMethod(Block.class, "createStackedBlock", "func_149644_j", net.minecraft.block.state.IBlockState.class);
+				ItemStack result = (ItemStack) createStackedBlock.invoke(b, com.hbm.world.WorldBlockState.read(this.world, x, y, z));
 
 				if(result != null) {
 					items.clear();
@@ -515,7 +515,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 				if(crushed.getItem() == ModItems.scrap || crushed.getItem() == ModItems.dust) {
 					list.add(stack);
 				} else {
-					crushed.stackSize *= stack.stackSize;
+					crushed.setCount(crushed.getCount() * (stack.getCount()));
 					list.add(crushed);
 				}
 			}
@@ -603,7 +603,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			supplyConveyor((IConveyorBelt) b, items, x, y, z);
 		}
 
-		items.removeIf(i -> i == null || i.stackSize <= 0);
+		items.removeIf(i -> i == null || i.getCount() <= 0);
 
 		for(int i = 5; i < 14; i++) {
 			int index = i - 5;
@@ -620,7 +620,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	protected void tryCollect(int radius) {
 		int yLevel = getY();
 
-		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - radius, yLevel - 1, this.pos.getZ() - radius, this.pos.getX() + radius + 1, yLevel + 2, this.pos.getZ() + radius + 1));
+		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(this.pos.getX() - radius, yLevel - 1, this.pos.getZ() - radius, this.pos.getX() + radius + 1, yLevel + 2, this.pos.getZ() + radius + 1));
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 
@@ -629,7 +629,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 		int z = this.pos.getZ() + dir.offsetZ * 4;
 
 		List<ItemStack> stacks = new ArrayList();
-		items.forEach(i -> { if(!i.isDead) stacks.add(i.getEntityItem());});
+		items.forEach(i -> { if(!i.isDead) stacks.add(i.getItem());});
 
 		/* try to insert into a valid container */
 		TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
@@ -643,28 +643,28 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			supplyConveyor((IConveyorBelt) b, stacks, x, y, z);
 		}
 
-		items.removeIf(i -> i.isDead || i.getEntityItem().stackSize <= 0);
+		items.removeIf(i -> i.isDead || i.getItem().getCount() <= 0);
 
 		/* collect remaining items in internal buffer */
 		outer:
 		for(EntityItem item : items) {
 			if(item.isDead) continue;
 
-			ItemStack stack = item.getEntityItem();
+			ItemStack stack = item.getItem();
 
 			/* adding items to existing stacks */
 			for(int i = 5; i < 14; i++) {
 
-				if(slots[i] != null && slots[i].stackSize < slots[i].getMaxStackSize() && stack.isItemEqual(slots[i]) && ItemStack.areItemStackTagsEqual(stack, slots[i])) {
-					int toAdd = Math.min(slots[i].getMaxStackSize() - slots[i].stackSize, stack.stackSize);
-					slots[i].stackSize += toAdd;
-					stack.stackSize -= toAdd;
+				if(slots[i] != null && slots[i].getCount() < slots[i].getMaxStackSize() && stack.isItemEqual(slots[i]) && ItemStack.areItemStackTagsEqual(stack, slots[i])) {
+					int toAdd = Math.min(slots[i].getMaxStackSize() - slots[i].getCount(), stack.getCount());
+					slots[i].grow(toAdd);
+					stack.shrink(toAdd);
 
 					chuteTimer = 40;
 
-					if(stack.stackSize <= 0) {
+					if(stack.getCount() <= 0) {
 						item.setDead();
-						item.delayBeforeCanPickup = 60; // seems fucking stupid, but prevents frame-perfect dupe exploit
+						item.setPickupDelay(60); // seems fucking stupid, but prevents frame-perfect dupe exploit
 						continue outer;
 					}
 				}
@@ -679,7 +679,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 					slots[i] = stack.copy();
 					item.setDead();
-					item.delayBeforeCanPickup = 60;
+					item.setPickupDelay(60);
 					break;
 				}
 			}
@@ -699,7 +699,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 		for(ItemStack item : items) {
 
-			if(item.stackSize <= 0) continue;
+			if(item.getCount() <= 0) continue;
 
 			CraneInserter.addToInventory(inv, access, item, side);
 			chuteTimer = 40;
@@ -713,7 +713,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 
 		for(ItemStack item : items) {
 
-			if(item.stackSize <= 0) continue;
+			if(item.getCount() <= 0) continue;
 
 			Vec3d base = new Vec3d(x + rand.nextDouble(), y + 0.5, z + rand.nextDouble());
 			Vec3d vec = belt.getClosestSnappingPosition(this.world, x, y, z, base);
@@ -721,8 +721,8 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 			EntityMovingItem moving = new EntityMovingItem(this.world);
 			moving.setPosition(base.x, vec.y, base.z);
 			moving.setItemStack(item.copy());
-			this.world.spawnEntityInWorld(moving);
-			item.stackSize = 0;
+			this.world.spawnEntity(moving);
+			item.setCount(0);
 
 			chuteTimer = 40;
 		}
@@ -740,7 +740,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	}
 
 	public boolean shouldIgnoreBlock(Block block, int x, int y, int z) {
-		return block.isAir(this.world, x, y, z) || block.getDefaultState().getMaterial() == ModBlocks.materialGas || block.getBlockHardness(this.world, x, y, z) < 0 || block.getDefaultState().getMaterial().isLiquid() || block == Blocks.BEDROCK;
+		return com.hbm.world.WorldBlockState.isAir(this.world, x, y, z) || block.getDefaultState().getMaterial() == ModBlocks.materialGas || com.hbm.world.WorldBlockState.getBlockHardness(this.world, x, y, z) < 0 || block.getDefaultState().getMaterial().isLiquid() || block == Blocks.BEDROCK;
 	}
 
 	@Override
@@ -823,7 +823,7 @@ public class TileEntityMachineExcavator extends TileEntityMachineBase implements
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 3,
 					0,
 					this.pos.getZ() - 3,

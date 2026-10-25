@@ -1,5 +1,6 @@
 package com.hbm.inventory.gui;
 
+import net.minecraft.inventory.ClickType;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -20,7 +21,7 @@ public class GUIWeaponTable extends GuiInfoContainer {
 	public static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/machine/gui_weapon_modifier.png");
 	public int left;
 	public int top;
-	
+
 	public double yaw = 20;
 	public double pitch = -10;
 
@@ -33,11 +34,11 @@ public class GUIWeaponTable extends GuiInfoContainer {
 		guiLeft = (this.width - this.xSize) / 2;
 		guiTop = (this.height - this.ySize) / 2;
 	}
-	
+
 	@Override
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
-		
+
 		if(guiLeft + 8 <= x && guiLeft + 8 + 160 > x && guiTop + 18 < y && guiTop + 18 + 79 >= y) {
 			if(Mouse.isButtonDown(0)) {
 				double distX = (guiLeft + 8 + 80) - x;
@@ -49,9 +50,9 @@ public class GUIWeaponTable extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int key) {
+	protected void mouseClicked(int x, int y, int key) throws java.io.IOException {
 		super.mouseClicked(x, y, key);
-		
+
 		if(guiLeft + 26 <= x && guiLeft + 26 + 7 > x && guiTop + 111 < y && guiTop + 111 + 10 >= y) {
 			ContainerWeaponTable container = (ContainerWeaponTable) this.inventorySlots;
 			ItemStack gun = container.gun.getStackInSlot(0);
@@ -60,7 +61,7 @@ public class GUIWeaponTable extends GuiInfoContainer {
 				if(configs > 1) {
 					container.index++;
 					container.index %= configs;
-					this.handleMouseClick(null, 0, container.index, 999_999);
+					this.handleMouseClick(null, 0, container.index, ClickType.CLONE);
 				}
 			}
 		}
@@ -79,18 +80,18 @@ public class GUIWeaponTable extends GuiInfoContainer {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		
+
 		ContainerWeaponTable container = (ContainerWeaponTable) this.inventorySlots;
 		ItemStack gun = container.gun.getStackInSlot(0);
-		
+
 		if(gun != null && gun.getItem() instanceof ItemGunBaseNT) {
 			drawTexturedModalRect(guiLeft + 35, guiTop + 112, 176 + 6 * container.index, 0, 6, 8);
-			
+
 			GL11.glPushMatrix();
 			GL11.glTranslated(guiLeft + 88, guiTop + 57, 100);
-			
+
 			ItemRenderWeaponBase renderGun = com.hbm.render.item.weapon.sedna.nativehand.SednaHandHandler.renderer(gun);
-			
+
 			if(renderGun != null) {
 
 				GL11.glPushMatrix();
@@ -100,7 +101,7 @@ public class GUIWeaponTable extends GuiInfoContainer {
 
 				GL11.glRotated(yaw, 0, 1, 0);
 				GL11.glRotated(pitch, 1, 0, 0);
-				
+
 				GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 				renderGun.setupModTable(gun);
 				renderGun.renderModTable(gun, container.index);

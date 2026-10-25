@@ -17,7 +17,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 
 public class EntityParachuteCrate extends Entity {
-	
+
 	public List<ItemStack> items = new ArrayList();
 
 	public EntityParachuteCrate(World world) {
@@ -25,7 +25,7 @@ public class EntityParachuteCrate extends Entity {
 		this.ignoreFrustumCheck = true;
 		this.isImmuneToFire = true;
 	}
-	
+
 	@Override
 	public void onUpdate() {
 
@@ -42,9 +42,9 @@ public class EntityParachuteCrate extends Entity {
 			this.setDead();
 
 			if(!this.world.isRemote) {
-				
-				this.world.setBlock((int) Math.floor(this.posX), (int) Math.floor(this.posY + 1), (int) Math.floor(this.posZ), ModBlocks.crate_supply);
-				TileEntitySupplyCrate crate = (TileEntitySupplyCrate) this.world.getTileEntity((int) Math.floor(this.posX), (int) Math.floor(this.posY + 1), (int) Math.floor(this.posZ));
+
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, (int) Math.floor(this.posX), (int) Math.floor(this.posY + 1), (int) Math.floor(this.posZ), ModBlocks.crate_supply);
+				TileEntitySupplyCrate crate = (TileEntitySupplyCrate) com.hbm.world.WorldBlockState.getTileEntity(this.world, (int) Math.floor(this.posX), (int) Math.floor(this.posY + 1), (int) Math.floor(this.posZ));
 				if(crate != null) crate.items.addAll(this.items);
 			}
 		}

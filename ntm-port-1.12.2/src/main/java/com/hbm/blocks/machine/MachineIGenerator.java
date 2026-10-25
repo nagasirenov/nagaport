@@ -23,13 +23,13 @@ public class MachineIGenerator extends BlockDummyable implements ILookOverlay {
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		
+
 		if(meta >= 12)
 			return new TileEntityMachineIGenerator();
-		
+
 		if(meta >= extra)
 			return new TileEntityProxyCombo(false, true, true);
-		
+
 		return new TileEntityProxyCombo(true, false, false);
 	}
 
@@ -47,23 +47,26 @@ public class MachineIGenerator extends BlockDummyable implements ILookOverlay {
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			
+
 			int[] pos = this.findCore(world, x, y, z);
-			
+
 			if(pos == null)
 				return false;
-			
-			//TileEntityMachineIGenerator gen = (TileEntityMachineIGenerator)world.getTileEntity(pos[0], pos[1], pos[2]);
-			
+
+			//TileEntityMachineIGenerator gen = (TileEntityMachineIGenerator)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
+
 			//if(gen != null) FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
-			
+
 			return true;
 		} else {
 			return false;

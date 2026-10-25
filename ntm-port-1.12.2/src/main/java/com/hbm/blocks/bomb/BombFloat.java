@@ -24,6 +24,8 @@ import net.minecraft.world.World;
 
 public class BombFloat extends Block implements IBomb {
 
+	protected IIcon blockIcon;
+
 	public World worldObj;
 
 	@SideOnly(Side.CLIENT)
@@ -33,7 +35,6 @@ public class BombFloat extends Block implements IBomb {
 		super(p_i45394_1_);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		if(this == ModBlocks.float_bomb) {
@@ -46,7 +47,6 @@ public class BombFloat extends Block implements IBomb {
 		}
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);
@@ -56,8 +56,8 @@ public class BombFloat extends Block implements IBomb {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 	if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
-			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
-		}	
+			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
+		}
 	}
 	}
 
@@ -86,10 +86,10 @@ public class BombFloat extends Block implements IBomb {
 				wave.posX = x + 0.5;
 				wave.posY = y + 0.5;
 				wave.posZ = z + 0.5;
-				world.spawnEntityInWorld(wave);
+				world.spawnEntity(wave);
 			}
 		}
-		
+
 		return BombReturnCode.DETONATED;
 	}
 

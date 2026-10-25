@@ -112,7 +112,7 @@ public class TileEntityTurretFritz extends TileEntityTurretBaseNT implements IFl
 			float damage = Math.min((float) (trait.getHeatEnergy() / 500_000F), 20F);
 			EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, tank.getTankType() == Fluids.BALEFIRE ? XFactoryFlamer.flame_nograv_bf : XFactoryFlamer.flame_nograv, damage, 0.05F, (float) rotationYaw, (float) rotationPitch);
 			proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, proj.rotationYaw, proj.rotationPitch);
-			this.world.spawnEntityInWorld(proj);
+			this.world.spawnEntity(proj);
 
 			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.flamethrowerShoot", 2F, 1F + this.world.rand.nextFloat() * 0.5F);
 		}
@@ -128,7 +128,7 @@ public class TileEntityTurretFritz extends TileEntityTurretBaseNT implements IFl
 
 		if(!this.world.isRemote) {
 			tank.setType(9, 9, slots);
-			
+
 			for(int i = 1; i < 9; i++) {
 				tank.loadTank(i, 9, slots);
 			}

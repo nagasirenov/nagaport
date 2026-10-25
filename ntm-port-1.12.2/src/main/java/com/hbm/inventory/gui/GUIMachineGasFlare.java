@@ -41,7 +41,7 @@ public class GUIMachineGasFlare extends GuiInfoContainer {
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 69 - 52, 16, 52, flare.power, flare.maxPower);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 89 <= x && guiLeft + 89 + 16 > x && guiTop + 16 < y && guiTop + 16 + 10 >= y) {

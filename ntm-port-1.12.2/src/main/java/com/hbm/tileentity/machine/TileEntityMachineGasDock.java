@@ -138,7 +138,7 @@ public class TileEntityMachineGasDock extends TileEntityMachineBase implements I
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if (renderBoundingBox == null) {
-			renderBoundingBox = AxisAlignedBB.getBoundingBox(
+			renderBoundingBox = new AxisAlignedBB(
 				this.pos.getX() - 1,
 				this.pos.getY(),
 				this.pos.getZ() - 1,

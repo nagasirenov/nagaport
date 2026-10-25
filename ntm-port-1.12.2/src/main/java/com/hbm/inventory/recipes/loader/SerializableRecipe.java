@@ -267,12 +267,12 @@ public abstract class SerializableRecipe {
 			String type = array.get(0).getAsString();
 			int stacksize = array.size() > 2 ? array.get(2).getAsInt() : 1;
 			if("nbt".equals(type)) {
-				Item item = (Item) Item.itemRegistry.getObject(array.get(1).getAsString());
-				NBTBase nbt = array.size() > 4 ? JsonToNBT.func_150315_a(array.get(4).getAsString()) : null;
+				Item item = Item.getByNameOrId(array.get(1).getAsString());
+				NBTBase nbt = array.size() > 4 ? JsonToNBT.getTagFromJson(array.get(4).getAsString()) : null;
 				return new NBTStack(item, stacksize, 0).withNBT(nbt instanceof NBTTagCompound ? (NBTTagCompound) nbt : null);
 			}
 			if("item".equals(type)) {
-				Item item = (Item) Item.itemRegistry.getObject(array.get(1).getAsString());
+				Item item = Item.getByNameOrId(array.get(1).getAsString());
 				int meta = array.size() > 3 ? array.get(3).getAsInt() : 0;
 				return new ComparableStack(item, stacksize, meta);
 			}
@@ -323,7 +323,7 @@ public abstract class SerializableRecipe {
 
 	public static ItemStack readItemStack(JsonArray array) {
 		try {
-			Item item = (Item) Item.itemRegistry.getObject(array.get(0).getAsString());
+			Item item = Item.getByNameOrId(array.get(0).getAsString());
 			int stacksize = array.size() > 1 ? array.get(1).getAsInt() : 1;
 			int meta = array.size() > 2 ? array.get(2).getAsInt() : 0;
 			if(item != null) {
@@ -338,7 +338,7 @@ public abstract class SerializableRecipe {
 
 	public static Pair<ItemStack, Float> readItemStackChance(JsonArray array) {
 		try {
-			Item item = (Item) Item.itemRegistry.getObject(array.get(0).getAsString());
+			Item item = Item.getByNameOrId(array.get(0).getAsString());
 			int stacksize = array.size() > 2 ? array.get(1).getAsInt() : 1;
 			int meta = array.size() > 3 ? array.get(2).getAsInt() : 0;
 			if(item != null) {
@@ -376,7 +376,7 @@ public abstract class SerializableRecipe {
 		writer.beginArray();
 		writer.setIndent("");
 		writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getItem()), null));													//item name
-		if(stack.stackSize != 1 || stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.stackSize);		//stack size
+		if(stack.getCount() != 1 || stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.getCount());		//stack size
 		if(stack.getItemDamage() != 0 || stack.hasTagCompound()) writer.value(stack.getItemDamage());						//metadata
 		if(stack.hasTagCompound()) writer.value(stack.getTagCompound().toString());											//nbt
 		writer.endArray();
@@ -387,7 +387,7 @@ public abstract class SerializableRecipe {
 		writer.beginArray();
 		writer.setIndent("");
 		writer.value(java.util.Objects.toString(Item.REGISTRY.getNameForObject(stack.getKey().getItem()), null));																			//item name
-		if(stack.getKey().stackSize != 1 || stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().stackSize);	//stack size
+		if(stack.getKey().getCount() != 1 || stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().getCount());	//stack size
 		if(stack.getKey().getItemDamage() != 0 || stack.getKey().hasTagCompound()) writer.value(stack.getKey().getItemDamage());							//metadata
 		if(stack.getKey().hasTagCompound()) writer.value(stack.getKey().getTagCompound().toString());														//nbt
 		writer.value(stack.value);																															//chance
@@ -441,7 +441,7 @@ public abstract class SerializableRecipe {
 				while(iterator.hasNext()) {
 					AStack recipeStack = iterator.next();
 
-					if(recipeStack.matchesRecipe(inputStack, true) && inputStack.stackSize >= recipeStack.stacksize) {
+					if(recipeStack.matchesRecipe(inputStack, true) && inputStack.getCount() >= recipeStack.stacksize) {
 						hasMatch = true;
 						recipeList.remove(recipeStack);
 						break;

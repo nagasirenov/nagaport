@@ -22,6 +22,13 @@ import net.minecraftforge.fluids.BlockFluidBase;
 
 public class RubberGrass extends Block {
 
+	protected IIcon blockIcon;
+
+	public RubberGrass withSoundType(net.minecraft.block.SoundType type) {
+		setSoundType(type);
+		return this;
+	}
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
@@ -32,7 +39,6 @@ public class RubberGrass extends Block {
 		this.setTickRandomly(tick);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":rubber_grass_top");
@@ -40,7 +46,6 @@ public class RubberGrass extends Block {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":rubber_grass_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon);
@@ -57,7 +62,8 @@ public class RubberGrass extends Block {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(this == ModBlocks.rubber_grass) {
 			net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z);
 			Block b = nativeCubeState_b.getBlock();

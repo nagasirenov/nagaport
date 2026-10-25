@@ -6,13 +6,14 @@ import com.hbm.util.InventoryUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerPlasticBag extends Container {
-	
+
 	private InventoryPlasticBag bag;
-	
+
 	public ContainerPlasticBag(InventoryPlayer invPlayer, InventoryPlasticBag bag) {
 		this.bag = bag;
 		this.bag.openInventory(invPlayer.player);
@@ -47,7 +48,7 @@ public class ContainerPlasticBag extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
@@ -60,18 +61,18 @@ public class ContainerPlasticBag extends Container {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 		// prevents the player from moving around the currently open box
-		if(mode == 2 && button == player.inventory.currentItem) return null;
-		if(index == player.inventory.currentItem + 28) return null;
+		if(mode == ClickType.SWAP && button == player.inventory.currentItem) return ItemStack.EMPTY;
+		if(index == player.inventory.currentItem + 28) return ItemStack.EMPTY;
 		return super.slotClick(index, button, mode, player);
 	}
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return bag.isUseableByPlayer(player);
+		return bag.isUsableByPlayer(player);
 	}
-	
+
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);

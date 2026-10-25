@@ -23,7 +23,7 @@ public class EntityGlyphidBehemoth extends EntityGlyphid {
 		super(world);
 		this.setSize(2.5F, 1.5F);
 	}
-	
+
 	@Override
 	public ResourceLocation getSkin() {
 		return ResourceManager.glyphid_behemoth_tex;
@@ -37,29 +37,29 @@ public class EntityGlyphidBehemoth extends EntityGlyphid {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getBehemoth().health);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getBehemoth().speed);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getBehemoth().damage);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(GlyphidStats.getStats().getBehemoth().health);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(GlyphidStats.getStats().getBehemoth().speed);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(GlyphidStats.getStats().getBehemoth().damage);
 	}
-	
+
 	public StatBundle getStats() {
 		return GlyphidStats.getStats().statsBehemoth;
 	}
-	
+
 	public int timer = 120;
 	int breathTime = 0;
 
 	@Override
 	public void onUpdate(){
 		super.onUpdate();
-		Entity e = this.getEntityToAttack();
+		Entity e = this.getAttackTarget();
 		if (e == null) {
 			timer = 120;
 			breathTime = 0;
 		} else {
 			if (breathTime > 0) {
 				if(!isSwingInProgress){
-					this.swingItem();
+					this.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 				}
 				acidAttack();
 				rotationYaw = prevRotationYaw;
@@ -80,18 +80,18 @@ public class EntityGlyphidBehemoth extends EntityGlyphid {
 			mist.setPosition(posX, posY, posZ);
 			mist.setArea(10, 4);
 			mist.setDuration(120);
-			this.world.spawnEntityInWorld(mist);
+			this.world.spawnEntity(mist);
 		}
 	}
 
 
 	public void acidAttack(){
-		if(!this.world.isRemote && entityToAttack instanceof EntityLivingBase && this.getDistanceToEntity(entityToAttack) < 20) {
+		if(!this.world.isRemote && this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 20) {
 			this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 20, 6));
 			EntityChemical chem = new EntityChemical(this.world, this, 0, 0, 0);
 
 			chem.setFluid(Fluids.SULFURIC_ACID);
-			this.world.spawnEntityInWorld(chem);
+			this.world.spawnEntity(chem);
 		}
 	}
 

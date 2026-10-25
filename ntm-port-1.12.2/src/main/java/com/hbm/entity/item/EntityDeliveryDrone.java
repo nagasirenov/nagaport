@@ -27,6 +27,25 @@ import net.minecraftforge.common.ForgeChunkManager.Type;
 
 public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, IChunkLoader {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private static final DataParameter<Byte> LOAD = EntityDataManager.createKey(EntityDeliveryDrone.class, DataSerializers.BYTE);
 
 	protected ItemStack[] slots = new ItemStack[this.getSizeInventory()];
@@ -43,7 +62,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 	public boolean hitByEntity(Entity attacker) {
 
 		if(this.isDead) return false;
-		
+
 		if(attacker instanceof EntityPlayer && !this.world.isRemote) {
 			this.setDead();
 			for (ItemStack stack : slots) {
@@ -156,14 +175,14 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 		if(this.slots[slot] != null) {
 			ItemStack itemstack;
 
-			if(this.slots[slot].stackSize <= amount) {
+			if(this.slots[slot].getCount() <= amount) {
 				itemstack = this.slots[slot];
 				this.slots[slot] = null;
 				return itemstack;
 			} else {
 				itemstack = this.slots[slot].splitStack(amount);
 
-				if(this.slots[slot].stackSize == 0) {
+				if(this.slots[slot].getCount() == 0) {
 					this.slots[slot] = null;
 				}
 
@@ -196,10 +215,12 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 	}
 
 	@Override public int getSizeInventory() { return 18; }
-	@Override public String getInventoryName() { return "container.drone"; }
+	@Override public String getName() { return "container.drone"; }
 	@Override public int getInventoryStackLimit() { return 64; }
-	@Override public boolean hasCustomInventoryName() { return false; }
-	@Override public boolean isUseableByPlayer(EntityPlayer player) { return false; }
+	@Override public boolean hasCustomName() { return false; }
+	public String getInventoryName() { return getName(); }
+	public boolean hasCustomInventoryName() { return hasCustomName(); }
+	@Override public boolean isUsableByPlayer(EntityPlayer player) { return false; }
 	@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return false; }
 
 	@Override public void markDirty() { }
@@ -213,7 +234,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 			for(ChunkPos chunk : ImmutableSet.copyOf(loaderTicket.getChunkList())) {
 				ForgeChunkManager.unforceChunk(loaderTicket, chunk);
 			}
-			
+
 			// This is the lowest padding that worked with my drone waypoint path. if they stop getting loaded crank up paddingSize
 			for (ChunkPos chunk : ChunkShapeHelper.getChunksAlongLineSegment((int) Math.floor(this.posX), (int) Math.floor(this.posZ), (int) Math.floor(this.posX + this.motionX), (int) Math.floor(this.posZ + this.motionZ), 8)){
 				ForgeChunkManager.forceChunk(loaderTicket, chunk);

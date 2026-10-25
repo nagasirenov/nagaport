@@ -53,7 +53,7 @@ public class ContainerNukeMike extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
@@ -65,7 +65,7 @@ public class ContainerNukeMike extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return nukeMike.isUseableByPlayer(player);
+		return nukeMike.isUsableByPlayer(player);
 	}
 
 }

@@ -158,7 +158,7 @@ public class WorldProviderTom extends WorldProviderSurface {
 
 	@SideOnly(Side.CLIENT)
 	public Vec3d drawClouds(float partialTicks) {
-		Vec3d clouds = super.drawClouds(partialTicks);
+		Vec3d clouds = this.getCloudColor(partialTicks);
 		float dust = MainRegistry.proxy.getImpactDust(this.world);;
 		float f3 = (float) clouds.x;
 		float f4 = (float) clouds.y;

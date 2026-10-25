@@ -110,25 +110,25 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 
 			/* collect items */
 			if(this.world.getTotalWorldTime() % 5 == 0) {
-				List<EntityItem> list = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 1, this.pos.getZ() + 1.5));
+				List<EntityItem> list = this.world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 1, this.pos.getZ() + 1.5));
 
 				for(EntityItem item : list) {
 					if(item.isDead) continue;
-					ItemStack stack = item.getEntityItem();
+					ItemStack stack = item.getItem();
 					if(this.isItemSmeltable(stack)) {
 
 						for(int i = 1; i < 10; i++) {
 							if(slots[i] == null) {
 
-								if(stack.stackSize == 1) {
+								if(stack.getCount() == 1) {
 									slots[i] = stack.copy();
 									item.setDead();
-									item.delayBeforeCanPickup = 60;
+									item.setPickupDelay(60);
 									break;
 								} else {
 									slots[i] = stack.copy();
 									slots[i].setCount(1);
-									stack.stackSize--;
+									stack.shrink(1);
 								}
 
 								this.markChanged();
@@ -146,9 +146,9 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 
 			double level = ((double) totalMass / (double) totalCap) * 0.875D;
 
-			List<EntityLivingBase> living = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5 + level, this.pos.getZ() + 0.5).expand(1, 0, 1));
+			List<EntityLivingBase> living = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5 + level, this.pos.getZ() + 0.5).expand(1, 0, 1));
 			for(EntityLivingBase entity : living) {
-				entity.attackEntityFrom(DamageSource.lava, 5F);
+				entity.attackEntityFrom(DamageSource.LAVA, 5F);
 				entity.setFire(5);
 			}
 
@@ -228,7 +228,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 			/* sync */
 			this.networkPackNT(25);
 		} else {
-			
+
 			if(!this.recipeStack.isEmpty() || !this.wasteStack.isEmpty()) {
 
 				if(this.world.getTotalWorldTime() % 10 == 0) {
@@ -349,7 +349,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 			if(diff == 0) {
 				return;
 			}
-			
+
 			diff = Math.min(diff, this.maxHeat - this.heat);
 
 			if(diff > 0) {
@@ -574,7 +574,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

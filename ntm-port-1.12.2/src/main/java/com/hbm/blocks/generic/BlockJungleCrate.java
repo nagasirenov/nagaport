@@ -13,6 +13,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class BlockJungleCrate extends Block {
+	public BlockJungleCrate withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 
 	public BlockJungleCrate(Material material) {
 		super(material);
@@ -20,7 +25,15 @@ public class BlockJungleCrate extends Block {
 
 	Random rand = new Random();
 
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 

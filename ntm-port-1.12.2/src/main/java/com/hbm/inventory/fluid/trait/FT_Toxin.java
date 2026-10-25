@@ -123,7 +123,7 @@ public class FT_Toxin extends FluidTrait {
 			if(isProtected(entity)) return;
 			
 			for(PotionEffect eff : effects) {
-				entity.addPotionEffect(new PotionEffect(eff.getPotionID(), (int) (eff.getDuration() * intensity), eff.getAmplifier()));
+				entity.addPotionEffect(new PotionEffect(eff.getPotion(), (int) (eff.getDuration() * intensity), eff.getAmplifier()));
 			}
 		}
 
@@ -160,7 +160,7 @@ public class FT_Toxin extends FluidTrait {
 				writer.setIndent("");
 				for(PotionEffect effect : e.effects) {
 					writer.beginArray();
-					writer.value(effect.getPotionID()).value(effect.getDuration()).value(effect.getAmplifier()).value(effect.getIsAmbient());
+					writer.value(net.minecraft.potion.Potion.getIdFromPotion(effect.getPotion())).value(effect.getDuration()).value(effect.getAmplifier()).value(effect.getIsAmbient());
 					writer.endArray();
 				}
 				writer.endArray();
@@ -201,7 +201,7 @@ public class FT_Toxin extends FluidTrait {
 				JsonArray effects = entry.get("effects").getAsJsonArray();
 				for(int j = 0; j < effects.size(); j++) {
 					JsonArray effect = effects.get(j).getAsJsonArray();
-					PotionEffect potion = new PotionEffect(effect.get(0).getAsInt(), effect.get(1).getAsInt(), effect.get(2).getAsInt(), effect.get(3).getAsBoolean());
+					PotionEffect potion = new PotionEffect(net.minecraft.potion.Potion.getPotionById(effect.get(0).getAsInt()), effect.get(1).getAsInt(), effect.get(2).getAsInt(), effect.get(3).getAsBoolean(), false);
 					e.effects.add(potion);
 				}
 				this.entries.add(e);

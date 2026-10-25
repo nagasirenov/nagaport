@@ -12,6 +12,6 @@ public class RocketTargetingSimple implements IRocketTargetingBehavior {
 
 	@Override
 	public void recalculateTargetPosition(EntityArtilleryRocket rocket, Entity target) {
-		rocket.setTarget(target.posX, target.posY - target.yOffset + target.height * 0.5D, target.posZ);
+		rocket.setTarget(target.posX, target.posY - target.getYOffset() + target.height * 0.5D, target.posZ);
 	}
 }

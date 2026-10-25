@@ -8,23 +8,23 @@ import net.minecraft.block.Block;
 import net.minecraft.util.math.Vec3d;
 
 public class BlockMutatorBulkie implements IBlockMutator {
-	
+
 	protected MetaBlock metaBlock;
-	
+
 	public BlockMutatorBulkie(Block block) {
 		this(block, 0);
 	}
-	
+
 	public BlockMutatorBulkie(Block block, int meta) {
 		this.metaBlock = new MetaBlock(block, meta);
 	}
 
 	@Override
 	public void mutatePre(ExplosionVNT explosion, Block block, int meta, int x, int y, int z) {
-		if(!block.isNormalCube()) return;
+		if(!block.isNormalCube(block.getStateFromMeta(meta))) return;
 		Vec3d vec = new Vec3d(x + 0.5 - explosion.posX, y + 0.5 - explosion.posY, z + 0.5 - explosion.posZ);
 		if(vec.length() >= explosion.size - 0.5) {
-			explosion.world.setBlock(x, y, z, metaBlock.block, metaBlock.meta, 3);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(explosion.world, x, y, z, metaBlock.block, metaBlock.meta, 3);
 		}
 	}
 

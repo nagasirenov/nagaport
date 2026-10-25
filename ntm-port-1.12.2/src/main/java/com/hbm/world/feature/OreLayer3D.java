@@ -79,8 +79,8 @@ public class OreLayer3D {
 	public void onDecorate(DecorateBiomeEvent.Pre event) {
 
 		World world = event.getWorld();
-		int cx = event.chunkX;
-		int cz = event.chunkZ;
+		int cx = event.getPos().getX();
+		int cz = event.getPos().getZ();
 
 		// cx = chunk x
 		// ox = offset x
@@ -119,8 +119,8 @@ public class OreLayer3D {
 
 		for(int o = 0; o < 16; o++) {
 			for(int y = 64; y > 5; y--) {
-				cacheX[o][y] = this.noiseX.func_151601_a(y * scaleV, (cz + 8 + o) * scaleH);
-				cacheZ[o][y] = this.noiseZ.func_151601_a((cx + 8 + o) * scaleH, y * scaleV);
+				cacheX[o][y] = this.noiseX.getValue(y * scaleV, (cz + 8 + o) * scaleH);
+				cacheZ[o][y] = this.noiseZ.getValue((cx + 8 + o) * scaleH, y * scaleV);
 			}
 		}
 
@@ -130,7 +130,7 @@ public class OreLayer3D {
 			for(int oz = 0; oz < 16; oz++) {
 				int z = cz + 8 + oz;
 
-				double ny = this.noiseY.func_151601_a(x * scaleH, z * scaleH);
+				double ny = this.noiseY.getValue(x * scaleH, z * scaleH);
 
 				for(int y = 64; y > 5; y--) {
 					double nx = cacheX[oz][y];
@@ -140,8 +140,8 @@ public class OreLayer3D {
 						net.minecraft.block.state.IBlockState nativeCubeState_target = com.hbm.world.WorldBlockState.read(world, x, y, z);
 						Block target = nativeCubeState_target.getBlock();
 
-						if(target.isNormalCube(nativeCubeState_target) && target.isReplaceableOreGen(world, x, y, z, replace)) {
-							world.setBlock(x, y, z, block, meta, 2);
+						if(target.isNormalCube(nativeCubeState_target) && com.hbm.world.WorldBlockState.isReplaceableOreGen(target, world, x, y, z, replace)) {
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, block, meta, 2);
 						}
 					}
 				}

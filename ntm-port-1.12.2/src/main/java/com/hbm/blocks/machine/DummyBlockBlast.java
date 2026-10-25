@@ -34,20 +34,23 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
 	}
 
     @Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int i)
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)
     {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int i = block.getMetaFromState(state);
     	if(!safeBreak) {
     		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
     		if(te != null && te instanceof TileEntityDummy) {
     			int a = ((TileEntityDummy)te).targetX;
     			int b = ((TileEntityDummy)te).targetY;
     			int c = ((TileEntityDummy)te).targetZ;
-    		
+
     			if(!world.isRemote)
     				com.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, true);
     		}
     	}
-    	world.removeTileEntity(x, y, z);
+		world.removeTileEntity(pos);
     }
 
 	@Override
@@ -64,28 +67,31 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
         return null;
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
-    public Item getItem(World world, int x, int y, int z)
+    public net.minecraft.item.ItemStack getItem(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)
     {
-        return Item.getItemFromBlock(ModBlocks.blast_door);
+    	int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+        return new net.minecraft.item.ItemStack(Item.getItemFromBlock(ModBlocks.blast_door));
     }
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote)
 		{
 			return true;
 		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && (com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemLock || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_kit)) {
 			return false;
-			
+
 		} else if(!player.isSneaking())
 		{
 			TileEntity til = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
@@ -93,7 +99,7 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
 				int a = ((TileEntityDummy)til).targetX;
 				int b = ((TileEntityDummy)til).targetY;
 				int c = ((TileEntityDummy)til).targetZ;
-						
+
 				TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(a, b, c));
 				if(entity != null)
 				{
@@ -101,34 +107,34 @@ public class DummyBlockBlast extends BlockContainer implements IDummy, IBomb {
 						entity.tryToggle();
 				}
 			}
-			
+
 			return true;
 		}
-		
+
 		return true;
 	}
 
 	@Override
 	public BombReturnCode explode(World world, int x, int y, int z) {
-		
+
 		if(!world.isRemote) {
-			
+
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(te != null && te instanceof TileEntityDummy) {
 				int a = ((TileEntityDummy)te).targetX;
 				int b = ((TileEntityDummy)te).targetY;
 				int c = ((TileEntityDummy)te).targetZ;
-				
+
 				TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(a, b, c));
 				if(entity != null && !entity.isLocked()) {
 					entity.tryToggle();
 					return BombReturnCode.TRIGGERED;
 				}
 			}
-			
+
 			return BombReturnCode.ERROR_INCOMPATIBLE;
 		}
-		
+
 		return BombReturnCode.UNDEFINED;
 	}
 }

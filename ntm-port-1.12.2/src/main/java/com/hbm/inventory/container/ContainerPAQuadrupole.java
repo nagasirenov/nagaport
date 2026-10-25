@@ -11,12 +11,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerPAQuadrupole extends Container {
-	
+
 	private TileEntityPAQuadrupole quadrupole;
 
 	public ContainerPAQuadrupole(InventoryPlayer playerInv, TileEntityPAQuadrupole tile) {
 		quadrupole = tile;
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tile, 0, 26, 72));
 		//Coil
@@ -52,7 +52,7 @@ public class ContainerPAQuadrupole extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 0, 1, false)) return null;
 				} else {
@@ -60,7 +60,7 @@ public class ContainerPAQuadrupole extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

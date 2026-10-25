@@ -11,8 +11,8 @@ public class RenderScutter extends RenderLiving {
 
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID, "textures/entity/scutterfish.png");
 
-	public RenderScutter(ModelBase p_i1252_1_, float p_i1252_2_) {
-		super(p_i1252_1_, p_i1252_2_);
+	public RenderScutter(net.minecraft.client.renderer.entity.RenderManager renderManager, ModelBase p_i1252_1_, float p_i1252_2_) {
+		super(renderManager, p_i1252_1_, p_i1252_2_);
 	}
 
 	protected ResourceLocation getEntityTexture(Entity entity) {

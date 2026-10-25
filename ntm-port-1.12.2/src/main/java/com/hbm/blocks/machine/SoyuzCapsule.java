@@ -27,22 +27,22 @@ public class SoyuzCapsule extends BlockContainer {
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		return new TileEntitySoyuzCapsule();
 	}
-	
+
 	@Override
 	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
 		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
@@ -51,18 +51,21 @@ public class SoyuzCapsule extends BlockContainer {
 			return true;
 		} else if(!player.isSneaking())
 		{
-			
+
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
-				
+
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)
     {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
 		IInventory tileentityfurnace = (IInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		Random rand = world.rand;
 
@@ -103,10 +106,10 @@ public class SoyuzCapsule extends BlockContainer {
 				}
 			}
 
-			world.func_147453_f(x, y, z, block);
+			world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), block);
 		}
 
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
     }
 
 }

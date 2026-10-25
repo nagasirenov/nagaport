@@ -58,6 +58,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraft.util.SoundCategory;
+import com.hbm.main.ModSoundEvents;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineMiningLaser extends TileEntityMachineBase implements IEnergyReceiverMK2, IFluidStandardSender, IGUIProvider, IUpgradeInfoProvider {
@@ -190,7 +192,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 						clientBreakProgress = Math.min(breakProgress, 1);
 
 						if(breakProgress < 1) {
-							this.world.destroyBlockInWorldPartially(-1, targetX, targetY, targetZ, (int) Math.floor(breakProgress * 10));
+							this.world.sendBlockBreakProgress(-1, new net.minecraft.util.math.BlockPos(targetX, targetY, targetZ), (int) Math.floor(breakProgress * 10));
 						} else {
 							breakBlock(fortune);
 							buildDam();
@@ -269,10 +271,10 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 		for(int i = 9; i <= 29; i++) {
 
 			if(slots[i] != null) {
-				int prev = slots[i].stackSize;
+				int prev = slots[i].getCount();
 				slots[i] = InventoryUtil.tryAddItemToInventory(inventory, 0, inventory.getSizeInventory() - 1, slots[i]);
 
-				if(slots[i] == null || slots[i].stackSize < prev)
+				if(slots[i] == null || slots[i].getCount() < prev)
 					return;
 			}
 		}
@@ -324,7 +326,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 
 			} else if(hasSmelter()) {
 
-				ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(stack);
+				ItemStack result = FurnaceRecipes.instance().getSmeltingResult(stack);
 				if(result != null) {
 					this.world.spawnEntity(new EntityItem(this.world, targetX + 0.5, targetY + 0.5, targetZ + 0.5, result.copy()));
 					normal = false;
@@ -333,7 +335,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 		}
 
 		if(doesBreak) {
-			if(normal) b.dropBlockAsItem(this.world, targetX, targetY, targetZ, meta, fortune);
+			if(normal) b.dropBlockAsItem(this.world, new net.minecraft.util.math.BlockPos(targetX, targetY, targetZ), this.world.getBlockState(new net.minecraft.util.math.BlockPos(targetX, targetY, targetZ)), fortune);
 			com.hbm.world.WorldBlockDestruction.destroy(this.world, targetX, targetY, targetZ, false);
 		}
 
@@ -376,7 +378,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 		int rangeVer = 1;
 		boolean nullifier = hasNullifier();
 
-		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(
+		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(
 				targetX + 0.5 - rangeHor,
 				targetY + 0.5 - rangeVer,
 				targetZ + 0.5 - rangeHor,
@@ -389,18 +391,18 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 
 			if(entityItem.isDead) continue;
 
-			if(nullifier && isBad(entityItem.getEntityItem())) {
+			if(nullifier && isBad(entityItem.getItem())) {
 				entityItem.setDead();
-				entityItem.delayBeforeCanPickup = 60;
+				entityItem.setPickupDelay(60);
 				continue;
 			}
 
-			Item item = entityItem.getEntityItem().getItem();
+			Item item = entityItem.getItem().getItem();
 			if(item instanceof ItemBlock) {
-				Block block = ((ItemBlock) item).field_150939_a;
+				Block block = ((ItemBlock) item).getBlock();
 
 				if(block instanceof BlockOreFluid) {
-					int meta = entityItem.getEntityItem().getItemDamage();
+					int meta = entityItem.getItem().getItemDamage();
 
 					BlockOreFluid oreFluid = (BlockOreFluid) block;
 
@@ -412,22 +414,22 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 					}
 
 					entityItem.setDead();
-					entityItem.delayBeforeCanPickup = 60;
+					entityItem.setPickupDelay(60);
 					continue;
 				}
 			}
 
-			ItemStack stack = InventoryUtil.tryAddItemToInventory(slots, 9, 29, entityItem.getEntityItem().copy());
+			ItemStack stack = InventoryUtil.tryAddItemToInventory(slots, 9, 29, entityItem.getItem().copy());
 
 			if(stack == null) {
 				entityItem.setDead();
-				entityItem.delayBeforeCanPickup = 60;
+				entityItem.setPickupDelay(60);
 			} else {
-				entityItem.setEntityItemStack(stack.copy()); //copy is not necessary but i'm paranoid due to the kerfuffle of the old drill
+				entityItem.setItem(stack.copy()); //copy is not necessary but i'm paranoid due to the kerfuffle of the old drill
 			}
 		}
 
-		List<EntityLivingBase> mobs = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(
+		List<EntityLivingBase> mobs = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(
 				targetX + 0.5 - 1,
 				targetY + 0.5 - 1,
 				targetZ + 0.5 - 1,
@@ -443,7 +445,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 
 	public double getBreakSpeed(int speed) {
 
-		float hardness = com.hbm.world.WorldBlockState.read(this.world, targetX, targetY, targetZ).getBlock().getBlockHardness(this.world, targetX, targetY, targetZ) * 15 / speed;
+		float hardness = com.hbm.world.WorldBlockState.getBlockHardness(this.world, targetX, targetY, targetZ) * 15 / speed;
 
 		if(hardness == 0)
 			return 1;
@@ -474,7 +476,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 	}
 
 	private boolean canBreak(Block block, int x, int y, int z) {
-		return !block.isAir(this.world, x, y, z) && block.getDefaultState().getMaterial() != ModBlocks.materialGas && block.getBlockHardness(this.world, x, y, z) >= 0 && !block.getDefaultState().getMaterial().isLiquid() && block != Blocks.BEDROCK;
+		return !com.hbm.world.WorldBlockState.isAir(this.world, x, y, z) && block.getDefaultState().getMaterial() != ModBlocks.materialGas && com.hbm.world.WorldBlockState.getBlockHardness(this.world, x, y, z) >= 0 && !block.getDefaultState().getMaterial().isLiquid() && block != Blocks.BEDROCK;
 	}
 
 	public int getRange() {
@@ -602,7 +604,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && i >= 1 && i <= 8 && stack.getItem() instanceof ItemMachineUpgrade)
-			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, ModSoundEvents.resolve("hbm:item.upgradePlug"), SoundCategory.BLOCKS, 1.0F, 1.0F);
 	}
 
 	@Override

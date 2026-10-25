@@ -18,18 +18,18 @@ import net.minecraft.util.ResourceLocation;
 import java.awt.Color;
 
 public class GUIMachineRefinery extends GuiInfoContainer {
-	
+
 	private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/processing/gui_refinery.png");
 	private TileEntityMachineRefinery refinery;
 
 	public GUIMachineRefinery(InventoryPlayer invPlayer, TileEntityMachineRefinery tedf) {
 		super(new ContainerMachineRefinery(invPlayer, tedf));
 		refinery = tedf;
-		
+
 		this.xSize = 210;
 		this.ySize = 231;
 	}
-	
+
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float f) {
 		super.drawScreen(mouseX, mouseY, f);
@@ -41,11 +41,11 @@ public class GUIMachineRefinery extends GuiInfoContainer {
 		refinery.tanks[4].renderTankInfo(this, mouseX, mouseY, guiLeft + 146, guiTop + 42, 16, 52);
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 186, guiTop + 18, 16, 52, refinery.power, refinery.maxPower);
 	}
-	
+
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.refinery.hasCustomInventoryName() ? this.refinery.getInventoryName() : I18n.format(this.refinery.getInventoryName());
-		
+
 		this.fontRenderer.drawString(name, this.xSize / 2 - 34/2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
 		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 4, 4210752);
 	}
@@ -54,11 +54,11 @@ public class GUIMachineRefinery extends GuiInfoContainer {
 	protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
-		func_146110_a(guiLeft, guiTop, 0, 0, xSize, ySize, 350, 256);
+		drawModalRectWithCustomSizedTexture(guiLeft, guiTop, 0, 0, xSize, ySize, 350, 256);
 
 		// power
 		int j = (int)refinery.getPowerScaled(50);
-		func_146110_a(guiLeft + 186, guiTop + 69 - j, 210, 52 - j, 16, j, 350, 256);
+		drawModalRectWithCustomSizedTexture(guiLeft + 186, guiTop + 69 - j, 210, 52 - j, 16, j, 350, 256);
 
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0); // default
 
@@ -71,7 +71,7 @@ public class GUIMachineRefinery extends GuiInfoContainer {
 
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glColor4f(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, 1F);
-			func_146110_a(guiLeft + 33, guiTop + 130 - targetHeight, 226, 101 - targetHeight, 16, targetHeight, 350, 256);
+			drawModalRectWithCustomSizedTexture(guiLeft + 33, guiTop + 130 - targetHeight, 226, 101 - targetHeight, 16, targetHeight, 350, 256);
 			GL11.glDisable(GL11.GL_BLEND);
 		}
 
@@ -84,10 +84,10 @@ public class GUIMachineRefinery extends GuiInfoContainer {
 		RefineryRecipe recipe = RefineryRecipes.getRefinery(inputOil.getTankType());
 
 		if(recipe == null) {
-			func_146110_a(guiLeft + 52, guiTop + 63, 247, 1, 33, 48, 350, 256);
-			func_146110_a(guiLeft + 52, guiTop + 32, 247, 50, 66, 52, 350, 256);
-			func_146110_a(guiLeft + 52, guiTop + 24, 247, 145, 86, 35, 350, 256);
-			func_146110_a(guiLeft + 36, guiTop + 16, 211, 119, 122, 25, 350, 256);
+			drawModalRectWithCustomSizedTexture(guiLeft + 52, guiTop + 63, 247, 1, 33, 48, 350, 256);
+			drawModalRectWithCustomSizedTexture(guiLeft + 52, guiTop + 32, 247, 50, 66, 52, 350, 256);
+			drawModalRectWithCustomSizedTexture(guiLeft + 52, guiTop + 24, 247, 145, 86, 35, 350, 256);
+			drawModalRectWithCustomSizedTexture(guiLeft + 36, guiTop + 16, 211, 119, 122, 25, 350, 256);
 		} else {
 
 			// Heavy Oil Products
@@ -95,23 +95,23 @@ public class GUIMachineRefinery extends GuiInfoContainer {
 
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glColor4f(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, 1F);
-			func_146110_a(guiLeft + 52, guiTop + 63, 247, 1, 33, 48, 350, 256);
+			drawModalRectWithCustomSizedTexture(guiLeft + 52, guiTop + 63, 247, 1, 33, 48, 350, 256);
 
 			// Naphtha Oil Products
 			color = new Color(recipe.outputs[1].type.getColor());
 			GL11.glColor4f(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, 1F);
-			func_146110_a(guiLeft + 52, guiTop + 32, 247, 50, 66, 52, 350, 256);
+			drawModalRectWithCustomSizedTexture(guiLeft + 52, guiTop + 32, 247, 50, 66, 52, 350, 256);
 
 			// Light Oil Products
 			color = new Color(recipe.outputs[2].type.getColor());
 			GL11.glColor4f(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, 1F);
-			func_146110_a(guiLeft + 52, guiTop + 24, 247, 145, 86, 35, 350, 256);
+			drawModalRectWithCustomSizedTexture(guiLeft + 52, guiTop + 24, 247, 145, 86, 35, 350, 256);
 
 			// Gaseous Products
 			color = new Color(recipe.outputs[3].type.getColor());
 			GL11.glColor4f(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, 1F);
-			func_146110_a(guiLeft + 36, guiTop + 16, 211, 119, 122, 25, 350, 256);
-			
+			drawModalRectWithCustomSizedTexture(guiLeft + 36, guiTop + 16, 211, 119, 122, 25, 350, 256);
+
 			GL11.glDisable(GL11.GL_BLEND);
 			GL11.glColor4f(1F, 1F, 1F, 1F);
 		}

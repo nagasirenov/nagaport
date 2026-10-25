@@ -69,44 +69,44 @@ public class AuxButtonPacket implements IMessage {
 		@SuppressWarnings("incomplete-switch")
 		@Override
 		public IMessage onMessage(AuxButtonPacket m, MessageContext ctx) {
-			
-			EntityPlayer p = ctx.getServerHandler().playerEntity;
-			
+
+			EntityPlayer p = ctx.getServerHandler().player;
+
 			//try {
-				TileEntity te = p.world.getTileEntity(m.x, m.y, m.z);
-				
+				TileEntity te = p.world.getTileEntity(new net.minecraft.util.math.BlockPos(m.x, m.y, m.z));
+
 				if(te instanceof TileEntityForceField) {
 					TileEntityForceField field = (TileEntityForceField)te;
 					field.isOn = !field.isOn;
 				}
-				
+
 				if(te instanceof TileEntityMachineMissileAssembly) {
 					TileEntityMachineMissileAssembly assembly = (TileEntityMachineMissileAssembly)te;
 					assembly.construct();
 				}
-				
+
 				if(te instanceof TileEntityLaunchTable) {
 					TileEntityLaunchTable launcher = (TileEntityLaunchTable)te;
 					launcher.padSize = PartSize.values()[m.value];
 				}
-				
+
 				if(te instanceof TileEntityCoreEmitter) {
 					TileEntityCoreEmitter core = (TileEntityCoreEmitter)te;
 					if(m.id == 0) core.watts = m.value;
 					if(m.id == 1) core.isOn = !core.isOn;
 				}
-				
+
 				if(te instanceof TileEntityCoreStabilizer) {
 					TileEntityCoreStabilizer core = (TileEntityCoreStabilizer)te;
 					if(m.id == 0) core.watts = m.value;
 				}
-				
+
 				if(te instanceof TileEntityBarrel) {
 					TileEntityBarrel barrel = (TileEntityBarrel)te;
 					barrel.mode = (short) ((barrel.mode + 1) % barrel.modes);
 					barrel.markDirty();
 				}
-				
+
 				if(te instanceof TileEntityMachineBattery) {
 					TileEntityMachineBattery bat = (TileEntityMachineBattery)te;
 
@@ -128,18 +128,18 @@ public class AuxButtonPacket implements IMessage {
 						bat.markDirty();
 					}
 				}
-				
+
 				if(te instanceof TileEntitySoyuzLauncher) {
 					TileEntitySoyuzLauncher launcher = (TileEntitySoyuzLauncher)te;
 					if(m.id == 0) launcher.mode = (byte) m.value;
 					if(m.id == 1) launcher.startCountdown();
 				}
-				
+
 				if(te instanceof TileEntityMachineMiningLaser) {
 					TileEntityMachineMiningLaser laser = (TileEntityMachineMiningLaser)te;
 					laser.isOn = !laser.isOn;
 				}
-				
+
 				/// yes ///
 				//no fuck off
 				if(te instanceof TileEntityMachineBase) {
@@ -150,32 +150,32 @@ public class AuxButtonPacket implements IMessage {
 					TileEntityTickingBase base = (TileEntityTickingBase)te;
 					base.handleButtonPacket(m.value, m.id);
 				}
-				
+
 				//why make new packets when you can just abuse and uglify the existing ones?
 				if(te == null && m.value == 999) {
-					
+
 					NBTTagCompound perDat = p.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
-					
+
 					if(MobConfig.enableDucks && !perDat.getBoolean("hasDucked")) {
 						EntityDuck ducc = new EntityDuck(p.world);
 						ducc.setPosition(p.posX, p.posY + p.eyeHeight, p.posZ);
-						
+
 						Vec3d vec = p.getLookVec();
 						ducc.motionX = vec.x;
 						ducc.motionY = vec.y;
 						ducc.motionZ = vec.z;
-						
-						p.world.spawnEntityInWorld(ducc);
-						p.world.playSoundAtEntity(p, "hbm:entity.ducc", 1.0F, 1.0F);
-						
+
+						p.world.spawnEntity(ducc);
+						p.world.playSound(null, p.posX, p.posY, p.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:entity.ducc"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
+
 						perDat.setBoolean("hasDucked", true);
-						
+
 						p.getEntityData().setTag(EntityPlayer.PERSISTED_NBT_TAG, perDat);
 					}
 				}
-				
+
 			//} catch (Exception x) { }
-			
+
 			return null;
 		}
 	}

@@ -15,6 +15,8 @@ import com.hbm.tileentity.machine.TileEntityZirnoxDestroyed;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -47,14 +49,19 @@ public class ZirnoxDestroyed extends BlockDummyable {
 			return false;
 	}
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
 
 		Block block = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
 
 		if(block == Blocks.AIR) {
 			if(rand.nextInt(10) == 0)
-				world.setBlock(x, y + 1, z, ModBlocks.gas_meltdown);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y + 1, z, ModBlocks.gas_meltdown);
 
 		} else if(block == ModBlocks.foam_layer || block == ModBlocks.block_foam) {
 			if(rand.nextInt(25) == 0) {
@@ -70,7 +77,7 @@ public class ZirnoxDestroyed extends BlockDummyable {
 		}
 
 		if(rand.nextInt(10) == 0 && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR)
-			world.setBlock(x, y + 1, z, ModBlocks.gas_meltdown);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y + 1, z, ModBlocks.gas_meltdown);
 
 		super.updateTick(world, x, y, z, rand);
 	}
@@ -81,8 +88,10 @@ public class ZirnoxDestroyed extends BlockDummyable {
 		return 100 + world.rand.nextInt(20);
 	}
 
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(!world.isRemote) {
 			if(world.rand.nextInt(4) == 0) {
@@ -103,8 +112,16 @@ public class ZirnoxDestroyed extends BlockDummyable {
 		return null;
 	}
 
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune) {
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
 		drops.add(new ItemStack(ModBlocks.concrete_smooth, 6));
 		drops.add(new ItemStack(ModItems.pipe, 4, Mats.MAT_STEEL.id));

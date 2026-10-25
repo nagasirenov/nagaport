@@ -29,6 +29,11 @@ public class ItemDesingatorRange extends Item implements IDesignatorItem {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		RayTraceResult pos = Library.rayTrace(player, 300, 1);
 		int x = pos.getBlockPos().getX();
@@ -36,7 +41,7 @@ public class ItemDesingatorRange extends Item implements IDesignatorItem {
 		int z = pos.getBlockPos().getZ();
 
 		if(!(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof LaunchPad)) {
-			
+
 			if(stack.getTagCompound() == null)
 				stack.setTagCompound(new NBTTagCompound());
 
@@ -47,7 +52,7 @@ public class ItemDesingatorRange extends Item implements IDesignatorItem {
 				player.sendMessage(new TextComponentString("Position set to X:" + x + ", Z:" + z));
 			}
 
-			world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 			return stack;
 		}

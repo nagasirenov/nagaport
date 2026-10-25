@@ -36,14 +36,17 @@ public class BlockSkeletonHolder extends BlockContainer {
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+		if(i == 0) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
+		if(i == 1) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
+		if(i == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
+		if(i == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 	} //I hope you change this shit to not be hardcoded because im not doing it
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(player.isSneaking()) return false;
 
 		TileEntitySkeletonHolder pedestal = (TileEntitySkeletonHolder) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
@@ -53,14 +56,14 @@ public class BlockSkeletonHolder extends BlockContainer {
 			pedestal.item = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
 			player.inventory.mainInventory.set(player.inventory.currentItem, ItemStack.EMPTY);
 			pedestal.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 			return true;
 		} else if(pedestal.item != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null) {
 			if(world.isRemote) return true;
 			player.inventory.mainInventory.set(player.inventory.currentItem, pedestal.item.copy());
 			pedestal.item = null;
 			pedestal.markDirty();
-			world.markBlockForUpdate(x, y, z);
+			com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 			return true;
 		}
 
@@ -68,7 +71,10 @@ public class BlockSkeletonHolder extends BlockContainer {
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
 
 		if(!world.isRemote) {
 			TileEntitySkeletonHolder entity = (TileEntitySkeletonHolder) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
@@ -78,7 +84,7 @@ public class BlockSkeletonHolder extends BlockContainer {
 			}
 		}
 
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	public static class TileEntitySkeletonHolder extends TileEntity {

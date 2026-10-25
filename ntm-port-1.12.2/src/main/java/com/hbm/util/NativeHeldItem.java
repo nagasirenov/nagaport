@@ -17,6 +17,6 @@ public final class NativeHeldItem {
     @Nullable
     public static ItemStack getMainHandNullable(EntityLivingBase entity) {
         ItemStack stack = entity.getHeldItemMainhand();
-        return stack == ItemStack.EMPTY ? null : stack;
+        return (stack == null || stack.isEmpty()) ? null : stack;
     }
 }

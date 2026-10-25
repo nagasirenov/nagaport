@@ -15,7 +15,7 @@ public class EntityDisperserCanister extends EntityGrenadeBase {
 
 	private static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);
 	private static final DataParameter<Integer> ITEM_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);
-	
+
 	public EntityDisperserCanister(World world) {
 		super(world);
 	}
@@ -60,7 +60,7 @@ public class EntityDisperserCanister extends EntityGrenadeBase {
 			mist.setPosition(posX, posY, posZ);
 			mist.setArea(10, 5);
 			mist.setDuration(80);
-			this.world.spawnEntityInWorld(mist);
+			this.world.spawnEntity(mist);
 			this.setDead();
 		}
 	}

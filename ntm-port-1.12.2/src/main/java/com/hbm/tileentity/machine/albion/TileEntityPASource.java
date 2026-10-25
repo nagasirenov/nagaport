@@ -82,7 +82,7 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 
 			int steps = 1;
 			if(this.particle != null) steps = 1 + MathHelper.clamp(this.particle.momentum / 1_000, 0, 9);
-			
+
 			for(int i = 0; i < steps; i++) {
 				if(particle != null) {
 					this.state = PAState.RUNNING;
@@ -100,7 +100,7 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 	}
 
 	public void steppy() {
-		if(!this.world.getChunkProvider().chunkExists(particle.x >> 4, particle.z >> 4)) { this.state = PAState.PAUSE_UNLOADED; return; } //halt if we reach unloaded areas
+		if(this.world.getChunkProvider().getLoadedChunk(particle.x >> 4, particle.z >> 4) == null) { this.state = PAState.PAUSE_UNLOADED; return; } //halt if we reach unloaded areas
 		//ExplosionSmallCreator.composeEffect(worldObj, particle.x + 0.5, particle.y + 0.5, particle.z + 0.5, 10, 1, 1);
 
 		Block b = com.hbm.world.WorldBlockState.read(this.world, particle.x, particle.y, particle.z).getBlock();
@@ -213,7 +213,7 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 4,
 					this.pos.getY() - 1,
 					this.pos.getZ() - 4,
@@ -333,8 +333,8 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 		for (int i = 0; i < 4; i++) {
 			ItemStack slot = slots[i+1];
 			if (slot != null) {
-				items[i*2] = slot.getUnlocalizedName();
-				items[(i*2)+1] = slot.stackSize;
+				items[i*2] = slot.getTranslationKey();
+				items[(i*2)+1] = slot.getCount();
 			}
 		}
 		return items;
@@ -355,8 +355,8 @@ public class TileEntityPASource extends TileEntityCooledBase implements IGUIProv
 		for (int i = 0; i < 4; i++) {
 			ItemStack slot = slots[i+1];
 			if (slot != null) {
-				items[i*2] = slot.getUnlocalizedName();
-				items[(i*2)+1] = slot.stackSize;
+				items[i*2] = slot.getTranslationKey();
+				items[(i*2)+1] = slot.getCount();
 			}
 		}
 

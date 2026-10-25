@@ -5,7 +5,9 @@ import com.hbm.tileentity.TileEntityProxyCombo;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockCMPort extends BlockCM implements ITileEntityProvider {
@@ -20,13 +22,8 @@ public class BlockCMPort extends BlockCM implements ITileEntityProvider {
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
-	}
-
-	@Override
-	public void breakBlock(World world, int x, int y, int z, Block b, int m) {
-		super.breakBlock(world, x, y, z, b, m);
-		world.removeTileEntity(x, y, z);
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		super.breakBlock(world, pos, state);
+		world.removeTileEntity(pos);
 	}
 }

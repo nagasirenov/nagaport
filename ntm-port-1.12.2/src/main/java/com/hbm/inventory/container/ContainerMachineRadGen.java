@@ -10,9 +10,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineRadGen extends Container {
-	
+
 	private TileEntityMachineRadGen diFurnace;
-	
+
 	public ContainerMachineRadGen(InventoryPlayer invPlayer, TileEntityMachineRadGen tedf) {
 		diFurnace = tedf;
 
@@ -26,7 +26,7 @@ public class ContainerMachineRadGen extends Container {
 				this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, tedf, j + i * 3 + 12, 116 + j * 18, 17 + i * 18));
 			}
 		}
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 102 + i * 18));
@@ -37,12 +37,12 @@ public class ContainerMachineRadGen extends Container {
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 160));
 		}
 	}
-	
+
 	@Override
 	public void addListener(IContainerListener crafting) {
 		super.addListener(crafting);
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
 		ItemStack var3 = null;
@@ -60,7 +60,7 @@ public class ContainerMachineRadGen extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

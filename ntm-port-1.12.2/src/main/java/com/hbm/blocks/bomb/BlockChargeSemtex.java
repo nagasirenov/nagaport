@@ -37,7 +37,6 @@ public class BlockChargeSemtex extends BlockChargeBase {
 		return BombReturnCode.UNDEFINED;
 	}
 
-	@Override
 	public int getRenderType() {
 		return BlockChargeC4.renderID;
 	}

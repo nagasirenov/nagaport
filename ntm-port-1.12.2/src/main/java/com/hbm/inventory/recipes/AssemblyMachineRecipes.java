@@ -1524,7 +1524,7 @@ public class AssemblyMachineRecipes extends GenericRecipes<GenericRecipe> {
 		}
 
 		if(GeneralConfig.enableMekanismChanges && Loader.isModLoaded("Mekanism")) {
-			Block mb = (Block) Block.blockRegistry.getObject("Mekanism:MachineBlock");
+			Block mb = (Block) net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValue(new net.minecraft.util.ResourceLocation("Mekanism:MachineBlock"));
 			if(mb != null) {
 
 				this.register(new GenericRecipe("ass.digimemer").setup(1_200, 100).outputItems(new ItemStack(mb, 1, 4))

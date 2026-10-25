@@ -16,22 +16,22 @@ public class HazardTypeExplosive extends HazardTypeBase {
 
 	@Override
 	public void onUpdate(EntityLivingBase target, float level, ItemStack stack) {
-		
+
 		if(RadiationConfig.disableExplosive)
 			return;
 
-		if(!target.world.isRemote && target.isBurning() && stack.stackSize > 0) {
-			stack.stackSize = 0;
+		if(!target.world.isRemote && target.isBurning() && stack.getCount() > 0) {
+			stack.setCount(0);
 			target.world.newExplosion(null, target.posX, target.posY + target.getEyeHeight() - target.getYOffset(), target.posZ, level, false, true);
 		}
 	}
 
 	@Override
 	public void updateEntity(EntityItem item, float level) {
-		
+
 		if(RadiationConfig.disableExplosive)
 			return;
-		
+
 		if(item.isBurning()) {
 			item.setDead();
 			item.world.newExplosion(null, item.posX, item.posY + item.height * 0.5, item.posZ, level, false, true);

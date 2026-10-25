@@ -18,7 +18,7 @@ public class ArmorNCRPARanged implements IPARanged {
 
 	@Override public void clickPrimary(ItemStack stack, LambdaContext ctx) { fireRocket(stack, ctx, true); }
 	@Override public void clickSecondary(ItemStack stack, LambdaContext ctx) { fireRocket(stack, ctx, false); }
-	
+
 	public static void fireRocket(ItemStack stack, LambdaContext ctx, boolean steer) {
 
 		EntityPlayer player = ctx.getPlayer();
@@ -31,19 +31,19 @@ public class ArmorNCRPARanged implements IPARanged {
 			}
 			BulletConfig cfg = mag.getType(stack, player.inventory);
 			int amount = mag.getAmount(stack, player.inventory);
-			
+
 			if(amount > 0) {
 				mag.useUpAmmo(stack, player.inventory, 1);
 				EntityBulletBaseMK4 mk4 = new EntityBulletBaseMK4(player, cfg, 25, 0, 0.25F * (player.getRNG().nextBoolean() ? - 1 : 1), 0, 0);
-				player.world.spawnEntityInWorld(mk4);
+				player.world.spawnEntity(mk4);
 				ItemGunBaseNT.setState(stack, 0, GunState.COOLDOWN);
 				ItemGunBaseNT.setTimer(stack, 0, 10);
-				player.world.playSoundAtEntity(player, "hbm:weapon.rpgShoot", 0.5F, 0.9F + player.getRNG().nextFloat() * 0.2F);
+				player.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.rpgShoot"), net.minecraft.util.SoundCategory.PLAYERS, 0.5F, 0.9F + player.getRNG().nextFloat() * 0.2F);
 				player.inventoryContainer.detectAndSendChanges();
 			} else {
 				ItemGunBaseNT.setState(stack, 0, GunState.COOLDOWN);
 				ItemGunBaseNT.setTimer(stack, 0, 10);
-				player.world.playSoundAtEntity(player, "hbm:weapon.reload.dryFireClick", 1F, 1F);
+				player.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), net.minecraft.util.SoundCategory.PLAYERS, 1F, 1F);
 			}
 		}
 	}

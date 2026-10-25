@@ -21,7 +21,7 @@ public class ItemModDefuser extends ItemArmorMod {
 	public ItemModDefuser() {
 		super(ArmorModHandler.extra, true, true, true, true);
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 
@@ -37,18 +37,18 @@ public class ItemModDefuser extends ItemArmorMod {
 
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
-		
+
 		if(entity.world.isRemote || entity.world.getTotalWorldTime() % 20 != 0) return;
-		
+
 		List<EntityCreeper> creepers = entity.world.getEntitiesWithinAABB(EntityCreeper.class, entity.getEntityBoundingBox().grow(5, 5, 5));
-		
+
 		for(EntityCreeper creeper : creepers) defuse(creeper, entity, true);
 	}
-	
+
 	public static boolean defuse(EntityCreeper creeper, EntityLivingBase entity, boolean dropItem) {
-		
+
 		creeper.setCreeperState(-1);
-		creeper.getDataWatcher().updateObject(18, new Byte((byte) 0));
+		net.minecraft.network.datasync.DataParameter<Boolean> ignited = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(net.minecraft.entity.monster.EntityCreeper.class, null, "field_184715_c", "IGNITED"); creeper.getDataManager().set(ignited, Boolean.FALSE);
 
 		if(!creeper.world.isRemote) {
 			EntityAICreeperSwell toRem = null;
@@ -67,13 +67,13 @@ public class ItemModDefuser extends ItemArmorMod {
 					com.hbm.sound.WorldSoundEffects.play(creeper.world, creeper.posX, creeper.posY, creeper.posZ, "hbm:item.pinBreak", 1.0F, 1.0F);
 					creeper.dropItem(ModItems.safety_fuse, 1);
 					creeper.attackEntityFrom(DamageSource.causeMobDamage(entity), 1.0F);
-					creeper.addPotionEffect(new PotionEffect(Potion.weakness.id, 0, 200));
+					creeper.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 0, 200));
 				}
 				creeper.getEntityData().setBoolean("hfr_defused", true);
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 }

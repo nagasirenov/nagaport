@@ -701,9 +701,9 @@ public class Meteorite {
 			if(!target.isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z)) && !replacables.contains(target)) return;
 		}
 
-		float hardness = target.getBlockHardness(world, x, y, z);
+		float hardness = com.hbm.world.WorldBlockState.getBlockHardness(world, x, y, z);
 		if(hardness != -1 && hardness < 10_000)
-			world.setBlock(x, y, z, b, meta, flag);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, b, meta, flag);
 	}
 
 	public static HashSet<Block> replacables = new HashSet();

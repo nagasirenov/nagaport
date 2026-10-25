@@ -20,7 +20,7 @@ public class EntityItemWaste extends EntityItem {
 	}
 
 	@Override
-	public boolean isEntityInvulnerable() {
+	public boolean isEntityInvulnerable(net.minecraft.util.DamageSource source) {
 		return true;
 	}
 

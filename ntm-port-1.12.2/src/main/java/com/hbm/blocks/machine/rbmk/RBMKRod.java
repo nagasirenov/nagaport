@@ -17,11 +17,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockPos;
 
 public class RBMKRod extends RBMKBase {
-	
+
 	public boolean moderated = false;
-	
+
 	public RBMKRod(boolean moderated) {
 		super();
 		this.moderated = moderated;
@@ -51,7 +53,7 @@ public class RBMKRod extends RBMKBase {
 			}
 		}
 		super.breakBlock(world, x, y, z, block, meta);
-		world.removeTileEntity(x, y, z);
+		world.removeTileEntity(new BlockPos(x, y, z));
 	}
 
 	@Override
@@ -61,9 +63,12 @@ public class RBMKRod extends RBMKBase {
 		this.inner = reg.registerIcon(this.getRBMKTexture() + "_inner");
 		this.fuel = reg.registerIcon(this.getRBMKTexture() + "_fuel");
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		BossSpawnHandler.markFBI(player);
 
 		if(world.isRemote) return true;
@@ -78,12 +83,12 @@ public class RBMKRod extends RBMKBase {
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemRBMKLid) {
 			if(!rbmk.hasLid()) return false;
 		}
-		
+
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemRBMKRod && rbmk.slots[0] == null) {
 			rbmk.slots[0] = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
 			rbmk.slots[0].setCount(1);
-			if(!player.capabilities.isCreativeMode) com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
-			world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			if(!player.capabilities.isCreativeMode) com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
+			world.playSound(null, x + 0.5, y + 0.5, z + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 			return false;
 		}
 
@@ -94,7 +99,7 @@ public class RBMKRod extends RBMKBase {
 			return true;
 		}
 	}
-	
+
 	@Override
 	public int getRenderType(){
 		return this.renderIDRods;

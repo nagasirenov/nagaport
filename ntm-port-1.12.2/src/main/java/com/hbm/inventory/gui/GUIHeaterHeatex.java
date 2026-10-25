@@ -91,7 +91,7 @@ public class GUIHeaterHeatex extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		this.fieldCycles.mouseClicked(x, y, i);
@@ -99,7 +99,7 @@ public class GUIHeaterHeatex extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int i) {
+	protected void keyTyped(char c, int i) throws java.io.IOException {
 
 		if(this.fieldCycles.textboxKeyTyped(c, i)) {
 			int cyc = Math.max(NumberUtils.toInt(this.fieldCycles.getText()), 1);

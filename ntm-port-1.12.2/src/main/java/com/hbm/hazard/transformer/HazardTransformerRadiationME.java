@@ -16,15 +16,15 @@ public class HazardTransformerRadiationME extends HazardTransformerBase {
 
 	@Override
 	public void transformPost(ItemStack stack, List<HazardEntry> entries) {
-		
+
 		String name = stack.getItem().getClass().getName();
 		if(name.equals("appeng.items.storage.ItemBasicStorageCell") || name.equals("appeng.items.tools.powered.ToolPortableCell")) {
 			List<ItemStack> stacks = Compat.scrapeItemFromME(stack);
 			float radiation = 0;
 			float neutrons = 0;
 			for(ItemStack held : stacks) {
-				radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.stackSize;
-				neutrons += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.NEUTRON) * held.stackSize;
+				radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.getCount();
+				neutrons += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.NEUTRON) * held.getCount();
 			}
 			if(radiation > 0) {
 				entries.add(new HazardEntry(HazardRegistry.RADIATION, radiation));

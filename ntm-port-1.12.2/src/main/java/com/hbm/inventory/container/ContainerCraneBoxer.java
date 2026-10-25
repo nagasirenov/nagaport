@@ -9,12 +9,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerCraneBoxer extends Container {
-	
+
 	protected TileEntityCraneBoxer boxer;
-	
+
 	public ContainerCraneBoxer(InventoryPlayer invPlayer, TileEntityCraneBoxer boxer) {
 		this.boxer = boxer;
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 7; j++) {
 				this.addSlotToContainer(new Slot(boxer, j + i * 7, 8 + j * 18, 17 + i * 18));
@@ -49,11 +49,11 @@ public class ContainerCraneBoxer extends Container {
 				if(!this.mergeItemStack(var5, 0, boxer.getSizeInventory(), false)) {
 					 return null;
 				}
-				
+
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

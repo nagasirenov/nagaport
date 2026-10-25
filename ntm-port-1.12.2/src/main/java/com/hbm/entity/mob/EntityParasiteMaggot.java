@@ -17,9 +17,9 @@ public class EntityParasiteMaggot extends EntityMob implements ISuffocationImmun
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
 	}
 
 	@Override
@@ -27,9 +27,8 @@ public class EntityParasiteMaggot extends EntityMob implements ISuffocationImmun
 		return false;
 	}
 
-	@Override
 	protected Entity findPlayerToAttack() {
-		return this.world.getClosestVulnerablePlayerToEntity(this, 16);
+		return this.world.getNearestAttackablePlayer(this, 16, 16);
 	}
 
 	@Override

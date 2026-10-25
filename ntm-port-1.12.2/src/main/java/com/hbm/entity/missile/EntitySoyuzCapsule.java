@@ -25,7 +25,7 @@ public class EntitySoyuzCapsule extends EntityThrowable {
 		this.ignoreFrustumCheck = true;
 		this.isImmuneToFire = true;
 	}
-	
+
 	@Override
 	public void onUpdate() {
 
@@ -33,28 +33,28 @@ public class EntitySoyuzCapsule extends EntityThrowable {
 		this.lastTickPosY = this.prevPosY = posY;
 		this.lastTickPosZ = this.prevPosZ = posZ;
 		this.setPosition(posX + this.motionX, posY + this.motionY, posZ + this.motionZ);
-		
+
 		if(this.motionY > -0.2)
 			this.motionY -= 0.02;
-		
+
 		if(posY > 600)
 			posY = 600;
-        
+
         if(com.hbm.world.WorldBlockState.read(this.world, (int)this.posX, (int)this.posY, (int)this.posZ).getBlock() != Blocks.AIR) {
-        	
+
     		this.setDead();
-    		
+
     		if(!this.world.isRemote) {
-    			this.world.setBlock((int)(this.posX), (int)(this.posY + 1), (int)(this.posZ), ModBlocks.soyuz_capsule);
-    			
-    			TileEntitySoyuzCapsule capsule = (TileEntitySoyuzCapsule)this.world.getTileEntity((int)(this.posX), (int)(this.posY + 1), (int)(this.posZ));
+    			com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, (int)(this.posX), (int)(this.posY + 1), (int)(this.posZ), ModBlocks.soyuz_capsule);
+
+    			TileEntitySoyuzCapsule capsule = (TileEntitySoyuzCapsule)com.hbm.world.WorldBlockState.getTileEntity(this.world, (int)(this.posX), (int)(this.posY + 1), (int)(this.posZ));
     			if(capsule != null) {
-    				
+
     				for(int i = 0; i < payload.length; i++) {
     					capsule.setInventorySlotContents(i, payload[i]);
     				}
     			}
-    			
+
     			capsule.setInventorySlotContents(18, new ItemStack(ModItems.missile_soyuz, 1, soyuz));
     		}
         }
@@ -62,9 +62,9 @@ public class EntitySoyuzCapsule extends EntityThrowable {
 
 	@Override
 	protected void onImpact(RayTraceResult p_70184_1_) {
-		
+
 	}
-	
+
     @Override
 	@SideOnly(Side.CLIENT)
     public boolean isInRangeToRenderDist(double distance)
@@ -76,7 +76,7 @@ public class EntitySoyuzCapsule extends EntityThrowable {
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 
 		NBTTagList list = nbt.getTagList("items", 10);
-		
+
 		soyuz = nbt.getInteger("soyuz");
 
 		for (int i = 0; i < list.tagCount(); i++) {
@@ -92,7 +92,7 @@ public class EntitySoyuzCapsule extends EntityThrowable {
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 
 		NBTTagList list = new NBTTagList();
-		
+
 		nbt.setInteger("soyuz", soyuz);
 
 		for (int i = 0; i < payload.length; i++) {

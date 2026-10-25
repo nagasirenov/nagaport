@@ -18,8 +18,15 @@ import net.minecraft.world.World;
 
 public class ItemRBMKLid extends Item {
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
 
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 
@@ -49,15 +56,17 @@ public class ItemRBMKLid extends Item {
 
 			if(this == ModItems.rbmk_lid_glass) {
 				meta = RBMKBase.DIR_GLASS_LID.ordinal();
-				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, Blocks.glass.stepSound.func_150496_b(), (Blocks.glass.stepSound.getVolume() + 1.0F) / 2.0F, Blocks.glass.stepSound.getPitch() * 0.8F);
+				net.minecraft.block.SoundType st = Blocks.GLASS.getSoundType();
+				world.playSound(null, x + 0.5, y + 0.5, z + 0.5, st.getPlaceSound(), net.minecraft.util.SoundCategory.BLOCKS, (st.getVolume() + 1.0F) / 2.0F, st.getPitch() * 0.8F);
 			} else {
-				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, ModBlocks.concrete_smooth.stepSound.func_150496_b(), (ModBlocks.concrete_smooth.stepSound.getVolume() + 1.0F) / 2.0F, ModBlocks.concrete_smooth.stepSound.getPitch() * 0.8F);
+				net.minecraft.block.SoundType st = ModBlocks.concrete_smooth.getSoundType();
+				world.playSound(null, x + 0.5, y + 0.5, z + 0.5, st.getPlaceSound(), net.minecraft.util.SoundCategory.BLOCKS, (st.getVolume() + 1.0F) / 2.0F, st.getPitch() * 0.8F);
 			}
 
 			tile.explodeOnBroken = false;
-			world.setBlockMetadataWithNotify(pos[0], pos[1], pos[2], meta + RBMKBase.offset, 3);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, pos[0], pos[1], pos[2], meta + RBMKBase.offset, 3);
 			tile.explodeOnBroken = true;
-			stack.stackSize--;
+			stack.shrink(1);
 
 			return true;
 		}

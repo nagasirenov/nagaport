@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "hbm:pink_double_slab"
+      }
+    }
+  ]
+}

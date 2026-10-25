@@ -119,12 +119,12 @@ public class TileEntityConveyorPress extends TileEntityMachineBase implements IE
 		if(this.power < usage) return false;
 		if(slots[0] == null) return false;
 
-		List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1.5, this.pos.getZ() + 1));
+		List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, new AxisAlignedBB(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1.5, this.pos.getZ() + 1));
 		if(items.isEmpty()) return false;
 
 		for(EntityMovingItem item : items) {
 			ItemStack stack = item.getItemStack();
-			if(PressRecipes.getOutput(stack, slots[0]) != null && stack.stackSize == 1) {
+			if(PressRecipes.getOutput(stack, slots[0]) != null && stack.getCount() == 1) {
 
 				double d0 = 0.35;
 				double d1 = 0.65;
@@ -141,18 +141,18 @@ public class TileEntityConveyorPress extends TileEntityMachineBase implements IE
 
 	public void process() {
 
-		List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1.5, this.pos.getZ() + 1));
+		List<EntityMovingItem> items = this.world.getEntitiesWithinAABB(EntityMovingItem.class, new AxisAlignedBB(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1.5, this.pos.getZ() + 1));
 
 		for(EntityMovingItem item : items) {
 			ItemStack stack = item.getItemStack();
 			ItemStack output = PressRecipes.getOutput(stack, slots[0]);
 
-			if(output != null && stack.stackSize == 1) {
+			if(output != null && stack.getCount() == 1) {
 				item.setDead();
 				EntityMovingItem out = new EntityMovingItem(this.world);
 				out.setPosition(item.posX, item.posY, item.posZ);
 				out.setItemStack(output.copy());
-				this.world.spawnEntityInWorld(out);
+				this.world.spawnEntity(out);
 			}
 		}
 
@@ -248,7 +248,7 @@ public class TileEntityConveyorPress extends TileEntityMachineBase implements IE
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

@@ -29,10 +29,10 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 	public FluidTank tanks[];
 	public long power;
 	public static final long maxPower = 100_000_000;
-	
+
 	public TileEntityMachineMilkReformer() {
 		super(11);
-		
+
 		this.tanks = new FluidTank[4];
 		this.tanks[0] = new FluidTank(Fluids.MILK, 64_000);
 		this.tanks[1] = new FluidTank(Fluids.EMILK, 32_000);
@@ -67,7 +67,7 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 
 	@Override
 	public FluidTank[] getSendingTanks() {
-		return new FluidTank[] {tanks[1], tanks[2], tanks[3]};	
+		return new FluidTank[] {tanks[1], tanks[2], tanks[3]};
 		}
 
 	@Override
@@ -85,22 +85,22 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return new GUIMilkReformer(player.inventory, this);
 	}
-	
+
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.updateConnections();
 			power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 			tanks[0].loadTank(1, 2, slots);
-			
+
 			refine();
 
 			tanks[1].unloadTank(3, 4, slots);
 			tanks[2].unloadTank(5, 6, slots);
 			tanks[3].unloadTank(7, 8, slots);
-			
+
 			for(DirPos pos : getConPos()) {
 				for(int i = 1; i < 4; i++) {
 					if(tanks[i].getFill() > 0) {
@@ -108,7 +108,7 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 					}
 				}
 			}
-			
+
 			this.networkPackNT(150);
 		}
 	}
@@ -126,9 +126,9 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 		power = buf.readLong();
 		for(int i = 0; i < 4; i++) tanks[i].deserialize(buf);
 	}
-	
+
 	private void refine() {
-		
+
 		if(power < 10_000) return;
 		if(tanks[0].getFill() < 100) return;
 		if(tanks[1].getFill() + 50 > tanks[1].getMaxFill()) return;
@@ -141,14 +141,14 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 		tanks[2].setFill(tanks[2].getFill() + 35);
 		tanks[3].setFill(tanks[3].getFill() + 15);
 	}
-	
+
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
 			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
-	
+
 	public DirPos[] getConPos() {
 		return new DirPos[] {
 			new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
@@ -171,11 +171,11 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 		tanks[2].readFromNBT(nbt, "m2");
 		tanks[3].readFromNBT(nbt, "m3");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		tanks[0].writeToNBT(nbt, "input");
 		tanks[1].writeToNBT(nbt, "m1");
@@ -184,12 +184,12 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 		return nbt;
 	}
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 2,
 				this.pos.getY(),
 				this.pos.getZ() - 2,
@@ -198,10 +198,10 @@ public class TileEntityMachineMilkReformer extends TileEntityMachineBase impleme
 				this.pos.getZ() + 3
 			);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

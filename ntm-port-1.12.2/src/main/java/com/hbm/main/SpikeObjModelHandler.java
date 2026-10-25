@@ -37,7 +37,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public final class SpikeObjModelHandler {
 
 	private static final String TEXTURE = RefStrings.MODID + ":blocks/spikes";
-	private static final ResourceLocation MODEL = new ResourceLocation(RefStrings.MODID, "models/blocks/spikes.obj");
+	private static final ResourceLocation MODEL = new ResourceLocation(RefStrings.MODID, "blocks/spikes.obj");
 
 	@SubscribeEvent
 	public void onModelRegistry(ModelRegistryEvent event) {

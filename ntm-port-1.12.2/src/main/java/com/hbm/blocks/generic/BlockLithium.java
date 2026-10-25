@@ -48,7 +48,7 @@ public class BlockLithium extends BlockBeaconable {
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 
-		if (world.canLightningStrikeAt(x, y + 1, z)) {
+		if (world.isRainingAt(new net.minecraft.util.math.BlockPos(x, y + 1, z))) {
 
 			float ox = rand.nextFloat();
 			float oz = rand.nextFloat();

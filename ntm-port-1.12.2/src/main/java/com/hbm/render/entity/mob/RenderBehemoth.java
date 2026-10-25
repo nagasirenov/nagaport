@@ -23,11 +23,11 @@ import net.minecraft.util.ResourceLocation;
 public class RenderBehemoth extends RenderLiving {
 
 	public static final ResourceLocation glyphid_infested_tex = new ResourceLocation(RefStrings.MODID, "textures/entity/glyphid_infestation.png");
-	
-	public RenderBehemoth() {
-		super(new ModelBehemoth(), 1.0F);
+
+	public RenderBehemoth(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+		super(renderManager, new ModelBehemoth(), 1.0F);
 		this.shadowOpaque = 0.0F;
-		this.setRenderPassModel(this.mainModel);
+		
 	}
 
 	@Override
@@ -35,7 +35,6 @@ public class RenderBehemoth extends RenderLiving {
 		return ResourceManager.behemoth_body_tex;
 	}
 
-	@Override
 	protected int shouldRenderPass(EntityLivingBase entity, int pass, float interp) {
 		if(pass != 0) {
 			return -1;
@@ -51,12 +50,12 @@ public class RenderBehemoth extends RenderLiving {
 		@Override
 		public void setLivingAnimations(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float interp) {
 		    if (entity instanceof EntityWarBehemoth) {
-		        EntityWarBehemoth behemoth = (EntityWarBehemoth) entity; 
+		        EntityWarBehemoth behemoth = (EntityWarBehemoth) entity;
 		        bite = behemoth.getSwingProgress(interp);
 
 
 
-		        int targetId = behemoth.getDataWatcher().getWatchableObjectInt(19);
+		        int targetId = behemoth.getDataManager().get(EntityWarBehemoth.TARGET);
 
 		        EntityLivingBase targetBase = (EntityLivingBase) behemoth.world.getEntityByID(targetId);
 		        if (behemoth.world != null) {
@@ -64,17 +63,17 @@ public class RenderBehemoth extends RenderLiving {
 	    	            double dx = targetBase.posX - behemoth.posX;
 	    	            double dy = (targetBase.posY - targetBase.getEyeHeight()) - (behemoth.posY + behemoth.getEyeHeight());
 	    	            double dz = targetBase.posZ - behemoth.posZ;
-	    	            
+
 
 	    	            // Calculate Pitch (vertical rotation)
 	    	            double horizontalDistance = Math.sqrt(dx * dx + dz * dz);  // Distance in XZ plane
 	    	            double targetPitch = Math.atan2(dy, horizontalDistance) * (-180 / Math.PI);
 	    	            double deltaPitch = MathHelper.wrapDegrees(targetPitch - behemoth.rotationPitch);
 	    	            behemoth.rotationPitch += deltaPitch * 0.1;  // Smooth pitch rotation
-	    	            
+
 		                double targetYaw = Math.atan2(dz, dx) * (180 / Math.PI) - 90;
-		                double deltaYaw = MathHelper.wrapAngleTo180_double(targetYaw - behemoth.newRotationYaw);
-		                behemoth.newRotationYaw += deltaYaw * 0.1; 
+		                double deltaYaw = MathHelper.wrapDegrees(targetYaw - behemoth.newRotationYaw);
+		                behemoth.newRotationYaw += deltaYaw * 0.1;
 		            }
 		        }
 		    }
@@ -88,26 +87,26 @@ public class RenderBehemoth extends RenderLiving {
 			GL11.glTranslatef(0, -1.5F, 0);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glDisable(GL11.GL_CULL_FACE);
-			
+
 			this.renderModel(entity, limbSwing);
 			//GL11.glRotatef((float) headTargetYaw, 1, 0, 0);
 
 			GL11.glPopMatrix();
 		}
-		
+
 		public void renderModel(Entity entity, float limbSwing) {
-			
+
 			GL11.glPushMatrix();
 
 			double s = 1.2;
 			GL11.glScaled(s, s, s);
-			
+
 			EntityLivingBase living = (EntityLivingBase) entity;
-			EntityWarBehemoth behemoth = (EntityWarBehemoth) entity; 
+			EntityWarBehemoth behemoth = (EntityWarBehemoth) entity;
 
-			
 
-			
+
+
 			double walkCycle = limbSwing;
 
 			double cy0 = Math.sin(walkCycle % (Math.PI * 2) * 2);
@@ -121,11 +120,11 @@ public class RenderBehemoth extends RenderLiving {
 			double headTilt = Math.sin(this.bite * Math.PI) * 30;
 			GL11.glDisable(GL11.GL_CULL_FACE);
 
-			GL11.glRotated(-180, 0, 1, 0); 
+			GL11.glRotated(-180, 0, 1, 0);
 
 			GL11.glPushMatrix();
 			GL11.glTranslatef(0, 8.6F, 0.5F);
-			
+
 		    //GL11.glRotated(-behemoth.rotationYawHead, 0, 1, 0);  // Apply yaw rotation
 		    GL11.glRotated(-behemoth.rotationPitch, 1, 0, 0);  // Apply pitch rotation
 			GL11.glTranslatef(0, -8.7F, -0.5F);
@@ -137,7 +136,7 @@ public class RenderBehemoth extends RenderLiving {
 
 			 FMLClientHandler.instance().getClient().renderEngine.bindTexture(ResourceManager.behemoth_helmet_tex);
 			ResourceManager.behemoth.renderPart("helmet");
-			
+
 			GL11.glPushMatrix();
 
 			 FMLClientHandler.instance().getClient().renderEngine.bindTexture(ResourceManager.behemoth_eye_tex);
@@ -151,21 +150,21 @@ public class RenderBehemoth extends RenderLiving {
 			GL11.glPopMatrix();
 
 
-		  
-		    double stepHeight = 5.5; 
-		    double stepLength = 2.5; 
+
+		    double stepHeight = 5.5;
+		    double stepLength = 2.5;
 		    double stepTime = walkCycle * 0.25;
 
-		    double leftFootY = Math.sin(stepTime) * stepHeight - 2.0; 
-		    double leftFootX = Math.sin(stepTime) * stepLength + 5.0; 
-		    double leftFootZ = Math.cos(stepTime) * stepLength + 1.5; 
-		    
-		    double rightFootY = Math.sin(stepTime + Math.PI) * stepHeight - 4.0;
-		    double rightFootX = Math.sin(stepTime + Math.PI) * stepLength + 5.0; 
-		    double rightFootZ = Math.cos(stepTime + Math.PI) * stepLength + 1.5; 
+		    double leftFootY = Math.sin(stepTime) * stepHeight - 2.0;
+		    double leftFootX = Math.sin(stepTime) * stepLength + 5.0;
+		    double leftFootZ = Math.cos(stepTime) * stepLength + 1.5;
 
-		    leftFootY = Math.max(leftFootY, 7.0); 
-		    rightFootY = Math.max(rightFootY, 7.0); 
+		    double rightFootY = Math.sin(stepTime + Math.PI) * stepHeight - 4.0;
+		    double rightFootX = Math.sin(stepTime + Math.PI) * stepLength + 5.0;
+		    double rightFootZ = Math.cos(stepTime + Math.PI) * stepLength + 1.5;
+
+		    leftFootY = Math.max(leftFootY, 7.0);
+		    rightFootY = Math.max(rightFootY, 7.0);
 
 		    GL11.glPushMatrix(); // RIGHT LEG MATRIX START
 
@@ -201,15 +200,15 @@ public class RenderBehemoth extends RenderLiving {
 		    double hipAngle = Math.atan2(deltaY, deltaX) - Math.atan2(shinLength * Math.sin(kneeAngle), thighLength + shinLength * Math.cos(kneeAngle));
 
 		    if (leg.equals("right")) {
-		        GL11.glTranslatef(0, 8.5F, 0.5F); 
-		        GL11.glRotated(hipAngle * (180.0 / Math.PI), 1, 0, 0); 
+		        GL11.glTranslatef(0, 8.5F, 0.5F);
+		        GL11.glRotated(hipAngle * (180.0 / Math.PI), 1, 0, 0);
 		        FMLClientHandler.instance().getClient().renderEngine.bindTexture(ResourceManager.behemoth_hip_tex);
 		        GL11.glTranslatef(0, -8.6F, -0.5F);
 		        ResourceManager.behemoth.renderPart("hip_right");
 		        GL11.glTranslatef(0, 8.6F, 0.5F);
 		    } else {
-		        GL11.glTranslatef(0, 8.5F, 0.5F); 
-		        GL11.glRotated(hipAngle * (180.0 / Math.PI), 1, 0, 0); 
+		        GL11.glTranslatef(0, 8.5F, 0.5F);
+		        GL11.glRotated(hipAngle * (180.0 / Math.PI), 1, 0, 0);
 		        FMLClientHandler.instance().getClient().renderEngine.bindTexture(ResourceManager.behemoth_hip_tex);
 		        GL11.glTranslatef(0, -8.6F, -0.5F);
 		        ResourceManager.behemoth.renderPart("hip_left");
@@ -226,7 +225,7 @@ public class RenderBehemoth extends RenderLiving {
 		    GL11.glTranslatef(0, 6.7F, 0.5F);
 
 		    GL11.glTranslatef(0, -5.6F, 0F);
-		    GL11.glRotated(cosKneeAngle * (-90.0 / Math.PI), 1, 0, 0); 
+		    GL11.glRotated(cosKneeAngle * (-90.0 / Math.PI), 1, 0, 0);
 		    GL11.glTranslatef(0, -1F, -0.5F);
 		    FMLClientHandler.instance().getClient().renderEngine.bindTexture(ResourceManager.behemoth_leg_tex);
 		    ResourceManager.behemoth.renderPart(leg.equals("right") ? "leg_right" : "leg_left");

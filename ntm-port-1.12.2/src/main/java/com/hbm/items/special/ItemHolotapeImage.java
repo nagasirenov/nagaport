@@ -23,6 +23,11 @@ public class ItemHolotapeImage extends ItemHoloTape implements IGUIProvider {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(world.isRemote) player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
 		return stack;
@@ -31,12 +36,12 @@ public class ItemHolotapeImage extends ItemHoloTape implements IGUIProvider {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag) {
-		
+
 		EnumHoloImage holo = EnumUtil.grabEnumSafely(EnumHoloImage.class, stack.getItemDamage());
 		list.add("Band Color: " + holo.colorCode + holo.colorName);
 		list.add("Label: " + holo.name);
 	}
-	
+
 	public static enum EnumHoloImage {
 		HOLO_DIGAMMA(		TextFormatting.RED,			"Crimson",	"D#",				"The tape contains a music track that has degraded heavily in quality, making it near-impossible to make out what it once was. There is an image file on it that has also lost its quality, being reduced to a blur of crimson and cream colors. The disk has small shreds of greasy wrapping paper stuck to it."),
 		HOLO_RESTORED(		TextFormatting.RED,			"Crimson",	"D0",				"The tape contains a music track that you do not recognize, consisting of mostly electric guitars with lyrics telling the story of a man being left by someone who is moving to another city. The tape also contains an image file, the crimson and cream colors sharp on an otherwise colorless background. You try to look closer but you can't. It feels as if reality itself is twisted and stretched and snapped back into shape like a rubber band."),
@@ -57,19 +62,19 @@ public class ItemHolotapeImage extends ItemHoloTape implements IGUIProvider {
 		HOLO_O_3(			TextFormatting.WHITE,		"Chroma",	"X02-FICTION",		"The tape contains an article from a science fiction magazine, engaging with various reader comments about what to do with a time machine. One of those comments suggests engaging in various unsanitary acts with the future self, being signed off with just the initial '~D'."),
 		HOLO_CHALLENGE(		TextFormatting.GRAY,		"None",		"-",				"An empty holotape. The back has the following message scribbled on it with black marker: \"official challenge - convince me that lyons' brotherhood isn't the best brotherhood of steel chapter and win a custom cape!\" The tape smells like chicken nuggets."),
 		;
-		
+
 		private String name;
 		private String text;
 		private String colorName;
 		private TextFormatting colorCode;
-		
+
 		private EnumHoloImage(TextFormatting colorCode, String colorName, String name, String text) {
 			this.name = name;
 			this.text = text;
 			this.colorName = colorName;
 			this.colorCode = colorCode;
 		}
-		
+
 		public String getText() {
 			return this.text;
 		}

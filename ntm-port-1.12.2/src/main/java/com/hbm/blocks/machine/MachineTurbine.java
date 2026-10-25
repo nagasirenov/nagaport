@@ -26,6 +26,8 @@ import net.minecraft.world.World;
 
 public class MachineTurbine extends BlockContainer implements ITooltipProvider {
 
+	protected IIcon blockIcon;
+
 	private final Random field_149933_a = new Random();
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
@@ -33,22 +35,20 @@ public class MachineTurbine extends BlockContainer implements ITooltipProvider {
 	public MachineTurbine(Material p_i45386_1_) {
 		super(p_i45386_1_);
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":machine_turbine_top");
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_turbine_base");
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
-		
+
 		if(side == 0 || side == 1)
 			return this.iconTop;
-		
+
 		return blockIcon;
 	}
 
@@ -56,22 +56,25 @@ public class MachineTurbine extends BlockContainer implements ITooltipProvider {
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		return new TileEntityMachineTurbine();
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote)
 		{
 			return true;
 		} else if(!player.isSneaking())
 		{
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-				
+
 			TileEntityMachineTurbine entity = (TileEntityMachineTurbine) te;
 			if(entity != null)
 			{
 				FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			}
-			
+
 			return true;
 		} else {
 			return false;

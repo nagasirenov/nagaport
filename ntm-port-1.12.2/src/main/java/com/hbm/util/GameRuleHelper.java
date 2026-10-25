@@ -8,26 +8,26 @@ import net.minecraft.world.World;
 public class GameRuleHelper {
 
 	public static double getClampedDouble(World world, RBMKDials.RBMKKeys rule, double min, double max) {
-		return MathHelper.clamp_double(GameRuleHelper.parseDouble(world, world.getGameRules().getGameRuleStringValue(rule.keyString), (double) rule.defValue), min, max);
+		return MathHelper.clamp(GameRuleHelper.parseDouble(world, world.getGameRules().getString(rule.keyString), (double) rule.defValue), min, max);
 	}
 
 	public static int getClampedInt(World world, RBMKDials.RBMKKeys rule, int min, int max) {
-		return MathHelper.clamp_int(GameRuleHelper.parseInt(world, world.getGameRules().getGameRuleStringValue(rule.keyString), (int) rule.defValue), min, max);
+		return MathHelper.clamp(GameRuleHelper.parseInt(world, world.getGameRules().getString(rule.keyString), (int) rule.defValue), min, max);
 	}
 
 	public static double getDoubleMinimum(World world, RBMKDials.RBMKKeys rule, double min) {
-		return Math.max(GameRuleHelper.parseDouble(world, world.getGameRules().getGameRuleStringValue(rule.keyString), (double) rule.defValue), min);
+		return Math.max(GameRuleHelper.parseDouble(world, world.getGameRules().getString(rule.keyString), (double) rule.defValue), min);
 	}
 
 	public static int getIntegerMinimum(World world, RBMKDials.RBMKKeys rule, int min) {
-		return Math.max(GameRuleHelper.parseInt(world, world.getGameRules().getGameRuleStringValue(rule.keyString), (int) rule.defValue), min);
+		return Math.max(GameRuleHelper.parseInt(world, world.getGameRules().getString(rule.keyString), (int) rule.defValue), min);
 	}
 
 	public static double parseDouble(World world, String s, double def) {
 
 		GameRules rules = world.getGameRules();
 		if(s.isEmpty() && !rules.hasRule(s)) {
-			rules.addGameRule(s, String.valueOf(def));
+			rules.addGameRule(s, String.valueOf(def), net.minecraft.world.GameRules.ValueType.ANY_VALUE);
 			return def;
 		}
 
@@ -42,7 +42,7 @@ public class GameRuleHelper {
 
 		GameRules rules = world.getGameRules();
 		if(s.isEmpty() && !rules.hasRule(s)) {
-			rules.addGameRule(s, String.valueOf(def));
+			rules.addGameRule(s, String.valueOf(def), net.minecraft.world.GameRules.ValueType.ANY_VALUE);
 		}
 
 		try {

@@ -14,6 +14,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 
 public class BlockAbsorber extends BlockEnumMulti implements IBlockMulti {
 
@@ -34,7 +36,6 @@ public class BlockAbsorber extends BlockEnumMulti implements IBlockMulti {
 	public BlockAbsorber(Material mat) {
 		super(mat, EnumAbsorberTier.class, true, true);
 		this.setTickRandomly(true);
-		this.setBlockName("rad_absorber");
 	}
 
 	public EnumAbsorberTier getTier(int meta) {
@@ -75,8 +76,9 @@ public class BlockAbsorber extends BlockEnumMulti implements IBlockMulti {
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, tickRate(world));
 	}
 }

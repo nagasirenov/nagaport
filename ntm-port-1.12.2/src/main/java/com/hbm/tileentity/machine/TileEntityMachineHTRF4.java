@@ -223,7 +223,7 @@ public class TileEntityMachineHTRF4 extends TileEntityMachineBase implements IPr
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 11, this.pos.getY() - 2, this.pos.getZ() - 11, this.pos.getX() + 12, this.pos.getY() + 3, this.pos.getZ() + 12);
+		if(bb == null) bb = new AxisAlignedBB(this.pos.getX() - 11, this.pos.getY() - 2, this.pos.getZ() - 11, this.pos.getX() + 12, this.pos.getY() + 3, this.pos.getZ() + 12);
 		return bb;
 	}
 

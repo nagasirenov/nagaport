@@ -10,12 +10,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerSolidifier extends Container {
-	
+
 	private TileEntityMachineSolidifier solidifier;
 
 	public ContainerSolidifier(InventoryPlayer playerInv, TileEntityMachineSolidifier tile) {
 		solidifier = tile;
-		
+
 		//Input
 		this.addSlotToContainer(new Slot(tile, 0, 71, 45));
 		//Battery
@@ -59,7 +59,7 @@ public class ContainerSolidifier extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

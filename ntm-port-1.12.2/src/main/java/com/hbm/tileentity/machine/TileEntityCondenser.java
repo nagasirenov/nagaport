@@ -80,7 +80,7 @@ public class TileEntityCondenser extends TileEntityLoadedBase implements IFluidS
 				if(convert > 0)
 					this.waterTimer = 20;
 
-				int light = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				int light = this.world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 
 				boolean shouldEvaporate = TomSaveData.forWorld(this.world).fire > 1e-5 && light > 7;
 				if(!shouldEvaporate && !vacuumOptimised) {

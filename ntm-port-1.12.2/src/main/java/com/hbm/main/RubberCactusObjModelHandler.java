@@ -38,7 +38,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public final class RubberCactusObjModelHandler {
 
 	private static final BlockRubberCacti BLOCK = (BlockRubberCacti) ModBlocks.spike_cacti;
-	private static final ResourceLocation MODEL = new ResourceLocation(RefStrings.MODID, "models/plant_spike.obj");
+	private static final ResourceLocation MODEL = new ResourceLocation(RefStrings.MODID, "plant_spike.obj");
 
 	@SubscribeEvent
 	public void onModelRegistry(ModelRegistryEvent event) {
@@ -61,12 +61,12 @@ public final class RubberCactusObjModelHandler {
 
 		BlockRubberCacti.EnumBushType[] types = BlockRubberCacti.EnumBushType.values();
 		for(int meta = 0; meta < types.length; meta++) {
-			String iconName = BLOCK.getIcon(0, meta).getIconName();
+			String iconName = RefStrings.MODID + ":blocks/rubber_tall." + types[meta].getName();
 			ModelResourceLocation worldLocation = new ModelResourceLocation(name, "type=" + types[meta].getName());
 			event.getModelRegistry().putObject(worldLocation, bakeObj(iconName, DefaultVertexFormats.BLOCK, false));
 		}
 
-		String itemIconName = BLOCK.getIcon(0, 0).getIconName();
+		String itemIconName = RefStrings.MODID + ":blocks/rubber_tall." + types[0].getName();
 		IBakedModel itemModel = bakeObj(itemIconName, DefaultVertexFormats.ITEM, true);
 
 		Item item = Item.getItemFromBlock(BLOCK);

@@ -33,7 +33,7 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 	public LoadingScreenRendererNT(Minecraft mc) {
 		super(mc);
 		this.mc = mc;
-		this.resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+		this.resolution = new ScaledResolution(mc);
 		this.frameBuffer = new Framebuffer(mc.displayWidth, mc.displayHeight, false);
 		this.frameBuffer.setFramebufferFilter(9728);
 	}
@@ -50,16 +50,16 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 	}
 
 	@Override
-	public void displayProgressMessage(String message) {
+	public void displayLoadingString(String message) {
 		this.doesProgress = true;
 		this.func_73722_d(message);
 	}
 
-	@Override
 	public void func_73722_d(String message) {
 		this.currentlyDisplayedText = message;
 
-		if(!this.mc.running) {
+		boolean isGameRunning = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(Minecraft.class, this.mc, "field_71425_J", "running");
+		if(!isGameRunning) {
 			if(!this.doesProgress) {
 				throw new MinecraftError();
 			}
@@ -72,7 +72,7 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 				int scale = this.resolution.getScaleFactor();
 				GL11.glOrtho(0.0D, (this.resolution.getScaledWidth() * scale), (this.resolution.getScaledHeight() * scale), 0.0D, 100.0D, 300.0D);
 			} else {
-				ScaledResolution scaledresolution = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
+				ScaledResolution scaledresolution = new ScaledResolution(this.mc);
 				GL11.glOrtho(0.0D, scaledresolution.getScaledWidth_double(), scaledresolution.getScaledHeight_double(), 0.0D, 100.0D, 300.0D);
 			}
 
@@ -82,9 +82,9 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 		}
 	}
 
-	@Override
 	public void resetProgresAndWorkingMessage(String message) {
-		if(!this.mc.running) {
+		boolean isGameRunning = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(Minecraft.class, this.mc, "field_71425_J", "running");
+		if(!isGameRunning) {
 			if(!this.doesProgress) {
 				throw new MinecraftError();
 			}
@@ -98,7 +98,8 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 
 	@Override
 	public void setLoadingProgress(int p_73718_1_) {
-		if(!this.mc.running) {
+		boolean isGameRunning = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(Minecraft.class, this.mc, "field_71425_J", "running");
+		if(!isGameRunning) {
 			if(!this.doesProgress) {
 				throw new MinecraftError();
 			}
@@ -107,7 +108,7 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 
 			if(time - this.time >= 100L) {
 				this.time = time;
-				ScaledResolution scaledresolution = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
+				ScaledResolution scaledresolution = new ScaledResolution(this.mc);
 				int scaleFactor = scaledresolution.getScaleFactor();
 				int width = scaledresolution.getScaledWidth();
 				int height = scaledresolution.getScaledHeight();
@@ -130,10 +131,11 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 					GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
 				}
 
+				try {
 				if(!FMLClientHandler.instance().handleLoadingScreen(scaledresolution)) {
 					Tessellator tessellator = Tessellator.getInstance();
 					BufferBuilder tessellatorBuffer = tessellator.getBuffer();
-					this.mc.getTextureManager().bindTexture(Gui.optionsBackground);
+					this.mc.getTextureManager().bindTexture(Gui.OPTIONS_BACKGROUND);
 					float f = 32.0F;
 					tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
 					int tessellatorColor0Packed = 4210752;
@@ -175,18 +177,21 @@ public class LoadingScreenRendererNT extends LoadingScreenRenderer {
 						this.mc.fontRenderer.drawStringWithShadow(TextFormatting.YELLOW + frag, (width - this.mc.fontRenderer.getStringWidth(frag)) / 2, height / 2 - 4 - 60 + i * 10, 16777215);
 					}
 				}
+				} catch (java.io.IOException e) {
+					throw new RuntimeException(e);
+				}
 				this.frameBuffer.unbindFramebuffer();
 
 				if(OpenGlHelper.isFramebufferEnabled()) {
 					this.frameBuffer.framebufferRender(width * scaleFactor, height * scaleFactor);
 				}
 
-				this.mc.func_147120_f();
+				this.mc.updateDisplay();
 
 				try { Thread.yield(); } catch(Exception exception) { }
 			}
 		}
 	}
 
-	@Override public void func_146586_a() { }
+	public void func_146586_a() { }
 }

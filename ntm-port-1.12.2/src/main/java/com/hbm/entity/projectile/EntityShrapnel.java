@@ -56,29 +56,29 @@ public class EntityShrapnel extends EntityThrowable {
 		}
 
 		if(this.ticksExisted > 5) {
-			
+
 			if(!this.world.isRemote)
 				this.setDead();
 
 			int b = this.dataManager.get(SHRAPNEL_TYPE);
 			if(b == 2 || b == 4) {
-				
+
 				if(!this.world.isRemote) {
 					if(motionY < -0.2D) {
-						
+
 						if(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(blockX, blockY + 1, blockZ)))
-							this.world.setBlock(blockX, blockY + 1, blockZ, b == 2 ? ModBlocks.volcanic_lava_block : ModBlocks.rad_lava_block);
-						
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, blockX, blockY + 1, blockZ, b == 2 ? ModBlocks.volcanic_lava_block : ModBlocks.rad_lava_block);
+
 						for(int x = blockX - 1; x <= blockX + 1; x++) {
 							for(int y = blockY; y <= blockY + 2; y++) {
 								for(int z = blockZ - 1; z <= blockZ + 1; z++) {
 									if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock() == Blocks.AIR)
-										this.world.setBlock(x, y, z, ModBlocks.gas_monoxide);
+										com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.gas_monoxide);
 								}
 							}
 						}
 					}
-					
+
 					if(motionY > 0) {
 						ExplosionNT explosion = new ExplosionNT(this.world, null, blockX + 0.5, blockY + 0.5, blockZ + 0.5, 7);
 						explosion.addAttrib(ExAttrib.NODROP);
@@ -89,15 +89,15 @@ public class EntityShrapnel extends EntityThrowable {
 						explosion.explode();
 					}
 				}
-				
+
 			} else if(this.dataManager.get(SHRAPNEL_TYPE) == 3) {
-				
+
 				if(com.hbm.world.WorldBlockState.read(this.world, blockX, blockY + 1, blockZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(blockX, blockY + 1, blockZ))) {
-					this.world.setBlock(blockX, blockY + 1, blockZ, ModBlocks.mud_block);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, blockX, blockY + 1, blockZ, ModBlocks.mud_block);
 				}
-				
+
 			} else {
-				
+
 				for(int i = 0; i < 5; i++) this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, posX, posY, posZ, 0.0, 0.0, 0.0);
 			}
 

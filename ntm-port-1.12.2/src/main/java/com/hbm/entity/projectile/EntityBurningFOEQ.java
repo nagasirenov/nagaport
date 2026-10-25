@@ -18,7 +18,7 @@ public class EntityBurningFOEQ extends EntityThrowable {
 		super(p_i1582_1_);
 		this.ignoreFrustumCheck = true;
 	}
-	
+
 	@Override
 	public void onUpdate() {
 
@@ -27,20 +27,20 @@ public class EntityBurningFOEQ extends EntityThrowable {
 		this.lastTickPosY = this.prevPosY = posY;
 		this.lastTickPosZ = this.prevPosZ = posZ;
 		this.setPosition(posX + this.motionX, posY + this.motionY, posZ + this.motionZ);
-		
+
 		/*this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
-		
+
 		this.posX += this.motionX;
 		this.posY += this.motionY;
 		this.posZ += this.motionZ;*/
-        
+
 		if(motionY > -4)
 			motionY -= 0.1;
-		
+
         this.rotation();
-        
+
         if(com.hbm.world.WorldBlockState.read(this.world, (int)this.posX, (int)this.posY, (int)this.posZ).getBlock() != Blocks.AIR)
         {
     		if(!this.world.isRemote) {
@@ -50,14 +50,14 @@ public class EntityBurningFOEQ extends EntityThrowable {
     		}
     		this.setDead();
         }
-        
+
         //if(!this.worldObj.isRemote) {
         //	Vec3d vec = new Vec3d(motionX, motionY, motionZ);
         //	vec.normalize();
-        //	worldObj.spawnEntityInWorld(new EntityDSmokeFX(worldObj, posX/* - vec.x * 30*/ + rand.nextGaussian() * 0.5, posY/* - vec.y * 30*/ + rand.nextGaussian() * 0.5, posZ/* - vec.z * 30*/ + rand.nextGaussian() * 0.5, 0, 0, 0));
+        //	worldObj.spawnEntity(new EntityDSmokeFX(worldObj, posX/* - vec.x * 30*/ + rand.nextGaussian() * 0.5, posY/* - vec.y * 30*/ + rand.nextGaussian() * 0.5, posZ/* - vec.z * 30*/ + rand.nextGaussian() * 0.5, 0, 0, 0));
         //}
 	}
-	
+
 	public void rotation() {
         float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
         this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
@@ -86,7 +86,7 @@ public class EntityBurningFOEQ extends EntityThrowable {
 	@Override
 	protected void onImpact(RayTraceResult p_70184_1_) {
 	}
-	
+
     @Override
 	@SideOnly(Side.CLIENT)
     public boolean isInRangeToRenderDist(double distance)
@@ -96,13 +96,13 @@ public class EntityBurningFOEQ extends EntityThrowable {
 
     @Override
 	@SideOnly(Side.CLIENT)
-    public int getBrightnessForRender(float p_70070_1_)
+    public int getBrightnessForRender()
     {
         return 15728880;
     }
 
     @Override
-	public float getBrightness(float p_70013_1_)
+	public float getBrightness()
     {
         return 1.0F;
     }

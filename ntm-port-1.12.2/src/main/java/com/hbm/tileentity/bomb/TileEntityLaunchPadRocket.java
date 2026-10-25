@@ -133,15 +133,15 @@ public class TileEntityLaunchPadRocket extends TileEntityMachineBase implements 
 							for(int oy = height + 3; oy < newHeight + 3; oy++) {
 								if(this.pos.getY() + oy > 255) break;
 
-								this.world.setBlock(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, meta, 3);
-								this.world.setBlock(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 5, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 5, ModBlocks.launch_pad_rocket, meta, 3);
-								this.world.setBlock(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, meta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, meta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 5, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 5, ModBlocks.launch_pad_rocket, meta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, meta, 3);
 
-								this.world.setBlock(this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, meta, 3);
-								this.world.setBlock(this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, meta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, meta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 4, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, meta, 3);
 
-								this.world.setBlock(this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, meta, 3);
-								this.world.setBlock(this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, meta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 3 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 3 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, meta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 4 - dir.offsetX * 6, this.pos.getY() + oy, this.pos.getZ() - rot.offsetZ * 4 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, meta, 3);
 							}
 						} else {
 							for(int oy = height + 3; oy >= newHeight + 3; oy--) {
@@ -186,28 +186,28 @@ public class TileEntityLaunchPadRocket extends TileEntityMachineBase implements 
 						}
 
 						if(newHeight >= 8) {
-							this.world.setBlock(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 3, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 3, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 3, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 3, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
 
-							this.world.setBlock(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 1, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 2, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 3, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 5, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 1, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 2, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 3, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 5, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + newHeight + 2, this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
 
-							this.world.setBlock(this.pos.getX() - dir.offsetX * 1, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 1, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - dir.offsetX * 2, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 2, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - dir.offsetX * 3, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 3, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - dir.offsetX * 4, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - dir.offsetX * 5, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 5, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() - dir.offsetX * 6, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - dir.offsetX * 1, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 1, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - dir.offsetX * 2, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 2, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - dir.offsetX * 3, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 3, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - dir.offsetX * 4, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - dir.offsetX * 5, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 5, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - dir.offsetX * 6, this.pos.getY() + newHeight + 2, this.pos.getZ() - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
 
-							this.world.setBlock(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 1, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 2, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 3, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 5, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
-							this.world.setBlock(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 1, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 1, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 2, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 2, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 3, ModBlocks.launch_pad_rocket, dir.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 4, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 4, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 5, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 5, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 6, this.pos.getY() + newHeight + 2, this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 6, ModBlocks.launch_pad_rocket, rot.ordinal(), 3);
 						}
 
 						BlockDummyable.safeRem = false;
@@ -220,12 +220,12 @@ public class TileEntityLaunchPadRocket extends TileEntityMachineBase implements 
 			networkPackNT(250);
 		}
 
-		List<EntityPlayer> sideLadderPlayers = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.25, this.pos.getY(), this.pos.getZ() + 0.25, this.pos.getX() + 0.75, this.pos.getY() + 3, this.pos.getZ() + 0.75).offset(-rot.offsetX * 6.5 - dir.offsetX * 5, 0, -rot.offsetZ * 6.5 - dir.offsetZ * 5));
+		List<EntityPlayer> sideLadderPlayers = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.25, this.pos.getY(), this.pos.getZ() + 0.25, this.pos.getX() + 0.75, this.pos.getY() + 3, this.pos.getZ() + 0.75).offset(-rot.offsetX * 6.5 - dir.offsetX * 5, 0, -rot.offsetZ * 6.5 - dir.offsetZ * 5));
 		for(EntityPlayer player : sideLadderPlayers)
 			HbmPlayerProps.getData(player).isOnLadder = true;
 
 		if(height >= 8) {
-			List<EntityPlayer> mainLadderPlayers = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.25, this.pos.getY() + 3, this.pos.getZ() + 0.25, this.pos.getX() + 0.75, this.pos.getY() + 3 + height, this.pos.getZ() + 0.75).offset(-rot.offsetX * 2.5 - dir.offsetX * 5, 0, -rot.offsetZ * 2.5 - dir.offsetZ * 5));
+			List<EntityPlayer> mainLadderPlayers = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.25, this.pos.getY() + 3, this.pos.getZ() + 0.25, this.pos.getX() + 0.75, this.pos.getY() + 3 + height, this.pos.getZ() + 0.75).offset(-rot.offsetX * 2.5 - dir.offsetX * 5, 0, -rot.offsetZ * 2.5 - dir.offsetZ * 5));
 			for(EntityPlayer player : mainLadderPlayers)
 				HbmPlayerProps.getData(player).isOnLadder = true;
 		}
@@ -234,7 +234,7 @@ public class TileEntityLaunchPadRocket extends TileEntityMachineBase implements 
 	private boolean isPadObstructed() {
 		for(int ox = 0; ox <= 0; ox++) {
 			for(int oz = 0; oz <= 0; oz++) {
-				if(!this.world.canBlockSeeTheSky(this.pos.getX() + ox, this.pos.getY() + 2, this.pos.getZ() + oz)) {
+				if(!this.world.canSeeSky(new net.minecraft.util.math.BlockPos(this.pos.getX() + ox, this.pos.getY() + 2, this.pos.getZ() + oz))) {
 					return true;
 				}
 			}
@@ -269,7 +269,7 @@ public class TileEntityLaunchPadRocket extends TileEntityMachineBase implements 
 		if(!canLaunch()) return;
 
 		EntityRideableRocket rocket = new EntityRideableRocket(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 3.0F, this.pos.getZ() + 0.5F, slots[0]).withProgram(slots[1]).launchedBy(player);
-		this.world.spawnEntityInWorld(rocket);
+		this.world.spawnEntity(rocket);
 
 		// Deplete all fills
 		for(int i = 0; i < tanks.length; i++) tanks[i] = new FluidTank(Fluids.NONE, 64_000);
@@ -638,11 +638,11 @@ public class TileEntityLaunchPadRocket extends TileEntityMachineBase implements 
 
 	@Override
 	@Optional.Method(modid = "OpenComputers")
-	public boolean canConnectNode(ForgeDirection side) {
+	public boolean canConnectNode(net.minecraft.util.EnumFacing side) {
 		// Get direction of ports.
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		// Only connect if port is facing outwards, mainly to prevent component clutter with the ports connecting to eachother.
-		return side == dir;
+		return side == net.minecraft.util.EnumFacing.byIndex(dir.ordinal());
 	}
 
 	@Override

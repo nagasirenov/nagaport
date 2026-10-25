@@ -10,6 +10,7 @@ import com.hbm.world.gen.nbt.INBTBlockTransformable;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -61,7 +62,7 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 	}
 
 	@Override
-	public ItemStack getPickBlock(RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(net.minecraft.block.state.IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
@@ -72,11 +73,17 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 			return new ItemStack(this, 1, entity.type.ordinal());
 		}
 
-		return super.getPickBlock(target, world, pos, player);
+		return super.getPickBlock(state, target, world, pos, player);
 	}
 
-	@Override
-	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
+
+		@Override
+	public void onBlockHarvested(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.player.EntityPlayer player) {
+		int meta = state.getBlock().getMetaFromState(state);
+		onBlockHarvested(worldIn, pos.getX(), pos.getY(), pos.getZ(), meta, player);
+	}
+
+public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
 
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
@@ -95,13 +102,17 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 	}
 
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
-		player.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);
+	public void harvestBlock(World world, EntityPlayer player, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.tileentity.TileEntity te, net.minecraft.item.ItemStack tool) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ(); int meta = state.getBlock().getMetaFromState(state);
+		player.addStat(net.minecraft.stats.StatList.getBlockStats(this), 1);
 		player.addExhaustion(0.025F);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 
 		if(world.isRemote) {
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
@@ -114,7 +125,8 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+	public void getSubBlocks(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+	net.minecraft.item.Item item = net.minecraft.item.Item.getItemFromBlock(this);
 
 		for(int i = 1; i < BobbleType.values().length; i++)
 			list.add(new ItemStack(item, 1, i));
@@ -124,23 +136,17 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int meta = MathHelper.floor((double)((player.rotationYaw + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
-		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta, 2);
 
 		TileEntityBobble bobble = (TileEntityBobble) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		bobble.type = BobbleType.values()[Math.abs(stack.getItemDamage()) % BobbleType.values().length];
 		bobble.markDirty();
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		float f = 0.0625F;
-		this.setBlockBounds(5.5F * f, 0.0F, 5.5F * f, 1.0F - 5.5F * f, 0.625F, 1.0F - 5.5F * f);
-	}
+	private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(5.5F * 0.0625F, 0.0F, 5.5F * 0.0625F, 1.0F - 5.5F * 0.0625F, 0.625F, 1.0F - 5.5F * 0.0625F);
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		this.setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return BOUNDS;
 	}
 
 	@Override

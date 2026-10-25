@@ -42,12 +42,18 @@ public class ItemMuchoMango extends ItemFood {
 
 	@Override
 	public EnumAction getItemUseAction(ItemStack p_77661_1_) {
-		return EnumAction.drink;
+		return EnumAction.DRINK;
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+		player.setActiveHand(net.minecraft.util.EnumHand.MAIN_HAND);
 
 		return stack;
 	}

@@ -72,7 +72,7 @@ public abstract class BiomeGenBaseCelestial extends Biome implements CelestialBi
 			net.minecraft.block.state.IBlockState state = primer.getBlockState(x & 15, y, z & 15);
 			Block block = state.getBlock();
 			blocks[y] = block;
-			metadata[y] = (byte)Block.getMetaFromState(state);
+			metadata[y] = (byte)state.getBlock().getMetaFromState(state);
 		}
 
 		if(!genTerrainBlocksLegacy(world, random, blocks, metadata, x, z, noise)) {

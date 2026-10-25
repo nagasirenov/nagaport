@@ -8,6 +8,7 @@ import java.util.Map;
 import com.hbm.lib.RefStrings;
 import com.hbm.render.icon.LegacyIconRegister;
 import com.hbm.render.icon.IIconRegister;
+import com.hbm.render.icon.PlainCubeLegacyIcons;
 
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -30,6 +31,7 @@ public final class LegacyIconRegistrationHandler {
 	public void onTextureStitchPre(TextureStitchEvent.Pre event) {
 		TextureMap map = event.getMap();
 		LegacyIconRegister register = new LegacyIconRegister(map);
+		PlainCubeLegacyIcons.register(register);
 		int blockCount = registerBlocks(register);
 		int itemCount = registerItems(new LegacyIconRegister(map, true));
 		MainRegistry.logger.debug("Invoked legacy icon callbacks for {} NTM blocks and {} NTM items", blockCount, itemCount);

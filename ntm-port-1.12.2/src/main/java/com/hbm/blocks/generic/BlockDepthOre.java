@@ -8,10 +8,11 @@ import com.hbm.items.ModItems;
 import net.minecraft.item.Item;
 
 public class BlockDepthOre extends BlockDepth {
-	
+
 	@Override
-	public Item getItemDropped(int metadata, Random rand, int fortune) {
-		
+	public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState state, Random rand, int fortune) {
+		int metadata = state.getBlock().getMetaFromState(state);
+
 		if(this == ModBlocks.cluster_depth_iron) {
 			return ModItems.crystal_iron;
 		}
@@ -36,13 +37,13 @@ public class BlockDepthOre extends BlockDepth {
 		if(this == ModBlocks.ore_alexandrite) {
 			return ModItems.gem_alexandrite;
 		}
-		
-		return super.getItemDropped(metadata, rand, fortune);
+
+		return super.getItemDropped(this.getStateFromMeta(metadata), rand, fortune);
 	}
-	
+
 	@Override
 	public int quantityDropped(Random rand) {
-		
+
 		if(this == ModBlocks.ore_depth_cinnebar) {
 			return 2 + rand.nextInt(3);
 		}
@@ -52,13 +53,13 @@ public class BlockDepthOre extends BlockDepth {
 		if(this == ModBlocks.ore_depth_nether_neodymium) {
 			return 2 + rand.nextInt(2);
 		}
-		
+
 		return super.quantityDropped(rand);
 	}
-	
+
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random rand) {
-		
+
 		int mult = rand.nextInt(fortune + 2) - 1;
 
 		if(mult < 0) {

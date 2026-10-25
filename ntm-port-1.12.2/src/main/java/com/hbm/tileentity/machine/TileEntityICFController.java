@@ -23,20 +23,20 @@ import net.minecraft.util.DamageSource;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityICFController extends TileEntityTickingBase implements IEnergyReceiverMK2, IConfigurableMachine {
-	
+
 	public long power;
 	public int laserLength;
-	
+
 	public int cellCount;
 	public int emitterCount;
 	public int capacitorCount;
 	public int turbochargerCount;
-	
+
 	public static int capacitorPower = 2_500_000;
 	public static int turboPower = 5_000_000;
 
 	protected List<BlockPos> ports = new ArrayList();
-	
+
 	public boolean assembled;
 
 	@Override
@@ -55,24 +55,24 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 		writer.name("I:capacitorPower").value(capacitorPower);
 		writer.name("I:turboPower").value(turboPower);
 	}
-	
+
 	public void setup(HashSet<BlockPos> ports, HashSet<BlockPos> cells, HashSet<BlockPos> emitters, HashSet<BlockPos> capacitors, HashSet<BlockPos> turbochargers) {
 
 		this.cellCount = 0;
 		this.emitterCount = 0;
 		this.capacitorCount = 0;
 		this.turbochargerCount = 0;
-		
+
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getOpposite();
 		BlockPos pos = new BlockPos(0, 0, 0);
 
 		HashSet<BlockPos> validCells = new HashSet();
 		HashSet<BlockPos> validEmitters = new HashSet();
 		HashSet<BlockPos> validCapacitors = new HashSet();
-		
+
 		for(int i = 0; i < cells.size(); i++) {
 			int j = i + 1;
-			
+
 			if(cells.contains(pos.mutate(this.pos.getX() + dir.offsetX * j, this.pos.getY(), this.pos.getZ() + dir.offsetZ * j))) {
 				this.cellCount++;
 				validCells.add(pos.clone());
@@ -80,40 +80,39 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 				break;
 			}
 		}
-		
+
 		for(BlockPos emitter : emitters) { for(ForgeDirection offset : ForgeDirection.VALID_DIRECTIONS) {
 				pos.mutate(emitter.getX() + offset.offsetX, emitter.getY() + offset.offsetY, emitter.getZ() + offset.offsetZ);
 				if(validCells.contains(pos)) { this.emitterCount++; validEmitters.add(emitter.clone()); break; }
 			}
 		}
-		
+
 		for(BlockPos capacitor : capacitors) { for(ForgeDirection offset : ForgeDirection.VALID_DIRECTIONS) {
 				pos.mutate(capacitor.getX() + offset.offsetX, capacitor.getY() + offset.offsetY, capacitor.getZ() + offset.offsetZ);
 				if(validEmitters.contains(pos)) { this.capacitorCount++; validCapacitors.add(capacitor.clone()); break; }
 			}
 		}
-		
+
 		for(BlockPos turbo : turbochargers) { for(ForgeDirection offset : ForgeDirection.VALID_DIRECTIONS) {
 				pos.mutate(turbo.getX() + offset.offsetX, turbo.getY() + offset.offsetY, turbo.getZ() + offset.offsetZ);
 				if(validCapacitors.contains(pos)) { this.turbochargerCount++; break; }
 			}
 		}
-		
+
 		this.ports.addAll(ports);
 	}
 
-	@Override
 	public String getInventoryName() {
 		return "container.icfController";
 	}
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.networkPackNT(50);
-			
+
 			if(this.assembled) {
 				for(BlockPos pos : ports) {
 					for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
@@ -121,14 +120,14 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 						if(this.getMaxPower() > 0) this.trySubscribe(this.world, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
 					}
 				}
-				
+
 				if(this.power > 0) {
-		
+
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
-					
+
 					for(int i = 1; i < 50; i++) {
 						this.laserLength = i;
-						
+
 						net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i);
 						Block b = nativeAirState.getBlock();
 						if(b == ModBlocks.icf) {
@@ -140,38 +139,38 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 								break;
 							}
 						}
-						
+
 						if(!b.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i))) {
 							float hardness = b.getExplosionResistance(null);
 							if(hardness < 6000) com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX() + dir.offsetX * i, this.pos.getY(), this.pos.getZ() + dir.offsetZ * i, false);
 							break;
 						}
 					}
-		
+
 					double blx = Math.min(this.pos.getX(), this.pos.getX() + dir.offsetX * laserLength) + 0.2;
 					double bux = Math.max(this.pos.getX(), this.pos.getX() + dir.offsetX * laserLength) + 0.8;
 					double bly = Math.min(this.pos.getY(), this.pos.getY() + dir.offsetY * laserLength) + 0.2;
 					double buy = Math.max(this.pos.getY(), this.pos.getY() + dir.offsetY * laserLength) + 0.8;
 					double blz = Math.min(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * laserLength) + 0.2;
 					double buz = Math.max(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * laserLength) + 0.8;
-					
-					List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
-					
+
+					List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(blx, bly, blz, bux, buy, buz));
+
 					for(Entity e : list) {
-						e.attackEntityFrom(DamageSource.inFire, 50);
+						e.attackEntityFrom(DamageSource.IN_FIRE, 50);
 						e.setFire(5);
 					}
-					
+
 					this.setPower(0);
 				} else {
 					this.laserLength = 0;
 				}
-				
+
 			} else {
 				this.laserLength = 0;
 			}
 		} else {
-			
+
 			if(this.laserLength > 0 && this.world.rand.nextInt(5) == 0) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
@@ -190,7 +189,7 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 		buf.writeInt(turbochargerCount);
 		buf.writeInt(laserLength);
 	}
-	
+
 	@Override public void deserialize(ByteBuf buf) {
 		super.deserialize(buf);
 		this.power = buf.readLong();
@@ -198,19 +197,19 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 		this.turbochargerCount = buf.readInt();
 		this.laserLength = buf.readInt();
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		this.power = nbt.getLong("power");
-		
+
 		this.assembled = nbt.getBoolean("assembled");
 		this.cellCount = nbt.getInteger("cellCount");
 		this.emitterCount = nbt.getInteger("emitterCount");
 		this.capacitorCount = nbt.getInteger("capacitorCount");
 		this.turbochargerCount = nbt.getInteger("turbochargerCount");
-		
+
 		ports.clear();
 		int portCount = nbt.getInteger("portCount");
 		for(int i = 0; i < portCount; i++) {
@@ -218,19 +217,19 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 			ports.add(new BlockPos(port[0], port[1], port[2]));
 		}
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
-		
+
 		nbt.setBoolean("assembled", assembled);
 		nbt.setInteger("cellCount", cellCount);
 		nbt.setInteger("emitterCount", emitterCount);
 		nbt.setInteger("capacitorCount", capacitorCount);
 		nbt.setInteger("turbochargerCount", turbochargerCount);
-		
+
 		nbt.setInteger("portCount", ports.size());
 		for(int i = 0; i < ports.size(); i++) {
 			BlockPos pos = ports.get(i);
@@ -253,14 +252,14 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 	public long getMaxPower() {
 		return (long) (Math.sqrt(capacitorCount) * capacitorPower + Math.sqrt(Math.min(turbochargerCount, capacitorCount)) * turboPower);
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() + 0.5 - 50,
 					this.pos.getY(),
 					this.pos.getZ() + 0.5 - 50,
@@ -269,7 +268,7 @@ public class TileEntityICFController extends TileEntityTickingBase implements IE
 					this.pos.getZ() + 0.5 + 50
 					);
 		}
-		
+
 		return bb;
 	}
 }

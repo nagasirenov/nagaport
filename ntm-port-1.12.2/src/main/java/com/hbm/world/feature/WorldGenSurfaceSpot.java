@@ -20,7 +20,6 @@ public class WorldGenSurfaceSpot extends WorldGenerator {
 		this.chance = chance;
 	}
 
-	@Override
 	public boolean generate(World world, Random rand, BlockPos pos) {
 		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		int r = rand.nextInt(this.radius - 2) + 2;

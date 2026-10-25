@@ -20,6 +20,8 @@ import java.util.List;
 
 public class FluidValve extends FluidDuctBase implements ILookOverlay {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconOn;
 
@@ -27,14 +29,12 @@ public class FluidValve extends FluidDuctBase implements ILookOverlay {
 		super(mat);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconOn = iconRegister.registerIcon(RefStrings.MODID + ":fluid_valve_on");
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":fluid_valve_off");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return metadata == 1 ? iconOn : blockIcon;
@@ -46,20 +46,23 @@ public class FluidValve extends FluidDuctBase implements ILookOverlay {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 
 		if(world.isRemote) return true;
 
-		if(super.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ)) return true;
+		if(super.onBlockActivated(world, nativePos, nativeState, player, nativeHand, nativeFacing, hitX, hitY, hitZ)) return true;
 
 		if(!player.isSneaking()) {
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			TileEntityFluidValve te = (TileEntityFluidValve) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(meta == 0) {
-				world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 1, 2);
 				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 1.0F);
 			} else {
-				world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 0, 2);
 				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 0.85F);
 			}
 

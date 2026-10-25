@@ -39,9 +39,9 @@ public class ItemModAuto extends ItemArmorMod {
 			
 			if(HbmLivingProps.getDigamma(entity) >= 5F) {
 				ArmorModHandler.removeMod(armor, ArmorModHandler.extra);
-				entity.world.playSoundAtEntity(entity, "hbm:item.syringe", 1.0F, 1.0F);
+				entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.syringe"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				HbmLivingProps.setDigamma(entity, HbmLivingProps.getDigamma(entity) - 5F);
-				entity.addPotionEffect(new PotionEffect(HbmPotion.stability.id, 60 * 20, 0));
+				entity.addPotionEffect(new PotionEffect(HbmPotion.stability, 60 * 20, 0));
 				entity.heal(20F);
 			}
 		}

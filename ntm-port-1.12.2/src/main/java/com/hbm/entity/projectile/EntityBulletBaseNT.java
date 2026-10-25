@@ -162,7 +162,6 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 			double d4 = d0 / d3;
 			double d5 = d2 / d3;
 			this.setLocationAndAngles(entity.posX + d4, this.posY, entity.posZ + d5, f2, f3);
-			this.yOffset = 0.0F;
 			this.shoot(d0, d1, d2, motion, deviation);
 		}
 	}
@@ -297,14 +296,14 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 						}
 
 						if(config.plink == 1)
-							this.world.playSoundAtEntity(this, "hbm:weapon.ricochet", 0.25F, 1.0F);
+							this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.ricochet"), net.minecraft.util.SoundCategory.PLAYERS, 0.25F, 1.0F);
 						if(config.plink == 2)
-							this.world.playSoundAtEntity(this, "hbm:weapon.gBounce", 1.0F, 1.0F);
+							this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.gBounce"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 						this.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 						onRicochet(x, y, z);
 
-						//worldObj.setBlock((int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), Blocks.dirt);
+						//worldObj.setBlock((int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), Blocks.DIRT);
 
 					} else {
 						if(!this.world.isRemote) {
@@ -414,7 +413,7 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 				cloud.posY = this.posY + 0.5F;
 				cloud.posZ = this.posZ;
 
-				this.world.spawnEntityInWorld(cloud);
+				this.world.spawnEntity(cloud);
 			}
 		}
 
@@ -440,18 +439,18 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 			EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, posX, posY, posZ, config.rainbow);
 			if(!ex.isDead) {
 				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "random.explode", 100.0f, this.world.rand.nextFloat() * 0.1F + 0.9F);
-				this.world.spawnEntityInWorld(ex);
+				this.world.spawnEntity(ex);
 
 				EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(this.world, config.rainbow);
 				cloud.posX = this.posX;
 				cloud.posY = this.posY;
 				cloud.posZ = this.posZ;
-				this.world.spawnEntityInWorld(cloud);
+				this.world.spawnEntity(cloud);
 			}
 		}
 
 		if(config.nuke > 0 && !this.world.isRemote) {
-			this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(this.world, config.nuke, posX, posY, posZ));
+			this.world.spawnEntity(EntityNukeExplosionMK5.statFac(this.world, config.nuke, posX, posY, posZ));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "muke");
 			if(MainRegistry.polaroidID == 11 || rand.nextInt(100) == 0) data.setBoolean("balefire", true);
@@ -460,7 +459,7 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 		}
 
 		if(config.destroysBlocks && !this.world.isRemote) {
-			if(block.getBlockHardness(this.world, bX, bY, bZ) <= 120)
+			if(com.hbm.world.WorldBlockState.getBlockHardness(this.world, bX, bY, bZ) <= 120)
 				com.hbm.world.WorldBlockDestruction.destroy(this.world, bX, bY, bZ, false);
 		} else if(config.doesBreakGlass && !this.world.isRemote) {
 			if(block == Blocks.GLASS || block == Blocks.GLASS_PANE || block == Blocks.STAINED_GLASS || block == Blocks.STAINED_GLASS_PANE)
@@ -501,7 +500,7 @@ public class EntityBulletBaseNT extends EntityThrowableInterp implements IBullet
 		}
 
 		if(config.leadChance > 0 && !this.world.isRemote && this.world.rand.nextInt(100) < config.leadChance && e instanceof EntityLivingBase) {
-			((EntityLivingBase)e).addPotionEffect(new PotionEffect(HbmPotion.lead.id, 10 * 20, 0));
+			((EntityLivingBase)e).addPotionEffect(new PotionEffect(HbmPotion.lead, 10 * 20, 0));
 		}
 
 		if(e instanceof EntityLivingBase && config.effects != null && !config.effects.isEmpty() && !this.world.isRemote) {

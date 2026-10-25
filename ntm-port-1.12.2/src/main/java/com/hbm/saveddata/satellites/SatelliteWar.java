@@ -46,7 +46,7 @@ public class SatelliteWar extends Satellite {
 	}
 
 	public void playsound() {
-		Minecraft.getMinecraft().player.playSound("hbm:misc.fireflash", 10F, 1F);
+		Minecraft.getMinecraft().player.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:misc.fireflash"), 10F, 1F);
 	}
 
 	@Override

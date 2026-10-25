@@ -51,7 +51,7 @@ public class GUIPASource extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 105 <= x && guiLeft + 105 + 10 > x && guiTop + 30 < y && guiTop + 30 + 10 >= y) {

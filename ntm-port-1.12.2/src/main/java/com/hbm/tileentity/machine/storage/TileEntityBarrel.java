@@ -268,7 +268,7 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 				(b == ModBlocks.barrel_steel && tank.getTankType().hasTrait(FT_Corrosive.class) && tank.getTankType().getTrait(FT_Corrosive.class).getRating() > 50)) {
 			ItemStack[] copy = this.slots.clone();
 			this.slots = new ItemStack[6];
-			this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.barrel_corroded);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.barrel_corroded);
 			TileEntityBarrel barrel = (TileEntityBarrel)this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 
 			if(barrel != null) {
@@ -290,7 +290,7 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 
 		//For when Tom's firestorm hits a barrel full of water
 		if(tank.getTankType() == Fluids.WATER && TomSaveData.forWorld(this.world).fire > 1e-5) {
-			int light = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			int light = this.world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 
 			if(light > 7) {
 				this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5, true, true);
@@ -416,7 +416,7 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 						bf.antimatter();
 						bf.setPosition(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 						bf.destructionRange = (int) amat;
-						this.world.spawnEntityInWorld(bf);
+						this.world.spawnEntity(bf);
 						EntityNukeTorex.startFacAnti(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat * 1.5F);
 						return;
 					} else {
@@ -426,11 +426,11 @@ public class TileEntityBarrel extends TileEntityMachineBase implements SimpleCom
 				if(aschrab > 0) {
 					EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, (int) aschrab);
 					if(!ex.isDead) {
-						this.world.spawnEntityInWorld(ex);
+						this.world.spawnEntity(ex);
 
 						EntityCloudFleija cloud = new EntityCloudFleija(this.world, (int) aschrab);
 						cloud.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5);
-						this.world.spawnEntityInWorld(cloud);
+						this.world.spawnEntity(cloud);
 					}
 					return;
 				}

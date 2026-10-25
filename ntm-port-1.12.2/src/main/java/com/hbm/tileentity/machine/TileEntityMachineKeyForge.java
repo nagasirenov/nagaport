@@ -19,14 +19,33 @@ import net.minecraft.world.World;
 
 public class TileEntityMachineKeyForge extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack slots[];
 
 	private static final int[] slots_top = new int[] {0};
 	private static final int[] slots_bottom = new int[] {1};
 	private static final int[] slots_side = new int[] {2};
-	
+
 	private String customName;
-	
+
 	public TileEntityMachineKeyForge() {
 		slots = new ItemStack[3];
 	}
@@ -64,15 +83,23 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.keyForge";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.keyForge";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
-	
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
+	}
+
 	public void setCustomName(String name) {
 		this.customName = name;
 		markDirty();
@@ -84,7 +111,7 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
@@ -92,7 +119,9 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
-	
+
+
+
 	@Override
 	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
 	@Override
@@ -102,36 +131,36 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 	public boolean isItemValidForSlot(int i, ItemStack stack) {
 		return false;
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null)
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
-			
+
 			return itemStack1;
 		} else {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		NBTTagList list = nbt.getTagList("items", 10);
-		
+
 		slots = new ItemStack[getSizeInventory()];
-		
+
 		for(int i = 0; i < list.tagCount(); i++)
 		{
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
@@ -144,12 +173,12 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 
 		customName = nbt.getString("name");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList list = new NBTTagList();
-		
+
 		for(int i = 0; i < slots.length; i++)
 		{
 			if(slots[i] != null)
@@ -161,13 +190,13 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
 		return nbt;
 	}
-	
+
 	@Override
 	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace)
     {
@@ -186,18 +215,18 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return true;
 	}
-	
+
 	@Override
 	public void update() {
 
 		if(!this.world.isRemote)
 		{
-			if(slots[0] != null && slots[1] != null && slots[0].getItem() instanceof ItemKeyPin && slots[1].getItem() instanceof ItemKeyPin && 
+			if(slots[0] != null && slots[1] != null && slots[0].getItem() instanceof ItemKeyPin && slots[1].getItem() instanceof ItemKeyPin &&
 					((ItemKeyPin)slots[0].getItem()).canTransfer() && ((ItemKeyPin)slots[1].getItem()).canTransfer()) {
-				
+
 				ItemKeyPin.setPins(slots[1], ItemKeyPin.getPins(slots[0]));
 			}
-			
+
 			if(slots[2] != null && slots[2].getItem() instanceof ItemKeyPin && ((ItemKeyPin)slots[2].getItem()).canTransfer()) {
 				ItemKeyPin.setPins(slots[2], this.world.rand.nextInt(900) + 100);
 			}

@@ -15,9 +15,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderGlyphidNuclear extends RenderLiving {
-	
-	public RenderGlyphidNuclear() {
-		super(new ModelGlyphid(), 1.0F);
+
+	public RenderGlyphidNuclear(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+		super(renderManager, new ModelGlyphid(), 1.0F);
 		this.shadowOpaque = 0.0F;
 	}
 
@@ -31,7 +31,7 @@ public class RenderGlyphidNuclear extends RenderLiving {
 	protected void preRenderCallback(EntityLivingBase entity, float interp) {
 		this.preRenderCallback((EntityGlyphidNuclear) entity, interp);
 	}
-	
+
 	protected void preRenderCallback(EntityGlyphidNuclear entity, float interp) {
 		float swell = (float) (entity.deathTicks + interp) / 95F;
 		float flash = 1.0F + MathHelper.sin(swell * 100.0F) * swell * 0.01F;
@@ -46,7 +46,7 @@ public class RenderGlyphidNuclear extends RenderLiving {
 
 		swell *= swell;
 		swell *= swell;
-		
+
 		float scaleHorizontal = (1.0F + swell * 0.4F) * flash;
 		float scaleVertical = (1.0F + swell * 0.1F) / flash;
 		GL11.glScalef(scaleHorizontal, scaleVertical, scaleHorizontal);
@@ -56,15 +56,15 @@ public class RenderGlyphidNuclear extends RenderLiving {
 	protected int getColorMultiplier(EntityLivingBase entity, float lightBrightness, float interp) {
 		return this.getColorMultiplier((EntityGlyphidNuclear) entity, lightBrightness, interp);
 	}
-	
+
 	protected int getColorMultiplier(EntityGlyphidNuclear entity, float lightBrightness, float interp) {
 		float swell = (float) (entity.deathTicks + interp) / 20F;
-		
 
 
-		
+
+
 		int a = (int) (swell * 0.2F * 255.0F);
-		
+
 		if((int) (swell * 10.0F) % 4 < 2)
 			return a *= 0.75;
 
@@ -81,9 +81,9 @@ public class RenderGlyphidNuclear extends RenderLiving {
 		short b = 255;
 		return a << 24 | r << 16 | g << 8 | b;
 	}
-	
+
 	public static class ModelGlyphid extends ModelBase {
-		
+
 		double bite = 0;
 
 		@Override
@@ -99,13 +99,13 @@ public class RenderGlyphidNuclear extends RenderLiving {
 			GL11.glTranslatef(0, -1.5F, 0);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glDisable(GL11.GL_CULL_FACE);
-			
+
 			double s = ((EntityGlyphid) entity).getScale();
 			GL11.glScaled(s, s, s);
-			
+
 			EntityLivingBase living = (EntityLivingBase) entity;
-			byte armor = living.getDataWatcher().getWatchableObjectByte(17);
-			
+			byte armor = living.getDataManager().get(EntityGlyphid.ARMOR);
+
 			double walkCycle = limbSwing;
 
 			double cy0 = Math.sin(walkCycle % (Math.PI * 2));
@@ -115,7 +115,7 @@ public class RenderGlyphidNuclear extends RenderLiving {
 
 			double bite = MathHelper.clamp(Math.sin(this.bite * Math.PI * 2 - Math.PI * 0.5), (double) (0), (double) (1)) * 20;
 			double headTilt = Math.sin(this.bite * Math.PI) * 30;
-			
+
 			ResourceManager.glyphid.renderPart("Body");
 			if((armor & (1 << 0)) > 0) ResourceManager.glyphid.renderPart("ArmorFront");
 			if((armor & (1 << 1)) > 0) ResourceManager.glyphid.renderPart("ArmorLeft");
@@ -158,11 +158,11 @@ public class RenderGlyphidNuclear extends RenderLiving {
 			GL11.glPopMatrix();
 
 			GL11.glPushMatrix();
-			
+
 			GL11.glTranslated(0, 0.5, 0.25);
 			GL11.glRotated(headTilt, 0, 0, 1);
 			GL11.glTranslated(0, -0.5, -0.25);
-			
+
 			GL11.glPushMatrix();
 			GL11.glTranslated(0, 0.5, 0.25);
 			GL11.glRotated(-bite, 1, 0, 0);
@@ -189,12 +189,12 @@ public class RenderGlyphidNuclear extends RenderLiving {
 
 			double steppy = 15;
 			double bend = 60;
-			
+
 			for(int i = 0; i < 3; i++) {
-				
+
 				double c0 = cy0 * (i == 1 ? -1 : 1);
 				double c1 = cy1 * (i == 1 ? -1 : 1);
-				
+
 				GL11.glPushMatrix();
 				GL11.glTranslated(0, 0.25, 0);
 				GL11.glRotated(i * 30 - 15 + c0 * 7.5, 0, 1, 0);
@@ -206,7 +206,7 @@ public class RenderGlyphidNuclear extends RenderLiving {
 				GL11.glTranslated(-0.5625, -0.25, 0);
 				ResourceManager.glyphid.renderPart("LegLeftLower");
 				GL11.glPopMatrix();
-				
+
 				GL11.glPushMatrix();
 				GL11.glTranslated(0, 0.25, 0);
 				GL11.glRotated(i * 30 - 45 + c0 * 7.5, 0, 1, 0);
@@ -219,7 +219,7 @@ public class RenderGlyphidNuclear extends RenderLiving {
 				ResourceManager.glyphid.renderPart("LegRightLower");
 				GL11.glPopMatrix();
 			}
-			
+
 
 			GL11.glShadeModel(GL11.GL_SMOOTH);
 			GL11.glTranslated(0, 1, 0);
@@ -227,7 +227,7 @@ public class RenderGlyphidNuclear extends RenderLiving {
 			Minecraft.getMinecraft().renderEngine.bindTexture(ResourceManager.mini_nuke_tex);
 			ResourceManager.projectiles.renderPart("MiniNuke");
 			GL11.glShadeModel(GL11.GL_FLAT);
-			
+
 			GL11.glPopMatrix();
 		}
 	}

@@ -107,12 +107,12 @@ public class XFactory9mm {
 	}
 
 	public static Function<ItemStack, String> LAMBDA_NAME_GREASEGUN = (stack) -> {
-		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_GREASEGUN_CLEAN)) return stack.getUnlocalizedName() + "_m3";
+		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_GREASEGUN_CLEAN)) return stack.getTranslationKey() + "_m3";
 		return null;
 	};
 
 	public static Function<ItemStack, String> LAMBDA_NAME_UZI = (stack) -> {
-		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SILENCER)) return stack.getUnlocalizedName() + "_richter";
+		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SILENCER)) return stack.getTranslationKey() + "_richter";
 		return null;
 	};
 
@@ -149,7 +149,7 @@ public class XFactory9mm {
 			player.addStat(MainRegistry.statBullets, 1);
 			mag.useUpAmmo(stack, ctx.inventory, 1);
 			ItemGunBaseNT.setWear(stack, index, Math.min(ItemGunBaseNT.getWear(stack, index) + config.wear, ctx.config.getDurability(stack)));
-			player.world.playSoundEffect(player.posX, player.posY, player.posZ, primary.getFireSound(stack), primary.getFireVolume(stack), primary.getFirePitch(stack));
+			player.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve(primary.getFireSound(stack)), net.minecraft.util.SoundCategory.BLOCKS, primary.getFireVolume(stack), primary.getFirePitch(stack));
 			ItemGunBaseNT.setState(stack, index, GunState.COOLDOWN);
 			ItemGunBaseNT.setTimer(stack, index, primary.getDelayAfterFire(stack));
 			EntityDamageUtil.attackEntityFromNT(player, BulletConfig.getDamage(player, player, DamageClass.PHYSICAL), 1_000F, true, false, 1D, 5F, 0F);

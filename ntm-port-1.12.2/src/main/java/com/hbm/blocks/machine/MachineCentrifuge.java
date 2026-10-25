@@ -19,9 +19,8 @@ public class MachineCentrifuge extends BlockDummyable {
 		super(mat);
 		this.bounding.add(new AxisAlignedBB(-0.5D, 0D, -0.5D, 0.5D, 1D, 0.5D));
 		this.bounding.add(new AxisAlignedBB(-0.375D, 1D, -0.375D, 0.375D, 4D, 0.375D));
-		this.maxY = 0.999D; //item bounce prevention
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 
@@ -32,7 +31,7 @@ public class MachineCentrifuge extends BlockDummyable {
 
 		return null;
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
@@ -50,17 +49,17 @@ public class MachineCentrifuge extends BlockDummyable {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int[] getDimensions() {
-		return new int[] {3, 0, 0, 0, 0, 0,}; 
+		return new int[] {3, 0, 0, 0, 0, 0,};
 	}
 
 	@Override
 	public int getOffset() {
 		return 0;
 	}
-	
+
 	protected void fillSpace(World world, int x, int y, int z, ForgeDirection dir, int o) {
 		super.fillSpace(world, x, y, z, dir, o);
 	}

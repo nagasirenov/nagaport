@@ -1,5 +1,7 @@
 package com.hbm.blocks.machine;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import com.hbm.items.ModItems;
 import com.hbm.tileentity.machine.TileEntityRadiobox;
 
@@ -41,91 +43,83 @@ public class Radiobox extends BlockContainer {
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-		
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+
+		if(i == 0) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
+		if(i == 1) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
+		if(i == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
+		if(i == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
 			TileEntityRadiobox box = (TileEntityRadiobox)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-			
+
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.battery_spark && !box.infinite) {
-				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
-				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.5F, 1.0F);
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
+				world.playSound(null, x + 0.5, y + 0.5, z + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.5F, 1.0F);
 				box.infinite = true;
 				box.markDirty();
 				return true;
 			}
-			
+
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			if(meta <= 5) {
-				world.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta + 4, 2);
 				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 1.0F);
 			} else {
-				world.setBlockMetadataWithNotify(x, y, z, meta - 4, 2);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta - 4, 2);
 				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 0.85F);
 			}
-			
+
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-		int te = p_149719_1_.getBlockMetadata(p_149719_2_, p_149719_3_, p_149719_4_);
-		float f = 0.0625F;
+	private static final AxisAlignedBB BOUNDS_DEFAULT = new AxisAlignedBB(0.0D, 0.0D, 2 * 0.0625D, 1.0D, 1.0D, 14 * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_WEST = new AxisAlignedBB(11 * 0.0625D, 1 * 0.0625D, 4 * 0.0625D, 1.0D, 15 * 0.0625D, 12 * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_NORTH = new AxisAlignedBB(4 * 0.0625D, 1 * 0.0625D, 11 * 0.0625D, 12 * 0.0625D, 15 * 0.0625D, 1.0D);
+	private static final AxisAlignedBB BOUNDS_EAST = new AxisAlignedBB(0.0D, 1 * 0.0625D, 4 * 0.0625D, 5 * 0.0625D, 15 * 0.0625D, 12 * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_SOUTH = new AxisAlignedBB(4 * 0.0625D, 1 * 0.0625D, 0.0D, 12 * 0.0625D, 15 * 0.0625D, 5 * 0.0625D);
 
-		this.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		int te = com.hbm.world.WorldBlockState.readMetadata(source, pos.getX(), pos.getY(), pos.getZ());
 		switch(te) {
 		case 4:
-		case 8: this.setBlockBounds(11 * f, 1 * f, 4 * f, 16 * f, 15 * f, 12 * f); break;
+		case 8:
+			return BOUNDS_WEST;
 		case 2:
-		case 6: this.setBlockBounds(4 * f, 1 * f, 11 * f, 12 * f, 15 * f, 16 * f); break;
+		case 6:
+			return BOUNDS_NORTH;
 		case 5:
-		case 9: this.setBlockBounds(0 * f, 1 * f, 4 * f, 5 * f, 15 * f, 12 * f); break;
+		case 9:
+			return BOUNDS_EAST;
 		case 3:
-		case 7: this.setBlockBounds(4 * f, 1 * f, 0 * f, 12 * f, 15 * f, 5 * f); break;
+		case 7:
+			return BOUNDS_SOUTH;
+		default:
+			return BOUNDS_DEFAULT;
 		}
 	}
-	
+
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		TileEntityRadiobox box = (TileEntityRadiobox)world.getTileEntity(pos);
+		if(box != null && box.infinite) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModItems.battery_spark)));
 
-		int te = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-		float f = 0.0625F;
-
-		this.setBlockBounds(0.0F, 0.0F, 2 * f, 1.0F, 1.0F, 14 * f);
-		switch(te) {
-		case 4:
-		case 8: this.setBlockBounds(11 * f, 1 * f, 4 * f, 16 * f, 15 * f, 12 * f); break;
-		case 2:
-		case 6: this.setBlockBounds(4 * f, 1 * f, 11 * f, 12 * f, 15 * f, 16 * f); break;
-		case 5:
-		case 9: this.setBlockBounds(0 * f, 1 * f, 4 * f, 5 * f, 15 * f, 12 * f); break;
-		case 3:
-		case 7: this.setBlockBounds(4 * f, 1 * f, 0 * f, 12 * f, 15 * f, 5 * f); break;
-		}
-
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
-
-	public void breakBlock(World world, int x, int y, int z, Block b, int m) {
-		TileEntityRadiobox box = (TileEntityRadiobox)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		if(box.infinite) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModItems.battery_spark)));
-		
-		super.breakBlock(world, x, y, z, b, m);
+		super.breakBlock(world, pos, state);
 	}
 }

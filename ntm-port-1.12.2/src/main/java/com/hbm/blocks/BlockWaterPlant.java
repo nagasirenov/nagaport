@@ -12,12 +12,16 @@ import net.minecraft.world.World;
 
 public class BlockWaterPlant extends Block {
 
+	public BlockWaterPlant withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 	//once carbon tetrachloride exists, this will be rewritten. i just want my damn plants already ffs...
 	protected BlockWaterPlant() {
 		super(Material.WATER);
 	}
-	
-	@Override
+
 	public int getRenderType() {
 		return 6;
 	}
@@ -31,9 +35,10 @@ public class BlockWaterPlant extends Block {
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+	public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		return null;
 	}
 
@@ -42,15 +47,14 @@ public class BlockWaterPlant extends Block {
 	   return (ModItems.saltleaf);
 	}
 
-	@Override
-	public int quantityDropped(int meta, int fortune, java.util.Random random) {
-		return random.nextInt(4); 
+	public int quantityDropped(net.minecraft.block.state.IBlockState state, int fortune, java.util.Random random) {
+		return random.nextInt(4);
 	}
-	
+
 	@Override
 	public boolean canPlaceBlockAt(World world, net.minecraft.util.math.BlockPos nativePlacementPos) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
-		return super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && this.canBlockStay(world, x, y, z) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();
+		return super.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z)) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial().isLiquid();
 	}
-	
+
 }

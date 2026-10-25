@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "hbm:lattice_log_log"
+    },
+    "axis=z": {
+      "model": "hbm:lattice_log_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "hbm:lattice_log_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=none": {
+      "model": "hbm:lattice_log_log"
+    }
+  }
+}

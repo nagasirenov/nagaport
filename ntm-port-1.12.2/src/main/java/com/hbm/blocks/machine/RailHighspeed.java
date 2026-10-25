@@ -24,11 +24,14 @@ public class RailHighspeed extends BlockRailBase {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_) {
 		super.registerBlockIcons(p_149651_1_);
-		this.icon = p_149651_1_.registerIcon(this.getTextureName());
+		this.icon = p_149651_1_.registerIcon(this.getRegistryName().toString());
 	}*/
 
 	@Override
-	public float getRailMaxSpeed(World world, EntityMinecart cart, int y, int x, int z) {
+	public float getRailMaxSpeed(World world, EntityMinecart cart, net.minecraft.util.math.BlockPos pos) {
 		return 1.0f;
 	}
+
+	@Override
+	public net.minecraft.block.properties.IProperty<net.minecraft.block.BlockRailBase.EnumRailDirection> getShapeProperty() { return net.minecraft.block.BlockRail.SHAPE; }
 }

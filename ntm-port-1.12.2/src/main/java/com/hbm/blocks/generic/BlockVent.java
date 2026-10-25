@@ -16,6 +16,8 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class BlockVent extends BlockContainer {
+
+	protected IIcon blockIcon;
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
@@ -29,14 +31,12 @@ public class BlockVent extends BlockContainer {
 		return new TileEntityVent();
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
+		this.blockIcon = iconRegister.registerIcon(this.getRegistryName().toString());
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":vent_blank");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);

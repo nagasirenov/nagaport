@@ -177,11 +177,11 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 			int chunkZ = this.pos.getZ() >> 4;
 
 			//since fluid sources are often not within 1 chunk, we just do 2 chunks distance and call it a day
-			if(!this.world.getChunkProvider().chunkExists(chunkX, chunkZ) ||
-					!this.world.getChunkProvider().chunkExists(chunkX + 2, chunkZ + 2) ||
-					!this.world.getChunkProvider().chunkExists(chunkX + 2, chunkZ - 2) ||
-					!this.world.getChunkProvider().chunkExists(chunkX - 2, chunkZ + 2) ||
-					!this.world.getChunkProvider().chunkExists(chunkX - 2, chunkZ - 2)) {
+			if(this.world.getChunkProvider().getLoadedChunk(chunkX, chunkZ) == null ||
+					this.world.getChunkProvider().getLoadedChunk(chunkX + 2, chunkZ + 2) == null ||
+					this.world.getChunkProvider().getLoadedChunk(chunkX + 2, chunkZ - 2) == null ||
+					this.world.getChunkProvider().getLoadedChunk(chunkX - 2, chunkZ + 2) == null ||
+					this.world.getChunkProvider().getLoadedChunk(chunkX - 2, chunkZ - 2) == null) {
 				this.unloadDelay = 60;
 			}
 
@@ -235,8 +235,8 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 
 							if(slots[1] == null) {
 								slots[1] = new ItemStack(ModItems.pwr_fuel_hot, 1, typeLoaded);
-							} else if(slots[1].getItem() == ModItems.pwr_fuel_hot && slots[1].getItemDamage() == typeLoaded && slots[1].stackSize < slots[1].getMaxStackSize()) {
-								slots[1].stackSize++;
+							} else if(slots[1].getItem() == ModItems.pwr_fuel_hot && slots[1].getItemDamage() == typeLoaded && slots[1].getCount() < slots[1].getMaxStackSize()) {
+								slots[1].grow(1);
 							}
 
 							this.amountLoaded--;
@@ -311,8 +311,9 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 
 		for(BlockPos pos : this.rods) {
 			Block b = com.hbm.world.WorldBlockState.read(this.world, pos.getX(), pos.getY(), pos.getZ()).getBlock();
-			b.breakBlock(this.world, pos.getX(), pos.getY(), pos.getZ(), b, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, pos.getX(), pos.getY(), pos.getZ()) ));
-			this.world.setBlock(pos.getX(), pos.getY(), pos.getZ(), ModBlocks.corium_block, 5, 3);
+			net.minecraft.util.math.BlockPos nativePos = new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ());
+			b.breakBlock(this.world, nativePos, this.world.getBlockState(nativePos));
+			com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, pos.getX(), pos.getY(), pos.getZ(), ModBlocks.corium_block, 5, 3);
 
 			x += pos.getX() + 0.5;
 			y += pos.getY() + 0.5;

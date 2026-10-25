@@ -3,8 +3,8 @@ package com.hbm.dim;
 public class WorldProviderEarth extends WorldProviderCelestial {
 
 	@Override
-	public String getDimensionName() {
-		return "Overworld";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	@Override

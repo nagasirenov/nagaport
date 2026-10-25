@@ -217,7 +217,7 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 			break;
 		case NUCLEAR:
 		case TX:
-			this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(this.world, (int) strength, posX, posY, posZ));
+			this.world.spawnEntity(EntityNukeExplosionMK5.statFac(this.world, (int) strength, posX, posY, posZ));
 			EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, strength);
 			break;
 		case BALEFIRE:
@@ -226,11 +226,11 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 			bf.posY = this.posY;
 			bf.posZ = this.posZ;
 			bf.destructionRange = (int) strength;
-			this.world.spawnEntityInWorld(bf);
+			this.world.spawnEntity(bf);
 			EntityNukeTorex.statFacBale(this.world, posX, posY, posZ, strength);
 			break;
 		case N2:
-			this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFacNoRad(this.world, (int) strength, posX, posY, posZ));
+			this.world.spawnEntity(EntityNukeExplosionMK5.statFacNoRad(this.world, (int) strength, posX, posY, posZ));
 			EntityNukeTorex.statFacStandard(this.world, posX, posY, posZ, strength);
 			break;
 		case TAINT:
@@ -242,12 +242,12 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 				net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(this.world, a, b, c);
 				Block block = nativeAirState.getBlock();
 				if(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {
-					this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
 				}
 			}
 			break;
 		case CLOUD:
-			this.world.playAuxSFX(2002, (int) Math.round(this.posX), (int) Math.round(this.posY), (int) Math.round(this.posZ), 0);
+			this.world.playEvent(2002, new net.minecraft.util.math.BlockPos((int) Math.round(this.posX), (int) Math.round(this.posY), (int) Math.round(this.posZ)), 0);
 			ExplosionChaos.spawnPoisonCloud(this.world, posX - motionX, posY - motionY, posZ - motionZ, 750, 2.5, 2);
 			break;
 		case TURBINE:
@@ -260,7 +260,7 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 				blade.setPositionAndRotation(this.posX - this.motionX, this.posY - this.motionY + rand.nextGaussian(), this.posZ - this.motionZ, 0, 0);
 				blade.motionX = vec.x;
 				blade.motionZ = vec.z;
-				this.world.spawnEntityInWorld(blade);
+				this.world.spawnEntity(blade);
 				vec = vec.rotateYaw((float) (Math.PI * 2F / (float) count));
 			}
 

@@ -56,10 +56,10 @@ public class GUIPump extends GuiScreen {
 		textPlacementPriority.drawTextBox();
 
 		drawString(fontRenderer, "Pressure:", this.width / 2 - 50, 80, 0xA0A0A0);
-		buttonPressure.drawButton(mc, mouseX, mouseY);
+		buttonPressure.drawButton(mc, mouseX, mouseY, partialTicks);
 
 		drawString(fontRenderer, "Priority:", this.width / 2 + 50, 80, 0xA0A0A0);
-		buttonPriority.drawButton(mc, mouseX, mouseY);
+		buttonPriority.drawButton(mc, mouseX, mouseY, partialTicks);
 
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
@@ -79,7 +79,7 @@ public class GUIPump extends GuiScreen {
 	}
 
 	@Override
-	protected void keyTyped(char typedChar, int keyCode) {
+	protected void keyTyped(char typedChar, int keyCode) throws java.io.IOException {
 		super.keyTyped(typedChar, keyCode);
 		if(textPlacementPriority.textboxKeyTyped(typedChar, keyCode)) return;
 
@@ -89,7 +89,7 @@ public class GUIPump extends GuiScreen {
 	}
 
 	@Override
-	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) {
+	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws java.io.IOException {
 		super.mouseClicked(mouseX, mouseY, mouseButton);
 		textPlacementPriority.mouseClicked(mouseX, mouseY, mouseButton);
 

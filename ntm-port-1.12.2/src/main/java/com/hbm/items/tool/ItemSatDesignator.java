@@ -14,6 +14,11 @@ import net.minecraft.world.World;
 public class ItemSatDesignator extends ItemSatChip {
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(!world.isRemote) {
@@ -24,9 +29,9 @@ public class ItemSatDesignator extends ItemSatChip {
 				RayTraceResult pos = Library.rayTrace(player, 300, 1);
 
 				net.minecraft.util.EnumFacing side = pos.sideHit;
-				int x = pos.getBlockPos().getX() + side.getFrontOffsetX();
-				int y = pos.getBlockPos().getY() + side.getFrontOffsetY();
-				int z = pos.getBlockPos().getZ() + side.getFrontOffsetZ();
+				int x = pos.getBlockPos().getX() + side.getXOffset();
+				int y = pos.getBlockPos().getY() + side.getYOffset();
+				int z = pos.getBlockPos().getZ() + side.getZOffset();
 
 				if(sat.satIface == Interfaces.SAT_COORD) {
 					sat.onCoordAction(world, player, x, y, z);

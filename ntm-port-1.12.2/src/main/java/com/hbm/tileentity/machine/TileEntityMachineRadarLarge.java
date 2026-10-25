@@ -11,7 +11,7 @@ import com.hbm.util.fauxpointtwelve.DirPos;
 import net.minecraft.util.math.AxisAlignedBB;
 
 public class TileEntityMachineRadarLarge extends TileEntityMachineRadarNT {
-	
+
 	public static int radarLargeRange = 3_000;
 
 	@Override
@@ -28,7 +28,7 @@ public class TileEntityMachineRadarLarge extends TileEntityMachineRadarNT {
 	public void writeConfig(JsonWriter writer) throws IOException {
 		writer.name("I:radarLargeRange").value(radarLargeRange);
 	}
-	
+
 	@Override
 	public int getRange() {
 		return radarLargeRange;
@@ -43,12 +43,12 @@ public class TileEntityMachineRadarLarge extends TileEntityMachineRadarNT {
 				new DirPos(this.pos.getX(), this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z),
 		};
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 5,
 					this.pos.getY(),
 					this.pos.getZ() - 5,
@@ -57,7 +57,7 @@ public class TileEntityMachineRadarLarge extends TileEntityMachineRadarNT {
 					this.pos.getZ() + 6
 					);
 		}
-		
+
 		return bb;
 	}
 }

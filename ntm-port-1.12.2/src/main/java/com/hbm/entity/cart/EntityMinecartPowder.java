@@ -13,6 +13,11 @@ import net.minecraft.world.World;
 
 public class EntityMinecartPowder extends EntityMinecartNTM {
 
+	@Override
+	public net.minecraft.entity.item.EntityMinecart.Type getType() {
+		return net.minecraft.entity.item.EntityMinecart.Type.RIDEABLE;
+	}
+
 	public EntityMinecartPowder(World world) {
 		super(world);
 	}

@@ -99,7 +99,7 @@ public class ItemRenderQuadro extends ItemRenderWeaponBase {
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
 			
-			int brightness = player.world.getLightBrightnessForSkyBlocks(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ), 0);
+			int brightness = player.world.getCombinedLight(new net.minecraft.util.math.BlockPos(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ)), 0);
 			int j = brightness % 65536;
 			int k = brightness / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j / 1.0F, (float) k / 1.0F);

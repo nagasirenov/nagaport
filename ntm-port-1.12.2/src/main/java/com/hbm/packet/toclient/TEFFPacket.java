@@ -73,7 +73,7 @@ public class TEFFPacket implements IMessage {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(TEFFPacket m, MessageContext ctx) {
-			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(m.x, m.y, m.z);
+			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(new net.minecraft.util.math.BlockPos(m.x, m.y, m.z));
 
 			try {
 				

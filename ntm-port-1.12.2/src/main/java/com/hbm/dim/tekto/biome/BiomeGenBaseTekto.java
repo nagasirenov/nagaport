@@ -25,7 +25,7 @@ public abstract class BiomeGenBaseTekto extends BiomeGenBaseCelestial {
 	}
 
 	@Override
-	protected BiomeDecorator createBiomeDecorator() {
+	public BiomeDecorator createBiomeDecorator() {
 		BiomeDecoratorCelestial decorator = new BiomeDecoratorCelestial(ModBlocks.basalt);
 		decorator.rubberPlantsPerChunk = 64;
 		decorator.generateLakes = false;

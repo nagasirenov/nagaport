@@ -19,6 +19,11 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockGlyphid extends Block implements IBlockMulti {
+	public BlockGlyphid withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 
 	public IIcon[] iconsStandard = new IIcon[2];
 	public IIcon[] iconsInfested = new IIcon[2];
@@ -34,24 +39,21 @@ public class BlockGlyphid extends Block implements IBlockMulti {
 		return null;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
 		long l = (long) (x * 3129871) ^ (long)y * 116129781L ^ (long)z;
 		l = l * l * 42317861L + l * 11L;
 		int i = (int)(l >> 16 & 3L);
-		IIcon[] icons = this.getIconArray(world.getBlockMetadata(x, y, z));
+		IIcon[] icons = this.getIconArray(com.hbm.world.WorldBlockState.readMetadata(world, x, y, z));
 		return icons[(int)(Math.abs(i) % icons.length)];
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		IIcon[] icons = this.getIconArray(meta);
 		return icons[meta % icons.length];
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		iconsStandard[0] = reg.registerIcon(RefStrings.MODID + ":glyphid_base");
@@ -75,7 +77,8 @@ public class BlockGlyphid extends Block implements IBlockMulti {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+	public void getSubBlocks(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+	net.minecraft.item.Item item = net.minecraft.item.Item.getItemFromBlock(this);
 		for(int i = 0; i < getSubCount(); ++i) list.add(new ItemStack(item, 1, i));
 	}
 }

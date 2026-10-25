@@ -36,36 +36,32 @@ public class CoriumBlock extends BlockFluidClassic {
 		setCreativeTab(null);
 		displacements.put(this, false);
 		this.tickRate = 30;
-		
+
 		this.setTickRandomly(true);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return (side == 0 || side == 1) ? stillIcon : flowingIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 		stillIcon = register.registerIcon(RefStrings.MODID + ":corium_still");
 		flowingIcon = register.registerIcon(RefStrings.MODID + ":corium_flowing");
 	}
 
-	@Override
 	public boolean canDisplace(IBlockAccess world, int x, int y, int z) {
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		float res = (float) (Math.sqrt(b.getExplosionResistance(null)) * 3);
-		
+
 		if(res < 1)
 			return true;
 		Random rand = new Random();
-		
+
 		return b.getDefaultState().getMaterial().isLiquid() || rand.nextInt((int) (res * res)) == 0;
 	}
 
-	@Override
 	public boolean displaceIfPossible(World world, int x, int y, int z) {
 
 		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {
@@ -74,31 +70,40 @@ public class CoriumBlock extends BlockFluidClassic {
 		return canDisplace(world, x, y, z);
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		entity.setInWeb();
 		entity.setFire(3);
 		entity.attackEntityFrom(ModDamageSource.radiation, 2F);
-		
+
 		if(entity instanceof EntityLivingBase)
 			ContaminationUtil.contaminate((EntityLivingBase)entity, HazardType.RADIATION, ContaminationType.CREATIVE, 1F);
 	}
-	
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		
-		super.updateTick(world, x, y, z, rand);
-		
+
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		super.updateTick(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), rand);
+
 		if(!world.isRemote && rand.nextInt(10) == 0) {
-			
-			if(this.isSourceBlock(world, x, y, z))
-				world.setBlock(x, y, z, ModBlocks.block_corium);
+
+			if(this.isSourceBlock(world, new net.minecraft.util.math.BlockPos(x, y, z)))
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_corium);
 			else
-				world.setBlock(x, y, z, ModBlocks.block_corium_cobble);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_corium_cobble);
 		}
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass() {
 		return 0;

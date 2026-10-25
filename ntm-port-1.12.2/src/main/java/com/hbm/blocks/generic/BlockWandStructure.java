@@ -3,6 +3,7 @@ package com.hbm.blocks.generic;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -69,21 +70,22 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		return new TileEntityWandStructure();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		saveIcon = iconRegister.registerIcon(RefStrings.MODID + ":wand_structure_save");
 		loadIcon = iconRegister.registerIcon(RefStrings.MODID + ":wand_structure_load");
 	}
 
-	@Override
 	public IIcon getIcon(int side, int meta) {
 		if(meta == 1) return loadIcon;
 		return saveIcon;
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(!(te instanceof TileEntityWandStructure)) return false;
@@ -112,12 +114,11 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		return false;
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list) {
-		list.add(new ItemStack(itemIn, 1, 0));
-		list.add(new ItemStack(itemIn, 1, 1));
+	public void getSubBlocks(CreativeTabs tab, net.minecraft.util.NonNullList<ItemStack> list) {
+		list.add(new ItemStack(this, 1, 0));
+		list.add(new ItemStack(this, 1, 1));
 	}
 
 	@Override
@@ -133,8 +134,8 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 	}
 
 	@Override
-	public int damageDropped(int meta) {
-		return meta;
+	public int damageDropped(net.minecraft.block.state.IBlockState state) {
+		return state.getBlock().getMetaFromState(state);
 	}
 
 	@Override
@@ -223,7 +224,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 				return;
 			}
 
-			File structureDirectory = new File(Minecraft.getMinecraft().mcDataDir, "structures");
+			File structureDirectory = new File(Minecraft.getMinecraft().gameDir, "structures");
 			structureDirectory.mkdir();
 
 			File structureFile = new File(structureDirectory, name + ".nbt");
@@ -240,7 +241,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 				structure.build(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), 0, false, true);
 
-				this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 3);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 3);
 
 				player.sendMessage(new TextComponentString("Structure loaded"));
 
@@ -398,7 +399,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 			textSizeY.drawTextBox();
 			textSizeZ.drawTextBox();
 
-			performAction.drawButton(mc, mouseX, mouseY);
+			performAction.drawButton(mc, mouseX, mouseY, partialTicks);
 
 			super.drawScreen(mouseX, mouseY, partialTicks);
 		}
@@ -422,7 +423,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		}
 
 		@Override
-		protected void keyTyped(char typedChar, int keyCode) {
+		protected void keyTyped(char typedChar, int keyCode) throws IOException {
 			super.keyTyped(typedChar, keyCode);
 
 			textName.textboxKeyTyped(typedChar, keyCode);
@@ -433,7 +434,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		}
 
 		@Override
-		protected void mouseClicked(int mouseX, int mouseY, int mouseButton) {
+		protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 			super.mouseClicked(mouseX, mouseY, mouseButton);
 			textName.mouseClicked(mouseX, mouseY, mouseButton);
 
@@ -469,7 +470,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 		private boolean loadOnClose = false;
 
-		private static File structureDirectory = new File(Minecraft.getMinecraft().mcDataDir, "structures");
+		private static File structureDirectory = new File(Minecraft.getMinecraft().gameDir, "structures");
 		private static String nameFilter = "";
 		private static final FileFilter structureFilter = new FileFilter() {
 
@@ -510,7 +511,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 			textName.drawTextBox();
 
-			performAction.drawButton(mc, mouseX, mouseY);
+			performAction.drawButton(mc, mouseX, mouseY, partialTicks);
 
 			super.drawScreen(mouseX, mouseY, partialTicks);
 		}
@@ -530,7 +531,7 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		}
 
 		@Override
-		protected void keyTyped(char typedChar, int keyCode) {
+		protected void keyTyped(char typedChar, int keyCode) throws IOException {
 			super.keyTyped(typedChar, keyCode);
 
 			textName.textboxKeyTyped(typedChar, keyCode);
@@ -542,11 +543,11 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		}
 
 		@Override
-		protected void mouseClicked(int mouseX, int mouseY, int mouseButton) {
+		protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 			super.mouseClicked(mouseX, mouseY, mouseButton);
 			textName.mouseClicked(mouseX, mouseY, mouseButton);
 
-			fileList.func_148179_a(mouseX, mouseY, mouseButton);
+			fileList.mouseClicked(mouseX, mouseY, mouseButton);
 
 			fileList.select(textName.getText());
 
@@ -559,9 +560,9 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		}
 
 		@Override
-		protected void mouseMovedOrUp(int mouseX, int mouseY, int state) {
-			super.mouseMovedOrUp(mouseX, mouseY, state);
-			fileList.func_148181_b(mouseX, mouseY, state);
+		protected void mouseReleased(int mouseX, int mouseY, int state) {
+			super.mouseReleased(mouseX, mouseY, state);
+			fileList.mouseReleased(mouseX, mouseY, state);
 		}
 
 		@Override

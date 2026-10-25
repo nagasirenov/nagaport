@@ -9,16 +9,16 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerFirebox extends Container {
-	
+
 	protected TileEntityFireboxBase firebox;
-	
+
 	public ContainerFirebox(InventoryPlayer invPlayer, TileEntityFireboxBase furnace) {
 		this.firebox = furnace;
 		this.firebox.openInventory(invPlayer.player);
-		
+
 		this.addSlotToContainer(new Slot(furnace, 0, 44, 27));
 		this.addSlotToContainer(new Slot(furnace, 1, 62, 27));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 86 + i * 18));
@@ -43,14 +43,14 @@ public class ContainerFirebox extends Container {
 				if(!this.mergeItemStack(originalStack, 2, this.inventorySlots.size(), true)) {
 					return null;
 				}
-				
+
 				slot.onSlotChange(originalStack, stack);
-				
+
 			} else if(!this.mergeItemStack(originalStack, 0, 2, false)) {
 				return null;
 			}
 
-			if(originalStack.stackSize == 0) {
+			if(originalStack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

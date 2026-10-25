@@ -7,10 +7,12 @@ import com.hbm.items.ModItems;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 
 public class BlockSmolder extends Block {
 
@@ -20,8 +22,9 @@ public class BlockSmolder extends Block {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial() == Material.AIR) {
 
@@ -35,8 +38,13 @@ public class BlockSmolder extends Block {
 		return ModItems.powder_fire;
 	}
 
-	@Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityWalk(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entityIn) {
+		onEntityWalking(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
 		entity.setFire(3);
 	}
 }

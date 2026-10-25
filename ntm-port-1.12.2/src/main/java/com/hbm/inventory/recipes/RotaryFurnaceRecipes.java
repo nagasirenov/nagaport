@@ -93,7 +93,7 @@ public class RotaryFurnaceRecipes extends SerializableRecipe {
 					while(iterator.hasNext()) {
 						AStack recipeStack = iterator.next();
 
-						if(recipeStack.matchesRecipe(inputStack, true) && inputStack.stackSize >= recipeStack.stacksize) {
+						if(recipeStack.matchesRecipe(inputStack, true) && inputStack.getCount() >= recipeStack.stacksize) {
 							hasMatch = true;
 							recipeList.remove(recipeStack);
 							break;

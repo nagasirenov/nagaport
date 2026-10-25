@@ -29,7 +29,7 @@ public class TileEntityPileFuel extends TileEntityPileBase implements IPileNeutr
 
 			if(this.heat >= this.maxHeat) {
 				this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 4, true, true);
-				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.gas_radon_dense);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.gas_radon_dense);
 			}
 
 			if(this.world.rand.nextFloat() * 2F <= this.heat / (float)this.maxHeat) {
@@ -42,7 +42,7 @@ public class TileEntityPileFuel extends TileEntityPileBase implements IPileNeutr
 			}
 
 			if(this.progress >= this.maxProgress) {
-				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.block_graphite_plutonium, this.getBlockMetadata() & 7, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.block_graphite_plutonium, this.getBlockMetadata() & 7, 3);
 			}
 		}
 
@@ -78,7 +78,7 @@ public class TileEntityPileFuel extends TileEntityPileBase implements IPileNeutr
 		int lastLevel = MathHelper.clamp((lastProgress * 16) / maxProgress, 0, 15);
 		int newLevel = MathHelper.clamp((progress * 16) / maxProgress, 0, 15);
 		if(lastLevel != newLevel)
-			this.world.notifyBlocksOfNeighborChange(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType());
+			this.world.notifyNeighborsOfStateChange(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), this.getBlockType(), true);
 	}
 
 	private void transmute() {
@@ -89,7 +89,7 @@ public class TileEntityPileFuel extends TileEntityPileBase implements IPileNeutr
 
 			return;
 		} else if(this.progress >= maxProgress - 1000) {
-			this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockMetadata() | 8, 3);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockMetadata() | 8, 3);
 			return;
 		}
 	}

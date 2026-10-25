@@ -30,6 +30,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -41,7 +42,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class ItemRebarPlacer extends Item implements IGUIProvider {
-	
+
 	public static List<Pair<Block, Integer>> acceptableConk = new ArrayList();
 
 	public ItemRebarPlacer() {
@@ -51,11 +52,11 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 		acceptableConk.add(new Pair(ModBlocks.concrete_rebar, 0));
 		acceptableConk.add(new Pair(ModBlocks.concrete_smooth, 0));
 		acceptableConk.add(new Pair(ModBlocks.concrete_pillar, 0));
-		
+
 		for(int i = 0; i < 16; i++) acceptableConk.add(new Pair(ModBlocks.concrete_colored, i));
 		for(int i = 0; i < EnumConcreteType.values().length; i++) acceptableConk.add(new Pair(ModBlocks.concrete_colored_ext, i));
 	}
-	
+
 	public static boolean isValidConk(Item item, int meta) {
 
 		for(Pair<Block, Integer> conk : acceptableConk) {
@@ -74,12 +75,12 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
 		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("pos")) {
 			ItemStack theConk = ItemStackUtil.readStacksFromNBT(stack, 1)[0];
-			
+
 			if(!held || theConk == null) {
 				stack.getTagCompound().removeTag("pos");
 				return;
 			}
-			
+
 			if(!isValidConk(theConk.getItem(), theConk.getItemDamage())) {
 				stack.getTagCompound().removeTag("pos");
 				return;
@@ -88,27 +89,39 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(!world.isRemote && player.isSneaking()) player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
 		return stack;
 	}
-	
-	@Override
-	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
-		
-	}
 
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
+
+	}
+
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fx, float fy, float fz) {
 		if(world.isRemote) return true;
 		if(!stack.hasTagCompound()) {
 			stack.setTagCompound(new NBTTagCompound());
 			ItemStackUtil.addStacksToNBT(stack, new ItemStack[] {new ItemStack(ModBlocks.concrete_rebar)});
 		}
 		ItemStack theConk = ItemStackUtil.readStacksFromNBT(stack, 1)[0];
-		
+
 		boolean hasConk = theConk != null && isValidConk(theConk.getItem(), theConk.getItemDamage());
-		
+
 		if(!hasConk) {
 			player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 					.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
@@ -116,9 +129,9 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 					.next("No valid concrete type set!").color(TextFormatting.RED).flush());
 			return true;
 		}
-		
+
 		ForgeDirection dir = ForgeDirection.getOrientation(side);
-		
+
 		if(!stack.getTagCompound().hasKey("pos")) {
 			stack.getTagCompound().setIntArray("pos", new int[] {x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ});
 		} else {
@@ -131,7 +144,7 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 				stack.getTagCompound().removeTag("pos");
 				return true;
 			}
-			
+
 			int[] pos = stack.getTagCompound().getIntArray("pos");
 			int iX = x + dir.offsetX;
 			int iY = y + dir.offsetY;
@@ -143,16 +156,16 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 			int maxY = Math.max(pos[1], iY);
 			int minZ = Math.min(pos[2], iZ);
 			int maxZ = Math.max(pos[2], iZ);
-			
+
 			int rebarUsed = 0;
-			
+
 			outer: for(int k = minY; k <= maxY; k++) {
 				for(int j = minZ; j <= maxZ; j++) {
 					for(int i = minX; i<= maxX; i++) {
 						if(rebarLeft <= 0) break outer;
-						
-						if(com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(i, k, j)) && player.canPlayerEdit(i, k, j, side, stack)) {
-							world.setBlock(i, k, j, ModBlocks.rebar);
+
+						if(com.hbm.world.WorldBlockState.read(world, i, k, j).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(i, k, j)) && player.canPlayerEdit(new net.minecraft.util.math.BlockPos(i, k, j), net.minecraft.util.EnumFacing.byIndex(side), stack)) {
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, i, k, j, ModBlocks.rebar);
 							TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(i, k, j));
 							if(tile instanceof TileEntityRebar) {
 								((TileEntityRebar) tile).setup(Block.getBlockFromItem(theConk.getItem()), theConk.getItemDamage());
@@ -163,18 +176,18 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 					}
 				}
 			}
-			
+
 			InventoryUtil.tryConsumeAStack(player.inventory.mainInventory, 0, player.inventory.mainInventory.size() - 1, new ComparableStack(ModBlocks.rebar, rebarUsed));
-			
+
 			player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 					.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 					.next("] ").color(TextFormatting.DARK_AQUA)
 					.next("Placed " + rebarUsed + " rebar!").color(TextFormatting.GREEN).flush());
-			
+
 			stack.getTagCompound().removeTag("pos");
 			player.inventoryContainer.detectAndSendChanges();
 		}
-		
+
 		return true;
 	}
 
@@ -207,14 +220,14 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 		@Override public boolean hasCustomName() { return target.hasDisplayName(); }
 		@Override public int getInventoryStackLimit() { return 1; }
 	}
-	
+
 	public static class ContainerRebar extends Container {
-		
+
 		private InventoryRebar rebar;
-		
+
 		public ContainerRebar(InventoryPlayer invPlayer, InventoryRebar rebar) {
 			this.rebar = rebar;
-			
+
 			this.addSlotToContainer(new SlotPattern(rebar, 0, 53, 36));
 
 			for(int i = 0; i < 3; i++) {
@@ -234,28 +247,28 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 		}
 
 		@Override
-		public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-			
+		public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
 			//L/R: 0
 			//M3: 3
 			//SHIFT: 1
 			//DRAG: 5
-			
+
 			// prevents the player from moving around the currently open box
-			if(mode == 2 && button == player.inventory.currentItem) return null;
-			if(index == player.inventory.currentItem + 47) return null;
-			
+			if(mode == ClickType.SWAP && button == player.inventory.currentItem) return ItemStack.EMPTY;
+			if(index == player.inventory.currentItem + 47) return ItemStack.EMPTY;
+
 			if(index != 0) return super.slotClick(index, button, mode, player);
 
 			Slot slot = this.getSlot(index);
-			
+
 			ItemStack ret = null;
 			ItemStack held = player.inventory.getItemStack();
-			
+
 			if(slot.getHasStack()) ret = slot.getStack().copy();
 			slot.putStack(held);
 			rebar.markDirty();
-			
+
 			return ret;
 		}
 
@@ -263,13 +276,13 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 		public boolean canInteractWith(EntityPlayer player) {
 			return rebar.isUsableByPlayer(player);
 		}
-		
+
 		@Override
 		public void onContainerClosed(EntityPlayer player) {
 			super.onContainerClosed(player);
 		}
 	}
-	
+
 	public static class GUIRebar extends GuiInfoContainer {
 
 		private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/gui_rebar.png");
@@ -282,25 +295,25 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 			this.xSize = 176;
 			this.ySize = 182;
 		}
-		
+
 		@Override
 		public void drawScreen(int mouseX, int mouseY, float f) {
 			super.drawScreen(mouseX, mouseY, f);
-			
+
 			if(this.isMouseOverSlot(this.inventorySlots.getSlot(0), mouseX, mouseY) && !this.inventorySlots.getSlot(0).getHasStack()) {
 
 				List<Object[]> lines = new ArrayList();
 				List<ItemStack> list = new ArrayList();
 				for(Pair<Block, Integer> conk : acceptableConk) list.add(new ItemStack(conk.getKey(), 1, conk.getValue()));
 				ItemStack selected = list.get(0);
-				
+
 				if(list.size() > 1) {
 					int cycle = (int) ((System.currentTimeMillis() % (1000 * list.size())) / 1000);
 					selected = ((ItemStack) list.get(cycle)).copy();
-					selected.stackSize = 0;
+					selected.setCount(0);
 					list.set(cycle, selected);
 				}
-				
+
 				if(list.size() < 10) {
 					lines.add(list.toArray());
 				} else if(list.size() < 24) {
@@ -313,7 +326,7 @@ public class ItemRebarPlacer extends Item implements IGUIProvider {
 					lines.add(list.subList(bound0, bound1).toArray());
 					lines.add(list.subList(bound1, list.size()).toArray());
 				}
-				
+
 				lines.add(new Object[] {I18nUtil.resolveKey(selected.getDisplayName())});
 				this.drawStackText(lines, mouseX, mouseY, this.fontRenderer);
 			}

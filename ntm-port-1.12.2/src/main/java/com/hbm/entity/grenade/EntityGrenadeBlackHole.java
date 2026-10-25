@@ -26,17 +26,17 @@ public class EntityGrenadeBlackHole extends EntityGrenadeBouncyBase
 
     @Override
     public void explode() {
-    	
+
         if (!this.world.isRemote)
         {
             this.setDead();
             this.world.createExplosion(this, this.posX, this.posY, this.posZ, 1.5F, true);
 
-        	EntityBlackHole bl = new EntityBlackHole(this.world, 1.5F);
-        	bl.posX = this.posX;
-        	bl.posY = this.posY;
-        	bl.posZ = this.posZ;
-        	this.world.spawnEntityInWorld(bl);
+			EntityBlackHole bl = new EntityBlackHole(this.world, 1.5F);
+			bl.posX = this.posX;
+			bl.posY = this.posY;
+			bl.posZ = this.posZ;
+			this.world.spawnEntity(bl);
         }
     }
 

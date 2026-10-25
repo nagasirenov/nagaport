@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
-/*   
+/*
  *   ___________
  *  /           \
  * |\___________/|
@@ -22,11 +22,16 @@ import net.minecraft.world.World;
  * | |           |
  * | '         . |
  *  \___________/
- *  
+ *
  *      PU-238
- * 
+ *
  */
 public class BlockDirt extends Block {
+	public <T extends BlockDirt> T withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return (T) this;
+	}
+
 
 	public BlockDirt(Material mat) {
 		super(mat);
@@ -44,13 +49,13 @@ public class BlockDirt extends Block {
 
 	/*@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		
+
 		for(int i = -1; i < 2; i++) {
 			for(int j = -1; j < 2; j++) {
 				for(int k = -1; k < 2; k++) {
 					Block b = world.getBlock(x + i, y + j, z + k);
 					if(b instanceof BlockGrass) {
-						world.setBlock(x, y, z, Blocks.dirt);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, Blocks.DIRT);
 					}
 				}
 			}
@@ -60,16 +65,16 @@ public class BlockDirt extends Block {
 	@Override
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
-		
+
 		if(!world.isRemote) {
 			TomSaveData data = TomSaveData.forWorld(world);
-			
-			int light = Math.max(world.getSavedLightValue(EnumSkyBlock.Block, x, y + 1, z), (int) (world.getBlockLightValue(x, y + 1, z) * (1 - data.dust)));
+
+			int light = Math.max(world.getLightFor(EnumSkyBlock.BLOCK, new net.minecraft.util.math.BlockPos(x, y + 1, z)), (int) (world.getLightFromNeighborsFor(EnumSkyBlock.BLOCK, new net.minecraft.util.math.BlockPos(x, y + 1, z)) * (1 - data.dust)));
 			if(light >= 9 && data.fire == 0) {
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.GRASS; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				if(com.hbm.world.WorldBlockState.read(world, x, y-1, z).getBlock()==Blocks.DIRT)
 				{
-					world.setBlock(x, y-1, z, ModBlocks.impact_dirt);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y-1, z, ModBlocks.impact_dirt);
 				}
 			}
 		}

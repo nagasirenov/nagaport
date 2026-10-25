@@ -35,9 +35,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.world.World;
 
 public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, IAnimals, ISuffocationImmune {
+
+	public static final DataParameter<Integer> TARGET_ID = EntityDataManager.createKey(EntityTankbot.class, DataSerializers.VARINT);
+
+	public int getTargetEntityId() {
+		return this.dataManager.get(TARGET_ID).intValue();
+	}
 
 	/** Keep this entity's 1.7 render range independent of the global 1.12 multiplier. */
 	@Override
@@ -48,10 +57,10 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 		return distance < range * range;
 	}
     private int stepTimer = 0;
-	public double headTargetYaw; 
-	public double currentHeadYaw; 
+	public double headTargetYaw;
+	public double currentHeadYaw;
 	public EntityLivingBase targetEntityLiving;
-	
+
     private static final Predicate<Entity> selector = new Predicate<Entity>() {
 		public boolean apply(Entity p_82704_1_) {
 			return !(p_82704_1_ instanceof EntityTankbot);
@@ -62,23 +71,22 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
     {
         super(p_i1733_1_);
         this.setSize(2.45F, 3.25F);
-        this.getNavigator().setAvoidsWater(true);
         this.deathTime = -50;
         this.isImmuneToFire = true;
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
         this.tasks.addTask(5, new EntityAIWander(this, 0.2D));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, true, true, selector));
 		this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, false));
 		this.tasks.addTask(3, new EntityAIStepTowardsTarget(this, 50, 0.2D, 200, 20, 0.6));
         //this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 0.2D, false));
 		this.tasks.addTask(4, new EntityAITankshell(this, true, true, 2, 10, 30));
-		
-		
+
+
     }
 	protected void onDeathUpdate() {
-		
+
 		if(this.deathTime == -30) {
-			this.world.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
+			this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.chopperDamage"), 10.0F, 1.0F);
 		}
 		if(this.deathTime >= -30 && !this.world.isRemote) {
 		ParticleUtil.spawnGasFlame(this.world, this.posX, this.posY + 1, this.posZ, rand.nextGaussian(), 0.4, rand.nextGaussian());
@@ -89,36 +97,36 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 			this.setDead();
 
 		}
-		
+
 		super.onDeathUpdate();
 	}
-	@Override
 	protected Entity findPlayerToAttack() {
 		if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;
 
-		return this.world.getClosestVulnerablePlayerToEntity(this, 64D);
+		return this.world.getNearestAttackablePlayer(this, 64.0D, 64.0D);
 	}
 
 
 
-	
+
+	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(20, (int) 0);
+		this.dataManager.register(TARGET_ID, Integer.valueOf(0));
 	}
-	
+
 	protected boolean canDespawn() {
 		return false;
 	}
-	
+
     @Override
     public void setAttackTarget(EntityLivingBase entity) {
         super.setAttackTarget(entity);
-        this.dataWatcher.updateObject(20, entity != null ? entity.getEntityId() : 0);
+        this.dataManager.set(TARGET_ID, Integer.valueOf(entity != null ? entity.getEntityId() : 0));
     }
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		
+
 		if(source instanceof EntityDamageSourceIndirect && ((EntityDamageSourceIndirect) source).getImmediateSource() instanceof EntityEgg && rand.nextInt(10) == 0) {
 			this.experienceValue = 0;
 			this.setHealth(0);
@@ -140,36 +148,35 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 
 		return super.attackEntityFrom(source, amount);
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(15.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(180.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(180.0D);
 
 	}
 
 
     @Override
-	protected String getHurtSound()
+	protected net.minecraft.util.SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return "hbm:entity.cybercrab";
+        return com.hbm.main.ModSoundEvents.resolve("hbm:entity.cybercrab");
     }
-	@Override
 	public boolean isAIEnabled() {
 		return true;
 	}
-	
+
     @Override
     public void onUpdate() {
         super.onUpdate();
-        
-        
-        float targetYaw = this.rotationYawHead; 
+
+
+        float targetYaw = this.rotationYawHead;
         float currentYaw = this.rotationYaw;
-        float maxYawChange = 1f; 
+        float maxYawChange = 1f;
 
         float yawDifference = targetYaw - currentYaw;
 
@@ -181,6 +188,6 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 
         this.rotationYaw += yawDifference;
     }
-    
+
 
 }

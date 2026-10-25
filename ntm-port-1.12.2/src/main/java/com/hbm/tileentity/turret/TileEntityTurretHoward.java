@@ -162,7 +162,7 @@ public class TileEntityTurretHoward extends TileEntityTurretBaseNT {
 				for(int i = 0; i < 2; i++) {
 
 					if(i == 1) {
-						hOff = hOff.scale(-1);
+						hOff = hOff.multiply(-1);
 					}
 
 					NBTTagCompound data = new NBTTagCompound();

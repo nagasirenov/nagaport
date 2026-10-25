@@ -138,7 +138,7 @@ public class TileEntityMachineSolidifier extends TileEntityMachineBase implement
 			if(slots[0].getItemDamage() != stack.getItemDamage())
 				return false;
 
-			if(slots[0].stackSize + stack.stackSize > slots[0].getMaxStackSize())
+			if(slots[0].getCount() + stack.getCount() > slots[0].getMaxStackSize())
 				return false;
 		}
 
@@ -161,7 +161,7 @@ public class TileEntityMachineSolidifier extends TileEntityMachineBase implement
 			if(slots[0] == null) {
 				slots[0] = stack.copy();
 			} else {
-				slots[0].stackSize += stack.stackSize;
+				slots[0].grow(stack.getCount());
 			}
 
 			progress = 0;
@@ -224,7 +224,7 @@ public class TileEntityMachineSolidifier extends TileEntityMachineBase implement
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

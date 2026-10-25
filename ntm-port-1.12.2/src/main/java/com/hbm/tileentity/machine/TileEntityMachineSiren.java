@@ -26,16 +26,35 @@ import net.minecraft.world.World;
 
 public class TileEntityMachineSiren extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack slots[];
-	
+
 	private static final int[] slots_top = new int[] { 0 };
 	private static final int[] slots_bottom = new int[] { 0 };
 	private static final int[] slots_side = new int[] { 0 };
-	
+
 	public boolean lock = false;
-	
+
 	private String customName;
-	
+
 	public TileEntityMachineSiren() {
 		slots = new ItemStack[1];
 	}
@@ -73,15 +92,23 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.siren";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.siren";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
-	
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
+	}
+
 	public void setCustomName(String name) {
 		this.customName = name;
 		markDirty();
@@ -93,7 +120,7 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
@@ -101,7 +128,9 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
-	
+
+
+
 	//You scrubs aren't needed for anything (right now)
 	@Override
 	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
@@ -110,39 +139,39 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
-		
+
 		return false;
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null)
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
-			
+
 			return itemStack1;
 		} else {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		NBTTagList list = nbt.getTagList("items", 10);
 
 		slots = new ItemStack[getSizeInventory()];
-		
+
 		for(int i = 0; i < list.tagCount(); i++)
 		{
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
@@ -155,13 +184,13 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 
 		customName = nbt.getString("name");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 
 		NBTTagList list = new NBTTagList();
-		
+
 		for(int i = 0; i < slots.length; i++)
 		{
 			if(slots[i] != null)
@@ -173,13 +202,13 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
 		return nbt;
 	}
-	
+
 	@Override
 	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace)
     {
@@ -201,40 +230,40 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
 			int id = Arrays.asList(TrackType.values()).indexOf(getCurrentType());
-			
+
 			if(getCurrentType().name().equals(TrackType.NULL.name())) {
 				PacketDispatcher.wrapper.sendToAllAround(new TESirenPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), id, false), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1500));
 				return;
 			}
-			
+
 			boolean active = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
-			
+
 			if(getCurrentType().getType().name().equals(SoundType.LOOP.name())) {
-				
+
 				PacketDispatcher.wrapper.sendToAllAround(new TESirenPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), id, active), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1500));
 			} else {
-				
+
 				if(!lock && active) {
 					lock = true;
 					PacketDispatcher.wrapper.sendToAllAround(new TESirenPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), id, false), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1500));
 					PacketDispatcher.wrapper.sendToAllAround(new TESirenPacket(this.pos.getX(), this.pos.getY(), this.pos.getZ(), id, true), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1500));
 				}
-				
+
 				if(lock && !active) {
 					lock = false;
 				}
 			}
 		}
 	}
-	
+
 	public TrackType getCurrentType() {
 		if(slots[0] != null && slots[0].getItem() instanceof ItemCassette) {
 			return TrackType.getEnum(slots[0].getItemDamage());
 		}
-		
+
 		return TrackType.NULL;
 	}
 

@@ -13,55 +13,55 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntityChopperMine extends Entity implements IProjectile {
-	
+
 	public int timer = 0;
 	public Entity shooter;
 	public EntityChopperMine(World p_i1582_1_) {
 		super(p_i1582_1_);
 	}
-	
+
 	public EntityChopperMine(World p_i1582_1_, double x, double y, double z, double moX, double moY, double moZ, Entity shooter) {
 		super(p_i1582_1_);
 		this.posX = x;
 		this.posY = y;
 		this.posZ = z;
-		
+
 		this.motionX = moX;
 		this.motionY = moY;
 		this.motionZ = moZ;
-		
+
 		this.shooter = shooter;
-		
+
 		this.setSize(12, 12);
-		
+
 		this.isImmuneToFire = true;
 	}
 
 	@Override
 	public void shoot(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
 			float p_70186_8_) {
-		
+
 	}
 
 	@Override
 	protected void entityInit() {
-		
+
 	}
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound p_70037_1_) {
-		
+
 	}
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {
-		
+
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 
 		Vec3d vec31 = new Vec3d(this.posX, this.posY, this.posZ);
 		Vec3d vec3 = new Vec3d(this.posX + this.motionX, this.posY + this.motionY,
@@ -78,7 +78,7 @@ public class EntityChopperMine extends Entity implements IProjectile {
 
 		Entity entity = null;
 		List list = this.world.getEntitiesWithinAABBExcludingEntity(this,
-				this.getEntityBoundingBox().addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+				this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
 		double d0 = 0.0D;
 		int i;
 		float f1;
@@ -112,15 +112,15 @@ public class EntityChopperMine extends Entity implements IProjectile {
 			this.world.createExplosion(shooter, this.posX, this.posY, this.posZ, 5F, false);
 			this.setDead();
 		}
-		
+
 		//if(timer % 10 == 0 && timer % 20 != 0)
 		//	worldObj.playSoundAtEntity(this, "random.click", 10.0F, 1F);
 		//if(timer % 20 == 0)
 		//	worldObj.playSoundAtEntity(this, "random.click", 10.0F, 1.5F);
-		
-		this.world.playSoundAtEntity(this, "hbm:misc.nullMine", 10.0F, 1F);
-		
-		if(timer >= 100 || com.hbm.world.WorldBlockState.read(this.world, (int)this.posX, (int)this.posY, (int)this.posZ).getBlock().getMaterial() != Material.AIR)
+
+		this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:misc.nullMine"), net.minecraft.util.SoundCategory.PLAYERS, 10.0F, 1F);
+
+		if(timer >= 100 || com.hbm.world.WorldBlockState.read(this.world, (int)this.posX, (int)this.posY, (int)this.posZ).getMaterial() != Material.AIR)
 		{
 			this.world.createExplosion(shooter, this.posX, this.posY, this.posZ, 5F, false);
 			this.setDead();
@@ -128,14 +128,14 @@ public class EntityChopperMine extends Entity implements IProjectile {
 
 		if(motionY > -0.85)
 			this.motionY -= 0.05;
-		
+
 		this.motionX *= 0.9;
 		this.motionZ *= 0.9;
 
 		this.posX += this.motionX;
 		this.posY += this.motionY;
 		this.posZ += this.motionZ;
-		
+
 		timer++;
 	}
 

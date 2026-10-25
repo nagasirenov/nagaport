@@ -16,17 +16,32 @@ import java.util.concurrent.TimeUnit;
 import static com.hbm.handler.threading.PacketThreading.totalCnt;
 
 public class CommandPacketInfo extends CommandBase {
-	@Override
-	public String getCommandName() {
-		return "ntmpackets";
+
+		@Override
+	public String getName() {
+		return getCommandName();
 	}
 
 	@Override
+	public String getUsage(net.minecraft.command.ICommandSender sender) {
+		return getCommandUsage(sender);
+	}
+
+	@Override
+	public void execute(net.minecraft.server.MinecraftServer server, net.minecraft.command.ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+		processCommand(sender, args);
+	}
+
+public String getCommandName() {
+		return "ntmpackets";
+	}
+
+
 	public String getCommandUsage(ICommandSender sender) {
 		return TextFormatting.RED + "/ntmpackets [info/resetState/toggleThreadingStatus/forceLock/forceUnlock]";
 	}
 
-	@Override
+
 	public void processCommand(ICommandSender sender, String[] args) {
 
 		if (args.length > 0) {
@@ -43,11 +58,11 @@ public class CommandPacketInfo extends CommandBase {
 				case "forceLock":
 					PacketThreading.lock.lock(); // oh my fucking god never do this please unless you really have to
 					sender.sendMessage(new TextComponentString(TextFormatting.RED + "Packet thread lock acquired, this may freeze the main thread!"));
-					MainRegistry.logger.error("Packet thread lock acquired by {}, this may freeze the main thread!", sender.getCommandSenderName());
+					MainRegistry.logger.error("Packet thread lock acquired by {}, this may freeze the main thread!", sender.getName());
 					return;
 				case "forceUnlock":
 					PacketThreading.lock.unlock();
-					MainRegistry.logger.warn("Packet thread lock released by {}.", sender.getCommandSenderName());
+					MainRegistry.logger.warn("Packet thread lock released by {}.", sender.getName());
 					return;
 				case "info":
 					sender.sendMessage(new TextComponentString(TextFormatting.GOLD + "NTM Packet Debugger v1.2"));

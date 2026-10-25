@@ -24,7 +24,7 @@ public class BlockCM extends BlockEnumMulti {
 		
 		for(int i = 0; i < icons.length; i++) {
 			Enum num = enums[i];
-			this.icons[i] = reg.registerIcon(this.getTextureName() + "_" + num.name().toLowerCase(Locale.US));
+			this.icons[i] = reg.registerIcon(this.getRegistryName().toString() + "_" + num.name().toLowerCase(Locale.US));
 		}
 	}
 }

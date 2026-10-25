@@ -29,7 +29,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGUIProvider, IControlReceiverFilter {
-	
+
 	public boolean isWhitelist = false;
 	public boolean maxEject = false;
 	public ModulePatternMatcher matcher;
@@ -47,11 +47,11 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 	@Override
 	public void setInventorySlotContents(int i, ItemStack stack) {
 		super.setInventorySlotContents(i, stack);
-		
+
 		if(stack != null && !stack.isEmpty()) {
-			
+
 			if((stack.getItem() == ModItems.upgrade_ejector && i == 19) || (stack.getItem() == ModItems.upgrade_stack && i == 18)) {
-				this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+				this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 			}
 		}
 	}
@@ -60,9 +60,9 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 	public void update() {
 		super.update();
 		if(!this.world.isRemote) {
-			
+
 			int delay = 20;
-			
+
 			if(slots[19] != null && slots[19].getItem() == ModItems.upgrade_ejector) {
 				switch(slots[19].getItemDamage()) {
 				case 0: delay = 10; break;
@@ -70,10 +70,10 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 				case 2: delay = 2; break;
 				}
 			}
-			
+
 			if(this.world.getTotalWorldTime() % delay == 0 && !this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))) {
 				int amount = 1;
-				
+
 				if(slots[18] != null && slots[18].getItem() == ModItems.upgrade_stack) {
 					switch(slots[18].getItemDamage()) {
 					case 0: amount = 4; break;
@@ -86,44 +86,44 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 				ForgeDirection outputSide = getInputSide();
 				TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX() + inputSide.offsetX, this.pos.getY() + inputSide.offsetY, this.pos.getZ() + inputSide.offsetZ));
 				Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ).getBlock();
-				
+
 				int[] access = null;
 				ISidedInventory sided = null;
-				
+
 				if(te instanceof ISidedInventory) {
 					sided = (ISidedInventory) te;
 					//access = sided.getAccessibleSlotsFromSide(dir.ordinal());
 					access = masquerade(sided, inputSide.getOpposite().ordinal());
 				}
-				
+
 				boolean hasSent = false;
 
 				IConveyorBelt belt = null;
-				
+
 				if(b instanceof IConveyorBelt) {
 					belt = (IConveyorBelt) b;
 				}
-					
+
 				/* try to send items from a connected inv, if present */
 				if(te instanceof IInventory) {
-					
+
 					IInventory inv = (IInventory) te;
 					int size = access == null ? inv.getSizeInventory() : access.length;
-					
+
 					for(int i = 0; i < size; i++) {
 						int index = access == null ? i : access[i];
 						ItemStack stack = inv.getStackInSlot(index);
-						
+
 						if(stack != null && !stack.isEmpty() && (sided == null || sided.canExtractItem(index, stack, com.hbm.lib.ForgeDirection.getOrientation(inputSide.getOpposite().ordinal()).toEnumFacing()))) {
 
 							int maxTarget = Math.min(amount, stack.getMaxStackSize());
 							if(this.maxEject && stack.getCount() < maxTarget) continue;
 							boolean match = this.matchesFilter(stack);
-							
+
 							if((isWhitelist && match) || (!isWhitelist && !match)) {
 								stack = stack.copy();
 								int toSend = Math.min(amount, stack.getCount());
-								
+
 								if (belt != null) {
 									inv.decrStackSize(index, toSend);
 									stack.setCount(toSend);
@@ -139,17 +139,17 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 						}
 					}
 				}
-				
+
 				/* if no item has been sent, send buffered items while ignoring the filter */
 				if(!hasSent && belt != null) {
-					
+
 					for(int i = 9; i < 18; i++) {
 						ItemStack stack = slots[i];
-						
+
 						if(stack != null){
 							stack = stack.copy();
 							int toSend = Math.min(amount, stack.getCount());
-							
+
 							int maxTarget = Math.min(amount, stack.getMaxStackSize());
 							if(this.maxEject && stack.getCount() < maxTarget) continue;
 
@@ -173,7 +173,7 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 		Vec3d snap = belt.getClosestSnappingPosition(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ, pos);
 		moving.setPosition(snap.x, snap.y, snap.z);
 		moving.setItemStack(stack);
-		this.world.spawnEntityInWorld(moving);
+		this.world.spawnEntity(moving);
 
 		if(belt instanceof IEnterableBlock) {
 			IEnterableBlock enterable = (IEnterableBlock) belt;
@@ -192,7 +192,7 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 		buf.writeBoolean(maxEject);
 		this.matcher.serialize(buf);
 	}
-	
+
 	@Override
 	public void deserialize(ByteBuf buf) {
 		super.deserialize(buf);
@@ -200,26 +200,26 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 		maxEject = buf.readBoolean();
 		this.matcher.deserialize(buf);
 	}
-	
+
 	public static int[] masquerade(ISidedInventory sided, int side) {
-		
+
 		if(sided instanceof TileEntityFurnace) {
 			return new int[] {2};
 		}
-		
+
 		return sided.getSlotsForFace(com.hbm.lib.ForgeDirection.getOrientation(side).toEnumFacing());
 	}
-	
+
 	public boolean matchesFilter(ItemStack stack) {
-		
+
 		for(int i = 0; i < 9; i++) {
 			ItemStack filter = slots[i];
-			
+
 			if(filter != null && this.matcher.isValidForFilter(filter, i, stack)) {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -255,7 +255,7 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return new GUICraneExtractor(player.inventory, this);
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
@@ -263,7 +263,7 @@ public class TileEntityCraneExtractor extends TileEntityCraneBase implements IGU
 		this.maxEject = nbt.getBoolean("maxEject");
 		this.matcher.readFromNBT(nbt);
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);

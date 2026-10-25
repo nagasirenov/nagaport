@@ -21,7 +21,7 @@ public class ColorUtil {
 
 	@SideOnly(Side.CLIENT)
 	public static BufferedImage getImageFromStack(ItemStack stack) throws IOException {
-		String iconName = stack.getItem().getIconFromDamage(stack.getItemDamage()).getIconName();
+		String iconName = net.minecraft.client.Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(stack.getItem(), stack.getItemDamage()).getIconName();
 		String domain = "minecraft";
 
 		if(iconName.contains(":")) {

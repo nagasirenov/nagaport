@@ -15,11 +15,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class HeldItemNBTPacket implements IMessage {
-	
+
 	private ItemStack stack;
-	
+
 	public HeldItemNBTPacket() { }
-	
+
 	public HeldItemNBTPacket(ItemStack stack) {
 		this.stack = stack;
 	}
@@ -27,7 +27,7 @@ public class HeldItemNBTPacket implements IMessage {
 	@Override
 	public void toBytes(ByteBuf buf) {
 		buf.writeShort(Item.getIdFromItem(stack.getItem()));
-		buf.writeByte(stack.stackSize);
+		buf.writeByte(stack.getCount());
 		buf.writeShort(stack.getItemDamage());
 		NBTTagCompound nbtTagCompound = null;
 		nbtTagCompound = stack.getTagCompound();
@@ -53,12 +53,12 @@ public class HeldItemNBTPacket implements IMessage {
 			try {
 				EntityPlayer player = Minecraft.getMinecraft().player;
 				if(m.stack == null) return null;
-				
+
 				ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 				if(held == null) return null;
 				if(held.getItem() != m.stack.getItem()) return null;
 				if(held.getItemDamage() != m.stack.getItemDamage()) return null;
-				
+
 				held.setTagCompound(m.stack.getTagCompound());
 
 			} catch(Exception x) { } finally { }

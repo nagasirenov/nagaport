@@ -150,7 +150,7 @@ public class GUIScreenFluid extends GuiScreen {
 	}
 
 	@Override
-	protected void keyTyped(char c, int key) {
+	protected void keyTyped(char c, int key) throws java.io.IOException {
 
 		if(this.search.textboxKeyTyped(c, key)) {
 			updateSearch();

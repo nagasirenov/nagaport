@@ -36,7 +36,7 @@ public class GUIFunnel extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		if(this.checkClick(x, y, 159, 73, 10, 10)) {

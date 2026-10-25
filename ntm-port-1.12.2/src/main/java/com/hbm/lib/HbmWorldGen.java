@@ -49,7 +49,6 @@ import java.util.Random;
 
 public class HbmWorldGen implements IWorldGenerator {
 
-	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
 		if(world.provider instanceof WorldProviderCelestial) {
@@ -103,7 +102,7 @@ public class HbmWorldGen implements IWorldGenerator {
 		if(!TomSaveData.forWorld(world).impact) {
 
 			if((biome == Biomes.FOREST || biome == Biomes.FOREST_HILLS || biome == Biomes.BIRCH_FOREST ||
-					biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.FLOWER_FOREST || biome == Biomes.ROOFED_FOREST) && rand.nextInt(16) == 0) {
+					biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.MUTATED_FOREST || biome == Biomes.ROOFED_FOREST) && rand.nextInt(16) == 0) {
 				DungeonToolbox.generateFlowers(world, rand, i, j, ModBlocks.plant_flower, EnumFlowerType.FOXGLOVE.ordinal());
 			}
 			if(biome == Biomes.ROOFED_FOREST && rand.nextInt(8) == 0) {

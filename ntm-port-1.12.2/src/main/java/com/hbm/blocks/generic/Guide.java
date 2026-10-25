@@ -21,8 +21,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class Guide extends Block implements ILookOverlay {
-	
+
 	@SideOnly(Side.CLIENT)
+	private IIcon blockIcon;
 	private IIcon iconTop;
 	private IIcon iconFront;
 	private IIcon iconBack;
@@ -32,8 +33,7 @@ public class Guide extends Block implements ILookOverlay {
 	public Guide(Material p_i45394_1_) {
 		super(p_i45394_1_);
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":guide_bottom");
@@ -43,8 +43,7 @@ public class Guide extends Block implements ILookOverlay {
 		this.iconLeft = iconRegister.registerIcon(RefStrings.MODID + ":guide_side_left");
 		this.iconRight = iconRegister.registerIcon(RefStrings.MODID + ":guide_side_right");
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		if(metadata == 5)
@@ -90,42 +89,45 @@ public class Guide extends Block implements ILookOverlay {
 		if(side == 3) return iconLeft;
 		if(side == 4) return iconBack;
 		if(side == 5) return iconFront;
-		
+
 		return null;
 	}
-	
+
 	@Override
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-		
+
 		if(i == 0)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 1)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 		}
 		if(i == 2)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 3)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(world.isRemote && !player.isSneaking()) {
 			MainRegistry.proxy.openLink("https://nucleartech.wiki/wiki/Main_Page");
 			return true;
 		}
-		
-		return super.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ);
+
+		return super.onBlockActivated(world, nativePos, nativeState, player, nativeHand, nativeFacing, hitX, hitY, hitZ);
 	}
 
 	@Override

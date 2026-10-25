@@ -48,7 +48,7 @@ public class GUIMachineArcFurnaceLarge extends GuiInfoContainer {
 	}
 	
 	@Override
-	protected void mouseClicked(int x, int y, int k) {
+	protected void mouseClicked(int x, int y, int k) throws java.io.IOException {
 		super.mouseClicked(x, y, k);
 		
 		if(this.checkClick(x, y, 151, 17, 18, 18)) {

@@ -45,7 +45,7 @@ public class TileEntityRadioRec extends TileEntityLoadedBase implements IControl
 						if(i == Instrument.BASSGUITAR)  s = "bassattack";
 
 						float f = (float)Math.pow(2.0D, (double)(noteId - 12) / 12.0D);
-						this.world.playSoundEffect(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D, "note." + s, 3.0F, f);
+						this.world.playSound(null, this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D, com.hbm.main.ModSoundEvents.resolve("note." + s), net.minecraft.util.SoundCategory.BLOCKS, 3.0F, f);
 					}
 				}
 			}

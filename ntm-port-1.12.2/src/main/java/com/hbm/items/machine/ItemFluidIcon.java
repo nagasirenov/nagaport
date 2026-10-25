@@ -28,8 +28,16 @@ public class ItemFluidIcon extends Item {
 		this.setMaxDamage(0);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
 		FluidType[] order = Fluids.getInNiceOrder();
 		for(int i = 1; i < order.length; ++i) {
@@ -117,7 +125,6 @@ public class ItemFluidIcon extends Item {
 		return "Unknown";
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int p_82790_2_) {
 		int j = Fluids.fromID(stack.getItemDamage()).getColor();

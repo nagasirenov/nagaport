@@ -34,7 +34,10 @@ public abstract class DummyOldBase extends BlockContainer implements IDummy, IEn
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int i) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int i = block.getMetaFromState(state);
 		if(!safeBreak) {
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(te != null && te instanceof TileEntityDummy) {
@@ -46,7 +49,7 @@ public abstract class DummyOldBase extends BlockContainer implements IDummy, IEn
 					com.hbm.world.WorldBlockDestruction.destroy(world, a, b, c, true);
 			}
 		}
-		world.removeTileEntity(x, y, z);
+		world.removeTileEntity(pos);
 	}
 
 	@Override

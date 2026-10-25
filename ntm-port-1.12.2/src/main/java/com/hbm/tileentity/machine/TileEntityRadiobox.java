@@ -13,6 +13,7 @@ import api.hbm.energymk2.IEnergyReceiverMK2;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -22,55 +23,56 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityRadiobox extends TileEntityLoadedBase implements IEnergyReceiverMK2, IGUIProvider, net.minecraft.util.ITickable {
-	
+
 	long power;
 	public static long maxPower = 500000;
 	public boolean infinite = false;
-	
+
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote)
 			this.updateConnections();
 
 		if(!this.world.isRemote && this.getBlockMetadata() > 5 && (power >= 25000 || infinite)) {
-			
+
 			if(!infinite) {
 				power -= 25000;
 				this.markDirty();
 			}
-			
+
 			int range = 15;
-			
-			List<IMob> entities = this.world.getEntitiesWithinAABB(IMob.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - range, this.pos.getY() - range, this.pos.getZ() - range, this.pos.getX() + range, this.pos.getY() + range, this.pos.getZ() + range));
-			
-			for(IMob entity : entities) {
-				
+
+			List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() - range, this.pos.getY() - range, this.pos.getZ() - range, this.pos.getX() + range, this.pos.getY() + range, this.pos.getZ() + range));
+
+			for(EntityLivingBase entity : entities) {
+				if(!(entity instanceof IMob)) continue;
+
 				if(entity instanceof EntityFBI || entity instanceof EntityFBIDrone) continue;
-				
+
 				((Entity)entity).attackEntityFrom(ModDamageSource.enervation, 20.0F);
 			}
 		}
 	}
-	
+
 	private void updateConnections() {
-		
+
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
 			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		power = nbt.getLong("power");
 		infinite = nbt.getBoolean("infinite");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		nbt.setBoolean("infinite", infinite);
 		return nbt;
@@ -90,7 +92,7 @@ public class TileEntityRadiobox extends TileEntityLoadedBase implements IEnergyR
 	public long getMaxPower() {
 		return maxPower;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

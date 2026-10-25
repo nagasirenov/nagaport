@@ -10,6 +10,7 @@ import com.hbm.util.ArmorUtil;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -17,10 +18,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public abstract class BlockGasBase extends Block {
-	
+
 	float red;
 	float green;
 	float blue;
@@ -39,14 +41,14 @@ public abstract class BlockGasBase extends Block {
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
-	@Override
+
 	public int getRenderType() {
 		return -1;
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
+	public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess p_149668_1_, net.minecraft.util.math.BlockPos pos) {
+		int p_149668_2_ = pos.getX(), p_149668_3_ = pos.getY(), p_149668_4_ = pos.getZ();
 		return null;
 	}
 
@@ -62,12 +64,12 @@ public abstract class BlockGasBase extends Block {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
+	public boolean shouldSideBeRendered(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing side) {
 		return false;
 	}
 
 	@Override
-	public boolean canCollideCheck(int p_149678_1_, boolean p_149678_2_) {
+	public boolean canCollideCheck(net.minecraft.block.state.IBlockState state, boolean p_149678_2_) {
 		return false;
 	}
 
@@ -77,29 +79,36 @@ public abstract class BlockGasBase extends Block {
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
+	public void onBlockAdded(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(!world.isRemote) {
-			
+
 			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == 0)
 				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10);
 		}
 	}
-	
+
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) != 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 0, 4);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 0, 4);
 			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 10);
 		}
 	}
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
 
 		if(!world.isRemote) {
-			
-			world.scheduledUpdatesAreImmediate = false; //prevent recursive loop when some dumbass forgets to clean up immediate updating
+
+			net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.world.World.class, world, false, "field_72999_e", "scheduledUpdatesAreImmediate"); //prevent recursive loop when some dumbass forgets to clean up immediate updating
 
 			if(!tryMove(world, x, y, z, getFirstDirection(world, x, y, z)))
 				if(!tryMove(world, x, y, z, getSecondDirection(world, x, y, z)))
@@ -117,7 +126,7 @@ public abstract class BlockGasBase extends Block {
 
 		if(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
-			world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, this);
 			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), this, getDelay(world));
 			return true;
 		}
@@ -135,9 +144,10 @@ public abstract class BlockGasBase extends Block {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
-		
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		EntityPlayer p = MainRegistry.proxy.me();
 		if(ArmorUtil.checkArmorPiece(p, ModItems.ashglasses, 3) && this != ModBlocks.vacuum) {
 			if(rand.nextInt(9)==1)

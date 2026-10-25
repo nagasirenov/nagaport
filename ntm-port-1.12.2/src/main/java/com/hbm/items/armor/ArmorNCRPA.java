@@ -66,7 +66,7 @@ public class ArmorNCRPA extends ArmorFSBPowered implements IItemRendererProvider
 		
 		if(this.hasFSBArmor(player)) {
 			if(world.getTotalWorldTime() % 20 != 0) return;
-			if(HbmPlayerProps.getData(player).enableHUD) player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 300, 0, true));
+			if(HbmPlayerProps.getData(player).enableHUD) player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION, 300, 0, true, true));
 		}
 	}
 

@@ -25,17 +25,17 @@ public class BlastDoor extends BlockContainer implements IBomb, IMultiblock {
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		return new TileEntityBlastDoor();
 	}
-	
+
 	@Override
 	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
 		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
@@ -43,33 +43,36 @@ public class BlastDoor extends BlockContainer implements IBomb, IMultiblock {
 
 	@Override
 	public BombReturnCode explode(World world, int x, int y, int z) {
-		
+
 		if(!world.isRemote) {
 			TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null) {
-				
+
 				if(!entity.isLocked()) {
 					entity.tryToggle();
 					return BombReturnCode.TRIGGERED;
 				}
-				
+
 				return BombReturnCode.ERROR_INCOMPATIBLE;
 			}
 		}
-		
+
 		return BombReturnCode.UNDEFINED;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote)
 		{
 			return true;
 		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && (com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemLock || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_kit)) {
 			return false;
-			
+
 		} if(!player.isSneaking()) {
-			
+
 			TileEntityBlastDoor entity = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null)
 			{
@@ -80,38 +83,38 @@ public class BlastDoor extends BlockContainer implements IBomb, IMultiblock {
 					entity.tryToggle();
 				}
 			}
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	@Override
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
-		
+
 		TileEntityBlastDoor te = (TileEntityBlastDoor) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-		
+
 		if(i == 0)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 1)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 2)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 3)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
-		
+
 		//frame
 		if(!(te.placeDummy(x, y + 1, z) &&
 			te.placeDummy(x, y + 2, z) &&

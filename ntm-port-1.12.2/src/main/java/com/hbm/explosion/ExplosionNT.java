@@ -25,24 +25,38 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 @Deprecated
 public class ExplosionNT extends Explosion {
-	
+
 	public Set<ExAttrib> atttributes = new HashSet();
 
 	private Random explosionRNG = new Random();
 	private World worldObj;
+	private final Entity exploder;
+	private final double explosionX;
+	private final double explosionY;
+	private final double explosionZ;
+	private float explosionSize;
+	private final boolean isSmoking = true;
 	protected int resolution = 16;
 	protected Map affectedEntities = new HashMap();
 
 	@Deprecated public static final List<ExAttrib> nukeAttribs = Arrays.asList(new ExAttrib[] { ExAttrib.FIRE, ExAttrib.NOPARTICLE, ExAttrib.NOSOUND, ExAttrib.NODROP, ExAttrib.NOHURT });
 
 	public ExplosionNT(World world, Entity exploder, double x, double y, double z, float strength) {
-		super(world, exploder, x, y, z, strength);
+		super(world, exploder, x, y, z, strength, false, true);
 		this.worldObj = world;
+		this.exploder = exploder;
+		this.explosionX = x;
+		this.explosionY = y;
+		this.explosionZ = z;
+		this.explosionSize = strength;
 	}
 
 	public ExplosionNT addAttrib(ExAttrib attrib) {
@@ -83,18 +97,18 @@ public class ExplosionNT extends Explosion {
 		for(i = 0; i < this.resolution; ++i) {
 			for(j = 0; j < this.resolution; ++j) {
 				for(k = 0; k < this.resolution; ++k) {
-					
+
 					if(i == 0 || i == this.resolution - 1 || j == 0 || j == this.resolution - 1 || k == 0 || k == this.resolution - 1) {
-						
+
 						double d0 = (double) ((float) i / ((float) this.resolution - 1.0F) * 2.0F - 1.0F);
 						double d1 = (double) ((float) j / ((float) this.resolution - 1.0F) * 2.0F - 1.0F);
 						double d2 = (double) ((float) k / ((float) this.resolution - 1.0F) * 2.0F - 1.0F);
-						
+
 						double dist = Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
 						d0 /= dist;
 						d1 /= dist;
 						d2 /= dist;
-						
+
 						float remainingPower = this.explosionSize * (0.7F + this.worldObj.rand.nextFloat() * 0.6F);
 						currentX = this.explosionX;
 						currentY = this.explosionY;
@@ -104,16 +118,20 @@ public class ExplosionNT extends Explosion {
 							int xPos = MathHelper.floor(currentX);
 							int yPos = MathHelper.floor(currentY);
 							int zPos = MathHelper.floor(currentZ);
-							Block block = com.hbm.world.WorldBlockState.read(this.worldObj, xPos, yPos, zPos).getBlock();
+							BlockPos pos = new BlockPos(xPos, yPos, zPos);
+							net.minecraft.block.state.IBlockState state = com.hbm.world.WorldBlockState.read(this.worldObj, xPos, yPos, zPos);
+							Block block = state.getBlock();
 
-							if(block.getDefaultState().getMaterial() != Material.AIR) {
-								float resistance = this.exploder != null ? this.exploder.func_145772_a(this, this.worldObj, xPos, yPos, zPos, block) : block.getExplosionResistance(this.exploder, worldObj, xPos, yPos, zPos, explosionX, explosionY, explosionZ);
+							if(state.getMaterial() != Material.AIR) {
+								float resistance = this.exploder != null
+										? this.exploder.getExplosionResistance(this, this.worldObj, pos, state)
+										: block.getExplosionResistance(this.worldObj, pos, null, this);
 								remainingPower -= (resistance + 0.3F) * step;
 							}
 
-							if(block != Blocks.AIR && remainingPower > 0.0F && (this.exploder == null || this.exploder.func_145774_a(this, this.worldObj, xPos, yPos, zPos, block, remainingPower))) {
+							if(block != Blocks.AIR && remainingPower > 0.0F && (this.exploder == null || this.exploder.canExplosionDestroyBlock(this, this.worldObj, pos, state, remainingPower))) {
 								hashset.add(new LegacyHashBlockPos(xPos, yPos, zPos));
-								
+
 							} else if(this.has(ExAttrib.ERRODE) && errosion.containsKey(block)) {
 								hashset.add(new LegacyHashBlockPos(xPos, yPos, zPos));
 							}
@@ -132,13 +150,13 @@ public class ExplosionNT extends Explosion {
 		if(!has(ExAttrib.NOHURT)) {
 
 			this.explosionSize *= 2.0F;
-			i = MathHelper.floor_double(this.explosionX - (double) this.explosionSize - 1.0D);
-			j = MathHelper.floor_double(this.explosionX + (double) this.explosionSize + 1.0D);
-			k = MathHelper.floor_double(this.explosionY - (double) this.explosionSize - 1.0D);
-			int i2 = MathHelper.floor_double(this.explosionY + (double) this.explosionSize + 1.0D);
-			int l = MathHelper.floor_double(this.explosionZ - (double) this.explosionSize - 1.0D);
-			int j2 = MathHelper.floor_double(this.explosionZ + (double) this.explosionSize + 1.0D);
-			List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this.exploder, AxisAlignedBB.getBoundingBox((double) i, (double) k, (double) l, (double) j, (double) i2, (double) j2));
+			i = MathHelper.floor(this.explosionX - (double) this.explosionSize - 1.0D);
+			j = MathHelper.floor(this.explosionX + (double) this.explosionSize + 1.0D);
+			k = MathHelper.floor(this.explosionY - (double) this.explosionSize - 1.0D);
+			int i2 = MathHelper.floor(this.explosionY + (double) this.explosionSize + 1.0D);
+			int l = MathHelper.floor(this.explosionZ - (double) this.explosionSize - 1.0D);
+			int j2 = MathHelper.floor(this.explosionZ + (double) this.explosionSize + 1.0D);
+			List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this.exploder, new AxisAlignedBB((double) i, (double) k, (double) l, (double) j, (double) i2, (double) j2));
 			net.minecraftforge.event.ForgeEventFactory.onExplosionDetonate(this.worldObj, this, list, this.explosionSize);
 			Vec3d vec3 = new Vec3d(this.explosionX, this.explosionY, this.explosionZ);
 
@@ -159,7 +177,8 @@ public class ExplosionNT extends Explosion {
 						double d10 = (double) this.worldObj.getBlockDensity(vec3, entity.getEntityBoundingBox());
 						double d11 = (1.0D - d4) * d10;
 						entity.attackEntityFrom(setExplosionSource(this), (float) ((int) ((d11 * d11 + d11) / 2.0D * 8.0D * (double) this.explosionSize + 1.0D)));
-						double d8 = EnchantmentProtection.func_92092_a(entity, d11);
+						double d8 = entity instanceof EntityLivingBase
+								? EnchantmentProtection.getBlastDamageReduction((EntityLivingBase) entity, d11) : d11;
 						entity.motionX += currentX * d8;
 						entity.motionY += currentY * d8;
 						entity.motionZ += currentZ * d8;
@@ -184,13 +203,14 @@ public class ExplosionNT extends Explosion {
 	public void doExplosionB(boolean p_77279_1_) {
 
 		if(!has(ExAttrib.NOSOUND))
-			this.worldObj.playSoundEffect(this.explosionX, this.explosionY, this.explosionZ, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
+			this.worldObj.playSound(null, new BlockPos(this.explosionX, this.explosionY, this.explosionZ), SoundEvents.ENTITY_GENERIC_EXPLODE,
+					SoundCategory.BLOCKS, 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
 
 		if(!has(ExAttrib.NOPARTICLE)) {
 			if(this.explosionSize >= 2.0F && this.isSmoking) {
-				this.worldObj.spawnParticle("hugeexplosion", this.explosionX, this.explosionY, this.explosionZ, 1.0D, 0.0D, 0.0D);
+				this.worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, this.explosionX, this.explosionY, this.explosionZ, 1.0D, 0.0D, 0.0D);
 			} else {
-				this.worldObj.spawnParticle("largeexplode", this.explosionX, this.explosionY, this.explosionZ, 1.0D, 0.0D, 0.0D);
+				this.worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, this.explosionX, this.explosionY, this.explosionZ, 1.0D, 0.0D, 0.0D);
 			}
 		}
 
@@ -228,62 +248,62 @@ public class ExplosionNT extends Explosion {
 					d3 *= d7;
 					d4 *= d7;
 					d5 *= d7;
-					this.worldObj.spawnParticle("explode", (d0 + this.explosionX * 1.0D) / 2.0D, (d1 + this.explosionY * 1.0D) / 2.0D, (d2 + this.explosionZ * 1.0D) / 2.0D, d3, d4, d5);
-					this.worldObj.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, d3, d4, d5);
+					this.worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, (d0 + this.explosionX * 1.0D) / 2.0D, (d1 + this.explosionY * 1.0D) / 2.0D, (d2 + this.explosionZ * 1.0D) / 2.0D, d3, d4, d5);
+					this.worldObj.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, d3, d4, d5);
 				}
 
 				if(block.getDefaultState().getMaterial() != Material.AIR) {
-					
+
 					boolean doesErrode = false;
 					Block errodesInto = Blocks.AIR;
-					
+
 					if(this.has(ExAttrib.ERRODE) && this.explosionRNG.nextFloat() < 0.6F) { //errosion has a 60% chance to occour
-						
+
 						if(errosion.containsKey(block)) {
 							doesErrode = true;
 							errodesInto = errosion.get(block);
 						}
 					}
-					
+
 					if(block.canDropFromExplosion(this) && !has(ExAttrib.NODROP) && !doesErrode) {
 						float chance = 1.0F;
 
 						if(!has(ExAttrib.ALLDROP))
 							chance = 1.0F / this.explosionSize;
 
-						block.dropBlockAsItemWithChance(this.worldObj, i, j, k, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.worldObj, i, j, k) ), chance, 0);
+						block.dropBlockAsItemWithChance(this.worldObj, new net.minecraft.util.math.BlockPos(i, j, k), this.worldObj.getBlockState(new net.minecraft.util.math.BlockPos(i, j, k)), chance, 0);
 					}
 
-					block.onBlockExploded(this.worldObj, i, j, k, this);
-					
+					block.onBlockExploded(this.worldObj, new BlockPos(i, j, k), this);
+
 					if(block.isNormalCube(nativeCubeState_block)) {
-						
+
 						if(doesErrode) {
-							this.worldObj.setBlock(i, j, k, errodesInto);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j, k, errodesInto);
 						}
-						
+
 						if(has(ExAttrib.DIGAMMA)) {
-							this.worldObj.setBlock(i, j, k, ModBlocks.ash_digamma);
-							
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j, k, ModBlocks.ash_digamma);
+
 							if(this.explosionRNG.nextInt(5) == 0 && com.hbm.world.WorldBlockState.read(this.worldObj, i, j + 1, k).getBlock() == Blocks.AIR)
-								this.worldObj.setBlock(i, j + 1, k, ModBlocks.fire_digamma);
-							
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j + 1, k, ModBlocks.fire_digamma);
+
 						} else if(has(ExAttrib.DIGAMMA_CIRCUIT)) {
-							
+
 							if(i % 3 == 0 && k % 3 == 0) {
-								this.worldObj.setBlock(i, j, k, ModBlocks.pribris_digamma);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j, k, ModBlocks.pribris_digamma);
 							} else if((i % 3 == 0 || k % 3 == 0) && this.explosionRNG.nextBoolean()) {
-								this.worldObj.setBlock(i, j, k, ModBlocks.pribris_digamma);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j, k, ModBlocks.pribris_digamma);
 							} else {
-								this.worldObj.setBlock(i, j, k, ModBlocks.ash_digamma);
-								
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j, k, ModBlocks.ash_digamma);
+
 								if(this.explosionRNG.nextInt(5) == 0 && com.hbm.world.WorldBlockState.read(this.worldObj, i, j + 1, k).getBlock() == Blocks.AIR)
-									this.worldObj.setBlock(i, j + 1, k, ModBlocks.fire_digamma);
+									com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j + 1, k, ModBlocks.fire_digamma);
 							}
 						} else if(has(ExAttrib.LAVA_V)) {
-							this.worldObj.setBlock(i, j, k, ModBlocks.volcanic_lava_block);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j, k, ModBlocks.volcanic_lava_block);
 						} else if(has(ExAttrib.LAVA_R)) {
-							this.worldObj.setBlock(i, j, k, ModBlocks.rad_lava_block);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j, k, ModBlocks.rad_lava_block);
 						}
 					}
 				}
@@ -306,11 +326,11 @@ public class ExplosionNT extends Explosion {
 				if(!has(ExAttrib.ALLMOD) && !has(ExAttrib.DIGAMMA))
 					shouldReplace = this.explosionRNG.nextInt(3) == 0;
 
-				if(block.getDefaultState().getMaterial() == Material.AIR && block1.func_149730_j() && shouldReplace) {
+				if(block.getDefaultState().getMaterial() == Material.AIR && block1.getDefaultState().isFullBlock() && shouldReplace) {
 					if(has(ExAttrib.FIRE))
 						{ net.minecraft.world.World nativePlacementWorld = this.worldObj; int nativePlacementX = i; int nativePlacementY = j; int nativePlacementZ = k; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					else if(has(ExAttrib.BALEFIRE))
-						this.worldObj.setBlock(i, j, k, ModBlocks.balefire);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.worldObj, i, j, k, ModBlocks.balefire);
 					else if(has(ExAttrib.LAVA))
 						{ net.minecraft.world.World nativePlacementWorld = this.worldObj; int nativePlacementX = i; int nativePlacementY = j; int nativePlacementZ = k; net.minecraft.block.Block nativePlacementBlock = Blocks.FLOWING_LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
@@ -330,7 +350,7 @@ public class ExplosionNT extends Explosion {
 	public boolean has(ExAttrib attrib) {
 		return this.atttributes.contains(attrib);
 	}
-	
+
 	//this solution is a bit hacky but in the end easier to work with
 	public static enum ExAttrib {
 		FIRE,		//classic vanilla fire explosion
@@ -348,9 +368,9 @@ public class ExplosionNT extends Explosion {
 		NOSOUND,
 		NOHURT
 	}
-	
+
 	public static final HashMap<Block, Block> errosion = new HashMap();
-	
+
 	static {
 		errosion.put(ModBlocks.concrete, Blocks.GRAVEL);
 		errosion.put(ModBlocks.concrete_smooth, Blocks.GRAVEL);

@@ -68,7 +68,7 @@ public class EntityChlorineFX extends EntityModFX {
 			this.motionZ *= 0.699999988079071D;
 		}
 		
-		if(this.world.isRaining() && this.world.canBlockSeeTheSky(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ))) {
+		if(this.world.isRaining() && this.world.canSeeSky(new net.minecraft.util.math.BlockPos(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ)))) {
 			this.motionY -= 0.01;
 		}
 		

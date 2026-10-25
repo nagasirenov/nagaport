@@ -20,14 +20,14 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.35D);
 	}
 
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 		if(this.isEntityAlive()) {
 
 			if(this.getHealth() < this.getMaxHealth() && this.ticksExisted % 10 == 0) {
@@ -41,16 +41,15 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 		return Item.getItemFromBlock(Blocks.TNT);
 	}
 
-	@Override
 	public void func_146077_cc() {
 		if(!this.world.isRemote) {
-			boolean griefing = this.world.getGameRules().getGameRuleBooleanValue("mobGriefing");
+			boolean griefing = this.world.getGameRules().getBoolean("mobGriefing");
 
 			this.world.newExplosion(this, posX, posY, posZ, 5.0F, false, false);
 
 			if(griefing) {
 				if(this.getPowered()) {
-	
+
 					for(int i = 0; i < 255; i++) {
 						int a = rand.nextInt(15) + (int) posX - 7;
 						int b = rand.nextInt(15) + (int) posY - 7;
@@ -59,15 +58,15 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 						Block block = nativeAirState.getBlock();
 						if(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {
 							if(!ServerConfig.TAINT_TRAILS.get()) {
-								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 5, 2);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, a, b, c, ModBlocks.taint, rand.nextInt(3) + 5, 2);
 							} else {
-								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3), 2);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, a, b, c, ModBlocks.taint, rand.nextInt(3), 2);
 							}
 						}
 					}
-	
+
 				} else {
-	
+
 					for(int i = 0; i < 85; i++) {
 						int a = rand.nextInt(7) + (int) posX - 3;
 						int b = rand.nextInt(7) + (int) posY - 3;
@@ -76,9 +75,9 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 						Block block = nativeAirState.getBlock();
 						if(block.isNormalCube(nativeAirState) && !block.isAir(nativeAirState, this.world, new net.minecraft.util.math.BlockPos(a, b, c))) {
 							if(!ServerConfig.TAINT_TRAILS.get()) {
-								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(6) + 10, 2);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, a, b, c, ModBlocks.taint, rand.nextInt(6) + 10, 2);
 							} else {
-								this.world.setBlock(a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, a, b, c, ModBlocks.taint, rand.nextInt(3) + 4, 2);
 							}
 						}
 					}
@@ -90,13 +89,12 @@ public class EntityCreeperTainted extends EntityCreeper implements IRadiationImm
 	}
 
 	public static boolean hasPosNeightbour(World world, int x, int y, int z) {
-		Block b0 = com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock();
-		Block b1 = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
-		Block b2 = com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock();
-		Block b3 = com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock();
-		Block b4 = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
-		Block b5 = com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock();
-		boolean b = (b0.renderAsNormalBlock() && b0.getDefaultState().getMaterial().isOpaque()) || (b1.renderAsNormalBlock() && b1.getDefaultState().getMaterial().isOpaque()) || (b2.renderAsNormalBlock() && b2.getDefaultState().getMaterial().isOpaque()) || (b3.renderAsNormalBlock() && b3.getDefaultState().getMaterial().isOpaque()) || (b4.renderAsNormalBlock() && b4.getDefaultState().getMaterial().isOpaque()) || (b5.renderAsNormalBlock() && b5.getDefaultState().getMaterial().isOpaque());
-		return b;
+		net.minecraft.block.state.IBlockState s0 = com.hbm.world.WorldBlockState.read(world, x + 1, y, z);
+		net.minecraft.block.state.IBlockState s1 = com.hbm.world.WorldBlockState.read(world, x, y + 1, z);
+		net.minecraft.block.state.IBlockState s2 = com.hbm.world.WorldBlockState.read(world, x, y, z + 1);
+		net.minecraft.block.state.IBlockState s3 = com.hbm.world.WorldBlockState.read(world, x - 1, y, z);
+		net.minecraft.block.state.IBlockState s4 = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);
+		net.minecraft.block.state.IBlockState s5 = com.hbm.world.WorldBlockState.read(world, x, y, z - 1);
+		return s0.isOpaqueCube() || s1.isOpaqueCube() || s2.isOpaqueCube() || s3.isOpaqueCube() || s4.isOpaqueCube() || s5.isOpaqueCube();
 	}
 }

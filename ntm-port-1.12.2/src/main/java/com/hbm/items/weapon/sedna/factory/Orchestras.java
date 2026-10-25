@@ -14,6 +14,7 @@ import com.hbm.items.weapon.sedna.mags.IMagazine;
 import com.hbm.items.weapon.sedna.mods.XWeaponModManager;
 import com.hbm.lib.ModDamageSource;
 import com.hbm.main.MainRegistry;
+import com.hbm.main.ModSoundEvents;
 import com.hbm.packet.PacketDispatcher;
 import com.hbm.packet.toclient.AuxParticlePacketNT;
 import com.hbm.packet.toclient.MuzzleFlashPacket;
@@ -33,6 +34,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 
 /** Orchestras are server-side components that run along client-side animations.
@@ -47,10 +49,10 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 3) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
-			if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 34) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
-			if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 3) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 34) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 
 			if(timer == 16) {
 				Receiver rec = ctx.config.getReceivers(stack)[0];
@@ -61,15 +63,15 @@ public class Orchestras {
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 11) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
+			if(timer == 11) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 11) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 11) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 3) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 3) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -80,23 +82,23 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 24) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
-			if(timer == 55) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 1F);
+			if(timer == 24) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 55) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 21) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.6F);
+			if(timer == 21) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.6F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.8F);
-			if(timer == 11) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.6F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 11) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.6F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 3) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 1F);
+			if(timer == 3) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 28) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.75F);
-			if(timer == 45) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.6F);
+			if(timer == 28) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 45) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.6F);
 		}
 	};
 
@@ -107,25 +109,25 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
-			if(timer == 44) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 44) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.9F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.9F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 24) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 24) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 34) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 34) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -136,25 +138,25 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
-			if(timer == 44) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 44) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.9F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.9F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 24) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 24) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 34) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 34) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -166,21 +168,21 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_CYCLE) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_END) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 0.9F);
-			if(timer == 12 && ctx.config.getReceivers(stack)[0].getMagazine(stack).getAmountBeforeReload(stack) <= 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 12 && ctx.config.getReceivers(stack)[0].getMagazine(stack).getAmountBeforeReload(stack) <= 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 0.9F);
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 1F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 1F);
-			if(timer == 44) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 44) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
@@ -188,11 +190,11 @@ public class Orchestras {
 				SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory);
 				if(casing != null) CasingCreator.composeEffect(entity.world, entity, 0.5, -0.125, aiming ? -0.125 : -0.375D, 0, 0.12, -0.12, 0.01, -7.5F + (float)entity.getRNG().nextGaussian() * 5F, (float)entity.getRNG().nextGaussian() * 1.5F, casing.getName(), true, 60, 0.5D, 20);
 			}
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -204,7 +206,7 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.EQUIP) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.openLatch", 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.openLatch"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
@@ -214,22 +216,22 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.8F);
-			if(timer == 11) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 11) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 24) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 24) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.8F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1.25F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1.25F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 11) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
+			if(timer == 11) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 	};
 
@@ -241,19 +243,19 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.8F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunReload", 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunReload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_CYCLE) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunReload", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunReload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_END) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.7F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.7F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.7F);
-			if(timer == 17) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
-			if(timer == 29) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.7F);
+			if(timer == 17) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 29) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
@@ -261,11 +263,11 @@ public class Orchestras {
 				SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory);
 				if(casing != null) CasingCreator.composeEffect(entity.world, entity, 0.3125, -0.125, aiming ? -0.125 : -0.375D, 0, 0.18, -0.12, 0.01, -10F + (float)entity.getRNG().nextGaussian() * 5F, (float)entity.getRNG().nextGaussian() * 2.5F, casing.getName(), true, 60, 0.5D, 20);
 			}
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 	};
 
@@ -277,19 +279,19 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.8F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunReload", 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunReload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_CYCLE) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunReload", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunReload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_END) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.7F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.7F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.7F);
-			if(timer == 17) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
-			if(timer == 29) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.7F);
+			if(timer == 17) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 29) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
@@ -297,11 +299,11 @@ public class Orchestras {
 				SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory);
 				if(casing != null) CasingCreator.composeEffect(entity.world, entity, 0.3125, -0.125, aiming ? -0.125 : -0.375D, 0, -0.08, 0, 0.01, -15F + (float)entity.getRNG().nextGaussian() * 5F, (float)entity.getRNG().nextGaussian() * 2.5F, casing.getName(), true, 60, 0.5D, 20);
 			}
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 	};
 
@@ -319,7 +321,7 @@ public class Orchestras {
 				SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory);
 				if(casing != null) CasingCreator.composeEffect(entity.world, entity, 0.3125, -0.125, aiming ? -0.125 * offset : -0.375D * offset, 0, -0.08, 0, 0.01, -15F + (float)entity.getRNG().nextGaussian() * 5F, (float)entity.getRNG().nextGaussian() * 2.5F, casing.getName(), true, 60, 0.5D, 20);
 			}
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.leverCock", 1F, 0.8F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.leverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 			return;
 		}
 
@@ -334,7 +336,7 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 0.8F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 0.8F);
 			if(timer == 4) {
 				IMagazine mag = ctx.config.getReceivers(stack)[0].getMagazine(stack);
 				if(mag.getAmountAfterReload(stack) > 0) {
@@ -343,19 +345,19 @@ public class Orchestras {
 					mag.setAmountBeforeReload(stack, 0);
 				}
 			}
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertCanister", 1F, 1F);
-			if(timer == 24) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertCanister"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 24) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 0.8F);
-			if(timer == 29) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
+			if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 29) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE) {
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -366,10 +368,10 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 3) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
-			if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 34) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
-			if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 3) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 34) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 
 			if(timer == 16) {
 				Receiver rec = ctx.config.getReceivers(stack)[0];
@@ -380,15 +382,15 @@ public class Orchestras {
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 11) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
+			if(timer == 11) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 11) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 11) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 3) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 3) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -407,23 +409,23 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_END) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
-			if(timer == 31) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 31) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 6) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
+			if(timer == 6) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 	};
 
@@ -443,21 +445,21 @@ public class Orchestras {
 				}
 			}
 			if(type == GunAnimation.CYCLE_DRY) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-				if(timer == 6) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.9F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 6) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 			}
 			if(type == GunAnimation.RELOAD) {
-				if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-				if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.25F, 1F);
-				if(timer == 32) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-				if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.9F);
+				if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.25F, 1F);
+				if(timer == 32) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 			}
 			if(type == GunAnimation.JAMMED) {
-				if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
+				if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
 			}
 			if(type == GunAnimation.INSPECT) {
-				if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-				if(timer == 35) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
+				if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 35) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
 			}
 		} else {
 			if(type == GunAnimation.CYCLE) {
@@ -468,22 +470,22 @@ public class Orchestras {
 				}
 			}
 			if(type == GunAnimation.CYCLE_DRY) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-				if(timer == 6) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.9F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 6) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 			}
 			if(type == GunAnimation.RELOAD) {
-				if(timer == 6) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-				if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.25F, 1F);
-				if(timer == 48) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-				if(timer == 54) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.9F);
+				if(timer == 6) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.25F, 1F);
+				if(timer == 48) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 54) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 			}
 			if(type == GunAnimation.JAMMED) {
-				if(timer == 6) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.8F);
-				if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1.0F);
+				if(timer == 6) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+				if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1.0F);
 			}
 			if(type == GunAnimation.INSPECT) {
-				if(timer == 6) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-				if(timer == 53) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
+				if(timer == 6) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 53) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
 			}
 		}
 	};
@@ -493,36 +495,36 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 		GunAnimation type = ItemGunBaseNT.getLastAnim(stack, ctx.configIndex);
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
-		
+
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.75F);
 			if(timer == 4) {
 				IMagazine mag = ctx.config.getReceivers(stack)[0].getMagazine(stack);
 				int toEject = mag.getAmountAfterReload(stack) - mag.getAmount(stack, ctx.inventory);
 				SpentCasing casing = mag.getCasing(stack, ctx.inventory);
 				if(casing != null) for(int i = 0; i < toEject; i++) CasingCreator.composeEffect(entity.world, entity, 0.625, -0.1875, -0.375D, -0.12, 0.18, 0, 0.01, -15F + (float)entity.getRNG().nextGaussian() * 7.5F, (float)entity.getRNG().nextGaussian() * 5F, casing.getName(), true, 60, 0.5D, 20);
 			}
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_CYCLE) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_END) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.75F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.75F);
 			IMagazine mag = ctx.config.getReceivers(stack)[0].getMagazine(stack);
 			int toEject = mag.getAmountAfterReload(stack) - mag.getAmount(stack, ctx.inventory);
 			if(timer == 4 && toEject > 0) {
@@ -530,7 +532,7 @@ public class Orchestras {
 				if(casing != null) for(int i = 0; i < toEject; i++) CasingCreator.composeEffect(entity.world, entity, 0.625, -0.1875, -0.375D, -0.12, 0.18, 0, 0.01, -15F * (float)entity.getRNG().nextGaussian() * 7.5F, (float)entity.getRNG().nextGaussian() * 5F, casing.getName(), true, 60, 0.5D, 20);
 				mag.setAmountAfterReload(stack, 0);
 			}
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 	};
 
@@ -550,11 +552,11 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.RELOAD || type == GunAnimation.RELOAD_CYCLE) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.glReload", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.glReload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 9) entity.world.playSoundAtEntity(entity, "hbm:weapon.glOpen", 1F, 1F);
-			if(timer == 27) entity.world.playSoundAtEntity(entity, "hbm:weapon.glClose", 1F, 1F);
+			if(timer == 9) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.glOpen"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 27) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.glClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -591,11 +593,11 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.openLatch", 1F, 1F);
-			if(timer == 35) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.5F, 1F);
-			if(timer == 60) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.75F);
-			if(timer == 70) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertCanister", 1F, 1F);
-			if(timer == 85) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pressureValve", 1F, 1F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.openLatch"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 35) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 60) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 70) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertCanister"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 85) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pressureValve"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -606,11 +608,11 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.openLatch", 1F, 1F);
-			if(timer == 35) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.5F, 1F);
-			if(timer == 60) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.75F);
-			if(timer == 70) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertCanister", 1F, 1F);
-			if(timer == 85) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pressureValve", 1F, 1F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.openLatch"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 35) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 60) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 70) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertCanister"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 85) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pressureValve"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -629,19 +631,19 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
 
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.5F, 1.6F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.5F, 1.6F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -653,7 +655,7 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.EQUIP) {
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.openLatch", 1F, 1.25F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.openLatch"), SoundCategory.PLAYERS, 1F, 1.25F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
@@ -663,18 +665,18 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
 
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 4) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
+			if(timer == 4) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 17) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
-			if(timer == 31) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
+			if(timer == 17) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 31) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -685,7 +687,7 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.EQUIP) {
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.openLatch", 1F, 1.25F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.openLatch"), SoundCategory.PLAYERS, 1F, 1.25F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
@@ -696,18 +698,18 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
 
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 4) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
+			if(timer == 4) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 17) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
-			if(timer == 31) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1F);
+			if(timer == 17) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 31) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -720,35 +722,35 @@ public class Orchestras {
 
 		if(type == GunAnimation.CYCLE || type == GunAnimation.ALT_CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunCock", 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunCock"), SoundCategory.PLAYERS, 1F, 1F);
 			if(timer == 10) {
 				SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory); //turns out there's a reason why stovepipes look like that
 				if(casing != null) CasingCreator.composeEffect(entity.world, entity, 0.375, aiming ? 0 : -0.125, aiming ? 0 : -0.25D, 0, 0.18, -0.12, 0.01, -3F + (float)entity.getRNG().nextGaussian() * 2.5F, -15F + entity.getRNG().nextFloat() * -5F, casing.getName());
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 8) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunCock", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 8) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunCock"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD) {
 			IMagazine mag = ctx.config.getReceivers(stack)[0].getMagazine(stack);
 			if(mag.getAmount(stack, ctx.inventory) == 0) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
-				if(timer == 7) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 7) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 			}
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunReload", 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunReload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD_CYCLE) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunReload", 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunReload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunCockOpen", 1F, 1F);
-			if(timer == 18) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunCockClose", 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunCockOpen"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 18) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunCockClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 18) entity.world.playSoundAtEntity(entity, "hbm:weapon.foley.gunWhack", 1F, 1F);
-			if(timer == 25) entity.world.playSoundAtEntity(entity, "hbm:weapon.foley.gunWhack", 1F, 1F);
-			if(timer == 29) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.shotgunCockClose", 1F, 1F);
+			if(timer == 18) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.foley.gunWhack"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 25) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.foley.gunWhack"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 29) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.shotgunCockClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -761,7 +763,7 @@ public class Orchestras {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertCanister", 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertCanister"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -780,25 +782,25 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.9F);
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1.1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1.1F);
 
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 22) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 22) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 19) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.1F);
-			if(timer == 23) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 27) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.1F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 19) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.1F);
+			if(timer == 23) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 27) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 7) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.1F);
+			if(timer == 7) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.1F);
 		}
 	};
 
@@ -818,25 +820,25 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.9F);
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 1.1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 1.1F);
 
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 22) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 22) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 19) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.1F);
-			if(timer == 23) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 27) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.1F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 19) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.1F);
+			if(timer == 23) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 27) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 7) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.1F);
+			if(timer == 7) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.1F);
 		}
 	};
 
@@ -856,25 +858,25 @@ public class Orchestras {
 			}
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.8F);
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.9F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.9F);
 
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 4) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
-			if(timer == 32) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 4) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 32) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 28) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 28) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -907,7 +909,7 @@ public class Orchestras {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertCanister", 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertCanister"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -952,14 +954,14 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.EQUIP) {
-			if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 0.5F, 1.25F);
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 0.5F, 1.25F);
+			if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 0.5F, 1.25F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 0.5F, 1.25F);
 		}
 
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 7) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
+			if(timer == 7) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 			if(timer == 12) {
 				SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory);
 				if(casing != null) CasingCreator.composeEffect(entity.world, entity,
@@ -970,28 +972,28 @@ public class Orchestras {
 		}
 
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.75F);
-			if(timer == 7) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 7) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 		}
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 32) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 41) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 32) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 41) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 		}
 
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 23) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 23) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 		}
 
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 0.5F, 1F);
-			if(timer == 45) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 0.5F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 45) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 		}
 	};
 
@@ -1003,7 +1005,7 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.EQUIP) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:turret.howard_reload", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:turret.howard_reload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 
 		if(type == GunAnimation.CYCLE) {
@@ -1023,19 +1025,19 @@ public class Orchestras {
 
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.fire.shredderCycle", 0.25F, 1.5F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.fire.shredderCycle"), SoundCategory.PLAYERS, 0.25F, 1.5F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.fire.shredderCycle", 0.25F, 1.5F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.fire.shredderCycle"), SoundCategory.PLAYERS, 0.25F, 1.5F);
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 32) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 32) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 28) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 28) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1061,30 +1063,30 @@ public class Orchestras {
 		}
 
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
-			if(timer == 4) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.75F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 55) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.5F, 1F);
-			if(timer == 65) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 74) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
-			if(timer == 88) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.75F);
-			if(timer == 100) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 4) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 55) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 65) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 74) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 88) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 100) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
 
 			if(timer == 55) ctx.config.getReceivers(stack)[0].getMagazine(stack).reloadAction(stack, ctx.inventory);
 		}
 
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:player.gulp", 1F, 1F);
-			if(timer == 25) entity.world.playSoundAtEntity(entity, "hbm:player.gulp", 1F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:player.gulp", 1F, 1F);
-			if(timer == 35) entity.world.playSoundAtEntity(entity, "hbm:player.gulp", 1F, 1F);
-			if(timer == 50) entity.world.playSoundAtEntity(entity, "hbm:player.groan", 1F, 1F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:player.gulp"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 25) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:player.gulp"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:player.gulp"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 35) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:player.gulp"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 50) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:player.groan"), SoundCategory.PLAYERS, 1F, 1F);
 			if(timer == 60) {
-				entity.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 2));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 30 * 20, 2));
 				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
 				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));
 			}
@@ -1096,12 +1098,12 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 		GunAnimation type = ItemGunBaseNT.getLastAnim(stack, ctx.configIndex);
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
-		
+
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertCanister", 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertCanister"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1121,17 +1123,17 @@ public class Orchestras {
 					if(casing != null) CasingCreator.composeEffect(entity.world, entity, aiming ? 0.125 : 0.5, aiming ? -0.125 : -0.25, aiming ? -0.25 : -0.5D, 0, 0.18, -0.12, 0.01, (float)entity.getRNG().nextGaussian() * 15F, (float)entity.getRNG().nextGaussian() * 15F, casing.getName());
 				}
 			}
-			if(timer == (XWeaponModManager.hasUpgrade(stack, 0, 207) ? 3 : 1)) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 0.75F);
+			if(timer == (XWeaponModManager.hasUpgrade(stack, 0, 207) ? 3 : 1)) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.75F);
-			if(timer == 1) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 1) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 	};
 
@@ -1151,17 +1153,17 @@ public class Orchestras {
 					if(casing != null) CasingCreator.composeEffect(entity.world, entity, 0.25, -0.25, -0.5D * index, 0, 0.18, -0.12 * index, 0.01, (float)entity.getRNG().nextGaussian() * 15F, (float)entity.getRNG().nextGaussian() * 15F, casing.getName());
 				}
 			}
-			if(timer == (XWeaponModManager.hasUpgrade(stack, 0, 207) ? 3 : 1)) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 0.75F);
+			if(timer == (XWeaponModManager.hasUpgrade(stack, 0, 207) ? 3 : 1)) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.75F);
-			if(timer == 1) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 1) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverSpin", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverSpin"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 	};
 
@@ -1170,22 +1172,22 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 		GunAnimation type = ItemGunBaseNT.getLastAnim(stack, ctx.configIndex);
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
-		
+
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1.25F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1.25F);
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 1F, 0.9F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertCanister", 1F, 1F);
-			if(timer == 42) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 1F, 0.9F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertCanister"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 42) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 
 		if(type == GunAnimation.JAMMED || type == GunAnimation.INSPECT) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 1F, 0.9F);
-			if(timer == 27) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 1F, 0.9F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 27) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 1F, 0.9F);
 		}
 	};
 
@@ -1196,14 +1198,14 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.CYCLE) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.fire.shredderCycle", 0.25F, 1.25F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.fire.shredderCycle"), SoundCategory.PLAYERS, 0.25F, 1.25F);
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.fire.shredderCycle", 0.25F, 1.25F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.fire.shredderCycle"), SoundCategory.PLAYERS, 0.25F, 1.25F);
 		}
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:block.squeakyToy", 0.25F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:block.squeakyToy"), SoundCategory.BLOCKS, 0.25F, 1F);
 		}
 	};
 
@@ -1212,25 +1214,25 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 		GunAnimation type = ItemGunBaseNT.getLastAnim(stack, ctx.configIndex);
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
-		
+
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1.5F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1.5F);
 		}
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
-			if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1.25F);
-			if(timer == 34) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1.25F);
-			if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.25F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1.25F);
+			if(timer == 34) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1.25F);
+			if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.25F);
 		}
 
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 1F);
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1.25F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.25F, 1.5F);
+			if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1.25F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.25F, 1.5F);
 		}
 	};
 
@@ -1248,25 +1250,25 @@ public class Orchestras {
 					SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory);
 					if(casing != null) CasingCreator.composeEffect(entity.world, entity, aiming ? 0.125 : 0.125, aiming ? -0.125 : -0.25, aiming ? -0.125 : -0.25D, 0, 0.18, -0.12, 0.01, (float)entity.getRNG().nextGaussian() * 5F, 7.5F + entity.getRNG().nextFloat() * 5F, casing.getName());
 				}
-				if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 0.25F, 1.25F);
+				if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 0.25F, 1.25F);
 			}
 			if(type == GunAnimation.CYCLE_DRY) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.8F);
-				if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.9F);
-				if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 0.25F, 1.25F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.8F);
+				if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.9F);
+				if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 0.25F, 1.25F);
 			}
 			if(type == GunAnimation.RELOAD) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
-				if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-				if(timer == 24) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-				if(timer == 34) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
+				if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 24) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 34) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 			}
 			if(type == GunAnimation.INSPECT) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
-				if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
+				if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
 
-				if(timer == 114) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
-				if(timer == 124) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+				if(timer == 114) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 124) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 			}
 		} else {
 			if(type == GunAnimation.CYCLE) {
@@ -1275,26 +1277,26 @@ public class Orchestras {
 					SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory);
 					if(casing != null) CasingCreator.composeEffect(entity.world, entity, aiming ? 0.125 : 0.25, aiming ? -0.125 : -0.25, aiming ? -0.125 : -0.25D, 0, 0.18, -0.12, 0.01, (float)entity.getRNG().nextGaussian() * 5F, 7.5F + entity.getRNG().nextFloat() * 5F, casing.getName());
 				}
-				if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 0.25F, 1.25F);
+				if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 0.25F, 1.25F);
 			}
 			if(type == GunAnimation.CYCLE_DRY) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.8F);
-				if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.9F);
-				if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 0.25F, 1.25F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.8F);
+				if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.9F);
+				if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 0.25F, 1.25F);
 			}
 			if(type == GunAnimation.RELOAD) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
-				if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-				if(timer == 32) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.25F, 1.25F);
-				if(timer == 38) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-				if(timer == 43) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
+				if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 32) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.25F, 1.25F);
+				if(timer == 38) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 43) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 			}
 			if(type == GunAnimation.INSPECT) {
-				if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.9F);
-				if(timer == 11) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
+				if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.9F);
+				if(timer == 11) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
 
-				if(timer == 72) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 1F);
-				if(timer == 84) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+				if(timer == 72) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 1F);
+				if(timer == 84) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 			}
 		}
 	};
@@ -1332,11 +1334,11 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 
 		if(type == GunAnimation.CYCLE) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.fire.tau", 0.5F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.fire.tau"), SoundCategory.PLAYERS, 0.5F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 		}
 
 		if(type == GunAnimation.ALT_CYCLE) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.fire.tau", 0.5F, 0.7F + entity.getRNG().nextFloat() * 0.2F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.fire.tau"), SoundCategory.PLAYERS, 0.5F, 0.7F + entity.getRNG().nextFloat() * 0.2F);
 		}
 
 		if(type == GunAnimation.SPINUP) {
@@ -1383,7 +1385,7 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.fatmanFull", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.fatmanFull"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1392,31 +1394,31 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 		GunAnimation type = ItemGunBaseNT.getLastAnim(stack, ctx.configIndex);
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
-		
+
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1.5F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1.5F);
 		}
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 18) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.25F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 38) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 18) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.25F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 38) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 1F);
-			if(timer == 22) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 22) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1425,12 +1427,12 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 		GunAnimation type = ItemGunBaseNT.getLastAnim(stack, ctx.configIndex);
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
-		
+
 		if(type == GunAnimation.CYCLE && stack.getItem() == ModItems.gun_n_i_4_n_i) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.coilgunReload", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.coilgunReload"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1439,20 +1441,20 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 		GunAnimation type = ItemGunBaseNT.getLastAnim(stack, ctx.configIndex);
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
-		
+
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 
 		if(type == GunAnimation.RELOAD) {
 
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.8F);
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 0.8F);
-			if(timer == 25) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 35) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.75F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 25) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 35) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.75F);
 
 			if(timer == 10) {
 				Receiver rec = ctx.config.getReceivers(stack)[0];
@@ -1471,21 +1473,21 @@ public class Orchestras {
 						mop.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(ctx.getPlayer()), damage);
 						mop.entityHit.motionX *= 2;
 						mop.entityHit.motionZ *= 2;
-						entity.world.playSoundAtEntity(mop.entityHit, "hbm:weapon.fire.smack", 1F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+						entity.world.playSound(null, mop.entityHit.posX, mop.entityHit.posY, mop.entityHit.posZ, ModSoundEvents.resolve("hbm:weapon.fire.smack"), SoundCategory.PLAYERS, 1F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 					}
 					if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 						Block b = entity.world.getBlockState(mop.getBlockPos()).getBlock();
-						entity.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, b.stepSound.getStepResourcePath(), 2F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+						entity.world.playSound(null, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, b.getSoundType().getStepSound(), net.minecraft.util.SoundCategory.BLOCKS, 2F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 					}
 				}
 			}
 		}
 
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.8F);
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 0.8F);
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
-			if(timer == 25) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.75F);
+			if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 0.8F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 25) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 	};
 
@@ -1504,8 +1506,8 @@ public class Orchestras {
 		}
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magRemove", 1F, 1F);
-			if(timer == 26) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magInsert", 1F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magRemove"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 26) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magInsert"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1516,9 +1518,9 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.screw", 1F, 1F);
-			if(timer == 80) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertRocket", 1F, 1F);
-			if(timer == 120) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.screw", 1F, 1F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.screw"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 80) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertRocket"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 120) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.screw"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1529,9 +1531,9 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.75F);
-			if(timer == 19) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 0.9F);
-			if(timer == 29) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.8F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 19) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 0.9F);
+			if(timer == 29) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.8F);
 
 			if(timer == 12) {
 				IMagazine mag = ctx.config.getReceivers(stack)[0].getMagazine(stack);
@@ -1542,14 +1544,14 @@ public class Orchestras {
 		}
 
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverCock", 1F, 0.75F);
-			if(timer == 19) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.8F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverCock"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 19) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.8F);
 		}
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
 		}
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 2) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 1F);
+			if(timer == 2) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1561,9 +1563,9 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallRemove", 1F, 0.75F);
-			if(timer == 32) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.magSmallInsert", 1F, 0.75F);
-			if(timer == 42) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.75F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallRemove"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 32) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.magSmallInsert"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 42) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 
 		if(type == GunAnimation.CYCLE) {
@@ -1576,8 +1578,8 @@ public class Orchestras {
 		}
 
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 1) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.75F);
-			if(timer == 9) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pistolCock", 1F, 0.75F);
+			if(timer == 1) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 9) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pistolCock"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 	};
 
@@ -1589,14 +1591,14 @@ public class Orchestras {
 		boolean aiming = ItemGunBaseNT.getIsAiming(stack) && !XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SCOPE);
 
 		if(type == GunAnimation.EQUIP) {
-			if(timer == 10) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.openLatch", 1F, 1F);
-			if(timer == 18) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 1F);
+			if(timer == 10) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.openLatch"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 18) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 
 		if(type == GunAnimation.CYCLE) {
 			if(timer == 0) PacketDispatcher.wrapper.sendToAllAround(new MuzzleFlashPacket(entity), new TargetPoint(entity.world.provider.getDimension(), entity.posX, entity.posY, entity.posZ, 100));
-			if(timer == 7) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
+			if(timer == 7) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 			if(timer == 12) {
 				SpentCasing casing = ctx.config.getReceivers(stack)[0].getMagazine(stack).getCasing(stack, ctx.inventory);
 				if(casing != null) CasingCreator.composeEffect(entity.world, entity,
@@ -1607,27 +1609,27 @@ public class Orchestras {
 		}
 
 		if(type == GunAnimation.CYCLE_DRY) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.75F);
-			if(timer == 7) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 7) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 		}
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 1F, 1F);
-			if(timer == 20) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.rifleCock", 1F, 1F);
-			if(timer == 36) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 20) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.rifleCock"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 36) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 
 		if(type == GunAnimation.JAMMED) {
-			if(timer == 5) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 12) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
-			if(timer == 16) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 23) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
+			if(timer == 5) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 12) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 16) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 23) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 		}
 
 		if(type == GunAnimation.INSPECT) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltOpen", 0.5F, 1F);
-			if(timer == 17) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 0.5F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltOpen"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 17) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 0.5F, 1F);
 		}
 	};
 
@@ -1638,7 +1640,7 @@ public class Orchestras {
 		int timer = ItemGunBaseNT.getAnimTimer(stack, ctx.configIndex);
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 0) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pressureValve", 1F, 1F);
+			if(timer == 0) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pressureValve"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1650,12 +1652,12 @@ public class Orchestras {
 
 		if(type == GunAnimation.CYCLE_DRY) {
 			Entity e = entity.world.getEntityByID(ItemGunChargeThrower.getLastHook(stack));
-			if(timer == 0 && e == null) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.dryFireClick", 1F, 0.75F);
+			if(timer == 0 && e == null) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.dryFireClick"), SoundCategory.PLAYERS, 1F, 0.75F);
 		}
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 30) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertRocket", 1F, 1F);
-			if(timer == 40) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.boltClose", 1F, 1F);
+			if(timer == 30) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertRocket"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 40) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.boltClose"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 
@@ -1666,7 +1668,7 @@ public class Orchestras {
 
 		if(entity.world.isRemote) {
 			double speed = HbmAnimations.getRelevantTransformation("SPEED")[0];
-			
+
 			AudioWrapper runningAudio = ItemGunBaseNT.loopedSounds.get(entity);
 
 			if(speed > 0) {
@@ -1698,11 +1700,11 @@ public class Orchestras {
 		if(entity.world.isRemote) return;
 
 		if(type == GunAnimation.RELOAD) {
-			if(timer == 15) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.openLatch", 1F, 1F);
-			if(timer == 35) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.impact", 0.5F, 1F);
-			if(timer == 60) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.revolverClose", 1F, 0.75F);
-			if(timer == 70) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.insertCanister", 1F, 1F);
-			if(timer == 85) entity.world.playSoundAtEntity(entity, "hbm:weapon.reload.pressureValve", 1F, 1F);
+			if(timer == 15) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.openLatch"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 35) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.impact"), SoundCategory.PLAYERS, 0.5F, 1F);
+			if(timer == 60) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.revolverClose"), SoundCategory.PLAYERS, 1F, 0.75F);
+			if(timer == 70) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.insertCanister"), SoundCategory.PLAYERS, 1F, 1F);
+			if(timer == 85) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.reload.pressureValve"), SoundCategory.PLAYERS, 1F, 1F);
 		}
 	};
 }

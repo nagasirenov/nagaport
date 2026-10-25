@@ -38,7 +38,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 	public static long maxPower = 200_000_000L;
 
 	public static final int COOLANT_USE = 50;
-	
+
 	public float rotor;
 	public float prevRotor;
 	public float rotorSpeed;
@@ -130,7 +130,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 			this.networkPackNT(200);
 			this.plasmaEnergy = 0;
 		} else {
-			
+
 			if(power >= maxPower || isOn) this.rotorSpeed += 0.125F;
 			else this.rotorSpeed -= 0.125F;
 
@@ -156,7 +156,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 					audio.updateVolume(getVolume(1F));
 					audio.keepAlive();
 				}
-				
+
 				thrustAmount += 0.01D;
 				if(thrustAmount > 1) thrustAmount = 1;
 			} else {
@@ -164,7 +164,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 					audio.stopSound();
 					audio = null;
 				}
-				
+
 				thrustAmount -= 0.01D;
 				if(thrustAmount < 0) thrustAmount = 0;
 			}
@@ -341,7 +341,7 @@ public class TileEntityMachineHTRNeo extends TileEntityCooledBase implements IPr
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null)
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 11,
 				this.pos.getY() - 2,
 				this.pos.getZ() - 11,

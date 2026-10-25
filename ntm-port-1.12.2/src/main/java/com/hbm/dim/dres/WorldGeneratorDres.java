@@ -25,6 +25,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.structure.StructureComponent.BlockSelector;
 
 public class WorldGeneratorDres implements IWorldGenerator {
@@ -80,8 +81,7 @@ public class WorldGeneratorDres implements IWorldGenerator {
 		BlockOre.addValidBody(ModBlocks.ore_lanthanium, SolarSystem.Body.DRES);
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.getDimension() == SpaceConfig.dresDimension) {
 			generateDres(world, random, chunkX * 16, chunkZ * 16);
 		}

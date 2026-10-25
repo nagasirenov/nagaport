@@ -114,7 +114,7 @@ public interface IWeaponAbility extends IBaseAbility {
 					return;
 				living.setHealth(living.getHealth() - amount);
 				if(living.getHealth() <= 0)
-					living.onDeath(DamageSource.magic);
+					living.onDeath(DamageSource.MAGIC);
 				player.heal(amount);
 			}
 		}
@@ -151,7 +151,7 @@ public interface IWeaponAbility extends IBaseAbility {
 				EntityLivingBase living = (EntityLivingBase) victim;
 
 				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, duration * 20, 4));
-				living.addPotionEffect(new PotionEffect(Potion.weakness.id, duration * 20, 4));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, duration * 20, 4));
 			}
 		}
 	};
@@ -186,7 +186,7 @@ public interface IWeaponAbility extends IBaseAbility {
 			if(victim instanceof EntityLivingBase) {
 				EntityLivingBase living = (EntityLivingBase) victim;
 
-				living.addPotionEffect(new PotionEffect(HbmPotion.phosphorus.id, duration * 20, 4));
+				living.addPotionEffect(new PotionEffect(HbmPotion.phosphorus, duration * 20, 4));
 			}
 		}
 	};
@@ -248,7 +248,7 @@ public interface IWeaponAbility extends IBaseAbility {
 		@Override
 		public void onHit(int level, World world, EntityPlayer player, Entity victim, Item tool) {
 			int divider = dividerAtLevel[level];
-			
+
 			if(victim instanceof EntityLivingBase) {
 				EntityLivingBase living = (EntityLivingBase) victim;
 
@@ -259,7 +259,7 @@ public interface IWeaponAbility extends IBaseAbility {
 						living.entityDropItem(new ItemStack(ModItems.nitra_small), 1);
 						world.spawnEntity(new EntityXPOrb(world, living.posX, living.posY, living.posZ, 1));
 					}
-					
+
 					ConfettiUtil.gib(living);
 					com.hbm.sound.WorldSoundEffects.play(world, living.posX, living.posY + living.height * 0.5, living.posZ, "hbm:weapon.chainsaw", 0.5F, 1.0F);
 				}
@@ -284,7 +284,7 @@ public interface IWeaponAbility extends IBaseAbility {
 				EntityLivingBase living = (EntityLivingBase) victim;
 
 				if(living instanceof EntitySkeleton) {
-					if(((EntitySkeleton) living).getSkeletonType() == 0) {
+					if(living instanceof net.minecraft.entity.monster.EntitySkeleton) {
 						living.entityDropItem(new ItemStack(Items.SKULL, 1, 0), 0.0F);
 					} else {
 						if(world.rand.nextInt(20) == 0)
@@ -303,7 +303,7 @@ public interface IWeaponAbility extends IBaseAbility {
 				} else if(living instanceof EntityPlayer) {
 					ItemStack head = new ItemStack(Items.SKULL, 1, 3);
 					head.setTagCompound(new NBTTagCompound());
-					head.getTagCompound().setString("SkullOwner", ((EntityPlayer) living).getDisplayName());
+					head.getTagCompound().setString("SkullOwner", ((EntityPlayer) living).getDisplayName().getUnformattedText());
 					living.entityDropItem(head, 0.0F);
 				} else {
 					living.entityDropItem(new ItemStack(Items.ROTTEN_FLESH, 3, 0), 0.0F);

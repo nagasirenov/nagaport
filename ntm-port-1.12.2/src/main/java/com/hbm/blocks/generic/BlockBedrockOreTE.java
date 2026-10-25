@@ -64,7 +64,6 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 		this.setResistance(1_000_000);
 	}
 
-	@Override
 	public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
 		return false;
 	}
@@ -80,24 +79,28 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
-		super.onBlockPlacedBy(world, x, y, z, entity, stack);
-		world.markBlockForUpdate(x, y, z);
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, EntityLivingBase entity, ItemStack stack) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		super.onBlockPlacedBy(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), entity, stack);
+		com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fx, float fy, float fz) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int i = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		if(stack == null) return false;
 		if(!player.capabilities.isCreativeMode) return false;
 		if(world.isRemote) return true;
 
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(te instanceof TileEntityBedrockOre) {
 			TileEntityBedrockOre ore = (TileEntityBedrockOre) te;
-			
+
 			if(stack.getItem() == ModItems.drillbit) {
 				EnumDrillType type = EnumUtil.grabEnumSafely(EnumDrillType.class, stack.getItemDamage());
 				ore.tier = type.tier;
@@ -115,15 +118,15 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 				ore.resource = stack.copy();
 				ore.shape = world.rand.nextInt(10);
 			}
-			
+
 			ore.markDirty();
 		}
-		
-		world.markBlockForUpdate(x, y, z);
-		
+
+		com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
+
 		return true;
 	}
-	
+
 
 
 	@Override
@@ -133,7 +136,7 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 
 
 
-	
+
 
 
 
@@ -142,54 +145,54 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		
+
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(!(te instanceof TileEntityBedrockOre))
 			return;
-		
+
 		TileEntityBedrockOre ore = (TileEntityBedrockOre) te;
 
 		List<String> text = new ArrayList();
-		
+
 		if(ore.resource != null) {
 			text.add(ore.resource.getDisplayName());
 		}
-		
+
 		text.add("Tier: " + ore.tier);
-		
+
 		if(ore.acidRequirement != null) {
 			text.add("Requires: " + ore.acidRequirement.fill + "mB " + ore.acidRequirement.type.getLocalizedName());
 		}
-		
+
 		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
-	
+
 	public static class TileEntityBedrockOre extends TileEntity {
-		
+
 		public ItemStack resource;
 		public FluidStack acidRequirement;
 		public int tier;
 		public int color;
 		public int shape;
-		
+
 		public TileEntityBedrockOre setStyle(int color, int shape) {
 			this.color = color;
 			this.shape = shape;
 			return this;
 		}
 
-		
+
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
-			
+
 			this.resource = new ItemStack(Item.getItemById(nbt.getInteger("0id")), nbt.getByte("size"), nbt.getShort("meta"));
-			
+
 			if(this.resource.getItem() == null) this.resource = new ItemStack(ModItems.powder_iron);
-			
+
 			FluidType type = Fluids.fromID(nbt.getInteger("fluid"));
-			
+
 			if(type != Fluids.NONE) {
 				this.acidRequirement = new FluidStack(type, nbt.getInteger("amount"));
 			}
@@ -198,17 +201,17 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 			this.color = nbt.getInteger("color");
 			this.shape = nbt.getInteger("shape");
 		}
-		
+
 		@Override
 		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
-			
+
 			if(this.resource != null) {
 				nbt.setInteger("0id", Item.getIdFromItem(this.resource.getItem()));
-				nbt.setByte("size", (byte) this.resource.stackSize);
+				nbt.setByte("size", (byte) this.resource.getCount());
 				nbt.setShort("meta", (short) this.resource.getItemDamage());
 			}
-			
+
 			if(this.acidRequirement != null) {
 				nbt.setInteger("fluid", this.acidRequirement.type.getID());
 				nbt.setInteger("amount", this.acidRequirement.fill);
@@ -226,16 +229,16 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 			this.writeToNBT(nbt);
 			return new SPacketUpdateTileEntity(this.getPos(), 0, nbt);
 		}
-		
+
 		@Override
 		public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 			this.readFromNBT(pkt.getNbtCompound());
-			
+
 			if(color == 0) {
 				this.color = MainRegistry.proxy.getStackColor(resource, true);
 			}
 
-			this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 		}
 	}
 }

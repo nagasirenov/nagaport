@@ -63,7 +63,7 @@ public class TileEntityMachineDrain extends TileEntityLoadedBase implements IFlu
 				if(toSpill >= 100 && this.world.rand.nextInt(20) == 0 && tank.getTankType().hasTrait(FT_Liquid.class) && tank.getTankType().hasTrait(FT_Viscous.class) && tank.getTankType().hasTrait(FT_Flammable.class)) {
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 					Vec3d start = new Vec3d(this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 0.5, this.pos.getZ() + 0.5 - dir.offsetZ * 3);
-					Vec3d end = start.addVector(this.world.rand.nextGaussian() * 5, -25, this.world.rand.nextGaussian() * 5);
+					Vec3d end = start.add(this.world.rand.nextGaussian() * 5, -25, this.world.rand.nextGaussian() * 5);
 					RayTraceResult mop = this.world.rayTraceBlocks(start, end, false, true, false);
 
 					if(mop != null && mop.typeOfHit == Type.BLOCK && mop.sideHit == EnumFacing.UP) {
@@ -72,7 +72,7 @@ public class TileEntityMachineDrain extends TileEntityLoadedBase implements IFlu
 						int z = mop.getBlockPos().getZ();
 						Block block = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 						if(!block.getDefaultState().getMaterial().isLiquid() && block.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && ModBlocks.oil_spill.canPlaceBlockAt(this.world, new net.minecraft.util.math.BlockPos(x, y, z))) {
-							this.world.setBlock(x, y, z, ModBlocks.oil_spill);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.oil_spill);
 						}
 					}
 				}
@@ -88,7 +88,7 @@ public class TileEntityMachineDrain extends TileEntityLoadedBase implements IFlu
 				data.setFloat("base", 0.375F);
 				data.setFloat("max", 3F);
 				data.setInteger("life", 100 + this.world.rand.nextInt(50));
-				
+
 				if(tank.getTankType().hasTrait(FT_Gaseous.class)) {
 					data.setString("type", "tower");
 				} else {
@@ -147,7 +147,7 @@ public class TileEntityMachineDrain extends TileEntityLoadedBase implements IFlu
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,

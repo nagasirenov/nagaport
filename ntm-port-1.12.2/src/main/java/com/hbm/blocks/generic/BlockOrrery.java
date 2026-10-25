@@ -32,7 +32,7 @@ public class BlockOrrery extends BlockContainer {
 		@Override
 		public AxisAlignedBB getRenderBoundingBox() {
 			if(bb == null) {
-				bb = AxisAlignedBB.getBoundingBox(
+				bb = new AxisAlignedBB(
 					this.pos.getX() - 49,
 					this.pos.getY() - 19,
 					this.pos.getZ() - 49,

@@ -48,16 +48,19 @@ public class MachineAutosaw extends BlockContainer implements ILookOverlay, IToo
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(!world.isRemote && !player.isSneaking()) {
-				
+
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
-				
+
 				TileEntityMachineAutosaw saw = (TileEntityMachineAutosaw) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-				
+
 				FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, x, y, z, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 				if(saw.acceptedFuels.contains(type)) {
 					saw.tank.setTankType(type);
@@ -66,10 +69,10 @@ public class MachineAutosaw extends BlockContainer implements ILookOverlay, IToo
 					return true;
 				}
 			}
-			
+
 			return false;
 		}
-		
+
 		return true;
 	}
 
@@ -82,7 +85,7 @@ public class MachineAutosaw extends BlockContainer implements ILookOverlay, IToo
 
 		if(!(te instanceof TileEntityMachineAutosaw))
 			return false;
-		
+
 		TileEntityMachineAutosaw saw = (TileEntityMachineAutosaw) te;
 
 		saw.isSuspended = !saw.isSuspended;
@@ -93,21 +96,21 @@ public class MachineAutosaw extends BlockContainer implements ILookOverlay, IToo
 
 	@Override
 	public void printHook(Pre event, World world, int x, int y, int z) {
-		
+
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(!(te instanceof TileEntityMachineAutosaw))
 			return;
-		
+
 		TileEntityMachineAutosaw saw = (TileEntityMachineAutosaw) te;
-		
+
 		List<String> text = new ArrayList();
 		text.add(saw.tank.getTankType().getLocalizedName() + ": " + saw.tank.getFill() + "/" + saw.tank.getMaxFill() + "mB");
 
 		if (saw.isSuspended) {
 			text.add(TextFormatting.RED + "! " + I18nUtil.resolveKey(getTranslationKey() + ".suspended") + " !");
 		}
-		
+
 		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
 

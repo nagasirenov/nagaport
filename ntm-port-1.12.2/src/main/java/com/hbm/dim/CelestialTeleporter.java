@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.math.MathHelper;
@@ -42,32 +43,32 @@ public class CelestialTeleporter extends Teleporter {
 	}
 
 	@Override
-	public void placeInPortal(Entity entity, double ox, double oy, double oz, float yaw) {
+	public void placeInPortal(Entity entity, float yaw) {
 		int ix = (int)x;
 		int iy = (int)y;
 		int iz = (int)z;
 
 		if(grounded) {
 			for(int i = targetServer.getHeight(); i > 0; i--) {
-				if(targetServer.getBlock(ix, i, iz) != Blocks.AIR) {
+				if(com.hbm.world.WorldBlockState.read(targetServer, ix, i, iz).getBlock() != Blocks.AIR) {
 					y = i + 5;
 					break;
 				}
 			}
 		} else {
-			targetServer.getBlock(ix, MathHelper.clamp(iy, 1, 255), iz); // dummy load to maybe gen chunk
+			com.hbm.world.WorldBlockState.read(targetServer, ix, MathHelper.clamp(iy, 1, 255), iz); // dummy load to maybe gen chunk
 		}
 
 		entity.setPosition(x, y, z);
 	}
 
 	private void runTeleport() {
-		MinecraftServer mcServer = MinecraftServer.getServer();
+		MinecraftServer mcServer = net.minecraftforge.fml.common.FMLCommonHandler.instance().getMinecraftServerInstance();
 		PlayerList manager = mcServer.getPlayerList();
 
 		// If this entity got teleported with a player rider, switch to the rider!
-		if(entity.riddenByEntity instanceof EntityPlayerMP) {
-			entity = entity.riddenByEntity;
+		if(entity.isBeingRidden() && entity.getPassengers().get(0) instanceof EntityPlayerMP) {
+			entity = entity.getPassengers().get(0);
 		}
 
 		// Store these since they change after transfer
@@ -89,20 +90,19 @@ public class CelestialTeleporter extends Teleporter {
 
 				manager.transferEntityToWorld(ridingEntity, fromDimension, sourceServer, targetServer, this);
 
-				Entity newEntity = EntityList.createEntityByName(EntityList.getEntityString(ridingEntity), targetServer);
+				Entity newEntity = EntityList.createEntityByIDFromName(EntityList.getKey(ridingEntity), targetServer);
 				if(newEntity != null) {
-					newEntity.copyDataFrom(ridingEntity, true);
+					newEntity.readFromNBT(ridingEntity.writeToNBT(new NBTTagCompound()));
 					newEntity.posX = x;
 					newEntity.posZ = z;
-					targetServer.spawnEntityInWorld(newEntity);
+					targetServer.spawnEntity(newEntity);
 					newEntity.dimension = targetServer.provider.getDimension();
+					playerMP.startRiding(newEntity);
 				}
 
 				ridingEntity.isDead = true;
 				sourceServer.resetUpdateEntityTick();
 				targetServer.resetUpdateEntityTick();
-
-				playerMP.mountEntity(newEntity);
 
 				// Ensure rocket stickiness
 				if(newEntity instanceof EntityRideableRocket) {
@@ -118,12 +118,12 @@ public class CelestialTeleporter extends Teleporter {
 
 			manager.transferEntityToWorld(entity, fromDimension, sourceServer, targetServer, this);
 
-			Entity newEntity = EntityList.createEntityByName(EntityList.getEntityString(entity), targetServer);
+			Entity newEntity = EntityList.createEntityByIDFromName(EntityList.getKey(entity), targetServer);
 			if(newEntity != null) {
-				newEntity.copyDataFrom(entity, true);
+				newEntity.readFromNBT(entity.writeToNBT(new NBTTagCompound()));
 				newEntity.posX = x;
 				newEntity.posZ = z;
-				targetServer.spawnEntityInWorld(newEntity);
+				targetServer.spawnEntity(newEntity);
 				newEntity.dimension = targetServer.provider.getDimension();
 			}
 
@@ -143,11 +143,11 @@ public class CelestialTeleporter extends Teleporter {
 	public static void teleport(Entity entity, int dim, double x, double y, double z, boolean grounded) {
 		if(entity.dimension == dim) return; // ignore if we're teleporting to the same place
 
-		MinecraftServer mcServer = MinecraftServer.getServer();
+		MinecraftServer mcServer = net.minecraftforge.fml.common.FMLCommonHandler.instance().getMinecraftServerInstance();
 		Side sidex = FMLCommonHandler.instance().getEffectiveSide();
 		if(sidex == Side.SERVER) {
-			WorldServer sourceServer = mcServer.worldServerForDimension(entity.dimension);
-			WorldServer targetServer = mcServer.worldServerForDimension(dim);
+			WorldServer sourceServer = mcServer.getWorld(entity.dimension);
+			WorldServer targetServer = mcServer.getWorld(dim);
 
 			queue.add(new CelestialTeleporter(sourceServer, targetServer, entity, x, y, z, grounded));
 		}

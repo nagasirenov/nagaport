@@ -66,7 +66,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 
 	protected boolean checkRedstone(World world, int x, int y, int z) {
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			if(world.getIndirectPowerOutput(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir.ordinal()))
+			if(world.getStrongPower(new net.minecraft.util.math.BlockPos(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ), net.minecraft.util.EnumFacing.byIndex(dir.ordinal())) > 0)
 				return true;
 		}
 
@@ -74,7 +74,10 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 
 		if(side != com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) )) return false;
 
@@ -116,18 +119,20 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 	@Override
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
-		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		int l = net.minecraft.util.EnumFacing.getDirectionFromEntityLiving(new net.minecraft.util.math.BlockPos(x, y, z), player).getIndex();
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, l, 2);
 	}
 
 	@Override
 	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
-		int meta = world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ());
+		int meta = com.hbm.world.WorldBlockState.readMetadata(world, pos.getX(), pos.getY(), pos.getZ());
 		return meta != side.ordinal() && meta != side.getOpposite().ordinal();
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
 		IInventory tileentityfurnace = (IInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tileentityfurnace != null) {
@@ -165,10 +170,10 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 				}
 			}
 
-			world.func_147453_f(x, y, z, block);
+			world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), block);
 		}
 
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override
@@ -220,6 +225,25 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 	//		|_____________________|	@	|			    )
 	// average coding session involving tile entities
 	public static class TileEntityPistonInserter extends TileEntityLoadedBase implements IInventory, net.minecraft.util.ITickable {
+
+		@Override
+		public boolean isEmpty() {
+			for(int i = 0; i < this.getSizeInventory(); i++) {
+				if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+			}
+			return true;
+		}
+
+		@Override public int getField(int id) { return 0; }
+		@Override public void setField(int id, int value) {}
+		@Override public int getFieldCount() { return 0; }
+
+		@Override
+		public void clear() {
+			for(int i = 0; i < this.getSizeInventory(); i++) {
+				this.setInventorySlotContents(i, null);
+			}
+		}
 
 		public ItemStack slot;
 
@@ -301,7 +325,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 
 			if(buf.readBoolean()) {
 				NBTTagCompound stack = BufferUtil.readNBT(buf);
-				this.slot = ItemStack.loadItemStackFromNBT(stack);
+				this.slot = new net.minecraft.item.ItemStack(stack);
 			} else
 				this.slot = null;
 
@@ -346,7 +370,7 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 				return aabb;
 
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
-			aabb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1).addCoord(dir.offsetX, dir.offsetY, dir.offsetZ);
+			aabb = new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1).expand(dir.offsetX, dir.offsetY, dir.offsetZ);
 			return aabb;
 		}
 
@@ -359,14 +383,14 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 		@Override
 		public ItemStack decrStackSize(int slot, int amount) {
 			if(this.slot != null) {
-				if(this.slot.stackSize <= amount) {
+				if(this.slot.getCount() <= amount) {
 					ItemStack stack = this.slot;
 					this.slot = null;
 					return stack;
 				}
 
 				ItemStack stack = this.slot.splitStack(amount);
-				if(this.slot.stackSize == 0)
+				if(this.slot.getCount() == 0)
 					this.slot = null;
 
 				return stack;
@@ -386,13 +410,17 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 				stack.setCount(this.getInventoryStackLimit());
 		}
 
-		@Override public String getInventoryName() { return null; }
+		@Override public String getName() { return ""; }
 
-		@Override public boolean hasCustomInventoryName() { return false; }
+		@Override public boolean hasCustomName() { return false; }
+
+		public String getInventoryName() { return getName(); }
+
+		public boolean hasCustomInventoryName() { return hasCustomName(); }
 
 		@Override public int getInventoryStackLimit() { return 1; }
 
-		@Override public boolean isUseableByPlayer(EntityPlayer player) { return false; }
+		@Override public boolean isUsableByPlayer(EntityPlayer player) { return false; }
 
 		@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
 

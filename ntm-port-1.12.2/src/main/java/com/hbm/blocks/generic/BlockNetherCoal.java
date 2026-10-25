@@ -10,6 +10,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockNetherCoal extends BlockOutgas {
@@ -23,15 +25,21 @@ public class BlockNetherCoal extends BlockOutgas {
 		return ModItems.coal_infernal;
 	}
 
-	@Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityWalk(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entityIn) {
+		onEntityWalking(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
 		entity.setFire(3);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 

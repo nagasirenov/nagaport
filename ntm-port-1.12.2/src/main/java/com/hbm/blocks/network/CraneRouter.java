@@ -60,7 +60,10 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemConveyorWand) {
 			return false;
 		} else if(world.isRemote) {
@@ -97,14 +100,14 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 		for(int i = 0; i < 7; i++) {
 			ForgeDirection d = ForgeDirection.getOrientation(i);
 			List<ItemStack> list = sort[i];
-			
+
 			if(d == ForgeDirection.UNKNOWN) {
 				for(ItemStack stack : list) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack));
 			} else {
 				for(ItemStack stack : list) sendOnRoute(world, x, y, z, stack, d);
 			}
 		}
-		
+
 	}
 
 	protected void sendOnRoute(World world, int x, int y, int z, ItemStack item, ForgeDirection dir) {
@@ -121,7 +124,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 			Vec3d snap = belt.getClosestSnappingPosition(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, pos);
 			moving.setPosition(snap.x, snap.y, snap.z);
 			moving.setItemStack(item);
-			world.spawnEntityInWorld(moving);
+			world.spawnEntity(moving);
 		} else {
 			world.spawnEntity(new EntityItem(world, x + 0.5 + dir.offsetX * 0.55, y + 0.5 + dir.offsetY * 0.55, z + 0.5 + dir.offsetZ * 0.55, item));
 		}
@@ -139,7 +142,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 			if(d == ForgeDirection.UNKNOWN) {
 				for(ItemStack stack : list) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack));
 			} else {
-				
+
 				IConveyorBelt belt = null;
 				Block block = com.hbm.world.WorldBlockState.read(world, x + d.offsetX, y + d.offsetY, z + d.offsetZ).getBlock();
 				if(block instanceof IConveyorBelt) belt = (IConveyorBelt) block;
@@ -150,7 +153,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 					Vec3d snap = belt.getClosestSnappingPosition(world, x + d.offsetX, y + d.offsetY, z + d.offsetZ, pos);
 					moving.setPosition(snap.x, snap.y, snap.z);
 					moving.setItemStacks(list.toArray(new ItemStack[0]));
-					world.spawnEntityInWorld(moving);
+					world.spawnEntity(moving);
 				} else {
 					for(ItemStack stack : list) world.spawnEntity(new EntityItem(world, x + 0.5 + d.offsetX * 0.55, y + 0.5 + d.offsetY * 0.55, z + 0.5 + d.offsetZ * 0.55, stack));
 				}
@@ -162,7 +165,7 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
 		this.addStandardInfo(stack, player, list, ext);
 	}
-	
+
 	/** Accepts an arbitrary amount of ItemStacks (either solo or from boxes) and returns an array corresponding with ForgeDirections,
 	 * with each direction having a list of items being output in that direction. Index 6 is used for UNKNOWN, i.e. unsortable items.
 	 * Returned lists are populated with COPIES of the original stacks. */
@@ -170,16 +173,16 @@ public class CraneRouter extends BlockContainer implements IBlockMultiPass, IEnt
 		TileEntityCraneRouter router = (TileEntityCraneRouter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		List<ItemStack>[] output = new List[7];
 		for(int i = 0; i < 7; i++) output[i] = new ArrayList();
-		
+
 		for(ItemStack stack : stacks) {
 			if(stack == null) continue;
 			ForgeDirection dir = getOutputDir(router, stack.copy());
 			output[dir.ordinal()].add(stack);
 		}
-		
+
 		return output;
 	}
-	
+
 	public static ForgeDirection getOutputDir(TileEntityCraneRouter router, ItemStack stack) {
 		List<ForgeDirection> validDirs = new ArrayList();
 

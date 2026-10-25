@@ -12,7 +12,6 @@ public class WorldGenTest implements IWorldGenerator {
 	
 	static MapGenTest gen = new MapGenTest();
 	
-	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		gen.generate(world, chunkX, chunkZ, null);
 		gen.generateStructure(world, random, new ChunkPos(chunkX, chunkZ));

@@ -78,11 +78,11 @@ public class MachinePlasmaHeater extends BlockDummyable {
         float f = 0.0625F;
 
         if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == ForgeDirection.UP.ordinal() && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != this) {
-    		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + f * 8F, z + 1);
+		return new AxisAlignedBB(x, y, z, x + 1, y + f * 8F, z + 1);
     	} else if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == ForgeDirection.DOWN.ordinal() && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != this) {
-    		return AxisAlignedBB.getBoundingBox(x, y + f * 8F, z, x + 1, y + 1, z + 1);
+		return new AxisAlignedBB(x, y + f * 8F, z, x + 1, y + 1, z + 1);
     	} else {
-    		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
+		return new AxisAlignedBB(x, y, z, x + 1, y + 1, z + 1);
     	}
     }
 
@@ -90,9 +90,9 @@ public class MachinePlasmaHeater extends BlockDummyable {
 
         float f = 0.0625F;
 
-    	if(world.getBlockMetadata(x, y, z) == ForgeDirection.UP.ordinal() && world.getBlock(x, y + 1, z) != this) {
+		if(com.hbm.world.WorldBlockState.readMetadata(world, x, y, z) == ForgeDirection.UP.ordinal() && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != this) {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, f * 8F, 1.0F);
-    	} else if(world.getBlockMetadata(x, y, z) == ForgeDirection.DOWN.ordinal() && world.getBlock(x, y - 1, z) != this) {
+		} else if(com.hbm.world.WorldBlockState.readMetadata(world, x, y, z) == ForgeDirection.DOWN.ordinal() && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != this) {
     		this.setBlockBounds(0.0F, f * 8F, 0.0F, 1, 1.0F, 1.0F);
     	} else  {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);

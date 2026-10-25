@@ -37,7 +37,7 @@ public class GUIBatteryREDD extends GuiInfoContainer {
 		super.drawScreen(mouseX, mouseY, f);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		NBTTagCompound data = new NBTTagCompound();
@@ -46,7 +46,7 @@ public class GUIBatteryREDD extends GuiInfoContainer {
 		if(this.checkClick(x, y, 133, 52, 18, 18)) { this.click(); data.setBoolean("high", true); }
 		if(this.checkClick(x, y, 152, 35, 16, 16)) { this.click(); data.setBoolean("priority", true); }
 		
-		if(!data.hasNoTags()) PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, battery.getPos().getX(), battery.getPos().getY(), battery.getPos().getZ()));
+		if(!data.isEmpty()) PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, battery.getPos().getX(), battery.getPos().getY(), battery.getPos().getZ()));
 	}
 
 	@Override

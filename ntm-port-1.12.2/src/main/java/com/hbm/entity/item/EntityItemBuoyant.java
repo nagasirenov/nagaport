@@ -14,7 +14,7 @@ public class EntityItemBuoyant extends EntityItem {
 	public EntityItemBuoyant(World world, double x, double y, double z, ItemStack stack) {
 		super(world, x, y, z, stack);
 	}
-	
+
 	@Override
 	public void onUpdate() {
 
@@ -22,10 +22,10 @@ public class EntityItemBuoyant extends EntityItem {
 		int y = (int) Math.floor(posY - 0.0625);
 		int z = (int) Math.floor(posZ);
 
-		if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().getMaterial() == Material.WATER && this.world.getBlockMetadata(x, y, z) < 8) {
+		if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getMaterial() == Material.WATER && com.hbm.world.WorldBlockState.readMetadata(this.world, x, y, z) < 8) {
 			this.motionY += 0.045D;
 		}
-		
+
 		super.onUpdate();
 	}
 }

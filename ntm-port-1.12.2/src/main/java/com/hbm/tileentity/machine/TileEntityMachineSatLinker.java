@@ -19,6 +19,25 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class TileEntityMachineSatLinker extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
+
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
 	private ItemStack[] slots;
 
 	//public static final int maxFill = 64 * 3;
@@ -64,13 +83,21 @@ public class TileEntityMachineSatLinker extends TileEntity implements ISidedInve
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.satLinker";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.satLinker";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
+	}
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
 	}
 
 	public void setCustomName(String name) {
@@ -84,13 +111,15 @@ public class TileEntityMachineSatLinker extends TileEntity implements ISidedInve
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64;
 		}
 	}
+
+
 
 	@Override
 	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
@@ -105,13 +134,13 @@ public class TileEntityMachineSatLinker extends TileEntity implements ISidedInve
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null) {
-			if(slots[i].stackSize <= j) {
+			if(slots[i].getCount() <= j) {
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0) {
+			if (slots[i].getCount() == 0) {
 				slots[i] = null;
 			}
 

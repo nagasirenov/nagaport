@@ -71,12 +71,12 @@ public class ItemModLens extends ItemArmorMod implements ISatChip {
 
 		for(int chunkX = cX - range; chunkX <= cX + range; chunkX++) {
 			for(int chunkZ = cZ - range; chunkZ <= cZ + range; chunkZ++) {
-				Chunk c = world.getChunkFromChunkCoords(chunkX, chunkZ);
+				Chunk c = world.getChunk(chunkX, chunkZ);
 
 				for(int ix = 0; ix < 16; ix++) {
 					for(int iz = 0; iz < 16; iz++) {
 
-						Block b = c.getBlock(ix, seg, iz);
+						Block b = c.getBlockState(ix, seg, iz).getBlock();
 						int aX = (chunkX << 4) + ix;
 						int aZ = (chunkZ << 4) + iz;
 
@@ -88,7 +88,7 @@ public class ItemModLens extends ItemArmorMod implements ISatChip {
 						if(addIf(ModBlocks.ore_coltan, b, 5, aX, seg, aZ, "Coltan", 0xa0a000, player)) hits++;
 						if(addIf(ModBlocks.stone_gneiss, b, 5000, aX, seg, aZ, "Schist", 0x8080ff, player)) hits++;
 						if(addIf(ModBlocks.ore_australium, b, 1000, aX, seg, aZ, "Australium", 0xffff00, player)) hits++;
-						if(addIf(Blocks.end_portal_frame, b, 1, aX, seg, aZ, "End Portal", 0x40b080, player)) hits++;
+						if(addIf(Blocks.END_PORTAL_FRAME, b, 1, aX, seg, aZ, "End Portal", 0x40b080, player)) hits++;
 						if(addIf(ModBlocks.volcano_core, b, 1, aX, seg, aZ, "Volcano Core", 0xff4000, player)) hits++;
 						if(addIf(ModBlocks.pink_log, b, 1, aX, seg, aZ, "Pink Log", 0xff00ff, player)) hits++;
 						if(addIf(ModBlocks.bobblehead, b, 1, aX, seg, aZ, "A Treasure!", 0xff0000, player)) hits++;

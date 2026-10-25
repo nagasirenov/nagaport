@@ -12,7 +12,7 @@ import net.minecraft.util.math.Vec3d;
  * @author hbm
  */
 public class RocketTargetingPredictive implements IRocketTargetingBehavior {
-	
+
 	/*
 	 * unlikely to work for things that move extremely erratically and quickly,
 	 * but there's barely any  cases where that would apply.
@@ -27,12 +27,12 @@ public class RocketTargetingPredictive implements IRocketTargetingBehavior {
 		Vec3d speed = new Vec3d(rocket.motionX, rocket.motionY, rocket.motionZ);
 		Vec3d delta = new Vec3d(target.posX - rocket.posX, target.posY - rocket.posY, target.posZ - rocket.posZ);
 		double eta = delta.length() - speed.length();
-		
+
 		/* initialize with the values we already know */
 		double motionX = target.motionX;
 		double motionY = target.motionY;
 		double motionZ = target.motionZ;
-		
+
 		/* shift the buffer and add the older values */
 		for(int i = 1; i < 20; i++) {
 			targetMotion[i - 1] = targetMotion[i];
@@ -45,17 +45,17 @@ public class RocketTargetingPredictive implements IRocketTargetingBehavior {
 		targetMotion[19][0] = target.motionX;
 		targetMotion[19][1] = target.motionY;
 		targetMotion[19][2] = target.motionZ;
-		
+
 		if(eta <= 1) {
-			rocket.setTarget(target.posX, target.posY - target.yOffset + target.height * 0.5D, target.posZ);
+			rocket.setTarget(target.posX, target.posY - target.getYOffset() + target.height * 0.5D, target.posZ);
 			return;
 		}
 
 		/* generate averages and predict a new position */
 		double predX = target.posX + (motionX / 20D) * eta;
-		double predY = target.posY - target.yOffset + target.height * 0.5D + (motionY / 20D) * eta;
+		double predY = target.posY - target.getYOffset() + target.height * 0.5D + (motionY / 20D) * eta;
 		double predZ = target.posZ + (motionZ / 20D) * eta;
-		
+
 		rocket.setTarget(predX, predY, predZ);
 	}
 }

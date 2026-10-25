@@ -47,8 +47,9 @@ public class EntityQuackos extends EntityDuck implements INtmBossDisplay {
 	/**
 	 * BOW
 	 */
-	protected String getDeathSound() {
-		return "hbm:entity.megaquacc";
+	@Override
+	protected net.minecraft.util.SoundEvent getDeathSound() {
+		return com.hbm.main.ModSoundEvents.resolve("hbm:entity.megaquacc");
 	}
 
 	/**
@@ -96,13 +97,13 @@ public class EntityQuackos extends EntityDuck implements INtmBossDisplay {
 	 */
 	public boolean interact(EntityPlayer player) {
 
-		if(super.interact(player)) {
+		if(super.processInitialInteract(player, net.minecraft.util.EnumHand.MAIN_HAND)) {
 			return true;
 
 		} else {
 
-			if(!this.world.isRemote && (!this.isBeingRidden() || this.riddenByEntity == player)) {
-				player.mountEntity(this);
+			if(!this.world.isRemote && (!this.isBeingRidden() || this.isPassenger(player))) {
+				player.startRiding(this);
 				return true;
 			}
 
@@ -134,17 +135,17 @@ public class EntityQuackos extends EntityDuck implements INtmBossDisplay {
 	/**
 	 * BOW
 	 */
-	public void updateRiderPosition() {
-
-		super.updateRiderPosition();
+	@Override
+	public void updatePassenger(net.minecraft.entity.Entity passenger) {
+		super.updatePassenger(passenger);
 		float f = MathHelper.sin(this.renderYawOffset * (float) Math.PI / 180.0F);
 		float f1 = MathHelper.cos(this.renderYawOffset * (float) Math.PI / 180.0F);
 		float f2 = 0.1F;
 		float f3 = 0.0F;
-		this.riddenByEntity.setPosition(this.posX + (double) (f2 * f), this.posY + (double) (this.height - 0.125F) + this.riddenByEntity.getYOffset() + (double) f3, this.posZ - (double) (f2 * f1));
+		passenger.setPosition(this.posX + (double) (f2 * f), this.posY + (double) (this.height - 0.125F) + passenger.getYOffset() + (double) f3, this.posZ - (double) (f2 * f1));
 
-		if(this.riddenByEntity instanceof EntityLivingBase) {
-			((EntityLivingBase) this.riddenByEntity).renderYawOffset = this.renderYawOffset;
+		if(passenger instanceof EntityLivingBase) {
+			((EntityLivingBase) passenger).renderYawOffset = this.renderYawOffset;
 		}
 	}
 
@@ -177,7 +178,7 @@ public class EntityQuackos extends EntityDuck implements INtmBossDisplay {
 	public void onDeath(DamageSource sourceOrRatherLackThereof) { }
 
 	@Override
-	public boolean allowLeashing() {
+	public boolean canBeLeashedTo(EntityPlayer player) {
 		return false;
 	}
 }

@@ -23,6 +23,8 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class MachineTeleporter extends BlockContainer implements ILookOverlay {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT) private IIcon iconTop;
 	@SideOnly(Side.CLIENT) private IIcon iconBottom;
 
@@ -30,7 +32,6 @@ public class MachineTeleporter extends BlockContainer implements ILookOverlay {
 		super(mat);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":teleporter_top");
@@ -38,7 +39,6 @@ public class MachineTeleporter extends BlockContainer implements ILookOverlay {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":teleporter_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon);

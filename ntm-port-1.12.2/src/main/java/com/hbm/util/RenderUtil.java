@@ -1,6 +1,9 @@
 package com.hbm.util;
 
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import org.lwjgl.opengl.GL11;
 
 public class RenderUtil {
 
@@ -9,36 +12,37 @@ public class RenderUtil {
 	}
 
 	public static void renderBlock(Tessellator tessellator, double uvMin, double uvMax) {
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(-0.5, +0.5, -0.5, uvMax, uvMax);
-		tessellator.addVertexWithUV(+0.5, +0.5, -0.5, uvMin, uvMax);
-		tessellator.addVertexWithUV(+0.5, -0.5, -0.5, uvMin, uvMin);
-		tessellator.addVertexWithUV(-0.5, -0.5, -0.5, uvMax, uvMin);
+		BufferBuilder buffer = tessellator.getBuffer();
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+		buffer.pos(-0.5, +0.5, -0.5).tex(uvMax, uvMax).endVertex();
+		buffer.pos(+0.5, +0.5, -0.5).tex(uvMin, uvMax).endVertex();
+		buffer.pos(+0.5, -0.5, -0.5).tex(uvMin, uvMin).endVertex();
+		buffer.pos(-0.5, -0.5, -0.5).tex(uvMax, uvMin).endVertex();
 
-		tessellator.addVertexWithUV(-0.5, +0.5, +0.5, uvMax, uvMax);
-		tessellator.addVertexWithUV(-0.5, +0.5, -0.5, uvMin, uvMax);
-		tessellator.addVertexWithUV(-0.5, -0.5, -0.5, uvMin, uvMin);;
-		tessellator.addVertexWithUV(-0.5, -0.5, +0.5, uvMax, uvMin);
+		buffer.pos(-0.5, +0.5, +0.5).tex(uvMax, uvMax).endVertex();
+		buffer.pos(-0.5, +0.5, -0.5).tex(uvMin, uvMax).endVertex();
+		buffer.pos(-0.5, -0.5, -0.5).tex(uvMin, uvMin).endVertex();
+		buffer.pos(-0.5, -0.5, +0.5).tex(uvMax, uvMin).endVertex();
 
-		tessellator.addVertexWithUV(+0.5, +0.5, +0.5, uvMax, uvMax);
-		tessellator.addVertexWithUV(-0.5, +0.5, +0.5, uvMin, uvMax);
-		tessellator.addVertexWithUV(-0.5, -0.5, +0.5, uvMin, uvMin);
-		tessellator.addVertexWithUV(+0.5, -0.5, +0.5, uvMax, uvMin);
+		buffer.pos(+0.5, +0.5, +0.5).tex(uvMax, uvMax).endVertex();
+		buffer.pos(-0.5, +0.5, +0.5).tex(uvMin, uvMax).endVertex();
+		buffer.pos(-0.5, -0.5, +0.5).tex(uvMin, uvMin).endVertex();
+		buffer.pos(+0.5, -0.5, +0.5).tex(uvMax, uvMin).endVertex();
 
-		tessellator.addVertexWithUV(+0.5, +0.5, -0.5, uvMax, uvMax);
-		tessellator.addVertexWithUV(+0.5, +0.5, +0.5, uvMin, uvMax);
-		tessellator.addVertexWithUV(+0.5, -0.5, +0.5, uvMin, uvMin);
-		tessellator.addVertexWithUV(+0.5, -0.5, -0.5, uvMax, uvMin);
+		buffer.pos(+0.5, +0.5, -0.5).tex(uvMax, uvMax).endVertex();
+		buffer.pos(+0.5, +0.5, +0.5).tex(uvMin, uvMax).endVertex();
+		buffer.pos(+0.5, -0.5, +0.5).tex(uvMin, uvMin).endVertex();
+		buffer.pos(+0.5, -0.5, -0.5).tex(uvMax, uvMin).endVertex();
 
-		tessellator.addVertexWithUV(-0.5, -0.5, -0.5, uvMax, uvMax);
-		tessellator.addVertexWithUV(+0.5, -0.5, -0.5, uvMin, uvMax);
-		tessellator.addVertexWithUV(+0.5, -0.5, +0.5, uvMin, uvMin);
-		tessellator.addVertexWithUV(-0.5, -0.5, +0.5, uvMax, uvMin);
+		buffer.pos(-0.5, -0.5, -0.5).tex(uvMax, uvMax).endVertex();
+		buffer.pos(+0.5, -0.5, -0.5).tex(uvMin, uvMax).endVertex();
+		buffer.pos(+0.5, -0.5, +0.5).tex(uvMin, uvMin).endVertex();
+		buffer.pos(-0.5, -0.5, +0.5).tex(uvMax, uvMin).endVertex();
 
-		tessellator.addVertexWithUV(+0.5, +0.5, -0.5, uvMax, uvMax);
-		tessellator.addVertexWithUV(-0.5, +0.5, -0.5, uvMin, uvMax);
-		tessellator.addVertexWithUV(-0.5, +0.5, +0.5, uvMin, uvMin);
-		tessellator.addVertexWithUV(+0.5, +0.5, +0.5, uvMax, uvMin);
+		buffer.pos(+0.5, +0.5, -0.5).tex(uvMax, uvMax).endVertex();
+		buffer.pos(-0.5, +0.5, -0.5).tex(uvMin, uvMax).endVertex();
+		buffer.pos(-0.5, +0.5, +0.5).tex(uvMin, uvMin).endVertex();
+		buffer.pos(+0.5, +0.5, +0.5).tex(uvMax, uvMin).endVertex();
 		tessellator.draw();
 	}
 

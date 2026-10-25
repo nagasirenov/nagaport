@@ -19,6 +19,12 @@ import net.minecraft.world.World;
 
 public class BlockGeysierDCM extends BlockContainer {
 
+	public BlockGeysierDCM withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+
 	public BlockGeysierDCM(Material rock) {
 		super(rock);
 	}
@@ -72,13 +78,13 @@ public class BlockGeysierDCM extends BlockContainer {
 
 		// copy pasting without reading makes you create a fluid geyser that... zaps you to death with electricty?
 		private void vapor() {
-			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 60, this.pos.getZ() + 1.5));
+			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 60, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(Entity e : entities) {
 					if(e instanceof EntityLivingBase) {
 						if(e.attackEntityFrom(ModDamageSource.acid, MathHelper.clamp(((EntityLivingBase) e).getMaxHealth() * 0.1F, (float) (3), (float) (20)))) {
-							this.world.playSoundAtEntity(e, "random.fizz", 1.0F, 1.0F);
+							this.world.playSound(null, e.posX, e.posY, e.posZ, com.hbm.main.ModSoundEvents.resolve("random.fizz"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 						}
 					}
 				}

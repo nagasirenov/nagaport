@@ -205,7 +205,7 @@ public class ArmorDNT extends ArmorFSBPowered implements IItemRendererProvider {
 		if(!effects.isEmpty()) {
 
 			for(PotionEffect effect : effects) {
-				list.add(TextFormatting.AQUA + "  " + I18nUtil.format(Potion.potionTypes[effect.getPotionID()].getName()));
+				list.add(TextFormatting.AQUA + "  " + I18nUtil.format((effect.getPotion()).getName()));
 			}
 		}
 

@@ -21,7 +21,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUIProvider, IControlReceiverFilter {
-	
+
 	public ModulePatternMatcher[] patterns = new ModulePatternMatcher[6]; //why did i make six matchers???
 	public int[] modes = new int[6];
 	public static final int MODE_NONE = 0;
@@ -31,7 +31,7 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 
 	public TileEntityCraneRouter() {
 		super(5 * 6);
-		
+
 		for(int i = 0; i < patterns.length; i++) {
 			patterns[i] = new ModulePatternMatcher(5);
 		}
@@ -44,7 +44,7 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
 
 			this.networkPackNT(15);
@@ -81,39 +81,39 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return new GUICraneRouter(player.inventory, this);
 	}
-	
+
 	@Override
 	public void nextMode(int index) {
-		
+
 		int matcher = index / 5;
 		int mIndex = index % 5;
-		
+
 		this.patterns[matcher].nextMode(this.world, slots[index], mIndex);
 	}
 
 	public void initPattern(ItemStack stack, int index) {
-		
+
 		int matcher = index / 5;
 		int mIndex = index % 5;
-		
+
 		this.patterns[matcher].initPatternSmart(this.world, stack, mIndex);
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		for(int i = 0; i < patterns.length; i++) {
 			NBTTagCompound compound = nbt.getCompoundTag("pattern" + i);
 			patterns[i].readFromNBT(compound);
 		}
 		this.modes = nbt.getIntArray("modes");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		for(int i = 0; i < patterns.length; i++) {
 			NBTTagCompound compound = new NBTTagCompound();
 			patterns[i].writeToNBT(compound);
@@ -127,12 +127,12 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 	public boolean hasPermission(EntityPlayer player) {
 		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
-	
+
 	@Override
 	public int[] getFilterSlots() {
 		return new int[]{0, slots.length};
 	}
-	
+
 	@Override
 	public void receiveControl(NBTTagCompound data) {
 		if(data.hasKey("toggle")) {
@@ -184,7 +184,7 @@ public class TileEntityCraneRouter extends TileEntityMachineBase implements IGUI
 				if (!loadedStack.isEmpty() && slot > index * 5 && slot < Math.min(index * 5 + 5, 30)) {
 					this.setInventorySlotContents(slot, new ItemStack(slotNBT));
 					nextMode(slot);
-					this.getWorld().markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+					this.getWorld().markChunkDirty(this.pos, this);
 				}
 			}
 			modes = nbt.getIntArray("modes");

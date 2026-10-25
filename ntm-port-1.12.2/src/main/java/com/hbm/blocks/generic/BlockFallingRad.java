@@ -6,6 +6,8 @@ import com.hbm.handler.radiation.ChunkRadiationManager;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 
 public class BlockFallingRad extends BlockFalling {
 
@@ -16,9 +18,14 @@ public class BlockFallingRad extends BlockFalling {
 		radIn = rad;
 	}
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		super.updateTick(world, x, y, z, rand);
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
+		super.updateTick(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), rand);
 		ChunkRadiationManager.proxy.incrementRad(world, x, y, z, radIn);
 
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
@@ -29,8 +36,10 @@ public class BlockFallingRad extends BlockFalling {
 		return 20;
 	}
 
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
 

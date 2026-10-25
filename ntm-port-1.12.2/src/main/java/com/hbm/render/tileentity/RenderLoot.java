@@ -191,17 +191,17 @@ public class RenderLoot extends TileEntitySpecialRenderer {
 		GL11.glRotated(90, 1, 0, 0);
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 		
-		bindTexture(TextureMap.locationItemsTexture);
+		bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 		
-		for(int i = 0; i < stack.getItem().getRenderPasses(stack.getItemDamage()); i++) {
+		for(int i = 0; i < 1; i++) {
 			
-			IIcon icon = stack.getItem().getIcon(stack, i);
+			IIcon icon = com.hbm.render.icon.LegacyIconRegister.wrapSprite(net.minecraft.client.Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(stack.getItem(), stack.getItemDamage()));
 			float f14 = icon.getMinU();
 			float f15 = icon.getMaxU();
 			float f4 = icon.getMinV();
 			float f5 = icon.getMaxV();
 
-			int k1 = stack.getItem().getColorFromItemStack(stack, i);
+			int k1 = net.minecraft.client.Minecraft.getMinecraft().getItemColors().colorMultiplier(stack, i);
 			float f10 = (float) (k1 >> 16 & 255) / 255.0F;
 			float f11 = (float) (k1 >> 8 & 255) / 255.0F;
 			float f12 = (float) (k1 & 255) / 255.0F;

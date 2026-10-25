@@ -26,21 +26,21 @@ public class TileEntityConverterRfHe extends TileEntityLoadedBase implements IEn
 
 	@Override
 	public void update() {
-		
+
 		if (!this.world.isRemote) {
-			
+
 			long rfCreated = Math.min(storage.getEnergyStored(), (maxPower - power) * rfInput / heOutput);
 			storage.setEnergyStored((int) (storage.getEnergyStored() - rfCreated));
 			power += rfCreated * heOutput / rfInput;
 			if(storage.getEnergyStored() > 0) storage.extractEnergy((int) Math.ceil(storage.getEnergyStored() * inputDecay), false);
-			if(rfCreated > 0) this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
-			
+			if(rfCreated > 0) this.world.markChunkDirty(this.pos, this);
+
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 				this.tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 		}
 	}
-	
+
 	@Override public boolean canConnectEnergy(EnumFacing from) { return true; }
 	@Override public int receiveEnergy(EnumFacing from, int maxReceive, boolean simulate) { return storage.receiveEnergy(maxReceive, simulate); }
 	@Override public int getEnergyStored(EnumFacing from) { return storage.getEnergyStored(); }
@@ -50,19 +50,19 @@ public class TileEntityConverterRfHe extends TileEntityLoadedBase implements IEn
 	@Override public long getPower() { return power; }
 	@Override public void setPower(long power) { this.power = power; }
 	@Override public long getMaxPower() { return maxPower; }
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		this.power = nbt.getLong("power");
 		storage.readFromNBT(nbt);
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		storage.writeToNBT(nbt);
 		return nbt;

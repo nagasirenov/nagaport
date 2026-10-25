@@ -18,7 +18,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class ItemModInsert extends ItemArmorMod {
-	
+
 	float damageMod;
 	float projectileMod;
 	float explosionMod;
@@ -39,7 +39,7 @@ public class ItemModInsert extends ItemArmorMod {
 		corrosionProtection = true;
 		return this;
 	}
-    
+
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 
@@ -53,19 +53,19 @@ public class ItemModInsert extends ItemArmorMod {
 			list.add(TextFormatting.YELLOW + "-" + Math.round((1F - explosionMod) * 100) + "% explosion damage");
 		if(speed != 1F)
 			list.add(TextFormatting.BLUE + "-" + Math.round((1F - speed) * 100) + "% speed");
-		
+
 		if(this == ModItems.insert_polonium)
 			list.add(TextFormatting.DARK_RED + "+100 RAD/s");
-		
+
 		list.add((stack.getMaxDamage() - stack.getItemDamage()) + "/" + stack.getMaxDamage() + "HP");
-		
+
 		list.add("");
 		super.addInformation(stack, player, list, bool);
 	}
 
 	@Override
 	public void addDesc(List list, ItemStack stack, ItemStack armor) {
-		
+
 		List<String> desc = new ArrayList();
 
 		if(damageMod != 1F)
@@ -79,60 +79,60 @@ public class ItemModInsert extends ItemArmorMod {
 
 		if(this == ModItems.insert_polonium)
 			desc.add("+100 RAD/s");
-		
+
 		String join = String.join(" / ", desc);
-		
+
 		list.add(TextFormatting.DARK_PURPLE + "  " + stack.getDisplayName() + " (" + join + " / " + (stack.getMaxDamage() - stack.getItemDamage()) + "HP)");
 	}
 
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
-		
+
 		event.setAmount((float) (event.getAmount() * (damageMod)));
-		
+
 		if(event.getSource().isProjectile())
 			event.setAmount((float) (event.getAmount() * (projectileMod)));
-		
+
 		if(event.getSource().isExplosion())
 			event.setAmount((float) (event.getAmount() * (explosionMod)));
-		
+
 		ItemStack insert = ArmorModHandler.pryMods(armor)[ArmorModHandler.kevlar];
-		
+
 		if(insert == null)
 			return;
-		
+
 		insert.setItemDamage(insert.getItemDamage() + 1);
-		
+
 		if(!event.getEntity().world.isRemote && this == ModItems.insert_era) {
-			event.getEntity().world.newExplosion(event.getEntity(), event.getEntity().posX, event.getEntity().posY - event.getEntity().yOffset + event.getEntity().height * 0.5, event.getEntity().posZ, 0.05F, false, false);
+			event.getEntity().world.newExplosion(event.getEntity(), event.getEntity().posX, event.getEntity().posY - event.getEntity().getYOffset() + event.getEntity().height * 0.5, event.getEntity().posZ, 0.05F, false, false);
 		}
-		
+
 		if(insert.getItemDamage() >= insert.getMaxDamage()) {
 			ArmorModHandler.removeMod(armor, ArmorModHandler.kevlar);
 		} else {
 			ArmorModHandler.applyMod(armor, insert);
 		}
 	}
-	
+
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
-		
+
 		if(!entity.world.isRemote && this == ModItems.insert_polonium) {
 			HbmLivingProps.incrementRadiation(entity, 100F);
 		}
 	}
-	
+
 	@Override
 	public Multimap getModifiers(ItemStack armor) {
-		
+
 		if(speed == 1)
 			return null;
 
 		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
-		
+
 		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
 				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Speed", -1F + speed, 2));
-		
+
 		return multimap;
 	}
 }

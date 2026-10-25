@@ -10,6 +10,25 @@ import net.minecraft.inventory.Container;
 import net.minecraft.world.World;
 
 public class TileEntityCrateDesh extends TileEntityCrateBase {
+
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
 	
 	public TileEntityCrateDesh() {
 		super(104); //8 rows with 13 slots

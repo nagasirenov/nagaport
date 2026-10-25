@@ -42,7 +42,7 @@ public class ItemGunNI4NI extends ItemGunBaseNT implements ICustomizable {
 					this.setCoinCount(stack, newCount);
 					
 					if(isHeld) {
-						world.playSoundAtEntity(entity, "hbm:item.techBoop", 1.0F, 1F + newCount / (float) maxCoin);
+						world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBoop"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1F + newCount / (float) maxCoin);
 					}
 				}
 			}

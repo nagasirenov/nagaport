@@ -94,7 +94,7 @@ public class BiomeGenIke extends BiomeGenBaseCelestial {
 	}
 
 	@Override
-	protected BiomeDecorator createBiomeDecorator() {
+	public BiomeDecorator createBiomeDecorator() {
 		BiomeDecoratorCelestial decorator = new BiomeDecoratorCelestial(ModBlocks.ike_stone);
 		decorator.lakeChancePerChunk = 8;
 		decorator.lakeBlock = ModBlocks.bromine_block;

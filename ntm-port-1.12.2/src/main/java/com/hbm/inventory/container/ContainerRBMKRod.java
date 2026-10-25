@@ -5,6 +5,7 @@ import com.hbm.tileentity.machine.rbmk.TileEntityRBMKRod;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -29,22 +30,22 @@ public class ContainerRBMKRod extends Container {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 
 		if(index == 0 && !player.capabilities.isCreativeMode) {
-			
+
 			if(rbmk.coldEnoughForManual()) {
 				return super.slotClick(index, button, mode, player);
 			} else {
 
 				Slot slot = this.getSlot(index);
 				ItemStack ret = null;
-				
+
 				if(slot.getHasStack()) ret = slot.getStack().copy();
 				return ret;
 			}
 		}
-		
+
 		return super.slotClick(index, button, mode, player);
 	}
 
@@ -66,7 +67,7 @@ public class ContainerRBMKRod extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

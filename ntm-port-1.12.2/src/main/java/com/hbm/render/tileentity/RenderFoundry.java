@@ -137,7 +137,7 @@ public class RenderFoundry extends TileEntitySpecialRenderer<TileEntity> impleme
         }
     }
     @Override public void renderActor(WorldInAJar world,int ticks,float partial,NBTTagCompound data) {
-        int x=data.getInteger("x"),y=data.getInteger("y"),z=data.getInteger("z");render(world.getTileEntity(x,y,z),x,y,z,partial,-1,1);
+        int x=data.getInteger("x"),y=data.getInteger("y"),z=data.getInteger("z");render(world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)),x,y,z,partial,-1,1);
     }
     @Override public void updateActor(int ticks,NBTTagCompound data) { }
 }

@@ -22,7 +22,8 @@ public class BlockDepth extends Block implements ITooltipProvider {
 	}
 	
 	@Override
-	public float getPlayerRelativeBlockHardness(EntityPlayer player, World world, int x, int y, int z) {
+	public float getPlayerRelativeBlockHardness(net.minecraft.block.state.IBlockState state, EntityPlayer player, World world, net.minecraft.util.math.BlockPos pos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IDepthRockTool) {
 			
@@ -30,7 +31,7 @@ public class BlockDepth extends Block implements ITooltipProvider {
 			return (float) (1D / 50D);
 		}
 		
-		return super.getPlayerRelativeBlockHardness(player, world, x, y, z);
+		return super.getPlayerRelativeBlockHardness(com.hbm.world.WorldBlockState.read(world, x, y, z), player, world, pos);
 	}
 
 	@Override

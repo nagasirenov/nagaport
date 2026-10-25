@@ -48,7 +48,7 @@ public class EntityCombatDropPod extends EntityThrowable {
 		    entity.writeToNBT(this.entityType);
 		    this.amount = amount;
 	}
-	
+
 	public void setColor(int color) {
 		this.color = color;
 		this.dataManager.set(COLOR, color);
@@ -57,18 +57,18 @@ public class EntityCombatDropPod extends EntityThrowable {
 	public int getColor() {
 		return this.dataManager.get(COLOR);
 	}
-	
+
 	@Override
 	protected void entityInit() {
 	    this.dataManager.register(COLOR, (int) 0);
 	}
-	
+
 	public void setPayload(NBTTagCompound entityData, int amount, int color) {
 		    this.entityType = entityData;
 		    this.amount = amount;
 		    this.setColor(color);
 		}
-	
+
 	@Override
 	public void onUpdate() {
 		motionY = -1;
@@ -77,10 +77,10 @@ public class EntityCombatDropPod extends EntityThrowable {
 		this.lastTickPosX = this.prevPosX = this.posX;
 		this.lastTickPosY = this.prevPosY = this.posY;
 		this.lastTickPosZ = this.prevPosZ = this.posZ;
-		
+
 		for(int i = 0; i < 4; i++) {
-			
-			if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote) {
+
+			if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getMaterial() != Material.AIR && !this.world.isRemote) {
 				ExplosionLarge.spawnParticles(this.world, posX, posY + 1, posZ, 50);
 
 	            com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:block.hatchImpact", 10.0F, 0.5F + this.rand.nextFloat() * 0.5F);
@@ -89,9 +89,9 @@ public class EntityCombatDropPod extends EntityThrowable {
 	            int y = (int)this.posY + 1;
 	            int z = (int)this.posZ;
 
-	            this.world.setBlock(x, y, z, ModBlocks.combat_drop);
+	            com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.combat_drop);
 
-	            TileEntity te = this.world.getTileEntity(x, y, z);
+	            TileEntity te = com.hbm.world.WorldBlockState.getTileEntity(this.world, x, y, z);
 
 	            if(te instanceof TileEntityCombatDropPod) {
 
@@ -99,7 +99,7 @@ public class EntityCombatDropPod extends EntityThrowable {
 
 	                if(this.entityType != null) {
 	                    capsule.setPayload(this.entityType, this.amount, this.color);
-	                    this.world.markBlockForUpdate(x, y, z);
+	                    com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, x, y, z);
 
 	                } else {
 	                    return;
@@ -108,7 +108,7 @@ public class EntityCombatDropPod extends EntityThrowable {
 			this.setDead();
 			break;
 			}
-			
+
 
 			this.posX += this.motionX;
 			this.posY += this.motionY;
@@ -116,7 +116,7 @@ public class EntityCombatDropPod extends EntityThrowable {
 		}
 
 
-	
+
 	}
 
 

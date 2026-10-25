@@ -166,7 +166,7 @@ public class GuiQMAW extends GuiScreen {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int key) {
+	protected void mouseClicked(int x, int y, int key) throws java.io.IOException {
 		super.mouseClicked(x, y, key);
 
 		if(key == 0) {
@@ -277,8 +277,8 @@ public class GuiQMAW extends GuiScreen {
 			GL11.glRotated(180, 1, 0, 0);
 			RenderHelper.enableStandardItemLighting();
 			GL11.glRotated(-180, 1, 0, 0);
-			itemRender.renderItemAndEffectIntoGUI(this.fontRenderer, mc.renderEngine, this.icon, guiLeft + x, guiTop + y);
-			itemRender.renderItemOverlayIntoGUI(this.fontRenderer, mc.renderEngine, this.icon, guiLeft + x, guiTop + y, null);
+			itemRender.renderItemAndEffectIntoGUI(this.icon, guiLeft + x, guiTop + y);
+			itemRender.renderItemOverlayIntoGUI(this.fontRenderer, this.icon, guiLeft + x, guiTop + y, null);
 			RenderHelper.disableStandardItemLighting();
 			GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 			GL11.glDisable(GL11.GL_DEPTH_TEST);

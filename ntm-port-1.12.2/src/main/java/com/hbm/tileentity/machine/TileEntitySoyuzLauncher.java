@@ -49,9 +49,9 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	public int countdown;
 	public static final int maxCount = 600;
 	public byte rocketType = -1;
-	
+
 	private AudioWrapper audio;
-	
+
 	public MissileStruct load;
 
 	public TileEntitySoyuzLauncher() {
@@ -70,7 +70,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	public void update() {
 
 		if (!this.world.isRemote) {
-			
+
 			if(this.world.getTotalWorldTime() % 20 == 0) {
 				for(DirPos pos : getConPos()) {
 					this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
@@ -78,38 +78,38 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 					this.trySubscribe(tanks[1].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 				}
 			}
-			
+
 			tanks[0].loadTank(4, 5, slots);
 			tanks[1].loadTank(6, 7, slots);
-			
+
 			power = Library.chargeTEFromItems(slots, 8, power, maxPower);
-			
+
 			if(!starting || !canLaunch()) {
 				countdown = maxCount;
 				starting = false;
 			} else if(countdown > 0) {
 				countdown--;
-				
+
 				if(countdown % 100 == 0 && countdown > 0)
 					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:alarm.hatch", 100F, 1.1F);
-				
+
 			} else {
 				liftOff();
 			}
 
 			networkPackNT(250);
 		}
-		
+
 		if(this.world.isRemote) {
 			if(!starting || !canLaunch()) {
-				
+
 				if(audio != null) {
 					audio.stopSound();
 					audio = null;
 				}
-				
+
 				countdown = maxCount;
-				
+
 			} else if(countdown > 0) {
 
 				if(audio == null) {
@@ -119,14 +119,14 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 				} else if(!audio.isPlaying()) {
 					audio = rebootAudio(audio);
 				}
-				
+
 				countdown--;
 			}
-			
-			List<EntitySoyuz> entities = this.world.getEntitiesWithinAABB(EntitySoyuz.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
-			
+
+			List<EntitySoyuz> entities = this.world.getEntitiesWithinAABB(EntitySoyuz.class, new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
+
 			if(!entities.isEmpty()) {
-				
+
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "smoke");
 				data.setString("mode", "shockRand");
@@ -135,32 +135,32 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 				data.setDouble("posX", this.pos.getX() + 0.5);
 				data.setDouble("posY", this.pos.getY() - 3);
 				data.setDouble("posZ", this.pos.getZ() + 0.5);
-				
+
 				MainRegistry.proxy.effectNT(data);
 			}
 		}
 	}
-	
+
 	protected List<DirPos> conPos;
 	protected List<DirPos> getConPos() {
-		
+
 		if(conPos != null)
 			return conPos;
-		
+
 		conPos = new ArrayList();
-		
+
 		for(ForgeDirection dir : new ForgeDirection[] {Library.POS_X, Library.POS_Z, Library.NEG_X, Library.NEG_Z}) {
 			ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-			
+
 			for(int i = -6; i <= 6; i++) {
 				conPos.add(new DirPos(this.pos.getX() + dir.offsetX * 7 + rot.offsetX * i, this.pos.getY() + 0, this.pos.getZ() + dir.offsetZ * 7 + rot.offsetZ * i, dir));
 				conPos.add(new DirPos(this.pos.getX() + dir.offsetX * 7 + rot.offsetX * i, this.pos.getY() - 1, this.pos.getZ() + dir.offsetZ * 7 + rot.offsetZ * i, dir));
 			}
 		}
-		
+
 		return conPos;
 	}
-	
+
 	@Override
 	public AudioWrapper createAudioLoop() {
 		return MainRegistry.proxy.getLoopedSound("hbm:block.soyuzReady", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 2.0F, 100F, 1.0F);
@@ -208,42 +208,42 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	}
 
 	public void startCountdown() {
-		
+
 		if(canLaunch())
 			starting = true;
 	}
-	
+
 	public void liftOff() {
-		
+
 		this.starting = false;
-		
+
 		int req = this.getFuelRequired();
 		int pow = this.getPowerRequired();
-		
+
 		EntitySoyuz soyuz = new EntitySoyuz(this.world);
 		soyuz.setSkin(this.getType());
 		soyuz.mode = this.mode;
 		soyuz.setLocationAndAngles(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5, 0, 0);
-		this.world.spawnEntityInWorld(soyuz);
+		this.world.spawnEntity(soyuz);
 
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:entity.soyuzTakeoff", 100F, 1.1F);
 
 		tanks[0].setFill(tanks[0].getFill() - req);
 		tanks[1].setFill(tanks[1].getFill() - req);
 		power -= pow;
-		
+
 		if(mode == 0) {
 			soyuz.setSat(slots[2]);
-			
+
 			if(this.orbital() == 2)
 				slots[3] = null;
-			
+
 			slots[2] = null;
 		}
-		
+
 		if(mode == 1) {
 			List<ItemStack> payload = new ArrayList();
-			
+
 			for(int i = 9; i < 27; i++) {
 				payload.add(slots[i]);
 				slots[i] = null;
@@ -253,94 +253,94 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 			soyuz.targetZ = slots[1].getTagCompound().getInteger("zCoord");
 			soyuz.setPayload(payload);
 		}
-		
+
 		slots[0] = null;
 	}
-	
+
 	public boolean canLaunch() {
-		
+
 		return hasRocket() && hasFuel() && hasRocket() && hasPower() && designator() != 1 && orbital() != 1 && satellite() != 1;
 	}
-	
+
 	public boolean hasFuel() {
-		
+
 		return tanks[0].getFill() >= getFuelRequired();
 	}
-	
+
 	public boolean hasOxy() {
 
 		return tanks[1].getFill() >= getFuelRequired();
 	}
-	
+
 	public int getFuelRequired() {
-		
+
 		if(mode == 1)
 			return Math.min(5000 + getDist(), 128_000);
-		
+
 		return 128_000;
 	}
-	
+
 	public int getDist() {
-		
+
 		if(designator() == 2) {
 			int x = slots[1].getTagCompound().getInteger("xCoord");
 			int z = slots[1].getTagCompound().getInteger("zCoord");
-			
+
 			return (int) new Vec3d(this.pos.getX() - x, 0, this.pos.getZ() - z).length();
 		}
-			
+
 		return 0;
 	}
-	
+
 	public boolean hasPower() {
-		
+
 		return power >= getPowerRequired();
 	}
-	
+
 	public int getPowerRequired() {
-		
+
 		return (int) (maxPower * 0.75);
 	}
-	
+
 	private byte getType() {
-		
+
 		if(!hasRocket())
 			return -1;
-		
+
 		return (byte) slots[0].getItemDamage();
 	}
-	
+
 	public long getPowerScaled(long i) {
 		return (power * i) / maxPower;
 	}
-	
+
 	public boolean hasRocket() {
 		return slots[0] != null && slots[0].getItem() == ModItems.missile_soyuz;
 	}
-	
+
 	//0: designator not required
 	//1: designator required but not present
 	//2: designator present
 	public int designator() {
-		
+
 		if(mode == 0) {
 			return 0;
 		}
 		if(slots[1] != null && slots[1].getItem() instanceof IDesignatorItem && ((IDesignatorItem)slots[1].getItem()).isReady(this.world, slots[1], this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
 			return 2;
 		}
-		
+
 		return 1;
 	}
-	
+
 	//0: sat not required
 	//1: sat required but not present
 	//2: sat present
 	public int satellite() {
-		
+
 		if(mode == 1)
 			return 0;
-		
+
 		if(slots[2] != null) {
 			return 2;
 		}
@@ -351,10 +351,10 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	//1: module required but not present
 	//2: module present
 	public int orbital() {
-		
+
 		if(mode == 1)
 			return 0;
-		
+
 		if(slots[2] != null && (slots[2].getItem() == ModItems.sat_gerald || slots[2].getItem() == ModItems.sat_lunar_miner)) {
 			if(slots[3] != null && slots[3].getItem() == ModItems.missile_soyuz_lander)
 				return 2;
@@ -387,7 +387,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		NBTTagList list = new NBTTagList();
 
 		tanks[0].writeToNBT(nbt, "fuel");
@@ -411,7 +411,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()
@@ -443,7 +443,7 @@ public class TileEntitySoyuzLauncher extends TileEntityMachineBase implements IS
 	public FluidTank[] getReceivingTanks() {
 		return tanks;
 	}
-	
+
 	@Override
 	public boolean canConnect(FluidType type, ForgeDirection dir) {
 		return dir != ForgeDirection.UNKNOWN && dir != ForgeDirection.UP && dir != ForgeDirection.DOWN;

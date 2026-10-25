@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.terraingen.InitMapGenEvent.EventType;
@@ -271,7 +272,7 @@ public class NTMWorldGenerator implements IWorldGenerator {
 
 		setRandomSeed(event.getWorld(), event.getChunkX(), event.getChunkZ()); //Set random for population down the line.
 
-		nbtGen.generateStructures(event.getWorld(), rand, event.chunkProvider, event.getChunkX(), event.getChunkZ());
+		nbtGen.generateStructures(event.getWorld(), rand, event.getWorld().getChunkProvider(), event.getChunkX(), event.getChunkZ());
 	}
 
 
@@ -279,8 +280,7 @@ public class NTMWorldGenerator implements IWorldGenerator {
 	 * Post-Vanilla / Modded Generation
 	 * Used to generate features that don't care about intrusions (ores, craters, caves, etc.)
 	 */
-	@Override
-	public void generate(Random unusedRandom, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random unusedRandom, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(hasPopulationEvent) return; //If we've failed to generate any structures (flatlands)
 
 		if(StructureConfig.enableStructures == 0) return;

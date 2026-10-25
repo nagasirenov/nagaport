@@ -21,7 +21,6 @@ public class BlockPADipole extends BlockDummyable implements ITooltipProvider {
 	public BlockPADipole() {
 		super(Material.IRON);
 		this.setCreativeTab(MainRegistry.machineTab);
-		this.setBlockTextureName(RefStrings.MODID + ":block_steel");
 	}
 
 	@Override

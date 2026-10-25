@@ -52,15 +52,13 @@ public class BlockAllocatorWater implements IBlockAllocator {
 
 							// im braindead and copy code 🧃🐱‍👤
 							if (material != Material.AIR && !material.isLiquid()) {
-								float blockResistance = explosion.exploder != null ?
-									explosion.exploder.func_145772_a(explosion.compat, world, blockX, blockY, blockZ, block) :
-									block.getExplosionResistance(null, world, blockX, blockY, blockZ, x, y, z);
+								float blockResistance = block.getExplosionResistance(world, new net.minecraft.util.math.BlockPos(blockX, blockY, blockZ), explosion.exploder, explosion.compat);
 								powerRemaining -= (blockResistance + 0.3F) * stepSize;
 							}
 
 
 							if (powerRemaining > 0.0F &&
-								(explosion.exploder == null || explosion.exploder.func_145774_a(explosion.compat, world, blockX, blockY, blockZ, block, powerRemaining)) &&
+								
 								!material.isLiquid()) {
 								affectedBlocks.add(new LegacyHashBlockPos(blockX, blockY, blockZ));
 							}

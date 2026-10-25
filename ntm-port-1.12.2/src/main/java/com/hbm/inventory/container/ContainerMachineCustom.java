@@ -7,16 +7,17 @@ import com.hbm.tileentity.machine.TileEntityCustomMachine;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineCustom extends Container {
-	
+
 	private TileEntityCustomMachine custom;
 
 	public ContainerMachineCustom(InventoryPlayer playerInv, TileEntityCustomMachine tile) {
 		custom = tile;
-		
+
 		//Input
 		this.addSlotToContainer(new Slot(tile, 0, 150, 72));
 		//Fluid IDs
@@ -67,8 +68,8 @@ public class ContainerMachineCustom extends Container {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
 		//L/R: 0
 		//M3: 3
 		//SHIFT: 1
@@ -78,25 +79,25 @@ public class ContainerMachineCustom extends Container {
 		if(index < 0 || index >= this.inventorySlots.size() || !(this.inventorySlots.get(index) instanceof SlotPattern)) {
 			return super.slotClick(index, button, mode, player);
 		}
-		
+
 		Slot slot = this.getSlot(index);
 		index = ((Slot) this.inventorySlots.get(index)).getSlotIndex();
-		
+
 		ItemStack ret = null;
 		ItemStack held = player.inventory.getItemStack();
-		
+
 		if(slot.getHasStack())
 			ret = slot.getStack().copy();
-		
-		if(button == 1 && mode == 0 && slot.getHasStack()) {
+
+		if(button == 1 && mode == ClickType.PICKUP && slot.getHasStack()) {
 			custom.matcher.nextMode(player.world, slot.getStack(), index - 10);
 			return ret;
-			
+
 		} else {
-	
+
 			slot.putStack(held);
 			custom.matcher.initPatternSmart(player.world, slot.getStack(), index - 10);
-			
+
 			return ret;
 		}
 	}

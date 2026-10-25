@@ -25,8 +25,16 @@ public class ItemCrucibleTemplate extends Item {
 		this.setMaxDamage(0);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
 		for(int i = 0; i < CrucibleRecipes.recipes.size(); i++) {
 			list.add(new ItemStack(item, 1, CrucibleRecipes.recipes.get(i).getId()));
@@ -34,13 +42,13 @@ public class ItemCrucibleTemplate extends Item {
 	}
 
 	public String getItemStackDisplayName(ItemStack stack) {
-		
+
 		CrucibleRecipe recipe = CrucibleRecipes.indexMapping.get(stack.getItemDamage());
-		
+
 		if(recipe == null) {
 			return super.getItemStackDisplayName(stack);
 		}
-		
+
 		String s = ("" + I18nUtil.resolveKey(this.getTranslationKey() + ".name")).trim();
 		String s1 = ("" + I18nUtil.resolveKey(recipe.getName())).trim();
 
@@ -50,12 +58,12 @@ public class ItemCrucibleTemplate extends Item {
 
 		return s;
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
-		
+
 		CrucibleRecipe recipe = CrucibleRecipes.indexMapping.get(stack.getItemDamage());
-		
+
 		if(recipe == null) {
 			return;
 		}
@@ -66,7 +74,7 @@ public class ItemCrucibleTemplate extends Item {
 		}
 
 		list.add(TextFormatting.BOLD + I18nUtil.resolveKey("info.template_in_p"));
-		
+
 		for(MaterialStack in : recipe.input) {
 			list.add(I18nUtil.resolveKey(in.material.getUnlocalizedName()) + ": " + Mats.formatAmount(in.amount, Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)));
 		}

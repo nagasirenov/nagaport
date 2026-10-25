@@ -25,17 +25,16 @@ public class MachineGasFlare extends BlockDummyable implements ITooltipProvider 
 		this.bounding.add(new AxisAlignedBB(-0.75D, 3.875D, -0.75D, 0.75D, 9, 0.75D));
 		this.bounding.add(new AxisAlignedBB(-1.5D, 9D, -1.5D, 1.5D, 9.375D, 1.5D));
 		this.bounding.add(new AxisAlignedBB(-0.75D, 9.375D, -0.75D, 0.75D, 12, 0.75D));
-		this.maxY = 0.999D; //item bounce prevention
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		
+
 		if(meta >= 12) return new TileEntityMachineGasFlare();
 		if(meta >= 6) return new TileEntityProxyCombo(false, true, true);
 		return null;
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();

@@ -66,7 +66,7 @@ public abstract class JetpackBase extends ItemArmorMod {
 		ModelBiped modelJetpack = getArmorModel(event.getEntityLiving(), null, net.minecraft.inventory.EntityEquipmentSlot.CHEST, null);
 		
 		RenderPlayer renderer = event.getRenderer();
-		ModelBiped model = renderer.modelArmor;
+		ModelBiped model = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel());
 		EntityPlayer player = event.getEntityPlayer();
 
 		modelJetpack.isSneak = model.isSneak;

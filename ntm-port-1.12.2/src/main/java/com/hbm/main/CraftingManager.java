@@ -259,7 +259,7 @@ public class CraftingManager {
 		addRecipeAuto(DictFrame.fromOne(ModItems.conveyor_wand, ConveyorType.DOUBLE), new Object[] { "CPC", 'C', DictFrame.fromOne(ModItems.conveyor_wand, ConveyorType.REGULAR), 'P', IRON.plate() });
 		addRecipeAuto(DictFrame.fromOne(ModItems.conveyor_wand, ConveyorType.TRIPLE), new Object[] { "DPC", 'C', DictFrame.fromOne(ModItems.conveyor_wand, ConveyorType.REGULAR), 'D', DictFrame.fromOne(ModItems.conveyor_wand, ConveyorType.DOUBLE), 'P', STEEL.plate() });
 
-		//addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.machine_difurnace_off), 1), new Object[] { "T T", "PHP", "TFT", 'T', W.ingot(), 'P', ModItems.board_copper, 'H', Blocks.hopper, 'F', Blocks.furnace });
+		//addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.machine_difurnace_off), 1), new Object[] { "T T", "PHP", "TFT", 'T', W.ingot(), 'P', ModItems.board_copper, 'H', Blocks.HOPPER, 'F', Blocks.FURNACE });
 		addRecipeAuto(new ItemStack(ModBlocks.machine_difurnace_extension, 1), new Object[] { " C ", "BGB", "BGB", 'C', CU.plate(), 'B', ModItems.ingot_firebrick, 'G', ModBlocks.steel_grate });
 		addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.machine_electric_furnace_off), 1), new Object[] { "BBB", "WFW", "RRR", 'B', BE.ingot(), 'R', ModItems.coil_tungsten, 'W', CU.plateCast(), 'F', Item.getItemFromBlock(Blocks.FURNACE) });
 		addRecipeAuto(new ItemStack(ModBlocks.red_wire_coated, 16), new Object[] { "WRW", "RIR", "WRW", 'W', ModItems.plate_polymer, 'I', MINGRADE.ingot(), 'R', MINGRADE.wireFine() });
@@ -395,7 +395,7 @@ public class CraftingManager {
 		addRecipeAuto(new ItemStack(ModBlocks.watz_pump, 1), new Object[] { "MPM", "PCP", "PSP", 'M', ModItems.motor_desh, 'P', ANY_RESISTANTALLOY.plateCast(), 'C', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.BISMOID), 'S', DURA.pipe() });
 
 		addRecipeAuto(new ItemStack(ModBlocks.reinforced_stone, 4), new Object[] { "FBF", "BFB", "FBF", 'F', KEY_COBBLESTONE, 'B', KEY_STONE });
-		addRecipeAuto(new ItemStack(ModBlocks.brick_light, 4), new Object[] { "FBF", "BFB", "FBF", 'F', Blocks.fence, 'B', Blocks.BRICK_BLOCK });
+		addRecipeAuto(new ItemStack(ModBlocks.brick_light, 4), new Object[] { "FBF", "BFB", "FBF", 'F', Blocks.OAK_FENCE, 'B', Blocks.BRICK_BLOCK });
 		addRecipeAuto(new ItemStack(ModBlocks.brick_asbestos, 2), new Object[] { " A ", "ABA", " A ", 'B', ModBlocks.brick_light, 'A', ASBESTOS.ingot() });
 		addRecipeAuto(new ItemStack(ModBlocks.concrete, 4), new Object[] { "CC", "CC", 'C', ModBlocks.concrete_smooth });
 		addRecipeAuto(new ItemStack(ModBlocks.concrete_pillar, 6), new Object[] { "CBC", "CBC", "CBC", 'C', ModBlocks.concrete_smooth, 'B', Blocks.IRON_BARS });
@@ -503,10 +503,10 @@ public class CraftingManager {
 		addRecipeAuto(new ItemStack(ModBlocks.steel_scaffold, 8, 2), new Object[] { "SSS", "SDS", "SSS", 'S', ModBlocks.steel_scaffold, 'D', "dyeWhite" });
 		addRecipeAuto(new ItemStack(ModBlocks.steel_scaffold, 8, 3), new Object[] { "SSS", "SDS", "SSS", 'S', ModBlocks.steel_scaffold, 'D', "dyeYellow" });
 
-		addRecipeAuto(new ItemStack(ModBlocks.wood_barrier, 8), new Object[] { "SFS", "SFS", 'S', KEY_SLAB, 'F', Blocks.fence });
-		addRecipeAuto(DictFrame.fromOne(ModBlocks.wood_structure, EnumWoodStructure.ROOF, 16), new Object[] { "SSS", "F F", 'S', KEY_SLAB, 'F', Blocks.fence });
-		addRecipeAuto(DictFrame.fromOne(ModBlocks.wood_structure, EnumWoodStructure.CEILING, 16), new Object[] { "F F", "SSS", 'S', KEY_SLAB, 'F', Blocks.fence });
-		addRecipeAuto(DictFrame.fromOne(ModBlocks.wood_structure, EnumWoodStructure.SCAFFOLD, 4), new Object[] { "SSS", "F F", "F F", 'S', KEY_SLAB, 'F', Blocks.fence });
+		addRecipeAuto(new ItemStack(ModBlocks.wood_barrier, 8), new Object[] { "SFS", "SFS", 'S', KEY_SLAB, 'F', Blocks.OAK_FENCE });
+		addRecipeAuto(DictFrame.fromOne(ModBlocks.wood_structure, EnumWoodStructure.ROOF, 16), new Object[] { "SSS", "F F", 'S', KEY_SLAB, 'F', Blocks.OAK_FENCE });
+		addRecipeAuto(DictFrame.fromOne(ModBlocks.wood_structure, EnumWoodStructure.CEILING, 16), new Object[] { "F F", "SSS", 'S', KEY_SLAB, 'F', Blocks.OAK_FENCE });
+		addRecipeAuto(DictFrame.fromOne(ModBlocks.wood_structure, EnumWoodStructure.SCAFFOLD, 4), new Object[] { "SSS", "F F", "F F", 'S', KEY_SLAB, 'F', Blocks.OAK_FENCE });
 
 		reg2();
 	}
@@ -1133,20 +1133,20 @@ public class CraftingManager {
 		if(GeneralConfig.enableMekanismChanges) {
 
 			if(Loader.isModLoaded("Mekanism")) {
-				Block mb = (Block) Block.blockRegistry.getObject("Mekanism:MachineBlock");
-				Item disassembler = (Item) Item.itemRegistry.getObject("Mekanism:AtomicDisassembler");
+				Block mb = (Block) net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValue(new net.minecraft.util.ResourceLocation("Mekanism:MachineBlock"));
+				Item disassembler = Item.getByNameOrId("Mekanism:AtomicDisassembler");
 				targets.add(new ItemStack(mb, 1, 4)); // digiminer
 				targets.add(new ItemStack(disassembler)); // atomic disassembler
 			}
 
 			if(Loader.isModLoaded("MekanismGenerators")) {
-				Block mb = (Block) Block.blockRegistry.getObject("MekanismGenerators:Generator");
+				Block mb = (Block) net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValue(new net.minecraft.util.ResourceLocation("MekanismGenerators:Generator"));
 				targets.add(new ItemStack(mb, 1, 6)); // wind turbine
 			}
 
 			List<IRecipe> toDestroy = new ArrayList();
 
-			List recipeList = net.minecraft.item.crafting.CraftingManager.getInstance().getRecipeList();
+			java.util.List recipeList = new java.util.ArrayList<>(com.google.common.collect.Lists.newArrayList(net.minecraft.item.crafting.CraftingManager.REGISTRY.iterator()));
 
 			synchronized(recipeList) { //this is how threading works. i think.
 				for(Object o : recipeList) {
@@ -1166,12 +1166,12 @@ public class CraftingManager {
 				}
 
 				if(Loader.isModLoaded("Mekanism")) {
-					Item disassembler = (Item) Item.itemRegistry.getObject("Mekanism:AtomicDisassembler");
+					Item disassembler = Item.getByNameOrId("Mekanism:AtomicDisassembler");
 					if(disassembler != null) addRecipeAuto(new ItemStack(disassembler, 1), "GAG", "EIE", " I ", 'G', GOLD.plateCast(), 'A', "alloyUltimate", 'E', "battery", 'I', "ingotRefinedObsidian");
 				}
 
 				if(Loader.isModLoaded("MekanismGenerators")) {
-					Block generator = (Block) Block.blockRegistry.getObject("MekanismGenerators:Generator");
+					Block generator = (Block) net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValue(new net.minecraft.util.ResourceLocation("MekanismGenerators:Generator"));
 					if(generator != null) addRecipeAuto(new ItemStack(generator, 1, 6), " T ", "TAT", "BCB", 'T', TI.plateCast(), 'A', "alloyAdvanced", 'B', "battery", 'C', ANY_PLASTIC.ingot());
 				}
 			}

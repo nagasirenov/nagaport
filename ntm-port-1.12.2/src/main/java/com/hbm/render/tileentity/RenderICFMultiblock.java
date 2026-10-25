@@ -25,7 +25,7 @@ public class RenderICFMultiblock extends TileEntitySpecialRenderer {
 		
 		GL11.glTranslated(-0.5, 0, -0.5);
 		
-		bindTexture(TextureMap.locationBlocksTexture);
+		bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 		SmallBlockPronter.startDrawing();
 		
 		for(int i = -8; i <= 8; i++) {

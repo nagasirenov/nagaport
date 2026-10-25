@@ -28,20 +28,20 @@ public class EntityGhost extends EntityCreature {
 		this.tasks.addTask(1, new EntityAIWander(this, 1.0D));
 		this.tasks.addTask(2, new EntityAILookIdle(this));
 		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 15.0F));
-		
+
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 		if(!this.world.isRemote) {
 			double despawnRange = 50;
 			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().expand(despawnRange, despawnRange, despawnRange));
@@ -54,9 +54,9 @@ public class EntityGhost extends EntityCreature {
 	public void setHealth(float health) {
 		super.setHealth(this.getMaxHealth());
 	}
-	
+
 	@Override
-	public boolean isEntityInvulnerable() {
+	public boolean isEntityInvulnerable(net.minecraft.util.DamageSource source) {
 		return true;
 	}
 }

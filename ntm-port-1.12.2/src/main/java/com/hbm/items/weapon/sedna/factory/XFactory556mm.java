@@ -110,9 +110,9 @@ public class XFactory556mm {
 		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SILENCER) &&
 				XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_NO_STOCK) &&
 				XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_FURNITURE_BLACK) &&
-				XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SCOPE)) return stack.getUnlocalizedName() + "_infiltrator";
+				XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SCOPE)) return stack.getTranslationKey() + "_infiltrator";
 		if(!XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_NO_STOCK) &&
-				XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_FURNITURE_GREEN)) return stack.getUnlocalizedName() + "_a3";
+				XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_FURNITURE_GREEN)) return stack.getTranslationKey() + "_a3";
 		return null;
 	};
 

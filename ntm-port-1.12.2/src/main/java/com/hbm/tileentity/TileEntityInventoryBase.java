@@ -103,7 +103,6 @@ public abstract class TileEntityInventoryBase extends TileEntity implements ISid
 	}
 
 	/** Retained for ContainerSoyuzCapsule until that container is ported. */
-	public boolean isUseableByPlayer(EntityPlayer player) { return isUsableByPlayer(player); }
 
 	@Override
 	public void openInventory(EntityPlayer player) {}

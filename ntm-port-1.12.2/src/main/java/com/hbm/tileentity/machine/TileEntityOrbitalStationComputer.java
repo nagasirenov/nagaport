@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 public class TileEntityOrbitalStationComputer extends TileEntityMachineBase implements IGUIProvider, IControlReceiver {
 
 	public boolean hasDrive;
-	
+
 	public TileEntityOrbitalStationComputer() {
 		super(1);
 	}
@@ -100,11 +100,11 @@ public class TileEntityOrbitalStationComputer extends TileEntityMachineBase impl
 	}
 
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX(),
 				this.pos.getY(),
 				this.pos.getZ(),
@@ -113,7 +113,7 @@ public class TileEntityOrbitalStationComputer extends TileEntityMachineBase impl
 				this.pos.getZ() + 1
 			);
 		}
-		
+
 		return bb;
 	}
 

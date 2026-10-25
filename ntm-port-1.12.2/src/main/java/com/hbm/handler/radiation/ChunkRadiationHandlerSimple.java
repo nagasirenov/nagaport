@@ -36,7 +36,7 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 		if(radWorld != null) {
 			ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 			Float rad = radWorld.radiation.get(coords);
-			return rad == null ? 0F : MathHelper.clamp_float(rad, 0, maxRad);
+			return rad == null ? 0F : MathHelper.clamp(rad, 0, maxRad);
 		}
 
 		return 0;
@@ -48,11 +48,11 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 
 		if(radWorld != null) {
 
-			if(world.blockExists(x, 0, z)) {
+			if(world.isBlockLoaded(new net.minecraft.util.math.BlockPos(x, 0, z))) {
 
 				ChunkPos coords = new ChunkPos(x >> 4, z >> 4);
 				radWorld.radiation.put(coords, MathHelper.clamp(rad, (float) (0), maxRad));
-				world.getChunkFromBlockCoords(x, z).isModified = true;
+				world.getChunk(new net.minecraft.util.math.BlockPos(x, 0, z)).markDirty();
 			}
 		}
 	}
@@ -102,11 +102,11 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 						}
 
 						float rad = radiation.get(newCoord);
-						if(rad > RadiationConfig.fogRad && world != null && world.rand.nextInt(RadiationConfig.fogCh) == 0 && world.getChunkProvider().chunkExists(coord.x, coord.z)) {
+						if(rad > RadiationConfig.fogRad && world != null && world.rand.nextInt(RadiationConfig.fogCh) == 0 && world.getChunkProvider().getLoadedChunk(coord.x, coord.z) != null) {
 
 							int x = coord.x * 16 + world.rand.nextInt(16);
 							int z = coord.z * 16 + world.rand.nextInt(16);
-							int y = world.getHeightValue(x, z) + world.rand.nextInt(5);
+							int y = world.getHeight(x, z) + world.rand.nextInt(5);
 
 							NBTTagCompound data = new NBTTagCompound();
 							data.setString("type", "radFog");
@@ -179,7 +179,7 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 			if(radWorld != null) {
 				radWorld.radiation.remove(event.getChunk().getPos());
 			}
-		} 
+		}
 	}
 
 	public static class SimpleRadiationPerWorld {
@@ -220,7 +220,7 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 					if(randEnt == null || randEnt.getValue() < threshold)
 						continue;
 
-					if(provider.chunkExists(coords.x, coords.z)) {
+					if(provider.getLoadedChunk(coords.x, coords.z) != null) {
 
 						for(int a = 0; a < 16; a++) {
 							for(int b = 0; b < 16; b++) {
@@ -230,10 +230,10 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 
 								int x = (coords.x << 4) + a;
 								int z = (coords.z << 4) + b;
-								int y = world.getHeightValue(x, z) - world.rand.nextInt(2);
+								int y = world.getHeight(x, z) - world.rand.nextInt(2);
 
 								if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.GRASS) {
-									world.setBlock(x, y, z, ModBlocks.waste_earth);
+									com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_earth);
 
 								} else if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.TALLGRASS) {
 									{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -241,7 +241,7 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 								} else if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial() == Material.LEAVES && !(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.waste_leaves)) {
 
 									if(world.rand.nextInt(7) <= 5) {
-										world.setBlock(x, y, z, ModBlocks.waste_leaves);
+										com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_leaves);
 									} else {
 										{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 									}

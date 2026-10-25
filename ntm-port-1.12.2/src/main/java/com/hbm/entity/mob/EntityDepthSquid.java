@@ -31,8 +31,8 @@ public class EntityDepthSquid extends EntitySquid implements IEntityEnumMulti {
 	}
 
 	@Override
-	public void moveEntityWithHeading(float strafe, float forward) {
-		super.moveEntityWithHeading(strafe, forward);
+	public void travel(float strafe, float vertical, float forward) {
+		super.travel(strafe, 0.0F, forward);
 
 		// reimplement limb swing because... mojang squid implementation just blasts through everything.
         this.prevLimbSwingAmount = this.limbSwingAmount;

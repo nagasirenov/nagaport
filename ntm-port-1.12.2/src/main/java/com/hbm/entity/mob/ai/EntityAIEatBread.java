@@ -10,11 +10,11 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class EntityAIEatBread extends EntityAIBase {
-	
+
 	private EntityPigeon pigeon;
 	private double speed;
 	private EntityItem item;
-	
+
 	public EntityAIEatBread(EntityPigeon pigeon, double speed) {
 		this.pigeon = pigeon;
 		this.speed = speed;
@@ -24,47 +24,52 @@ public class EntityAIEatBread extends EntityAIBase {
 	@Override
 	public boolean shouldExecute() {
 		if(pigeon.isFat() || pigeon.getFlyingState() != pigeon.STATE_WALKING) return false;
-		
+
 		List<EntityItem> items = pigeon.world.getEntitiesWithinAABB(EntityItem.class, this.pigeon.getEntityBoundingBox().grow(10, 10, 10));
-		
+
 		for(EntityItem item : items) {
-			if(item.getEntityItem().getItem() == Items.BREAD) {
+			if(item.getItem().getItem() == Items.BREAD) {
 				this.item = item;
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
-	@Override
-	public boolean continueExecuting() {
+
+
+		@Override
+	public boolean shouldContinueExecuting() {
+		return continueExecuting();
+	}
+
+public boolean continueExecuting() {
 		return this.item != null && !this.item.isDead && this.shouldExecute();
 	}
-	
+
 	@Override
 	public void updateTask() {
 		this.pigeon.getLookHelper().setLookPositionWithEntity(this.item, 30.0F, (float) this.pigeon.getVerticalFaceSpeed());
-		
-		if(this.pigeon.getDistanceToEntity(this.item) > 1) {
+
+		if(this.pigeon.getDistance(this.item) > 1) {
 			this.pigeon.getNavigator().tryMoveToEntityLiving(this.item, this.speed);
 		} else {
-			
+
 			if(this.pigeon.getRNG().nextInt(3) == 0) {
-				ItemStack stack = this.item.getEntityItem();
-				
-				if(stack.stackSize > 1) {
-					stack.stackSize--;
+				ItemStack stack = this.item.getItem();
+
+				if(stack.getCount() > 1) {
+					stack.shrink(1);
 					EntityItem newItem = new EntityItem(this.pigeon.world);
 					newItem.setPosition(this.item.posX, this.item.posY, this.item.posZ);
-					newItem.setEntityItemStack(stack);
-					this.pigeon.world.spawnEntityInWorld(newItem);
+					newItem.setItem(stack);
+					this.pigeon.world.spawnEntity(newItem);
 				}
-				
+
 				this.item.setDead();
 			}
 			this.pigeon.setFat(true);
-			this.pigeon.playSound("random.eat", 0.5F + 0.5F * this.pigeon.getRNG().nextInt(2), (this.pigeon.getRNG().nextFloat() - this.pigeon.getRNG().nextFloat()) * 0.2F + 1.0F);
+			this.pigeon.world.playSound(null, this.pigeon.posX, this.pigeon.posY, this.pigeon.posZ, com.hbm.main.ModSoundEvents.resolve("random.eat"), net.minecraft.util.SoundCategory.NEUTRAL, 0.5F + 0.5F * this.pigeon.getRNG().nextInt(2), (this.pigeon.getRNG().nextFloat() - this.pigeon.getRNG().nextFloat()) * 0.2F + 1.0F);
 		}
 	}
 

@@ -40,6 +40,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
@@ -47,6 +48,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
+	protected IIcon blockIcon;
 
 	public BlockStorageCrate(Material p_i45394_1_) {
 		super(p_i45394_1_);
@@ -58,7 +60,6 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 		return this;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		if(this == ModBlocks.crate_iron) {
@@ -90,7 +91,6 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 		}
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 
@@ -113,9 +113,8 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 	private static boolean dropInv = true;
 
-	@Override
 	public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest) {
-		
+
 		if(!world.isRemote && !ServerConfig.CRATE_KEEP_CONTENTS.get()) {
 			dropInv = true;
 			if(!player.capabilities.isCreativeMode) {
@@ -169,7 +168,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 				}
 			}
 
-			if(!nbt.hasNoTags()) {
+			if(!nbt.isEmpty()) {
 				nbt.setLong("stacklock", world.rand.nextLong());
 				drop.setTagCompound(nbt);
 			}
@@ -183,7 +182,9 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 			if(drop.hasTagCompound()) {
 				try {
-					byte[] abyte = CompressedStreamTools.compress(drop.getTagCompound());
+					java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
+					CompressedStreamTools.writeCompressed(drop.getTagCompound(), baos);
+					byte[] abyte = baos.toByteArray();
 
 					if(abyte.length > 6000) {
 						player.sendMessage(new TextComponentString(TextFormatting.RED + "Warning: Container NBT exceeds 6kB, contents will be ejected!"));
@@ -205,7 +206,10 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && (com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemLock || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_kit)) {
@@ -224,7 +228,6 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 		}
 	}
 
-	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
 
 		ISidedInventory inv = (ISidedInventory)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
@@ -256,18 +259,21 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 		}
 
 		if(this != ModBlocks.safe)
-			super.onBlockPlacedBy(world, x, y, z, player, stack);
+			super.onBlockPlacedBy(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), player, stack);
 
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+		if(i == 0) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
+		if(i == 1) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
+		if(i == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
+		if(i == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
 
 		if(dropInv) {
 			ISidedInventory sided = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
@@ -309,11 +315,11 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 					}
 				}
 
-				world.func_147453_f(x, y, z, block);
+				world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), block);
 			}
 		}
 
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override
@@ -375,7 +381,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 					amount++;
 
 					if(contents.size() < 10) {
-						contents.add(TextFormatting.AQUA + " - " + content.getDisplayName() + (content.stackSize > 1 ? (" x" + content.stackSize) : ""));
+						contents.add(TextFormatting.AQUA + " - " + content.getDisplayName() + (content.getCount() > 1 ? (" x" + content.getCount()) : ""));
 					}
 				}
 			}
@@ -394,7 +400,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 	@Override
 	public void printHook(RenderGameOverlayEvent.Pre event, World world, int x, int y, int z) {
-		
+
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if (!(te instanceof IInventory))
@@ -404,7 +410,7 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 		if (!inv.hasCustomName())
 			return;
-		
+
 		ILookOverlay.printGeneric(event, inv.getName(), 0xffff00, 0x404000, new ArrayList<String>(0));
 	}
 }

@@ -27,13 +27,32 @@ import net.minecraft.world.World;
 
 public class TileEntityNukeCustom extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	public ItemStack slots[];
 	private String customName;
-	
+
 	public TileEntityNukeCustom() {
 		slots = new ItemStack[27];
 	}
-	
+
 	@Override
 	public int getSizeInventory() {
 		return slots.length;
@@ -48,18 +67,18 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null)
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
-			
+
 			return itemStack1;
 		} else {
 			return null;
@@ -89,15 +108,23 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.nukeCustom";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.nukeCustom";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
-	
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
+	}
+
 	public void setCustomName(String name) {
 		this.customName = name;
 		markDirty();
@@ -109,7 +136,7 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
@@ -118,14 +145,16 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 		}
 	}
 
+
+
 	@Override
 	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {
-		
+
 	}
 
 	@Override
 	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
-		
+
 	}
 
 	@Override
@@ -150,14 +179,14 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return false;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		NBTTagList list = nbt.getTagList("items", 10);
 		slots = new ItemStack[getSizeInventory()];
-		
+
 		for(int i = 0; i < list.tagCount(); i++)
 		{
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
@@ -170,13 +199,13 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 
 		customName = nbt.getString("name");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		NBTTagList list = new NBTTagList();
-		
+
 		for(int i = 0; i < slots.length; i++)
 		{
 			if(slots[i] != null)
@@ -188,15 +217,15 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
 		return nbt;
 	}
-	
+
 	public static HashMap<ComparableStack, CustomNukeEntry> entries = new HashMap();
-	
+
 	public static void registerBombItems() {
 
 		entries.put(new ComparableStack(Items.GUNPOWDER), new CustomNukeEntry(EnumBombType.TNT, 0.8F));
@@ -272,11 +301,11 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 	public float dirty;
 	public float schrab;
 	public float euph;
-	
+
 	@SuppressWarnings("incomplete-switch")
 	@Override
 	public void update() {
-		
+
 		float tnt = 0F,		tntMod = 1F;
 		float nuke = 0F,	nukeMod = 1F;
 		float hydro = 0F,	hydroMod = 1F;
@@ -284,50 +313,50 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 		float dirty = 0F,	dirtyMod = 1F;
 		float schrab = 0F,	schrabMod = 1F;
 		float euph = 0F;
-		
+
 		for(ItemStack stack : slots) {
-			
+
 			if(stack == null)
 				continue;
-			
+
 			ComparableStack comp = new ComparableStack(stack).makeSingular();
 			CustomNukeEntry ent = entries.get(comp);
-			
+
 			if(ent == null)
 				continue;
-			
+
 			if(ent.entry == EnumEntryType.ADD) {
-				
+
 				switch(ent.type) {
-				case TNT: tnt += ent.value * stack.stackSize; break;
-				case NUKE: nuke += ent.value * stack.stackSize; break;
-				case HYDRO: hydro += ent.value * stack.stackSize; break;
-				case AMAT: amat += ent.value * stack.stackSize; break;
-				case DIRTY: dirty += ent.value * stack.stackSize; break;
-				case SCHRAB: schrab += ent.value * stack.stackSize; break;
-				case EUPH: euph += ent.value * stack.stackSize; break;
+				case TNT: tnt += ent.value * stack.getCount(); break;
+				case NUKE: nuke += ent.value * stack.getCount(); break;
+				case HYDRO: hydro += ent.value * stack.getCount(); break;
+				case AMAT: amat += ent.value * stack.getCount(); break;
+				case DIRTY: dirty += ent.value * stack.getCount(); break;
+				case SCHRAB: schrab += ent.value * stack.getCount(); break;
+				case EUPH: euph += ent.value * stack.getCount(); break;
 				}
-				
+
 			} else if(ent.entry == EnumEntryType.MULT) {
-				
+
 				switch(ent.type) {
-				case TNT: tntMod *= ent.value * stack.stackSize; break;
-				case NUKE: nukeMod *= ent.value * stack.stackSize; break;
-				case HYDRO: hydroMod *= ent.value * stack.stackSize; break;
-				case AMAT: amatMod *= ent.value * stack.stackSize; break;
-				case DIRTY: dirtyMod *= ent.value * stack.stackSize; break;
-				case SCHRAB: schrabMod *= ent.value * stack.stackSize; break;
+				case TNT: tntMod *= ent.value * stack.getCount(); break;
+				case NUKE: nukeMod *= ent.value * stack.getCount(); break;
+				case HYDRO: hydroMod *= ent.value * stack.getCount(); break;
+				case AMAT: amatMod *= ent.value * stack.getCount(); break;
+				case DIRTY: dirtyMod *= ent.value * stack.getCount(); break;
+				case SCHRAB: schrabMod *= ent.value * stack.getCount(); break;
 				}
 			}
 		}
-		
+
 		tnt *= tntMod;
 		nuke *= nukeMod;
 		hydro *= hydroMod;
 		amat *= amatMod;
 		dirty *= dirtyMod;
 		schrab *= schrabMod;
-		
+
 		if(tnt < 16) nuke = 0;
 		if(nuke < 100) hydro = 0;
 		//if(nuke < 50) amat = 0;
@@ -342,74 +371,74 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 		this.schrab = schrab;
 		this.euph = euph;
 	}
-	
+
 	public float getNukeAdj() {
-		
+
 		if(nuke == 0)
 			return 0;
-		
+
 		return Math.min(nuke + tnt / 2, NukeCustom.maxNuke);
 	}
-	
+
 	public float getHydroAdj() {
-		
+
 		if(hydro == 0)
 			return 0;
-		
+
 		return Math.min(hydro + nuke / 2 + tnt / 4, NukeCustom.maxHydro);
 	}
-	
+
 	public float getAmatAdj() {
-		
+
 		if(amat == 0)
 			return 0;
-		
+
 		return Math.min(amat + hydro / 2 + nuke / 4 + tnt / 8, NukeCustom.maxAmat);
 	}
-	
+
 	public float getSchrabAdj() {
-		
+
 		if(schrab == 0)
 			return 0;
-		
+
 		return Math.min(schrab + amat / 2 + hydro / 4 + nuke / 8 + tnt / 16, NukeCustom.maxSchrab);
 	}
-	
+
 	public boolean isFalling() {
-		
+
 		for(ItemStack stack : slots) {
 			if(stack != null && stack.getItem() == ModItems.custom_fall)
 				return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public void destruct() {
-		
+
 		clearSlots();
 		com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getX(), false);
 	}
-	
+
 	public void clearSlots() {
 		for(int i = 0; i < slots.length; i++)
 		{
 			slots[i] = null;
 		}
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()
 	{
 		return 65536.0D;
 	}
-	
+
 	public static enum EnumBombType {
 		TNT("TNT"),
 		NUKE("Nuclear"),
@@ -418,36 +447,36 @@ public class TileEntityNukeCustom extends TileEntity implements ISidedInventory,
 		DIRTY("Salted"),
 		SCHRAB("Schrabidium"),
 		EUPH("Anti Mass");
-		
+
 		String name;
-		
+
 		EnumBombType(String name) {
 			this.name = name;
 		}
-		
+
 		@Override
 		public String toString() {
 			return name;
 		}
 	}
-	
+
 	public static enum EnumEntryType {
 		ADD,
 		MULT
 	}
-	
+
 	public static class CustomNukeEntry {
-		
+
 		public EnumBombType type;
 		public EnumEntryType entry;
 		public float value;
-		
+
 		public CustomNukeEntry(EnumBombType type, float value) {
 			this.type = type;
 			this.entry = EnumEntryType.ADD;
 			this.value = value;
 		}
-		
+
 		public CustomNukeEntry(EnumBombType type, float value, EnumEntryType entry) {
 			this(type, value);
 			this.entry = entry;

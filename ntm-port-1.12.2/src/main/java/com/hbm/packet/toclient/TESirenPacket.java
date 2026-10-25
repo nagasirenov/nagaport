@@ -59,7 +59,7 @@ public class TESirenPacket implements IMessage {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(TESirenPacket m, MessageContext ctx) {
-			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(m.x, m.y, m.z);
+			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(new net.minecraft.util.math.BlockPos(m.x, m.y, m.z));
 
 			if (te != null && te instanceof TileEntityMachineSiren) {
 				
@@ -84,7 +84,7 @@ public class TESirenPacket implements IMessage {
 						ResourceLocation loc = TrackType.getEnum(m.id).getSoundLocation();
 						
 						if(loc != null) {
-						String path = loc.getResourceDomain() + ":" + loc.getResourcePath();
+						String path = loc.getNamespace() + ":" + loc.getPath();
 						
 							if(!sound.getPath().equals(path)) {
 								//Track switched, stop and restart

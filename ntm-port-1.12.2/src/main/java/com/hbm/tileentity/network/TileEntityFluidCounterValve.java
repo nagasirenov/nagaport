@@ -38,7 +38,6 @@ public class TileEntityFluidCounterValve extends TileEntityPipeBaseNT implements
 	}
 
 	public void updateState() {
-		this.blockMetadata = -1; // delete cache
 
 		if(this.getBlockMetadata() == 0 && this.node != null) {
 			UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getType().getNetworkProvider());
@@ -46,7 +45,6 @@ public class TileEntityFluidCounterValve extends TileEntityPipeBaseNT implements
 		}
 	}
 
-	@Override
 	public boolean shouldRefresh(Block oldBlock, Block newBlock, int oldMeta, int newMeta, World world, int x, int y, int z) {
 		return oldBlock != newBlock;
 	}
@@ -75,7 +73,7 @@ public class TileEntityFluidCounterValve extends TileEntityPipeBaseNT implements
 	}
 
 	private void setState(int state) {
-		this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), state, 2);
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), state, 2);
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:block.reactorStart", 1.0F, 1.0F);
 		updateState();
 	}

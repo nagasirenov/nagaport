@@ -323,7 +323,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 		}
 
 		for(int i = 0; i < recipe.inputItems.length; i++) {
-			if(slots[i + 4] != null && slots[i + 4].stackSize < recipe.inputItems[i].stacksize) return false;
+			if(slots[i + 4] != null && slots[i + 4].getCount() < recipe.inputItems[i].stacksize) return false;
 		}
 		if(config.fluxMode ? this.flux < recipe.flux : false) return false;
 		if(config.maxHeat>0 && recipe.heat>0 ? this.heat < recipe.heat : false) return false;
@@ -338,7 +338,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 
 		for(int i = 0; i < recipe.outputItems.length; i++) {
 			if(slots[i + 16] != null && (slots[i + 16].getItem() != recipe.outputItems[i].key.getItem() || slots[i + 16].getItemDamage() != recipe.outputItems[i].key.getItemDamage())) return false;
-			if(slots[i + 16] != null && slots[16 + i].stackSize + recipe.outputItems[i].key.stackSize > slots[i + 16].getMaxStackSize()) return false;
+			if(slots[i + 16] != null && slots[16 + i].getCount() + recipe.outputItems[i].key.getCount() > slots[i + 16].getMaxStackSize()) return false;
 		}
 
 		return true;
@@ -368,7 +368,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 				if(slots[i + 16] == null) {
 					slots[i + 16] = recipe.outputItems[i].key.copy();
 				} else {
-					slots[i + 16].stackSize += recipe.outputItems[i].key.stackSize;
+					slots[i + 16].grow(recipe.outputItems[i].key.getCount());
 				}
 			}
 		}
@@ -450,7 +450,7 @@ public class TileEntityCustomMachine extends TileEntityMachinePolluting implemen
 				z = this.pos.getZ() + dir.offsetX * comp.x - rot.offsetX * comp.x;
 			}
 
-			this.world.setBlock(x, y, z, comp.block, (int) comp.allowedMetas.toArray()[0], 3);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, comp.block, (int) comp.allowedMetas.toArray()[0], 3);
 		}
 	}
 

@@ -178,7 +178,7 @@ public class TileEntityPADipole extends TileEntityCooledBase implements IGUIProv
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY() - 1,
 					this.pos.getZ() - 1,

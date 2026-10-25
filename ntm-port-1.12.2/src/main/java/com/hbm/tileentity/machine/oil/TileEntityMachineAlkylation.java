@@ -21,7 +21,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineAlkylation extends TileEntityMachineBase implements IEnergyReceiverMK2, IFluidStandardTransceiver, IPersistentNBT {
-	
+
 	public long power;
 	public static final long maxPower = 1_000_000;
 
@@ -29,7 +29,7 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 
 	public TileEntityMachineAlkylation() {
 		super(11);
-		
+
 		this.tanks = new FluidTank[4];
 		this.tanks[0] = new FluidTank(Fluids.CHLOROMETHANE, 8_000);
 		this.tanks[1] = new FluidTank(Fluids.NONE, 4_000);
@@ -44,12 +44,12 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
 			if(this.world.getTotalWorldTime() % 10 == 0) this.updateConnections();
-			
+
 			if(this.world.getTotalWorldTime() % 2 == 0) alkylate();
-			
+
 			this.networkPackNT(25);
 		}
 	}
@@ -60,16 +60,16 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 		buf.writeLong(power);
 		for(int i = 0; i < tanks.length; i++) tanks[i].serialize(buf);
 	}
-	
+
 	@Override
 	public void deserialize(ByteBuf buf) {
 		super.deserialize(buf);
 		this.power = buf.readLong();
 		for(int i = 0; i < tanks.length; i++) tanks[i].deserialize(buf);
 	}
-	
+
 	private void alkylate() {
-		
+
 		Triplet<FluidStack, FluidStack, FluidStack> out = AlkylationRecipes.getOutput(tanks[0].getTankType());
 		if(out == null) {
 			tanks[2].setTankType(Fluids.NONE);
@@ -80,7 +80,7 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 		tanks[1].setTankType(out.getX().type);
 		tanks[2].setTankType(out.getY().type);
 		tanks[3].setTankType(out.getZ().type);
-		
+
 		if(power < 4_000) return; // 40 kHE/s
 		if(tanks[0].getFill() < 100) return;
 		if(tanks[1].getFill() < out.getX().fill) return;
@@ -92,10 +92,10 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 		tanks[1].setFill(tanks[1].getFill() - out.getX().fill);
 		tanks[2].setFill(tanks[2].getFill() + out.getY().fill);
 		tanks[3].setFill(tanks[3].getFill() + out.getZ().fill);
-		
+
 		power -= 4_000;
 	}
-	
+
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
 			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
@@ -105,11 +105,11 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 			if(tanks[3].getFill() > 0) this.sendFluid(tanks[3], this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
-	
+
 	public DirPos[] getConPos() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
-		
+
 		return new DirPos[] {
 			new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2, rot),
 			new DirPos(this.pos.getX() + rot.offsetX * 2 + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 2 + dir.offsetZ * 2, rot),
@@ -117,23 +117,23 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 
 			new DirPos(this.pos.getX() + rot.offsetX * 1 + dir.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 1 + dir.offsetZ * 3, dir),
 			new DirPos(this.pos.getX() - rot.offsetX * 1 + dir.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 1 + dir.offsetZ * 3, dir),
-			
+
 			new DirPos(this.pos.getX() - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2, rot.getOpposite()),
 			new DirPos(this.pos.getX() - rot.offsetX * 2 + dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2 + dir.offsetZ * 2, rot.getOpposite()),
 			new DirPos(this.pos.getX() - rot.offsetX * 2 - dir.offsetX * 2, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 2 - dir.offsetZ * 2, rot.getOpposite()),
-			
+
 			new DirPos(this.pos.getX() + rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY(), this.pos.getZ() + rot.offsetZ * 1 - dir.offsetZ * 3, dir.getOpposite()),
 			new DirPos(this.pos.getX() - rot.offsetX * 1 - dir.offsetX * 3, this.pos.getY(), this.pos.getZ() - rot.offsetZ * 1 - dir.offsetZ * 3, dir.getOpposite()),
 		};
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		power = nbt.getLong("power");
 		for(int i = 0; i < tanks.length; i++) tanks[i].readFromNBT(nbt, "t" + i);
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
@@ -141,13 +141,13 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 		for(int i = 0; i < tanks.length; i++) tanks[i].writeToNBT(nbt, "t" + i);
 		return nbt;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 3,
 				this.pos.getY(),
 				this.pos.getZ() - 3,
@@ -156,10 +156,10 @@ public class TileEntityMachineAlkylation extends TileEntityMachineBase implement
 				this.pos.getZ() + 3
 			);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

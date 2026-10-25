@@ -58,38 +58,38 @@ public class ExplosionNukeGeneric {
 			}
 		}
 	}
-	
+
 	public static void dealDamage(World world, double x, double y, double z, double radius) {
 		dealDamage(world, x, y, z, radius, 250F);
 	}
-	
+
 	public static void dealDamage(World world, double x, double y, double z, double radius, float maxDamage) {
 
 		List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(x, y, z, x, y, z).expand(radius, radius, radius));
-		
+
 		for(Entity e : list) {
-			
+
 			double dist = e.getDistance(x, y, z);
-			
+
 			if(dist <= radius) {
-				
+
 				double entX = e.posX;
 				double entY = e.posY + e.getEyeHeight();
 				double entZ = e.posZ;
-				
+
 				if(!isExplosionExempt(e) && !Library.isObstructed(world, x, y, z, entX, entY, entZ)) {
 
 					double damage = maxDamage * (radius - dist) / radius;
 					e.attackEntityFrom(ModDamageSource.nuclearBlast, (float)damage);
 					e.setFire(5);
-					
+
 					double knockX = e.posX - x;
 					double knockY = e.posY + e.getEyeHeight() - y;
 					double knockZ = e.posZ - z;
-					
+
 					Vec3d knock = new Vec3d(knockX, knockY, knockZ);
 					knock = knock.normalize();
-					
+
 					e.motionX += knock.x * 0.2D;
 					e.motionY += knock.y * 0.2D;
 					e.motionZ += knock.z * 0.2D;
@@ -97,10 +97,10 @@ public class ExplosionNukeGeneric {
 			}
 		}
 	}
-	
+
 	@Spaghetti("just look at it")
 	private static boolean isExplosionExempt(Entity e) {
-		
+
 		if (e instanceof EntityOcelot ||
 				e instanceof EntityGrenadeASchrab ||
 				e instanceof EntityGrenadeNuclear ||
@@ -110,11 +110,11 @@ public class ExplosionNukeGeneric {
 				ArmorUtil.checkArmor((EntityPlayer) e, ModItems.euphemium_helmet, ModItems.euphemium_plate, ModItems.euphemium_legs, ModItems.euphemium_boots)) {
 			return true;
 		}
-		
+
 		if (e instanceof EntityPlayerMP && ((EntityPlayerMP)e).interactionManager.getGameType() == GameType.CREATIVE) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -157,7 +157,7 @@ public class ExplosionNukeGeneric {
 						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 						return 0;
 					}else if (rand == 1){
-						world.setBlock(x,y,z,ModBlocks.block_scrap,0,3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, x,y,z,ModBlocks.block_scrap,0,3);
 						return 0;
 					}
 				} else if (b == ModBlocks.brick_obsidian) {
@@ -166,10 +166,10 @@ public class ExplosionNukeGeneric {
 						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.OBSIDIAN; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					}
 				} else if (b == Blocks.OBSIDIAN) {
-					world.setBlock(x, y, z, ModBlocks.gravel_obsidian, 0, 3);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.gravel_obsidian, 0, 3);
 					return 0;
 				} else if(random.nextInt(protection+3)==0){
-					world.setBlock(x, y, z, ModBlocks.block_scrap,0,3);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_scrap,0,3);
 				}
 				return protection;
 			}else{//otherwise, kill the block!
@@ -187,14 +187,14 @@ public class ExplosionNukeGeneric {
 					|| b instanceof BlockLiquid) {
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				return 0;
-			} else if (b.getExplosionResistance(null)<=3.0f && !b.isOpaqueCube()){
+			} else if (b.getExplosionResistance(null)<=3.0f && !b.getDefaultState().isOpaqueCube()){
 				if(b != Blocks.CHEST && b != Blocks.FARMLAND){
 					//destroy all medium resistance blocks that aren't chests or farmland
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					return 0;
 				}
 			}
-			
+
 			if (com.hbm.lib.FacingCompat.isFlammable(b, world, x, y, z, ForgeDirection.UP)
 					&& com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR) {
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y + 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -230,16 +230,16 @@ public class ExplosionNukeGeneric {
 		if (!world.isRemote) {
 			int rand;
 			Block b = com.hbm.world.WorldBlockState.read(world, x,y,z).getBlock();
-			if (b == Blocks.wooden_door || b == Blocks.IRON_DOOR) {
+			if (b == Blocks.OAK_DOOR || b == Blocks.IRON_DOOR) {
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
 
 			else if (b == Blocks.GRASS) {
-				world.setBlock(x, y, z, ModBlocks.waste_earth);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_earth);
 			}
 
 			else if (b == Blocks.MYCELIUM) {
-				world.setBlock(x, y, z, ModBlocks.waste_mycelium);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_mycelium);
 			}
 
 			else if (b == Blocks.SAND) {
@@ -271,12 +271,12 @@ public class ExplosionNukeGeneric {
 			}
 
 			else if (b == Blocks.LOG || b == Blocks.LOG2) {
-				world.setBlock(x, y, z, ModBlocks.waste_log);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_log);
 			}
 
 			else if (b == Blocks.BROWN_MUSHROOM_BLOCK) {
 				if (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == 10) {
-					world.setBlock(x, y, z, ModBlocks.waste_log);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_log);
 				} else {
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
@@ -284,22 +284,22 @@ public class ExplosionNukeGeneric {
 
 			else if (b == Blocks.RED_MUSHROOM_BLOCK) {
 				if (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == 10) {
-					world.setBlock(x, y, z, ModBlocks.waste_log);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_log);
 				} else {
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
 			}
-			
-			else if (b.getDefaultState().getMaterial() == Material.wood && b.isOpaqueCube() && b != ModBlocks.waste_log) {
+
+			else if (b.getDefaultState().getMaterial() == Material.WOOD && b.getDefaultState().isOpaqueCube() && b != ModBlocks.waste_log) {
 				{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.waste_planks; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 			}
 
 			else if (b == ModBlocks.ore_uranium) {
 				rand = random.nextInt(VersatileConfig.getSchrabOreChance());
 				if (rand == 1) {
-					world.setBlock(x, y, z, ModBlocks.ore_schrabidium);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.ore_schrabidium);
 				} else {
-					world.setBlock(x, y, z, ModBlocks.ore_uranium_scorched);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.ore_uranium_scorched);
 				}
 			}
 
@@ -308,7 +308,7 @@ public class ExplosionNukeGeneric {
 				if (rand == 1) {
 					{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_nether_schrabidium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				} else {
-					world.setBlock(x, y, z, ModBlocks.ore_nether_uranium_scorched);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.ore_nether_uranium_scorched);
 				}
 			}
 
@@ -317,7 +317,7 @@ public class ExplosionNukeGeneric {
 				if (rand == 1) {
 					{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_gneiss_schrabidium; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				} else {
-					world.setBlock(x, y, z, ModBlocks.ore_gneiss_uranium_scorched);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.ore_gneiss_uranium_scorched);
 				}
 			}
 
@@ -351,17 +351,17 @@ public class ExplosionNukeGeneric {
 			int rand;
 
 			if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.GLASS || com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.STAINED_GLASS
-					|| com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.wooden_door || com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.IRON_DOOR
+					|| com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.OAK_DOOR || com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.IRON_DOOR
 					|| com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.LEAVES || com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.LEAVES2) {
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
 
 			else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.GRASS) {
-				world.setBlock(x, y, z, ModBlocks.waste_earth);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_earth);
 			}
 
 			else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.MYCELIUM) {
-				world.setBlock(x, y, z, ModBlocks.waste_mycelium);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_mycelium);
 			}
 
 			else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.SAND) {
@@ -393,7 +393,7 @@ public class ExplosionNukeGeneric {
 			}
 
 			else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.LOG || com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.LOG2) {
-				world.setBlock(x, y, z, ModBlocks.waste_log);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_log);
 			}
 
 			else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.PLANKS) {
@@ -402,7 +402,7 @@ public class ExplosionNukeGeneric {
 
 			else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.BROWN_MUSHROOM_BLOCK) {
 				if (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == 10) {
-					world.setBlock(x, y, z, ModBlocks.waste_log);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_log);
 				} else {
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
@@ -410,7 +410,7 @@ public class ExplosionNukeGeneric {
 
 			else if (com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.RED_MUSHROOM_BLOCK) {
 				if (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) == 10) {
-					world.setBlock(x, y, z, ModBlocks.waste_log);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.waste_log);
 				} else {
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				}
@@ -420,12 +420,12 @@ public class ExplosionNukeGeneric {
 
 	public static void emp(World world, int x, int y, int z) {
 		if (!world.isRemote) {
-			
+
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-			
+
 			if (te != null && te instanceof IEnergyHandlerMK2) {
 				((IEnergyHandlerMK2)te).setPower(0);
-				if(random.nextInt(5) < 1) world.setBlock(x, y, z, ModBlocks.block_electrical_scrap);
+				if(random.nextInt(5) < 1) com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_electrical_scrap);
 			}
 			if (te != null && te instanceof IEnergyProvider) {
 
@@ -435,9 +435,9 @@ public class ExplosionNukeGeneric {
 				((IEnergyProvider)te).extractEnergy(ForgeDirection.SOUTH.toEnumFacing(), ((IEnergyProvider)te).getEnergyStored(ForgeDirection.SOUTH.toEnumFacing()), false);
 				((IEnergyProvider)te).extractEnergy(ForgeDirection.EAST.toEnumFacing(), ((IEnergyProvider)te).getEnergyStored(ForgeDirection.EAST.toEnumFacing()), false);
 				((IEnergyProvider)te).extractEnergy(ForgeDirection.WEST.toEnumFacing(), ((IEnergyProvider)te).getEnergyStored(ForgeDirection.WEST.toEnumFacing()), false);
-				
+
 				if(random.nextInt(5) <= 1)
-					world.setBlock(x, y, z, ModBlocks.block_electrical_scrap);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_electrical_scrap);
 			}
 		}
 	}
@@ -446,13 +446,13 @@ public class ExplosionNukeGeneric {
 		if (!world.isRemote) {
 			Block b = com.hbm.world.WorldBlockState.read(world, x,y,z).getBlock();
 			Material m = b.getDefaultState().getMaterial();
-			
+
 			if(b == Blocks.GRASS || b == Blocks.MYCELIUM || b == ModBlocks.waste_earth || b == ModBlocks.waste_mycelium) {
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				return;
 			}
-			
-			if(m == Material.CACTUS || m == Material.CORAL || m == Material.LEAVES || m == Material.PLANTS || m == Material.sponge || m == Material.VINE || m == Material.GOURD || m == Material.wood) {
+
+			if(m == Material.CACTUS || m == Material.CORAL || m == Material.LEAVES || m == Material.PLANTS || m == Material.SPONGE || m == Material.VINE || m == Material.GOURD || m == Material.WOOD) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			}
 		}

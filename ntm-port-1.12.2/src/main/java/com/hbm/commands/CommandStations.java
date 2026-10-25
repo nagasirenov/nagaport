@@ -29,12 +29,27 @@ import net.minecraftforge.common.DimensionManager;
 
 public class CommandStations extends CommandBase {
 
-	@Override
-	public String getCommandName() {
-		return "ntmstations";
+
+		@Override
+	public String getName() {
+		return getCommandName();
 	}
 
 	@Override
+	public String getUsage(net.minecraft.command.ICommandSender sender) {
+		return getCommandUsage(sender);
+	}
+
+	@Override
+	public void execute(net.minecraft.server.MinecraftServer server, net.minecraft.command.ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+		processCommand(sender, args);
+	}
+
+public String getCommandName() {
+		return "ntmstations";
+	}
+
+
 	public String getCommandUsage(ICommandSender sender) {
 		return String.format(Locale.US,
 			"%s/%s launch %s- Spawns a station for the held drive.\n" +
@@ -48,8 +63,8 @@ public class CommandStations extends CommandBase {
 		);
 	}
 
-	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
+
+	public void processCommand(ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
 		if(!(sender instanceof EntityPlayer)) {
 			showMessage(sender, "commands.satellite.should_be_run_as_player", true);
 			return;
@@ -84,7 +99,7 @@ public class CommandStations extends CommandBase {
 				z = z * OrbitalStation.STATION_SIZE + (OrbitalStation.STATION_SIZE / 2);
 			}
 
-			player.mountEntity(null);
+			player.dismountRidingEntity();
 
 			if(player.dimension != dimensionId) {
 				if(dimensionId == SpaceConfig.orbitDimension) {
@@ -96,7 +111,7 @@ public class CommandStations extends CommandBase {
 				if(dimensionId == SpaceConfig.orbitDimension) {
 					player.setPositionAndUpdate(x + 0.5D, 130.0D, z + 0.5D);
 				} else {
-					int y = player.world.getHeightValue(x, z);
+					int y = player.world.getHeight(x, z);
 					player.setPositionAndUpdate(x + 0.5D, y + 1, z + 0.5D);
 				}
 			}
@@ -188,7 +203,7 @@ public class CommandStations extends CommandBase {
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public java.util.List<String> getTabCompletions(net.minecraft.server.MinecraftServer server, ICommandSender sender, String[] args, net.minecraft.util.math.BlockPos pos) {
 		if(!(sender instanceof EntityPlayer)) {
 			return Collections.emptyList();
 		}

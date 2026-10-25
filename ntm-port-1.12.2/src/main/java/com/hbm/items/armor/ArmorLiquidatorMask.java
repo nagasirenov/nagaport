@@ -39,7 +39,7 @@ public class ArmorLiquidatorMask extends ArmorLiquidator implements IGasMask {
 	public void damageFilter(ItemStack stack, EntityLivingBase entity, int damage) {
 		ArmorUtil.damageGasMaskFilter(stack, damage);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
 		ArmorUtil.addGasMaskTooltip(stack, player, list, ext);
@@ -51,23 +51,18 @@ public class ArmorLiquidatorMask extends ArmorLiquidator implements IGasMask {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		ItemStack stack = player.getHeldItem(hand);
 		if(player.isSneaking()) {
-			
 			ItemStack filter = this.getFilter(stack, player);
-			
 			if(filter != null) {
 				ArmorUtil.removeFilter(stack);
-				
 				if(!player.inventory.addItemStackToInventory(filter)) {
-					player.dropPlayerItemWithRandomChoice(filter, true);
+					player.dropItem(filter, true);
 				}
-				
-				return stack;
+				return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.SUCCESS, stack);
 			}
 		}
-		
-		return super.onItemRightClick(stack, world, player);
+		return super.onItemRightClick(world, player, hand);
 	}
 }

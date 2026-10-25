@@ -7,6 +7,8 @@ import com.hbm.main.ResourceManager;
 import com.hbm.tileentity.network.TileEntityPylonBase;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.MathHelper;
@@ -28,7 +30,7 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 		this.bindTexture(pyl.color == 0 ? ResourceManager.wire_tex : ResourceManager.wire_greyscale_tex);
 
 		pyl.getConnected().forEach(wire -> {
-			TileEntity tile = pyl.getWorld().getTileEntity(wire[0], wire[1], wire[2]);
+			TileEntity tile = com.hbm.world.WorldBlockState.getTileEntity(pyl.getWorld(), wire[0], wire[1], wire[2]);
 
 			if(tile instanceof TileEntityPylonBase) {
 				TileEntityPylonBase pylon = (TileEntityPylonBase) tile;
@@ -98,11 +100,12 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x, y, z);
 		float count = 10;
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
 
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glDisable(GL11.GL_CULL_FACE);
-		tess.startDrawingQuads();
+		BufferBuilder buf = tess.getBuffer();
+		buf.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 		Vec3d delta = new Vec3d(x0 - x1, y0 - y1, z0 - z1);
 
 		double girth = 0.03125D;
@@ -118,9 +121,16 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 		double jZ = Math.cos(newYaw) * girth;
 		double jX = Math.sin(newYaw) * girth;
 
+		int col = pyl.color == 0 ? 0xffffff : pyl.color;
+		int r = col >> 16 & 255;
+		int g = col >> 8 & 255;
+		int bl = col & 255;
+
 		if(!ClientConfig.RENDER_CABLE_HANG.get()) {
-			tess.setColorOpaque_I(pyl.color == 0 ? 0xffffff : pyl.color);
-			drawLineSegment(tess, x0, y0, z0, x1, y1, z1, iX, iY, iZ, jX, jZ);
+			int brightness = world.getCombinedLight(new net.minecraft.util.math.BlockPos(MathHelper.floor(pyl.getPos().getX() + x0), MathHelper.floor(pyl.getPos().getY() + y0), MathHelper.floor(pyl.getPos().getZ() + z0)), 0);
+			int skyLight = brightness >> 16 & 65535;
+			int blockLight = brightness & 65535;
+			drawLineSegment(buf, x0, y0, z0, x1, y1, z1, iX, iY, iZ, jX, jZ, r, g, bl, skyLight, blockLight);
 		} else {
 
 			double hang = Math.min(delta.length() / 15D, 2.5D);
@@ -142,19 +152,18 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 				double iy = pyl.getPos().getY() + y0 + deltaY / (double)(count) * ja - sagMean;
 				double iz = pyl.getPos().getZ() + z0 + deltaZ / (double)(count) * ja;
 
-				int brightness = world.getLightBrightnessForSkyBlocks(MathHelper.floor(ix), MathHelper.floor(iy), MathHelper.floor(iz), 0);
-				tess.setBrightness(brightness);
+				int brightness = world.getCombinedLight(new net.minecraft.util.math.BlockPos(MathHelper.floor(ix), MathHelper.floor(iy), MathHelper.floor(iz)), 0);
+				int skyLight = brightness >> 16 & 65535;
+				int blockLight = brightness & 65535;
 
-				tess.setColorOpaque_I(pyl.color == 0 ? 0xffffff : pyl.color);
-
-				drawLineSegment(tess,
+				drawLineSegment(buf,
 						x0 + (deltaX * j / count),
 						y0 + (deltaY * j / count) - sagJ,
 						z0 + (deltaZ * j / count),
 						x0 + (deltaX * k / count),
 						y0 + (deltaY * k / count) - sagK,
 						z0 + (deltaZ * k / count),
-						iX, iY, iZ, jX, jZ);
+						iX, iY, iZ, jX, jZ, r, g, bl, skyLight, blockLight);
 			}
 		}
 		tess.draw();
@@ -175,7 +184,7 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 	 * @param b
 	 * @param c
 	 */
-	public void drawLineSegment(Tessellator tessellator, double x, double y, double z, double a, double b, double c, double iX, double iY, double iZ, double jX, double jZ) {
+	public void drawLineSegment(BufferBuilder buf, double x, double y, double z, double a, double b, double c, double iX, double iY, double iZ, double jX, double jZ, int r, int g, int bl, int skyLight, int blockLight) {
 
 		double deltaX = a - x;
 		double deltaY = b - y;
@@ -189,14 +198,14 @@ public abstract class RenderPylonBase extends TileEntitySpecialRenderer {
 			jX *= -1;
 		}
 
-		tessellator.addVertexWithUV(x + iX, y + iY, z + iZ, 0, 0);
-		tessellator.addVertexWithUV(x - iX, y - iY, z - iZ, 0, 1);
-		tessellator.addVertexWithUV(a - iX, b - iY, c - iZ, wrap, 1);
-		tessellator.addVertexWithUV(a + iX, b + iY, c + iZ, wrap, 0);
-		tessellator.addVertexWithUV(x + jX, y, z + jZ, 0, 0);
-		tessellator.addVertexWithUV(x - jX, y, z - jZ, 0, 1);
-		tessellator.addVertexWithUV(a - jX, b, c - jZ, wrap, 1);
-		tessellator.addVertexWithUV(a + jX, b, c + jZ, wrap, 0);
+		buf.pos(x + iX, y + iY, z + iZ).tex(0, 0).color(r, g, bl, 255).lightmap(skyLight, blockLight).endVertex();
+		buf.pos(x - iX, y - iY, z - iZ).tex(0, 1).color(r, g, bl, 255).lightmap(skyLight, blockLight).endVertex();
+		buf.pos(a - iX, b - iY, c - iZ).tex(wrap, 1).color(r, g, bl, 255).lightmap(skyLight, blockLight).endVertex();
+		buf.pos(a + iX, b + iY, c + iZ).tex(wrap, 0).color(r, g, bl, 255).lightmap(skyLight, blockLight).endVertex();
+		buf.pos(x + jX, y, z + jZ).tex(0, 0).color(r, g, bl, 255).lightmap(skyLight, blockLight).endVertex();
+		buf.pos(x - jX, y, z - jZ).tex(0, 1).color(r, g, bl, 255).lightmap(skyLight, blockLight).endVertex();
+		buf.pos(a - jX, b, c - jZ).tex(wrap, 1).color(r, g, bl, 255).lightmap(skyLight, blockLight).endVertex();
+		buf.pos(a + jX, b, c + jZ).tex(wrap, 0).color(r, g, bl, 255).lightmap(skyLight, blockLight).endVertex();
 	}
 
 	public static final int LINE_COLOR = 0xBB3311;

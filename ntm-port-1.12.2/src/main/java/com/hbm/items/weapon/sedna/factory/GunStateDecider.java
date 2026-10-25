@@ -116,7 +116,7 @@ public class GunStateDecider {
 					ItemGunBaseNT.setState(stack, gunIndex, GunState.COOLDOWN);
 					ItemGunBaseNT.setTimer(stack, gunIndex, rec.getDelayAfterFire(stack));
 
-					if(rec.getFireSound(stack) != null) entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, rec.getFireSound(stack), rec.getFireVolume(stack), rec.getFirePitch(stack));
+					if(rec.getFireSound(stack) != null) entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve(rec.getFireSound(stack)), net.minecraft.util.SoundCategory.BLOCKS, rec.getFireVolume(stack), rec.getFirePitch(stack));
 
 					int remaining = rec.getRoundsPerCycle(stack) - 1;
 					for(int i = 0; i < remaining; i++) if(rec.getCanFire(stack).apply(stack, ctx)) rec.getOnFire(stack).accept(stack, ctx);

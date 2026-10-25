@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class GUIScreenSatInterface extends GuiScreen {
-	
+
     protected static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/satellites/gui_sat_interface.png");
     protected int xSize = 216;
     protected int ySize = 216;
@@ -36,30 +36,30 @@ public class GUIScreenSatInterface extends GuiScreen {
     private final EntityPlayer player;
     int x;
     int z;
-    
+
     public GUIScreenSatInterface(EntityPlayer player) {
-    	
+
     	this.player = player;
     }
-    
+
     public void updateScreen() {
     }
 
     protected void mouseClicked(int i, int j, int k) {
-    	
+
     	if(ItemSatInterface.currentSat != null && ItemSatInterface.currentSat.ifaceAcs.contains(InterfaceActions.CAN_CLICK)) {
 
     		if(i >= this.guiLeft + 8 && i < this.guiLeft + 208 && j >= this.guiTop + 8 && j < this.guiTop + 208 && player != null) {
-    			
+
     			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("hbm:item.techBleep"), 1.0F));
-    			
+
     			int x = this.x - guiLeft + i - 8 - 100;
     			int z = this.z - guiTop + j - 8 - 100;
     			PacketDispatcher.wrapper.sendToServer(new SatLaserPacket(x, z, ISatChip.getFreqS(com.hbm.util.NativeHeldItem.getMainHandNullable(player))));
     		}
     	}
     }
-    
+
     public void drawScreen(int mouseX, int mouseY, float f)
     {
         this.drawDefaultBackground();
@@ -68,26 +68,26 @@ public class GUIScreenSatInterface extends GuiScreen {
         this.drawGuiContainerForegroundLayer(mouseX, mouseY);
         GL11.glEnable(GL11.GL_LIGHTING);
     }
-    
+
     public void initGui()
     {
         super.initGui();
         this.guiLeft = (this.width - this.xSize) / 2;
         this.guiTop = (this.height - this.ySize) / 2;
-        
+
         x = (int) player.posX;
         z = (int) player.posZ;
     }
-	
+
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
 	}
-	
+
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 
     	if(ItemSatInterface.currentSat != null && ItemSatInterface.currentSat.ifaceAcs.contains(InterfaceActions.SHOW_COORDS)) {
-    		
+
     		if(i >= this.guiLeft + 8 && i < this.guiLeft + 208 && j >= this.guiTop + 8 && j < this.guiTop + 208 && player != null) {
 
     			int x = this.x - guiLeft + i - 8 - 100;
@@ -101,11 +101,11 @@ public class GUIScreenSatInterface extends GuiScreen {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		
+
 		if(ItemSatInterface.currentSat == null) {
 			drawNotConnected();
 		} else {
-			
+
 			if(ItemSatInterface.currentSat.satIface != Interfaces.SAT_PANEL) {
 				drawNoService();
 				return;
@@ -122,27 +122,27 @@ public class GUIScreenSatInterface extends GuiScreen {
 			}
 		}
 	}
-	
+
 	private int scanPos = 0;
 	private long lastMilli = 0;
-	
+
 	private void progresScan() {
-		
+
 		if(lastMilli + 25 < System.currentTimeMillis()) {
 			lastMilli = System.currentTimeMillis();
 			scanPos++;
 		}
-		
+
 		if(scanPos >= 200)
 			scanPos -= 200;
 	}
-	
+
 	private int[][] map = new int[200][200];
-	
+
 	private void drawMap() {
-		
+
 		World world = player.world;
-		
+
 		for(int i = -100; i < 100; i++) {
 			int x = this.x + i;
 			int z = this.z + scanPos - 100;
@@ -152,18 +152,18 @@ public class GUIScreenSatInterface extends GuiScreen {
 		prontMap();
 		progresScan();
 	}
-	
+
 	private void drawScan() {
-		
+
 		World world = player.world;
-		
+
 		for(int i = -100; i < 100; i++) {
 			int x = this.x + i;
 			int z = this.z + scanPos - 100;
-			
+
 			for(int j = 255; j >= 0; j--) {
 				int c = getColorFromBlock(new ItemStack(com.hbm.world.WorldBlockState.read(world, x, j, z).getBlock(), 1, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, j, z) )));
-				
+
 				if(c != 0) {
 					map[i + 100][scanPos] = c;
 					break;
@@ -173,9 +173,9 @@ public class GUIScreenSatInterface extends GuiScreen {
 		prontMap();
 		progresScan();
 	}
-	
+
 	private int getColorFromBlock(ItemStack stack) {
-		
+
 		if(stack == null || stack.getItem() == null/* || stack.getItemDamage() < 0*/)
 			return 0;
 
@@ -221,58 +221,61 @@ public class GUIScreenSatInterface extends GuiScreen {
 			return 0x1cffff;
 		if(MachineRecipes.mODE(stack, "oreRareEarth"))
 			return 0xffcc99;
-		
+
 		return isOre(stack) ? 0xBA00AF : 0x000000;
 	}
-	
+
 	private static boolean isOre(ItemStack stack) {
-		
+
+		if(stack == null || stack.isEmpty() || stack.getItem() == null)
+			return false;
+
 		int[] ids = OreDictionary.getOreIDs(new ItemStack(stack.getItem(), 1, stack.getItemDamage()));
-		
+
 		for(int i = 0; i < ids.length; i++) {
-			
+
 			String s = OreDictionary.getOreName(ids[i]);
-			
+
 			if(s.length() > 3 && s.substring(0, 3).equals("ore"))
 				return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	private void drawRadar() {
-		
-		List<Entity> entities = player.world.getEntitiesWithinAABBExcludingEntity(player, AxisAlignedBB.getBoundingBox(player.posX - 100, 0, player.posZ - 100, player.posX + 100, 5000, player.posZ + 100));
-		
+
+		List<Entity> entities = player.world.getEntitiesWithinAABBExcludingEntity(player, new AxisAlignedBB(player.posX - 100, 0, player.posZ - 100, player.posX + 100, 5000, player.posZ + 100));
+
 		if(!entities.isEmpty()) {
 			for(Entity e : entities) {
-				
+
 				if(e.width * e.width * e.height >= 0.5D) {
 					int x = (int)((e.posX - this.x) / ((double)100 * 2 + 1) * (200D - 8D)) - 4;
 					int z = (int)((e.posZ - this.z) / ((double)100 * 2 + 1) * (200D - 8D)) - 4 - 9;
-					
+
 					int t = 5;
-					
+
 					//TODO: fix radar screen implementation
 					/*if(e instanceof EntityMissileBaseAdvanced) {
 						t = ((EntityMissileBaseAdvanced)e).getTargetType().ordinal();
 					}*/
-					
+
 					if(e instanceof EntityMob) {
 						t = 6;
 					}
-					
+
 					if(e instanceof EntityPlayer) {
 						t = 7;
 					}
-	
+
 					drawTexturedModalRect(guiLeft + 108 + x, guiTop + 117 + z, 216, 8 * t, 8, 8);
 				}
 			}
 		}
-		
+
 	}
-	
+
 	private void prontMap() {
 		for(int x = 0; x < 200; x++) {
 			for(int z = 0; z < 200; z++) {
@@ -282,49 +285,49 @@ public class GUIScreenSatInterface extends GuiScreen {
 				}
 			}
 		}
-		
+
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	}
-	
+
 	private void drawNoService() {
 		drawTexturedModalRect((this.width - 77) / 2, (this.height - 12) / 2, 0, 228, 77, 12);
 	}
-	
+
 	private void drawNotConnected() {
 		drawTexturedModalRect((this.width - 121) / 2, (this.height - 12) / 2, 0, 216, 121, 12);
 	}
-	
+
     protected void keyTyped(char p_73869_1_, int p_73869_2_)
     {
         if (p_73869_2_ == 1 || p_73869_2_ == this.mc.gameSettings.keyBindInventory.getKeyCode())
         {
             this.mc.player.closeScreen();
         }
-        
+
         if (p_73869_2_ == this.mc.gameSettings.keyBindForward.getKeyCode())
         {
             this.z -= 50;
             map = new int[200][200];
         }
-        
+
         if (p_73869_2_ == this.mc.gameSettings.keyBindBack.getKeyCode())
         {
             this.z += 50;
             map = new int[200][200];
         }
-        
+
         if (p_73869_2_ == this.mc.gameSettings.keyBindLeft.getKeyCode())
         {
             this.x -= 50;
             map = new int[200][200];
         }
-        
+
         if (p_73869_2_ == this.mc.gameSettings.keyBindRight.getKeyCode())
         {
             this.x += 50;
             map = new int[200][200];
         }
-        
+
     }
 
 }

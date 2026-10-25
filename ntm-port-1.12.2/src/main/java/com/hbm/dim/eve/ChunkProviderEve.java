@@ -71,7 +71,7 @@ public class ChunkProviderEve extends ChunkProviderCelestial {
 			for(int z = 0; z < 16; z++) {
 				if(biomesForGeneration[x + z * 16] != BiomeGenBaseEve.eveSeismicPlains) continue;
 
-				double crackValue = crackNoise.func_151601_a((chunkX * 16 + x) * 0.3, (chunkZ * 16 + z) * 0.3);  // Lower scale value for more spread-out cracks
+				double crackValue = crackNoise.getValue((chunkX * 16 + x) * 0.3, (chunkZ * 16 + z) * 0.3);  // Lower scale value for more spread-out cracks
 
 				if(crackValue > 0.9) {
 					int bedrockY = -1;

@@ -18,7 +18,7 @@ public class ContainerSILEX extends Container {
 
 	public ContainerSILEX(InventoryPlayer invPlayer, TileEntitySILEX te) {
 		silex = te;
-		
+
 		//Input
 		this.addSlotToContainer(new Slot(te, 0, 80, 12));
 		//Fluid ID
@@ -35,7 +35,7 @@ public class ContainerSILEX extends Container {
 		this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, te, 8, 152, 90));
 		this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, te, 9, 134, 108));
 		this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, te, 10, 152, 108));
-		
+
 		for(int i = 0; i < 3; i++)
 		{
 			for(int j = 0; j < 9; j++)
@@ -43,7 +43,7 @@ public class ContainerSILEX extends Container {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18 + (18 * 3) + 2));
 			}
 		}
-		
+
 		for(int i = 0; i < 9; i++)
 		{
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 142 + (18 * 3) + 2));
@@ -64,7 +64,7 @@ public class ContainerSILEX extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(var5, 1, 2, false)) {
 						return null;
@@ -80,7 +80,7 @@ public class ContainerSILEX extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

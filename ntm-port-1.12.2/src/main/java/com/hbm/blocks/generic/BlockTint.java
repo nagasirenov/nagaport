@@ -13,21 +13,30 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockTint extends Block {
+	public BlockTint withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
 
 	private final String[] textureNames;
+	private String textureName;
 	public IIcon[] icons;
 
 	public BlockTint(Material mat) {
 		super(mat);
 		this.textureNames = new String[0];
 	}
-	
+
 	public BlockTint(Material mat, String... extraTextures) {
 		super(mat);
 		this.textureNames = extraTextures;
 	}
 
-	@Override
+	public BlockTint setBlockTextureName(String texture) {
+		this.textureName = texture;
+		return this;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
 		long l = (long) (x * 3129871) ^ (long)y * 116129781L ^ (long)z;
@@ -36,13 +45,11 @@ public class BlockTint extends Block {
 		return icons[(int)(Math.abs(i) % icons.length)];
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return icons[0];
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		icons = new IIcon[textureNames.length + 1];
@@ -51,10 +58,10 @@ public class BlockTint extends Block {
 			icons[i + 1] = reg.registerIcon(RefStrings.MODID + ":" + textureNames[i]);
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.readMetadata(world, x, y, z);
 		return Color.HSBtoRGB(0F, 0F, 1F - meta / 15F);
 	}
 

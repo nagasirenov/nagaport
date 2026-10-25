@@ -24,11 +24,11 @@ public class TileEntityDecon extends TileEntity implements net.minecraft.util.IT
 	@Override
 	public void update() {
 		if(!this.world.isRemote) {
-			List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 2, this.pos.getZ() + 1.5));
+			List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 2, this.pos.getZ() + 1.5));
 			if(!entities.isEmpty()) {
 				for(EntityLivingBase e : entities) {
 					HbmLivingProps.incrementRadiation(e, -0.5F);
-					e.removePotionEffect(HbmPotion.radiation.id);
+					e.removePotionEffect(HbmPotion.radiation);
 					HbmLivingProps.getCont(e).clear();
 				}
 

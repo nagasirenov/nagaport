@@ -25,7 +25,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements IGUIProvider, IControlReceiver, ICopiable {
-	
+
 	public double piston;
 	public double renderPiston;
 	public double lastPiston;
@@ -33,11 +33,11 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 	private int turnProgress;
 	private boolean isRetracting = true;
 	private int delay = 0;
-	
+
 	public static double speed = 0.005D;
-	
+
 	public int cycle = 50;
-	
+
 	private AudioWrapper audioLift;
 
 	public TileEntityRBMKAutoloader() {
@@ -51,11 +51,11 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			if(delay > 0) delay--;
-			
+
 			if(delay <= 0 && this.isRetracting && this.piston > 0D) {
 				this.piston -= this.speed;
 				if(this.piston <= 0) {
@@ -63,7 +63,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 					this.delay = 40;
 				}
 			}
-			
+
 			// check for connected fuel rod and decide whether to begin working
 			if(isRetracting && this.world.getTotalWorldTime() % 20 == 0 && this.hasFuel() && this.hasSpace()) {
 				Block below = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()).getBlock();
@@ -80,7 +80,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 					}
 				}
 			}
-			
+
 			if(delay <= 0 && !this.isRetracting && this.piston < 1D) {
 				this.piston += this.speed;
 				if(this.piston >= 1) {
@@ -88,11 +88,11 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 					this.delay = 40;
 				}
 			}
-			
+
 			// once the piston is fully extended
 			if(!isRetracting && this.piston >= 1D) {
 				this.piston = 1D;
-				
+
 				Block below = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ()).getBlock();
 				if(below instanceof RBMKBase) {
 					int[] pos = ((RBMKBase) below).findCore(this.world, this.pos.getX(), this.pos.getY() - 1, this.pos.getZ());
@@ -120,13 +120,13 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 								}
 							}
 						}
-						
+
 						this.isRetracting = true;
 						this.delay = 40;
 					}
 				}
 			}
-			
+
 			this.networkPackNT(100);
 		} else {
 
@@ -138,7 +138,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 			} else {
 				this.renderPiston = this.syncPiston;
 			}
-			
+
 			if(this.renderPiston > 0.01 && this.renderPiston < 0.99) {
 				if(this.audioLift == null || !this.audioLift.isPlaying()) {
 					this.audioLift = MainRegistry.proxy.getLoopedSound("hbm:door.wgh_start", this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getVolume(0.75F), 25F, 1.0F, 5);
@@ -153,7 +153,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 					MainRegistry.proxy.playSoundClient(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:door.wgh_stop", this.getVolume(2F), 1F);
 				}
 			}
-			
+
 			if(this.renderPiston > 0.99) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "tower");
@@ -171,7 +171,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 			}
 		}
 	}
-	
+
 	public boolean hasFuel() {
 		for(int i = 0; i < 9; i++) {
 			ItemStack stack = slots[i];
@@ -179,10 +179,10 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public boolean hasSpace() {
 		for(int i = 9; i < 18; i++) if(slots[i] == null) return true;
 		return false;
@@ -245,7 +245,7 @@ public class TileEntityRBMKAutoloader extends TileEntityMachineBase implements I
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(aabb != null) return aabb;
-		aabb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 9, this.pos.getZ() + 1);
+		aabb = new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 9, this.pos.getZ() + 1);
 		return aabb;
 	}
 

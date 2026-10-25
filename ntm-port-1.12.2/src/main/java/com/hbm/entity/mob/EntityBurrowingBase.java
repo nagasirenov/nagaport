@@ -35,11 +35,11 @@ public abstract class EntityBurrowingBase extends EntityCreature {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		
-		if(this.isEntityInvulnerable() || source == DamageSource.drown || source == DamageSource.inWall) {
+
+		if(this.isEntityInvulnerable(source) || source == DamageSource.DROWN || source == DamageSource.IN_WALL) {
 			return false;
 		}
-		
+
 		return super.attackEntityFrom(source, amount);
 	}
 
@@ -47,34 +47,34 @@ public abstract class EntityBurrowingBase extends EntityCreature {
 	 * No fall and fallstate functions
 	 */
 	@Override
-	protected void fall(float dist) { }
+	public void fall(float distance, float damageMultiplier) { }
 	@Override
-	protected void updateFallState(double distFallen, boolean onGround) { }
+	protected void updateFallState(double y, boolean onGroundIn, net.minecraft.block.state.IBlockState state, net.minecraft.util.math.BlockPos pos) { }
 
 	/**
 	 * ...and we turn off the default AI routines. We don't care about path-finding anyway.
 	 */
 	@Override
-	protected void updateEntityActionState() { }
+	protected void updateAITasks() { }
 
 	/**
 	 * Calls moveFlying to add motion depending on our entity's rotation, then moves. Drag is applied depending on whether it is underground or airborne.
 	 * Called in onLivingUpdate TODO: figure out if strafe and forward are set by one of the superclasses or if this part is pointless
 	 */
 	@Override
-	public void moveEntityWithHeading(float strafe, float forward) {
+	public void travel(float strafe, float vertical, float forward) {
 
 		float drag = this.groundDrag;
 		float dragY = this.groundDragY;
 
-		if(!isEntityInsideOpaqueBlock() && !isInWater() && !handleLavaMovement()) {
+		if(!isEntityInsideOpaqueBlock() && !isInWater() && !isInLava()) {
 			drag = this.airDrag;
 			dragY = this.airDragY;
 		}
 
 		//misnomer, actually just sets the motion, the moving part happens the line after that
-		moveFlying(strafe, forward, 0.02F);
-		moveEntity(this.motionX, this.motionY, this.motionZ);
+		moveRelative(strafe, vertical, forward, 0.02F);
+		move(net.minecraft.entity.MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 
 		this.motionX *= drag;
 		this.motionY *= dragY;
@@ -88,7 +88,7 @@ public abstract class EntityBurrowingBase extends EntityCreature {
 	public boolean isOnLadder() {
 		return false;
 	}
-	
+
 	/**
 	 * If the mob supports the movement behavior through air
 	 * @return true if the entity can fly and false if it can only move through ground.
@@ -100,7 +100,6 @@ public abstract class EntityBurrowingBase extends EntityCreature {
 	/**
 	 * Contrary to its name, all I could find about it was that it controlled some rotation behavior. BoT seems to work fine with it, so we'll use it here too.
 	 */
-	@Override
 	protected boolean isAIEnabled() {
 		return true;
 	}

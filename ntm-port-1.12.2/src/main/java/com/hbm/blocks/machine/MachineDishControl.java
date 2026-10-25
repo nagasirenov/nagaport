@@ -38,7 +38,10 @@ public class MachineDishControl extends BlockDummyable implements ITooltipProvid
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -79,12 +82,8 @@ public class MachineDishControl extends BlockDummyable implements ITooltipProvid
 					entityDishControl.linkPosition[2]).getBlock();
 
 				// Trigger the StarDar UI to open
-				return stardarBlock.onBlockActivated(
-					world,
-					entityDishControl.linkPosition[0],
-					entityDishControl.linkPosition[1],
-					entityDishControl.linkPosition[2],
-					player, side, hitX, hitY, hitZ);
+				net.minecraft.util.math.BlockPos linkPos = new net.minecraft.util.math.BlockPos(entityDishControl.linkPosition[0], entityDishControl.linkPosition[1], entityDishControl.linkPosition[2]);
+				return stardarBlock.onBlockActivated(world, linkPos, world.getBlockState(linkPos), player, nativeHand, nativeFacing, hitX, hitY, hitZ);
 			}
 
 			return false;

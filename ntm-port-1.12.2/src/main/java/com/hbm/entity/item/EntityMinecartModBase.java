@@ -17,6 +17,12 @@ import net.minecraft.entity.item.EntityMinecartEmpty;
 import net.minecraft.entity.item.EntityMinecartFurnace;
 import net.minecraft.entity.item.EntityMinecartHopper;
 import net.minecraft.entity.item.EntityMinecartTNT;
+import net.minecraft.entity.item.EntityMinecart.Type;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -39,6 +45,8 @@ import net.minecraftforge.event.entity.minecart.MinecartUpdateEvent;
 //Bridged class, see parent for original
 public abstract class EntityMinecartModBase extends EntityMinecart
 {
+    private static final DataParameter<Integer> MOTION_X_DIRECTION = EntityDataManager.createKey(EntityMinecartModBase.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> MOTION_Z_DIRECTION = EntityDataManager.createKey(EntityMinecartModBase.class, DataSerializers.VARINT);
     private boolean isInReverse;
     private String entityName;
     /** Minecart rotational logic matrix */
@@ -75,7 +83,6 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         super(p_i1712_1_);
         this.preventEntitySpawning = true;
         this.setSize(0.98F, 0.7F);
-        this.yOffset = this.height / 2.0F;
     }
 
     /**
@@ -118,14 +125,9 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	protected void entityInit()
     {
-        this.dataWatcher.addObject(17, new Integer(0));
-        this.dataWatcher.addObject(18, new Integer(1));
-        this.dataWatcher.addObject(19, new Float(0.0F));
-        this.dataWatcher.addObject(20, new Integer(0));
-        this.dataWatcher.addObject(21, new Integer(6));
-        this.dataWatcher.addObject(22, Byte.valueOf((byte)0));
-        this.dataWatcher.addObject(23, new Integer(0));
-        this.dataWatcher.addObject(24, new Integer(0));
+        super.entityInit();
+        this.dataManager.register(MOTION_X_DIRECTION, 0);
+        this.dataManager.register(MOTION_Z_DIRECTION, 0);
     }
 
     /**
@@ -146,7 +148,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
      * returns the bounding box for this entity
      */
     @Override
-	public AxisAlignedBB getBoundingBox()
+	public AxisAlignedBB getCollisionBoundingBox()
     {
         if (getCollisionHandler() != null)
         {
@@ -193,7 +195,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     {
         if (!this.world.isRemote && !this.isDead)
         {
-            if (this.isEntityInvulnerable())
+            if (this.isEntityInvulnerable(p_70097_1_))
             {
                 return false;
             }
@@ -201,16 +203,13 @@ public abstract class EntityMinecartModBase extends EntityMinecart
             {
                 this.setRollingDirection(-this.getRollingDirection());
                 this.setRollingAmplitude(10);
-                this.setBeenAttacked();
+                this.velocityChanged = true;
                 this.setDamage(this.getDamage() + p_70097_2_ * 10.0F);
                 boolean flag = p_70097_1_.getTrueSource() instanceof EntityPlayer && ((EntityPlayer)p_70097_1_.getTrueSource()).capabilities.isCreativeMode;
 
                 if (flag || this.getDamage() > 40.0F)
                 {
-                    if (this.isBeingRidden())
-                    {
-                        this.riddenByEntity.mountEntity(this);
-                    }
+                    this.removePassengers();
 
                     if (flag && !this.hasCustomInventoryName())
                     {
@@ -293,22 +292,22 @@ public abstract class EntityMinecartModBase extends EntityMinecart
 
         if (this.posY < -64.0D)
         {
-            this.kill();
+            this.setDead();
         }
-        
+
         //
         if(this.motionX < 0)
-        	this.dataWatcher.updateObject(23, -1);
+	        this.dataManager.set(MOTION_X_DIRECTION, -1);
         if(this.motionX > 0)
-        	this.dataWatcher.updateObject(23, 1);
+	        this.dataManager.set(MOTION_X_DIRECTION, 1);
         if(this.motionX == 0 && this.motionZ != 0)
-        	this.dataWatcher.updateObject(23, 0);
+	        this.dataManager.set(MOTION_X_DIRECTION, 0);
         if(this.motionZ < 0)
-        	this.dataWatcher.updateObject(24, -1);
+	        this.dataManager.set(MOTION_Z_DIRECTION, -1);
         if(this.motionZ > 0)
-        	this.dataWatcher.updateObject(24, 1);
+	        this.dataManager.set(MOTION_Z_DIRECTION, 1);
         if(this.motionZ == 0 && this.motionX != 0)
-        	this.dataWatcher.updateObject(24, 0);
+	        this.dataManager.set(MOTION_Z_DIRECTION, 0);
         //
 
         int i;
@@ -316,7 +315,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         if (!this.world.isRemote && this.world instanceof WorldServer)
         {
             this.world.profiler.startSection("portal");
-            MinecraftServer minecraftserver = ((WorldServer)this.world).func_73046_m();
+            MinecraftServer minecraftserver = ((WorldServer)this.world).getMinecraftServer();
             i = this.getMaxInPortalTime();
 
             if (this.inPortal)
@@ -338,7 +337,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
                             b0 = -1;
                         }
 
-                        this.travelToDimension(b0);
+                        this.changeDimension(b0);
                     }
 
                     this.inPortal = false;
@@ -395,7 +394,8 @@ public abstract class EntityMinecartModBase extends EntityMinecart
             i = MathHelper.floor(this.posY);
             int i1 = MathHelper.floor(this.posZ);
 
-            if (BlockRailBase.func_150049_b_(this.world, l, i - 1, i1))
+            BlockPos railPos = new BlockPos(l, i, i1);
+            if (BlockRailBase.isRailBlock(this.world, railPos.down()))
             {
                 --i;
             }
@@ -403,15 +403,16 @@ public abstract class EntityMinecartModBase extends EntityMinecart
             double d0 = 0.4D;
             Block block = com.hbm.world.WorldBlockState.read(this.world, l, i, i1).getBlock();
 
-            if (canUseRail() && BlockRailBase.func_150051_a(block))
+            if (canUseRail() && BlockRailBase.isRailBlock(com.hbm.world.WorldBlockState.read(this.world, l, i, i1)))
             {
-                float railMaxSpeed = ((BlockRailBase)block).getRailMaxSpeed(this.world, this, l, i, i1);
+                railPos = new BlockPos(l, i, i1);
+                float railMaxSpeed = ((BlockRailBase)block).getRailMaxSpeed(this.world, this, railPos);
                 double maxSpeed = Math.min(railMaxSpeed, getCurrentCartSpeedCapOnRail());
-                this.func_145821_a(l, i, i1, maxSpeed, getSlopeAdjustment(), block, ((BlockRailBase)block).getBasicRailMetadata(this.world, this, l, i, i1));
+                this.moveAlongTrack(railPos, com.hbm.world.WorldBlockState.read(this.world, l, i, i1));
 
                 if (block == Blocks.ACTIVATOR_RAIL)
                 {
-                    this.onActivatorRailPass(l, i, i1, (this.world.getBlockMetadata(l, i, i1) & 8) != 0);
+                    this.onActivatorRailPass(l, i, i1, (com.hbm.world.WorldBlockState.readMetadata(this.world, l, i, i1) & 8) != 0);
                 }
             }
             else
@@ -419,7 +420,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
                 this.func_94088_b(onGround ? d0 : getMaxSpeedAirLateral());
             }
 
-            this.func_145775_I();
+            this.doBlockCollisions();
             this.rotationPitch = 0.0F;
             double d8 = this.prevPosX - this.posX;
             double d4 = this.prevPosZ - this.posZ;
@@ -462,24 +463,19 @@ public abstract class EntityMinecartModBase extends EntityMinecart
                 {
                     Entity entity = (Entity)list.get(k);
 
-                    if (entity != this.riddenByEntity && entity.canBePushed() && entity instanceof EntityMinecart)
+                    if (!this.isPassenger(entity) && entity.canBePushed() && entity instanceof EntityMinecart)
                     {
                         entity.applyEntityCollision(this);
                     }
                 }
             }
 
-            if (this.isBeingRidden() && this.riddenByEntity.isDead)
+            if (this.isBeingRidden() && this.getPassengers().get(0).isDead)
             {
-                if (this.riddenByEntity.ridingEntity == this)
-                {
-                    this.riddenByEntity.ridingEntity = null;
-                }
-
-                this.riddenByEntity = null;
+                this.removePassengers();
             }
 
-            MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, l, i, i1));
+            MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, new BlockPos(l, i, i1)));
         }
     }
 
@@ -489,7 +485,6 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	public void onActivatorRailPass(int p_96095_1_, int p_96095_2_, int p_96095_3_, boolean p_96095_4_) {}
 
-    @Override
 	protected void func_94088_b(double p_94088_1_)
     {
         if (this.motionX < -p_94088_1_)
@@ -530,7 +525,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
             this.motionZ *= 0.5D;
         }
 
-        this.moveEntity(this.motionX, moveY, this.motionZ);
+        this.move(net.minecraft.entity.MoverType.SELF, this.motionX, moveY, this.motionZ);
 
         if (!this.onGround)
         {
@@ -541,21 +536,28 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     }
 
     @Override
-	protected void func_145821_a(int p_145821_1_, int p_145821_2_, int p_145821_3_, double p_145821_4_, double p_145821_6_, Block p_145821_8_, int p_145821_9_)
+    protected void moveAlongTrack(BlockPos railPos, IBlockState railState)
     {
+        int p_145821_1_ = railPos.getX();
+        int p_145821_2_ = railPos.getY();
+        int p_145821_3_ = railPos.getZ();
+        double p_145821_4_ = Math.min(((BlockRailBase)railState.getBlock()).getRailMaxSpeed(this.world, this, railPos), getCurrentCartSpeedCapOnRail());
+        double p_145821_6_ = getSlopeAdjustment();
+        Block p_145821_8_ = railState.getBlock();
+        int p_145821_9_ = ((BlockRailBase)p_145821_8_).getRailDirection(this.world, railPos, railState, this).getMetadata();
         this.fallDistance = 0.0F;
-        Vec3d vec3 = this.func_70489_a(this.posX, this.posY, this.posZ);
+        Vec3d vec3 = this.getPos(this.posX, this.posY, this.posZ);
         this.posY = p_145821_2_;
         boolean flag = false;
         boolean flag1 = false;
 
         if (p_145821_8_ == Blocks.GOLDEN_RAIL)
         {
-            flag = (this.world.getBlockMetadata(p_145821_1_, p_145821_2_, p_145821_3_) & 8) != 0;
+            flag = (com.hbm.world.WorldBlockState.readMetadata(this.world, p_145821_1_, p_145821_2_, p_145821_3_) & 8) != 0;
             flag1 = !flag;
         }
 
-        if (((BlockRailBase)p_145821_8_).isPowered())
+        if (p_145821_8_ == Blocks.GOLDEN_RAIL)
         {
             p_145821_9_ &= 7;
         }
@@ -611,14 +613,15 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         double d9;
         double d10;
 
-        if (this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase)
+        Entity rider = this.getControllingPassenger();
+        if (rider instanceof EntityLivingBase)
         {
-            d7 = ((EntityLivingBase)this.riddenByEntity).moveForward;
+            d7 = ((EntityLivingBase)rider).moveForward;
 
             if (d7 > 0.0D)
             {
-                d8 = -Math.sin(this.riddenByEntity.rotationYaw * (float)Math.PI / 180.0F);
-                d9 = Math.cos(this.riddenByEntity.rotationYaw * (float)Math.PI / 180.0F);
+                d8 = -Math.sin(rider.rotationYaw * (float)Math.PI / 180.0F);
+                d9 = Math.cos(rider.rotationYaw * (float)Math.PI / 180.0F);
                 d10 = this.motionX * this.motionX + this.motionZ * this.motionZ;
 
                 if (d10 < 0.01D)
@@ -677,9 +680,9 @@ public abstract class EntityMinecartModBase extends EntityMinecart
 
         this.posX = d8 + d2 * d7;
         this.posZ = d9 + d3 * d7;
-        this.setPosition(this.posX, this.posY + this.yOffset, this.posZ);
+        this.setPosition(this.posX, this.posY + this.getYOffset(), this.posZ);
 
-        moveMinecartOnRail(p_145821_1_, p_145821_2_, p_145821_3_, p_145821_4_);
+        moveMinecartOnRail(railPos);
 
         if (aint[0][1] != 0 && MathHelper.floor(this.posX) - p_145821_1_ == aint[0][0] && MathHelper.floor(this.posZ) - p_145821_3_ == aint[0][2])
         {
@@ -691,7 +694,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         }
 
         this.applyDrag();
-        Vec3d vec31 = this.func_70489_a(this.posX, this.posY, this.posZ);
+        Vec3d vec31 = this.getPos(this.posX, this.posY, this.posZ);
 
         if (vec31 != null && vec3 != null)
         {
@@ -719,7 +722,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
 
         if(shouldDoRailFunctions())
         {
-            ((BlockRailBase)p_145821_8_).onMinecartPass(this.world, this, p_145821_1_, p_145821_2_, p_145821_3_);
+            ((BlockRailBase)p_145821_8_).onMinecartPass(this.world, this, railPos);
         }
 
         if (flag && shouldDoRailFunctions())
@@ -774,33 +777,34 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         }
     }
 
-    @Override
+	@Override
 	@SideOnly(Side.CLIENT)
-    public Vec3d func_70495_a(double p_70495_1_, double p_70495_3_, double p_70495_5_, double p_70495_7_)
+    public Vec3d getPosOffset(double p_70495_1_, double p_70495_3_, double p_70495_5_, double p_70495_7_)
     {
-    	
+
     	//!!!DANGER!!!//
         //return null;
     	//!!!DANGER!!!//
-    	
+
         int i = MathHelper.floor(p_70495_1_);
         int j = MathHelper.floor(p_70495_3_);
         int k = MathHelper.floor(p_70495_5_);
 
-        if (BlockRailBase.func_150049_b_(this.world, i, j - 1, k))
+        if (BlockRailBase.isRailBlock(this.world, new BlockPos(i, j - 1, k)))
         {
             --j;
         }
 
         Block block = com.hbm.world.WorldBlockState.read(this.world, i, j, k).getBlock();
 
-        if (!BlockRailBase.func_150051_a(block))
+        if (!BlockRailBase.isRailBlock(com.hbm.world.WorldBlockState.read(this.world, i, j, k)))
         {
             return null;
         }
         else
         {
-            int l = ((BlockRailBase)block).getBasicRailMetadata(this.world, this, i, j, k);
+            BlockPos railPos = new BlockPos(i, j, k);
+            int l = ((BlockRailBase)block).getRailDirection(this.world, railPos, com.hbm.world.WorldBlockState.read(this.world, i, j, k), this).getMetadata();
 
             p_70495_3_ = j;
 
@@ -827,27 +831,28 @@ public abstract class EntityMinecartModBase extends EntityMinecart
                 p_70495_3_ += aint[1][1];
             }
 
-            return this.func_70489_a(p_70495_1_, p_70495_3_, p_70495_5_);
+            return this.getPos(p_70495_1_, p_70495_3_, p_70495_5_);
         }
     }
 
     @Override
-	public Vec3d func_70489_a(double p_70489_1_, double p_70489_3_, double p_70489_5_)
+    public Vec3d getPos(double p_70489_1_, double p_70489_3_, double p_70489_5_)
     {
         int i = MathHelper.floor(p_70489_1_);
         int j = MathHelper.floor(p_70489_3_);
         int k = MathHelper.floor(p_70489_5_);
 
-        if (BlockRailBase.func_150049_b_(this.world, i, j - 1, k))
+        if (BlockRailBase.isRailBlock(this.world, new BlockPos(i, j - 1, k)))
         {
             --j;
         }
 
         Block block = com.hbm.world.WorldBlockState.read(this.world, i, j, k).getBlock();
 
-        if (BlockRailBase.func_150051_a(block))
+        if (BlockRailBase.isRailBlock(com.hbm.world.WorldBlockState.read(this.world, i, j, k)))
         {
-            int l = ((BlockRailBase)block).getBasicRailMetadata(this.world, this, i, j, k);
+            BlockPos railPos = new BlockPos(i, j, k);
+            int l = ((BlockRailBase)block).getRailDirection(this.world, railPos, com.hbm.world.WorldBlockState.read(this.world, i, j, k), this).getMetadata();
             p_70489_3_ = j;
 
             if (l >= 2 && l <= 5)
@@ -945,7 +950,6 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         }
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
     public float getShadowSize()
     {
@@ -966,11 +970,11 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         }
         if (!this.world.isRemote)
         {
-            if (p_70108_1_ != this.riddenByEntity)
+            if (!this.isPassenger(p_70108_1_))
             {
                 if (p_70108_1_ instanceof EntityLivingBase && !(p_70108_1_ instanceof EntityPlayer) && !(p_70108_1_ instanceof EntityIronGolem) && canBeRidden()               && this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && !this.isBeingRidden() && p_70108_1_.getRidingEntity() == null)
                 {
-                    p_70108_1_.mountEntity(this);
+                    p_70108_1_.startRiding(this);
                 }
 
                 double d0 = p_70108_1_.posX - this.posX;
@@ -1056,9 +1060,8 @@ public abstract class EntityMinecartModBase extends EntityMinecart
      * Sets the position and rotation. Only difference from the other one is no bounding on the rotation. Args: posX,
      * posY, posZ, yaw, pitch
      */
-    @Override
 	@SideOnly(Side.CLIENT)
-    public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_)
+    public void setPositionAndRotationDirect(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_, boolean teleport)
     {
         this.minecartX = p_70056_1_;
         this.minecartY = p_70056_3_;
@@ -1078,7 +1081,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	public void setDamage(float p_70492_1_)
     {
-        this.dataWatcher.updateObject(19, Float.valueOf(p_70492_1_));
+        super.setDamage(p_70492_1_);
     }
 
     /**
@@ -1100,7 +1103,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	public float getDamage()
     {
-        return this.dataWatcher.getWatchableObjectFloat(19);
+        return super.getDamage();
     }
 
     /**
@@ -1109,7 +1112,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	public void setRollingAmplitude(int p_70497_1_)
     {
-        this.dataWatcher.updateObject(17, Integer.valueOf(p_70497_1_));
+        super.setRollingAmplitude(p_70497_1_);
     }
 
     /**
@@ -1118,7 +1121,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	public int getRollingAmplitude()
     {
-        return this.dataWatcher.getWatchableObjectInt(17);
+        return super.getRollingAmplitude();
     }
 
     /**
@@ -1127,7 +1130,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	public void setRollingDirection(int p_70494_1_)
     {
-        this.dataWatcher.updateObject(18, Integer.valueOf(p_70494_1_));
+        super.setRollingDirection(p_70494_1_);
     }
 
     /**
@@ -1136,13 +1139,14 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	public int getRollingDirection()
     {
-        return this.dataWatcher.getWatchableObjectInt(18);
+        return super.getRollingDirection();
     }
 
-    @Override
-	public abstract int getMinecartType();
+    public abstract int getMinecartType();
 
     @Override
+    public Type getType() { Type type = Type.getById(getMinecartType()); return type == null ? Type.RIDEABLE : type; }
+
 	public Block func_145820_n()
     {
         if (!this.hasDisplayTile())
@@ -1151,24 +1155,26 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         }
         else
         {
-            int i = this.getDataWatcher().getWatchableObjectInt(20) & 65535;
-            return Block.getBlockById(i);
+            return super.getDisplayTile().getBlock();
         }
     }
 
-    @Override
 	public Block func_145817_o()
     {
         return Blocks.AIR;
     }
 
     @Override
-	public int getDisplayTileData()
+    public IBlockState getDefaultDisplayTile()
     {
-        return !this.hasDisplayTile() ? this.getDefaultDisplayTileData() : this.getDataWatcher().getWatchableObjectInt(20) >> 16;
+        return this.func_145817_o().getDefaultState();
     }
 
-    @Override
+	public int getDisplayTileData()
+    {
+        return super.getDisplayTile().getBlock().getMetaFromState(super.getDisplayTile());
+    }
+
 	public int getDefaultDisplayTileData()
     {
         return 0;
@@ -1177,76 +1183,73 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	public int getDisplayTileOffset()
     {
-        return !this.hasDisplayTile() ? this.getDefaultDisplayTileOffset() : this.getDataWatcher().getWatchableObjectInt(21);
+        return super.getDisplayTileOffset();
     }
 
-    @Override
 	public int getDefaultDisplayTileOffset()
     {
         return 6;
     }
 
-    @Override
 	public void func_145819_k(int p_145819_1_)
     {
-        this.getDataWatcher().updateObject(20, Integer.valueOf(p_145819_1_ & 65535 | this.getDisplayTileData() << 16));
-        this.setHasDisplayTile(true);
+        Block block = Block.getBlockById(p_145819_1_ & 65535);
+        this.setDisplayTile(block.getStateFromMeta(this.getDisplayTileData()));
     }
 
-    @Override
 	public void setDisplayTileData(int p_94092_1_)
     {
-        this.getDataWatcher().updateObject(20, Integer.valueOf(Block.getIdFromBlock(this.func_145820_n()) & 65535 | p_94092_1_ << 16));
-        this.setHasDisplayTile(true);
+        this.setDisplayTile(this.func_145820_n().getStateFromMeta(p_94092_1_));
     }
 
     @Override
 	public void setDisplayTileOffset(int p_94086_1_)
     {
-        this.getDataWatcher().updateObject(21, Integer.valueOf(p_94086_1_));
-        this.setHasDisplayTile(true);
+        super.setDisplayTileOffset(p_94086_1_);
     }
 
     @Override
 	public boolean hasDisplayTile()
     {
-        return this.getDataWatcher().getWatchableObjectByte(22) == 1;
+        return super.hasDisplayTile();
     }
 
     @Override
 	public void setHasDisplayTile(boolean p_94096_1_)
     {
-        this.getDataWatcher().updateObject(22, Byte.valueOf((byte)(p_94096_1_ ? 1 : 0)));
+        super.setHasDisplayTile(p_94096_1_);
     }
 
     /**
      * Sets the minecart's name.
      */
-    @Override
 	public void setMinecartName(String p_96094_1_)
     {
         this.entityName = p_96094_1_;
+        this.setCustomNameTag(p_96094_1_);
     }
 
     /**
      * Gets the name of this command sender (usually username, but possibly "Rcon")
      */
-    @Override
 	public String getCommandSenderName()
     {
-        return this.entityName != null ? this.entityName : super.getCommandSenderName();
+        return this.entityName != null ? this.entityName : super.getName();
     }
 
     /**
      * Returns if the inventory is named
      */
-    @Override
-	public boolean hasCustomInventoryName()
+	public boolean hasCustomName()
     {
         return this.entityName != null;
     }
 
-    @Override
+	public boolean hasCustomInventoryName()
+    {
+        return hasCustomName();
+    }
+
 	public String func_95999_t()
     {
         return this.entityName;
@@ -1257,7 +1260,8 @@ public abstract class EntityMinecartModBase extends EntityMinecart
      * This code handles minecart movement and speed capping when on a rail.
      */
     @Override
-	public void moveMinecartOnRail(int x, int y, int z, double par4){
+    public void moveMinecartOnRail(BlockPos railPos){
+        double par4 = Math.min(((BlockRailBase)this.world.getBlockState(railPos).getBlock()).getRailMaxSpeed(this.world, this, railPos), getCurrentCartSpeedCapOnRail());
         double d12 = this.motionX;
         double d13 = this.motionZ;
 
@@ -1287,7 +1291,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
             d13 = par4;
         }
 
-        this.moveEntity(d12, 0.0D, d13);
+        this.move(net.minecraft.entity.MoverType.SELF, d12, 0.0D, d13);
     }
 
     /**
@@ -1318,7 +1322,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
      */
     @Override
 	public ItemStack getCartItem() {
-    
+
         return new ItemStack(Items.MINECART);
     }
 

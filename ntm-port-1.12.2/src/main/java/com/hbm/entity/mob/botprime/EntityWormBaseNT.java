@@ -83,19 +83,19 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		
-		if(this.isEntityInvulnerable() || source == DamageSource.drown || source == DamageSource.inWall || ((source.getTrueSource() instanceof EntityWormBaseNT) && ((EntityWormBaseNT) source.getTrueSource()).getHeadID() == this.getHeadID())) {
+
+		if(this.isEntityInvulnerable(null) || source == DamageSource.DROWN || source == DamageSource.IN_WALL || ((source.getTrueSource() instanceof EntityWormBaseNT) && ((EntityWormBaseNT) source.getTrueSource()).getHeadID() == this.getHeadID())) {
 			return false;
 		} else {
-			
-			this.setBeenAttacked();
-			
+
+			this.velocityChanged = true;
+
 			if(this.getIsHead()) {
 				return super.attackEntityFrom(source, amount);
 			}
-			
+
 			Entity head = this.targetedEntity;
-			
+
 			if(head != null) {
 				return head.attackEntityFrom(source, amount);
 			} else {
@@ -104,9 +104,15 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 		}
 	}
 
-	protected void updateEntityActionState() {
-		
-		if(!this.world.isRemote && this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		if(!this.world.isRemote) this.updateEntityActionStateNT();
+	}
+
+	protected void updateEntityActionStateNT() {
+
+		if(!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
 			setDead();
 		}
 		if((this.targetedEntity != null) && (this.targetedEntity.isDead)) {
@@ -117,14 +123,14 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 		} else if(this.posY < 3.0D) {
 			this.motionY = 0.3D;
 		}
-		
+
 		if(this.ticksExisted % 5 == 0) {
 			attackEntitiesInList(this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(0.5D, 0.5D, 0.5D)));
 		}
 	}
 
 	protected void attackEntitiesInList(List<Entity> targets) {
-		
+
 		for(Entity target : targets) {
 			if((target instanceof EntityLivingBase) && canAttackClass(target.getClass()) && (!(target instanceof EntityWormBaseNT) || ((EntityWormBaseNT) target).getHeadID() != this.getHeadID())) {
 				attackEntityAsMob(target);
@@ -139,11 +145,11 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 
 	@Override
 	public boolean attackEntityAsMob(Entity target) {
-		
+
 		boolean var2 = target.attackEntityFrom(DamageSource.causeMobDamage(this), getAttackStrength(target));
-		
+
 		if(var2) {
-			this.entityAge = 0;
+
 			double tx = (this.getEntityBoundingBox().minX + this.getEntityBoundingBox().maxX) / 2.0D;
 			double tz = (this.getEntityBoundingBox().minZ + this.getEntityBoundingBox().maxZ) / 2.0D;
 			double ty = (this.getEntityBoundingBox().minY + this.getEntityBoundingBox().maxY) / 2.0D;
@@ -153,7 +159,7 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 			double knockback = this.knockbackDivider * (deltaX * deltaX + deltaZ * deltaZ + deltaY * deltaY + 0.1D);
 			target.addVelocity(deltaX / knockback, deltaY / knockback, deltaZ / knockback);
 		}
-		
+
 		return var2;
 	}
 
@@ -191,19 +197,19 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 	}
 
 	protected void updateMovement() {
-		
+
 		double targetingRange = 128.0D;
-		
-		if(this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < targetingRange * targetingRange) {
+
+		if(this.targetedEntity != null && this.targetedEntity.getDistanceSq(this) < targetingRange * targetingRange) {
 			this.waypointX = this.targetedEntity.posX;
 			this.waypointY = this.targetedEntity.posY;
 			this.waypointZ = this.targetedEntity.posZ;
 		}
-		
+
 		if((this.ticksExisted % 60 == 0 || this.ticksExisted == 1) && (this.targetedEntity == null || this.followed == null)) {
-			findEntityToFollow(this.world.getEntitiesWithinAABB(EntityLiving.class, this.getEntityBoundingBox().grow(this.rangeForParts, this.rangeForParts, this.rangeForParts), EntityWormBaseNT.wormSelector));
+			findEntityToFollow(this.world.getEntitiesWithinAABB(EntityWormBaseNT.class, this.getEntityBoundingBox().grow(this.rangeForParts, this.rangeForParts, this.rangeForParts), EntityWormBaseNT.wormSelector));
 		}
-		
+
 		double deltaX = this.waypointX - this.posX;
 		double deltaY = this.waypointY - this.posY;
 		double deltaZ = this.waypointZ - this.posZ;
@@ -212,9 +218,9 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 		if(this.targetedEntity != null) {
 			this.faceEntity(this.targetedEntity, 180.0F, 180.0F);
 		}
-		
+
 		double speed = Math.max(0.0D, Math.min(deltaDist - this.segmentDistance, this.maxBodySpeed));
-		
+
 		if(deltaDist < this.segmentDistance * 0.895D) {
 			this.motionX *= 0.8D;
 			this.motionY *= 0.8D;
@@ -227,17 +233,17 @@ public abstract class EntityWormBaseNT extends EntityBurrowingNT {
 	}
 
 	protected void findEntityToFollow(List<EntityWormBaseNT> segments) {
-		
+
 		for(EntityWormBaseNT segment : segments) {
-			
+
 			if(segment.getHeadID() == this.getHeadID()) {
-				
+
 				if(segment.getIsHead()) {
 					if(this.getPartNumber() == 0) {
 						this.targetedEntity = ((Entity) segment);
 					}
 					this.followed = ((EntityLivingBase) segment);
-					
+
 				} else if(segment.getPartNumber() == this.getPartNumber() - 1) {
 					this.targetedEntity = ((Entity) segment);
 				}

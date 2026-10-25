@@ -62,7 +62,7 @@ public class ItemModTesla extends ItemArmorMod {
 		}
 		
 		RenderPlayer renderer = event.getRenderer();
-		ModelBiped model = renderer.modelArmor;
+		ModelBiped model = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel());
 		EntityPlayer player = event.getEntityPlayer();
 		//EntityPlayer me = Minecraft.getMinecraft().thePlayer;
 

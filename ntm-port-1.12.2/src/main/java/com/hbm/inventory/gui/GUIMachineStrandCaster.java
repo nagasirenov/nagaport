@@ -44,7 +44,7 @@ public class GUIMachineStrandCaster extends GuiInfoContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		String name = this.caster.hasCustomInventoryName() ? this.caster.getInventoryName() : I18n.format(this.caster.getInventoryName());
+		String name = this.caster.hasCustomName() ? this.caster.getName() : I18n.format(this.caster.getName());
 
 		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 4, 0xffffff);
 		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);

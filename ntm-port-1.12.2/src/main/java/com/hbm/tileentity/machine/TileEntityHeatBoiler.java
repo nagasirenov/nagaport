@@ -77,7 +77,7 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 				this.tryPullHeat();
 				int lastHeat = this.heat;
 
-				int light = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				int light = this.world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 				if(light > 7 && TomSaveData.forWorld(this.world).fire > 1e-5) {
 					this.heat += ((maxHeat - heat) * 0.000005D); //constantly heat up 0.0005% of the remaining heat buffer for rampant but diminishing heating
 				}
@@ -321,7 +321,7 @@ public class TileEntityHeatBoiler extends TileEntityLoadedBase implements IBufPa
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

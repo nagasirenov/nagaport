@@ -11,12 +11,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class ContainerMachineRotaryFurnace extends Container {
-	
+
 	private TileEntityMachineRotaryFurnace furnace;
 
 	public ContainerMachineRotaryFurnace(InventoryPlayer invPlayer, TileEntityMachineRotaryFurnace tile) {
 		furnace = tile;
-		
+
 		//Inputs
 		this.addSlotToContainer(new Slot(tile, 0, 8, 18));
 		this.addSlotToContainer(new Slot(tile, 1, 26, 18));
@@ -58,7 +58,7 @@ public class ContainerMachineRotaryFurnace extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

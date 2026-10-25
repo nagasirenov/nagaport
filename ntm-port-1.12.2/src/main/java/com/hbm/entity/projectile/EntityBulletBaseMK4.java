@@ -154,7 +154,7 @@ public class EntityBulletBaseMK4 extends EntityThrowableInterp implements IEntit
 			this.motionY = newVec.y;
 			this.motionZ = newVec.z;
 			EntityTrackerEntry entry = TrackerUtil.getTrackerEntry((WorldServer) this.world, this.getEntityId());
-			entry.lastYaw = MathHelper.floor(this.rotationYaw * 256.0F / 360.0F) + 10; //force-trigger rotation update
+			net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.entity.EntityTrackerEntry.class, entry, MathHelper.floor(this.rotationYaw * 256.0F / 360.0F) + 10, "field_73127_g", "encodedRotationYaw"); //force-trigger rotation update
 		}
 		
 		this.prevVelocity = this.velocity;

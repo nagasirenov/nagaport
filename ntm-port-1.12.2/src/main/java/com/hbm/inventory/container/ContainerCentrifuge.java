@@ -49,29 +49,29 @@ public class ContainerCentrifuge extends Container {
 		if(slot != null && slot.getHasStack()) {
 			ItemStack stack = slot.getStack();
 			rStack = stack.copy();
-			
-			
+
+
 			if(index <= 7) {
 				if(!this.mergeItemStack(stack, 8, this.inventorySlots.size(), true)) {
 					return null;
 				}
-				
+
 				slot.onSlotChange(stack, rStack);
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 1, 2, false))
 						return null;
-					
+
 				} else if(rStack.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(stack, 6, 8, false))
 						return null;
-					
+
 				} else if(!this.mergeItemStack(stack, 0, 1, false))
 					return null;
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

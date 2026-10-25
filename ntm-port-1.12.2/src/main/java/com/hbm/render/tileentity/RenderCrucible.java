@@ -86,7 +86,7 @@ public class RenderCrucible extends TileEntitySpecialRenderer implements ITileAc
 		int x = data.getInteger("x");
 		int y = data.getInteger("y");
 		int z = data.getInteger("z");
-		render(world.getTileEntity(x, y, z), x, y, z, interp, -1, 1.0F);
+		render(world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)), x, y, z, interp, -1, 1.0F);
 	}
 
 	@Override

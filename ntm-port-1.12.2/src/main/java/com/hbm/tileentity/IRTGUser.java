@@ -20,17 +20,17 @@ public interface IRTGUser
 	public int getHeat();
 	/** Item class that only works in the machine, simply return {@link#IRadioisotopeFuel} to accept all **/
 	public Class<? extends IRadioisotopeFuel> getDesiredClass();
-	
+
 	public default boolean isItemValid(Item itemIn)
 	{
 		return itemIn instanceof IRadioisotopeFuel && getDesiredClass().isAssignableFrom(itemIn.getClass());
 	}
-	
+
 	public static short getPower(IRadioisotopeFuel fuel, ItemStack stack)
 	{
 		return VersatileConfig.scaleRTGPower() ? IRadioisotopeFuel.getScaledPower(fuel, stack) : fuel.getHeat();
 	}
-	
+
 	/**
 	 * Update all of the RTG pellets in a section of a machine
 	 * @param inventory - Total inventory
@@ -38,21 +38,21 @@ public interface IRTGUser
 	 * @return The total heat level
 	 */
 	default int updateRTGs(ItemStack[] inventory, int[] rtgIn) {
-		
+
 		int newHeat = 0;
 		for(int slot : rtgIn) {
-			
+
 			if(inventory[slot] == null)
 				continue;
-			
+
 			if(!isItemValid(inventory[slot].getItem()))
 				continue;
-			
+
 			final IRadioisotopeFuel pellet = (IRadioisotopeFuel) inventory[slot].getItem();
 			newHeat += getPower(pellet, inventory[slot]);
 			inventory[slot] = IRadioisotopeFuel.handleDecay(inventory[slot], pellet);
 		}
-		
+
 		return newHeat;
 	}
 	/**
@@ -85,7 +85,7 @@ public interface IRTGUser
 	default int updateRTGs(ArrayList<ItemStack> rtgList)
 	{
 		int newHeat = 0;
-		
+
 		for (ItemStack pellet : rtgList)
 		{
 			final IRadioisotopeFuel fuel = (IRadioisotopeFuel) pellet.getItem();
@@ -98,7 +98,7 @@ public interface IRTGUser
 					fuel.decay(pellet);
 			}
 		}
-		
+
 		return newHeat;
 	}
 	/**
@@ -112,7 +112,7 @@ public interface IRTGUser
 	default int updateRTGs(ArrayList<ItemStack> rtgList, ArrayList<ItemStack> deplList)
 	{
 		int newHeat = 0;
-		
+
 		for (ItemStack pellet : rtgList)
 		{
 			final IRadioisotopeFuel fuel = (IRadioisotopeFuel) pellet.getItem();
@@ -126,26 +126,26 @@ public interface IRTGUser
 					final ItemStack decayItem = fuel.getDecayItem();
 					for (int i = 0; i < deplList.size(); i++)
 					{
-						if (deplList.get(i).getItem() == decayItem.getItem() && deplList.get(i).getItemDamage() == decayItem.getItemDamage() && deplList.get(i).stackSize + decayItem.stackSize <= decayItem.getMaxStackSize())
+						if (deplList.get(i).getItem() == decayItem.getItem() && deplList.get(i).getItemDamage() == decayItem.getItemDamage() && deplList.get(i).getCount() + decayItem.getCount() <= decayItem.getMaxStackSize())
 							alreadyExists = true;
-						else if (deplList.get(i).stackSize + decayItem.stackSize > decayItem.getMaxStackSize())
+						else if (deplList.get(i).getCount() + decayItem.getCount() > decayItem.getMaxStackSize())
 							continue;
-						
+
 						if (alreadyExists)
 							break;
 					}
 					if (alreadyExists)
 					{
 						for (int i = 0; i < deplList.size(); i++)
-							if (deplList.get(i).getItem() == decayItem.getItem() && deplList.get(i).getItemDamage() == decayItem.getItemDamage() && deplList.get(i).stackSize + decayItem.stackSize <= decayItem.getMaxStackSize())
-								deplList.get(i).stackSize += decayItem.stackSize;
+							if (deplList.get(i).getItem() == decayItem.getItem() && deplList.get(i).getItemDamage() == decayItem.getItemDamage() && deplList.get(i).getCount() + decayItem.getCount() <= decayItem.getMaxStackSize())
+								deplList.get(i).grow(decayItem.getCount());
 					}
 					else
 						deplList.add(fuel.getDecayItem());
 				}
 			}
 		}
-		
+
 		return newHeat;
 	}
 	@Untested
@@ -153,17 +153,17 @@ public interface IRTGUser
 	default int updateRTGs(ItemStack[] inventory, HashMap<Item, IRadioisotopeFuel> fuelMap)
 	{
 		int newHeat = 0;
-		
+
 		for (int slot = 0; slot < inventory.length; slot++)
 		{
 			if (inventory[slot] == null || IRadioisotopeFuel.getInstance(inventory[slot]) == null || !fuelMap.containsKey(inventory[slot].getItem()))
 				continue;
-			
+
 			final IRadioisotopeFuel fuel = IRadioisotopeFuel.getInstance(inventory[slot]);
 			newHeat += getPower(fuel, inventory[slot]);
 			inventory[slot] = IRadioisotopeFuel.handleDecay(inventory[slot], fuel);
 		}
-		
+
 		return newHeat;
 	}
 }

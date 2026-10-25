@@ -20,6 +20,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class DesertAtom001 extends WorldGenerator
 {
+
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
 	Block Block2 = ModBlocks.yellow_barrel;
 	Block Block3 = ModBlocks.reinforced_sand;
 	Block Block4 = ModBlocks.crashed_balefire;
@@ -68,7 +72,6 @@ public class DesertAtom001 extends WorldGenerator
 		return false;
 	}
 
-	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z)
 	{
 		int i = rand.nextInt(1);

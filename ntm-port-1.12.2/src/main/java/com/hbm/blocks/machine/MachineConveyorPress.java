@@ -48,7 +48,10 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else {
@@ -68,10 +71,10 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemStamp && press.slots[0] == null) {
 				press.slots[0] = com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy();
 				press.slots[0].setCount(1);
-				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
-				world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
+				world.playSound(null, x + 0.5, y + 0.5, z + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 				press.markChanged();
-				world.markBlockForUpdate(x, y, z);
+				com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 				return true;
 			}
 		}
@@ -99,7 +102,7 @@ public class MachineConveyorPress extends BlockDummyable implements IConveyorBel
 		if(press.slots[0] == null) return false;
 
 		if(!player.inventory.addItemStackToInventory(press.slots[0].copy())) {
-			EntityItem item = new EntityItem(world, x + 0.5, y + this.maxY, z + 0.5, press.slots[0].copy());
+			EntityItem item = new EntityItem(world, x + 0.5, y + 1.0, z + 0.5, press.slots[0].copy());
 			world.spawnEntity(item);
 		} else {
 			player.inventoryContainer.detectAndSendChanges();

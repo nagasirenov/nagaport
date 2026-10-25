@@ -26,16 +26,16 @@ public class EntityGrenadeIFHopwire extends EntityGrenadeBouncyBase {
 
     @Override
     public void explode() {
-    	
+
         if (!this.world.isRemote)
         {
             this.setDead();
-    		
-    		EntityVortex vortex = new EntityVortex(this.world, 0.75F);
-    		vortex.posX = posX;
-    		vortex.posY = posY;
-    		vortex.posZ = posZ;
-    		this.world.spawnEntityInWorld(vortex);
+
+			EntityVortex vortex = new EntityVortex(this.world, 0.75F);
+			vortex.posX = posX;
+			vortex.posY = posY;
+			vortex.posZ = posZ;
+			this.world.spawnEntity(vortex);
         }
     }
 

@@ -97,7 +97,7 @@ public class TileEntityMachineArcFurnaceLarge extends TileEntityMachineBase impl
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && stack.getItem() instanceof ItemMachineUpgrade && i == 4) {
-			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 		}
 	}
 
@@ -266,17 +266,17 @@ public class TileEntityMachineArcFurnaceLarge extends TileEntityMachineBase impl
 			ArcFurnaceRecipe recipe = ArcFurnaceRecipes.getOutput(slots[q], this.liquidMode);
 			if(recipe == null) continue;
 			int max = this.getMaxInputSize();
-			int recipeMax = this.liquidMode ? max : slots[q].getMaxStackSize() / recipe.solidOutput.stackSize;
+			int recipeMax = this.liquidMode ? max : slots[q].getMaxStackSize() / recipe.solidOutput.getCount();
 			max = Math.min(max, recipeMax);
 
 			// add to existing stacks
 			for(int i /* ingredient */ = 5; i < 25; i++) {
 				if(slots[i] == null) continue;
 				if(!slots[q].isItemEqual(slots[i]) || !ItemStack.areItemStackTagsEqual(slots[q], slots[i])) continue;
-				int toMove = BobMathUtil.min(slots[i].getMaxStackSize() - slots[i].stackSize, slots[q].stackSize, max - slots[i].stackSize);
+				int toMove = BobMathUtil.min(slots[i].getMaxStackSize() - slots[i].getCount(), slots[q].getCount(), max - slots[i].getCount());
 				if(toMove > 0) {
 					this.decrStackSize(q, toMove);
-					slots[i].stackSize += toMove;
+					slots[i].grow(toMove);
 					markDirty = true;
 				}
 				if(slots[q] == null) break;
@@ -285,9 +285,9 @@ public class TileEntityMachineArcFurnaceLarge extends TileEntityMachineBase impl
 			// add to empty slot
 			if(slots[q] != null) for(int i /* ingredient */ = 5; i < 25; i++) {
 				if(slots[i] != null) continue;
-				int toMove = Math.min(max, slots[q].stackSize);
+				int toMove = Math.min(max, slots[q].getCount());
 				slots[i] = slots[q].copy();
-				slots[i].stackSize = toMove;
+				slots[i].setCount(toMove);
 				this.decrStackSize(q, toMove);
 				markDirty = true;
 				if(slots[q] == null) break;
@@ -320,14 +320,14 @@ public class TileEntityMachineArcFurnaceLarge extends TileEntityMachineBase impl
 			if(recipe == null) continue;
 
 			if(!liquidMode && recipe.solidOutput != null) {
-				int amount = slots[i].stackSize;
+				int amount = slots[i].getCount();
 				slots[i] = recipe.solidOutput.copy();
-				slots[i].stackSize *= amount;
+				slots[i].setCount(slots[i].getCount() * (amount));
 			}
 
 			if(liquidMode && recipe.fluidOutput != null) {
 
-				while(slots[i] != null && slots[i].stackSize > 0) {
+				while(slots[i] != null && slots[i].getCount() > 0) {
 					int liquid = this.getStackAmount(liquids);
 					int toAdd = this.getStackAmount(recipe.fluidOutput);
 
@@ -658,7 +658,7 @@ public class TileEntityMachineArcFurnaceLarge extends TileEntityMachineBase impl
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 3,
 					this.pos.getY(),
 					this.pos.getZ() - 3,

@@ -353,7 +353,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 
 		EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, bullet, baseDamage, bullet.spread, (float) rotationYaw, (float) rotationPitch);
 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, proj.rotationYaw, proj.rotationPitch);
-		this.world.spawnEntityInWorld(proj);
+		this.world.spawnEntity(proj);
 
 		if(usesCasings()) {
 			if(this.casingDelay() == 0) {
@@ -438,7 +438,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 
 		Vec3d pos = this.getTurretPos();
 		double range = this.getDecetorRange();
-		List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(pos.x, pos.y, pos.z, pos.x, pos.y, pos.z).expand(range, range, range));
+		List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.x, pos.y, pos.z, pos.x, pos.y, pos.z).expand(range, range, range));
 
 		Entity target = null;
 		double closest = range;
@@ -1007,8 +1007,8 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 
 	@Override
 	@Optional.Method(modid = "OpenComputers")
-	public boolean canConnectNode(ForgeDirection side) {
-		return side == ForgeDirection.DOWN;
+	public boolean canConnectNode(net.minecraft.util.EnumFacing side) {
+		return side == net.minecraft.util.EnumFacing.DOWN;
 	}
 
 	@Override

@@ -12,9 +12,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMixer extends Container {
-	
+
 	private TileEntityMachineMixer mixer;
-	
+
 	public ContainerMixer(InventoryPlayer player, TileEntityMachineMixer mixer) {
 		this.mixer = mixer;
 
@@ -53,7 +53,7 @@ public class ContainerMixer extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IBatteryItem) {
 					if(!this.mergeItemStack(var5, 0, 1, false)) {
 						return null;
@@ -73,7 +73,7 @@ public class ContainerMixer extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

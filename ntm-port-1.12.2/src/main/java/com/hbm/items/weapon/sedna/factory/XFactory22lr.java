@@ -69,7 +69,7 @@ public class XFactory22lr {
 				.anim(LAMBDA_STAR_F_ANIMS).orchestra(Orchestras.ORCHESTRA_STAR_F)
 				).setDefaultAmmo(EnumAmmo.P22_SP, 15).setNameMutator(LAMBDA_NAME_SILENCED)
 				.setTranslationKey("gun_star_f");
-		
+
 		ModItems.gun_star_f_akimbo = new ItemGunBaseNT(WeaponQuality.B_SIDE,
 				new GunConfig().dura(15 * 25).draw(15).inspect(38).crosshair(Crosshair.CIRCLE).smoke(LAMBDA_SMOKE)
 				.rec(new Receiver(0)
@@ -93,7 +93,7 @@ public class XFactory22lr {
 	}
 
 	public static Function<ItemStack, String> LAMBDA_NAME_SILENCED = (stack) -> {
-		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SILENCER)) return stack.getUnlocalizedName() + "_silenced";
+		if(XWeaponModManager.hasUpgrade(stack, 0, XWeaponModManager.ID_SILENCER)) return stack.getTranslationKey() + "_silenced";
 		return null;
 	};
 

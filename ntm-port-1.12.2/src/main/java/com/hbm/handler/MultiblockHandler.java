@@ -9,7 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class MultiblockHandler {
-	
+
 	public enum EnumDirection { North, East, South, West };
 	//                            2      5     3      4
 	//                           -z     +x    +z     -x
@@ -83,11 +83,11 @@ public class MultiblockHandler {
 	public static final int[] radGenDimensionWest  = new int[] { 1, 1, 2, 0, 1, 4 };
 	public static final int[] reactorSmallDimension  = new int[] { 0, 0, 2, 0, 0, 0 };
 	public static final int[] uf6Dimension  = new int[] { 0, 0, 1, 0, 0, 0 };
-	
+
 	//Approved!
 	public static boolean checkSpace(World world, int x, int y, int z, int[] i) {
 		boolean placable = true;
-		
+
 		for(int a = x - i[1]; a <= x + i[0]; a++) {
 			for(int b = y - i[3]; b <= y + i[2]; b++) {
 				for(int c = z - i[5]; c <= z + i[4]; c++) {
@@ -100,19 +100,19 @@ public class MultiblockHandler {
 				}
 			}
 		}
-		
+
 		return placable;
 	}
-	
+
 	public static boolean fillUp(World world, int x, int y, int z, int[] i, Block block) {
 		boolean placable = true;
-		
+
 		for(int a = x - i[1]; a <= x + i[0]; a++) {
 			for(int b = y - i[3]; b <= y + i[2]; b++) {
 				for(int c = z - i[5]; c <= z + i[4]; c++) {
 					if(!(a == x && b == y && c == z)) {
 						if(!world.isRemote)
-							world.setBlock(a, b, c, block);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, a, b, c, block);
 						TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(a, b, c));
 						if(te instanceof TileEntityDummy) {
 							TileEntityDummy dummy = (TileEntityDummy)te;
@@ -124,13 +124,13 @@ public class MultiblockHandler {
 				}
 			}
 		}
-		
+
 		return placable;
 	}
-	
+
 	public static boolean removeAll(World world, int x, int y, int z, int[] i) {
 		boolean placable = true;
-		
+
 		for(int a = x - i[1]; a <= x + i[0]; a++) {
 			for(int b = y - i[3]; b <= y + i[2]; b++) {
 				for(int c = z - i[5]; c <= z + i[4]; c++) {
@@ -143,7 +143,7 @@ public class MultiblockHandler {
 				}
 			}
 		}
-		
+
 		return placable;
 	}
 }

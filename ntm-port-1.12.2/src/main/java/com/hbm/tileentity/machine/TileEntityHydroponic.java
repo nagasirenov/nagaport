@@ -93,9 +93,9 @@ public class TileEntityHydroponic extends TileEntityMachineBase implements IGUIP
 			if(slots[1] != null) {
 				int strength = getFertilizerStrength(slots[1]);
 				if(strength > 0 && fertilizer <= maxFertilizer - strength) {
-					slots[1].stackSize--;
+					slots[1].shrink(1);
 					fertilizer += strength;
-					if(slots[1].stackSize <= 0) slots[1] = null;
+					if(slots[1].getCount() <= 0) slots[1] = null;
 					markDirty();
 				}
 			}
@@ -110,15 +110,15 @@ public class TileEntityHydroponic extends TileEntityMachineBase implements IGUIP
 
 				if(power >= 200) {
 					if(!lightsOn) {
-						this.world.setBlock(this.pos.getX() - rot.offsetX, this.pos.getY() + 2, this.pos.getZ() - rot.offsetZ, ModBlocks.dummy_beam, lMeta, 3);
-						this.world.setBlock(this.pos.getX() + rot.offsetX, this.pos.getY() + 2, this.pos.getZ() + rot.offsetZ, ModBlocks.dummy_beam, rMeta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX, this.pos.getY() + 2, this.pos.getZ() - rot.offsetZ, ModBlocks.dummy_beam, lMeta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + rot.offsetX, this.pos.getY() + 2, this.pos.getZ() + rot.offsetZ, ModBlocks.dummy_beam, rMeta, 3);
 
 						lightsOn = true;
 					}
 				} else {
 					if(lightsOn) {
-						this.world.setBlock(this.pos.getX() - rot.offsetX, this.pos.getY() + 2, this.pos.getZ() - rot.offsetZ, ModBlocks.hydrobay, lMeta, 3);
-						this.world.setBlock(this.pos.getX() + rot.offsetX, this.pos.getY() + 2, this.pos.getZ() + rot.offsetZ, ModBlocks.hydrobay, rMeta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - rot.offsetX, this.pos.getY() + 2, this.pos.getZ() - rot.offsetZ, ModBlocks.hydrobay, lMeta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + rot.offsetX, this.pos.getY() + 2, this.pos.getZ() + rot.offsetZ, ModBlocks.hydrobay, rMeta, 3);
 
 						lightsOn = false;
 					}
@@ -143,33 +143,35 @@ public class TileEntityHydroponic extends TileEntityMachineBase implements IGUIP
 						if(slots[0] == null || !(slots[0].getItem() instanceof IPlantable)) continue;
 
 						IPlantable plantable = (IPlantable) slots[0].getItem();
-						if(plantable.getPlantType(this.world, x, y, z) != EnumPlantType.Crop) continue;
+						if(plantable.getPlantType(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) != EnumPlantType.Crop) continue;
 
-						currentPlant = plantable.getPlant(this.world, x, y, z);
+						currentPlant = plantable.getPlant(this.world, new net.minecraft.util.math.BlockPos(x, y, z)).getBlock();
 						if(!(currentPlant instanceof IGrowable) || currentPlant instanceof BlockStem) continue;
 
 						if(currentPlant instanceof BlockCrop && !((BlockCrop) currentPlant).canHydro) continue;
 
-						this.world.setBlock(x, y, z, currentPlant);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, currentPlant);
 						prevMeta[i] = 0;
 
-						slots[0].stackSize--;
-						if(slots[0].stackSize <= 0) slots[0] = null;
+						slots[0].shrink(1);
+						if(slots[0].getCount() <= 0) slots[0] = null;
 
 						markDirty();
 					}
 
 					IGrowable currentGrowable = (IGrowable) currentPlant;
+					net.minecraft.util.math.BlockPos plantPos = new net.minecraft.util.math.BlockPos(x, y, z);
+					net.minecraft.block.state.IBlockState plantState = com.hbm.world.WorldBlockState.read(this.world, x, y, z);
 
 					// Increase growth speed by about x10
-					if(this.world.rand.nextInt(120) == 0) currentPlant.updateTick(this.world, x, y, z, this.world.rand);
+					if(this.world.rand.nextInt(120) == 0) currentPlant.updateTick(this.world, plantPos, plantState, this.world.rand);
 
 					boolean fullyGrown = false;
-					if(currentGrowable.func_149851_a(this.world, x, y, z, this.world.isRemote)) { // should consume bonemeal, if not, assume fully grown
+					if(currentGrowable.canGrow(this.world, plantPos, plantState, this.world.isRemote)) { // should consume bonemeal, if not, assume fully grown
 						if(fertilizer > 0 && this.world.rand.nextInt(60) == 0) {
-							if(currentGrowable.func_149852_a(this.world, this.world.rand, x, y, z)) { // does bonemeal apply
-								currentGrowable.func_149853_b(this.world, this.world.rand, x, y, z); // apply bonemeal
-								this.world.playAuxSFX(2005, x, y, z, 0);
+							if(currentGrowable.canUseBonemeal(this.world, this.world.rand, plantPos, plantState)) { // does bonemeal apply
+								currentGrowable.grow(this.world, this.world.rand, plantPos, plantState); // apply bonemeal
+								this.world.playEvent(2005, plantPos, 0);
 							}
 
 							// now consume the bonemeal
@@ -192,13 +194,13 @@ public class TileEntityHydroponic extends TileEntityMachineBase implements IGUIP
 
 					// after collecting produced O2, break any fully grown plants
 					// unless there is no space to collect the drops
-					if(fullyGrown && attemptHarvest(currentPlant.getDrops(this.world, x, y, z, newMeta, 0))) {
+					if(fullyGrown && attemptHarvest(new java.util.ArrayList<ItemStack>(com.hbm.world.WorldBlockState.getDrops(currentPlant, this.world, x, y, z, newMeta, 0)))) {
 						com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 						markDirty();
 					}
 				} else if(currentPlant instanceof IGrowable) {
 					// pause growth until sufficient CO2 added
-					this.world.setBlockMetadataWithNotify(x, y, z, prevMeta[i], 2);
+					com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(this.world, x, y, z, prevMeta[i], 2);
 				}
 			}
 
@@ -319,7 +321,7 @@ public class TileEntityHydroponic extends TileEntityMachineBase implements IGUIP
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 2,
 				this.pos.getY(),
 				this.pos.getZ() - 2,

@@ -99,13 +99,13 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 		seaBlock = Blocks.AIR;
 		seaLevel = 63;
 
-		NoiseGenerator[] noiseGens = { firstOrder, secondOrder, thirdOrder, perlin, heightOrder };
-		noiseGens = TerrainGen.getModdedNoiseGenerators(world, this.rand, noiseGens);
-		this.firstOrder = (NoiseGeneratorOctaves) noiseGens[0];
-		this.secondOrder = (NoiseGeneratorOctaves) noiseGens[1];
-		this.thirdOrder = (NoiseGeneratorOctaves) noiseGens[2];
-		this.perlin = (NoiseGeneratorPerlin) noiseGens[3];
-		this.heightOrder = (NoiseGeneratorOctaves) noiseGens[4];
+		net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextOverworld ctx = new net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextOverworld(firstOrder, secondOrder, thirdOrder, perlin, heightOrder, heightOrder, heightOrder);
+		ctx = TerrainGen.getModdedNoiseGenerators(world, this.rand, ctx);
+		this.firstOrder = ctx.getLPerlin1();
+		this.secondOrder = ctx.getLPerlin2();
+		this.thirdOrder = ctx.getPerlin();
+		this.perlin = ctx.getHeight();
+		this.heightOrder = ctx.getScale();
 	}
 
 	/**
@@ -271,7 +271,7 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 					double d9 = (thirdOrderBuffer[l] / 10.0D + 1.0D) / 2.0D;
 					//srry, there has to be a better way to smooth out things, we got the perlin tools to do so but i have no idea how to invoke those tools here.
 					//maybe sometime soon...?
-					double d10 = reclamp ? MathHelper.denormalizeClamp(d7, d8, d9) - d6 : d8 - d6;
+					double d10 = reclamp ? MathHelper.clampedLerp(d7, d8, d9) - d6 : d8 - d6;
 					if(j2 > 29) {
 						double d11 = (double) ((float) (j2 - 29) / 3.0F);
 						d10 = d10 * (1.0D - d11) + -10.0D * d11;
@@ -330,7 +330,7 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 	@Override
 	public void populate(int x, int z) {
 		BlockFalling.fallInstantly = true;
-		worldObj.provider.isHellWorld = false; // Prevent other mod world generators thinking this is hell (god damn it MCP)
+		((com.hbm.dim.WorldProviderCelestial) worldObj.provider).isHellWorld = false; // Prevent other mod world generators thinking this is hell (god damn it MCP)
 
 		int k = x * 16;
 		int l = z * 16;

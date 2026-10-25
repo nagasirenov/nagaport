@@ -26,6 +26,7 @@ import com.hbm.lib.ForgeDirection;
 import java.util.*;
 
 public class EntityFalloutRain extends EntityExplosionChunkloading {
+	private static final net.minecraft.network.datasync.DataParameter<Integer> SCALE = net.minecraft.network.datasync.EntityDataManager.createKey(EntityFalloutRain.class, net.minecraft.network.datasync.DataSerializers.VARINT);
 
 	private boolean firstTick = true; // Of course Vanilla has it private in Entity...
 	private boolean salted = false;
@@ -166,12 +167,12 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 			if(b.getDefaultState().getMaterial() == Material.AIR || b == ModBlocks.fallout) continue;
 
 			if(b == ModBlocks.volcano_core) {
-				this.world.setBlock(x, y, z, ModBlocks.volcano_rad_core, this.world.getBlockMetadata(x, y, z), 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.volcano_rad_core, com.hbm.world.WorldBlockState.readMetadata(this.world, x, y, z), 3);
 				continue;
 			}
 
 			Block ab = com.hbm.world.WorldBlockState.read(this.world, x, y + 1, z).getBlock();
-			int meta = this.world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.readMetadata(this.world, x, y, z);
 
 			if(depth == 0 && b != ModBlocks.fallout && (ab == Blocks.AIR || (ab.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y + 1, z)) && !ab.getDefaultState().getMaterial().isLiquid()))) {
 
@@ -192,7 +193,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 			}
 
 			if(dist < 65 && com.hbm.lib.FacingCompat.isFlammable(b, this.world, x, y, z, ForgeDirection.UP)) {
-				if(rand.nextInt(5) == 0 && com.hbm.world.WorldBlockState.read(this.world, x, y + 1, z).getBlock().isAir(this.world, x, y + 1, z))
+				if(rand.nextInt(5) == 0 && com.hbm.world.WorldBlockState.isAir(this.world, x, y + 1, z))
 					setBlock(x, y + 1, z, Blocks.FIRE);
 			}
 
@@ -209,17 +210,17 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 				}
 			}
 
-			float hardness = b.getBlockHardness(this.world, x, y, z);
-			if(y > 0 && dist < 65 && hardness <= Blocks.STONEBRICK.getExplosionResistance(null) && hardness >= 0/* && !b.hasTileEntity(worldObj.getBlockMetadata(x, y, z))*/ && !(b instanceof BlockDummyable)) {
+			float hardness = com.hbm.world.WorldBlockState.getBlockHardness(this.world, x, y, z);
+			if(y > 0 && dist < 65 && hardness <= Blocks.STONEBRICK.getExplosionResistance(null) && hardness >= 0/* && !b.hasTileEntity(com.hbm.world.WorldBlockState.readMetadata(worldObj, x, y, z))*/ && !(b instanceof BlockDummyable)) {
 
 				if(com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getBlock() == Blocks.AIR) {
 					for(int i = 0; i <= depth; i++) {
 						Block block = com.hbm.world.WorldBlockState.read(this.world, x, y + i, z).getBlock();
-						hardness = block.getBlockHardness(this.world, x, y + i, z);
+						hardness = com.hbm.world.WorldBlockState.getBlockHardness(this.world, x, y + i, z);
 						if(hardness <= Blocks.STONEBRICK.getExplosionResistance(null) && hardness >= 0) {
-							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(this.world, x + 0.5D, y + 0.5D + i, z + 0.5D, block, this.world.getBlockMetadata(x, y + i, z));
+							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(this.world, x + 0.5D, y + 0.5D + i, z + 0.5D, block, com.hbm.world.WorldBlockState.readMetadata(this.world, x, y + i, z));
 							entityfallingblock.canDrop = false; //turn off block drops because block dropping was coded by a mule with dementia
-							this.world.spawnEntityInWorld(entityfallingblock);
+							this.world.spawnEntity(entityfallingblock);
 						}
 					}
 				}
@@ -236,13 +237,13 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 	}
 
 	public void setBlock(int x, int y, int z, Block block, int meta) {
-		this.world.setBlock(x, y, z, block, meta, 3); //this was supposed to write the position to a list for a multi block update, but forge already has that built-in. whoops.
+		com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, block, meta, 3); //this was supposed to write the position to a list for a multi block update, but forge already has that built-in. whoops.
 	}
 
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(16, 0);
+		this.dataManager.register(SCALE, 0);
 	}
 
 	@Override
@@ -283,11 +284,11 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 	}
 
 	public void setScale(int i) {
-		this.dataWatcher.updateObject(16, i);
+		this.dataManager.set(SCALE, i);
 	}
 
 	public int getScale() {
-		int scale = this.dataWatcher.getWatchableObjectInt(16);
+		int scale = this.dataManager.get(SCALE);
 		return scale == 0 ? 1 : scale;
 	}
 	public void setSalted(boolean salt) {

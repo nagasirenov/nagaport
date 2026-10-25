@@ -52,7 +52,7 @@ public class SatCoordPacket implements IMessage {
 		@Override
 		public IMessage onMessage(SatCoordPacket m, MessageContext ctx) {
 
-			EntityPlayer p = ctx.getServerHandler().playerEntity;
+			EntityPlayer p = ctx.getServerHandler().player;
 
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(p) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(p).getItem() instanceof ItemSatInterface) {
 

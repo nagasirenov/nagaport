@@ -131,11 +131,11 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 					int meta = ForgeDirection.UP.ordinal();
 					for(int i = 1; i < targetHeight + 1; i++) {
 						if(this.pos.getY() + i > 255) break;
-						this.world.setBlock(this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.machine_rocket_assembly, meta, 3);
-						this.world.setBlock(this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4, ModBlocks.machine_rocket_assembly, meta, 3);
-						this.world.setBlock(this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4, ModBlocks.machine_rocket_assembly, meta, 3);
-						this.world.setBlock(this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4, ModBlocks.machine_rocket_assembly, meta, 3);
-						this.world.setBlock(this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4, ModBlocks.machine_rocket_assembly, meta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ(), ModBlocks.machine_rocket_assembly, meta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() - 4, ModBlocks.machine_rocket_assembly, meta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() - 4, ModBlocks.machine_rocket_assembly, meta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() - 4, this.pos.getY() + i, this.pos.getZ() + 4, ModBlocks.machine_rocket_assembly, meta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + 4, this.pos.getY() + i, this.pos.getZ() + 4, ModBlocks.machine_rocket_assembly, meta, 3);
 					}
 
 					for(int i = targetHeight + 1; i < 256 && com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + i, this.pos.getZ()).getBlock() == ModBlocks.machine_rocket_assembly; i++) {
@@ -191,7 +191,7 @@ public class TileEntityMachineRocketAssembly extends TileEntityMachineBase imple
 					continue;
 				}
 
-				this.world.setBlock(this.pos.getX() + x, this.pos.getY() + height, this.pos.getZ() + z, ModBlocks.machine_rocket_assembly, meta, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + x, this.pos.getY() + height, this.pos.getZ() + z, ModBlocks.machine_rocket_assembly, meta, 3);
 			}
 		}
 	}

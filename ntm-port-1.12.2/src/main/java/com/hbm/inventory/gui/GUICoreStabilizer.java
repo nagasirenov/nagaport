@@ -52,7 +52,7 @@ public class GUICoreStabilizer extends GuiInfoContainer {
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 35, guiTop + 17, 16, 52, stabilizer.power, stabilizer.maxPower);
 	}
 	
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
     	super.mouseClicked(x, y, i);
         this.field.mouseClicked(x, y, i);
 
@@ -92,7 +92,7 @@ public class GUICoreStabilizer extends GuiInfoContainer {
         this.field.drawTextBox();
 	}
 	
-    protected void keyTyped(char p_73869_1_, int p_73869_2_)
+    protected void keyTyped(char p_73869_1_, int p_73869_2_) throws java.io.IOException
     {
         if (this.field.textboxKeyTyped(p_73869_1_, p_73869_2_)) { }
         else {

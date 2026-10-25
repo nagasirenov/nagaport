@@ -115,7 +115,7 @@ public class ArcFurnaceRecipes extends SerializableRecipe {
 	}
 	
 	public static void registerFurnaceSmeltables() {
-		for(Object o : FurnaceRecipes.smelting().getSmeltingList().entrySet()) {
+		for(Object o : FurnaceRecipes.instance().getSmeltingList().entrySet()) {
 			Entry entry = (Entry) o;
 			ItemStack input = (ItemStack) entry.getKey();
 			ItemStack output = (ItemStack) entry.getValue();

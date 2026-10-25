@@ -21,7 +21,6 @@ public class BlockPASource extends BlockDummyable implements ITooltipProvider {
 	public BlockPASource() {
 		super(Material.IRON);
 		this.setCreativeTab(MainRegistry.machineTab);
-		this.setBlockTextureName(RefStrings.MODID + ":block_steel");
 	}
 
 	@Override

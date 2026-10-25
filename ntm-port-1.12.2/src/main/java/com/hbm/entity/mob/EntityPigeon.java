@@ -22,6 +22,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -61,12 +64,12 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 				Vec3d vec = new Vec3d(rand.nextGaussian(), rand.nextGaussian(), rand.nextGaussian()).normalize();
 
 				EntityItem feather = new EntityItem(this.world);
-				feather.setEntityItemStack(new ItemStack(Items.FEATHER));
+				feather.setItem(new ItemStack(Items.FEATHER));
 				feather.setPosition(posX + vec.x, posY + height / 2D + vec.y, posZ + vec.z);
 				feather.motionX = vec.x * 0.5;
 				feather.motionY = vec.y * 0.5;
 				feather.motionZ = vec.z * 0.5;
-				this.world.spawnEntityInWorld(feather);
+				this.world.spawnEntity(feather);
 			}
 
 			return true;
@@ -75,7 +78,9 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 		return super.attackEntityFrom(source, amount);
 	}
 
-	@Override
+	private static final DataParameter<Byte> STATE = EntityDataManager.createKey(EntityPigeon.class, DataSerializers.BYTE);
+	private static final DataParameter<Byte> FAT = EntityDataManager.createKey(EntityPigeon.class, DataSerializers.BYTE);
+
 	public boolean isAIEnabled() {
 		return true;
 	}
@@ -83,8 +88,8 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(12, Byte.valueOf((byte) 0));
-		this.dataWatcher.addObject(13, Byte.valueOf((byte) 0));
+		this.dataManager.register(STATE, Byte.valueOf((byte) 0));
+		this.dataManager.register(FAT, Byte.valueOf((byte) 0));
 	}
 
 	@Override
@@ -93,8 +98,8 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 	}
 
 	@Override
-	protected void func_145780_a(int x, int y, int z, Block block) {
-		this.playSound("mob.chicken.step", 0.15F, 1.0F);
+	protected void playStepSound(net.minecraft.util.math.BlockPos pos, Block blockIn) {
+		this.playSound(net.minecraft.init.SoundEvents.ENTITY_CHICKEN_STEP, 0.15F, 1.0F);
 	}
 
 	@Override
@@ -114,20 +119,20 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 
 	@Override
 	public int getFlyingState() {
-		return this.dataWatcher.getWatchableObjectByte(12);
+		return this.dataManager.get(STATE).byteValue();
 	}
 
 	@Override
 	public void setFlyingState(int state) {
-		this.dataWatcher.updateObject(12, (byte) state);
+		this.dataManager.set(STATE, Byte.valueOf((byte) state));
 	}
 
 	public boolean isFat() {
-		return this.dataWatcher.getWatchableObjectByte(13) == 1;
+		return this.dataManager.get(FAT).byteValue() == 1;
 	}
 
 	public void setFat(boolean fat) {
-		this.dataWatcher.updateObject(13, (byte) (fat ? 1 : 0));
+		this.dataManager.set(FAT, Byte.valueOf((byte) (fat ? 1 : 0)));
 	}
 
 	protected String getLivingSound() {
@@ -138,7 +143,13 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 		return null;
 	}
 
-	protected String getDeathSound() {
+	@Override
+	protected net.minecraft.util.SoundEvent getDeathSound() {
+		return null;
+	}
+
+	@Override
+	protected net.minecraft.util.SoundEvent getHurtSound(DamageSource damageSourceIn) {
 		return null;
 	}
 
@@ -147,7 +158,7 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 		super.updateAITasks();
 
 		if(this.getFlyingState() == this.STATE_FLYING) {
-			int height = this.world.getHeightValue((int) Math.floor(posX), (int) Math.floor(posZ));
+			int height = this.world.getHeight((int) Math.floor(posX), (int) Math.floor(posZ));
 
 			boolean ceil = posY - height > 10;
 
@@ -175,7 +186,7 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 				for(int i = 0; i < 25; i++) {
 
 					if(ItemFertilizer.fertilize(this.world, x, y - i, z, player, true)) {
-						this.world.playAuxSFX(2005, x, y - i, z, 0);
+						this.world.playEvent(2005, new net.minecraft.util.math.BlockPos(x, y - i, z), 0);
 						break;
 					}
 				}
@@ -221,6 +232,6 @@ public class EntityPigeon extends EntityCreature implements IFlyingCreature, IAn
 	@Override public boolean doesEntityNotTriggerPressurePlate() { return true; }
 	@Override protected boolean canTriggerWalking() { return false; }
 
-	@Override protected void fall(float p_70069_1_) { }
-	@Override protected void updateFallState(double p_70064_1_, boolean p_70064_3_) { }
+	@Override public void fall(float distance, float damageMultiplier) { }
+	@Override protected void updateFallState(double y, boolean onGroundIn, net.minecraft.block.state.IBlockState state, net.minecraft.util.math.BlockPos pos) { }
 }

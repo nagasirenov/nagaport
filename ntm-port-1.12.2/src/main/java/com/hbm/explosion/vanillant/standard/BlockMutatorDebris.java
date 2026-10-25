@@ -9,13 +9,13 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockMutatorDebris implements IBlockMutator {
-	
+
 	protected MetaBlock metaBlock;
-	
+
 	public BlockMutatorDebris(Block block) {
 		this(block, 0);
 	}
-	
+
 	public BlockMutatorDebris(Block block, int meta) {
 		this.metaBlock = new MetaBlock(block, meta);
 	}
@@ -29,7 +29,7 @@ public class BlockMutatorDebris implements IBlockMutator {
 			net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
 			Block b = nativeCubeState_b.getBlock();
 			if(b.isNormalCube(nativeCubeState_b) && (b != metaBlock.block || com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) ) != metaBlock.meta)) {
-				world.setBlock(x, y, z, metaBlock.block, metaBlock.meta, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, metaBlock.block, metaBlock.meta, 3);
 				return;
 			}
 		}

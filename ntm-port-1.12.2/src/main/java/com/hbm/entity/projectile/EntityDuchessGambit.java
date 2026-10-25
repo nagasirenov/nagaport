@@ -56,7 +56,7 @@ public class EntityDuchessGambit extends EntityThrowable {
 			com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:alarm.gambit", 10000.0F, 1F);
 			this.setDead();
 
-			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 5, posY - 2, posZ - 9, posX + 5, posY + 2, posZ + 9));
+			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(posX - 5, posY - 2, posZ - 9, posX + 5, posY + 2, posZ + 9));
 
 			for(Entity e : list) {
 				e.attackEntityFrom(ModDamageSource.boat, 1000);
@@ -69,7 +69,7 @@ public class EntityDuchessGambit extends EntityThrowable {
 				ExplosionLarge.explode(this.world, posX, posY, posZ + 3, 2, true, false, false);
 				ExplosionLarge.explode(this.world, posX, posY, posZ + 6, 2, true, false, false);
 
-				this.world.setBlock((int) (this.posX - 0.5), (int) (this.posY + 0.5), (int) (this.posZ - 0.5), ModBlocks.boat);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, (int) (this.posX - 0.5), (int) (this.posY + 0.5), (int) (this.posZ - 0.5), ModBlocks.boat);
 			}
 			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 3);
 			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 2.5);

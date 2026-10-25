@@ -40,7 +40,7 @@ public abstract class BiomeGenBaseLaythe extends BiomeGenBaseCelestial {
 	}
 
 	@Override
-	protected BiomeDecorator createBiomeDecorator() {
+	public BiomeDecorator createBiomeDecorator() {
 		BiomeDecoratorCelestial decorator = new BiomeDecoratorCelestial(Blocks.STONE);
 		decorator.waterPlantsPerChunk = 32;
 		decorator.generateLakes = false;

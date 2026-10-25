@@ -16,6 +16,8 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class BlockCybercrab extends BlockContainer {
+
+	protected IIcon blockIcon;
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
@@ -26,7 +28,6 @@ public class BlockCybercrab extends BlockContainer {
 		super(mat);
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":meteor_spawner_top");
@@ -39,7 +40,6 @@ public class BlockCybercrab extends BlockContainer {
 		return new TileEntityCyberCrab();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon);

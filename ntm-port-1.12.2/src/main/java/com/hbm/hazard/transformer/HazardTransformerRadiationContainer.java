@@ -41,7 +41,7 @@ public class HazardTransformerRadiationContainer extends HazardTransformerBase {
 			if(items != null)
 				for(ItemStack held : items)
 					if(held != null)
-						radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.stackSize;
+						radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.getCount();
 			// this indentation is killing me man
 		}
 
@@ -51,7 +51,7 @@ public class HazardTransformerRadiationContainer extends HazardTransformerBase {
 				ItemStack held = NullableInventoryStackNbt.read(stack.getTagCompound().getCompoundTag("slot" + i));
 
 				if(held != null) {
-					radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.stackSize;
+					radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.getCount();
 				}
 			}
 		}
@@ -63,7 +63,7 @@ public class HazardTransformerRadiationContainer extends HazardTransformerBase {
 
 			for(ItemStack held : fromNBT) {
 				if(held != null) {
-					radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.stackSize;
+					radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.getCount();
 				}
 			}
 
@@ -77,7 +77,7 @@ public class HazardTransformerRadiationContainer extends HazardTransformerBase {
 
 			for(ItemStack held : fromNBT) {
 				if(held != null) {
-					radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.stackSize;
+					radiation += HazardSystem.getHazardLevelFromStack(held, HazardRegistry.RADIATION) * held.getCount();
 				}
 			}
 

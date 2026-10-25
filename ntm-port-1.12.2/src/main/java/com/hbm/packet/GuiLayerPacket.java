@@ -38,7 +38,7 @@ public class GuiLayerPacket implements IMessage {
 			if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
 				return null;
 
-			EntityPlayerMP player = ctx.getServerHandler().playerEntity;
+			EntityPlayerMP player = ctx.getServerHandler().player;
 			if(player.openContainer != null) {
 				for(int i = 0; i < player.openContainer.inventorySlots.size(); i++) {
 					Slot slot = (Slot) player.openContainer.inventorySlots.get(i);

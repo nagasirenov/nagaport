@@ -15,6 +15,8 @@ import net.minecraft.item.ItemStack;
 import com.hbm.render.icon.IIcon;
 
 public class BlockGlyph extends Block {
+
+	protected IIcon blockIcon;
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon[] glyphIcons;
@@ -23,7 +25,6 @@ public class BlockGlyph extends Block {
 		super(material);
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":brick_jungle");
@@ -34,15 +35,15 @@ public class BlockGlyph extends Block {
 			this.glyphIcons[i] = iconRegister.registerIcon(RefStrings.MODID + ":brick_jungle_glyph_" + i);
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.blockIcon : (side == 0 ? this.blockIcon : (this.glyphIcons[metadata]));
 	}
 
 	@Override
-    public int damageDropped(int p_149692_1_)
+    public int damageDropped(net.minecraft.block.state.IBlockState state)
     {
+    	int p_149692_1_ = state.getBlock().getMetaFromState(state);
         return p_149692_1_;
     }
 	

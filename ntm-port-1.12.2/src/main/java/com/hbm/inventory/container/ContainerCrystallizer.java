@@ -62,25 +62,25 @@ public class ContainerCrystallizer extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 1, 2, false))
 						return null;
-					
+
 				} else if(rStack.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(stack, 7, 8, false))
 						return null;
-					
+
 				} else if(rStack.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(stack, 5, 7, false))
 						return null;
-					
+
 				} else
 					if(!this.mergeItemStack(stack, 0, 1, false))
 						return null;
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

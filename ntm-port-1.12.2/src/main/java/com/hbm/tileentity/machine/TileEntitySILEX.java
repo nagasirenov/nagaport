@@ -67,7 +67,7 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 
 			tank.setType(1, 1, slots);
 			tank.loadTank(2, 3, slots);
-			
+
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.UP);
 			this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() + dir.offsetX * 2, this.pos.getY() + 1, this.pos.getZ() + dir.offsetZ * 2, dir);
 			this.trySubscribe(tank.getTankType(), this.world, this.pos.getX() - dir.offsetX * 2, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 2, dir.getOpposite());
@@ -83,37 +83,37 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 			if(currentFill <= 0) {
 				current = null;
 			}
-			
+
 			this.networkPackNT(50);
 
 			this.mode = EnumWavelengths.NULL;
 		}
 	}
-	
+
 	@Override
 	public void serialize(ByteBuf buf) {
 		super.serialize(buf);
 		buf.writeInt(currentFill);
 		buf.writeInt(progress);
 		BufferUtil.writeString(buf, mode.toString());
-		
+
 		tank.serialize(buf);
-		
+
 		if(this.current != null) {
 			buf.writeInt(Item.getIdFromItem(this.current.item));
 			buf.writeInt(this.current.meta);
 		}
 	}
-	
+
 	@Override
 	public void deserialize(ByteBuf buf) {
 		super.deserialize(buf);
 		currentFill = buf.readInt();
 		progress = buf.readInt();
 		mode = EnumWavelengths.valueOf(BufferUtil.readString(buf));
-		
+
 		tank.deserialize(buf);
-		
+
 		if(currentFill > 0) {
 			current = new ComparableStack(Item.getItemById(buf.readInt()), 1, buf.readInt());
 		} else
@@ -170,7 +170,7 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 			}
 		} else {
 			ComparableStack direct = new ComparableStack(ModItems.fluid_icon, 1, tank.getTankType().getID());
-			
+
 			if(SILEXRecipes.getOutput(direct.toStack()) != null) {
 
 				if(currentFill == 0) {
@@ -234,16 +234,16 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 		if(progress >= processTime) {
 
 			currentFill -= recipe.fluidConsumed;
-			
+
 			int totalWeight = 0;
 			for(WeightedRandomObject weighted : recipe.outputs) totalWeight += weighted.itemWeight;
 			this.recipeIndex %= Math.max(totalWeight, 1);
-			
+
 			int weight = 0;
-			
+
 			for(WeightedRandomObject weighted : recipe.outputs) {
 				weight += weighted.itemWeight;
-				
+
 				if(this.recipeIndex < weight) {
 					slots[4] = weighted.asStack().copy();
 					break;
@@ -252,13 +252,13 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 
 			progress = 0;
 			this.markDirty();
-			
+
 			this.recipeIndex += PRIME;
 		}
 
 		return true;
 	}
-	
+
 	public static final int PRIME = 137;
 	public int recipeIndex = 0;
 
@@ -268,8 +268,8 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 
 			for(int i = 5; i < 11; i++) {
 
-				if(slots[i] != null && slots[i].stackSize < slots[i].getMaxStackSize() && InventoryUtil.doesStackDataMatch(slots[4], slots[i])) {
-					slots[i].stackSize++;
+				if(slots[i] != null && slots[i].getCount() < slots[i].getMaxStackSize() && InventoryUtil.doesStackDataMatch(slots[4], slots[i])) {
+					slots[i].grow(1);
 					this.decrStackSize(4, 1);
 					return;
 				}
@@ -337,7 +337,7 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
+		return new AxisAlignedBB(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
 	}
 
 	@Override

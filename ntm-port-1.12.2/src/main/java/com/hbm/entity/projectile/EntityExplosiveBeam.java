@@ -68,7 +68,6 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
         this.renderRangeWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
         this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
-        this.yOffset = 0.0F;
     }
 
     public EntityExplosiveBeam(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)
@@ -95,12 +94,11 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
             double d4 = d0 / d3;
             double d5 = d2 / d3;
             this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
-            this.yOffset = 0.0F;
             float f4 = (float)d3 * 0.2F;
             this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
         }
     }
-	
+
 	public EntityExplosiveBeam(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax, EntityGrenadeZOMG grenade) {
 		super(p_i1756_1_);
 		this.renderRangeWeight = 10.0D;
@@ -113,7 +111,6 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
 		this.posY -= 0.10000000149011612D;
 		this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
 		this.setPosition(this.posX, this.posY, this.posZ);
-		this.yOffset = 0.0F;
 		this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
@@ -134,7 +131,6 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
         this.posY -= 0.10000000149011612D;
         this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F;
         this.setPosition(this.posX, this.posY, this.posZ);
-        this.yOffset = 0.0F;
         this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
         this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
         this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
@@ -143,15 +139,15 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
 
     public EntityExplosiveBeam(World world, int x, int y, int z, double mx, double my, double mz, double grav) {
         super(world);
-    	this.posX = x + 0.5F;
-    	this.posY = y + 0.5F;
-    	this.posZ = z + 0.5F;
-    	
-    	this.motionX = mx;
-    	this.motionY = my;
-    	this.motionZ = mz;
-    	
-    	this.gravity = grav;
+		this.posX = x + 0.5F;
+		this.posY = y + 0.5F;
+		this.posZ = z + 0.5F;
+
+		this.motionX = mx;
+		this.motionY = my;
+		this.motionZ = mz;
+
+		this.gravity = grav;
     }
 
     @Override
@@ -191,7 +187,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
      */
     @Override
 	@SideOnly(Side.CLIENT)
-    public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_)
+    public void setPositionAndRotationDirect(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_, boolean teleport)
     {
         this.setPosition(p_70056_1_, p_70056_3_, p_70056_5_);
         this.setRotation(p_70056_7_, p_70056_8_);
@@ -228,9 +224,9 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
 	public void onUpdate()
     {
         super.onUpdate();
-        
+
         if(this.ticksExisted > 100)
-        	this.setDead();
+			this.setDead();
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
@@ -243,9 +239,9 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
 
         if (block.getDefaultState().getMaterial() != Material.AIR)
         {
-            block.setBlockBoundsBasedOnState(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f); 
-    		this.setDead();
-    		explode();
+            // block.setBlockBoundsBasedOnState(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f);
+			this.setDead();
+			explode();
         }
 
         if (this.arrowShake > 0)
@@ -267,7 +263,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
             }
 
             Entity entity = null;
-            List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
             int i;
             float f1;
@@ -303,7 +299,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
             if (movingobjectposition != null && movingobjectposition.entityHit != null && movingobjectposition.entityHit instanceof EntityPlayer)
             {
                 EntityPlayer entityplayer = (EntityPlayer)movingobjectposition.entityHit;
-                
+
                 if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer)this.shootingEntity).canAttackPlayer(entityplayer))
                 {
                     movingobjectposition = null;
@@ -322,7 +318,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
                     {
                         k += this.rand.nextInt(k / 2 + 2);
                     }
-                    
+
                     explode();
                 }
                 else
@@ -331,7 +327,7 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
                     this.field_145792_e = movingobjectposition.getBlockPos().getY();
                     this.field_145789_f = movingobjectposition.getBlockPos().getZ();
                     this.field_145790_g = com.hbm.world.WorldBlockState.read(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f).getBlock();
-                    this.inData = this.world.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+                    this.inData = com.hbm.world.WorldBlockState.readMetadata(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f);
                 }
             }
 
@@ -345,17 +341,17 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
 
             if (this.isInWater())
             {
-            	this.setDead();
-            	explode();
+				this.setDead();
+				explode();
             }
 
             if (this.isWet())
             {
                 this.extinguish();
             }
-            
+
             this.setPosition(this.posX, this.posY, this.posZ);
-            this.func_145775_I();
+            this.doBlockCollisions();
         }
     }
 
@@ -417,7 +413,6 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
         return false;
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
     public float getShadowSize()
     {
@@ -444,7 +439,6 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
     /**
      * If returns false, the item will not inflict any damage against entities.
      */
-    @Override
 	public boolean canAttackWithItem()
     {
         return false;
@@ -475,21 +469,21 @@ public class EntityExplosiveBeam extends Entity implements IProjectile
         byte b0 = this.dataManager.get(CRITICAL_FLAGS);
         return (b0 & 1) != 0;
     }
-    
+
     private void explode() {
-    	if(!this.world.isRemote) {
-    		EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, posX, posY, posZ, 10);
-    		if(!ex.isDead) {
+		if(!this.world.isRemote) {
+			EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, posX, posY, posZ, 10);
+			if(!ex.isDead) {
 				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "random.explode", 100.0f, this.world.rand.nextFloat() * 0.1F + 0.9F);
-				this.world.spawnEntityInWorld(ex);
-	
-	    		
-	    		EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(this.world, 10);
-	    		cloud.posX = this.posX;
-	    		cloud.posY = this.posY;
-	    		cloud.posZ = this.posZ;
-	    		this.world.spawnEntityInWorld(cloud);
-    		}
-    	}
+				this.world.spawnEntity(ex);
+
+
+				EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(this.world, 10);
+				cloud.posX = this.posX;
+				cloud.posY = this.posY;
+				cloud.posZ = this.posZ;
+				this.world.spawnEntity(cloud);
+			}
+		}
     }
 }

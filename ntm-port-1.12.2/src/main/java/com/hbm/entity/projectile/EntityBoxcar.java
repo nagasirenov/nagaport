@@ -60,14 +60,14 @@ public class EntityBoxcar extends EntityThrowable {
 			//ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 1.5);
 			//ExplosionLarge.spawnShock(worldObj, posX, posY + 1, posZ, 24, 1);
 
-			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 2, posY - 2, posZ - 2, posX + 2, posY + 2, posZ + 2));
+			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(posX - 2, posY - 2, posZ - 2, posX + 2, posY + 2, posZ + 2));
 
 			for(Entity e : list) {
 				e.attackEntityFrom(ModDamageSource.boxcar, 1000);
 			}
 
 			if(!this.world.isRemote)
-				this.world.setBlock((int) Math.floor(this.posX), (int) Math.floor(this.posY + 0.5), (int) Math.floor(this.posZ), ModBlocks.boxcar);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, (int) Math.floor(this.posX), (int) Math.floor(this.posY + 0.5), (int) Math.floor(this.posZ), ModBlocks.boxcar);
 		}
 	}
 

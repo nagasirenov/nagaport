@@ -53,7 +53,10 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(!CelestialBody.inOrbit(world)) return false;
 
 		int[] pos = this.findCore(world, x, y, z);
@@ -93,11 +96,11 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 				if(held != null) {
 					if(held.getItem() == ModItems.rocket_custom && ItemCustomRocket.hasFuel(held)) {
 						station.spawnRocket(held);
-						held.stackSize--;
+						held.shrink(1);
 					}
 					if(held.getItem() == ModItems.rp_capsule_20 || held.getItem() == ModItems.rp_pod_20) {
 						station.spawnRocket(ItemCustomRocket.build(new RocketStruct(held)));
-						held.stackSize--;
+						held.shrink(1);
 					}
 				}
 			}
@@ -218,9 +221,9 @@ public class BlockOrbitalStation extends BlockDummyable implements IBlockSealabl
 	}
 
 	@Override
-	public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest) {
+	public boolean removedByPlayer(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos pos, EntityPlayer player, boolean willHarvest) {
 		if(this == ModBlocks.orbital_station) return false; // block removal of main port
-		return super.removedByPlayer(world, player, x, y, z, willHarvest);
+		return super.removedByPlayer(state, world, pos, player, willHarvest);
 	}
 
 }

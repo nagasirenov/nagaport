@@ -8,22 +8,19 @@ import net.minecraftforge.fluids.Fluid;
 public class RadFluid extends Fluid {
 
 	public RadFluid() {
-		super("rad_lava_fluid");
+		super("rad_lava_fluid", new net.minecraft.util.ResourceLocation("hbm", "blocks/rad_lava_still"), new net.minecraft.util.ResourceLocation("hbm", "blocks/rad_lava_flowing"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon() {
 		return getStillIcon();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getStillIcon() {
 		return RadBlock.stillIconRad;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getFlowingIcon() {
 		return RadBlock.flowingIconRad;

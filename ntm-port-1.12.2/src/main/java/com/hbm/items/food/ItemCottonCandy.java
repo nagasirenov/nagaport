@@ -21,7 +21,7 @@ public class ItemCottonCandy extends ItemFood {
         {
             p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 15 * 20, 0));
             p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 5 * 20, 0));
-            p_77849_3_.addPotionEffect(new PotionEffect(Potion.weakness.id, 25 * 20, 2));
+            p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 25 * 20, 2));
             p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 25 * 20, 2));
             p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 4));
         }

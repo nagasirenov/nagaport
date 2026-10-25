@@ -14,7 +14,6 @@ public class ItemProduct extends ItemEnumMulti {
 		super(EnumProduct.class, true, false);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
 		

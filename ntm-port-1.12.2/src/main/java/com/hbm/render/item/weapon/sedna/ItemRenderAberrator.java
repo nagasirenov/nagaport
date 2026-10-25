@@ -14,9 +14,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import com.hbm.render.icon.IIcon;
 
 public class ItemRenderAberrator extends ItemRenderWeaponBase {
 
@@ -32,7 +30,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 	@Override
 	public void setupFirstPerson(ItemStack stack) {
 		GL11.glTranslated(0, 0, 1);
-		
+
 		float offset = 0.8F;
 		standardAimingTransform(stack,
 				-1.0F * offset, -1.25F * offset, 1.25F * offset,
@@ -59,23 +57,23 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		double[] sight = HbmAnimations.getRelevantTransformation("SIGHT");
 
 		GL11.glTranslated(0, rise[1], 0);
-		
+
 		GL11.glTranslated(0, 1, -2.25);
 		GL11.glRotated(equip[0], 1, 0, 0);
 		GL11.glTranslated(0, -1, 2.25);
-		
+
 		GL11.glTranslated(0, -1, -4);
 		GL11.glRotated(recoil[0], 1, 0, 0);
 		GL11.glTranslated(0, 1, 4);
-		
+
 		GL11.glTranslated(0, 1, 0);
 		GL11.glRotated(roll[2], 0, 0, 1);
 		GL11.glTranslated(0, -1, 0);
-		
+
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		
+
 		ResourceManager.aberrator.renderPart("Gun");
-		
+
 		GL11.glPushMatrix();
 		GL11.glTranslated(0, 2.4375, -1.9375);
 		GL11.glRotated(sight[0], 1, 0, 0);
@@ -85,11 +83,11 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 
 		GL11.glPushMatrix();
 		GL11.glTranslated(mag[0], mag[1], mag[2]);
-		
+
 		GL11.glTranslated(0, 1, 0);
 		GL11.glRotated(magroll[2], 0, 0, 1);
 		GL11.glTranslated(0, -1, 0);
-		
+
 		ResourceManager.aberrator.renderPart("Magazine");
 		GL11.glTranslated(bullet[0], bullet[1], bullet[2]);
 		ResourceManager.aberrator.renderPart("Bullet");
@@ -99,7 +97,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		GL11.glTranslated(0, 0, slide[2]);
 		ResourceManager.aberrator.renderPart("Slide");
 		GL11.glPopMatrix();
-		
+
 		GL11.glPushMatrix();
 		GL11.glTranslated(0, 1.25, -3.625);
 		GL11.glRotated(-45 + hammer[0], 1, 0, 0);
@@ -108,7 +106,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		GL11.glPopMatrix();
 
 		double smokeScale = 0.5;
-		
+
 		GL11.glPushMatrix();
 		GL11.glTranslated(0, 2, 4);
 		GL11.glRotated(recoil[0], -1, 0, 0);
@@ -117,7 +115,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		GL11.glScaled(smokeScale, smokeScale, smokeScale);
 		this.renderSmokeNodes(gun.getConfig(stack, 0).smokeNodes, 0.5D);
 		GL11.glPopMatrix();
-		
+
 		GL11.glShadeModel(GL11.GL_FLAT);
 
 		GL11.glPushMatrix();
@@ -127,15 +125,15 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		GL11.glScaled(0.75, 0.75, 0.75);
 		this.renderMuzzleFlash(gun.lastShot[0], 75, 7.5);
 		GL11.glPopMatrix();
-		
+
 		GL11.glPushMatrix();
 		GL11.glTranslated(0, 2, -1.5);
 		GL11.glScaled(0.5, 0.5, 0.5);
 		this.renderFireball(gun.lastShot[0]);
 		GL11.glPopMatrix();
 
-		Minecraft.getMinecraft().getTextureManager().bindTexture(Minecraft.getMinecraft().getTextureManager().getResourceLocation(Items.GOLDEN_SWORD.getSpriteNumber()));
-		IIcon icon = Items.GOLDEN_SWORD.getIconFromDamage(0);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(net.minecraft.client.renderer.texture.TextureMap.LOCATION_BLOCKS_TEXTURE);
+		net.minecraft.client.renderer.texture.TextureAtlasSprite icon = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("minecraft:items/golden_sword");
 
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -148,7 +146,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		GL11.glRotated(recoil[0], -1, 0, 0);
 		GL11.glRotated(equip[0], -1, 0, 0);
 		GL11.glRotated(System.currentTimeMillis() / 50D % 360D, 0, 0, 1);
-		
+
 		float aimingProgress = ItemGunBaseNT.prevAimingProgress + (ItemGunBaseNT.aimingProgress - ItemGunBaseNT.prevAimingProgress) * interp;
 		aimingProgress = Math.min(1F, aimingProgress * 2);
 
@@ -206,7 +204,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glAlphaFunc(GL11.GL_GREATER, 0F);
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		
+
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.aberrator_tex);
 		ResourceManager.aberrator.renderPart("Gun");
@@ -215,7 +213,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 		ResourceManager.aberrator.renderPart("Slide");
 		ResourceManager.aberrator.renderPart("Sight");
 		GL11.glShadeModel(GL11.GL_FLAT);
-		
+
 		if(isThirdPerson(context.transform)) {
 			EntityLivingBase ent = context.holder;
 			long shot;
@@ -228,7 +226,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 				shot = ItemRenderWeaponBase.flashMap.getOrDefault(ent, (long) -1);
 				if(shot < 0) return;
 			}
-			
+
 			GL11.glPushMatrix();
 			GL11.glTranslated(0, 2, 4);
 			GL11.glRotated(90, 0, 1, 0);
@@ -236,7 +234,7 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 			GL11.glScaled(0.75, 0.75, 0.75);
 			this.renderMuzzleFlash(shot, 75, 7.5);
 			GL11.glPopMatrix();
-			
+
 			GL11.glPushMatrix();
 			GL11.glTranslated(0, 2, -1.5);
 			GL11.glScaled(0.5, 0.5, 0.5);
@@ -244,39 +242,37 @@ public class ItemRenderAberrator extends ItemRenderWeaponBase {
 			GL11.glPopMatrix();
 		}
 	}
-	
+
 	public static void renderFireball(long lastShot) {
-		Tessellator tess = Tessellator.instance;
-		
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder buffer = tess.getBuffer();
+
 		int flash = 150;
-		
+
 		if(System.currentTimeMillis() - lastShot < flash) {
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 			GL11.glDisable(GL11.GL_CULL_FACE);
 			GL11.glPushMatrix();
-			
+
 			double fire = (System.currentTimeMillis() - lastShot) / (double) flash;
 			double height = 5 * fire;
 			double length = 10 * fire;
 			double offset = 1 * fire;
 			double lengthOffset = -1.125;
 			Minecraft.getMinecraft().getTextureManager().bindTexture(flash_plume);
-			tess.startDrawingQuads();
-			tess.setBrightness(240);
-			tess.setNormal(0F, 1F, 0F);
-			tess.setColorRGBA_F(1F, 1F, 1F, 1F);
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_LMAP_COLOR);
 
-			tess.addVertexWithUV(height, -offset, 0, 0, 1);
-			tess.addVertexWithUV(-height, -offset, 0, 1, 1);
-			tess.addVertexWithUV(-height, -offset + length, -lengthOffset, 1, 0);
-			tess.addVertexWithUV(height, -offset + length, -lengthOffset, 0 ,0);
+			buffer.pos(height, -offset, 0).tex(0, 1).lightmap(240, 240).color(255, 255, 255, 255).endVertex();
+			buffer.pos(-height, -offset, 0).tex(1, 1).lightmap(240, 240).color(255, 255, 255, 255).endVertex();
+			buffer.pos(-height, -offset + length, -lengthOffset).tex(1, 0).lightmap(240, 240).color(255, 255, 255, 255).endVertex();
+			buffer.pos(height, -offset + length, -lengthOffset).tex(0 ,0).lightmap(240, 240).color(255, 255, 255, 255).endVertex();
 
-			tess.addVertexWithUV(height, -offset, 0, 0, 1);
-			tess.addVertexWithUV(-height, -offset, 0, 1, 1);
-			tess.addVertexWithUV(-height, -offset + length, lengthOffset, 1, 0);
-			tess.addVertexWithUV(height, -offset + length, lengthOffset, 0 ,0);
-			
+			buffer.pos(height, -offset, 0).tex(0, 1).lightmap(240, 240).color(255, 255, 255, 255).endVertex();
+			buffer.pos(-height, -offset, 0).tex(1, 1).lightmap(240, 240).color(255, 255, 255, 255).endVertex();
+			buffer.pos(-height, -offset + length, lengthOffset).tex(1, 0).lightmap(240, 240).color(255, 255, 255, 255).endVertex();
+			buffer.pos(height, -offset + length, lengthOffset).tex(0 ,0).lightmap(240, 240).color(255, 255, 255, 255).endVertex();
+
 			tess.draw();
 			GL11.glPopMatrix();
 			GL11.glDisable(GL11.GL_BLEND);

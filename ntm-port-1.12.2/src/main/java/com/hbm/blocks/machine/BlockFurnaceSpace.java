@@ -9,6 +9,11 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class BlockFurnaceSpace extends BlockFurnace implements IBlockSealable {
+	public BlockFurnaceSpace withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 
 	public BlockFurnaceSpace(boolean lit) {
 		super(lit);
@@ -17,20 +22,20 @@ public class BlockFurnaceSpace extends BlockFurnace implements IBlockSealable {
 	public static void updateFurnaceBlockState(boolean lit, World world, int x, int y, int z) {
 		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		TileEntity tileentity = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		BlockFurnace.field_149934_M = true;
+		net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.block.BlockFurnace.class, null, true, "field_149934_M", "keepInventory");
 
 		if(lit) {
-			world.setBlock(x, y, z, ModBlocks.lit_furnace);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.lit_furnace);
 		} else {
-			world.setBlock(x, y, z, ModBlocks.furnace);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.furnace);
 		}
 
-		BlockFurnace.field_149934_M = false;
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.block.BlockFurnace.class, null, false, "field_149934_M", "keepInventory");
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, l, 2);
 
 		if(tileentity != null) {
 			tileentity.validate();
-			world.setTileEntity(x, y, z, tileentity);
+			world.setTileEntity(new net.minecraft.util.math.BlockPos(x, y, z), tileentity);
 		}
 	}
 

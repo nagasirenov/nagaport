@@ -9,6 +9,8 @@ import api.hbm.block.IToolable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -36,10 +38,11 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 	public IIcon getIcon(int side, int meta) {
 		return side == 0 ? this.bottomIcon : (side == 1 ? this.topIcon : this.blockIcon);
 	}
-	
+
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		if(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
@@ -59,7 +62,7 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 			checkAndIgnite(world, x, y, z);
 		}
 	}
-	
+
 	public void checkAndIgnite(World world, int x, int y, int z) {
 		if (shouldIgnite(world, x, y, z)) {
 			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
@@ -72,35 +75,47 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 		return 1;
 	}
 
-	@Override
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int meta) {
 		this.prime(world, x, y, z, meta, (EntityLivingBase) null);
+	}
+
+	@Override
+	public void onPlayerDestroy(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		this.prime(world, pos.getX(), pos.getY(), pos.getZ(), 1, (EntityLivingBase) null);
 	}
 
 	public void prime(World world, int x, int y, int z, int meta, EntityLivingBase living) {
 		if(!world.isRemote) {
 			if((meta & 1) == 1) {
 				EntityTNTPrimedBase entitytntprimed = new EntityTNTPrimedBase(world, x + 0.5D, y + 0.5D, z + 0.5D, living, this);
-				world.spawnEntityInWorld(entitytntprimed);
-				world.playSoundAtEntity(entitytntprimed, "game.tnt.primed", 1.0F, 1.0F);
+				world.spawnEntity(entitytntprimed);
+				world.playSound(null, entitytntprimed.posX, entitytntprimed.posY, entitytntprimed.posZ, com.hbm.main.ModSoundEvents.resolve("game.tnt.primed"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 			}
 		}
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == Items.FLINT_AND_STEEL) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+		if(player.getHeldItemMainhand() != null && player.getHeldItemMainhand().getItem() == Items.FLINT_AND_STEEL) {
 			this.prime(world, x, y, z, 1, player);
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
-			player.getCurrentEquippedItem().damageItem(1, player);
+			player.getHeldItemMainhand().damageItem(1, player);
 			return true;
 		} else {
-			return super.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ);
+			return super.onBlockActivated(world, nativePos, nativeState, player, nativeHand, nativeFacing, hitX, hitY, hitZ);
 		}
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if(entity instanceof EntityArrow && !world.isRemote) {
 			EntityArrow entityarrow = (EntityArrow) entity;
 
@@ -114,37 +129,39 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIcon = iconRegister.registerIcon(this.getTextureName() + "_side");
-		this.topIcon = iconRegister.registerIcon(this.getTextureName() + "_top");
-		this.bottomIcon = iconRegister.registerIcon(this.getTextureName() + "_bottom");
+		// The original built side icons from the setBlockTextureName base.
+		String base = this.getTextureName() != null ? this.getTextureName() : this.getRegistryName().toString();
+		this.blockIcon = iconRegister.registerIcon(base + "_side");
+		this.topIcon = iconRegister.registerIcon(base + "_top");
+		this.bottomIcon = iconRegister.registerIcon(base + "_bottom");
 	}
-	
+
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
-		
+
 		if(tool == ToolType.DEFUSER) {
 			if(!world.isRemote) {
 				com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
-				this.dropBlockAsItem(world, x, y, z, 0, 0);
+				this.dropBlockAsItem(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), 0);
 			}
 			return true;
 		}
-		
+
 		if(tool != ToolType.SCREWDRIVER)
 			return false;
 
 		if(!world.isRemote) {
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-			
+
 			if(meta == 0) {
-				world.setBlockMetadataWithNotify(x, y, z, 1, 3);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 1, 3);
 				player.sendMessage(ChatBuilder.start("[ Ignite On Break: Enabled ]").color(TextFormatting.RED).flush());
 			} else {
-				world.setBlockMetadataWithNotify(x, y, z, 0, 3);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 0, 3);
 				player.sendMessage(ChatBuilder.start("[ Ignite On Break: Disabled ]").color(TextFormatting.GOLD).flush());
 			}
 		}
-		
+
 		return true;
 	}
 }

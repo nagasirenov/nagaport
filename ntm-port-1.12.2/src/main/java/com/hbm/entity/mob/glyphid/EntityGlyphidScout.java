@@ -1,4 +1,5 @@
 package com.hbm.entity.mob.glyphid;
+import net.minecraft.util.math.AxisAlignedBB;
 
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.RayTraceResult;
@@ -22,6 +23,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 import java.util.List;
+import net.minecraft.util.math.BlockPos;
 
 public class EntityGlyphidScout extends EntityGlyphid {
 
@@ -31,7 +33,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	int minDistanceToHive = 8;
 	boolean useLargeHive = false;
 	float largeHiveChance = MobConfig.largeHiveChance;
-	
+
 	public EntityGlyphidScout(World world) {
 		super(world);
 		this.setSize(1.25F, 0.75F);
@@ -46,7 +48,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public ResourceLocation getSkin() {
 		return ResourceManager.glyphid_scout_tex;
@@ -60,11 +62,11 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getScout().health);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getScout().speed);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getScout().damage);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(GlyphidStats.getStats().getScout().health);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(GlyphidStats.getStats().getScout().speed);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(GlyphidStats.getStats().getScout().damage);
 	}
-	
+
 	public StatBundle getStats() {
 		return GlyphidStats.getStats().statsScout;
 	}
@@ -92,7 +94,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 						target.maxAge = 300;
 						target.radius = 6;
 						target.setWaypointType(TASK_BUILD_HIVE);
-						this.world.spawnEntityInWorld(target);
+						this.world.spawnEntity(target);
 						hasTarget = true;
 
 						setCurrentTask(TASK_RETREAT_FOR_REINFORCEMENTS, target);
@@ -149,7 +151,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 						home.maxAge = 1200;
 						home.radius = 6;
 
-						this.world.spawnEntityInWorld(home);
+						this.world.spawnEntity(home);
 
 						this.taskWaypoint = home;
 						this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 40 * 20, 10));
@@ -158,7 +160,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 					} else if(timer >= 5) {
 
 						this.world.newExplosion(this, posX, posY, posZ, 5F, false, false);
-						GlyphidHive.generateSmall(this.world, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), rand, this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) != TYPE_NORMAL, false);
+						GlyphidHive.generateSmall(this.world, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), rand, getGlyphidSubtype() != TYPE_NORMAL, false);
 						this.setDead();
 
 					} else {
@@ -172,9 +174,9 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	/** Returns true if the position is far enough away from other hives. Also resets the task if unsuccessful. */
 	public boolean canBuildHiveHere() {
 		int length = useLargeHive ? 16 : 8;
-		
+
 		for(int i = 0; i < 8; i++) {
-			
+
 			float angle = (float) Math.toRadians(360D / 16 * i);
 			Vec3d rot = new Vec3d(0, 0, length);
 			rot = rot.rotateYaw(angle);
@@ -205,7 +207,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	public boolean hasNuclearGlyphidNearby(){
 		int radius = 8;
 
-		AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(
+		AxisAlignedBB bb = new AxisAlignedBB(
 				this.posX - radius,
 				this.posY - radius,
 				this.posZ - radius,
@@ -214,7 +216,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 				this.posZ + radius);
 
 		List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
-		
+
 		for (Entity e: bugs){
 			if(e instanceof EntityGlyphidNuclear){
 				return true;
@@ -228,7 +230,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 
 		int nestX = rand.nextInt((homeX + scoutingRange) - (homeX - scoutingRange)) + (homeX - scoutingRange);
 		int nestZ = rand.nextInt((homeZ + scoutingRange) - (homeZ - scoutingRange)) + (homeZ - scoutingRange);
-		int nestY = this.world.getHeightValue(nestX, nestZ);
+		int nestY = this.world.getHeight(nestX, nestZ);
 		net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, nestX, nestY - 1, nestZ);
 		Block b = nativeCubeState_b.getBlock();
 
@@ -241,7 +243,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 				largeHiveChance /= 2;
 				this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 3));
 			}
-			
+
 			if(!this.world.isRemote) {
 				EntityWaypoint nest = new EntityWaypoint(this.world);
 				nest.setWaypointType(getCurrentTask());
@@ -251,7 +253,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 					nest.setHighPriority();
 
 				nest.setLocationAndAngles(nestX, nestY, nestZ, 0, 0);
-				this.world.spawnEntityInWorld(nest);
+				this.world.spawnEntity(nest);
 
 				taskWaypoint = nest;
 
@@ -259,10 +261,10 @@ public class EntityGlyphidScout extends EntityGlyphid {
 				setCurrentTask(getCurrentTask(), taskWaypoint);
 				communicate(TASK_BUILD_HIVE, taskWaypoint);
 			}
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -278,7 +280,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 					EntityWaypoint additional = new EntityWaypoint(this.world);
 					additional.setLocationAndAngles(posX, posY, posZ, 0, 0);
 					additional.setWaypointType(0);
-					
+
 					//First, go home and get reinforcements
 					EntityWaypoint home = new EntityWaypoint(this.world);
 					home.setWaypointType(2);
@@ -286,7 +288,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 					home.setHighPriority();
 					home.radius = 6;
 					home.setLocationAndAngles(homeX, homeY, homeZ, 0, 0);
-					this.world.spawnEntityInWorld(home);
+					this.world.spawnEntity(home);
 
 					communicate(4, home);
 					break;
@@ -301,7 +303,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 		super.carryOutTask();
 
 	}
-	
+
 	@Override
 	public boolean useExtendedTargeting() {
 		return false;
@@ -311,9 +313,8 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	protected Entity findPlayerToAttack() {
 		if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;
 		//no extended targeting, and a low attack distance, ensures the scouts are focused in expanding, and not in chasing the player
-		return this.world.getClosestVulnerablePlayerToEntity(this, 10);
+		return this.world.getNearestAttackablePlayer(this, 10D, 10D);
 	}
-
 
 	///RAMPANT MODE STUFFS
 
@@ -328,7 +329,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 				currentLocation.z + dirVec.z * 10
 		);
 	}
-	
+
 	protected Vec3d getPlayerTargetDirection() {
 		EntityPlayer player = this.world.getClosestPlayerToEntity(this, 300);
 		if(player != null) {
@@ -340,17 +341,15 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	/** Vanilla implementation, minus the RNG */
 	@Override
 	public boolean isValidLightLevel() {
-		int x = MathHelper.floor_double(this.posX);
-		int y = MathHelper.floor_double(this.getEntityBoundingBox().minY);
-		int z = MathHelper.floor_double(this.posZ);
+		BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
+		int light = this.world.getLightFromNeighbors(blockpos);
 
-		int skylightSubtracted = this.world.skylightSubtracted;
-
-		if(this.world.isThundering()) this.world.skylightSubtracted = 10;
-		int light = this.world.getChunkFromChunkCoords(x >> 4, z >> 4).getBlockLightValue(x & 15, y, z & 15, this.world.skylightSubtracted);
-
-		this.world.skylightSubtracted = skylightSubtracted;
+		if(this.world.isThundering()) {
+			int skylightSubtracted = this.world.getSkylightSubtracted();
+			this.world.setSkylightSubtracted(10);
+			light = this.world.getLightFromNeighbors(blockpos);
+			this.world.setSkylightSubtracted(skylightSubtracted);
+		}
 		return light <= 7;
-
 	}
 }

@@ -22,95 +22,78 @@ import net.minecraft.world.World;
 
 public class ItemBlueprints extends Item {
 
-	@SideOnly(Side.CLIENT) protected IIcon iconDiscover;
-	@SideOnly(Side.CLIENT) protected IIcon iconSecret;
-	@SideOnly(Side.CLIENT) protected IIcon icon528;
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister reg) {
-		super.registerIcons(reg);
-		this.iconDiscover = reg.registerIcon(this.getIconString() + "_discover");
-		this.iconSecret = reg.registerIcon(this.getIconString() + "_secret");
-		this.icon528 = reg.registerIcon(this.getIconString() + "_528");
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconIndex(ItemStack stack) {
-		return this.getIcon(stack, 0);
-	}
 
-	@Override
-	public IIcon getIcon(ItemStack stack, int pass) {
-		
-		if(stack.hasTagCompound()) {
-			String poolName = stack.getTagCompound().getString("pool");
-			if(poolName == null) return this.itemIcon;
-			if(poolName.startsWith(GenericRecipes.POOL_PREFIX_DISCOVER)) return this.iconDiscover; // beige
-			if(poolName.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) return this.iconSecret; // black
-			if(poolName.startsWith(GenericRecipes.POOL_PREFIX_528)) return this.icon528; // grey
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
 		}
-		
-		return this.itemIcon; // blue
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for(Entry<String, List<String>> pool : GenericRecipes.blueprintPools.entrySet()) {
 			String poolName = pool.getKey();
 			if(!poolName.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) list.add(make(poolName));
 		}
 	}
-	
+
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(world.isRemote) return stack;
 		if(!stack.hasTagCompound()) return stack;
-		
+
 		String poolName = stack.getTagCompound().getString("pool");
-		
+
 		if(poolName.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) return stack;
-		if(!player.inventory.hasItem(Items.paper)) return stack;
-		
-		player.inventory.consumeInventoryItem(Items.paper);
-		player.swingItem();
-		
+		if(!player.inventory.hasItemStack(new ItemStack(Items.PAPER))) return stack;
+
+		player.inventory.clearMatchingItems(Items.PAPER, -1, 1, null);
+		player.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
+
 		ItemStack copy = stack.copy();
 		copy.setCount(1);
-		
+
 		if(!player.capabilities.isCreativeMode) {
-			if(stack.stackSize < stack.getMaxStackSize()) {
-				stack.stackSize++;
+			if(stack.getCount() < stack.getMaxStackSize()) {
+				stack.grow(1);
 				return stack;
 			}
-			
+
 			if(!player.inventory.addItemStackToInventory(copy)) {
 				copy = stack.copy();
 				copy.setCount(1);
-				player.dropPlayerItemWithRandomChoice(copy, false);
+				player.dropItem(copy, false);
 			}
-			
+
 			player.inventoryContainer.detectAndSendChanges();
 		} else {
-			player.dropPlayerItemWithRandomChoice(copy, false);
+			player.dropItem(copy, false);
 		}
-		
+
 		return stack;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
-		
+
 		if(!stack.hasTagCompound()) {
 			return;
 		}
-		
+
 		String poolName = stack.getTagCompound().getString("pool");
 		List<String> pool = GenericRecipes.blueprintPools.get(poolName);
-		
+
 		if(pool == null || pool.isEmpty()) {
 			return;
 		}
@@ -119,7 +102,7 @@ public class ItemBlueprints extends Item {
 		} else {
 			list.add(TextFormatting.YELLOW + "Right-click to copy (requires paper)");
 		}
-		
+
 		for(String name : pool) {
 			GenericRecipe recipe = GenericRecipes.pooledBlueprints.get(name);
 			if(recipe != null) {
@@ -127,7 +110,7 @@ public class ItemBlueprints extends Item {
 			}
 		}
 	}
-	
+
 	public static String grabPool(ItemStack stack) {
 		if(stack == null) return null;
 		if(stack.getItem() != ModItems.blueprints) return null;
@@ -135,7 +118,7 @@ public class ItemBlueprints extends Item {
 		if(!stack.getTagCompound().hasKey("pool")) return null;
 		return stack.getTagCompound().getString("pool");
 	}
-	
+
 	public static ItemStack make(String pool) {
 		ItemStack stack = new ItemStack(ModItems.blueprints);
 		stack.setTagCompound(new NBTTagCompound());

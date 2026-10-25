@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "normal": {
+      "model": "hbm:rubber_leaves"
+    },
+    "check_decay=false,decayable=false": {
+      "model": "hbm:rubber_leaves"
+    },
+    "check_decay=false,decayable=true": {
+      "model": "hbm:rubber_leaves"
+    },
+    "check_decay=true,decayable=false": {
+      "model": "hbm:rubber_leaves"
+    },
+    "check_decay=true,decayable=true": {
+      "model": "hbm:rubber_leaves"
+    }
+  }
+}

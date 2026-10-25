@@ -25,24 +25,24 @@ public class EntityGrenadeMIRV extends EntityGrenadeBouncyBase {
 
     @Override
     public void explode() {
-    	
+
         if (!this.world.isRemote)
         {
             this.setDead();
-    		
-    		for(int i = 0; i < 8; i++) {
-    			
-    			EntityGrenadeSmart grenade = new EntityGrenadeSmart(this.world);
-    			grenade.posX = posX;
-    			grenade.posY = posY;
-    			grenade.posZ = posZ;
-    			grenade.motionX = motionX + rand.nextGaussian() * 0.25D;
-    			grenade.motionY = motionY + rand.nextGaussian() * 0.25D;
-    			grenade.motionZ = motionZ + rand.nextGaussian() * 0.25D;
-    			grenade.ticksExisted = 10;
-    			
-    			this.world.spawnEntityInWorld(grenade);
-    		}
+
+			for(int i = 0; i < 8; i++) {
+
+				EntityGrenadeSmart grenade = new EntityGrenadeSmart(this.world);
+				grenade.posX = posX;
+				grenade.posY = posY;
+				grenade.posZ = posZ;
+				grenade.motionX = motionX + rand.nextGaussian() * 0.25D;
+				grenade.motionY = motionY + rand.nextGaussian() * 0.25D;
+				grenade.motionZ = motionZ + rand.nextGaussian() * 0.25D;
+				grenade.ticksExisted = 10;
+
+				this.world.spawnEntity(grenade);
+			}
         }
     }
 

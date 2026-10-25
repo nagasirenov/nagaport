@@ -86,7 +86,7 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 				power -= getPowerPerTick();
 
 				if(operatingTime > getSpinUpTime()) {
-					int toLaunch = Math.min(slots[0].stackSize, MEMBERS_PER_LAUNCH);
+					int toLaunch = Math.min(slots[0].getCount(), MEMBERS_PER_LAUNCH);
 					CBT_Dyson.launch(this.world, swarmId, toLaunch);
 
 					CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
@@ -117,8 +117,8 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 					data.setInteger("maxAge", 10 + count / 2 + this.world.rand.nextInt(5));
 					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY, posZ), new TargetPoint(this.world.provider.getDimension(), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 150));
 
-					slots[0].stackSize -= toLaunch;
-					if(slots[0].stackSize <= 0) slots[0] = null;
+					slots[0].shrink(toLaunch);
+					if(slots[0].getCount() <= 0) slots[0] = null;
 
 					operatingTime = 0;
 					isSpinningDown = true;
@@ -224,7 +224,7 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 		buf.writeBoolean(isSpinningDown);
 		buf.writeInt(swarmCount);
 		buf.writeBoolean(sunsetOverdrive);
-		buf.writeInt(slots[0] != null ? slots[0].stackSize : 0);
+		buf.writeInt(slots[0] != null ? slots[0].getCount() : 0);
 	}
 
 	@Override
@@ -285,7 +285,7 @@ public class TileEntityDysonLauncher extends TileEntityMachineBase implements IE
 	public AxisAlignedBB getRenderBoundingBox() {
 
 			if(bb == null) {
-				bb = AxisAlignedBB.getBoundingBox(
+				bb = new AxisAlignedBB(
 					this.pos.getX() - 100,
 					this.pos.getY(),
 					this.pos.getZ() - 100,

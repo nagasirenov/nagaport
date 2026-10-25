@@ -39,7 +39,7 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 	private ModelGasMask modelGas;
 	@SideOnly(Side.CLIENT)
 	private ModelM65 modelM65;
-	
+
 	private ResourceLocation[] googleBlur = new ResourceLocation[] {
 			new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_goggles_0.png"),
 			new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_goggles_1.png"),
@@ -48,7 +48,7 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 			new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_goggles_4.png"),
 			new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_goggles_5.png")
 	};
-	
+
 	private ResourceLocation[] maskBlur = new ResourceLocation[] {
 			new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_gasmask_0.png"),
 			new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_gasmask_1.png"),
@@ -105,7 +105,7 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 
 		return null;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void renderHelmetOverlay(ItemStack stack, EntityPlayer player, ScaledResolution resolution, float partialTicks, boolean hasScreen, int mouseX, int mouseY) {
 
@@ -120,10 +120,10 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 			int index = (int) ((double) stack.getItemDamage() / (double) stack.getMaxDamage() * 6D);
 			tex = this.maskBlur[Math.min(index, 5)];
 		}
-		
+
 		if(tex == null)
 			return;
-		
+
 		Minecraft.getMinecraft().getTextureManager().bindTexture(tex);
 
 		GL11.glEnable(GL11.GL_BLEND);
@@ -149,7 +149,7 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 
 	@Override
 	public ArrayList<HazardClass> getBlacklist(ItemStack stack, EntityLivingBase entity) {
-		
+
 		if(this == ModItems.gas_mask_mono) {
 			return new ArrayList<HazardClass>(Arrays.asList(new HazardClass[] {HazardClass.GAS_LUNG, HazardClass.GAS_BLISTERING, HazardClass.BACTERIA}));
 		} else {
@@ -171,17 +171,17 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 	public void damageFilter(ItemStack stack, EntityLivingBase entity, int damage) {
 		ArmorUtil.damageGasMaskFilter(stack, damage);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
-		
+
 		ArmorUtil.addGasMaskTooltip(stack, player, list, ext);
-		
+
 		List<HazardClass> haz = getBlacklist(stack, player);
-		
+
 		if(!haz.isEmpty()) {
 			list.add(TextFormatting.RED + I18nUtil.resolveKey("hazard.neverProtects"));
-			
+
 			for(HazardClass clazz : haz) {
 				list.add(TextFormatting.DARK_RED + " -" + I18nUtil.resolveKey(clazz.lang));
 			}
@@ -194,23 +194,18 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		ItemStack stack = player.getHeldItem(hand);
 		if(player.isSneaking()) {
-			
 			ItemStack filter = this.getFilter(stack, player);
-			
 			if(filter != null) {
 				ArmorUtil.removeFilter(stack);
-				
 				if(!player.inventory.addItemStackToInventory(filter)) {
-					player.dropPlayerItemWithRandomChoice(filter, true);
+					player.dropItem(filter, true);
 				}
-				
-				return stack;
+				return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.SUCCESS, stack);
 			}
 		}
-		
-		return super.onItemRightClick(stack, world, player);
+		return super.onItemRightClick(world, player, hand);
 	}
 }

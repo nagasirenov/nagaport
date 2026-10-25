@@ -21,9 +21,29 @@ import net.minecraft.world.World;
 /** Four original CRT variants: persisted metadata is variant * 4 + placement yaw. */
 public class BlockDecoCRT extends BlockMulti implements INBTBlockTransformable {
     public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
+    private static final String[] VARIANTS = new String[] {"crt_clean", "crt_broken", "crt_blinking", "crt_bsod"};
+    @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+    private com.hbm.render.icon.IIcon[] variantIcons;
     public BlockDecoCRT(Material material) {
         super(material);
         setDefaultState(blockState.getBaseState().withProperty(META, 0));
+    }
+
+    @Override
+    @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+    public void registerBlockIcons(com.hbm.render.icon.IIconRegister reg) {
+        super.registerBlockIcons(reg);
+        com.hbm.render.icon.IIcon[] icons = new com.hbm.render.icon.IIcon[VARIANTS.length];
+        for(int i = 0; i < VARIANTS.length; i++)
+            icons[i] = reg.registerIcon(com.hbm.lib.RefStrings.MODID + ":" + VARIANTS[i]);
+        this.variantIcons = icons;
+    }
+
+    @Override
+    @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+    public com.hbm.render.icon.IIcon getIcon(int side, int meta) {
+        if(this.variantIcons == null) return super.getIcon(side, meta);
+        return this.variantIcons[Math.abs(damageDropped(meta)) % VARIANTS.length];
     }
     @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, META); }
     @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(META, meta & 15); }

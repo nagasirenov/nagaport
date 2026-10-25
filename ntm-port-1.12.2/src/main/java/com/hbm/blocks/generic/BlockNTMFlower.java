@@ -51,12 +51,42 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 		return state.getValue(VARIANT);
 	}
 
+	@Override
+	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
+		return EnumPlantType.Plains;
+	}
+
+	@Override
+	public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
+		return world.getBlockState(pos);
+	}
+
+	@Override
+	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
+		return func_149851_a(worldIn, pos.getX(), pos.getY(), pos.getZ(), isClient);
+	}
+
+	@Override
+	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+		return func_149852_a(worldIn, rand, pos.getX(), pos.getY(), pos.getZ());
+	}
+
+	@Override
+	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+		func_149853_b(worldIn, rand, pos.getX(), pos.getY(), pos.getZ());
+	}
+
+	@Override
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+		return NULL_AABB;
+	}
+
 	public BlockNTMFlower() {
 		super(Material.PLANTS, EnumFlowerType.class, true, true);
 		setDefaultState(blockState.getBaseState().withProperty(VARIANT, 0));
 		this.setTickRandomly(true);
 	}
-	
+
 	public static enum EnumFlowerType {
 		FOXGLOVE(false),
 		TOBACCO(false),
@@ -66,26 +96,23 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 		CD1(true),
 		STRAWBERRY(false),
 		MINT(false);
-		
+
 		public boolean needsOil;
 		private EnumFlowerType(boolean needsOil) {
 			this.needsOil = needsOil;
 		}
 	}
 
-	@Override
 	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
 		return EnumPlantType.Plains;
 	}
 
-	@Override
 	public Block getPlant(IBlockAccess world, int x, int y, int z) {
 		return this;
 	}
 
-	@Override
 	public int getPlantMetadata(IBlockAccess world, int x, int y, int z) {
-		return world.getBlockMetadata(x, y, z);
+		return com.hbm.world.WorldBlockState.readMetadata(world, x, y, z);
 	}
 
 	@Override
@@ -102,7 +129,7 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 		super.neighborChanged(state, world, pos, block, fromPos);
 		this.checkAndDropBlock(world, pos.getX(), pos.getY(), pos.getZ());
 	}
-	
+
 	protected void checkAndDropBlock(World world, int x, int y, int z) {
 		if(!this.canBlockStay(world, x, y, z)) {
 			BlockPos pos = new BlockPos(x, y, z);
@@ -112,11 +139,14 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	}
 
 	// Legacy callers still use coordinates; placement routes through this same rule.
+	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
+		return canBlockStay(worldIn, pos.getX(), pos.getY(), pos.getZ());
+	}
+
 	public boolean canBlockStay(World world, int x, int y, int z) {
 		return canPlaceBlockOn(world.getBlockState(new BlockPos(x, y - 1, z)).getBlock());
 	}
 
-	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		return null;
 	}
@@ -130,8 +160,7 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
-	@Override
+
 	public int getRenderType() {
 		return 1;
 	}
@@ -141,7 +170,7 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 		if(meta == EnumFlowerType.CD1.ordinal()) {
 			return EnumFlowerType.CD0.ordinal();
 		}
-		
+
 		return meta;
 	}
 
@@ -150,26 +179,25 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 
 		if(world.isRemote) return; //not possible i believe, but better safe than sorry
-		
+
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		EnumFlowerType type = EnumFlowerType.values()[rectify(meta)];
-		
+
 		if(!(type == EnumFlowerType.WEED || type == EnumFlowerType.CD0 || type == EnumFlowerType.CD1)) return;
-		
+
 		if(func_149851_a(world, x, y, z, false) && func_149852_a(world, rand, x, y, z) && rand.nextInt(3) == 0) {
 			func_149853_b(world, rand, x, y, z);
 		}
 	}
 
 	/* grow condition */
-	@Override
 	public boolean func_149851_a(World world, int x, int y, int z, boolean b) {
-		
+
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-		
+
 		//cadmium willows can only grow with water
 		if(meta == EnumFlowerType.CD0.ordinal() || meta == EnumFlowerType.CD1.ordinal()) {
-			
+
 			if(com.hbm.world.WorldBlockState.read(world, x + 1, y - 1, z).getBlock().getDefaultState().getMaterial() != Material.WATER &&
 					com.hbm.world.WorldBlockState.read(world, x - 1, y - 1, z).getBlock().getDefaultState().getMaterial() != Material.WATER &&
 					com.hbm.world.WorldBlockState.read(world, x, y - 1, z + 1).getBlock().getDefaultState().getMaterial() != Material.WATER &&
@@ -177,7 +205,7 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 				return false;
 			}
 		}
-		
+
 		if(meta == EnumFlowerType.WEED.ordinal() ||  meta == EnumFlowerType.CD1.ordinal()) {
 			return world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y + 1, z));
 		}
@@ -185,93 +213,76 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	}
 
 	/* chance */
-	@Override
 	public boolean func_149852_a(World world, Random rand, int x, int y, int z) {
-		
+
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-		
+
 		if(meta == EnumFlowerType.WEED.ordinal() || meta == EnumFlowerType.CD0.ordinal() || meta == EnumFlowerType.CD1.ordinal()) {
 			return rand.nextFloat() < 0.33F;
 		}
-		
+
 		return true;
 	}
 
 	/* grow */
-	@Override
 	public void func_149853_b(World world, Random rand, int x, int y, int z) {
 
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		Block onTop = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
-		
+
 		if(meta == EnumFlowerType.WEED.ordinal()) {
 			if(onTop == ModBlocks.dirt_dead || onTop == ModBlocks.dirt_oily) {
 				{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_dead; int nativeRegisteredWriteMeta = EnumDeadPlantType.GENERIC.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				return;
 			}
 		}
-		
+
 		if(meta == EnumFlowerType.WEED.ordinal()) {
 			{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.WEED.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 			{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y + 1; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.WEED.ordinal() + 8; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 			return;
 		}
-		
+
 		if(meta == EnumFlowerType.CD0.ordinal()) {
-			world.setBlock(x, y, z, ModBlocks.plant_flower, EnumFlowerType.CD1.ordinal(), 3);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.plant_flower, EnumFlowerType.CD1.ordinal(), 3);
 			return;
 		}
-		
+
 		if(meta == EnumFlowerType.CD1.ordinal()) {
 			{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.CD2.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 			{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y + 1; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.plant_tall; int nativeRegisteredWriteMeta = EnumTallFlower.CD2.ordinal() + 8; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 			return;
 		}
-		
-		this.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
+
+		this.dropBlockAsItem(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), 0);
 	}
-	
-	
-	
+
+
+
     @SideOnly(Side.CLIENT)
     public int getRenderColor(int meta)
     {
-    	if (meta == 1 || meta == 3) {
-    		return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+	if (meta == 1 || meta == 3) {
+		return ColorizerGrass.getGrassColor(0.5D, 1.0D);
         } else return 0xFFFFFF;
     }
     // if you need to make another tinted plant just throw the metadata value
-    // into the if statements above and below i really do not want to make this more 
+    // into the if statements above and below i really do not want to make this more
     // complicated than it needs to be
 
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess world, int x, int y, int z)
     {
-    	int l = 0;
-        int i1 = 0;
-        int j1 = 0;
-
-        for (int k1 = -1; k1 <= 1; ++k1)
-        {
-            for (int l1 = -1; l1 <= 1; ++l1)
-            {
-                int i2 = world.getBiomeGenForCoords(x + l1, z + k1).getBiomeFoliageColor(x + l1, y, z + k1);
-                l += (i2 & 16711680) >> 16;
-                i1 += (i2 & 65280) >> 8;
-                j1 += i2 & 255;
-            }
-        }
-        int meta = world.getBlockMetadata(x, y, z);
+        int meta = com.hbm.world.WorldBlockState.readMetadata(world, x, y, z);
         if (meta == 1 || meta == 3) {
-        	return ((l / 9 & 255) << 16 | (i1 / 9 & 255) << 8 | j1 / 9 & 255);
+	return net.minecraft.world.biome.BiomeColorHelper.getFoliageColorAtPos(world, new BlockPos(x, y, z));
         } else return 0xFFFFFF;
     }
-    
+
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) { }
 
-	@Override
 	public Item getItemDropped(int meta, Random rand, int j) {
 		if(meta == EnumFlowerType.STRAWBERRY.ordinal()) {
 			return ModItems.strawberry;
@@ -280,15 +291,25 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 		if(meta == EnumFlowerType.MINT.ordinal()) {
 			return ModItems.mint_leaves;
 		}
-		
-		return super.getItemDropped(meta, rand, j);
+
+		return super.getItemDropped(this.getStateFromMeta(meta), rand, j);
 	}
 
 
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		if(metadata == EnumFlowerType.STRAWBERRY.ordinal()) return ModBlocks.getDropsWithoutDamage(world, this, metadata, fortune);
-		return super.getDrops(world, x, y, z, metadata, fortune);
+		net.minecraft.util.NonNullList<ItemStack> nativeDrops = net.minecraft.util.NonNullList.create();
+		super.getDrops(nativeDrops, world, new net.minecraft.util.math.BlockPos(x, y, z), this.getStateFromMeta(metadata), fortune);
+		return new ArrayList<ItemStack>(nativeDrops);
 	}
 
 }

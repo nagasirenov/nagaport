@@ -33,8 +33,8 @@ public class WorldProviderEve extends WorldProviderCelestial {
 	}
 
 	@Override
-	public String getDimensionName() {
-		return "Eve";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class WorldProviderEve extends WorldProviderCelestial {
 				flashd = 0;
 			} else if (chargetime >= 100) {
 				if(flashd <= 1) {
-					MainRegistry.proxy.me().playSound("hbm:misc.rumble", 10F, 1F);
+					MainRegistry.proxy.me().playSound(com.hbm.main.ModSoundEvents.resolve("hbm:misc.rumble"), 10F, 1F);
 				}
 				flashd += 0.1f;
 				flashd = Math.min(100.0f, flashd + 0.1f * (100.0f - flashd) * 0.15f);

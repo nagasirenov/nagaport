@@ -1,5 +1,11 @@
 package com.hbm.tileentity.machine.rbmk;
 
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.AxisAlignedBB;
 import java.util.ArrayList;
@@ -259,7 +265,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 
 		if(data.hasKey("level")) {
 
-			Set<String> keys = data.func_150296_c();
+			Set<String> keys = data.getKeySet();
 
 			for(String key : keys) {
 
@@ -274,7 +280,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 					if(te instanceof TileEntityRBMKControlManual) {
 						TileEntityRBMKControlManual rod = (TileEntityRBMKControlManual) te;
 						rod.startingLevel = rod.level;
-						rod.setTarget(MathHelper.clamp_double(data.getDouble("level"), 0, 1));
+						rod.setTarget(MathHelper.clamp(data.getDouble("level"), 0.0, 1.0));
 						te.markDirty();
 					}
 				}
@@ -633,7 +639,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 				data_table.put("fluxRatio", fuelChannel.fluxFastRatio);
 				ItemStack rod = fuelChannel.getStackInSlot(0);
 				if (rod != null)
-					data_table.put("rodName", rod.getUnlocalizedName());
+					data_table.put("rodName", rod.getTranslationKey());
 				else
 					data_table.put("rodName", "");
 			}
@@ -651,8 +657,8 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 				data_table.put("requiredFlux", irradiationChannel.duration);
 				ItemStack input = irradiationChannel.getStackInSlot(0);
 				if (input != null){
-					data_table.put("craftingName", input.getUnlocalizedName());
-					data_table.put("craftingNumber", input.stackSize);
+					data_table.put("craftingName", input.getTranslationKey());
+					data_table.put("craftingNumber", input.getCount());
 				}
 				else {
 					data_table.put("craftingName", "");

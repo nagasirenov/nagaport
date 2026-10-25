@@ -24,7 +24,7 @@ public class ItemDefuser extends ItemTooling {
 	}
 
 	@Override
-	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase entity) {
+	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase entity, net.minecraft.util.EnumHand hand) {
 		
 		if(entity instanceof EntityCreeper) {
 			return ItemModDefuser.defuse((EntityCreeper) entity, player, true);

@@ -37,7 +37,7 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 	public static final long maxPower = 2500000000L;
 	public int watts;
 	public int beam;
-	
+
 	public static final int range = 15;
 
 	public TileEntityCoreStabilizer() {
@@ -51,46 +51,46 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.updateConnections();
-			
+
 			watts = MathHelper.clamp(watts, 1, 100);
 			int demand = (int) Math.pow(watts, 4);
 
 			beam = 0;
-			
+
 			if(power >= demand && slots[0] != null && slots[0].getItem() == ModItems.ams_lens && ItemLens.getLensDamage(slots[0]) < ((ItemLens)ModItems.ams_lens).maxDamage) {
-				
+
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 				for(int i = 1; i <= range; i++) {
-	
+
 					int x = this.pos.getX() + dir.offsetX * i;
 					int y = this.pos.getY() + dir.offsetY * i;
 					int z = this.pos.getZ() + dir.offsetZ * i;
-					
+
 					TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-	
+
 					if(te instanceof TileEntityCore) {
-						
+
 						TileEntityCore core = (TileEntityCore)te;
 						core.field = Math.max(core.field, watts);
 						this.power -= demand;
 						beam = i;
-						
+
 						long dmg = ItemLens.getLensDamage(slots[0]);
 						dmg += watts;
-						
+
 						if(dmg >= ((ItemLens)ModItems.ams_lens).maxDamage)
 							slots[0] = null;
 						else
 							ItemLens.setLensDamage(slots[0], dmg);
-						
+
 						break;
 					}
-					
-					if(!com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isAir(this.world, x, y, z))
+
+					if(!com.hbm.world.WorldBlockState.isAir(this.world, x, y, z))
 						break;
 				}
 			}
@@ -98,9 +98,9 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 			this.networkPackNT(250);
 		}
 	}
-	
+
 	private void updateConnections() {
-		
+
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
 			this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 	}
@@ -122,11 +122,11 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 		this.watts = buf.readInt();
 		this.beam = buf.readInt();
 	}
-	
+
 	public long getPowerScaled(long i) {
 		return (power * i) / maxPower;
 	}
-	
+
 	public int getWattsScaled(int i) {
 		return (watts * i) / 100;
 	}
@@ -150,30 +150,30 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 	public boolean canConnect(ForgeDirection dir) {
 		return dir != ForgeDirection.UNKNOWN;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {
 		return 65536.0D;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		power = nbt.getLong("power");
 		watts = nbt.getInteger("watts");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		nbt.setInteger("watts", watts);
 		return nbt;
@@ -267,14 +267,14 @@ public class TileEntityCoreStabilizer extends TileEntityMachineBase implements I
 
 	@Override
 	public String runRORFunction(String name, String[] params) {
-		
+
 		if((PREFIX_FUNCTION + "setpower").equals(name) && params.length > 0) {
 			int watts = IRORInteractive.parseInt(params[0], 0, 100);
 			this.watts = watts;
 			this.markChanged();
 			return null;
 		}
-		
+
 		return null;
 	}
 }

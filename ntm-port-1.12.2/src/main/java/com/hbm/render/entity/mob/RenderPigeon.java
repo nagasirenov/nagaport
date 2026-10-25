@@ -14,8 +14,8 @@ public class RenderPigeon extends RenderLiving {
 
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID, "textures/entity/pigeon.png");
 
-	public RenderPigeon(ModelBase p_i1252_1_, float p_i1252_2_) {
-		super(p_i1252_1_, p_i1252_2_);
+	public RenderPigeon(net.minecraft.client.renderer.entity.RenderManager renderManager, ModelBase p_i1252_1_, float p_i1252_2_) {
+		super(renderManager, p_i1252_1_, p_i1252_2_);
 	}
 
 	protected ResourceLocation getEntityTexture(Entity entity) {
@@ -25,7 +25,7 @@ public class RenderPigeon extends RenderLiving {
 	protected ResourceLocation getEntityTexture(EntityPigeon entity) {
 		return texture;
 	}
-	
+
 	protected float handleRotationFloat(EntityPigeon entity, float interp) {
 		float f1 = entity.prevFallTime + (entity.fallTime - entity.prevFallTime) * interp;
 		float f2 = entity.prevDest + (entity.dest - entity.prevDest) * interp;

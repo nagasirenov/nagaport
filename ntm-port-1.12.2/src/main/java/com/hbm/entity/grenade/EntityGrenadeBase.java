@@ -62,7 +62,7 @@ public abstract class EntityGrenadeBase extends EntityThrowable {
 				String s = "null";
 
 				if(getThrower() != null && getThrower() instanceof EntityPlayer)
-					s = ((EntityPlayer) getThrower()).getDisplayName();
+					s = ((EntityPlayer) getThrower()).getDisplayName().getUnformattedText();
 
 				MainRegistry.logger.log(Level.INFO, "[GREN] Set off grenade at " + ((int) posX) + " / " + ((int) posY) + " / " + ((int) posZ) + " by " + s + "!");
 			}

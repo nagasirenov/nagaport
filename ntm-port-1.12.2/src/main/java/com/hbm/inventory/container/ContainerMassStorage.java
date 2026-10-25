@@ -7,10 +7,11 @@ import com.hbm.tileentity.machine.storage.TileEntityMassStorage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMassStorage extends ContainerBase {
-	
+
 	private TileEntityMassStorage storage;
 
 	public ContainerMassStorage(InventoryPlayer invPlayer, TileEntityMassStorage te) {
@@ -51,7 +52,7 @@ public class ContainerMassStorage extends ContainerBase {
 				}
 			}
 
-			if(initial.stackSize == 0) {
+			if(initial.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
@@ -64,8 +65,8 @@ public class ContainerMassStorage extends ContainerBase {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
 		//L/R: 0
 		//M3: 3
 		//SHIFT: 1
@@ -76,19 +77,19 @@ public class ContainerMassStorage extends ContainerBase {
 		}
 
 		Slot slot = this.getSlot(index);
-		
+
 		ItemStack ret = null;
 		ItemStack held = player.inventory.getItemStack();
-		
+
 		if(slot.getHasStack())
 			ret = slot.getStack().copy();
-		
+
 		//Don't allow for a type change when the thing isn't empty
 		if(storage.getStockpile() > 0)
 			return ret;
 
 		slot.putStack(held);
-		
+
 		return ret;
 	}
 
@@ -96,7 +97,7 @@ public class ContainerMassStorage extends ContainerBase {
 	public boolean canInteractWith(EntityPlayer player) {
 		return storage.isUsableByPlayer(player);
 	}
-	
+
 	@Override
 	public void onContainerClosed(EntityPlayer p_75134_1_) {
 		super.onContainerClosed(p_75134_1_);

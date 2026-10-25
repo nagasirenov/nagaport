@@ -165,7 +165,7 @@ public class TileEntityAirScrubber extends TileEntityMachineBase implements IFlu
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX(),
 				this.pos.getY(),
 				this.pos.getZ(),

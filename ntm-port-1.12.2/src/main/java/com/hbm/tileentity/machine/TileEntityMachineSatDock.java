@@ -29,6 +29,25 @@ import java.util.List;
 
 public class TileEntityMachineSatDock extends TileEntity implements ISidedInventory, IGUIProvider, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack[] slots;
 	private static final int[] access = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
 
@@ -56,19 +75,23 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 		}
 	}
 
-	@Override public String getInventoryName() { return this.hasCustomInventoryName() ? this.customName : "container.satDock"; }
-	@Override public boolean hasCustomInventoryName() { return this.customName != null && this.customName.length() > 0; }
+	@Override public String getName() { return this.hasCustomName() ? this.customName : "container.satDock"; }
+	@Override public boolean hasCustomName() { return this.customName != null && this.customName.length() > 0; }
+	public String getInventoryName() { return getName(); }
+	public boolean hasCustomInventoryName() { return hasCustomName(); }
 	public void setCustomName(String name) { this.customName = name; markDirty(); }
 	@Override public int getInventoryStackLimit() { return 64; }
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64;
 		}
 	}
+
+
 
 	@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 	@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
@@ -79,13 +102,13 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null) {
-			if(slots[i].stackSize <= j) {
+			if(slots[i].getCount() <= j) {
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if(slots[i].stackSize == 0) {
+			if(slots[i].getCount() == 0) {
 				slots[i] = null;
 			}
 
@@ -163,7 +186,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 						rocket.posZ = this.pos.getZ() + 0.5;
 
 						rocket.setSatelliteFrequency(freq);
-						this.world.spawnEntityInWorld(rocket);
+						this.world.spawnEntity(rocket);
 						miner.lastOp = System.currentTimeMillis();
 						data.markDirty();
 					}
@@ -171,9 +194,8 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 			}
 
 			@SuppressWarnings("unchecked")
-			List<EntityMinerRocket> list = this.world.getEntitiesWithinAABBExcludingEntity(null,
-					AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.25 + 0.5, this.pos.getY() + 0.75, this.pos.getZ() - 0.25 + 0.5, this.pos.getX() + 0.25 + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.25 + 0.5),
-					entity -> entity instanceof EntityMinerRocket);
+			List<EntityMinerRocket> list = this.world.getEntitiesWithinAABB(EntityMinerRocket.class,
+					new AxisAlignedBB(this.pos.getX() - 0.25 + 0.5, this.pos.getY() + 0.75, this.pos.getZ() - 0.25 + 0.5, this.pos.getX() + 0.25 + 0.5, this.pos.getY() + 2, this.pos.getZ() + 0.25 + 0.5));
 
 			for(EntityMinerRocket rocket : list) {
 				if(slots[15] != null && ISatChip.getFreqS(slots[15]) != rocket.getSatelliteFrequency()) {
@@ -207,13 +229,13 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 
 	private void addToInv(ItemStack stack) {
 		for(int i = 0; i < 15; i++) {
-			if(slots[i] != null && slots[i].getItem() == stack.getItem() && slots[i].getItemDamage() == stack.getItemDamage() && slots[i].stackSize < slots[i].getMaxStackSize()) {
-				int toAdd = Math.min(slots[i].getMaxStackSize() - slots[i].stackSize, stack.stackSize);
+			if(slots[i] != null && slots[i].getItem() == stack.getItem() && slots[i].getItemDamage() == stack.getItemDamage() && slots[i].getCount() < slots[i].getMaxStackSize()) {
+				int toAdd = Math.min(slots[i].getMaxStackSize() - slots[i].getCount(), stack.getCount());
 
-				slots[i].stackSize += toAdd;
-				stack.stackSize -= toAdd;
+				slots[i].grow(toAdd);
+				stack.shrink(toAdd);
 
-				if(stack.stackSize <= 0)
+				if(stack.getCount() <= 0)
 					return;
 			}
 		}
@@ -277,7 +299,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(renderBoundingBox == null) {
-			renderBoundingBox = AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 1, this.pos.getZ() + 2);
+			renderBoundingBox = new AxisAlignedBB(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 1, this.pos.getZ() + 2);
 		}
 
 		return renderBoundingBox;

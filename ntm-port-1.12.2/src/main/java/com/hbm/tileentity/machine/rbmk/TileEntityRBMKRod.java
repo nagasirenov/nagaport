@@ -46,6 +46,25 @@ import java.util.List;
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBMKFluxReceiver, IRBMKLoadable, IInfoProviderEC, SimpleComponent, CompatHandler.OCComponent, IRORValueProvider {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	// New system!!
 	// Used for receiving flux (calculating outbound flux/burning rods)
 	public double fluxFastRatio;
@@ -105,7 +124,7 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 	@Override
 	public void invalidate() {
 		super.invalidate();
-		
+
 		if(slots[0] != null && slots[0].getItem() instanceof ItemRBMKRod && ItemRBMKRod.getHullHeat(slots[0]) >= 150) {
 			this.meltdown();
 		}
@@ -340,8 +359,8 @@ public class TileEntityRBMKRod extends TileEntityRBMKSlottedBase implements IRBM
 		if(corium) {
 
 			for(int i = h; i >= 0; i--) {
-				this.world.setBlock(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ(), ModBlocks.corium_block, 5, 3);
-				this.world.markBlockForUpdate(this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ());
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ(), ModBlocks.corium_block, 5, 3);
+				com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.getPos().getX(), this.getPos().getY() + i, this.getPos().getZ());
 			}
 
 			int count = 1 + this.world.rand.nextInt(RBMKDials.getColumnHeight(this.world));

@@ -14,6 +14,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityFallingBlock;
@@ -29,12 +32,30 @@ import com.hbm.lib.ForgeDirection;
 
 public class BlockTaint extends Block implements ITooltipProvider {
 
+	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
+
 	public BlockTaint(Material mat) {
 		super(mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(META, 0));
 		this.setTickRandomly(true);
 	}
 
-	@Override public MapColor getMapColor(int meta) { return MapColor.grayColor; }
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, META);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(META, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(META);
+	}
+
+	@Override public MapColor getMapColor(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) { return MapColor.GRAY; }
 	@Override public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) { return null; }
 
 	@Override
@@ -43,7 +64,7 @@ public class BlockTaint extends Block implements ITooltipProvider {
 
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		if(meta >= 15) return;
-		
+
 		for(int i = -3; i <= 3; i++) for(int j = -3; j <= 3; j++) for(int k = -3; k <= 3; k++) {
 			if(Math.abs(i) + Math.abs(j) + Math.abs(k) > 4) continue;
 			if(rand.nextFloat() > 0.25F) continue;
@@ -53,7 +74,7 @@ public class BlockTaint extends Block implements ITooltipProvider {
 			int targetMeta = meta + 1;
 			boolean hasAir = false;
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-				if(com.hbm.world.WorldBlockState.read(world, x + i + dir.offsetX, y + j + dir.offsetY, z + k + dir.offsetZ).getBlock().isAir(world, x + i + dir.offsetX, y + j + dir.offsetY, z + k + dir.offsetZ)) {
+				if(com.hbm.world.WorldBlockState.isAir(world, x + i + dir.offsetX, y + j + dir.offsetY, z + k + dir.offsetZ)) {
 					hasAir = true;
 					break;
 				}
@@ -61,22 +82,28 @@ public class BlockTaint extends Block implements ITooltipProvider {
 			if(!hasAir) targetMeta = meta + 3;
 			if(targetMeta > 15) continue;
 			if(b == this && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k) ) >= targetMeta) continue;
-			world.setBlock(x + i, y + j, z + k, this, targetMeta, 3);
-			if(rand.nextFloat() < 0.25F && BlockFalling.func_149831_e(world, x + i, y + j - 1, z + k)) {
-				EntityFallingBlock falling = new EntityFallingBlock(world, x + i + 0.5, y + j + 0.5, z + k + 0.5, this, targetMeta);
-				world.spawnEntityInWorld(falling);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + i, y + j, z + k, this, targetMeta, 3);
+			if(rand.nextFloat() < 0.25F && BlockFalling.canFallThrough(com.hbm.world.WorldBlockState.read(world, x + i, y + j - 1, z + k))) {
+				EntityFallingBlock falling = new EntityFallingBlock(world, x + i + 0.5, y + j + 0.5, z + k + 0.5, this.getStateFromMeta(targetMeta));
+				world.spawnEntity(falling);
 			}
 		}
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 0.75, z + 1);
+	public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		return new AxisAlignedBB(x, y, z, x + 1, y + 0.75, z + 1);
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-		
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		int level = 15 - meta;
 
@@ -84,7 +111,7 @@ public class BlockTaint extends Block implements ITooltipProvider {
 		entity.motionZ *= 0.6;
 
 		List<ItemStack> list = new ArrayList<ItemStack>();
-		PotionEffect effect = new PotionEffect(HbmPotion.taint.id, 15 * 20, level);
+		PotionEffect effect = new PotionEffect(HbmPotion.taint, 15 * 20, level);
 		effect.setCurativeItems(list);
 
 		if(entity instanceof EntityLivingBase) {
@@ -99,7 +126,7 @@ public class BlockTaint extends Block implements ITooltipProvider {
 
 			if(!world.isRemote) {
 				entity.setDead();
-				world.spawnEntityInWorld(creep);
+				world.spawnEntity(creep);
 			}
 		}
 
@@ -109,7 +136,7 @@ public class BlockTaint extends Block implements ITooltipProvider {
 
 			if(!world.isRemote) {
 				entity.setDead();
-				world.spawnEntityInWorld(crab);
+				world.spawnEntity(crab);
 			}
 		}
 	}

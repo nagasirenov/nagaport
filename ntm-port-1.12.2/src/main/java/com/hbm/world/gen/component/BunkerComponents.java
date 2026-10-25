@@ -20,20 +20,20 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraft.world.gen.structure.StructureComponent;
 
 public class BunkerComponents {
-	
+
 	public static class BunkerStart extends ProceduralStructureStart {
-		
+
 		public BunkerStart() {}
-		
+
 		public BunkerStart(World world, Random rand, int chunkX, int chunkZ) {
 			super(chunkX, chunkZ);
-			
+
 			this.sizeLimit = 7 + rand.nextInt(6);
 			this.distanceLimit = 40;
-			
+
 			final int x = chunkX * 16 + 8;
 			final int z = chunkZ * 16 + 8;
-			
+
 			Weight[] weights = new Weight[] {
 				new Weight(6, 3, Corridor::findValidPlacement),
 				new Weight(5, 4, BedroomL::findValidPlacement),
@@ -42,16 +42,16 @@ public class BunkerComponents {
 				new Weight(7, 2, Laboratory::findValidPlacement),
 				new Weight(5, 1, PowerRoom::findValidPlacement),
 			};
-			
+
 			StructureComponent starter = new StartingHub(rand, x, z);
-			
+
 			buildStart(world, rand, starter, weights);
-			
+
 			this.markAvailableHeight(world, rand, 20);
 		}
-		
+
 	}
-	
+
 	public static void registerComponents() {
 		MapGenStructureIO.registerStructureComponent(StartingHub.class, "NTMBStartingHub");
 		MapGenStructureIO.registerStructureComponent(Corridor.class, "NTMBCorridor");
@@ -62,26 +62,26 @@ public class BunkerComponents {
 		MapGenStructureIO.registerStructureComponent(PowerRoom.class, "NTMBPowerRoom");
 		//TODO more rooms for more variety
 	}
-	
+
 	//why are we still doing this?
 	private static ConcreteBricks ConcreteBricks = new ConcreteBricks();
-	
+
 	public static class StartingHub extends Component implements ProceduralComponent {
-		
+
 		private boolean[] paths = new boolean[3];
-		
+
 		public StartingHub() { }
-		
+
 		public StartingHub(Random rand, int x, int z) {
 			super(rand, x, 64, z, 7, 5, 7);
 		}
-		
+
 		public StartingHub(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
 			this.setCoordMode(coordMode);
 		}
-		
+
 		/** write to nbt */
 		@Override
 		protected void writeStructureToNBT(NBTTagCompound nbt) {
@@ -89,7 +89,7 @@ public class BunkerComponents {
 			for(int i = 0; i < paths.length; i++)
 				nbt.setBoolean("p" + i, paths[i]);
 		}
-		
+
 		/** read from nbt */
 		@Override
 		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
@@ -97,17 +97,17 @@ public class BunkerComponents {
 			for(int i = 0; i < paths.length; i++)
 				paths[i] = nbt.getBoolean("p" + i);
 		}
-		
+
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
 			paths[0] = this.getNextComponentEast(start, this, getCoordMode(), rand, 5, 1) != null;
 			paths[1] = this.getNextComponentAntiNormal(start, this, getCoordMode(), rand, 4, 1) != null;
 			paths[2] = this.getNextComponentWest(start, this, getCoordMode(), rand, 3, 1) != null;
 		}
-		
+
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			fillWithAir(world, box, 1, 1, 1, 6, 3, 6);
 			//floor
 			fillWithMetadataBlocks(world, box, 1, 0, 1, 6, 0, 6, ModBlocks.vinyl_tile, 1);
@@ -122,7 +122,7 @@ public class BunkerComponents {
 			fillWithRandomizedBlocks(world, box, 7, 0, 0, 7, 4, 7, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 1, 0, 0, 6, 4, 0, rand, ConcreteBricks);
 			//meh, fix the area later
-			final int hpos = Component.getAverageHeight(world, boundingBox, box, boundingBox.maxY) - boundingBox.minY; 
+			final int hpos = Component.getAverageHeight(world, boundingBox, box, boundingBox.maxY) - boundingBox.minY;
 			//top hatch
 			placeBlockAtCurrentPosition(world, ModBlocks.concrete_slab, 1, 0, hpos, 5, box);
 			fillWithMetadataBlocks(world, box, 1, hpos, 4, 1, hpos, 6, ModBlocks.concrete_smooth_stairs, getStairMeta(0));
@@ -139,7 +139,7 @@ public class BunkerComponents {
 			fillWithBlocks(world, box, 3, 6, 4, 3, hpos - 1, 6, ModBlocks.reinforced_stone);
 			fillWithBlocks(world, box, 2, 6, 4, 2, hpos - 1, 4, ModBlocks.reinforced_stone);
 			fillWithMetadataBlocks(world, box, 2, 1, 5, 2, hpos - 1, 5, ModBlocks.ladder_sturdy, getDecoMeta(2)); //double check meta
-			
+
 			/* DECO */
 			//lamps
 			placeBlockAtCurrentPosition(world, ModBlocks.reinforced_lamp_off, 0, 2, 5, 2, box);
@@ -163,27 +163,27 @@ public class BunkerComponents {
 			if(paths[0]) fillWithAir(world, box, 7, 1, 2, 7, 2, 3);
 			if(paths[1]) fillWithAir(world, box, 3, 1, 0, 4, 2, 0);
 			if(paths[2]) fillWithAir(world, box, 0, 1, 2, 0, 2, 3);
-			
+
 			return true;
 		}
 	}
-	
+
 	public static class Corridor extends Component implements ProceduralComponent {
-		
+
 		private boolean path;
 		private int[] decorations = new int[2];
-		
+
 		public Corridor() { }
-		
+
 		public Corridor(int componentType, StructureBoundingBox box, int coordMode, Random rand) {
 			super(componentType);
 			this.boundingBox = box;
 			this.setCoordMode(coordMode);
-			
+
 			decorations[0] = rand.nextInt(6);
 			decorations[1] = rand.nextInt(6);
 		}
-		
+
 		/** write to nbt */
 		@Override
 		protected void writeStructureToNBT(NBTTagCompound nbt) {
@@ -191,7 +191,7 @@ public class BunkerComponents {
 			nbt.setBoolean("p", path);
 			nbt.setIntArray("d", decorations);
 		}
-		
+
 		/** read from nbt */
 		@Override
 		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
@@ -199,15 +199,15 @@ public class BunkerComponents {
 			path = nbt.getBoolean("p");
 			decorations = nbt.getIntArray("d");
 		}
-		
+
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
 			path = this.getNextComponentNormal(start, this, getCoordMode(), rand, 3, 1) != null;
 		}
-		
+
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			fillWithAir(world, box, 1, 1, 1, 4, 3, 5);
 			//floor
 			fillWithMetadataBlocks(world, box, 1, 0, 1, 4, 0, 5, ModBlocks.vinyl_tile, 1);
@@ -220,7 +220,7 @@ public class BunkerComponents {
 			fillWithRandomizedBlocks(world, box, 1, 0, 6, 4, 4, 6, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 5, 0, 0, 5, 4, 6, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 1, 0, 0, 4, 4, 0, rand, ConcreteBricks);
-			
+
 			//TODO different deco types? maybe plants or vending machines?
 			//save it to nbt either way
 			/* DECO */
@@ -234,14 +234,14 @@ public class BunkerComponents {
 			final int stairMetaS = getStairMeta(3);
 			final int decoMetaE = getDecoMeta(4);
 			final int decoMetaW = getDecoMeta(5);
-			
+
 			for(int i = 0; i <= 1; i++) {
 				final int x = 1 + i * 3;
 				switch (decorations[i]) {
 					default: //table w/ chairs
 						placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, x, 1, 2, box);
 						placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaN, x, 1, 4, box);
-						placeBlockAtCurrentPosition(world, Blocks.fence, 0, x, 1, 3, box);
+						placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, x, 1, 3, box);
 						placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 1, x, 2, 3, box);
 						break;
 					case 1://desk w/ computer
@@ -270,7 +270,7 @@ public class BunkerComponents {
 						placeBlockAtCurrentPosition(world, ModBlocks.deco_computer, i < 1 ? getDecoModelMeta(3) : getDecoModelMeta(2), x, 2, 3, box);
 						break;
 					case 5:
-						placeBlockAtCurrentPosition(world, Blocks.fence, 0, x, 1, 1, box);
+						placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, x, 1, 1, box);
 						placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, x, 2, 1, box);
 						placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaS | 4, x, 1, 3, box);
 						placeBlockAtCurrentPosition(world, ModBlocks.concrete_smooth_stairs, stairMetaN | 4, x, 1, 4, box);
@@ -282,50 +282,50 @@ public class BunkerComponents {
 			placeDoor(world, box, ModBlocks.door_bunker, 1, true, rand.nextBoolean(), 2, 1, 0);
 			placeDoor(world, box, ModBlocks.door_bunker, 1, false, rand.nextBoolean(), 3, 1, 0);
 			if(path) fillWithAir(world, box, 2, 1, 6, 3, 2, 6);
-			
+
 			return true;
 		}
-		
+
 		public static StructureComponent findValidPlacement(List components, Random rand, int x, int y, int z, int coordMode, int type) {
 			StructureBoundingBox box = ProceduralStructureStart.getComponentToAddBoundingBox(x, y, z, -3, -1, 0, 6, 6, 7, coordMode);
 			return box.minY > 10 && StructureComponent.findIntersecting(components, box) == null ? new Corridor(type, box, coordMode, rand) : null;
 		}
 	}
-	
+
 	public static class BedroomL extends Component implements ProceduralComponent {
-		
+
 		private boolean path;
-		
+
 		public BedroomL() { }
-		
+
 		public BedroomL(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
 			this.setCoordMode(coordMode);
 		}
-		
+
 		/** write to nbt */
 		@Override
 		protected void writeStructureToNBT(NBTTagCompound nbt) {
 			super.writeStructureToNBT(nbt);
 			nbt.setBoolean("p", path);
 		}
-		
+
 		/** read from nbt */
 		@Override
 		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
 			super.readStructureFromNBT(nbt, templateManager);
 			path = nbt.getBoolean("p");
 		}
-		
+
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
 			path = this.getNextComponentWest(start, this, getCoordMode(), rand, 9, 1) != null;
 		}
-		
+
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			fillWithAir(world, box, 4, 1, 1, 8, 3, 4);
 			fillWithAir(world, box, 1, 1, 5, 8, 3, 9);
 			//floor
@@ -344,7 +344,7 @@ public class BunkerComponents {
 			fillWithRandomizedBlocks(world, box, 4, 0, 0, 8, 4, 0, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 3, 0, 0, 3, 4, 4, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 1, 0, 4, 2, 4, 4, rand, ConcreteBricks);
-			
+
 			/* DECO */
 			//lamps
 			placeBlockAtCurrentPosition(world, ModBlocks.reinforced_lamp_off, 0, 3, 5, 7, box);
@@ -390,28 +390,28 @@ public class BunkerComponents {
 			placeDoor(world, box, ModBlocks.door_bunker, 1, true, rand.nextBoolean(), 7, 1, 0);
 			placeDoor(world, box, ModBlocks.door_bunker, 1, false, rand.nextBoolean(), 8, 1, 0);
 			if(path) fillWithAir(world, box, 0, 1, 8, 0, 2, 9);
-			
+
 			return true;
 		}
-		
+
 		public static StructureComponent findValidPlacement(List components, Random rand, int x, int y, int z, int coordMode, int type) {
 			StructureBoundingBox box = ProceduralStructureStart.getComponentToAddBoundingBox(x, y, z, -8, -1, 0, 10, 6, 11, coordMode);
 			return box.minY > 10 && StructureComponent.findIntersecting(components, box) == null ? new BedroomL(type, box, coordMode) : null;
 		}
 	}
-	
+
 	public static class FunJunction extends Component implements ProceduralComponent {
-		
+
 		private boolean[] paths = new boolean[2];
-		
+
 		public FunJunction() { }
-		
+
 		public FunJunction(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
 			this.setCoordMode(coordMode);
 		}
-		
+
 		/** write to nbt */
 		@Override
 		protected void writeStructureToNBT(NBTTagCompound nbt) {
@@ -419,7 +419,7 @@ public class BunkerComponents {
 			for(int i = 0; i < paths.length; i++)
 				nbt.setBoolean("p" + i, paths[i]);
 		}
-		
+
 		/** read from nbt */
 		@Override
 		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
@@ -427,16 +427,16 @@ public class BunkerComponents {
 			for(int i = 0; i < paths.length; i++)
 				paths[i] = nbt.getBoolean("p" + i);
 		}
-		
+
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
 			paths[0] = this.getNextComponentEast(start, this, getCoordMode(), rand, 6, 1) != null;
 			paths[1] = this.getNextComponentNormal(start, this, getCoordMode(), rand, 5, 1) != null;
 		}
-		
+
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			fillWithAir(world, box, 1, 1, 1, 6, 3, 10);
 			//floor
 			fillWithMetadataBlocks(world, box, 1, 0, 1, 6, 0, 10, ModBlocks.vinyl_tile, 1);
@@ -449,7 +449,7 @@ public class BunkerComponents {
 			fillWithRandomizedBlocks(world, box, 1, 0, 11, 6, 4, 11, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 7, 0, 0, 7, 4, 11, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 1, 0, 0, 6, 4, 0, rand, ConcreteBricks);
-			
+
 			/* DECO */
 			//lamps
 			placeBlockAtCurrentPosition(world, ModBlocks.reinforced_lamp_off, 0, 2, 5, 3, box);
@@ -470,12 +470,12 @@ public class BunkerComponents {
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaE, 1, 1, 5, box);
 			fillWithMetadataBlocks(world, box, 1, 1, 6, 2, 1, 6, Blocks.OAK_STAIRS, stairMetaN);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaW, 3, 1, 6, box);
-			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 1, 1, 3, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 1, 1, 3, box);
 			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 1, 2, 3, box);
-			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 3, 1, 4, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 3, 1, 4, box);
 			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 3, 2, 4, box);
 			//table & chest
-			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 6, 1, 2, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 6, 1, 2, box);
 			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 6, 2, 2, box);
 			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(4), 6, 1, 3, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LOCKERS), 8);
 			//desk w/ computer + bobblehead
@@ -496,50 +496,50 @@ public class BunkerComponents {
 			placeDoor(world, box, ModBlocks.door_bunker, 1, false, rand.nextBoolean(), 5, 1, 0);
 			if(paths[0]) fillWithAir(world, box, 7, 1, 5, 7, 2, 6);
 			if(paths[1]) fillWithAir(world, box, 4, 1, 11, 5, 2, 11);
-			
+
 			return true;
 		}
-		
+
 		public static StructureComponent findValidPlacement(List components, Random rand, int x, int y, int z, int coordMode, int type) {
 			StructureBoundingBox box = ProceduralStructureStart.getComponentToAddBoundingBox(x, y, z, -5, -1, 0, 8, 6, 12, coordMode);
 			return box.minY > 10 && StructureComponent.findIntersecting(components, box) == null ? new FunJunction(type, box, coordMode) : null;
 		}
 	}
-	
+
 	public static class BathroomL extends Component implements ProceduralComponent {
-		
+
 		private boolean path;
-		
+
 		public BathroomL() { }
-		
+
 		public BathroomL(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
 			this.setCoordMode(coordMode);
 		}
-		
+
 		/** write to nbt */
 		@Override
 		protected void writeStructureToNBT(NBTTagCompound nbt) {
 			super.writeStructureToNBT(nbt);
 			nbt.setBoolean("p", path);
 		}
-		
+
 		/** read from nbt */
 		@Override
 		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
 			super.readStructureFromNBT(nbt, templateManager);
 			path = nbt.getBoolean("p");
 		}
-		
+
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
 			path = this.getNextComponentEast(start, this, getCoordMode(), rand, 3, 1) != null;
 		}
-		
+
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			fillWithAir(world, box, 1, 1, 1, 7, 3, 9);
 			//floor
 			fillWithMetadataBlocks(world, box, 1, 0, 1, 7, 0, 9, ModBlocks.vinyl_tile, 1);
@@ -552,7 +552,7 @@ public class BunkerComponents {
 			fillWithRandomizedBlocks(world, box, 1, 0, 10, 7, 4, 10, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 8, 0, 0, 8, 4, 10, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 1, 0, 0, 7, 4, 0, rand, ConcreteBricks);
-			
+
 			/* DECO */
 			//lamps
 			placeBlockAtCurrentPosition(world, ModBlocks.reinforced_lamp_off, 0, 2, 5, 3, box);
@@ -588,28 +588,28 @@ public class BunkerComponents {
 			placeDoor(world, box, ModBlocks.door_bunker, 1, true, rand.nextBoolean(), 2, 1, 0);
 			placeDoor(world, box, ModBlocks.door_bunker, 1, false, rand.nextBoolean(), 3, 1, 0);
 			if(path) fillWithAir(world, box, 8, 1, 7, 8, 2, 8);
-			
+
 			return true;
 		}
-		
+
 		public static StructureComponent findValidPlacement(List components, Random rand, int x, int y, int z, int coordMode, int type) {
 			StructureBoundingBox box = ProceduralStructureStart.getComponentToAddBoundingBox(x, y, z, -3, -1, 0, 9, 6, 11, coordMode);
 			return box.minY > 10 && StructureComponent.findIntersecting(components, box) == null ? new BathroomL(type, box, coordMode) : null;
 		}
 	}
-	
+
 	public static class Laboratory extends Component implements ProceduralComponent {
-		
+
 		private boolean[] paths = new boolean[2];
-		
+
 		public Laboratory() { }
-		
+
 		public Laboratory(int componentType, StructureBoundingBox box, int coordMode) {
 			super(componentType);
 			this.boundingBox = box;
 			this.setCoordMode(coordMode);
 		}
-		
+
 		/** write to nbt */
 		@Override
 		protected void writeStructureToNBT(NBTTagCompound nbt) {
@@ -617,7 +617,7 @@ public class BunkerComponents {
 			for(int i = 0; i < paths.length; i++)
 				nbt.setBoolean("p" + i, paths[i]);
 		}
-		
+
 		/** read from nbt */
 		@Override
 		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
@@ -625,16 +625,16 @@ public class BunkerComponents {
 			for(int i = 0; i < paths.length; i++)
 				paths[i] = nbt.getBoolean("p" + i);
 		}
-		
+
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
 			paths[0] = this.getNextComponentWest(start, this, getCoordMode(), rand, 3, 1) != null;
 			paths[1] = this.getNextComponentNormal(start, this, getCoordMode(), rand, 6, 1) != null;
 		}
-		
+
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			fillWithAir(world, box, 1, 1, 1, 7, 3, 11);
 			//floor
 			fillWithMetadataBlocks(world, box, 1, 0, 1, 7, 0, 11, ModBlocks.vinyl_tile, 1);
@@ -647,7 +647,7 @@ public class BunkerComponents {
 			fillWithBlocks(world, box, 1, 0, 12, 7, 4, 12, ModBlocks.brick_concrete);
 			fillWithBlocks(world, box, 8, 0, 0, 8, 4, 12, ModBlocks.brick_concrete);
 			fillWithBlocks(world, box, 1, 0, 0, 7, 4, 0, ModBlocks.brick_concrete);
-			
+
 			/* DECO */
 			//lamps
 			for(int x = 3; x <= 5; x += 2) {
@@ -664,7 +664,7 @@ public class BunkerComponents {
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaE, 1, 1, 1, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaS, 2, 1, 1, box);
 			placeBlockAtCurrentPosition(world, Blocks.OAK_STAIRS, stairMetaW, 3, 1, 1, box);
-			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 4, 1, 1, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 4, 1, 1, box);
 			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 4, 2, 1, box);
 			//big ole wall machine
 			final int decoMetaE = getDecoMeta(4);
@@ -705,7 +705,7 @@ public class BunkerComponents {
 			fillWithMetadataBlocks(world, box, 7, 2, 5, 7, 2, 7, ModBlocks.concrete_smooth_stairs, stairMetaW | 4);
 			fillWithMetadataBlocks(world, box, 7, 3, 5, 7, 3, 7, ModBlocks.tape_recorder, decoMetaE);
 			//table w/ chest
-			placeBlockAtCurrentPosition(world, Blocks.fence, 0, 7, 1, 9, box);
+			placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 7, 1, 9, box);
 			placeBlockAtCurrentPosition(world, Blocks.WOODEN_PRESSURE_PLATE, 0, 7, 2, 9, box);
 			generateInvContents(world, box, rand, Blocks.CHEST, getDecoMeta(4), 7, 1, 10, ItemPool.getPool(ItemPoolsComponent.POOL_VAULT_LAB), 8);
 			//doors
@@ -713,55 +713,55 @@ public class BunkerComponents {
 			placeDoor(world, box, ModBlocks.door_bunker, 1, false, rand.nextBoolean(), 6, 1, 0);
 			if(paths[0]) fillWithAir(world, box, 0, 1, 2, 0, 2, 3);
 			if(paths[1]) fillWithAir(world, box, 5, 1, 12, 6, 2, 12);
-			
+
 			return true;
 		}
-		
+
 		public static StructureComponent findValidPlacement(List components, Random rand, int x, int y, int z, int coordMode, int type) {
 			StructureBoundingBox box = ProceduralStructureStart.getComponentToAddBoundingBox(x, y, z, -6, -1, 0, 9, 6, 12, coordMode);
 			return box.minY > 10 && StructureComponent.findIntersecting(components, box) == null ? new Laboratory(type, box, coordMode) : null;
 		}
 	}
-	
+
 	public static class PowerRoom extends Component implements ProceduralComponent {
-		
+
 		private boolean path;
-		
+
 		private int powerType;
-		
+
 		public PowerRoom() { }
-		
+
 		public PowerRoom(int componentType, StructureBoundingBox box, int coordMode, Random rand) {
 			super(componentType);
 			this.boundingBox = box;
 			this.setCoordMode(coordMode);
-			
+
 			float chance = rand.nextFloat();
 			powerType = chance < 0.2 ? 2 : chance < 0.6 ? 1 : 0;
 		}
-		
+
 		/** write to nbt */
 		@Override
 		protected void writeStructureToNBT(NBTTagCompound nbt) {
 			super.writeStructureToNBT(nbt);
 			nbt.setBoolean("p", path);
 		}
-		
+
 		/** read from nbt */
 		@Override
 		protected void readStructureFromNBT(NBTTagCompound nbt, TemplateManager templateManager) {
 			super.readStructureFromNBT(nbt, templateManager);
 			path = nbt.getBoolean("p");
 		}
-		
+
 		@Override
 		public void buildComponent(ProceduralStructureStart start, Random rand) {
 			path = this.getNextComponentEast(start, this, getCoordMode(), rand, 4, 1) != null;
 		}
-		
+
 		@Override
 		public boolean addComponentParts(World world, Random rand, StructureBoundingBox box) {
-			
+
 			fillWithAir(world, box, 1, 1, 1, 10, 3, 10);
 			//floor
 			fillWithMetadataBlocks(world, box, 1, 0, 1, 10, 0, 10, ModBlocks.vinyl_tile, 1);
@@ -776,7 +776,7 @@ public class BunkerComponents {
 			fillWithRandomizedBlocks(world, box, 11, 0, 1, 11, 4, 10, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 5, 1, 1, 5, 3, 6, rand, ConcreteBricks);
 			fillWithRandomizedBlocks(world, box, 6, 1, 6, 10, 3, 6, rand, ConcreteBricks);
-			
+
 			/* DECO */
 			//lamps
 			placeBlockAtCurrentPosition(world, ModBlocks.reinforced_lamp_off, 0, 3, 5, 2, box);
@@ -795,12 +795,12 @@ public class BunkerComponents {
 			int decoMetaW = getDecoMeta(4);
 			int decoMetaN = getDecoMeta(3);
 			int decoMetaS = getDecoMeta(2);
-			
+
 			int stairMetaS = getStairMeta(3);
 			int stairMetaN = getStairMeta(2);
 			int stairMetaW = getStairMeta(1);
 			int stairMetaE = getStairMeta(0);
-			
+
 			switch(this.powerType) {
 			default:
 				fillWithBlocks(world, box, 6, 1, 1, 6, 3, 1, ModBlocks.deco_pipe_framed_rusted);
@@ -915,10 +915,10 @@ public class BunkerComponents {
 			placeDoor(world, box, ModBlocks.door_bunker, 1, false, rand.nextBoolean(), 4, 1, 0);
 			placeDoor(world, box, ModBlocks.door_bunker, 0, false, false, 5, 1, 3);
 			if(path) fillWithAir(world, box, 11, 1, 7, 11, 2, 8);
-			
+
 			return true;
 		}
-		
+
 		public static StructureComponent findValidPlacement(List components, Random rand, int x, int y, int z, int coordMode, int type) {
 			StructureBoundingBox box = ProceduralStructureStart.getComponentToAddBoundingBox(x, y, z, -4, -1, 0, 12, 6, 12, coordMode);
 			return box.minY > 10 && StructureComponent.findIntersecting(components, box) == null ? new PowerRoom(type, box, coordMode, rand) : null;

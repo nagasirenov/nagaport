@@ -38,12 +38,15 @@ public class BlockCrate extends BlockFalling {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int p_149727_6_ = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem().equals(ModItems.crowbar)) {
 			if(!world.isRemote) {
 				dropItems(world, x, y, z);
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
-				world.playSoundEffect(x, y, z, "hbm:block.crateBreak", 0.5F, 1.0F);
+				world.playSound(null, x, y, z, com.hbm.main.ModSoundEvents.resolve("hbm:block.crateBreak"), net.minecraft.util.SoundCategory.BLOCKS, 0.5F, 1.0F);
 			}
 			return true;
 		}

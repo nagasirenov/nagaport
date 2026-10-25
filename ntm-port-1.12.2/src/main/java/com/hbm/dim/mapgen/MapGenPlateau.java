@@ -28,7 +28,6 @@ public class MapGenPlateau extends MapGenBase {
 		this.plateauNoise = new NoiseGeneratorPerlin(world.rand, 4);
 	}
 
-	@Override
 	public void generate(World world, int chunkX, int chunkZ, ChunkPrimer primer) {
 		// This legacy pass ran once for the full chunk and consumes no MapGenBase neighbor RNG.
 		int[][] plateauTops = new int[16][16];
@@ -37,7 +36,7 @@ public class MapGenPlateau extends MapGenBase {
 			for(int localZ = 0; localZ < 16; localZ++) {
 				int baseHeight = getSurfaceHeight(primer, localX, localZ);
 				baseHeights[localX][localZ] = baseHeight;
-				double noiseVal = plateauNoise.func_151601_a((chunkX * 16 + localX) * noiseScale, (chunkZ * 16 + localZ) * noiseScale);
+				double noiseVal = plateauNoise.getValue((chunkX * 16 + localX) * noiseScale, (chunkZ * 16 + localZ) * noiseScale);
 				int plateauAddition = (int)(((noiseVal + 1) / 2.0) * maxPlateauAddition);
 				plateauAddition = (plateauAddition / stepHeight) * stepHeight;
 				plateauTops[localX][localZ] = baseHeight + plateauAddition;

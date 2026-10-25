@@ -33,7 +33,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	private static final DataParameter<Integer> AMMO_TYPE = EntityDataManager.createKey(EntityArtilleryShell.class, DataSerializers.VARINT);
 
 	private Ticket loaderTicket;
-	
+
 	private int turnProgress;
 	private double syncPosX;
 	private double syncPosY;
@@ -52,9 +52,9 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	private double targetZ;
 	private boolean shouldWhistle = false;
 	private boolean didWhistle = false;
-	
+
 	private ItemStack cargo = null;
-	
+
 	public EntityArtilleryShell(World world) {
 		super(world);
 		this.ignoreFrustumCheck = true;
@@ -67,18 +67,18 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 		init(ForgeChunkManager.requestTicket(MainRegistry.instance, this.world, Type.ENTITY));
 		this.dataManager.register(AMMO_TYPE, new Integer(0));
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isInRangeToRenderDist(double distance) {
 		return true;
 	}
-	
+
 	public EntityArtilleryShell setType(int type) {
 		this.dataManager.set(AMMO_TYPE, type);
 		return this;
 	}
-	
+
 	public ArtilleryShell getType() {
 		try {
 			return ItemAmmoArty.itemTypes[this.dataManager.get(AMMO_TYPE)];
@@ -86,45 +86,45 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 			return ItemAmmoArty.itemTypes[0];
 		}
 	}
-	
+
 	public double[] getTarget() {
 		return new double[] { this.targetX, this.targetY, this.targetZ };
 	}
-	
+
 	public void setTarget(double x, double y, double z) {
 		this.targetX = x;
 		this.targetY = y;
 		this.targetZ = z;
 	}
-	
+
 	public double getTargetHeight() {
 		return this.targetY;
 	}
-	
+
 	public void setWhistle(boolean whistle) {
 		this.shouldWhistle = whistle;
 	}
-	
+
 	public boolean getWhistle() {
 		return this.shouldWhistle;
 	}
-	
+
 	public boolean didWhistle() {
 		return this.didWhistle;
 	}
-	
+
 	@Override
 	public void onUpdate() {
-		
+
 		if(!this.world.isRemote) {
 			super.onUpdate();
-			
+
 			if(!didWhistle && this.shouldWhistle) {
 				double speed = Math.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 				double deltaX = this.posX - this.targetX;
 				double deltaZ = this.posZ - this.targetZ;
 				double dist = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
-				
+
 				if(speed * 18 > dist) {
 					com.hbm.sound.WorldSoundEffects.play(this.world, this.targetX, this.targetY, this.targetZ, "hbm:turret.mortarWhistle", 15.0F, 0.9F + rand.nextFloat() * 0.2F);
 					this.didWhistle = true;
@@ -133,7 +133,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 
 			loadNeighboringChunks((int)Math.floor(posX / 16D), (int)Math.floor(posZ / 16D));
 			this.getType().onUpdate(this);
-			
+
 		} else {
 			if(this.turnProgress > 0) {
 				double interpX = this.posX + (this.syncPosX - this.posX) / (double) this.turnProgress;
@@ -147,20 +147,20 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 			} else {
 				this.setPosition(this.posX, this.posY, this.posZ);
 			}
-			
+
 			if(new Vec3d(this.syncPosX - this.posX, this.syncPosY - this.posY, this.syncPosZ - this.posZ).length() < 0.2) {
 				this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.5, posZ, 0.0, 0.1, 0.0);
 			}
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_) {
 		this.velocityX = this.motionX = p_70016_1_;
 		this.velocityY = this.motionY = p_70016_3_;
 		this.velocityZ = this.motionZ = p_70016_5_;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void setPositionAndRotation2(double x, double y, double z, float yaw, float pitch, int theNumberThree) {
 		this.syncPosX = x;
@@ -176,9 +176,9 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 
 	@Override
 	protected void onImpact(RayTraceResult mop) {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			if(mop.typeOfHit == RayTraceResult.Type.ENTITY && mop.entityHit instanceof EntityArtilleryShell) return;
 			this.getType().onImpact(this, mop);
 		}
@@ -214,12 +214,12 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 			}
 		}
 	}
-	
+
 	public void killAndClear() {
 		this.setDead();
 		this.clearChunkLoader();
 	}
-	
+
 	public void clearChunkLoader() {
 		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
@@ -230,7 +230,7 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		
+
 		nbt.setInteger("type", this.dataManager.get(AMMO_TYPE));
 		nbt.setBoolean("shouldWhistle", this.shouldWhistle);
 		nbt.setBoolean("didWhistle", this.didWhistle);
@@ -277,17 +277,21 @@ public class EntityArtilleryShell extends EntityThrowableNT implements IChunkLoa
 		return true;
 	}
 
-	@Override
 	public boolean canAttackWithItem() {
 		return true;
 	}
-	
+
 	public void setCargo(ItemStack stack) {
 		this.cargo = stack;
 	}
 
-	@Override
-	public boolean interactFirst(EntityPlayer player) {
+
+		@Override
+	public boolean processInitialInteract(net.minecraft.entity.player.EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		return interactFirst(player);
+	}
+
+public boolean interactFirst(EntityPlayer player) {
 
 		if(!this.world.isRemote) {
 			if(this.cargo != null) {

@@ -98,10 +98,10 @@ public class CivilianFeatures {
 			//Walls
 			this.fillWithRandomizedBlocks(world, box, 0, 0, 0, 9, 0, 0, false, rand, RandomSandstone); //Back Wall
 			this.fillWithRandomizedBlocks(world, box, 0, 1, 0, 1, 1, 0, false, rand, RandomSandstone);
-			this.placeBlockAtCurrentPosition(world, Blocks.fence, 0, 2, 1, 0, box);
+			this.placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 2, 1, 0, box);
 			this.fillWithRandomizedBlocks(world, box, 3, 1, 0, 5, 1, 0, false, rand, RandomSandstone);
-			this.placeBlockAtCurrentPosition(world, Blocks.fence, 0, 6, 1, 0, box);
-			this.placeBlockAtCurrentPosition(world, Blocks.fence, 0, 7, 1, 0, box);
+			this.placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 6, 1, 0, box);
+			this.placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 7, 1, 0, box);
 			this.fillWithRandomizedBlocks(world, box, 9 - 1, 1, 0, 9, 1, 0, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 0, 2, 0, 9 - 2, 2, 0, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 0, 0, 0, 0, 1, 6, false, rand, RandomSandstone); //Left Wall
@@ -121,7 +121,7 @@ public class CivilianFeatures {
 			//Loot/Sand
 			this.placeBlockAtCurrentPosition(world, ModBlocks.crate_weapon, 0, 1, 0, 1, box);
 			if(!this.hasPlacedChest)
-				this.hasPlacedChest = this.generateStructureChestContents(world, box, rand, 3, 0, 1, ItemPool.getPool(ItemPoolsLegacy.POOL_GENERIC), rand.nextInt(2) + 8);
+				this.hasPlacedChest = this.generateInvContents(world, box, rand, Blocks.CHEST, 3, 0, 1, ItemPool.getPool(ItemPoolsLegacy.POOL_GENERIC), rand.nextInt(2) + 8);
 			this.fillWithBlocks(world, box, 5, 0, 1, 6, 0, 1, ModBlocks.crate, Blocks.AIR, false);
 			this.placeBlockAtCurrentPosition(world, Blocks.SAND, 0, 7, 0, 1, box);
 			if(rand.nextFloat() <= 0.25)
@@ -181,15 +181,15 @@ public class CivilianFeatures {
 			//House 1
 			this.fillWithRandomizedBlocks(world, box, 0, 0, 0, 6, 1, 0, false, rand, RandomSandstone); //Back Wall
 			this.fillWithRandomizedBlocks(world, box, 0, 2, 0, 1, 2, 0, false, rand, RandomSandstone);
-			this.placeBlockAtCurrentPosition(world, Blocks.fence, 0, 2, 2, 0, box);
+			this.placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 2, 2, 0, box);
 			this.fillWithRandomizedBlocks(world, box, 3, 2, 0, 3, 2, 0, false, rand, RandomSandstone);
-			this.placeBlockAtCurrentPosition(world, Blocks.fence, 0, 4, 2, 0, box);
+			this.placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 4, 2, 0, box);
 			this.fillWithRandomizedBlocks(world, box, 5, 2, 0, 6, 2, 0, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 0, 3, 0, 6, 3, 0, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 0, 0, 1, 0, 3, 9, false, rand, RandomSandstone); //Left Wall
 			this.fillWithRandomizedBlocks(world, box, 1, 0, 9, 6, 1, 9, false, rand, RandomSandstone); //Front Wall
 			this.fillWithRandomizedBlocks(world, box, 1, 2, 9, 1, 2, 9, false, rand, RandomSandstone);
-			this.fillWithBlocks(world, box, 2, 2, 9, 4, 2, 9, Blocks.fence, Blocks.AIR, false);
+			this.fillWithBlocks(world, box, 2, 2, 9, 4, 2, 9, Blocks.OAK_FENCE, Blocks.AIR, false);
 			this.fillWithRandomizedBlocks(world, box, 5, 2, 9, 6, 2, 9, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 1, 3, 9, 6, 3, 9, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 6, 0, 9 - 1, 6, 3, 9 - 1, false, rand, RandomSandstone); //Right Wall
@@ -222,9 +222,9 @@ public class CivilianFeatures {
 			this.fillWithRandomizedBlocks(world, box, 15 - 6, 0, 3, 15 - 6, 1, 9, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 15 - 6, 0, 2, 15 - 6, 0, 2, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 15 - 6, 2, 3, 15 - 6, 2, 3, false, rand, RandomSandstone);
-			this.placeBlockAtCurrentPosition(world, Blocks.fence, 0, 15 - 6, 2, 4, box);
+			this.placeBlockAtCurrentPosition(world, Blocks.OAK_FENCE, 0, 15 - 6, 2, 4, box);
 			this.fillWithRandomizedBlocks(world, box, 15 - 6, 2, 5, 15 - 6, 2, 5, false, rand, RandomSandstone);
-			this.fillWithBlocks(world, box, 15 - 6, 2, 9 - 3, 15 - 6, 2, 9 - 2, Blocks.fence, Blocks.AIR, false);
+			this.fillWithBlocks(world, box, 15 - 6, 2, 9 - 3, 15 - 6, 2, 9 - 2, Blocks.OAK_FENCE, Blocks.AIR, false);
 			this.fillWithRandomizedBlocks(world, box, 15 - 6, 2, 9 - 1, 15 - 6, 2, 9, false, rand, RandomSandstone);
 			this.fillWithRandomizedBlocks(world, box, 15 - 5, 0, 9, 15, 1, 9, false, rand, RandomSandstone); //Front Wall
 			this.fillWithRandomizedBlocks(world, box, 15 - 5, 2, 9, 15 - 5, 2, 9, false, rand, RandomSandstone);
@@ -246,9 +246,7 @@ public class CivilianFeatures {
 			this.placeBlockAtCurrentPosition(world, ModBlocks.crate, 0, 2, 1, 3, box);
 			this.placeBlockAtCurrentPosition(world, ModBlocks.crate_can, 0, 1, 1, 9 - 4, box);
 			if(!hasPlacedLoot[0]) {
-				this.placeBlockAtCurrentPosition(world, Blocks.CHEST, this.getMetadataWithOffset(Blocks.CHEST, 3), 1, 1, 9 - 2, box);
-				WeightedRandomChestContent.generateChestContents(rand, ItemPool.getPool(ItemPoolsComponent.POOL_MACHINE_PARTS), (TileEntityChest)world.getTileEntity(new net.minecraft.util.math.BlockPos(this.getXWithOffset(1, 9 - 2),
-						this.getYWithOffset(1), this.getZWithOffset(1, 9 - 2))), 10);
+				this.generateInvContents(world, box, rand, Blocks.CHEST, this.getDecoMeta(3), 1, 1, 9 - 2, ItemPool.getPool(ItemPoolsComponent.POOL_MACHINE_PARTS), 10);
 				this.hasPlacedLoot[0] = true;
 			}
 			this.fillWithBlocks(world, box, 4, 1, 9 - 1, 5, 1, 9 - 1, ModBlocks.crate, Blocks.AIR, false);
@@ -259,9 +257,7 @@ public class CivilianFeatures {
 
 			//House 2
 			if(!hasPlacedLoot[1]) {
-				this.placeBlockAtCurrentPosition(world, Blocks.CHEST, this.getMetadataWithOffset(Blocks.CHEST, 3), 15 - 5, 1, 1, box);
-				WeightedRandomChestContent.generateChestContents(rand, ItemPool.getPool(ItemPoolsLegacy.POOL_ANTENNA), (TileEntityChest)world.getTileEntity(new net.minecraft.util.math.BlockPos(this.getXWithOffset(15 - 5, 1),
-						this.getYWithOffset(1), this.getZWithOffset(15 - 5, 1))), 10);
+				this.generateInvContents(world, box, rand, Blocks.CHEST, this.getDecoMeta(3), 15 - 5, 1, 1, ItemPool.getPool(ItemPoolsLegacy.POOL_ANTENNA), 10);
 				this.hasPlacedLoot[1] = true;
 			}
 			this.placeBlockAtCurrentPosition(world, ModBlocks.bobblehead, rand.nextInt(16), 15 - 5, 1, 4, box);
@@ -377,9 +373,7 @@ public class CivilianFeatures {
 				this.placeBlockAtCurrentPosition(world, ModBlocks.plant_flower, i, 1, 2, 1 + i, box);
 			}
 
-			int doorMeta = this.getMetadataWithOffset(Blocks.wooden_door, 2);
-			this.placeBlockAtCurrentPosition(world, ModBlocks.door_office, doorMeta, 3, 1, 7 - 1, box);
-			ItemDoor.placeDoorBlock(world, this.getXWithOffset(3, 7 - 1), this.getYWithOffset(1), this.getZWithOffset(3, 7 - 1), doorMeta, ModBlocks.door_office);
+			this.placeDoor(world, box, ModBlocks.door_office, 2, false, false, 3, 1, 7 - 1);
 
 			int northDecoMeta = this.getDecoMeta(3);
 			this.fillWithMetadataBlocks(world, box, 5, 4 - 1, 1, 9 - 1, 4 - 1, 1, ModBlocks.steel_scaffold, westDecoMeta < 4 ? 0 : 8, Blocks.AIR, 0, false);
@@ -452,7 +446,7 @@ public class CivilianFeatures {
 
 			if(this.getBlockAtCurrentPosition(world, 12 - 3, 11 - 4, 7, box).getDefaultState().getMaterial().isReplaceable()
 					|| this.getBlockAtCurrentPosition(world, 12 - 3, 11 - 4, 7, box) == Blocks.AIR) {
-				int stairMeta = this.getMetadataWithOffset(Blocks.STONE_BRICK_STAIRS, 2);
+				int stairMeta = this.getStairMeta(2);
 				placeFoundationUnderneath(world, Blocks.STONEBRICK, 0, 12 - 3, 7, 12 - 2, 7, 11 - 4, box);
 				this.fillWithMetadataBlocks(world, box, 12 - 3, 11 - 4, 7, 12 - 2, 11 - 4, 7, Blocks.STONE_BRICK_STAIRS, stairMeta, Blocks.AIR, 0, false);
 			}
@@ -534,13 +528,8 @@ public class CivilianFeatures {
 			int southMeta = this.getDecoMeta(2);
 			this.placeBlockAtCurrentPosition(world, ModBlocks.crashed_balefire, southMeta, 6, 11 - 2, 3, box);
 
-			int doorMeta = this.getMetadataWithOffset(Blocks.wooden_door, 1);
-			this.placeBlockAtCurrentPosition(world, ModBlocks.door_office, doorMeta, 12 - 3, 11 - 3, 8 - 2, box);
-			ItemDoor.placeDoorBlock(world, this.getXWithOffset(12 - 3, 8 - 2), this.getYWithOffset(11 - 3), this.getZWithOffset(12 - 3, 8 - 2),
-					doorMeta, ModBlocks.door_office);
-			this.placeBlockAtCurrentPosition(world, ModBlocks.door_office, doorMeta, 12 - 2, 11 - 3, 8 - 2, box);
-			ItemDoor.placeDoorBlock(world, this.getXWithOffset(12 - 2, 8 - 2), this.getYWithOffset(11 - 3), this.getZWithOffset(12 - 2, 8 - 2),
-					doorMeta, ModBlocks.door_office);
+			this.placeDoor(world, box, ModBlocks.door_office, 1, true, false, 12 - 3, 11 - 3, 8 - 2);
+			this.placeDoor(world, box, ModBlocks.door_office, 1, false, false, 12 - 2, 11 - 3, 8 - 2);
 
 			this.fillWithBlocks(world, box, 1, 11 - 3, 1, 1, 11 - 1, 1, ModBlocks.deco_steel, Blocks.AIR, false);
 			this.fillWithMetadataBlocks(world, box, 1, 11 - 3, 2, 1, 11 - 2, 3, ModBlocks.steel_grate, 7, Blocks.AIR, 0, false);
@@ -767,7 +756,7 @@ public class CivilianFeatures {
 			placeBlockAtCurrentPosition(world, Blocks.PLANKS, 1, 4, 0, 9, box);
 			fillWithMetadataBlocks(world, box, 2, 0, 10, 7, 0, 12, Blocks.PLANKS, 1);
 			placeBlockAtCurrentPosition(world, Blocks.PLANKS, 1, 8, 0, 11, box);
-			fillWithBlocks(world, box, 13, 1, 0, 14, 1, 0, Blocks.fence);
+			fillWithBlocks(world, box, 13, 1, 0, 14, 1, 0, Blocks.OAK_FENCE);
 			//Porches
 			fillWithBlocks(world, box, 10, 0, 1, 13, 0, 1, Blocks.PLANKS);
 			fillWithMetadataBlocks(world, box, 11, 0, 0, 12, 0, 0, Blocks.SPRUCE_STAIRS, stairN);
@@ -778,7 +767,7 @@ public class CivilianFeatures {
 			placeBlockAtCurrentPosition(world, Blocks.PLANKS, 0, 9, 0, 13, box);
 			for(int i = 0; i < 3; i++) {
 				fillWithMetadataBlocks(world, box, 10 + i, 0, 13 - i, 11 + i, 0, 13 - i, Blocks.PLANKS, 1);
-				fillWithBlocks(world, box, 10 + i, 1, 13 - i, 11 + i, 1, 13 - i, Blocks.fence);
+				fillWithBlocks(world, box, 10 + i, 1, 13 - i, 11 + i, 1, 13 - i, Blocks.OAK_FENCE);
 			}
 
 			//Ceiling
@@ -889,9 +878,9 @@ public class CivilianFeatures {
 			randomlyFillWithBlocks(world, box, rand, 0.05F, 2, 3, 5, 4, 3, 8, Blocks.WEB);
 			randomlyFillWithBlocks(world, box, rand, 0.05F, 2, 3, 10, 7, 3, 12, Blocks.WEB);
 			//Doors
-			placeDoor(world, box, Blocks.wooden_door, 1, false, false, 11, 1, 2);
-			placeDoor(world, box, Blocks.wooden_door, 1, false, rand.nextBoolean(), 4, 1, 9);
-			placeDoor(world, box, Blocks.wooden_door, 2, false, rand.nextBoolean(), 8, 1, 11);
+			placeDoor(world, box, Blocks.OAK_DOOR, 1, false, false, 11, 1, 2);
+			placeDoor(world, box, Blocks.OAK_DOOR, 1, false, rand.nextBoolean(), 4, 1, 9);
+			placeDoor(world, box, Blocks.OAK_DOOR, 2, false, rand.nextBoolean(), 8, 1, 11);
 			//Windows
 			randomlyFillWithBlocks(world, box, rand, 0.5F, 6, 2, 1, 7, 3, 1, Blocks.GLASS_PANE);
 			randomlyFillWithBlocks(world, box, rand, 0.5F, 13, 2, 5, 13, 2, 6, Blocks.GLASS_PANE);

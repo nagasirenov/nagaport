@@ -23,7 +23,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiScreenRadioTelex extends GuiScreen {
-	
+
 	protected static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/machine/gui_telex.png");
 	protected TileEntityRadioTelex telex;
 	protected int xSize = 256;
@@ -33,18 +33,18 @@ public class GuiScreenRadioTelex extends GuiScreen {
 	protected GuiTextField txFrequency;
 	protected GuiTextField rxFrequency;
 	protected boolean textFocus = false;
-	
+
 	protected String[] txBuffer;
 	protected int cursorPos = 0;
-	
+
 	public GuiScreenRadioTelex(TileEntityRadioTelex tile) {
 		this.telex = tile;
 		this.txBuffer = new String[tile.txBuffer.length];
-		
+
 		for(int i = 0; i < txBuffer.length; i++) {
 			this.txBuffer[i] = tile.txBuffer[i];
 		}
-		
+
 		for(int i = 4; i > 0; i--) {
 			if(!txBuffer[i].isEmpty()) {
 				cursorPos = i;
@@ -96,7 +96,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		if(checkClick(x, y, 127, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GREEN + "SAVE ID"}), x, y);
 		if(checkClick(x, y, 147, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.YELLOW + "SEND MESSAGE"}), x, y);
 		if(checkClick(x, y, 167, 105, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.RED + "DELETE MESSAGE BUFFER"}), x, y);
-		
+
 		if(checkClick(x, y, 127, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.GREEN + "SAVE ID"}), x, y);
 		if(checkClick(x, y, 147, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.AQUA + "PRINT MESSAGE"}), x, y);
 		if(checkClick(x, y, 167, 219, 18, 18)) this.drawHoveringText(Arrays.asList(new String[] {TextFormatting.RED + "CLEAR SCREEN"}), x, y);
@@ -106,16 +106,16 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		
+
 		this.txFrequency.drawTextBox();
 		this.rxFrequency.drawTextBox();
-		
+
 		for(int line = 0; line < 5; line++) {
 			String text = txBuffer[line];
 			int y = 11 + 14 * line;
-			
+
 			String format = TextFormatting.RESET + "";
-			
+
 			for(int index = 0; index < text.length(); index++) {
 				int x = 11 + 7 * index;
 				char c = text.charAt(index);
@@ -139,17 +139,17 @@ public class GuiScreenRadioTelex extends GuiScreen {
 				}
 			}
 		}
-		
+
 		for(int line = 0; line < 5; line++) {
 			String text = telex.rxBuffer[line];
 			int y = 145 + 14 * line;
-			
+
 			String format = TextFormatting.RESET + "";
-			
+
 			int x = 11;
-			
+
 			for(int index = 0; index < text.length(); index++) {
-				
+
 				char c = text.charAt(index);
 				x += (7 - this.fontRenderer.getCharWidth(c)) / 2;
 				if(c == '§' && text.length() > index + 1) {
@@ -171,36 +171,36 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glLineWidth(3F);
 		Random rand = new Random(telex.sendingChar);
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawing(GL11.GL_LINES);
-		tess.setColorOpaque_I(0x00ff00);
+		Tessellator tess = Tessellator.getInstance();
+		net.minecraft.client.renderer.BufferBuilder buf = tess.getBuffer(); buf.begin(GL11.GL_LINES, net.minecraft.client.renderer.vertex.DefaultVertexFormats.POSITION_COLOR);
+		buf.color(0, 255, 0, 255);
 		double offset = 0;
 		for(int i = 0; i < 48; i++) {
-			tess.addVertex(guiLeft + 199 + i, guiTop + 93.5 + offset, this.zLevel + 10);
+			buf.pos(guiLeft + 199 + i, guiTop + 93.5 + offset, this.zLevel + 10).endVertex();
 			if(telex.sendingChar != ' ' && i > 4 && i < 43) offset = rand.nextGaussian() * 7; else offset = 0;
 			offset = MathHelper.clamp(offset, -7D, 7D);
-			tess.addVertex(guiLeft + 199 + i + 1, guiTop + 93.5 + offset, this.zLevel + 10);
+			buf.pos(guiLeft + 199 + i + 1, guiTop + 93.5 + offset, this.zLevel + 10).endVertex();
 		}
 		tess.draw();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		this.txFrequency.mouseClicked(x, y, i);
 		this.rxFrequency.mouseClicked(x, y, i);
-		
+
 		if(guiLeft + 7 <= x && guiLeft + 7 + 242 > x && guiTop + 7 < y && guiTop + 7 + 74 >= y) {
 			this.textFocus = true;
 		} else {
 			this.textFocus = false;
 		}
-		
+
 		char character = '\0';
 		String cmd = null;
-		
+
 		/* special characters */
 		// BEL
 		if(checkClick(x, y, 7, 85, 18, 18)) character = '\u0007'; // bell
@@ -212,7 +212,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		if(checkClick(x, y, 67, 85, 18, 18)) character = '§'; // minecraft formatting character
 		// PSE
 		if(checkClick(x, y, 87, 85, 18, 18)) character = '\u0016'; // synchronous idle
-		
+
 		// SVE
 		if(checkClick(x, y, 127, 105, 18, 18) || checkClick(x, y, 127, 219, 18, 18)) cmd = "sve"; // save channel
 		// SND
@@ -229,35 +229,35 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		if(checkClick(x, y, 147, 219, 18, 18)) cmd = "rxprt"; // print message in RX buffer
 		// CLS
 		if(checkClick(x, y, 167, 219, 18, 18)) cmd = "rxcls"; // delete message in RX buffer
-		
+
 		if(cmd != null) {
 			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("cmd", cmd);
-			
+
 			if("snd".equals(cmd)) {
 				for(int j = 0; j < 5; j++) data.setString("tx" + j, this.txBuffer[j]);
 			}
-			
+
 			if("sve".equals(cmd)) {
 				data.setString("txChan", this.txFrequency.getText());
 				data.setString("rxChan", this.rxFrequency.getText());
 			}
-			
+
 			PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, telex.getPos().getX(), telex.getPos().getY(), telex.getPos().getZ()));
 		}
-		
+
 		if(character != '\0') {
 			mc.getSoundHandler().playSound(com.hbm.sound.GuiSound.create(new ResourceLocation("gui.button.press"), 1.0F));
 			setTextFocus();
 			submitChar(character);
 		}
 	}
-	
+
 	protected boolean checkClick(int x, int y, int left, int top, int sizeX, int sizeY) {
 		return guiLeft + left <= x && guiLeft + left + sizeX > x && guiTop + top < y && guiTop + top + sizeY >= y;
 	}
-	
+
 	protected void setTextFocus() {
 		this.textFocus = true;
 		this.txFrequency.setFocused(false);
@@ -269,9 +269,9 @@ public class GuiScreenRadioTelex extends GuiScreen {
 
 		if(this.txFrequency.textboxKeyTyped(c, i)) return;
 		if(this.rxFrequency.textboxKeyTyped(c, i)) return;
-		
+
 		if(this.textFocus) {
-			
+
 			if(i == 1) {
 				this.textFocus = false;
 				return;
@@ -279,28 +279,28 @@ public class GuiScreenRadioTelex extends GuiScreen {
 
 			if(i == Keyboard.KEY_UP) this.cursorPos--;
 			if(i == Keyboard.KEY_DOWN) this.cursorPos++;
-			
+
 			this.cursorPos = MathHelper.clamp(cursorPos, 0, 4);
-			
+
 			if(ChatAllowedCharacters.isAllowedCharacter(c)) {
 				submitChar(c);
 				return;
 			}
-			
+
 			if(i == Keyboard.KEY_BACK && this.txBuffer[cursorPos].length() > 0) {
 				this.txBuffer[cursorPos] = this.txBuffer[cursorPos].substring(0, this.txBuffer[cursorPos].length() - 1);
 			}
 		}
-		
+
 		if(i == 1 || i == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
 			this.mc.player.closeScreen();
 			this.mc.setIngameFocus();
 		}
 	}
-	
+
 	protected void submitChar(char c) {
 		String line = this.txBuffer[cursorPos];
-		
+
 		if(line.length() < TileEntityRadioTelex.lineWidth) {
 			this.txBuffer[cursorPos] = line + c;
 		}
@@ -313,7 +313,7 @@ public class GuiScreenRadioTelex extends GuiScreen {
 		for(int j = 0; j < 5; j++) data.setString("tx" + j, this.txBuffer[j]);
 		PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, telex.getPos().getX(), telex.getPos().getY(), telex.getPos().getZ()));
 	}
-	
+
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;

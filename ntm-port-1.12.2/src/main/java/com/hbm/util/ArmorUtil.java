@@ -40,7 +40,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.ForgeEventFactory;
 
 public class ArmorUtil {
-	
+
 	public static List<Pair<Item, HazardClass[]>> external = new ArrayList();
 
 	public static HazardClass[] FULL_NO_LIGHT = new HazardClass[] {HazardClass.PARTICLE_COARSE, HazardClass.PARTICLE_FINE, HazardClass.GAS_LUNG, HazardClass.BACTERIA, HazardClass.GAS_BLISTERING, HazardClass.GAS_MONOXIDE, HazardClass.SAND};
@@ -68,20 +68,20 @@ public class ArmorUtil {
 		ArmorRegistry.registerHazard(ModItems.attachment_mask, HazardClass.SAND);
 
 		ArmorRegistry.registerHazard(ModItems.asbestos_helmet, HazardClass.SAND, HazardClass.LIGHT);
-		
+
 		ArmorRegistry.registerHazard(ModItems.hazmat_helmet, HazardClass.SAND);
 		ArmorRegistry.registerHazard(ModItems.hazmat_helmet_red, HazardClass.SAND);
 		ArmorRegistry.registerHazard(ModItems.hazmat_helmet_grey, HazardClass.SAND);
 		ArmorRegistry.registerHazard(ModItems.hazmat_paa_helmet, HazardClass.LIGHT, HazardClass.SAND);
 		ArmorRegistry.registerHazard(ModItems.liquidator_helmet, HazardClass.LIGHT, HazardClass.SAND);
-		
+
 		ArmorRegistry.registerHazard(ModItems.schrabidium_helmet, HazardClass.PARTICLE_COARSE, HazardClass.PARTICLE_FINE, HazardClass.GAS_LUNG, HazardClass.BACTERIA, HazardClass.GAS_BLISTERING, HazardClass.GAS_MONOXIDE, HazardClass.LIGHT, HazardClass.SAND);
 		ArmorRegistry.registerHazard(ModItems.euphemium_helmet, HazardClass.PARTICLE_COARSE, HazardClass.PARTICLE_FINE, HazardClass.GAS_LUNG, HazardClass.BACTERIA, HazardClass.GAS_BLISTERING, HazardClass.GAS_MONOXIDE, HazardClass.LIGHT, HazardClass.SAND);
 
 		for(Pair<Item, HazardClass[]> pair : external) {
 			ArmorRegistry.registerHazard(pair.getKey(), pair.getValue());
 		}
-		
+
 		//Ob ihr wirklich richtig steht, seht ihr wenn das Licht angeht!
 		registerIfExists(Compat.MOD_GT6, "gt.armor.hazmat.universal.head", HazardClass.PARTICLE_COARSE, HazardClass.PARTICLE_FINE, HazardClass.GAS_LUNG, HazardClass.BACTERIA, HazardClass.GAS_BLISTERING, HazardClass.GAS_MONOXIDE, HazardClass.LIGHT, HazardClass.SAND);
 		registerIfExists(Compat.MOD_GT6, "gt.armor.hazmat.biochemgas.head", HazardClass.PARTICLE_COARSE, HazardClass.PARTICLE_FINE, HazardClass.GAS_LUNG, HazardClass.BACTERIA, HazardClass.GAS_BLISTERING, HazardClass.GAS_MONOXIDE, HazardClass.LIGHT, HazardClass.SAND);
@@ -119,8 +119,8 @@ public class ArmorUtil {
 
 		com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).damageItem(amount, entity);
 
-		if(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).stackSize == 0) {
-			entity.setCurrentItemOrArmor(slot + 1, null);
+		if(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(entity, slot + 1).getCount() == 0) {
+			entity.setItemStackToSlot((slot >= 0 && slot < 4) ? net.minecraft.inventory.EntityEquipmentSlot.values()[slot + 2] : net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, ItemStack.EMPTY);
 		}
 	}
 
@@ -128,7 +128,7 @@ public class ArmorUtil {
 
 		if(player instanceof EntityPlayerMP) {
 			EntityPlayerMP mp = (EntityPlayerMP) player;
-			ReflectionHelper.setPrivateValue(NetHandlerPlayServer.class, mp.playerNetServerHandler, 0, "floatingTickCount", "field_147365_f");
+			ReflectionHelper.setPrivateValue(NetHandlerPlayServer.class, mp.connection, 0, "floatingTickCount", "field_147365_f");
 		}
 	}
 
@@ -299,9 +299,9 @@ public class ArmorUtil {
 				}
 
 				if(stack.getItemDamage() >= stack.getMaxDamage() || !(stack.getItem() instanceof ArmorFSB) || !((ArmorFSB)stack.getItem()).isArmorEnabled(stack)) {
-					stack.stackSize = 0;
+					stack.setCount(0);
 					player.inventory.armorInventory.set(i, ItemStack.EMPTY);
-					entity.world.playSoundAtEntity(entity, "random.fizz", 0.2F, 1F);
+					entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, net.minecraft.init.SoundEvents.BLOCK_FIRE_EXTINGUISH, net.minecraft.util.SoundCategory.PLAYERS, 0.2F, 1F);
 				}
 			}
 
@@ -332,7 +332,7 @@ public class ArmorUtil {
 	public static boolean checkForDigamma(EntityPlayer player) {
 		if(checkArmor(player, ModItems.fau_helmet, ModItems.fau_plate, ModItems.fau_legs, ModItems.fau_boots)) return true;
 		if(checkArmor(player, ModItems.dns_helmet, ModItems.dns_plate, ModItems.dns_legs, ModItems.dns_boots)) return true;
-		if(player.isPotionActive(HbmPotion.stability.id)) return true;
+		if(player.isPotionActive(HbmPotion.stability)) return true;
 
 		return false;
 	}
@@ -340,7 +340,7 @@ public class ArmorUtil {
 	public static boolean checkForDigamma2(EntityPlayer player) {
 
 		if(!checkArmor(player, ModItems.robes_helmet, ModItems.robes_plate, ModItems.robes_legs, ModItems.robes_boots)) return false;
-		if(!player.isPotionActive(HbmPotion.stability.id)) return false;
+		if(!player.isPotionActive(HbmPotion.stability)) return false;
 
 		for(int i = 0; i < 4; i++) {
 			ItemStack armor = com.hbm.util.LivingEquipmentRead.getArmorNullable(player, i);
@@ -399,7 +399,7 @@ public class ArmorUtil {
 
 	public static boolean isFaradayArmor(ItemStack item) {
 
-		String name = item.getUnlocalizedName();
+		String name = item.getTranslationKey();
 
 		for(String metal : metals) if(name.toLowerCase(Locale.US).contains(metal)) return true;
 		if(HazmatRegistry.getCladding(item) > 0) return true;
@@ -552,8 +552,8 @@ public class ArmorUtil {
 
 		List<String> lore = new ArrayList();
 		list.add("  " + filter.getDisplayName() + append);
-		filter.getItem().addInformation(filter, player, lore, ext);
-		ForgeEventFactory.onItemTooltip(filter, player, lore, ext);
+		filter.getItem().addInformation(filter, player.world, lore, ext ? net.minecraft.client.util.ITooltipFlag.TooltipFlags.ADVANCED : net.minecraft.client.util.ITooltipFlag.TooltipFlags.NORMAL);
+		ForgeEventFactory.onItemTooltip(filter, player, lore, ext ? net.minecraft.client.util.ITooltipFlag.TooltipFlags.ADVANCED : net.minecraft.client.util.ITooltipFlag.TooltipFlags.NORMAL);
 		lore.forEach(x -> list.add(TextFormatting.YELLOW + "  " + x));
 	}
 

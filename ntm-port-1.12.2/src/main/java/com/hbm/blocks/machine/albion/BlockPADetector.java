@@ -21,7 +21,6 @@ public class BlockPADetector extends BlockDummyable implements ITooltipProvider 
 	public BlockPADetector() {
 		super(Material.IRON);
 		this.setCreativeTab(MainRegistry.machineTab);
-		this.setBlockTextureName(RefStrings.MODID + ":block_steel");
 	}
 
 	@Override

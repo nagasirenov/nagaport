@@ -47,8 +47,8 @@ public class EntityRubble extends EntityThrowableNT {
         if(this.ticksExisted > 2) {
         	this.setDead();
         	
-    		this.world.playSoundAtEntity(this, "hbm:block.debris", 1.5F, 1.0F);
-            //worldObj.playAuxSFX(2001, (int)posX, (int)posY, (int)posZ, this.dataManager.get(BLOCK_ID) + (this.dataManager.get(BLOCK_META) << 12));
+    		this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:block.debris"), net.minecraft.util.SoundCategory.PLAYERS, 1.5F, 1.0F);
+            //worldObj.playEvent(2001, new net.minecraft.util.math.BlockPos((int)posX, (int)posY, (int)posZ), this.dataManager.get(BLOCK_ID) + (this.dataManager.get(BLOCK_META) << 12));
     		
     		if(!this.world.isRemote)
 			PacketDispatcher.wrapper.sendToAllAround(new ParticleBurstPacket((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), this.dataManager.get(BLOCK_ID), this.dataManager.get(BLOCK_META)), new TargetPoint(this.world.provider.getDimension(), posX, posY, posZ, 50));

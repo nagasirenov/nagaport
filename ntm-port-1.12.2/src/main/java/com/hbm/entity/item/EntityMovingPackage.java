@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class EntityMovingPackage extends EntityMovingConveyorObject implements IConveyorPackage {
-	
+
 	protected ItemStack[] contents = new ItemStack[0];
 
 	public EntityMovingPackage(World world) {
@@ -37,17 +37,22 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 		return contents;
 	}
 
-	@Override
-	public boolean interactFirst(EntityPlayer player) {
+
+		@Override
+	public boolean processInitialInteract(net.minecraft.entity.player.EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		return interactFirst(player);
+	}
+
+public boolean interactFirst(EntityPlayer player) {
 
 		if(!this.world.isRemote && !this.isDead) {
-			
+
 			for(ItemStack stack : contents) {
 				if(!player.inventory.addItemStackToInventory(stack.copy())) {
 					this.world.spawnEntity(new EntityItem(this.world, posX, posY + 0.125, posZ, stack));
 				}
 			}
-			
+
 			this.setDead();
 		}
 
@@ -59,7 +64,7 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 
 		if(!this.world.isRemote && !this.isDead) {
 			this.setDead();
-			
+
 			for(ItemStack stack : contents) {
 				this.world.spawnEntity(new EntityItem(this.world, posX, posY + 0.125, posZ, stack));
 			}
@@ -76,7 +81,7 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 	@Override
 	public void enterBlock(IEnterableBlock enterable, BlockPos pos, ForgeDirection dir) {
 		if(this.isDead) return;
-		
+
 		if(enterable.canPackageEnter(this.world, pos.getX(), pos.getY(), pos.getZ(), dir, this)) {
 			enterable.onPackageEnter(this.world, pos.getX(), pos.getY(), pos.getZ(), dir, this);
 			this.setDead();
@@ -85,9 +90,9 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 
 	@Override
 	public boolean onLeaveConveyor() {
-		
+
 		this.setDead();
-		
+
 		for(ItemStack stack : contents) {
 			EntityItem item = new EntityItem(this.world, posX + motionX * 2, posY + motionY * 2, posZ + motionZ * 2, stack);
 			item.motionX = this.motionX * 2;
@@ -96,7 +101,7 @@ public class EntityMovingPackage extends EntityMovingConveyorObject implements I
 			item.velocityChanged = true;
 			this.world.spawnEntity(item);
 		}
-		
+
 		return true;
 	}
 

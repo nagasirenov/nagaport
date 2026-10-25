@@ -59,10 +59,10 @@ public class BlockProcessorStandard implements IBlockProcessor {
 					
 					int dropFortune = fortune == null ? 0 : fortune.mutateFortune(explosion, block, blockX, blockY, blockZ);
 					
-					block.dropBlockAsItemWithChance(world, blockX, blockY, blockZ, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ) ), dropChance, dropFortune);
+					block.dropBlockAsItemWithChance(world, new net.minecraft.util.math.BlockPos(blockX, blockY, blockZ), com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ), dropChance, dropFortune);
 				}
 				
-				block.onBlockExploded(world, blockX, blockY, blockZ, explosion.compat);
+				block.onBlockExploded(world, new net.minecraft.util.math.BlockPos(blockX, blockY, blockZ), explosion.compat);
 				if(this.convert != null) this.convert.mutatePre(explosion, block, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ) ), blockX, blockY, blockZ);
 			} else {
 				iterator.remove();

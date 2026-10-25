@@ -28,7 +28,6 @@ public class EntityTNTPrimedBase extends Entity {
 		super(world);
 		this.preventEntitySpawning = true;
 		this.setSize(0.98F, 0.98F);
-		this.yOffset = this.height / 2.0F;
 		this.fuse = 80;
 		this.detonateOnCollision = false;
 
@@ -73,7 +72,7 @@ public class EntityTNTPrimedBase extends Entity {
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
 		this.motionY -= 0.04D;
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+		this.move(net.minecraft.entity.MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 		this.motionX *= 0.98D;
 		this.motionY *= 0.98D;
 		this.motionZ *= 0.98D;
@@ -124,7 +123,6 @@ public class EntityTNTPrimedBase extends Entity {
 		this.dataManager.set(BLOCK_ID, nbt.getInteger("Tile"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public float getShadowSize() {
 		return 0.0F;

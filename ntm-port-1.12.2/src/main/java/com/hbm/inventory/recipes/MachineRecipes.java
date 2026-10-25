@@ -60,6 +60,9 @@ public class MachineRecipes {
 	//Matches Ore Dict Entry
 	public static boolean mODE(ItemStack stack, String name) {
 		
+		if(stack == null || stack.isEmpty() || stack.getItem() == null)
+			return false;
+
 		int[] ids = OreDictionary.getOreIDs(new ItemStack(stack.getItem(), 1, stack.getItemDamage()));
 		
 		for(int i = 0; i < ids.length; i++) {

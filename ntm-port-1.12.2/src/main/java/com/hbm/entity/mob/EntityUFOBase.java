@@ -41,11 +41,16 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 	}
 
 	@Override
-	protected void updateEntityActionState() {
+	public void onUpdate() {
+		super.onUpdate();
+		if(!this.world.isRemote) this.updateEntityActionStateNT();
+	}
+
+	protected void updateEntityActionStateNT() {
 
 		if(!this.world.isRemote) {
 
-			if(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
+			if(this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
 				this.setDead();
 				return;
 			}
@@ -85,7 +90,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 
 			for(Entity entity : entities) {
 
-				if(!entity.isEntityAlive() || !canAttackClass(entity.getClass()))
+				if(!entity.isEntityAlive() || !canAttackClass((Class<? extends net.minecraft.entity.EntityLivingBase>) entity.getClass()))
 					continue;
 
 				if(entity instanceof EntityPlayer) {
@@ -99,7 +104,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 					if(this.target == null) {
 						this.target = entity;
 					} else {
-						if(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {
+						if(this.getDistanceSq(entity) < this.getDistanceSq(this.target)) {
 							this.target = entity;
 						}
 					}
@@ -123,12 +128,12 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 		double d4 = (this.getX() - this.posX) / p_70790_7_;
 		double d5 = (this.getY() - this.posY) / p_70790_7_;
 		double d6 = (this.getZ() - this.posZ) / p_70790_7_;
-		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
 
 		for(int i = 1; i < p_70790_7_; ++i) {
-			axisalignedbb.offset(d4, d5, d6);
+			axisalignedbb = axisalignedbb.offset(d4, d5, d6);
 
-			if(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
+			if(!this.world.getCollisionBoxes(this, axisalignedbb).isEmpty()) {
 				return false;
 			}
 		}
@@ -176,7 +181,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 		int wX = (int)Math.floor(this.target.posX - vec.x / length * overshoot);
 		int wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);
 
-		this.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ), (int) this.target.posY) + targetHeightOffset(),  wZ);
+		this.setWaypoint(wX, Math.max(this.world.getHeight(wX, wZ), (int) this.target.posY) + targetHeightOffset(),  wZ);
 	}
 
 	protected int targetHeightOffset() {
@@ -190,7 +195,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 	protected void setCourseWithoutTaget() {
 		int x = (int) Math.floor(posX + rand.nextGaussian() * 5);
 		int z = (int) Math.floor(posZ + rand.nextGaussian() * 5);
-		this.setWaypoint(x, this.world.getHeightValue(x, z) + wanderHeightOffset(),  z);
+		this.setWaypoint(x, this.world.getHeight(x, z) + wanderHeightOffset(),  z);
 	}
 
 	public void setWaypoint(int x, int y, int z) {

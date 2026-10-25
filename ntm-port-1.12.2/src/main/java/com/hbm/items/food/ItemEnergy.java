@@ -26,16 +26,16 @@ import net.minecraftforge.common.util.FakePlayer;
 
 @Spaghetti("wtf is this shit")
 public class ItemEnergy extends Item {
-	
+
 	private Item container = null;
 	private Item cap = null;
 	private boolean requiresOpener = false;
-	
+
 	public ItemEnergy() {
 		this.setCreativeTab(MainRegistry.consumableTab);
 	}
-	
-	
+
+
 	public ItemEnergy makeCan() {
 		this.container = ModItems.can_empty;
 		this.cap = ModItems.ring_pull;
@@ -43,7 +43,7 @@ public class ItemEnergy extends Item {
 		this.setContainerItem(this.container);
 		return this;
 	}
-	 
+
 	public ItemEnergy makeBottle(Item bottle, Item cap) {
 		this.container = bottle;
 		this.cap = cap;
@@ -52,32 +52,33 @@ public class ItemEnergy extends Item {
 		this.setCreativeTab(MainRegistry.consumableTab);
 		return this;
 	}
-	
+
 	public ItemEnergy makeGlass() {
 		this.requiresOpener = false;
 		return this;
 	}
 
 	@Override
-	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+	public net.minecraft.item.ItemStack onItemUseFinish(ItemStack stack, World world, net.minecraft.entity.EntityLivingBase entity) {
+		EntityPlayer player = (EntityPlayer) entity;
 
 		if(!player.capabilities.isCreativeMode) {
-			--stack.stackSize;
+			stack.shrink(1);
 		}
 
 		if(!world.isRemote) {
 
 			if(player instanceof FakePlayer) {
 				world.newExplosion(player, player.posX, player.posY, player.posZ, 5F, true, true);
-				return super.onEaten(stack, world, player);
+				return super.onItemUseFinish(stack, world, entity);
 			}
-			
+
 			VersatileConfig.applyPotionSickness(player, 5);
 
 			if(this == ModItems.can_smart) {
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 30 * 20, 0));
 			}
 			if(this == ModItems.can_creature) {
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));
@@ -87,22 +88,22 @@ public class ItemEnergy extends Item {
 			if(this == ModItems.can_redbomb) {
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 30 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.jump.id, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 30 * 20, 1));
 			}
 			if(this == ModItems.can_mrsugar) {
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.jump.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 30 * 20, 2));
 			}
 			if(this == ModItems.can_overcharge) {
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 30 * 20, 0));
 			}
 			if(this == ModItems.can_luna) {
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 30 * 20, 2));
 				System.out.println(this.container);
 
@@ -124,13 +125,13 @@ public class ItemEnergy extends Item {
 			if(this == ModItems.bottle_nuka) {
 				player.heal(4F);
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 30 * 20, 1));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 5.0F);
 			}
 			if(this == ModItems.bottle_cherry) {
 				player.heal(6F);
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));
-				player.addPotionEffect(new PotionEffect(Potion.jump.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 30 * 20, 2));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 5.0F);
 			}
 			if(this == ModItems.glass_smilk) {
@@ -140,7 +141,7 @@ public class ItemEnergy extends Item {
 				//System.out.println(this.container);
 			}
 			if(this == ModItems.teacup) {
-				player.heal(3F); 				
+				player.heal(3F);
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 4));
 
 				this.setContainerItem(ModItems.teacup_empty);
@@ -150,35 +151,35 @@ public class ItemEnergy extends Item {
 				player.heal(9F);  //sweet sorrow
 				float digamma = HbmLivingProps.getDigamma(player);
 				HbmLivingProps.setDigamma(player, Math.max(digamma - 0.3F, 0F));
-				
-				this.setContainerItem(Items.glass_bottle);
-				this.container = Items.glass_bottle;
+
+				this.setContainerItem(Items.GLASS_BOTTLE);
+				this.container = Items.GLASS_BOTTLE;
 			}
 			if(this == ModItems.bottle_quantum) {
 				player.heal(10F);
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 30 * 20, 1));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 15.0F);
 			}
 			if(this == ModItems.bottle2_korl) {
 				player.heal(6);
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 30 * 20, 2));
 			}
 			if(this == ModItems.bottle2_fritz) {
 				player.heal(6);
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.jump.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 30 * 20, 2));
 			}
 			if(this == ModItems.bottle_sparkle) {
 				player.heal(10F);
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 120 * 20, 1));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 120 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 120 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 120 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 120 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 120 * 20, 1));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 5.0F);
 			}
 			if(this == ModItems.bottle_rad) {
@@ -186,8 +187,8 @@ public class ItemEnergy extends Item {
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 120 * 20, 1));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 120 * 20, 2));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 120 * 20, 0));
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 120 * 20, 4));
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 120 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 120 * 20, 4));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 120 * 20, 1));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 15.0F);
 			}
 			if(this == ModItems.coffee) {
@@ -210,13 +211,13 @@ public class ItemEnergy extends Item {
 					player.inventory.addItemStackToInventory(new ItemStack(this.cap));
 				}
 				if(this.container != null) {
-					if(stack.stackSize <= 0) {
+					if(stack.getCount() <= 0) {
 						return new ItemStack(this.container);
 					}
 					player.inventory.addItemStackToInventory(new ItemStack(this.container));
 				}
 			}
-			
+
 			player.inventoryContainer.detectAndSendChanges();
 		}
 
@@ -230,16 +231,22 @@ public class ItemEnergy extends Item {
 
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack) {
-		return EnumAction.drink;
+		return EnumAction.DRINK;
 	}
 
 	@Spaghetti("cover yourself in oil")
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(VersatileConfig.hasPotionSickness(player)) return stack;
-		if(this.requiresOpener && !player.inventory.hasItem(ModItems.bottle_opener)) return stack;
+		if(this.requiresOpener && !player.inventory.hasItemStack(new net.minecraft.item.ItemStack(ModItems.bottle_opener))) return stack;
 
-		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+		player.setActiveHand(net.minecraft.util.EnumHand.MAIN_HAND);
 
 		return stack;
 	}
@@ -303,7 +310,7 @@ public class ItemEnergy extends Item {
 			else
 				list.add("Tastes like radish and radiation.");
 		}
-		
+
 		if(this.requiresOpener) list.add("[Requires bottle opener]");
 	}
 }

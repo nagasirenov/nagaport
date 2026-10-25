@@ -50,12 +50,15 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 
-		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		int l = net.minecraft.util.EnumFacing.getDirectionFromEntityLiving(new net.minecraft.util.math.BlockPos(x, y, z), player).getIndex();
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, l, 2);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fx, float fy, float fz) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int i = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 
 		if(world.isRemote)
 			return true;
@@ -65,10 +68,10 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
 
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemDye) {
-				te.color = ItemDye.field_150922_c[com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage()];
+				te.color = ItemDye.DYE_COLORS[com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage()];
 				te.markDirty();
-				world.markBlockForUpdate(x, y, z);
-				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
+				com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
 				return true;
 			}
 		}
@@ -129,7 +132,7 @@ public class BlockEmitter extends BlockContainer implements IToolable, ITooltipP
 						int z = this.pos.getZ() + dir.offsetZ * i;
 
 						Block b = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
-						if(b.isBlockSolid(this.world, x, y, z, dir.ordinal())) {
+						if(b.isSideSolid(com.hbm.world.WorldBlockState.read(this.world, x, y, z), this.world, new net.minecraft.util.math.BlockPos(x, y, z), net.minecraft.util.EnumFacing.byIndex(dir.ordinal()))) {
 							break;
 						}
 					}

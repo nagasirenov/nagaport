@@ -61,8 +61,8 @@ public class EntityNukeTorex extends Entity {
 		this.dataManager.register(COLOR_TYPE, new Integer(0));
 	}
 
-	@Override @SideOnly(Side.CLIENT) public int getBrightnessForRender(float interp) { return 15728880; }
-	@Override public float getBrightness(float interp) { return 1.0F; }
+	@Override @SideOnly(Side.CLIENT) public int getBrightnessForRender() { return 15728880; }
+	@Override public float getBrightness() { return 1.0F; }
 
 	@Override
 	public void onUpdate() {
@@ -79,7 +79,7 @@ public class EntityNukeTorex extends Entity {
 				lastSpawnY = posY - 3;
 			}
 
-			if(ticksExisted < 100) this.world.lastLightningBolt = 2;
+			if(ticksExisted < 100) this.world.setLastLightningBolt(2);
 
 			int spawnTarget = Math.max(com.hbm.world.WorldHeight.read(this.world, (int) Math.floor(posX), (int) Math.floor(posZ)) - 3, 1);
 			double moveSpeed = 0.5D;
@@ -109,7 +109,7 @@ public class EntityNukeTorex extends Entity {
 				}
 
 				if(ticksExisted < 150 && !didPlaySound) {
-					if(MainRegistry.proxy.me() != null && MainRegistry.proxy.me().getDistanceToEntity(this) < (ticksExisted * 1.5 + 1) * 1.5) {
+					if(MainRegistry.proxy.me() != null && MainRegistry.proxy.me().getDistance(this) < (ticksExisted * 1.5 + 1) * 1.5) {
 						MainRegistry.proxy.playSoundClient(posX, posY, posZ, "hbm:weapon.nuclearExplosion", 10_000F, 1F);
 						didPlaySound = true;
 					}
@@ -159,7 +159,7 @@ public class EntityNukeTorex extends Entity {
 				}
 
 				if(!didPlaySound) {
-					if(MainRegistry.proxy.me() != null && MainRegistry.proxy.me().getDistanceToEntity(this) < (ticksExisted * 1.5 + 1) * 1.5) {
+					if(MainRegistry.proxy.me() != null && MainRegistry.proxy.me().getDistance(this) < (ticksExisted * 1.5 + 1) * 1.5) {
 						MainRegistry.proxy.playSoundClient(posX, posY, posZ, "hbm:weapon.nuclearExplosion", 10_000F, 1F);
 						didPlaySound = true;
 					}
@@ -634,13 +634,13 @@ public class EntityNukeTorex extends Entity {
 		torex.setType(type);
 		torex.setPosition(x, y, z);
 		torex.forceSpawn = true;
-		world.spawnEntityInWorld(torex);
+		world.spawnEntity(torex);
 		TrackerUtil.setTrackingRange(world, torex, 1000);
 	}
 	public static void startFacAnti(World world, double x, double y, double z, float scale) {
 		EntityNukeTorex torex = new EntityNukeTorex(world).setScale(MathHelper.clamp(scale * 0.01F, 0.5F, 5F)).setType(2);
 		torex.setPosition(x, y, z);
-		world.spawnEntityInWorld(torex);
+		world.spawnEntity(torex);
 		TrackerUtil.setTrackingRange(world, torex, 1000);
 	}
 }

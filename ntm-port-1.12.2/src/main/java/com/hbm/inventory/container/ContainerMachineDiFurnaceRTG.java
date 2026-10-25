@@ -7,6 +7,7 @@ import com.hbm.tileentity.machine.TileEntityDiFurnaceRTG;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -46,21 +47,21 @@ public class ContainerMachineDiFurnaceRTG extends Container {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
-		if(index >= 0 && index < 2 && button == 1 && mode == 0) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
+		if(index >= 0 && index < 2 && button == 1 && mode == ClickType.PICKUP) {
 			Slot slot = this.getSlot(index);
 			if(!slot.getHasStack() && player.inventory.getItemStack() == null) {
 				if(!player.world.isRemote) {
 					if(index == 0) bFurnace.sideUpper = (byte) ((bFurnace.sideUpper + 1) % 6);
 					if(index == 1) bFurnace.sideLower = (byte) ((bFurnace.sideLower + 1) % 6);
-					
+
 					bFurnace.markDirty();
 				}
 				return null;
 			}
 		}
-		
+
 		return super.slotClick(index, button, mode, player);
 	}
 
@@ -80,12 +81,12 @@ public class ContainerMachineDiFurnaceRTG extends Container {
 			} else if(var5.getItem() instanceof ItemRTGPellet) {
 				if(!this.mergeItemStack(var5, 3, 9, false))
 					return null;
-				
+
 			} else if(!this.mergeItemStack(var5, 0, 3, false)) {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

@@ -146,10 +146,10 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 			}
 		}
 	}
-	
+
 	/** Ensures the k-node exists, is loaded, and the klystron is a provider in the k-net. Returns a new klystron node if none existed, or the previous one. */
 	public static GenNode handleKNode(GenNode klystronNode, TileEntity that) {
-		
+
 		World worldObj = that.getWorld();
 		int xCoord = that.getPos().getX();
 		int yCoord = that.getPos().getY();
@@ -169,10 +169,10 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 		}
 
 		if(klystronNode.net != null) klystronNode.net.addProvider(that);
-		
+
 		return klystronNode;
 	}
-	
+
 	/** Provides klystron energy to the k-net of the supplied k-node, returns true is a connection is established */
 	public static boolean provideKyU(GenNode klystronNode, long output) {
 		boolean connected = false;
@@ -193,7 +193,7 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 				}
 			}
 		}
-		
+
 		return connected;
 	}
 
@@ -304,7 +304,7 @@ public class TileEntityFusionKlystron extends TileEntityMachineBase implements I
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.getPos().getX() - 4,
 					this.getPos().getY(),
 					this.getPos().getZ() - 4,

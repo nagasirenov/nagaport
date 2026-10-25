@@ -57,8 +57,13 @@ public class EntityAITankshell extends EntityAIBase {
 
 	}
 
-	@Override
-	public boolean continueExecuting() {
+
+		@Override
+	public boolean shouldContinueExecuting() {
+		return continueExecuting();
+	}
+
+public boolean continueExecuting() {
 		return this.shouldExecute() || !this.owner.getNavigator().noPath();
 	}
 
@@ -128,14 +133,14 @@ public class EntityAITankshell extends EntityAIBase {
 					bullet.motionX = targetX * 0.5D;
 					bullet.motionZ = targetZ * 0.5D;
 					bullet.motionY = targetY * 0.1D;
-					owner.world.spawnEntityInWorld(bullet);
+					owner.world.spawnEntity(bullet);
 				}else {
 					EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(owner, XFactoryRocket.rocket_qd[1], 4, 0.01F, owner.posX, owner.posY + 3, owner.posZ);
 					bullet.setPosition(owner.posX, owner.posY + 3, owner.posZ);
 					bullet.motionX = targetX * 0.5D;
 					bullet.motionZ = targetZ * 0.5D;
 					bullet.motionY = targetY * 0.1D;
-					owner.world.spawnEntityInWorld(bullet);
+					owner.world.spawnEntity(bullet);
 				}
 			} else {
 				for (int i = 0; i < 8; i++) {
@@ -146,7 +151,7 @@ public class EntityAITankshell extends EntityAIBase {
 					bullet.motionZ = targetZ * (0.2 + (0.5 * Math.random()));
 					bullet.motionY = targetY * 0.1;
 
-					owner.world.spawnEntityInWorld(bullet);
+					owner.world.spawnEntity(bullet);
 				}
 			}
 

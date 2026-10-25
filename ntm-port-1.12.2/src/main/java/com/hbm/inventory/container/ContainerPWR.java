@@ -11,16 +11,16 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerPWR extends Container {
-	
+
 	TileEntityPWRController controller;
 
 	public ContainerPWR(InventoryPlayer invPlayer, TileEntityPWRController controller) {
 		this.controller = controller;
-		
+
 		this.addSlotToContainer(new Slot(controller, 0, 53, 5));
 		this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, controller, 1, 89, 32));
 		this.addSlotToContainer(new Slot(controller, 2, 8, 59));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 106 + i * 18));
@@ -31,7 +31,7 @@ public class ContainerPWR extends Container {
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 164));
 		}
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
 		ItemStack var3 = null;
@@ -46,7 +46,7 @@ public class ContainerPWR extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(var5, 2, 3, false)) {
 						return null;
@@ -58,7 +58,7 @@ public class ContainerPWR extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

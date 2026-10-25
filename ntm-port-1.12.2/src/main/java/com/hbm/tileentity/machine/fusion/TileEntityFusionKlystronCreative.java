@@ -21,7 +21,7 @@ public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase imple
 	public float prevFan;
 	public float fanSpeed;
 	public static final float FAN_ACCELERATION = 0.125F;
-	
+
 	public boolean isConnected = false;
 
 	private AudioWrapper audio;
@@ -30,7 +30,7 @@ public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase imple
 	public void update() {
 
 		if(!this.world.isRemote) {
-			
+
 			this.klystronNode = TileEntityFusionKlystron.handleKNode(klystronNode, this);
 			this.isConnected = TileEntityFusionKlystron.provideKyU(klystronNode, FusionRecipes.INSTANCE.maxInput);
 
@@ -116,7 +116,7 @@ public class TileEntityFusionKlystronCreative extends TileEntityLoadedBase imple
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 4,
 					this.pos.getY(),
 					this.pos.getZ() - 4,

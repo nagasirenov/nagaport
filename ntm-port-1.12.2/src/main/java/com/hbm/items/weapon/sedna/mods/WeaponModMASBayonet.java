@@ -53,11 +53,11 @@ public class WeaponModMASBayonet extends WeaponModBase {
 						mop.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(ctx.getPlayer()), damage);
 						mop.entityHit.motionX *= 2;
 						mop.entityHit.motionZ *= 2;
-						entity.world.playSoundAtEntity(mop.entityHit, "hbm:weapon.fire.stab", 1F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+						entity.world.playSound(null, mop.entityHit.posX, mop.entityHit.posY, mop.entityHit.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.fire.stab"), net.minecraft.util.SoundCategory.PLAYERS, 1F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 					}
 					if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 						Block b = entity.world.getBlockState(mop.getBlockPos()).getBlock();
-						entity.world.playSoundEffect(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, b.stepSound.getStepResourcePath(), 2F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
+						entity.world.playSound(null, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, b.getSoundType().getStepSound(), net.minecraft.util.SoundCategory.BLOCKS, 2F, 0.9F + entity.getRNG().nextFloat() * 0.2F);
 					}
 				}
 			}

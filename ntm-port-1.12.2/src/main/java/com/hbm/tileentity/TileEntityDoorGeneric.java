@@ -250,7 +250,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 				}
 
 				if(doorType.getOpenSoundStart() != null) {
-					this.world.playSound(this.pos.getX(), this.pos.getY(), this.pos.getZ(), doorType.getOpenSoundStart(), doorType.getSoundVolume(), 1F, false);
+					this.world.playSound(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.main.ModSoundEvents.resolve(doorType.getOpenSoundStart()), net.minecraft.util.SoundCategory.BLOCKS, doorType.getSoundVolume(), 1F);
 				}
 
 				if(doorType.getSoundLoop2() != null) {
@@ -272,7 +272,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 				}
 
 				if(doorType.getCloseSoundStart() != null) {
-					this.world.playSound(this.pos.getX(), this.pos.getY(), this.pos.getZ(), doorType.getCloseSoundStart(), doorType.getSoundVolume(), 1F, false);
+					this.world.playSound(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.main.ModSoundEvents.resolve(doorType.getCloseSoundStart()), net.minecraft.util.SoundCategory.BLOCKS, doorType.getSoundVolume(), 1F);
 				}
 
 				if(doorType.getSoundLoop2() != null) {
@@ -296,13 +296,13 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 
 			if(this.state == STATE_OPENING && state == STATE_OPEN) { // Door finished transitioning to open
 				if(doorType.getOpenSoundEnd() != null) {
-					this.world.playSound(this.pos.getX(), this.pos.getY(), this.pos.getZ(), doorType.getOpenSoundEnd(), doorType.getSoundVolume(), 1F, false);
+					this.world.playSound(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.main.ModSoundEvents.resolve(doorType.getOpenSoundEnd()), net.minecraft.util.SoundCategory.BLOCKS, doorType.getSoundVolume(), 1F);
 				}
 			}
 
 			if(this.state == STATE_CLOSING && state == STATE_CLOSED) { // Door finished transitioning to closed
 				if(doorType.getCloseSoundEnd() != null) {
-					this.world.playSound(this.pos.getX(), this.pos.getY(), this.pos.getZ(), doorType.getCloseSoundEnd(), doorType.getSoundVolume(), 1F, false);
+					this.world.playSound(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.main.ModSoundEvents.resolve(doorType.getCloseSoundEnd()), net.minecraft.util.SoundCategory.BLOCKS, doorType.getSoundVolume(), 1F);
 				}
 			}
 
@@ -357,7 +357,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 		this.skinIndex = tag.getByte("skin");
 		NBTTagCompound activatedBlocks = tag.getCompoundTag("activatedBlocks");
 		this.activatedBlocks.clear();
-		for(int i = 0; i < activatedBlocks.func_150296_c().size() / 3; i++) {
+		for(int i = 0; i < activatedBlocks.getKeySet().size() / 3; i++) {
 			this.activatedBlocks.add(new BlockPos(activatedBlocks.getInteger("x" + i), activatedBlocks.getInteger("y" + i), activatedBlocks.getInteger("z" + i)));
 		}
 		super.readFromNBT(tag);

@@ -36,22 +36,22 @@ public class TileEntityNukeBalefire extends TileEntityMachineBase implements IGU
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.loaded = this.isLoaded();
-			
+
 			if(!loaded) {
 				started = false;
 			}
-			
+
 			if(started) {
 				timer--;
-				
+
 				if(timer % 20 == 0)
 					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbPing", 5.0F, 1.0F);
 			}
-			
+
 			if(timer <= 0) {
 				explode();
 			}
@@ -79,93 +79,93 @@ public class TileEntityNukeBalefire extends TileEntityMachineBase implements IGU
 	}
 
 	public void handleButtonPacket(int value, int meta) {
-		
+
 		if(meta == 0 && this.isLoaded()) {
 			com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:weapon.fstbmbStart", 5.0F, 1.0F);
 			started = true;
 		}
-		
+
 		if(meta == 1)
 			timer = value * 20;
 	}
-	
+
 	public boolean isLoaded() {
 		return hasEgg() && hasBattery();
 	}
-	
+
 	public boolean hasEgg() {
 		if(slots[0] != null && slots[0].getItem() == ModItems.egg_balefire) return true;
 		return false;
 	}
-	
+
 	public boolean hasBattery() {
 		return getBattery() > 0;
 	}
-	
+
 	public int getBattery() {
 		if(slots[1] != null && slots[1].getItem() == ModItems.battery_spark) return 1;
 		if(slots[1] != null && slots[1].getItem() == ModItems.battery_trixite) return 2;
 		return 0;
 	}
-	
+
 	public void explode() {
-		
+
 		for(int i = 0; i < slots.length; i++)
 			slots[i] = null;
-		
+
 		com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
-		
+
 		EntityBalefire bf = new EntityBalefire(this.world);
 		bf.posX = this.pos.getX() + 0.5;
 		bf.posY = this.pos.getY() + 0.5;
 		bf.posZ = this.pos.getZ() + 0.5;
 		bf.destructionRange = (int) 250;
-		this.world.spawnEntityInWorld(bf);
+		this.world.spawnEntity(bf);
 		EntityNukeTorex.statFacBale(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 250);
 	}
-	
+
 	public String getMinutes() {
-		
+
 		String mins = "" + (timer / 1200);
-		
+
 		if(mins.length() == 1)
 			mins = "0" + mins;
-		
+
 		return mins;
 	}
-	
+
 	public String getSeconds() {
-		
+
 		String mins = "" + ((timer / 20) % 60);
-		
+
 		if(mins.length() == 1)
 			mins = "0" + mins;
-		
+
 		return mins;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		started = nbt.getBoolean("started");
 		timer = nbt.getInteger("timer");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setBoolean("started", started);
 		nbt.setInteger("timer", timer);
 		return nbt;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()

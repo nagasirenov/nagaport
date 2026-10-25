@@ -56,7 +56,7 @@ public class HbmPotion extends Potion {
 
 
 	public HbmPotion(int id, boolean isBad, int color) {
-		super(id, isBad, color);
+		super(isBad, color);
 	}
 
 	public static void init() {
@@ -81,25 +81,6 @@ public class HbmPotion extends Potion {
 
 	public static HbmPotion registerPotion(int id, boolean isBad, int color, String name, int x, int y) {
 
-		if (id >= Potion.potionTypes.length) {
-
-			Potion[] newArray = new Potion[Math.max(256, id)];
-			System.arraycopy(Potion.potionTypes, 0, newArray, 0, Potion.potionTypes.length);
-
-			Field field = ReflectionHelper.findField(Potion.class, new String[] { "field_76425_a", "potionTypes" });
-			field.setAccessible(true);
-
-			try {
-
-				Field modfield = Field.class.getDeclaredField("modifiers");
-				modfield.setAccessible(true);
-				modfield.setInt(field, field.getModifiers() & 0xFFFFFFEF);
-				field.set(null, newArray);
-
-			} catch (Exception e) {
-
-			}
-		}
 
 		HbmPotion effect = new HbmPotion(id, isBad, color);
 		effect.setPotionName(name);
@@ -134,7 +115,7 @@ public class HbmPotion extends Potion {
 				net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(entity.world, x, y - 1, z);
 				Block b = nativeAirState.getBlock();
 				if(y > 1 && b.isNormalCube(nativeAirState) && !b.isAir(nativeAirState, entity.world, new net.minecraft.util.math.BlockPos(x, y - 1, z))) {
-					entity.world.setBlock(x, y - 1, z, ModBlocks.taint, 14, 2);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(entity.world, x, y - 1, z, ModBlocks.taint, 14, 2);
 				}
 			}
 		}
@@ -198,7 +179,7 @@ public class HbmPotion extends Potion {
 			if(entity instanceof EntityZombie || entity instanceof EntitySkeleton){
 				entity.setFire(20);
 				}
-			entity.addPotionEffect(new PotionEffect(moveSlowdown.id,5,10));
+			entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS,5,10));
 		}
 	}
 

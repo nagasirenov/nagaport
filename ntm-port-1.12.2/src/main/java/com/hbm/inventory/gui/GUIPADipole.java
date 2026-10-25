@@ -27,13 +27,13 @@ public class GUIPADipole extends GuiInfoContainer {
 
 	private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/particleaccelerator/gui_dipole.png");
 	private TileEntityPADipole dipole;
-	
+
 	protected GuiTextField threshold;
 
 	public GUIPADipole(InventoryPlayer player, TileEntityPADipole dipole) {
 		super(new ContainerPADipole(player, dipole));
 		this.dipole = dipole;
-		
+
 		this.xSize = 176;
 		this.ySize = 204;
 	}
@@ -51,7 +51,7 @@ public class GUIPADipole extends GuiInfoContainer {
 		this.threshold.setMaxStringLength(9);
 		this.threshold.setText("" + dipole.threshold);
 	}
-	
+
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float f) {
 		super.drawScreen(mouseX, mouseY, f);
@@ -59,14 +59,14 @@ public class GUIPADipole extends GuiInfoContainer {
 		dipole.coolantTanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 134, guiTop + 36, 16, 52);
 		dipole.coolantTanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 152, guiTop + 36, 16, 52);
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 8, guiTop + 18, 16, 52, dipole.power, dipole.getMaxPower());
-		
+
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft + 62, guiTop + 29, 12, 12, mouseX, mouseY, TextFormatting.BLUE + "Player orientation", TextFormatting.RED + "Output orientation:", dipole.ditToForgeDir(dipole.dirLower).name());
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft + 62, guiTop + 43, 12, 12, mouseX, mouseY, TextFormatting.BLUE + "Player orientation", TextFormatting.RED + "Output orientation:", dipole.ditToForgeDir(dipole.dirUpper).name());
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft + 62, guiTop + 57, 12, 12, mouseX, mouseY, TextFormatting.BLUE + "Player orientation", TextFormatting.RED + "Output orientation:", dipole.ditToForgeDir(dipole.dirRedstone).name());
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		this.threshold.mouseClicked(x, y, i);
 
@@ -94,7 +94,7 @@ public class GUIPADipole extends GuiInfoContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer( int i, int j) {
-		
+
 		String name = this.dipole.hasCustomInventoryName() ? this.dipole.getInventoryName() : I18n.format(this.dipole.getInventoryName());
 		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2 - 9, 6, 4210752);
 		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
@@ -110,7 +110,7 @@ public class GUIPADipole extends GuiInfoContainer {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		
+
 		int j = (int) (dipole.power * 52 / dipole.getMaxPower());
 		drawTexturedModalRect(guiLeft + 8, guiTop + 70 - j, 184, 52 - j, 16, j);
 
@@ -118,17 +118,17 @@ public class GUIPADipole extends GuiInfoContainer {
 		if(heat <= 123) drawTexturedModalRect(guiLeft + 93, guiTop + 54, 176, 8, 8, 8);
 		if(dipole.slots[1] != null && dipole.slots[1].getItem() == ModItems.pa_coil) drawTexturedModalRect(guiLeft + 103, guiTop + 54, 176, 8, 8, 8);
 		if(dipole.power >= dipole.usage) drawTexturedModalRect(guiLeft + 83, guiTop + 54, 176, 8, 8, 8);
-		
+
 		GL11.glPushMatrix();
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glLineWidth(3F);
-		
+
 		Vec3NT vec = new Vec3NT(0, 0, 0);
 		vec.rotateAroundZDeg(MainRegistry.proxy.me().rotationYaw);
-		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawing(1);
+
+		Tessellator tessellator = Tessellator.getInstance();
+		tessellator.getBuffer().begin(GL11.GL_LINES, net.minecraft.client.renderer.vertex.DefaultVertexFormats.POSITION_COLOR);
 		addLine(tessellator, 68, 35, 0x8080ff, vec, 180);
 		addLine(tessellator, 68, 35, 0xff0000, vec, MainRegistry.proxy.me().rotationYaw - dipole.dirLower * 90);
 		addLine(tessellator, 68, 49, 0x8080ff, vec, 180);
@@ -136,26 +136,26 @@ public class GUIPADipole extends GuiInfoContainer {
 		addLine(tessellator, 68, 63, 0x8080ff, vec, 180);
 		addLine(tessellator, 68, 63, 0xff0000, vec, MainRegistry.proxy.me().rotationYaw - dipole.dirRedstone * 90);
 		tessellator.draw();
-		
+
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glPopMatrix();
-		
+
 		this.threshold.drawTextBox();
 
 		dipole.coolantTanks[0].renderTank(guiLeft + 134, guiTop + 88, this.zLevel, 16, 52);
 		dipole.coolantTanks[1].renderTank(guiLeft + 152, guiTop + 88, this.zLevel, 16, 52);
 	}
-	
+
 	public void addLine(Tessellator tess, int x, int y, int color, Vec3NT vec, float yaw) {
 		vec.setComponents(0, 6, 0);
 		vec.rotateAroundZDeg(yaw);
-		tess.setColorOpaque_I(color);
-		tess.addVertex(guiLeft + x, guiTop + y, this.zLevel);
-		tess.addVertex(guiLeft + x + vec.x, guiTop + y + vec.y, this.zLevel);
+		net.minecraft.client.renderer.BufferBuilder buf = tess.getBuffer();
+		buf.pos(guiLeft + x, guiTop + y, this.zLevel).color(color >> 16 & 255, color >> 8 & 255, color & 255, 255).endVertex();
+		buf.pos(guiLeft + x + vec.x, guiTop + y + vec.y, this.zLevel).color(color >> 16 & 255, color >> 8 & 255, color & 255, 255).endVertex();
 	}
 
 	@Override
-	protected void keyTyped(char c, int i) {
+	protected void keyTyped(char c, int i) throws java.io.IOException {
 		if(this.threshold.textboxKeyTyped(c, i)) {
 			String text = this.threshold.getText();
 			if(text.startsWith("0")) this.threshold.setText(text.substring(1));

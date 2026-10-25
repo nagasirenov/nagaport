@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "half": "bottom"
+      },
+      "apply": {
+        "model": "hbm:pink_slab"
+      }
+    },
+    {
+      "when": {
+        "half": "top"
+      },
+      "apply": {
+        "model": "hbm:pink_slab_top"
+      }
+    }
+  ]
+}

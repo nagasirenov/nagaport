@@ -211,7 +211,7 @@ public class TileEntityBatteryREDD extends TileEntityBatteryBase implements IPer
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 4,
 					this.pos.getY(),
 					this.pos.getZ() - 4,
@@ -263,7 +263,7 @@ public class TileEntityBatteryREDD extends TileEntityBatteryBase implements IPer
 		}
 		throw new NoSuchMethodException();
   }
-  
+
 	@Override
 	public void writeNBT(NBTTagCompound nbt) {
 		NBTTagCompound data = new NBTTagCompound();

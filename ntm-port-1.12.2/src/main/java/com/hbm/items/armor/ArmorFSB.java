@@ -48,6 +48,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.util.SoundCategory;
+import com.hbm.main.ModSoundEvents;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import com.hbm.render.mesh.MeshModel;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -80,6 +82,22 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 		NativeItemTextureRegistry.texture(this, RefStrings.MODID + ":armor");
 	}
 
+	@Override
+	public ArmorFSB setMaxStackSize(int maxStackSize) {
+		super.setMaxStackSize(maxStackSize);
+		return this;
+	}
+
+	@Override
+	public ArmorFSB setTranslationKey(String key) {
+		super.setTranslationKey(key);
+		return this;
+	}
+
+	public ArmorFSB setTextureName(String texture) {
+		NativeItemTextureRegistry.texture(this, texture);
+		return this;
+	}
 	public ArmorFSB addEffect(PotionEffect effect) {
 		effects.add(effect);
 		return this;
@@ -159,7 +177,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 		this.radResist = fullSet;
 		if(fullSet > 0) {
 			double mult = com.hbm.util.ArmorSlotOrder.index(armorType) == 0 ? HazmatRegistry.helmet :
-				com.hbm.util.ArmorSlotOrder.index(armorType) == 1 ? HazmatRegistry.chest : 
+				com.hbm.util.ArmorSlotOrder.index(armorType) == 1 ? HazmatRegistry.chest :
 				com.hbm.util.ArmorSlotOrder.index(armorType) == 2 ? HazmatRegistry.legs : HazmatRegistry.boots;
 			HazmatRegistry.external.add(new Pair(this, fullSet * mult));
 		}
@@ -204,7 +222,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 		if(!effects.isEmpty()) {
 			List potionList = new ArrayList();
 			for(PotionEffect effect : effects) {
-				potionList.add(I18nUtil.format(Potion.potionTypes[effect.getPotionID()].getName()));
+				potionList.add(I18nUtil.format(effect.getPotion().getName()));
 			}
 
 			toAdd.add(TextFormatting.AQUA + String.join(", ", potionList));
@@ -299,7 +317,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 			if(!chestplate.effects.isEmpty()) {
 				for(PotionEffect i : chestplate.effects) {
-					player.addPotionEffect(new PotionEffect(i.getPotionID(), i.getDuration(), i.getAmplifier(), true));
+					player.addPotionEffect(new PotionEffect(i));
 				}
 			}
 
@@ -324,7 +342,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 						Vec3d lookingIn = player.getLookVec();
 						lookingIn = new Vec3d(lookingIn.x, 0, lookingIn.z);
 						player.addVelocity(lookingIn.x, 0, lookingIn.z);
-						player.playSound("hbm:player.dash", 1.0F, 1.0F);
+						player.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:player.dash"), 1.0F, 1.0F);
 
 						props.setDashCooldown(HbmPlayerProps.dashCooldownLength);
 						stamina -= perDash;
@@ -338,7 +356,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 					if(stamina % perDash == perDash-1) {
 
-						player.playSound("hbm:player.dashRecharge", 1.0F, (1.0F + ((1F/12F)*(stamina/perDash))));
+						player.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:player.dashRecharge"), 1.0F, (1.0F + ((1F/12F)*(stamina/perDash))));
 						stamina++;
 					}
 				}
@@ -359,12 +377,12 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 			}
 
 			int px = MathHelper.floor(player.posX);
-			int py = MathHelper.floor(player.posY - 0.2D - (double) player.yOffset);
+			int py = MathHelper.floor(player.posY - 0.2D - (double) player.getYOffset());
 			int pz = MathHelper.floor(player.posZ);
 			Block block = com.hbm.world.WorldBlockState.read(player.world, px, py, pz).getBlock();
 
 			if(block.getDefaultState().getMaterial() != Material.AIR && player.getEntityData().getFloat("hfr_nextStepDistance") <= distanceWalkedOnStepModified.getFloat(player))
-				player.playSound(sound, 0.25F, 1.0F);
+				player.playSound(ModSoundEvents.resolve(sound), 0.25F, 1.0F);
 
 			player.getEntityData().setFloat("hfr_nextStepDistance", nextStepDistance.getFloat(player));
 
@@ -379,7 +397,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 			ArmorFSB chestplate = (ArmorFSB) com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem();
 
 			if(chestplate.jump != null)
-				player.playSound(chestplate.jump, 0.5F, 1.0F);
+				player.playSound(ModSoundEvents.resolve(chestplate.jump), 0.5F, 1.0F);
 		}
 	}
 
@@ -413,7 +431,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 			}
 
 			if(chestplate.fall != null)
-				player.playSound(chestplate.fall, 0.5F, 1.0F);
+				player.playSound(ModSoundEvents.resolve(chestplate.fall), 0.5F, 1.0F);
 		}
 	}
 
@@ -422,7 +440,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 		if(com.hbm.util.ArmorSlotOrder.index(this.armorType) != 1) return;
 		if(!hasFSBArmor(entity) || !this.geigerSound) return;
-		if(entity.inventory.hasItem(ModItems.geiger_counter) || entity.inventory.hasItem(ModItems.dosimeter)) return;
+		if(entity.inventory.hasItemStack(new ItemStack(ModItems.geiger_counter)) || entity.inventory.hasItemStack(new ItemStack(ModItems.dosimeter))) return;
 
 		if(world.getTotalWorldTime() % 5 == 0) {
 
@@ -446,7 +464,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 				int r = list.get(world.rand.nextInt(list.size()));
 
-				if(r > 0) world.playSoundAtEntity(entity, "hbm:item.geiger" + r, 1.0F, 1.0F);
+				if(r > 0) world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:item.geiger" + r), SoundCategory.PLAYERS, 1.0F, 1.0F);
 			}
 		}
 	}
@@ -508,7 +526,7 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 
 	public void handleAttack(LivingAttackEvent event) { }
 	public void handleHurt(LivingHurtEvent event) { }
-	
+
 	public static void setupRenderInv() {
 		GL11.glTranslated(0, -1.5, 0);
 		GL11.glScaled(3.25, 3.25, 3.25);
@@ -516,18 +534,18 @@ public class ArmorFSB extends ItemArmor implements IArmorDisableModel {
 		GL11.glRotated(-135, 0, 1, 0);
 		GL11.glRotated(-20, 1, 0, 0);
 	}
-	
+
 	public static void setupRenderNonInv() {
 		GL11.glRotated(180, 1, 0, 0);
 		GL11.glScaled(0.75, 0.75, 0.75);
 		GL11.glRotated(-90, 0, 1, 0);
 	}
-	
+
 	// if it's the same vomit every time, why not make a method that does it for us?
 	public static void renderStandard(MeshModel model, int armorType,
 			ResourceLocation helmetTex, ResourceLocation chestTex, ResourceLocation armTex, ResourceLocation legTex,
 			String helmet, String chest, String leftArm, String rightArm, String leftLeg, String rightLeg, String leftBoot, String rightBoot) {
-		
+
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		if(armorType == 0) {
 			GL11.glScaled(0.3125, 0.3125, 0.3125);

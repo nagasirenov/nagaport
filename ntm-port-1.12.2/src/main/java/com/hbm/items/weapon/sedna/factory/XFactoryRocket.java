@@ -131,7 +131,7 @@ public class XFactoryRocket {
 		Lego.standardExplode(bullet, mop, 3F);
 		EntityFireLingering fire = new EntityFireLingering(world).setArea(6, 2).setDuration(duration).setType(phosphorus ? EntityFireLingering.TYPE_PHOSPHORUS : EntityFireLingering.TYPE_DIESEL);
 		fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
-		world.spawnEntityInWorld(fire);
+		world.spawnEntity(fire);
 		bullet.setDead();
 		for(int dx = -2; dx <= 2; dx++) {
 			for(int dy = -2; dy <= 2; dy++) {
@@ -139,9 +139,9 @@ public class XFactoryRocket {
 					int x = (int) Math.floor(mop.hitVec.x) + dx;
 					int y = (int) Math.floor(mop.hitVec.y) + dy;
 					int z = (int) Math.floor(mop.hitVec.z) + dz;
-					if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isAir(bullet.world, x, y, z)) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+					if(com.hbm.world.WorldBlockState.isAir(bullet.world, x, y, z)) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 						if(com.hbm.lib.FacingCompat.isFlammable(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock(), world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir.getOpposite())) {
-							world.setBlock(x, y, z, Blocks.fire);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, Blocks.FIRE);
 							break;
 						}
 					}
@@ -202,7 +202,7 @@ public class XFactoryRocket {
 						.setupLockonFire().recoil(LAMBDA_RECOIL_ROCKET))
 				.setupStandardConfiguration().ps(LAMBDA_STINGER_SECONDARY_PRESS).rs(LAMBDA_STINGER_SECONDARY_RELEASE)
 				.anim(LAMBDA_PANZERSCHRECK_ANIMS).orchestra(Orchestras.ORCHESTRA_STINGER)
-				).setDefaultAmmo(EnumAmmo.ROCKET_HEAT, 3).setUnlocalizedName("gun_stinger");
+				).setDefaultAmmo(EnumAmmo.ROCKET_HEAT, 3).setTranslationKey("gun_stinger");
 
 		ModItems.gun_quadro = new ItemGunBaseNT(WeaponQuality.A_SIDE, new GunConfig()
 				.dura(400).draw(7).inspect(40).crosshair(Crosshair.L_CIRCUMFLEX).hideCrosshair(false)

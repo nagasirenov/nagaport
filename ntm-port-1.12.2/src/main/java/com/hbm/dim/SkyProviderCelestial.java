@@ -77,7 +77,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 	private static final ResourceLocation particleBase = new ResourceLocation(RefStrings.MODID + ":textures/particle/particle_base.png");
 
-	
+
 	private static final ResourceLocation[] citylights = new ResourceLocation[] {
 		new ResourceLocation(RefStrings.MODID, "textures/misc/space/citylights_0.png"),
 		new ResourceLocation(RefStrings.MODID, "textures/misc/space/citylights_1.png"),
@@ -124,13 +124,15 @@ public class SkyProviderCelestial extends IRenderHandler {
 		WorldProviderCelestial celestialProvider = (WorldProviderCelestial) world.provider;
 
 		// Without mixins, we have to resort to some very wacky ways of checking that the lightmap needs to be updated
+		int[] lmColors = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(net.minecraft.client.renderer.EntityRenderer.class, mc.entityRenderer, "field_78504_Q", "lightmapColors");
+		net.minecraft.client.renderer.texture.DynamicTexture lmTex = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(net.minecraft.client.renderer.EntityRenderer.class, mc.entityRenderer, "field_78513_d", "lightmapTexture");
 		// fortunately, thanks to torch flickering, we can just check to see if the brightest pixel has been modified
-		if(lastBrightestPixel != mc.entityRenderer.lightmapColors[255] + mc.entityRenderer.lightmapColors[250]) {
-			if(celestialProvider.updateLightmap(mc.entityRenderer.lightmapColors)) {
-				mc.entityRenderer.lightmapTexture.updateDynamicTexture();
+		if(lmColors != null && lastBrightestPixel != lmColors[255] + lmColors[250]) {
+			if(celestialProvider.updateLightmap(lmColors) && lmTex != null) {
+				lmTex.updateDynamicTexture();
 			}
 
-			lastBrightestPixel = mc.entityRenderer.lightmapColors[255] + mc.entityRenderer.lightmapColors[250];
+			lastBrightestPixel = lmColors[255] + lmColors[250];
 		}
 
 		float fogIntensity = ModEventHandlerRenderer.lastFogDensity * 30;
@@ -145,15 +147,15 @@ public class SkyProviderCelestial extends IRenderHandler {
 		float visibility = hasAtmosphere ? MathHelper.clamp(2.0F - pressure, 0.1F, 1.0F) : 1.0F;
 
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		Vec3d skyColor = world.getSkyColor(mc.renderViewEntity, partialTicks);
+		Vec3d skyColor = world.getSkyColor(mc.getRenderViewEntity(), partialTicks);
 
 		float skyR = (float) skyColor.x;
 		float skyG = (float) skyColor.y;
 		float skyB = (float) skyColor.z;
 
 		// Diminish sky colour when leaving the atmosphere
-		if(mc.renderViewEntity.posY > 300) {
-			double curvature = MathHelper.clamp((800.0F - (float)mc.renderViewEntity.posY) / 500.0F, 0.0F, 1.0F);
+		if(mc.getRenderViewEntity().posY > 300) {
+			double curvature = MathHelper.clamp((800.0F - (float)mc.getRenderViewEntity().posY) / 500.0F, 0.0F, 1.0F);
 			skyR *= curvature;
 			skyG *= curvature;
 			skyB *= curvature;
@@ -265,8 +267,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 		render3DModel(partialTicks, world, mc);
 
-		// TODO: fix EVERYTHING 
-		
+		// TODO: fix EVERYTHING
+
 		CBT_War war = body.getTrait(CBT_War.class);
 		if(war != null) {
 			for(int i = 0; i < war.getProjectiles().size(); i++) {
@@ -398,7 +400,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glColor3f(0.0F, 0.0F, 0.0F);
 
-		Vec3d pos = mc.player.getPosition(partialTicks);
+		Vec3d pos = mc.player.getPositionVector();
 		double heightAboveHorizon = pos.y - world.getHorizon();
 
 		if(heightAboveHorizon < 0.0D) {
@@ -751,7 +753,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 
 		// bloodseeking, parasitic, ecstatically tracing decay
 		// thriving in the glow that death emits, the warm perfume it radiates
-		
+
 		//perfume makes my eyes water -j
 
 		swarmShader.use();
@@ -1310,7 +1312,7 @@ public class SkyProviderCelestial extends IRenderHandler {
 		}
 		GL11.glPopMatrix();
 	}
-	
+
 	public void renderSmoke(ResourceLocation loc1, long age) {
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_BLEND);
@@ -1318,8 +1320,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 		float f5 = 0.5F;
 		float f6 = 0.25F;
 		float dark = 1f - Math.min(((float)(age) / (float)(100f * 0.35F)), 1f);
-		GL11.glRotatef(180.0F - RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(-RenderManager.instance.playerViewX, 1.0F, 0.0F, 0.0F);
+		GL11.glRotatef(180.0F - net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(-net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewX, 1.0F, 0.0F, 0.0F);
 		GL11.glColor4d(0.6*dark+0.0, 0.6*dark+0.0, 1*dark+0.0, 1);
 		Tessellator tess = Tessellator.getInstance();
 		BufferBuilder tessBuffer = tess.getBuffer();
@@ -1342,8 +1344,8 @@ public class SkyProviderCelestial extends IRenderHandler {
 		float f4 = 1.0F;
 		float f5 = 0.5F;
 		float f6 = 0.25F;
-		GL11.glRotatef(180.0F - RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(-RenderManager.instance.playerViewX, 1.0F, 0.0F, 0.0F);
+		GL11.glRotatef(180.0F - net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(-net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewX, 1.0F, 0.0F, 0.0F);
 		// double distant = 1d-(Math.min(6300000f, Math.max(0d, y-40000f))/6300000f);
 		//  double sf = 1d-(Math.min(400000f, Math.max(0d, y-350000f))/400000f);
 		//

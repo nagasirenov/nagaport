@@ -21,10 +21,10 @@ public class ItemModWD40 extends ItemArmorMod {
 	public ItemModWD40() {
 		super(ArmorModHandler.extra, true, true, true, true);
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		
+
 		String color = "" + (System.currentTimeMillis() % 1000 < 500 ? TextFormatting.BLUE : TextFormatting.YELLOW);
 
 		list.add(color + "Highly reduces damage taken by armor, +2 HP");
@@ -34,39 +34,39 @@ public class ItemModWD40 extends ItemArmorMod {
 
 	@Override
 	public void addDesc(List list, ItemStack stack, ItemStack armor) {
-		
+
 		String color = "" + (System.currentTimeMillis() % 1000 < 500 ? TextFormatting.BLUE : TextFormatting.YELLOW);
-		
+
 		list.add(color + "  " + stack.getDisplayName() + " (-80% armor wear / +2 HP)");
 	}
-	
+
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
-		
+
 		if(!event.getEntityLiving().world.isRemote && armor.getItemDamage() > 0 && event.getEntityLiving().getRNG().nextInt(5) != 0) {
 			armor.setItemDamage(armor.getItemDamage() - 1);
 		}
 	}
-	
+
 	@Override
 	public Multimap getModifiers(ItemStack armor) {
 		Multimap multimap = super.getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, armor);
-		
+
 		multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(),
 				new AttributeModifier(ArmorModHandler.UUIDs[com.hbm.util.ArmorSlotOrder.index(((ItemArmor)armor.getItem()).armorType)], "NTM Armor Mod Health", 4, 0));
-		
+
 		return multimap;
 	}
-	
+
 	@Override
 	public void modUpdate(EntityLivingBase entity, ItemStack armor) {
-		
+
 		if(entity.world.isRemote && entity.hurtTime > 0) {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "vanillaExt");
 			data.setString("mode", "reddust");
 			data.setDouble("posX", entity.posX + (entity.getRNG().nextDouble() - 0.5) * entity.width * 2);
-			data.setDouble("posY", entity.posY - entity.yOffset + entity.getRNG().nextDouble() * entity.height);
+			data.setDouble("posY", entity.posY - entity.getYOffset() + entity.getRNG().nextDouble() * entity.height);
 			data.setDouble("posZ", entity.posZ + (entity.getRNG().nextDouble() - 0.5) * entity.width * 2);
 			data.setDouble("mX", 0.01);
 			data.setDouble("mY", 0.5);

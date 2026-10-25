@@ -349,8 +349,8 @@ public class SkyProviderThatmo extends SkyProviderCelestial {
 		float f5 = 0.5F;
 		float f6 = 0.25F;
 		float dark = 1f - Math.min(((float)(age) / (float)(100f * 0.35F)), 1f);
-		GL11.glRotatef(180.0F - RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(-RenderManager.instance.playerViewX, 1.0F, 0.0F, 0.0F);
+		GL11.glRotatef(180.0F - net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(-net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewX, 1.0F, 0.0F, 0.0F);
 		GL11.glColor4d(0.6*dark+0.0, 0.6*dark+0.0, 1*dark+0.0, 1);
 		Tessellator tess = Tessellator.getInstance();
 		BufferBuilder tessBuffer = tess.getBuffer();
@@ -373,8 +373,8 @@ public class SkyProviderThatmo extends SkyProviderCelestial {
 		float f4 = 1.0F;
 		float f5 = 0.5F;
 		float f6 = 0.25F;
-		GL11.glRotatef(180.0F - RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(-RenderManager.instance.playerViewX, 1.0F, 0.0F, 0.0F);
+		GL11.glRotatef(180.0F - net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(-net.minecraft.client.Minecraft.getMinecraft().getRenderManager().playerViewX, 1.0F, 0.0F, 0.0F);
 		// double distant = 1d-(Math.min(6300000f, Math.max(0d, y-40000f))/6300000f);
 		//  double sf = 1d-(Math.min(400000f, Math.max(0d, y-350000f))/400000f);
 		//

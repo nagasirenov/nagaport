@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
@@ -30,6 +31,8 @@ import java.util.Random;
 
 public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltipProvider {
 
+	protected IIcon blockIcon;
+
 	private static Random rand = new Random();
 
 	@SideOnly(Side.CLIENT) private IIcon iconTop;
@@ -44,7 +47,6 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 		return new TileEntityDroneCrate();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		this.blockIcon = reg.registerIcon(RefStrings.MODID + ":drone_crate_side");
@@ -52,14 +54,16 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 		this.iconBottom = reg.registerIcon(RefStrings.MODID + ":drone_crate_bottom");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.drone_linker) return false;
 
@@ -74,7 +78,10 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
 		TileEntityDroneCrate tileentityfurnace = (TileEntityDroneCrate) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(tileentityfurnace != null) {
@@ -113,10 +120,10 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 					}
 				}
 
-				world.func_147453_f(x, y, z, block);
+				world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), block);
 			}
 
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override

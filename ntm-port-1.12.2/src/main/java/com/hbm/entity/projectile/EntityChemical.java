@@ -119,7 +119,7 @@ public class EntityChemical extends EntityThrowableNT {
 
 			if(type == Fluids.BALEFIRE) {
 
-				if(MainRegistry.proxy.me().getDistanceToEntity(this) < 100)
+				if(MainRegistry.proxy.me().getDistance(this) < 100)
 					FlameCreator.composeEffectClient(this.world, posX, posY - 0.125, posZ, FlameCreator.META_BALEFIRE);
 
 			} else if(style == ChemicalStyle.LIQUID) {
@@ -142,7 +142,7 @@ public class EntityChemical extends EntityThrowableNT {
 
 			} else if(style == ChemicalStyle.BURNING) {
 
-				if(MainRegistry.proxy.me().getDistanceToEntity(this) < 100)
+				if(MainRegistry.proxy.me().getDistance(this) < 100)
 					FlameCreator.composeEffectClient(this.world, posX, posY - 0.125, posZ, FlameCreator.META_FIRE);
 			}
 		}
@@ -170,7 +170,7 @@ public class EntityChemical extends EntityThrowableNT {
 			EntityDamageUtil.attackEntityFromIgnoreIFrame(e, ModDamageSource.electricity, 0.5F);
 			if(living != null) {
 				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 60, 9));
-				living.addPotionEffect(new PotionEffect(Potion.weakness.id, 60, 9));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 60, 9));
 				return;
 			}
 		}
@@ -274,15 +274,15 @@ public class EntityChemical extends EntityThrowableNT {
 			if(living != null) {
 				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2 * 60 * 20, 2));
 				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 5 * 60 * 20, 1));
-				living.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 2 * 60 * 20, 4));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 2 * 60 * 20, 4));
 
 				if (living instanceof EntityGlyphid && pheromone.getType() == 1) {
-					living.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 5 * 60 * 20, 4));
+					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 5 * 60 * 20, 4));
 					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE,  60 * 20, 0));
 					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION,  60 * 20, 19));
 
 				} else if (living instanceof EntityPlayer && pheromone.getType() == 2) {
-					living.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2 * 60 * 20, 2));
+					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 2 * 60 * 20, 2));
 				}
 			}
 		}
@@ -340,7 +340,7 @@ public class EntityChemical extends EntityThrowableNT {
 		int j = MathHelper.floor(e.posY);
 		int k = MathHelper.floor(e.posZ);
 
-		if(e.world.blockExists(i, j, k)) {
+		if(e.world.isBlockLoaded(new net.minecraft.util.math.BlockPos(i, j, k))) {
 			boolean flag1 = false;
 
 			while(!flag1 && j > 0) {
@@ -357,7 +357,7 @@ public class EntityChemical extends EntityThrowableNT {
 			if(flag1) {
 				e.setPosition(e.posX, e.posY, e.posZ);
 
-				if(e.world.getCollidingBoundingBoxes(e, e.getEntityBoundingBox()).isEmpty() && !e.world.isAnyLiquid(e.getEntityBoundingBox())) {
+				if(e.world.getCollisionBoxes(e, e.getEntityBoundingBox()).isEmpty() && !e.world.containsAnyLiquid(e.getEntityBoundingBox())) {
 					flag = true;
 				}
 			}
@@ -381,7 +381,7 @@ public class EntityChemical extends EntityThrowableNT {
 			}
 
 			com.hbm.sound.VanillaWorldSoundEffects.play(e.world, targetX, targetY, targetZ, "mob.endermen.portal", 1.0F, 1.0F);
-			e.playSound("mob.endermen.portal", 1.0F, 1.0F);
+			e.playSound(net.minecraft.init.SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
 			return true;
 		}
 	}
@@ -415,8 +415,8 @@ public class EntityChemical extends EntityThrowableNT {
 
 						Block fire = type == Fluids.BALEFIRE ? ModBlocks.balefire : Blocks.FIRE;
 
-						if(com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isAir(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
-							this.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);
+						if(com.hbm.world.WorldBlockState.isAir(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);
 						}
 					}
 				}
@@ -427,8 +427,8 @@ public class EntityChemical extends EntityThrowableNT {
 
 						Block fire = type == Fluids.BALEFIRE ? ModBlocks.balefire : Blocks.FIRE;
 
-						if(com.hbm.world.WorldBlockState.read(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock().isAir(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
-							this.world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);
+						if(com.hbm.world.WorldBlockState.isAir(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ)) {
+							com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, fire);
 						}
 					}
 				}
@@ -467,7 +467,8 @@ public class EntityChemical extends EntityThrowableNT {
 				if(type == Fluids.SEEDSLURRY) {
 					if(block == Blocks.DIRT || block == ModBlocks.waste_earth || block == ModBlocks.dirt_dead || block == ModBlocks.dirt_oily) {
 
-						if(this.world.getBlockLightValue(x, y + 1, z) >= 9 && this.world.getBlockLightOpacity(x, y + 1, z) <= 2) {
+						net.minecraft.util.math.BlockPos pLight = new net.minecraft.util.math.BlockPos(x, y + 1, z);
+						if(this.world.getLight(pLight) >= 9 && this.world.getBlockLightOpacity(pLight) <= 2) {
 							CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 
 							if(atmosphere != null && (atmosphere.hasFluid(Fluids.EARTHAIR) || atmosphere.hasFluid(Fluids.DUNAAIR) || atmosphere.hasFluid(Fluids.CARBONDIOXIDE) || atmosphere.hasFluid(Fluids.OXYGEN))) {
@@ -479,17 +480,17 @@ public class EntityChemical extends EntityThrowableNT {
 									CelestialBody.emitGas(this.world, Fluids.EARTHAIR, totalConversion);
 								}
 
-								this.world.playAuxSFX(2005, x, y + 1, z, 0);
+								this.world.playEvent(2005, new net.minecraft.util.math.BlockPos(x, y + 1, z), 0);
 							}
 						}
 					}
-					int meta = this.world.getBlockMetadata(x, y, z);
+					int meta = com.hbm.world.WorldBlockState.readMetadata(this.world, x, y, z);
 					if(block == Blocks.COBBLESTONE) com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0), 3);
 					if(block == Blocks.STONEBRICK && meta == 0) { net.minecraft.world.World nativePlacementWorld = this.world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.STONEBRICK; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					if(block == ModBlocks.waste_earth) com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.GRASS.getStateFromMeta(0), 3);
 					if(block == ModBlocks.brick_concrete) { net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.brick_concrete_mossy; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
-					if(block == ModBlocks.concrete_brick_slab && meta % 8 == 0) this.world.setBlock(x, y, z, ModBlocks.concrete_brick_slab, meta + 1, 3);
-					if(block == ModBlocks.brick_concrete_stairs) this.world.setBlock(x, y, z, ModBlocks.brick_concrete_mossy_stairs, meta, 3);
+					if(block == ModBlocks.concrete_brick_slab && meta % 8 == 0) com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.concrete_brick_slab, meta + 1, 3);
+					if(block == ModBlocks.brick_concrete_stairs) com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.brick_concrete_mossy_stairs, meta, 3);
 				}
 
 				if(type.hasTrait(FT_Terraformer.class)) {

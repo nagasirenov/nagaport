@@ -13,7 +13,7 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.math.Vec3d;
 
 public class EntityAIBehemothGun extends EntityAIBase {
-	
+
 	private EntityCreature owner;
     private EntityLivingBase target;
     private int delay;
@@ -50,9 +50,14 @@ public class EntityAIBehemothGun extends EntityAIBase {
             return dist > 2 && dist < 50;
         }
 	}
-	
-	@Override
-    public boolean continueExecuting() {
+
+
+        @Override
+    public boolean shouldContinueExecuting() {
+        return continueExecuting();
+    }
+
+public boolean continueExecuting() {
         return this.shouldExecute() || !this.owner.getNavigator().noPath();
     }
 
@@ -74,7 +79,7 @@ public class EntityAIBehemothGun extends EntityAIBase {
 	private void fireGatlingBarrage() {
 	    double xOffset = Math.cos(Math.toRadians(owner.rotationYaw)) * 1.5;
 	    double zOffset = Math.sin(Math.toRadians(owner.rotationYaw)) * 1.5;
-	    double yOffset = 10; 
+	    double yOffset = 10;
 
 	    double targetX = target.posX - (owner.posX + xOffset);
 	    double targetY = target.posY + target.getEyeHeight() - (owner.posY + yOffset);
@@ -87,13 +92,13 @@ public class EntityAIBehemothGun extends EntityAIBase {
 
 	    EntityBulletBaseMK4 bullet = new EntityBulletBaseMK4(owner, XFactory762mm.r762_ap.setKnockback(0), 0.5F, 0.01F, owner.posX + xOffset, owner.posY + yOffset, owner.posZ + zOffset);
 	    bullet.setPosition(owner.posX + xOffset, owner.posY + yOffset, owner.posZ + zOffset);
-	    
-	    bullet.motionX = targetX * 0.5D;  
+
+	    bullet.motionX = targetX * 0.5D;
 	    bullet.motionY = targetY * 0.5D;
 	    bullet.motionZ = targetZ * 0.5D;
 
-	    owner.world.spawnEntityInWorld(bullet);
-	    owner.playSound("hbm:weapon.calShoot", 15.0F, 1.0F);
+	    owner.world.spawnEntity(bullet);
+	    owner.world.playSound(null, owner.posX, owner.posY, owner.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.calShoot"), net.minecraft.util.SoundCategory.NEUTRAL, 15.0F, 1.0F);
 	}
 
 	private void fireArtilleryShell() {
@@ -108,7 +113,7 @@ public class EntityAIBehemothGun extends EntityAIBase {
 			grenade.shoot(grenade.motionX , grenade.motionY * 6, grenade.motionZ , 5F, 0);
 			grenade.setTarget(target.posX, target.posZ, target.posY);
 			com.hbm.sound.WorldSoundEffects.play(owner.world, owner.posX, owner.posY, owner.posZ, "hbm:turret.jeremy_fire", 25.0F, 1.0F);
-			owner.world.spawnEntityInWorld(grenade);
+			owner.world.spawnEntity(grenade);
 			reloadTimer = reloadDelay;
 		} else {
 			reloadTimer--;

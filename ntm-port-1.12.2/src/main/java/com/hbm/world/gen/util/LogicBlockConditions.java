@@ -26,19 +26,19 @@ public class LogicBlockConditions {
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> ABERRATOR = (tile) -> {
 		World world = tile.getWorld();
-		if(world.difficultySetting.ordinal() == 0) return false;
+		if(world.getDifficulty().ordinal() == 0) return false;
 		int x = tile.getPos().getX();
 		int y = tile.getPos().getY();
 		int z = tile.getPos().getZ();
 
-		boolean aoeCheck = !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(10, 10, 10)).isEmpty();
+		boolean aoeCheck = !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y - 2, z + 1).expand(10, 10, 10)).isEmpty();
 		if(tile.phase == 0) {
 			if(world.getTotalWorldTime() % 20 != 0) return false;
 			return aoeCheck;
 		}
 		if(tile.phase < 3) {
 			if(world.getTotalWorldTime() % 20 != 0 || tile.timer < 60) return false;
-			return world.getEntitiesWithinAABB(EntityUndeadSoldier.class, AxisAlignedBB.getBoundingBox(x, y, z, x - 2, y + 1, z + 1).expand(50, 20, 50)).isEmpty() && aoeCheck;
+			return world.getEntitiesWithinAABB(EntityUndeadSoldier.class, new AxisAlignedBB(x, y, z, x - 2, y + 1, z + 1).expand(50, 20, 50)).isEmpty() && aoeCheck;
 		}
 		return false;
 	};
@@ -48,7 +48,7 @@ public class LogicBlockConditions {
 		int x = tile.getPos().getX();
 		int y = tile.getPos().getY();
 		int z = tile.getPos().getZ();
-		return !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(3, 3, 3)).isEmpty();
+		return !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y - 2, z + 1).expand(3, 3, 3)).isEmpty();
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> PLAYER_CUBE_5 = (tile) -> {
@@ -56,7 +56,7 @@ public class LogicBlockConditions {
 		int x = tile.getPos().getX();
 		int y = tile.getPos().getY();
 		int z = tile.getPos().getZ();
-		return !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(5, 5, 5)).isEmpty();
+		return !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y - 2, z + 1).expand(5, 5, 5)).isEmpty();
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> PLAYER_CUBE_25 = (tile) -> {
@@ -64,7 +64,7 @@ public class LogicBlockConditions {
 		int x = tile.getPos().getX();
 		int y = tile.getPos().getY();
 		int z = tile.getPos().getZ();
-		return !world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y - 2, z + 1).expand(25, 25, 25)).isEmpty();
+		return !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y - 2, z + 1).expand(25, 25, 25)).isEmpty();
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> REDSTONE = (tile) -> {
@@ -83,8 +83,8 @@ public class LogicBlockConditions {
 		int z = tile.getPos().getZ();
 
 		if(tile.phase == 0 &&  world.isBlockPowered(new net.minecraft.util.math.BlockPos(x,y,z))){
-			world.getClosestPlayer(x,y,z, 25).sendMessage(new TextComponentString("Find a " + TextFormatting.GOLD + "great" + TextFormatting.RESET + " ancient weapon, of questionable use in the modern age"));
-			world.setBlock(x,y + 1,z, ModBlocks.pedestal);
+			world.getClosestPlayer(x, y, z, 25, false).sendMessage(new TextComponentString("Find a " + TextFormatting.GOLD + "great" + TextFormatting.RESET + " ancient weapon, of questionable use in the modern age"));
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y + 1, z, ModBlocks.pedestal);
 			return true;
 		}
 

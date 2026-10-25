@@ -97,7 +97,7 @@ public class TileEntityPAQuadrupole extends TileEntityCooledBase implements IGUI
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY() - 1,
 					this.pos.getZ() - 1,

@@ -37,7 +37,7 @@ public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluid
 	public void update() {
 
 		if(this.world.isRemote && lastType != type) {
-			this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			lastType = type;
 		}
 
@@ -74,7 +74,7 @@ public class TileEntityPipeBaseNT extends TileEntityLoadedBase implements IFluid
 			WorldServer world = (WorldServer) this.world;
 			world.getPlayerChunkMap().markBlockForUpdate(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 		}
-		
+
 		UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), prev.getNetworkProvider());
 
 		if(this.node != null) {

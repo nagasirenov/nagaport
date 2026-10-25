@@ -15,11 +15,11 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineGasCent extends Container {
-	
+
 	private TileEntityMachineGasCent gasCent;
-	
+
 	public ContainerMachineGasCent(InventoryPlayer invPlayer, TileEntityMachineGasCent tedf) {
-		
+
 		gasCent = tedf;
 
 		//Output
@@ -28,46 +28,46 @@ public class ContainerMachineGasCent extends Container {
 				this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, tedf, j + i * 2, 71 + j * 18, 53 + i * 18));
 			}
 		}
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tedf, 4, 182, 71));
 		//Fluid ID IO
 		this.addSlotToContainer(new Slot(tedf, 5, 91, 15));
 		//upgrade
 		this.addSlotToContainer(new Slot(tedf, 6, 69, 15));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 122 + i * 18));
 			}
 		}
-		
+
 		for(int i = 0; i < 9; i++) {
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 180));
 		}
 	}
-	
+
 	@Override
 	public void addListener(IContainerListener crafting) {
 		super.addListener(crafting);
 	}
-	
+
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer player, int index)
     {
 		ItemStack rStack = null;
 		Slot slot = (Slot) this.inventorySlots.get(index);
-		
+
 		if(slot != null && slot.getHasStack()) {
 			ItemStack stack = slot.getStack();
 			rStack = stack.copy();
-			
+
             if(index <= 6) {
 				if (!this.mergeItemStack(stack, 7, this.inventorySlots.size(), true)) {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 4, 5, false)) return null;
 				} else if(rStack.getItem() instanceof IItemFluidIdentifier) {
@@ -77,14 +77,14 @@ public class ContainerMachineGasCent extends Container {
 				} else
 					return null;
 			}
-			
-			if (stack.stackSize == 0) {
+
+			if (stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
 			}
 		}
-		
+
 		return rStack;
     }
 

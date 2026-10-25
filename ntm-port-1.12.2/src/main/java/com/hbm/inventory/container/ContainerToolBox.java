@@ -5,6 +5,7 @@ import com.hbm.items.ItemInventoryTransfer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -65,10 +66,10 @@ public class ContainerToolBox extends Container {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 		// prevents the player from moving around the currently open box
-		if(mode == 2 && button == player.inventory.currentItem) return null;
-		if(index == player.inventory.currentItem + 51) return null;
+		if(mode == ClickType.SWAP && button == player.inventory.currentItem) return ItemStack.EMPTY;
+		if(index == player.inventory.currentItem + 51) return ItemStack.EMPTY;
 		return super.slotClick(index, button, mode, player);
 	}
 

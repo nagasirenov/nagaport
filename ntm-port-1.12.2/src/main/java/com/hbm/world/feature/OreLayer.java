@@ -27,38 +27,38 @@ public class OreLayer {
 	/** The y-level around which the stratum is centered. */
 	private int yLevel = 30;
 	int dim = 0;
-	
+
 	public OreLayer(Block ore, float density) {
 		this(ore, 0, Blocks.STONE, density);
 	}
-	
+
 	public OreLayer(Block ore, int meta, Block target, float density) {
 		this.ore = new MetaBlock(ore, meta);
 		this.target = target;
 		this.density = density;
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-	
+
 	public OreLayer setThreshold(int threshold) {
 		this.threshold = threshold;
 		return this;
 	}
-	
+
 	public OreLayer setRangeMult(int rangeMult) {
 		this.rangeMult = rangeMult;
 		return this;
 	}
-	
+
 	public OreLayer setMaxRange(int maxRange) {
 		this.maxRange = maxRange;
 		return this;
 	}
-	
+
 	public OreLayer setYLevel(int yLevel) {
 		this.yLevel = yLevel;
 		return this;
 	}
-	
+
 	public OreLayer setDimension(int dim) {
 		this.dim = dim;
 		return this;
@@ -66,41 +66,41 @@ public class OreLayer {
 
 	@SubscribeEvent
 	public void onDecorate(DecorateBiomeEvent.Pre event) {
-		
+
 		World world = event.getWorld();
-		
+
 		if(world.provider == null || world.provider.getDimension() != this.dim) return;
-		
+
 		if(this.noise == null) {
 			this.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed() + (ore.getID() * 31) + yLevel), 4);
 		}
-		
-		int cX = event.chunkX;
-		int cZ = event.chunkZ;
-		
+
+		int cX = event.getPos().getX();
+		int cZ = event.getPos().getZ();
+
 		double scale = 0.01D;
-		
+
 		for(int x = cX; x < cX + 16; x++) {
 			for(int z = cZ; z < cZ + 16; z++) {
-				
-				double n = noise.func_151601_a(x * scale, z * scale);
-				
+
+				double n = noise.getValue(x * scale, z * scale);
+
 				if(n > threshold) {
 					int range = (int)((n - threshold) * rangeMult);
-					
+
 					if(range > maxRange)
 						range = (maxRange * 2) - range;
-					
+
 					if(range < 0)
 						continue;
-					
+
 					for(int y = yLevel - range; y <= yLevel + range; y++) {
-						
+
 						if(event.getRand().nextFloat() < density) {
 							Block genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-							
-							if(genTarget.isReplaceableOreGen(world, x, y, z, target) && genTarget.isReplaceableOreGen(world, x, y, z, Blocks.STONE)) {
-								world.setBlock(x, y, z, ore.block, ore.meta, 2);
+
+							if(com.hbm.world.WorldBlockState.isReplaceableOreGen(genTarget, world, x, y, z, target) && com.hbm.world.WorldBlockState.isReplaceableOreGen(genTarget, world, x, y, z, Blocks.STONE)) {
+								com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ore.block, ore.meta, 2);
 							}
 						}
 					}

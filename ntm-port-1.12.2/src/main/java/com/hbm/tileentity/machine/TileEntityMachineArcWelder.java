@@ -68,7 +68,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && stack.getItem() instanceof ItemMachineUpgrade && i >= 6 && i <= 7) {
-			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 		}
 	}
 
@@ -112,7 +112,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 						if(slots[3] == null) {
 							slots[3] = recipe.output.copy();
 						} else {
-							slots[3].stackSize += recipe.output.stackSize;
+							slots[3].grow(recipe.output.getCount());
 						}
 
 						this.markDirty();
@@ -192,7 +192,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 		if(slots[3] != null) {
 			if(slots[3].getItem() != recipe.output.getItem()) return false;
 			if(slots[3].getItemDamage() != recipe.output.getItemDamage()) return false;
-			if(slots[3].stackSize + recipe.output.stackSize > slots[3].getMaxStackSize()) return false;
+			if(slots[3].getCount() + recipe.output.getCount() > slots[3].getMaxStackSize()) return false;
 		}
 
 		return true;
@@ -204,7 +204,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 
 			for(int i = 0; i < 3; i++) {
 				ItemStack stack = slots[i];
-				if(aStack.matchesRecipe(stack, true) && stack.stackSize >= aStack.stacksize) {
+				if(aStack.matchesRecipe(stack, true) && stack.getCount() >= aStack.stacksize) {
 					this.decrStackSize(i, aStack.stacksize);
 					break;
 				}
@@ -354,7 +354,7 @@ public class TileEntityMachineArcWelder extends TileEntityMachineBase implements
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

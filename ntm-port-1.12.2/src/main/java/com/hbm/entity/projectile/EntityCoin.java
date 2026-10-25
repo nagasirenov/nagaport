@@ -8,9 +8,8 @@ public class EntityCoin extends EntityThrowableInterp {
 	public EntityCoin(World world) {
 		super(world);
 		this.setSize(1F, 1F);
-		this.yOffset = 0.5F;
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
@@ -21,7 +20,7 @@ public class EntityCoin extends EntityThrowableInterp {
 		this.posY = y;
 		this.posZ = z;
 		float f = this.width / 2.0F;
-		this.getEntityBoundingBox().setBounds(x - f, y - this.yOffset + this.ySize, z - f, x + f, y - this.yOffset + this.ySize + this.height, z + f);
+		this.setEntityBoundingBox(new net.minecraft.util.math.AxisAlignedBB(x - f, y, z - f, x + f, y + this.height, z + f));
 	}
 
 	@Override
@@ -44,7 +43,6 @@ public class EntityCoin extends EntityThrowableInterp {
 		return true;
 	}
 
-	@Override
 	public boolean canAttackWithItem() {
 		return true;
 	}

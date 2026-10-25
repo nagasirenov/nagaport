@@ -18,30 +18,30 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockGasRadonTomb extends BlockGasBase {
-	
+
 	/*
 	 * You should not have come here.
-	 * 
+	 *
 	 * This is not a place of honor. No great deed is commemorated here.
-	 * 
+	 *
 	 * Nothing of value is here.
-	 * 
+	 *
 	 * What is here is dangerous and repulsive.
-	 * 
+	 *
 	 * We considered ourselves a powerful culture. We harnessed the hidden fire,
 	 * and used it for our own purposes.
-	 * 
+	 *
 	 * Then we saw the fire could burn within living things, unnoticed until it
 	 * destroyed them.
-	 * 
+	 *
 	 * And we were afraid.
-	 * 
+	 *
 	 * We built great tombs to hold the fire for one hundred thousand years,
 	 * after which it would no longer kill.
-	 * 
+	 *
 	 * If this place is opened, the fire will not be isolated from the world,
 	 * and we will have failed to protect you.
-	 * 
+	 *
 	 * Leave this place and never come back.
 	 */
 
@@ -49,15 +49,20 @@ public class BlockGasRadonTomb extends BlockGasBase {
 		super(0.1F, 0.3F, 0.1F);
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity) {
-		
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity) {
+
 		if(entity instanceof EntityLivingBase) {
 			EntityLivingBase living = (EntityLivingBase) entity;
 
-			living.removePotionEffect(HbmPotion.radaway.id); //get fucked
-			living.removePotionEffect(HbmPotion.radx.id);
-			
+			living.removePotionEffect(HbmPotion.radaway); //get fucked
+			living.removePotionEffect(HbmPotion.radx);
+
 			ContaminationUtil.contaminate(living, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 0.5F);
 			HbmLivingProps.incrementAsbestos(living, 10);
 		}
@@ -65,10 +70,10 @@ public class BlockGasRadonTomb extends BlockGasBase {
 
 	@Override
 	public ForgeDirection getFirstDirection(World world, int x, int y, int z) {
-		
+
 		if(world.rand.nextInt(3) == 0)
 			return ForgeDirection.UP;
-		
+
 		return ForgeDirection.DOWN;
 	}
 
@@ -77,32 +82,37 @@ public class BlockGasRadonTomb extends BlockGasBase {
 		return this.randomHorizontal(world);
 	}
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
+
 		if(!world.isRemote) {
-	
+
 			if(rand.nextInt(10) == 0) {
 				net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y - 1, z);
 				Block b = nativeCubeState_b.getBlock();
-				
+
 				if(b == Blocks.GRASS) {
 					if(rand.nextInt(5) == 0)
 						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y - 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 1; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					else
-						world.setBlock(x, y - 1, z, ModBlocks.waste_earth);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y - 1, z, ModBlocks.waste_earth);
 				}
-				
+
 				if((b.getDefaultState().getMaterial() == Material.GRASS || b.getDefaultState().getMaterial() == Material.LEAVES || b.getDefaultState().getMaterial() == Material.PLANTS || b.getDefaultState().getMaterial() == Material.VINE) && !b.isNormalCube(nativeCubeState_b))
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y - 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			}
-	
+
 			if(rand.nextInt(600) == 0) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				return;
 			}
 		}
-		
+
 		super.updateTick(world, x, y, z, rand);
 	}
 }

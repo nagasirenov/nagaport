@@ -18,6 +18,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
@@ -28,8 +32,13 @@ public class BlockGasMeltdown extends BlockGasBase {
 		super(0.1F, 0.4F, 0.1F);
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity) {
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity) {
 
 		if(!(entity instanceof EntityLivingBase))
 			return;
@@ -37,7 +46,7 @@ public class BlockGasMeltdown extends BlockGasBase {
 		EntityLivingBase entityLiving = (EntityLivingBase) entity;
 
 		ContaminationUtil.contaminate((EntityLivingBase)entity, HazardType.RADIATION, ContaminationType.CREATIVE, 0.5F);
-		entityLiving.addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 60 * 20, 2));
+		entityLiving.addPotionEffect(new PotionEffect(HbmPotion.radiation, 60 * 20, 2));
 
 		if(ArmorRegistry.hasAllProtection(entityLiving, 3, HazardClass.PARTICLE_FINE)) {
 			ArmorUtil.damageGasMaskFilter(entityLiving, 1);
@@ -48,8 +57,9 @@ public class BlockGasMeltdown extends BlockGasBase {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 	}
 
@@ -67,21 +77,26 @@ public class BlockGasMeltdown extends BlockGasBase {
 		return this.randomHorizontal(world);
 	}
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
 
 		if(!world.isRemote) {
 
 			ForgeDirection dir = ForgeDirection.getOrientation(rand.nextInt(6));
 
 			if(rand.nextInt(7) == 0 && com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {
-				world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.gas_radon_dense);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, ModBlocks.gas_radon_dense);
 			}
-			
-			if (world.canBlockSeeTheSky(x, y, z)) {
+
+			if (world.canSeeSky(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				ChunkRadiationManager.proxy.incrementRad(world, x, y, z, 5);
 			}
-			
+
 			if(rand.nextInt(350) == 0) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				return;

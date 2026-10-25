@@ -22,25 +22,25 @@ public class TileEntityMachineOrbus extends TileEntityBarrel implements IOverpre
 	public TileEntityMachineOrbus() {
 		super(512000);
 	}
-	
+
 	@Override
 	public String getDefaultName() {
 		return "container.orbus";
 	}
-	
+
 	@Override
 	public void checkFluidInteraction() { } //NO!
 
 	protected DirPos[] conPos;
-	
+
 	@Override
 	protected DirPos[] getConPos() {
-		
+
 		if(conPos != null)
 			return conPos;
-		
+
 		conPos = new DirPos[8];
-		
+
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset).getOpposite();
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
@@ -52,17 +52,17 @@ public class TileEntityMachineOrbus extends TileEntityBarrel implements IOverpre
 			conPos[index + 2] = new DirPos(this.pos.getX() + rot.offsetX,				this.pos.getY() + i,	this.pos.getZ() + rot.offsetZ,				out);
 			conPos[index + 3] = new DirPos(this.pos.getX() + dir.offsetX + rot.offsetX,	this.pos.getY() + i,	this.pos.getZ() + dir.offsetZ + rot.offsetZ,	out);
 		}
-		
+
 		return conPos;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,
@@ -71,10 +71,10 @@ public class TileEntityMachineOrbus extends TileEntityBarrel implements IOverpre
 					this.pos.getZ() + 3
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {
@@ -85,41 +85,41 @@ public class TileEntityMachineOrbus extends TileEntityBarrel implements IOverpre
 	public void explode(World world, int x, int y, int z) {
 		if(tank.getTankType() == Fluids.AMAT || tank.getTankType() == Fluids.ASCHRAB) {
 		//if(this.hasExploded) return;
-	    	float amat = Math.min(tank.getFill()/100,90);
-	    	float aschrab = Math.min(tank.getFill()/100,90);
-	    	if(this.hasExploded && !this.world.isRemote) {
-	    		if(amat>0)
-	    		{
-	    			if(amat >= 25)
-	    			{
-	    				EntityBalefire bf = new EntityBalefire(this.world);
-	    				bf.antimatter();
-	    	    		bf.setPosition(this.pos.getX(), this.pos.getY(), this.pos.getZ());
-	    				bf.destructionRange = (int) amat;
-	    				this.world.spawnEntityInWorld(bf);
-	    				EntityNukeTorex.startFacAnti(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat * 1.5F);
-	    				return;
-	    			}
-	    			else
-	    			{
-	    				new ExplosionVNT(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat).makeAmat().explode();
-	    			}
-	    		}
-	    		if(aschrab>0)
-	    		{
-	    			EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, (int) aschrab);
-	    			if(!ex.isDead) {
-	    				this.world.spawnEntityInWorld(ex);
-	    	
-	    				EntityCloudFleija cloud = new EntityCloudFleija(this.world, (int) aschrab);
-	    				cloud.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5);
-	    				this.world.spawnEntityInWorld(cloud);
-	    			}
-	    			return;			
-	    		}	
-	    	}
+			float amat = Math.min(tank.getFill()/100,90);
+			float aschrab = Math.min(tank.getFill()/100,90);
+			if(this.hasExploded && !this.world.isRemote) {
+				if(amat>0)
+				{
+					if(amat >= 25)
+					{
+						EntityBalefire bf = new EntityBalefire(this.world);
+						bf.antimatter();
+						bf.setPosition(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+						bf.destructionRange = (int) amat;
+						this.world.spawnEntity(bf);
+						EntityNukeTorex.startFacAnti(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat * 1.5F);
+						return;
+					}
+					else
+					{
+						new ExplosionVNT(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), amat).makeAmat().explode();
+					}
+				}
+				if(aschrab>0)
+				{
+					EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, (int) aschrab);
+					if(!ex.isDead) {
+						this.world.spawnEntity(ex);
+
+						EntityCloudFleija cloud = new EntityCloudFleija(this.world, (int) aschrab);
+						cloud.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5);
+						this.world.spawnEntity(cloud);
+					}
+					return;
+				}
+			}
 		}
-	    	this.markChanged();
-	    			
+			this.markChanged();
+
 	}
 }

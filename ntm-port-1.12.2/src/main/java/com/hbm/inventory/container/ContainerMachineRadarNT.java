@@ -16,7 +16,7 @@ public class ContainerMachineRadarNT extends Container {
 
 	public ContainerMachineRadarNT(InventoryPlayer invPlayer, TileEntityMachineRadarNT tedf) {
 		this.radar = tedf;
-		
+
 		for(int i = 0; i < 8; i++) this.addSlotToContainer(new Slot(tedf, i, 26 + i * 18, 17));
 
 		this.addSlotToContainer(new Slot(tedf, 8, 26, 44));
@@ -47,7 +47,7 @@ public class ContainerMachineRadarNT extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IBatteryItem || var3.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(var5, 9, 10, false)) {
 						return null;
@@ -59,7 +59,7 @@ public class ContainerMachineRadarNT extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

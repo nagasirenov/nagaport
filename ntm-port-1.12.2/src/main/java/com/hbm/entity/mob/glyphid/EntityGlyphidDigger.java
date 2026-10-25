@@ -40,21 +40,21 @@ public class EntityGlyphidDigger extends EntityGlyphid {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getDigger().health);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getDigger().speed);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getDigger().damage);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(GlyphidStats.getStats().getDigger().health);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(GlyphidStats.getStats().getDigger().speed);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(GlyphidStats.getStats().getDigger().damage);
 	}
-	
+
 	public StatBundle getStats() {
 		return GlyphidStats.getStats().statsDigger;
 	}
 
 	public int timer = 0;
-	
+
 	@Override
 	public void onUpdate(){
 		super.onUpdate();
-		Entity e = this.getEntityToAttack();
+		Entity e = this.getAttackTarget();
 		if (e != null && this.isEntityAlive()) {
 
 			this.lastX = e.posX;
@@ -70,8 +70,8 @@ public class EntityGlyphidDigger extends EntityGlyphid {
 
 	/** Mainly composed of crusty old power fist code, with some touch ups **/
 	public void groundSlam(){
-		if (!this.world.isRemote && entityToAttack instanceof EntityLivingBase && this.getDistanceToEntity(entityToAttack) < 30) {
-			Entity e = this.getEntityToAttack();
+		if (!this.world.isRemote && this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 30) {
+			Entity e = this.getAttackTarget();
 
 			boolean topAttack = false;
 
@@ -99,7 +99,7 @@ public class EntityGlyphidDigger extends EntityGlyphid {
 				velX = velY = velZ = 0;
 			}
 
-			if (this.getDistanceToEntity(e) > 20) {
+			if (this.getDistance(e) > 20) {
 				topAttack = true;
 			}
 
@@ -134,21 +134,21 @@ public class EntityGlyphidDigger extends EntityGlyphid {
 
 				net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(this.world, x1, y1, z1);
 				Block b = nativeCubeState_b.getBlock();
-				float k = b.getExplosionResistance(this, this.world, x1, y1, z1, posX, posY, posZ);
+				float k = b.getExplosionResistance(this.world, new net.minecraft.util.math.BlockPos(x1, y1, z1), this, null);
 
-				if (k < ModBlocks.concrete.getExplosionResistance(this) && b.isNormalCube(nativeCubeState_b) && !(b instanceof BlockDummyable) && this.world.getTileEntity(x1, y1, z1) == null) {
+				if (k < ModBlocks.concrete.getExplosionResistance(this) && b.isNormalCube(nativeCubeState_b) && !(b instanceof BlockDummyable) && this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x1, y1, z1)) == null) {
 
 					EntityRubble rubble = new EntityRubble(this.world);
 					rubble.posX = x1 + 0.5F;
 					rubble.posY = y1 + 2;
 					rubble.posZ = z1 + 0.5F;
 
-					rubble.setMetaBasedOnBlock(b, this.world.getBlockMetadata(x1, y1, z1));
+					rubble.setMetaBasedOnBlock(b, com.hbm.world.WorldBlockState.readMetadata(this.world, x1, y1, z1));
 
 					if(fireVec != null)
 						rubble.shoot(fireVec.x, fireVec.y, fireVec.z, (float) v0, rand.nextFloat());
 
-					this.world.spawnEntityInWorld(rubble);
+					this.world.spawnEntity(rubble);
 
 					com.hbm.world.WorldBlockState.write(this.world, x1, y1, z1, Blocks.AIR.getStateFromMeta(0), 3);
 				}

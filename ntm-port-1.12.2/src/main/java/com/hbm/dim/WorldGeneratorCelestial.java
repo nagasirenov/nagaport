@@ -33,8 +33,10 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandom;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.structure.StructureComponent.BlockSelector;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable;
@@ -60,7 +62,7 @@ public class WorldGeneratorCelestial implements IWorldGenerator {
 			minHeight = 32;
 			maxHeight = 32;
 			sizeLimit = 128;
-			canSpawn = biome -> biome.rootHeight >= 0;
+			canSpawn = biome -> biome.getBaseHeight() >= 0;
 			startPool = "start";
 			pools = new HashMap<String, JigsawPool>() {{
 				put("start", new JigsawPool() {{
@@ -164,8 +166,7 @@ public class WorldGeneratorCelestial implements IWorldGenerator {
 		BlockOre.addAllExcept(ModBlocks.ore_nickel, SolarSystem.Body.KERBIN);
 	}
 
-	@Override
-	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(!(world.provider instanceof WorldProviderCelestial))
 			return;
 
@@ -238,8 +239,9 @@ public class WorldGeneratorCelestial implements IWorldGenerator {
 			int ry = 6 + rand.nextInt(13);
 			int rz = z + rand.nextInt(16) + 8;
 
-			if(com.hbm.world.WorldBlockState.read(world, rx, ry, rz).getBlock().isReplaceableOreGen(world, rx, ry, rz, planetStone)) {
-				world.setBlock(rx, ry, rz, ModBlocks.stone_keyhole);
+			net.minecraft.block.state.IBlockState keyholeState = com.hbm.world.WorldBlockState.read(world, rx, ry, rz);
+			if(keyholeState.getBlock().isReplaceableOreGen(keyholeState, world, new BlockPos(rx, ry, rz), state -> state.getBlock() == planetStone)) {
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, rx, ry, rz, ModBlocks.stone_keyhole);
 			}
 		}
 	}
@@ -293,20 +295,20 @@ public class WorldGeneratorCelestial implements IWorldGenerator {
 	// Called by ModEventHandler to handle vanilla ore generation events
 	public static void onGenerateOre(GenerateMinable event) {
 		// No coal on celestial bodies, no dead dinodoys :(
-		if(event.type == GenerateMinable.EventType.COAL) {
+		if(event.getType() == GenerateMinable.EventType.COAL) {
 			event.setResult(Result.DENY);
 		}
 	}
 
 	// A simple reimplementation of `genStandardOre1` without needing to instance a BiomeDecorator
 	private void genVanillaOre(World world, Random rand, int x, int z, int yMin, int yMax, int count, int numberOfBlocks, Block ore, Block target, int meta) {
-		WorldGenMinable worldGenMinable = new WorldGenMinable(ore, meta, numberOfBlocks, target);
+		WorldGenMinable worldGenMinable = new WorldGenMinable(ore.getStateFromMeta(meta), numberOfBlocks, state -> state.getBlock() == target);
 
 		for (int l = 0; l < count; ++l) {
 			int genX = x + rand.nextInt(16);
 			int genY = rand.nextInt(yMax - yMin) + yMin; // millenial supremacy
 			int genZ = z + rand.nextInt(16);
-			worldGenMinable.generate(world, rand, genX, genY, genZ);
+			worldGenMinable.generate(world, rand, new BlockPos(genX, genY, genZ));
 		}
 	}
 

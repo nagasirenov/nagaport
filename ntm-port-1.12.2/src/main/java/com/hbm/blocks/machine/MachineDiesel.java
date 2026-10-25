@@ -38,7 +38,8 @@ public class MachineDiesel extends BlockMachineBase implements ITooltipProvider,
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+	public void randomDisplayTick(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos pos, Random rand) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		
 		if(tile instanceof TileEntityMachineDiesel) {

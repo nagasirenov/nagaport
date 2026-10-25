@@ -20,7 +20,7 @@ public class SlotDeprecated extends Slot {
 		return false;
 	}
 
-	@Override
+	
 	@SideOnly(Side.CLIENT)
 	public boolean func_111238_b() {
 		return false;

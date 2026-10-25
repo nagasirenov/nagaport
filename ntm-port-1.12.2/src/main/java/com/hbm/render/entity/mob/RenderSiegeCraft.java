@@ -35,18 +35,18 @@ public class RenderSiegeCraft extends Render {
 
 		EntitySiegeCraft ufo = (EntitySiegeCraft) entity;
 		//BossStatus.setBossStatus(ufo, false);
-		
+
 		this.bindTexture(getEntityTexture(entity));
-		
+
 		double rot = (entity.ticksExisted + f1) * 5 % 360D;
 		GL11.glRotated(rot, 0, 1, 0);
 
-		
+
 		if(!ufo.isEntityAlive()) {
 			float tilt = ufo.deathTime + f1;
 			GL11.glRotatef(tilt * 5, 1, 0, 1);
 		}
-		
+
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		ResourceManager.siege_ufo.renderPart("UFO");
@@ -64,14 +64,14 @@ public class RenderSiegeCraft extends Render {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glPopAttrib();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
-		
+
 		if(ufo.getBeam()) {
 			bindTexture(new ResourceLocation(RefStrings.MODID + ":textures/misc/glintBF.png"));
 			RenderMiscEffects.renderClassicGlint(ufo.world, f1, ResourceManager.siege_ufo, "UFO", 0.5F, 1.0F, 1.0F, 5, 1F);
 		}
-		
+
 		GL11.glColor3f(1F, 1F, 1F);
-		
+
 		Random rand = new Random(entity.ticksExisted / 4);
 
 		GL11.glPushMatrix();
@@ -89,7 +89,7 @@ public class RenderSiegeCraft extends Render {
 
 		if(ufo.getBeam()) {
 			GL11.glPushMatrix();
-			Vec3d delta = ufo.getLockon().addVector(-ufo.posX, -ufo.posY, -ufo.posZ);
+			Vec3d delta = ufo.getLockon().add(-ufo.posX, -ufo.posY, -ufo.posZ);
 			double length = delta.length();
 			double scale = 0.1D;
 			BeamPronter.prontBeam(delta, EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x101020, 0x101020, entity.ticksExisted / 6, (int)(length / 2 + 1), (float)scale * 1F, 4, 0.25F, 256);
@@ -97,7 +97,7 @@ public class RenderSiegeCraft extends Render {
 			BeamPronter.prontBeam(delta, EnumWaveType.RANDOM, EnumBeamType.SOLID, 0x202060, 0x202060, entity.ticksExisted / 4, (int)(length / 2 + 1), (float)scale * 7F, 2, 0.0625F, 256);
 			GL11.glPopMatrix();
 		}
-		
+
 		GL11.glPopMatrix();
 	}
 

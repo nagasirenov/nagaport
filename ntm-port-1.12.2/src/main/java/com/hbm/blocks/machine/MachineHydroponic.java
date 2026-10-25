@@ -113,11 +113,11 @@ public class MachineHydroponic extends BlockDummyable implements ILookOverlay, I
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
-		if(world.getBlockMetadata(x, y, z) >= 12
-		|| world.getBlockMetadata(x + 1, y, z) >= 12
-		|| world.getBlockMetadata(x - 1, y, z) >= 12
-		|| world.getBlockMetadata(x, y, z + 1) >= 12
-		|| world.getBlockMetadata(x, y, z - 1) >= 12)
+		if(com.hbm.world.WorldBlockState.readMetadata(world, x, y, z) >= 12
+		|| com.hbm.world.WorldBlockState.readMetadata(world, x + 1, y, z) >= 12
+		|| com.hbm.world.WorldBlockState.readMetadata(world, x - 1, y, z) >= 12
+		|| com.hbm.world.WorldBlockState.readMetadata(world, x, y, z + 1) >= 12
+		|| com.hbm.world.WorldBlockState.readMetadata(world, x, y, z - 1) >= 12)
 			return true;
 		return false;
 	}

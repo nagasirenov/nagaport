@@ -40,30 +40,30 @@ public class GUIMachineDiFurnaceRTG extends GuiInfoContainer {
 		String[] heatText = I18nUtil.resolveKeyArray("desc.gui.rtg.heat", bFurnace.getPower());
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft - 15, guiTop + 36 + 16, 16, 16, guiLeft - 8, guiTop + 36 + 16, descText);
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft + 58, guiTop + 36, 18, 16, mouseX, mouseY, heatText);
-		
+
 		List<ItemRTGPellet> pellets = ItemRTGPellet.pelletList;
 		String[] pelletText = new String[pellets.size() + 1];
 		pelletText[0] = I18nUtil.resolveKey("desc.gui.rtg.pellets");
-		
+
 		for(int i = 0; i < pellets.size(); i++) {
 			ItemRTGPellet pellet = pellets.get(i);
 			pelletText[i + 1] = I18nUtil.resolveKey("desc.gui.rtg.pelletHeat", I18nUtil.resolveKey(pellet.getTranslationKey() + ".name"), pellet.getHeat());
 		}
-		
+
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft - 15, guiTop + 36, 16, 16, guiLeft - 8, guiTop + 36 + 16, pelletText);
 
 		if(this.mc.player.inventory.getItemStack() == null) {
 			for(int i = 0; i < 2; i++) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
-				
+
 				if(this.isMouseOverSlot(slot, mouseX, mouseY)) {
-					
+
 					String label = TextFormatting.YELLOW + "Accepts items from: ";
 					byte dir = i == 0 ? bFurnace.sideUpper : bFurnace.sideLower;
 					label += ForgeDirection.getOrientation(dir);
-					
+
 					this.drawHoveringText(Arrays.asList(new String[] { label }), mouseX, mouseY - (slot.getHasStack() ? 15 : 0));
-					
+
 					return;
 				}
 			}
@@ -83,9 +83,9 @@ public class GUIMachineDiFurnaceRTG extends GuiInfoContainer {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		
+
 		if(bFurnace.isInvalid()) {
-			TileEntity te = bFurnace.getWorld().getTileEntity(bFurnace.getPos().getX(), bFurnace.getPos().getY(), bFurnace.getPos().getZ());
+			TileEntity te = bFurnace.getWorld().getTileEntity(bFurnace.getPos());
 			if(te instanceof TileEntityDiFurnaceRTG) {
 				bFurnace = (TileEntityDiFurnaceRTG) te;
 			}

@@ -44,27 +44,7 @@ public class ItemToolBox extends Item implements IGUIProvider {
 		return 1;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister) {
-		super.registerIcons(iconRegister);
-		this.iconOpen = iconRegister.registerIcon(RefStrings.MODID + ":kit_toolbox_empty");
-		this.iconClosed = iconRegister.registerIcon(RefStrings.MODID + ":kit_toolbox");
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean requiresMultipleRenderPasses() {
-		return true;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(ItemStack stack, int renderPass) {
-
-		if(stack.getTagCompound() != null && stack.getTagCompound().getBoolean("isOpen") && renderPass == 1) return this.iconOpen;
-		return renderPass == 1 ? this.iconClosed : getIconFromDamageForRenderPass(stack.getItemDamage(), renderPass);
-	}
 
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
@@ -105,7 +85,7 @@ public class ItemToolBox extends Item implements IGUIProvider {
 			if(slot != null && slot.getItem() == ModItems.toolbox && i != player.inventory.currentItem) {
 
 				extraToolboxes++;
-				player.dropPlayerItemWithRandomChoice(slot, true);
+				player.dropItem(slot, true);
 				player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
 
 			} else if(i == player.inventory.currentItem) {
@@ -185,11 +165,13 @@ public class ItemToolBox extends Item implements IGUIProvider {
 
 		NBTTagCompound nbt = box.getTagCompound();
 
-		if(!nbt.hasNoTags()) {
+		if(!nbt.isEmpty()) {
 			Random random = new Random();
 
 			try {
-				byte[] abyte = CompressedStreamTools.compress(nbt);
+				java.io.ByteArrayOutputStream compressed = new java.io.ByteArrayOutputStream();
+				CompressedStreamTools.writeCompressed(nbt, compressed);
+				byte[] abyte = compressed.toByteArray();
 
 				if (abyte.length > 6000) {
 					player.sendMessage(new TextComponentString(TextFormatting.RED + "Warning: Container NBT exceeds 6kB, contents will be ejected!"));
@@ -203,25 +185,25 @@ public class ItemToolBox extends Item implements IGUIProvider {
 							float f1 = random.nextFloat() * 0.8F + 0.1F;
 							float f2 = random.nextFloat() * 0.8F + 0.1F;
 
-							while (itemstack.stackSize > 0) {
+							while (itemstack.getCount() > 0) {
 								int j1 = random.nextInt(21) + 10;
 
-								if (j1 > itemstack.stackSize) {
-									j1 = itemstack.stackSize;
+								if (j1 > itemstack.getCount()) {
+									j1 = itemstack.getCount();
 								}
 
-								itemstack.stackSize -= j1;
+								itemstack.shrink(j1);
 								EntityItem entityitem = new EntityItem(player.world, player.posX + f, player.posY + f1, player.posZ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
 								if (itemstack.hasTagCompound()) {
-									entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+									entityitem.getItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
 								}
 
 								float f3 = 0.05F;
 								entityitem.motionX = (float) random.nextGaussian() * f3 + player.motionX;
 								entityitem.motionY = (float) random.nextGaussian() * f3 + 0.2F + player.motionY;
 								entityitem.motionZ = (float) random.nextGaussian() * f3 + player.motionZ;
-								player.world.spawnEntityInWorld(entityitem);
+								player.world.spawnEntity(entityitem);
 							}
 						}
 					}
@@ -233,6 +215,11 @@ public class ItemToolBox extends Item implements IGUIProvider {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(!world.isRemote) {

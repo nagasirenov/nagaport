@@ -15,27 +15,27 @@ public class EntityFBIDrone extends EntityUFOBase {
 	}
 
 	@Override
-	protected void updateEntityActionState() {
-		super.updateEntityActionState();
+	protected void updateEntityActionStateNT() {
+		super.updateEntityActionStateNT();
 		if(this.courseChangeCooldown > 0) this.courseChangeCooldown--;
 		if(this.scanCooldown > 0) this.scanCooldown--;
 
 		if(!this.world.isRemote) {
-			
+
 			if(attackCooldown > 0) attackCooldown--;
-			
+
 			if(this.target != null && attackCooldown <= 0) {
-				
+
 				Vec3d vec = new Vec3d(posX - target.posX, posY - target.posY, posZ - target.posZ);
 				if(Math.abs(vec.x) < 5 && Math.abs(vec.z) < 5 && vec.y > 3) {
 					attackCooldown = 60;
 					EntityGrenadeStrong grenade = new EntityGrenadeStrong(this.world);
 					grenade.setPosition(posX, posY, posZ);
-					this.world.spawnEntityInWorld(grenade);
+					this.world.spawnEntity(grenade);
 				}
 			}
 		}
-		
+
 		if(this.courseChangeCooldown > 0) {
 			approachPosition(this.target == null ? 0.25D : 0.5D);
 		}
@@ -44,7 +44,7 @@ public class EntityFBIDrone extends EntityUFOBase {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(35.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35.0D);
 	}
 
 	@Override

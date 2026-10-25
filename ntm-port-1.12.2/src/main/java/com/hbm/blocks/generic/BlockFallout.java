@@ -11,6 +11,8 @@ import com.hbm.items.ModItems;
 import com.hbm.potion.HbmPotion;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,15 +25,21 @@ import net.minecraft.world.World;
 
 public class BlockFallout extends Block {
 
+	public BlockFallout withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+
 	private final net.minecraft.util.math.AxisAlignedBB shape;
-	
+
 
 	public BlockFallout(Material mat) {
 		super(mat);
 		this.shape = new net.minecraft.util.math.AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 		if(this==ModBlocks.salted_fallout)
 		{
-			this.setTickRandomly(true);	
+			this.setTickRandomly(true);
 		}
 	}
 
@@ -59,12 +67,17 @@ public class BlockFallout extends Block {
 		return block.isOpaqueCube(nativeAirState) && block.getDefaultState().getMaterial().blocksMovement();
 	}
 
-	@Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityWalk(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entityIn) {
+		onEntityWalking(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
 
 		if(!world.isRemote && entity instanceof EntityLivingBase) {
 			if(entity instanceof EntityPlayer && ((EntityPlayer)entity).capabilities.isCreativeMode) return;
-			PotionEffect effect = new PotionEffect(HbmPotion.radiation.id, 10 * 60 * 20, 0);
+			PotionEffect effect = new PotionEffect(HbmPotion.radiation, 10 * 60 * 20, 0);
 			effect.setCurativeItems(new ArrayList());
 			((EntityLivingBase) entity).addPotionEffect(effect);
 		}
@@ -89,15 +102,16 @@ public class BlockFallout extends Block {
 			return true;
 		}
 	}
-	
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
+
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
 	}
 
 	public boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return true;
 	}
-	
+
 	@Override
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
@@ -108,7 +122,6 @@ public class BlockFallout extends Block {
 	}
 
 
-	@Override
 	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return shape;
 	}

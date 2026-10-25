@@ -74,7 +74,9 @@ public class ItemColtanCompass extends Item {
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister register) {
 		if(!(register instanceof LegacyIconRegister)) throw new IllegalArgumentException("ItemColtanCompass requires the NTM texture-atlas adapter");
-		TextureColtass compass = new TextureColtass(RefStrings.MODID + ":coltass");
+		// 1.12 resolves sprite base files under textures/<path>; the animated
+		// compass frames live at items/coltass.png.
+		TextureColtass compass = new TextureColtass(RefStrings.MODID + ":items/coltass");
 		this.itemIcon = ((LegacyIconRegister) register).registerGeneratedSprite(compass); //the animated compass sprite is stitched into the 1.12 atlas
 	}
 

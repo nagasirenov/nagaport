@@ -37,7 +37,12 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
-	
+	public BlockGlyphidSpawner withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+
 	public IIcon[] icons = new IIcon[3];
 
 	public BlockGlyphidSpawner(Material mat) {
@@ -50,13 +55,11 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 		return ModItems.egg_glyphid;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return icons[meta % icons.length];
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		icons[0] = reg.registerIcon(RefStrings.MODID + ":glyphid_eggs_alt");
@@ -71,8 +74,8 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for(int i = 0; i < getSubCount(); ++i) list.add(new ItemStack(item, 1, i));
+	public void getSubBlocks(CreativeTabs tab, net.minecraft.util.NonNullList<ItemStack> list) {
+		for(int i = 0; i < getSubCount(); ++i) list.add(new ItemStack(this, 1, i));
 	}
 
 	private static final ArrayList<Pair<Function<World, EntityGlyphid>, int[]>> spawnMap = new ArrayList<>();
@@ -90,8 +93,8 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 	}
 
 	@Override
-	public int quantityDropped(int meta, int fortune, Random rand) {
-		return 1 + rand.nextInt(3) + fortune;
+	public int quantityDroppedWithBonus(int fortune, Random random) {
+		return 1 + random.nextInt(3) + fortune;
 	}
 
 	@Override
@@ -106,7 +109,7 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 		@Override
 		public void update() {
 
-			if(!this.world.isRemote && this.world.difficultySetting != EnumDifficulty.PEACEFUL) {
+			if(!this.world.isRemote && this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 
 				if(initialSpawn || this.world.getTotalWorldTime() % MobConfig.swarmCooldown == 0) {
 
@@ -120,7 +123,7 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 						}
 					}
 
-					List<EntityGlyphid> list = this.world.getEntitiesWithinAABB(EntityGlyphid.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 5, this.pos.getY() + 1, this.pos.getZ() - 5, this.pos.getX() + 6, this.pos.getY() + 7, this.pos.getZ() + 6));
+					List<EntityGlyphid> list = this.world.getEntitiesWithinAABB(EntityGlyphid.class, new AxisAlignedBB(this.pos.getX() - 5, this.pos.getY() + 1, this.pos.getZ() - 5, this.pos.getX() + 6, this.pos.getY() + 7, this.pos.getZ() + 6));
 					float soot = PollutionHandler.getPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.SOOT);
 
 					int subtype = this.getBlockMetadata();
@@ -134,22 +137,22 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 
 						if(!initialSpawn && this.world.rand.nextInt(MobConfig.scoutSwarmSpawnChance + 1) == 0 && soot >= MobConfig.scoutThreshold && subtype != EntityGlyphid.TYPE_RADIOACTIVE) {
 							EntityGlyphidScout scout = new EntityGlyphidScout(this.world);
-							if(this.getBlockMetadata() == 1) scout.getDataWatcher().updateObject(EntityGlyphid.DW_SUBTYPE, (byte) EntityGlyphid.TYPE_INFECTED);
+							if(this.getBlockMetadata() == 1) scout.setGlyphidType((byte) EntityGlyphid.TYPE_INFECTED);
 							trySpawnEntity(scout);
 						}
 					}
 				}
 			}
 		}
-		
+
 		public void trySpawnEntity(EntityGlyphid glyphid) {
 			double offsetX = glyphid.getRNG().nextGaussian() * 3;
 			double offsetZ = glyphid.getRNG().nextGaussian() * 3;
-			
+
 			for(int i = 0; i < 7; i++) {
 				glyphid.setLocationAndAngles(this.pos.getX() + 0.5 + offsetX, this.pos.getY() - 2 + i, this.pos.getZ() + 0.5 + offsetZ, this.world.rand.nextFloat() * 360.0F, 0.0F);
 				if(glyphid.getCanSpawnHere()) {
-					this.world.spawnEntityInWorld(glyphid);
+					this.world.spawnEntity(glyphid);
 					return;
 				}
 			}
@@ -161,7 +164,7 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 			ArrayList<EntityGlyphid> currentSpawns = new ArrayList<>();
 			int swarmAmount = (int) Math.min(MobConfig.baseSwarmSize * Math.max(MobConfig.swarmScalingMult * (soot / MobConfig.sootStep), 1), 10);
 			int cap = 100;
-			
+
 			while(currentSpawns.size() <= swarmAmount && cap >= 0) {
 				// (dys)functional programing
 				for(Pair<Function<World, EntityGlyphid>, int[]> glyphid : spawnMap) {
@@ -169,12 +172,12 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 					int adjustedChance = (int) (chance[0] + (chance[1] - chance[1] / Math.max(((soot + 1) / 3), 1)));
 					if(soot >= chance[2] && rand.nextInt(100) <= adjustedChance) {
 						EntityGlyphid entity = glyphid.getKey().apply(this.world);
-						if(meta == 1) entity.getDataWatcher().updateObject(EntityGlyphid.DW_SUBTYPE, (byte) EntityGlyphid.TYPE_INFECTED);
-						if(meta == 2) entity.getDataWatcher().updateObject(EntityGlyphid.DW_SUBTYPE, (byte) EntityGlyphid.TYPE_RADIOACTIVE);
+						if(meta == 1) entity.setGlyphidType((byte) EntityGlyphid.TYPE_INFECTED);
+						if(meta == 2) entity.setGlyphidType((byte) EntityGlyphid.TYPE_RADIOACTIVE);
 						currentSpawns.add(entity);
 					}
 				}
-				
+
 				cap--;
 			}
 			return currentSpawns;

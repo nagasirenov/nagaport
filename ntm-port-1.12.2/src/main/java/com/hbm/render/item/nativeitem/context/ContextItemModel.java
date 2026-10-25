@@ -90,6 +90,10 @@ public class ContextItemModel implements IBakedModel, com.hbm.render.util.Native
     public static ContextItemModel create(IBakedModel base, ContextItemRenderer renderer) {
         return create(base, base.getParticleTexture(), renderer, ItemStack.EMPTY, new NativeItemContext(TransformType.NONE, null), null, null);
     }
+    /** Activation supplies the resolved real particle; the placeholder base model must not define it. */
+    public static ContextItemModel create(IBakedModel base, TextureAtlasSprite particle, ContextItemRenderer renderer) {
+        return create(base, particle, renderer, ItemStack.EMPTY, new NativeItemContext(TransformType.NONE, null), null, null);
+    }
     private static ContextItemModel create(IBakedModel base, TextureAtlasSprite particle, ContextItemRenderer renderer,
             ItemStack stack, NativeItemContext context, Matrix4f right, Matrix4f left) {
         return renderer instanceof com.hbm.render.util.NativeMachineItemRenderer.FrameItemModel

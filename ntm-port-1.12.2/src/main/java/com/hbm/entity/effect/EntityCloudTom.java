@@ -32,12 +32,12 @@ public class EntityCloudTom extends Entity {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getBrightnessForRender(float p_70070_1_) {
+	public int getBrightnessForRender() {
 		return 15728880;
 	}
 
 	@Override
-	public float getBrightness(float p_70013_1_) {
+	public float getBrightness() {
 		return 1.0F;
 	}
 
@@ -52,7 +52,7 @@ public class EntityCloudTom extends Entity {
 	public void onUpdate() {
 		
 		this.age++;
-		this.world.lastLightningBolt = 2;
+		this.world.setLastLightningBolt(2);
 
 		if (this.age >= this.getMaxAge()) {
 			this.setDead();

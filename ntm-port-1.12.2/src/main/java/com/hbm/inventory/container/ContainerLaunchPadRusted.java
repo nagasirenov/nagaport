@@ -12,9 +12,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerLaunchPadRusted extends Container {
-	
+
 	private TileEntityLaunchPadRusted launchpad;
-	
+
 	public ContainerLaunchPadRusted(InventoryPlayer invPlayer, TileEntityLaunchPadRusted tedf) {
 		this.launchpad = tedf;
 
@@ -22,7 +22,7 @@ public class ContainerLaunchPadRusted extends Container {
 		this.addSlotToContainer(new Slot(tedf, 1, 116, 45));
 		this.addSlotToContainer(new Slot(tedf, 2, 134, 45));
 		this.addSlotToContainer(new Slot(tedf, 3, 26, 99));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 154 + i * 18));
@@ -48,7 +48,7 @@ public class ContainerLaunchPadRusted extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IDesignatorItem) {
 					if(!this.mergeItemStack(var5, 3, 4, false)) {
 						return null;
@@ -66,7 +66,7 @@ public class ContainerLaunchPadRusted extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

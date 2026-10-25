@@ -26,7 +26,7 @@ public class RenderCustomMachine extends TileEntitySpecialRenderer {
 			GL11.glPushMatrix();
 			GL11.glTranslated(x, y, z);
 	
-			bindTexture(TextureMap.locationBlocksTexture);
+			bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 			SmallBlockPronter.startDrawing();
 			for(CustomMachineConfigJSON.MachineConfiguration.ComponentDefinition comp : config.components) {
 				int rx = -dir.offsetX * comp.x + rot.offsetX * comp.x;

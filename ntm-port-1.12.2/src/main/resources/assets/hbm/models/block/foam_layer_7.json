@@ -1,0 +1,45 @@
+{
+  "textures": {
+    "particle": "hbm:blocks/foam",
+    "layer": "hbm:blocks/foam"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        14,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#layer",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#layer"
+        },
+        "north": {
+          "texture": "#layer",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#layer",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#layer",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#layer",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

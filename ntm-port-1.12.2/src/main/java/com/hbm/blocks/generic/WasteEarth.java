@@ -29,6 +29,8 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import com.hbm.lib.ForgeDirection;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
@@ -40,13 +42,13 @@ public class WasteEarth extends Block {
 	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBottom;
+	protected IIcon blockIcon;
 
 	public WasteEarth(Material mat, boolean tick) {
 		super(mat);
 		this.setTickRandomly(tick);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + (this == ModBlocks.waste_earth ? ":waste_grass_top" : (this == ModBlocks.burning_earth ? ":burning_grass_top" : (this == ModBlocks.waste_mycelium ? ":waste_mycelium_top" : ":frozen_grass_top"))));
@@ -54,7 +56,6 @@ public class WasteEarth extends Block {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + (this == ModBlocks.waste_earth ? ":waste_grass_side" : (this == ModBlocks.burning_earth ? ":burning_grass_side" : (this == ModBlocks.waste_mycelium ? ":waste_mycelium_side" : ":frozen_grass_side"))));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon);
@@ -62,7 +63,7 @@ public class WasteEarth extends Block {
 
 	@Override
 	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-		
+
 		if(this == ModBlocks.waste_earth || this == ModBlocks.waste_mycelium || this == ModBlocks.burning_earth) {
 			return Item.getItemFromBlock(Blocks.DIRT);
 		}
@@ -79,18 +80,23 @@ public class WasteEarth extends Block {
 		return 1;
 	}
 
-	@Override
-	public void onEntityWalking(World p_149724_1_, int x, int y, int z, Entity entity) {
-		
+
+		@Override
+	public void onEntityWalk(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entityIn) {
+		onEntityWalking(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityWalking(World p_149724_1_, int x, int y, int z, Entity entity) {
+
 		if(entity instanceof EntityLivingBase) {
-			
+
 			EntityLivingBase living = (EntityLivingBase) entity;
-			
+
 			if(this == ModBlocks.frozen_grass) {
 				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 60 * 20, 2));
 			}
 			if(this == ModBlocks.waste_mycelium) {
-				living.addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 30 * 20, 3));
+				living.addPotionEffect(new PotionEffect(HbmPotion.radiation, 30 * 20, 3));
 			}
 			if(this == ModBlocks.burning_earth) {
 				living.setFire(5);
@@ -100,9 +106,10 @@ public class WasteEarth extends Block {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
-		
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		if(this == ModBlocks.waste_mycelium) {
 			world.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
@@ -115,38 +122,38 @@ public class WasteEarth extends Block {
 	@Override
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
-		
+
 		if(this == ModBlocks.waste_mycelium && GeneralConfig.enableMycelium) {
 			for(int i = -1; i < 2; i++) {
 				for(int j = -1; j < 2; j++) {
 					for(int k = -1; k < 2; k++) {
 						Block b0 = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock();
 						Block b1 = com.hbm.world.WorldBlockState.read(world, x + i, y + j + 1, z + k).getBlock();
-						if(!b1.isOpaqueCube() && (b0 == Blocks.DIRT || b0 == Blocks.GRASS || b0 == Blocks.MYCELIUM || b0 == ModBlocks.waste_earth)) {
-							world.setBlock(x + i, y + j, z + k, ModBlocks.waste_mycelium);
+						if(!b1.getDefaultState().isOpaqueCube() && (b0 == Blocks.DIRT || b0 == Blocks.GRASS || b0 == Blocks.MYCELIUM || b0 == ModBlocks.waste_earth)) {
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + i, y + j, z + k, ModBlocks.waste_mycelium);
 						}
 					}
 				}
 			}
 		}
-		
+
 		if(this == ModBlocks.burning_earth) {
-			
+
 			if(rand.nextInt(5) == 0) {
 				for(int i = -1; i < 2; i++) {
 					for(int j = -1; j < 2; j++) {
 						for(int k = -1; k < 2; k++) {
-							
-							if(!world.blockExists(x + i, y + j, z + k)) continue;
-							
+
+							if(!world.isBlockLoaded(new BlockPos(x + i, y + j, z + k))) continue;
+
 							Block b0 = com.hbm.world.WorldBlockState.read(world, x + i, y + j, z + k).getBlock();
 							Block b1 = com.hbm.world.WorldBlockState.read(world, x + i, y + j + 1, z + k).getBlock();
-							
-							if(!b1.isOpaqueCube() &&
+
+							if(!b1.getDefaultState().isOpaqueCube() &&
 									((b0 == Blocks.GRASS || b0 == Blocks.MYCELIUM || b0 == ModBlocks.waste_earth ||
 									b0 == ModBlocks.frozen_grass || b0 == ModBlocks.waste_mycelium)
-									&& !world.canLightningStrikeAt(x, y, z))) {
-								world.setBlock(x + i, y + j, z + k, ModBlocks.burning_earth);
+									&& !world.isRainingAt(new BlockPos(x, y, z)))) {
+								com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + i, y + j, z + k, ModBlocks.burning_earth);
 							}
 							if((b0 instanceof BlockLeaves || b0 instanceof BlockBush)) {
 								com.hbm.world.WorldAirRemoval.remove(world, x + i, y + j, z + k);
@@ -161,25 +168,26 @@ public class WasteEarth extends Block {
 					}
 				}
 			}
-			world.setBlock(x, y, z, ModBlocks.impact_dirt);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.impact_dirt);
 		}
 
 		if(this == ModBlocks.waste_earth || this == ModBlocks.waste_mycelium) {
-			
-			if(RadiationConfig.cleanupDeadDirt || (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)) {
+
+			if(RadiationConfig.cleanupDeadDirt || (world.getLight(new BlockPos(x, y + 1, z)) < 4 && world.getBlockState(new BlockPos(x, y + 1, z)).getLightOpacity(world, new BlockPos(x, y + 1, z)) > 2)) {
 				{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-				
+
 			}
-			
+
 			if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() instanceof BlockMushroom) {
-				world.setBlock(x, y + 1, z, ModBlocks.mush);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y + 1, z, ModBlocks.mush);
 			}
 		}
 	}
-	
+
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		if(this == ModBlocks.burning_earth) {
 			net.minecraft.block.state.IBlockState nativeCubeState_b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z);
 			Block b = nativeCubeState_b.getBlock();
@@ -188,14 +196,14 @@ public class WasteEarth extends Block {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
-		
+
 		if(this == ModBlocks.waste_earth || this == ModBlocks.waste_mycelium) {
 			return plantable.getPlantType(world, pos) == EnumPlantType.Cave;
 		}
-		
+
 		return false;
 	}
 	/** NTM construction hook for the native protected sound setter. */

@@ -58,11 +58,11 @@ public class BlockAllocatorStandard implements IBlockAllocator {
 							Block block = com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ).getBlock();
 
 							if(block.getDefaultState().getMaterial() != Material.AIR) {
-								float blockResistance = explosion.exploder != null ? explosion.exploder.func_145772_a(explosion.compat, world, blockX, blockY, blockZ, block) : block.getExplosionResistance(explosion.exploder, world, blockX, blockY, blockZ, x, y, z);
+								float blockResistance = block.getExplosionResistance(world, new net.minecraft.util.math.BlockPos(blockX, blockY, blockZ), explosion.exploder, explosion.compat);
 								powerRemaining -= (blockResistance + 0.3F) * stepSize;
 							}
 
-							if(powerRemaining > 0.0F && (explosion.exploder == null || explosion.exploder.func_145774_a(explosion.compat, world, blockX, blockY, blockZ, block, powerRemaining))) {
+							if(powerRemaining > 0.0F && explosion.exploder == null) {
 								affectedBlocks.add(new LegacyHashBlockPos(blockX, blockY, blockZ));
 							}
 

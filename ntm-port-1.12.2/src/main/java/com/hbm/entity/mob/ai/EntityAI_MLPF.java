@@ -21,7 +21,7 @@ public class EntityAI_MLPF extends EntityAIBase {
 	private int distance;
 	private static final int vertical = 10;
     private double speed;
-	
+
 	public EntityAI_MLPF(EntityLiving entity, Class targetClass, int range, double speed, int distance)
 	{
 		this.mover = entity;
@@ -31,23 +31,23 @@ public class EntityAI_MLPF extends EntityAIBase {
 		this.distance = distance;
         this.theNearestAttackableTargetSorter = new Sorter(entity);
 	}
-	
+
 	@Override
 	public boolean shouldExecute() {
-		
+
 		//roll the dice for targetiing if there's nothing to track
 		if(mover.getRNG().nextInt(100) < 5 && mover.getAttackTarget() == null) {
 			//System.out.println("Randomizer fired!");
 			//load potential targets
 			calculateTarget();
-			
+
 			//start if there is a valid target
 			return target != null;
 		}
-		
+
 		return false;
 	}
-	
+
     public void startExecuting() {
 
     	//create a path line from mover to target
@@ -55,8 +55,8 @@ public class EntityAI_MLPF extends EntityAIBase {
             target.posX - mover.posX,
             target.posY - mover.posY,
             target.posZ - mover.posZ);
-    	
-    	
+
+
     	//line length is capped so the pathfinder can manage it
     	int range = distance;
 
@@ -64,47 +64,52 @@ public class EntityAI_MLPF extends EntityAIBase {
     		mover.setAttackTarget(target);
 
         vec = vec.normalize().scale(range);
-    	
+
     	//target positions are set (with randomized Y-offset)
         double x = mover.posX + vec.x;
         double y = mover.posY + vec.y - 5 + mover.getRNG().nextInt(11);
         double z = mover.posZ + vec.z;
-    	
+
     	//System.out.println("Routing to " + x + "/" + y + "/" + z);
-    	
+
 		//this is where the magic happens
         this.mover.getNavigator().tryMoveToXYZ(x, y, z, this.speed);
-        
+
         //System.out.println("Start successful? " + success);
     }
-	
-	@Override
-	public boolean continueExecuting() {
+
+
+		@Override
+	public boolean shouldContinueExecuting() {
+		return continueExecuting();
+	}
+
+public boolean continueExecuting() {
 
 		//only continue if the path is valid
         return !this.mover.getNavigator().noPath();
 	}
-	
+
 	@Override
 	public void resetTask()
 	{
 		//once the task is complete, remove target
 		target = null;
 	}
-	
+
 	//scans the area and determines a new target entity
 	private void calculateTarget() {
-		
-		List list = mover.world.getEntitiesWithinAABB(targetClass, AxisAlignedBB.getBoundingBox(
+
+		List list = mover.world.getEntitiesWithinAABB(targetClass, new AxisAlignedBB(
 				mover.posX - range,
 				mover.posY - vertical,
 				mover.posZ - range,
 				mover.posX + range,
 				mover.posY + vertical,
 				mover.posZ + range));
-		
+
 		Collections.sort(list, theNearestAttackableTargetSorter);
-		
+
 		if (!list.isEmpty())
         {
 			target = (EntityLivingBase)list.get(0);
@@ -119,8 +124,8 @@ public class EntityAI_MLPF extends EntityAIBase {
 		}
 
 		public int compare(Entity p_compare_1_, Entity p_compare_2_) {
-			double d0 = this.theEntity.getDistanceSqToEntity(p_compare_1_);
-			double d1 = this.theEntity.getDistanceSqToEntity(p_compare_2_);
+			double d0 = this.theEntity.getDistanceSq(p_compare_1_);
+			double d1 = this.theEntity.getDistanceSq(p_compare_2_);
 			return d0 < d1 ? -1 : (d0 > d1 ? 1 : 0);
 		}
 

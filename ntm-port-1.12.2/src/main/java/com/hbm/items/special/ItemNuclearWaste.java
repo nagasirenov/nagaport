@@ -26,7 +26,7 @@ public class ItemNuclearWaste extends Item {
 		entity.motionX = entityItem.motionX;
 		entity.motionY = entityItem.motionY;
 		entity.motionZ = entityItem.motionZ;
-		entity.delayBeforeCanPickup = 10;
+		entity.setPickupDelay(10);
 		
 		entityItem.setDead();
 		

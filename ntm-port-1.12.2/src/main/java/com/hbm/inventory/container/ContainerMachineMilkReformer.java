@@ -13,11 +13,11 @@ import net.minecraft.item.ItemStack;
 public class ContainerMachineMilkReformer extends Container {
 
 	private TileEntityMachineMilkReformer reformer;
-	
+
 	public ContainerMachineMilkReformer(InventoryPlayer invPlayer, TileEntityMachineMilkReformer tedf) {
-		
+
 		reformer = tedf;
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tedf, 0, 79, 8));
 		//Canister Input
@@ -37,7 +37,7 @@ public class ContainerMachineMilkReformer extends Container {
 		//Hydrogen Oil Output
 		this.addSlotToContainer(new SlotTakeOnly(tedf, 8, 149, 106));
 
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 156 + i * 18));
@@ -48,7 +48,7 @@ public class ContainerMachineMilkReformer extends Container {
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 214));
 		}
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
 		ItemStack var3 = null;
@@ -63,7 +63,7 @@ public class ContainerMachineMilkReformer extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IBatteryItem) {
 					if(!this.mergeItemStack(var5, 1, 0, false)) {
 						return null;
@@ -77,7 +77,7 @@ public class ContainerMachineMilkReformer extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
@@ -86,7 +86,7 @@ public class ContainerMachineMilkReformer extends Container {
 
 		return var3;
 	}
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return reformer.isUsableByPlayer(player);

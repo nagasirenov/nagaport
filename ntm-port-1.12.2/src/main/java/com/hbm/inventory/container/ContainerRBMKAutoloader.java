@@ -8,9 +8,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerRBMKAutoloader extends ContainerBase {
-	
+
 	public TileEntityRBMKAutoloader loader;
-	
+
 	public ContainerRBMKAutoloader(InventoryPlayer invPlayer, TileEntityRBMKAutoloader tedf) {
 		super(invPlayer, tedf);
 		loader = tedf;
@@ -37,7 +37,7 @@ public class ContainerRBMKAutoloader extends ContainerBase {
 				if(!this.mergeItemStack(stack, 0, 9, false)) return null;
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

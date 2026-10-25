@@ -43,7 +43,7 @@ public class GUIForceField extends GuiInfoContainer {
 		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 
-    protected void mouseClicked(int x, int y, int i) {
+    protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
     	super.mouseClicked(x, y, i);
 		
     	if(guiLeft + 142 <= x && guiLeft + 142 + 18 > x && guiTop + 34 < y && guiTop + 34 + 18 >= y) {

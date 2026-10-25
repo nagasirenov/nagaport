@@ -78,7 +78,7 @@ public class CBT_War extends CelestialBodyTrait {
 
 					if(projectile.getAnimtime() >= 100) {
 						this.destroyProjectile(projectile);
-						World targetWorld = MinecraftServer.getServer().worldServerForDimension(projectile.getTarget());
+						World targetWorld = net.minecraftforge.fml.common.FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(projectile.getTarget());
 						i--;
 						//System.out.println("damaged: " + targetWorld + " health left: " + this.health);
 

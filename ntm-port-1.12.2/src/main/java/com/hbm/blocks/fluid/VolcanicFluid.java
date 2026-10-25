@@ -8,22 +8,19 @@ import net.minecraftforge.fluids.Fluid;
 public class VolcanicFluid extends Fluid {
 
 	public VolcanicFluid() {
-		super("volcanic_lava_fluid");
+		super("volcanic_lava_fluid", new net.minecraft.util.ResourceLocation("hbm", "blocks/volcanic_lava_still"), new net.minecraft.util.ResourceLocation("hbm", "blocks/volcanic_lava_flowing"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon() {
 		return getStillIcon();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getStillIcon() {
 		return VolcanicBlock.stillIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getFlowingIcon() {
 		return VolcanicBlock.flowingIcon;

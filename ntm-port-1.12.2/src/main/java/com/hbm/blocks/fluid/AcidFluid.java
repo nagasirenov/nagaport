@@ -8,26 +8,23 @@ import net.minecraftforge.fluids.Fluid;
 public class AcidFluid extends Fluid {
 
 	public AcidFluid() {
-		super("acid_fluid");
+		super("acid_fluid", new net.minecraft.util.ResourceLocation("hbm", "blocks/acid_still"), new net.minecraft.util.ResourceLocation("hbm", "blocks/acid_flowing"));
 	}
 
 	public AcidFluid(String name) {
-		super(name);
+		super(name, new net.minecraft.util.ResourceLocation("hbm", "blocks/" + name + "_still"), new net.minecraft.util.ResourceLocation("hbm", "blocks/" + name + "_flowing"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon() {
 		return getStillIcon();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getStillIcon() {
 		return AcidBlock.stillIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getFlowingIcon() {
 		return AcidBlock.flowingIcon;

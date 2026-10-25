@@ -44,7 +44,7 @@ public class MachineAtmosphericEmitter extends BlockDummyable implements ILookOv
 	@Override
 	public void fillSpace(World world, int x, int y, int z, ForgeDirection dir, int o) {
 		super.fillSpace(world, x, y, z, dir, o);
-		
+
 		x -= dir.offsetX * o;
 		z -= dir.offsetZ * o;
 
@@ -54,32 +54,35 @@ public class MachineAtmosphericEmitter extends BlockDummyable implements ILookOv
 		this.makeExtra(world, x, y, z - dir.offsetZ + rot.offsetZ);
 		this.makeExtra(world, x - dir.offsetX + rot.offsetX, y, z);
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(!world.isRemote && !player.isSneaking()) {
-				
+
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier) {
 				int[] pos = this.findCore(world, x, y, z);
 				if(pos == null) return false;
-				
+
 				TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 				if(!(te instanceof TileEntityAtmosphericEmitter)) return false;
-				
+
 				TileEntityAtmosphericEmitter drain = (TileEntityAtmosphericEmitter) te;
-				
+
 				FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, pos[0], pos[1], pos[2], com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 				if(type.hasTrait(FT_Gaseous.class) || type.hasTrait(FT_Gaseous_ART.class)) {
 					drain.tank.setTankType(type);
 					drain.markDirty();
 					player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 				}
-				
+
 				return true;
 			}
 			return false;
-			
+
 		} else {
 			return true;
 		}
@@ -89,16 +92,16 @@ public class MachineAtmosphericEmitter extends BlockDummyable implements ILookOv
 	public void printHook(Pre event, World world, int x, int y, int z) {
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
-		
+
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(te instanceof TileEntityAtmosphericEmitter)) return;
-		
+
 		TileEntityAtmosphericEmitter drain = (TileEntityAtmosphericEmitter) te;
 		List<String> text = new ArrayList<>();
-		
+
 		text.add((drain.power < Math.max(drain.tank.getFill() / 2, 1) * 10 ? TextFormatting.RED : TextFormatting.GREEN) + "Power: " + BobMathUtil.getShortNumber(drain.power) + "HE");
 		text.add(TextFormatting.GREEN + "-> " + TextFormatting.RESET + drain.tank.getTankType().getLocalizedName() + ": " + drain.tank.getFill() + "/" + drain.tank.getMaxFill() + "mB");
 		ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
 	}
-	
+
 }

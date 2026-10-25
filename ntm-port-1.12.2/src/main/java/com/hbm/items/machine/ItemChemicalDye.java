@@ -18,7 +18,6 @@ public class ItemChemicalDye extends ItemEnumMulti {
 		super(EnumChemDye.class, true, false);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
@@ -32,13 +31,11 @@ public class ItemChemicalDye extends ItemEnumMulti {
 		this.overlayIcon = reg.registerIcon(RefStrings.MODID + ":chemical_dye_overlay");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamageForRenderPass(int meta, int pass) {
-		return pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(meta, pass);
+		return pass == 1 ? this.overlayIcon : this.itemIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
 		

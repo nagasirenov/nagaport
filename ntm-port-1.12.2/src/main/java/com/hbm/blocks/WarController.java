@@ -10,6 +10,11 @@ import net.minecraft.world.World;
 
 public class WarController extends BlockMachineBase {
 
+	public WarController withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 	public WarController() {
 		super(Material.IRON, 0);
 	}
@@ -18,6 +23,6 @@ public class WarController extends BlockMachineBase {
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityMachineWarController();
 	}
-	
+
 
 }

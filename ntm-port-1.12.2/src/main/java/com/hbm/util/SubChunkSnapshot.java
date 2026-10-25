@@ -42,7 +42,7 @@ public class SubChunkSnapshot {
 	 *        or {@link SubChunkSnapshot#EMPTY} if the region contains only air.
 	 */
 	public static SubChunkSnapshot getSnapshot(World world, SubChunkKey key, boolean allowGeneration){
-		if (!world.getChunkProvider().chunkExists(key.getChunkXPos(), key.getChunkZPos()) && !allowGeneration) {
+		if (world.getChunkProvider().getLoadedChunk(key.getChunkXPos(), key.getChunkZPos()) == null && !allowGeneration) {
 			return SubChunkSnapshot.EMPTY;
 		}
 		Chunk chunk = world.getChunkProvider().provideChunk(key.getChunkXPos(), key.getChunkZPos());
@@ -59,7 +59,7 @@ public class SubChunkSnapshot {
 		for (int ly = 0; ly < 16; ly++) {
 			for (int lz = 0; lz < 16; lz++) {
 				for (int lx = 0; lx < 16; lx++) {
-					Block block = ebs.getBlockByExtId(lx, ly, lz);
+					Block block = ebs.get(lx, ly, lz).getBlock();
 					int idx;
 					if (block == Blocks.AIR) {
 						idx = 0;

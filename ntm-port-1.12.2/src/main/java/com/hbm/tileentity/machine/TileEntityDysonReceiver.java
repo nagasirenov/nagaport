@@ -82,12 +82,12 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 
 			SatelliteSavedData data = SatelliteSavedData.getData(this.world, this.pos.getX(), this.pos.getZ());
 			Satellite sat = data.getSatFromFreq(swarmId);
-			int sun = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ()) - this.world.skylightSubtracted - 11;
+			int sun = this.world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) - this.world.getSkylightSubtracted() - 11;
 
 			boolean occluded = false;
 			for(int x = -3; x <= 3; x++) {
 				for(int z = -3; z <= 3; z++) {
-					if(this.world.getHeightValue(this.pos.getX() + x, this.pos.getZ() + z) > this.pos.getY() + 10) {
+					if(this.world.getHeight(this.pos.getX() + x, this.pos.getZ() + z) > this.pos.getY() + 10) {
 						occluded = true;
 						break;
 					}
@@ -129,7 +129,7 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 						}
 					}
 
-					if(block.isOpaqueCube() || te != null) {
+					if(block.getDefaultState().isOpaqueCube() || te != null) {
 						if(detonate) {
 							com.hbm.world.WorldAirRemoval.remove(this.world, x, y, z);
 
@@ -156,7 +156,7 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 				double buz = Math.max(this.pos.getZ(), this.pos.getZ() + dir.offsetZ * beamLength) + 0.8;
 
 				@SuppressWarnings("unchecked")
-				List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(blx, bly, blz, bux, buy, buz));
+				List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(blx, bly, blz, bux, buy, buz));
 
 				for(EntityLivingBase entity : list) {
 					ExplosionVNT vnt = new ExplosionVNT(this.world, entity.posX - dir.offsetX, entity.posY + 1.5, entity.posZ - dir.offsetZ, 3, null);
@@ -238,7 +238,7 @@ public class TileEntityDysonReceiver extends TileEntityMachineBase {
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 25,
 				this.pos.getY(),
 				this.pos.getZ() - 25,

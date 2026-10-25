@@ -52,7 +52,7 @@ public class GUIMachineChemicalPlant extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int button) {
+	protected void mouseClicked(int x, int y, int button) throws java.io.IOException {
 		super.mouseClicked(x, y, button);
 
 		if(this.checkClick(x, y, 7, 125, 18, 18)) GUIScreenRecipeSelector.openSelector(ChemicalPlantRecipes.INSTANCE, chemplant, chemplant.chemplantModule.recipe, 0, ItemBlueprints.grabPool(chemplant.slots[1]), this);

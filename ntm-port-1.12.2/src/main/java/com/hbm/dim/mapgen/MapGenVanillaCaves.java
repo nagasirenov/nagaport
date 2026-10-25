@@ -22,7 +22,6 @@ public class MapGenVanillaCaves extends MapGenCaves {
 		return this;
 	}
 
-	@Override
 	protected void digBlock(ChunkPrimer primer, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop, IBlockState top, IBlockState filler) {
 		Block block = primer.getBlockState(x, y, z).getBlock();
 

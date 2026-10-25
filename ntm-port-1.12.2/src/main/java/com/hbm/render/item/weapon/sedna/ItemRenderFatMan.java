@@ -155,7 +155,7 @@ public class ItemRenderFatMan extends ItemRenderWeaponBase {
 		mc.renderEngine.bindTexture(ResourceManager.fatman_balefire_tex);
 		ResourceManager.fatman.renderPart("MiniNuke");
 		mc.renderEngine.bindTexture(RenderMiscEffects.glintBF);
-		mc.entityRenderer.disableLightmap(interp);
+		mc.entityRenderer.disableLightmap();
 
 		float scale = 2F;
 		float r = 0F;
@@ -201,6 +201,6 @@ public class ItemRenderFatMan extends ItemRenderWeaponBase {
 		GL11.glDepthFunc(GL11.GL_LEQUAL);
 		GL11.glPopMatrix();
 		
-		mc.entityRenderer.enableLightmap(interp);
+		mc.entityRenderer.enableLightmap();
 	}
 }

@@ -14,7 +14,7 @@ import net.minecraft.world.storage.SaveHandlerMP;
 public class FauxWorld extends World {
 
 	public FauxWorld(String p_i45368_2_, WorldProvider p_i45368_3_, WorldSettings p_i45368_4_, Profiler p_i45368_5_) {
-		super(new SaveHandlerMP(), "FauxWorld", p_i45368_3_, p_i45368_4_, p_i45368_5_);
+		super(new SaveHandlerMP(), new net.minecraft.world.storage.WorldInfo(p_i45368_4_, "FauxWorld"), p_i45368_3_, p_i45368_5_, true);
 	}
 
 	@Override
@@ -23,6 +23,10 @@ public class FauxWorld extends World {
 	}
 
 	@Override
+	public boolean isChunkLoaded(int x, int z, boolean allowEmpty) {
+		return false;
+	}
+
 	protected int func_152379_p() {
 		return 0;
 	}

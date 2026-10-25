@@ -68,7 +68,7 @@ public class XFactoryEnergy {
 		Vec3d hitVec = mop.hitVec;
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 			net.minecraft.util.EnumFacing side = mop.sideHit;
-			hitVec = hitVec.addVector(side.getFrontOffsetX() * 0.5, side.getFrontOffsetY() * 0.5, side.getFrontOffsetZ() * 0.5);
+			hitVec = hitVec.add(side.getXOffset() * 0.5, side.getYOffset() * 0.5, side.getZOffset() * 0.5);
 		}
 
 		ExplosionVNT vnt = new ExplosionVNT(beam.world, hitVec.x, hitVec.y, hitVec.z, 2F, beam.getThrower());
@@ -95,7 +95,7 @@ public class XFactoryEnergy {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 			if(mop.entityHit instanceof EntityLivingBase) {
 				((EntityLivingBase) mop.entityHit).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 60, 9));
-				((EntityLivingBase) mop.entityHit).addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 60, 9));
+				((EntityLivingBase) mop.entityHit).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.MINING_FATIGUE, 60, 9));
 			}
 		}
 	};
@@ -105,7 +105,7 @@ public class XFactoryEnergy {
 		if(mop.typeOfHit != RayTraceResult.Type.ENTITY) return;
 
 		double range = 20;
-		List<EntityLivingBase> potentialTargets = beam.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).expand(range, range, range));
+		List<EntityLivingBase> potentialTargets = beam.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).expand(range, range, range));
 		Collections.shuffle(potentialTargets);
 
 		for(EntityLivingBase target : potentialTargets) {
@@ -118,7 +118,7 @@ public class XFactoryEnergy {
 			sub.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 			sub.setRotationsFromVector(delta);
 			sub.performHitscanExternal(delta.length());
-			beam.world.spawnEntityInWorld(sub);
+			beam.world.spawnEntity(sub);
 		}
 	};
 
@@ -141,15 +141,15 @@ public class XFactoryEnergy {
 				int x = mop.getBlockPos().getX() + dir.offsetX;
 				int y = mop.getBlockPos().getY() + dir.offsetY;
 				int z = mop.getBlockPos().getZ() + dir.offsetZ;
-				if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isAir(world, x, y, z)) {
-					world.setBlock(x, y, z, Blocks.fire);
+				if(com.hbm.world.WorldBlockState.isAir(world, x, y, z)) {
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, Blocks.FIRE);
 					return;
 				}
 			}
 
 			EntityFireLingering fire = new EntityFireLingering(beam.world).setArea(2, 1).setDuration(100).setType(EntityFireLingering.TYPE_DIESEL);
 			fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
-			beam.world.spawnEntityInWorld(fire);
+			beam.world.spawnEntity(fire);
 		}
 	};
 

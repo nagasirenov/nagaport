@@ -14,18 +14,25 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemMS extends Item {
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
 		list.add("Lost but not forgotten");
 	}
-	
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float a, float b, float c)
+
+        @Override
+    public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+        net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+        int side = facing != null ? facing.getIndex() : 0;
+        return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+    }
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float a, float b, float c)
     {
     	if(!world.isRemote) {
     		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.ntm_dirt) {
-    			
+
 				com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 
     	    	Random rand = new Random();
@@ -34,7 +41,7 @@ public class ItemMS extends Item {
     	    	list.add(new ItemStack(ModItems.ingot_u238m2, 1, 1));
     	    	list.add(new ItemStack(ModItems.ingot_u238m2, 1, 2));
     	    	list.add(new ItemStack(ModItems.ingot_u238m2, 1, 3));
-    	    	
+
     	    	for(ItemStack sta : list) {
     	            float f = rand.nextFloat() * 0.8F + 0.1F;
     	            float f1 = rand.nextFloat() * 0.8F + 0.1F;
@@ -51,7 +58,7 @@ public class ItemMS extends Item {
     			return true;
     		}
     	}
-    	
+
         return false;
     }
 

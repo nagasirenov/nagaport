@@ -21,7 +21,7 @@ public class ItemDigamma extends Item {
 
 	public ItemDigamma(int digamma) {
 		super();
-		
+
 		//obacht! the particle's digamma value is "ticks until half life" while the superclass' interpretation is "simply add flat value"
 		this.digamma = digamma;
 	}
@@ -36,14 +36,19 @@ public class ItemDigamma extends Item {
 		}
 	}
 
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 
 		list.add(TextFormatting.GOLD + I18nUtil.resolveKey("trait.hlParticle", "1.67*10³⁴a"));
 		list.add(TextFormatting.RED + I18nUtil.resolveKey("trait.hlPlayer", (digamma / 20F) + "s"));
 
 		list.add("");
-		super.addInformation(stack, player, list, bool);
 
 		float d = ((int) ((1000F / digamma) * 200F)) / 10F;
 
@@ -64,7 +69,7 @@ public class ItemDigamma extends Item {
 					bl.posX = entityItem.posX;
 					bl.posY = entityItem.posY;
 					bl.posZ = entityItem.posZ;
-					entityItem.world.spawnEntityInWorld(bl);
+					entityItem.world.spawnEntity(bl);
 				}
 
 				entityItem.setDead();

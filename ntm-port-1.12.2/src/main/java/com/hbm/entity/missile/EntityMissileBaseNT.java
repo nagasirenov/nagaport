@@ -171,7 +171,7 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 			float f2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 			for(this.rotationPitch = (float) (Math.atan2(this.motionY, f2) * 180.0D / Math.PI) - 90; this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
 			EntityTrackerEntry tracker = TrackerUtil.getTrackerEntry((WorldServer) this.world, this.getEntityId());
-			if(tracker != null) tracker.lastYaw += 100; //coax the tracker into sending smother updates
+			if(tracker != null) { int cur = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(net.minecraft.entity.EntityTrackerEntry.class, tracker, "field_73127_g", "encodedRotationYaw"); net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.entity.EntityTrackerEntry.class, tracker, cur + 100, "field_73127_g", "encodedRotationYaw"); } //coax the tracker into sending smoother updates
 			
 			loadNeighboringChunks((int) Math.floor(posX / 16), (int) Math.floor(posZ / 16));
 		} else {
@@ -260,7 +260,7 @@ public abstract class EntityMissileBaseNT extends EntityThrowableInterp implemen
 	}
 
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if(this.isEntityInvulnerable()) {
+		if(this.isEntityInvulnerable(source)) {
 			return false;
 		} else {
 			if(this.health > 0 && !this.world.isRemote) {

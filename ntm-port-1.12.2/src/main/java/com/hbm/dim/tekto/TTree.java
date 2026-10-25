@@ -10,6 +10,10 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class TTree extends WorldGenAbstractTree {
 
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
+
 	int offset;
 	int smallest;
 	int tallest;
@@ -31,7 +35,6 @@ public class TTree extends WorldGenAbstractTree {
 		this.leavBlock = leaf;
 	}
 
-	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z) {
 		int height = rand.nextInt(smallest) + tallest;
 
@@ -45,7 +48,7 @@ public class TTree extends WorldGenAbstractTree {
 		}
 
 		for (int i = 0; i < height; i++) {
-			world.setBlock(x, y + i, z, logBlock, 0, 2);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y + i, z, logBlock, 0, 2);
 		}
 
 
@@ -62,7 +65,7 @@ public class TTree extends WorldGenAbstractTree {
 						net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x + dx, bulbStartY + dy, z + dz);
 						Block block = nativeAirState.getBlock();
 						if (block.isAir(nativeAirState, world, new net.minecraft.util.math.BlockPos(x + dx, bulbStartY + dy, z + dz))) {
-							world.setBlock(x + dx, bulbStartY + dy, z + dz, leavBlock, 0, 2);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + dx, bulbStartY + dy, z + dz, leavBlock, 0, 2);
 							if (vines) {
 								for (int i = 0; i < 4; i++) {
 									int vineX = x + dx + (i % 2 == 0 ? (i - 1) : 0);
@@ -72,15 +75,15 @@ public class TTree extends WorldGenAbstractTree {
 										for (int j = 0; j < rand.nextInt(15); j++) {
 											int vineY = bulbStartY + dy - j;
 											if (world.isAirBlock(new net.minecraft.util.math.BlockPos(vineX, vineY, vineZ))) {
-												world.setBlock(vineX, vineY, vineZ, ModBlocks.vinyl_vines, 0, 2);
+												com.hbm.world.WorldBlockState.writeLegacyBlock(world, vineX, vineY, vineZ, ModBlocks.vinyl_vines, 0, 2);
 												if (vineX > x + dx) {
-													world.setBlockMetadataWithNotify(vineX, vineY, vineZ, 0x2, 2);
+													com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, vineX, vineY, vineZ, 0x2, 2);
 												} else if (vineX < x + dx) {
-													world.setBlockMetadataWithNotify(vineX, vineY, vineZ, 0x1, 2);
+													com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, vineX, vineY, vineZ, 0x1, 2);
 												} else if (vineZ > z + dz) {
-													world.setBlockMetadataWithNotify(vineX, vineY, vineZ, 0x4, 2);
+													com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, vineX, vineY, vineZ, 0x4, 2);
 												} else if (vineZ < z + dz) {
-													world.setBlockMetadataWithNotify(vineX, vineY, vineZ, 0x3, 2);
+													com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, vineX, vineY, vineZ, 0x3, 2);
 												}
 											} else {
 												break;

@@ -3,6 +3,8 @@ package com.hbm.render.icon;
 import java.util.IdentityHashMap;
 import java.util.Map;
 
+import com.hbm.render.LegacyTexturePath;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -36,7 +38,7 @@ public final class LegacyIconRegister implements IIconRegister {
 	public IIcon registerIcon(String name) {
 		if(name == null || name.trim().isEmpty()) throw new IllegalArgumentException("Icon name cannot be empty");
 		return wrap(registerSprite(itemTextures
-				? com.hbm.render.item.NativeItemTextureRegistry.atlasLocation(name) : new ResourceLocation(name)));
+				? LegacyTexturePath.itemAtlasLocation(name) : LegacyTexturePath.blockAtlasLocation(name)));
 	}
 
 	/** Registers a normal resource in the 1.12 texture atlas. */
@@ -55,6 +57,15 @@ public final class LegacyIconRegister implements IIconRegister {
 			}
 		}
 		return wrap(sprite);
+	}
+
+	/** Wraps an arbitrary atlas sprite into the legacy IIcon contract. The pure
+	 * WrappedIcon delegation survives reobfuscation; the TextureAtlasSprite-
+	 * extending LegacyTextureAtlasSprite does not (its contract methods are
+	 * renamed to SRG and the interface is left unimplemented). */
+	public static IIcon wrapSprite(TextureAtlasSprite sprite) {
+		if(sprite == null) throw new IllegalArgumentException("sprite cannot be null");
+		return new WrappedIcon(sprite);
 	}
 
 	private LegacyTextureAtlasSprite wrap(TextureAtlasSprite sprite) {

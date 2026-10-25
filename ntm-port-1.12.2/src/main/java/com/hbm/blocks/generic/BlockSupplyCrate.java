@@ -58,7 +58,6 @@ public class BlockSupplyCrate extends BlockContainer {
 
 	@Override public Item getItemDropped(IBlockState state, Random rand, int fortune) { return Items.AIR; }
 	
-	@Override
 	public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
 		
 		if(!player.capabilities.isCreativeMode && !world.isRemote && willHarvest) {

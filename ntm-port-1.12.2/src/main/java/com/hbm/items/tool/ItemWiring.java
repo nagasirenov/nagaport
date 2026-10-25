@@ -19,23 +19,30 @@ import net.minecraft.world.World;
 
 public class ItemWiring extends Item {
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
 
 		if(!player.isSneaking()) {
-			
+
 			Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-			
+
 			if(b instanceof BlockDummyable) {
 				int[] core = ((BlockDummyable)b).findCore(world, x, y, z);
-				
+
 				if(core != null) {
 					x = core[0];
 					y = core[1];
 					z = core[2];
 				}
 			}
-			
+
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(te != null && te instanceof TileEntityPylonBase) {
@@ -60,7 +67,7 @@ public class ItemWiring extends Item {
 
 						TileEntityPylonBase first = (TileEntityPylonBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(x1, y1, z1));
 						TileEntityPylonBase second = ((TileEntityPylonBase) te);
-						
+
 						switch (TileEntityPylonBase.canConnect(first, second)) {
 							case 0:
 								first.addConnection(x, y, z);
@@ -77,7 +84,7 @@ public class ItemWiring extends Item {
 								player.sendMessage(new TextComponentString("Wire error - Pylon is too far away"));
 								break;
 						}
-						
+
 						stack.setTagCompound(null);
 
 					} else {
@@ -89,7 +96,7 @@ public class ItemWiring extends Item {
 					}
 				}
 
-				player.swingItem();
+				player.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 				return true;
 			}
 		}
@@ -117,7 +124,7 @@ public class ItemWiring extends Item {
 						entity.posX - stack.getTagCompound().getInteger("x"),
 						entity.posY - stack.getTagCompound().getInteger("y"),
 						entity.posZ - stack.getTagCompound().getInteger("z"));
-				
+
 				MainRegistry.proxy.displayTooltip(stack.getDisplayName() + ": " + ((int) vec.length()) + "m", MainRegistry.proxy.ID_CABLE);
 			}
 		}

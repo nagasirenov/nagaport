@@ -28,17 +28,17 @@ public class NukeAntimatter extends BlockMachineBase implements IBomb {
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityAntimatter();
 	}
-	
+
 	@Override
 	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
 		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
@@ -57,25 +57,25 @@ public class NukeAntimatter extends BlockMachineBase implements IBomb {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
-				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
-		}	
+				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
+		}
 	}
 	}
 
 	@Override
 	public BombReturnCode explode(World world, int x, int y, int z) {
-		
+
 		if(!world.isRemote) {
 			TileEntityAntimatter bomb = (TileEntityAntimatter) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-				
+
 			if(bomb.isLoaded()) {
 				bomb.explode();
 				return BombReturnCode.DETONATED;
 			}
-			
+
 			return BombReturnCode.ERROR_MISSING_COMPONENT;
 		}
-		
+
 		return BombReturnCode.UNDEFINED;
 	}
 

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/vine",
+  "textures": {
+    "vine": "hbm:blocks/vine",
+    "particle": "hbm:blocks/vine"
+  }
+}

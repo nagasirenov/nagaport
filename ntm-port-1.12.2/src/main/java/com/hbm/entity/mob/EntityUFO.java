@@ -87,15 +87,15 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20000.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20000.0D);
 	}
 
 	@Override
-	protected void updateEntityActionState() {
+	protected void updateAITasks() {
 
 		if(!this.world.isRemote) {
 
-			if(this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
+			if(this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
 				this.setDead();
 				return;
 			}
@@ -137,13 +137,13 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 					if(this.target == null) {
 						this.target = entity;
 					} else {
-						if(this.getDistanceSqToEntity(entity) < this.getDistanceSqToEntity(this.target)) {
+						if(this.getDistanceSq(entity) < this.getDistanceSq(this.target)) {
 							this.target = entity;
 						}
 					}
 				}
 
-				if(entity instanceof EntityLivingBase && this.getDistanceSqToEntity(entity) < 100 * 100 && this.canEntityBeSeen(entity) && entity != this.target) {
+				if(entity instanceof EntityLivingBase && this.getDistanceSq(entity) < 100 * 100 && this.canEntityBeSeen(entity) && entity != this.target) {
 					this.secondaries.add(entity);
 				}
 			}
@@ -167,7 +167,7 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 			int wX = (int)Math.floor(this.target.posX - vec.x / length * overshoot);
 			int wZ = (int)Math.floor(this.target.posZ - vec.z / length * overshoot);
 
-			this.setWaypoint(wX, Math.max(this.world.getHeightValue(wX, wZ) + 20 + rand.nextInt(15), (int) this.target.posY + 15),  wZ);
+			this.setWaypoint(wX, Math.max(this.world.getHeight(wX, wZ) + 20 + rand.nextInt(15), (int) this.target.posY + 15),  wZ);
 
 			this.courseChangeCooldown = 40 + rand.nextInt(20);
 		}
@@ -188,7 +188,7 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 				this.beamTimer--;
 
 				if(!this.getBeam()) {
-					this.world.playSoundAtEntity(this, "hbm:entity.ufoBeam", 10.0F, 1.0F);
+					this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.ufoBeam"), 10.0F, 1.0F);
 					this.setBeam(true);
 				}
 
@@ -205,7 +205,7 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 				}
 
 				if(iy < this.posY) {
-					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
+					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
 
 					for(Entity e : entities) {
 						if(this.canAttackClass(e.getClass())) {
@@ -303,7 +303,7 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 		this.motionY -= 0.05D;
 
 		if(this.deathTime == -10) {
-			this.world.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
+			this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.chopperDamage"), 10.0F, 1.0F);
 		}
 
 		if(this.deathTime == 19 && !this.world.isRemote) {
@@ -338,8 +338,8 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 		bullet.setThrower(this);
 		bullet.setPosition(pivotX, pivotY, pivotZ);
 		bullet.shoot(heading.x, heading.y, heading.z, 2F, 0.02F);
-		this.world.spawnEntityInWorld(bullet);
-		this.playSound("hbm:weapon.ballsLaser", 5.0F, 1.0F);
+		this.world.spawnEntity(bullet);
+		this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:weapon.ballsLaser"), 5.0F, 1.0F);
 	}
 
 	private void rocketAttack(Entity e) {
@@ -352,8 +352,8 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 		bullet.setPosition(this.posX, this.posY - 0.5D, this.posZ);
 		bullet.shoot(heading.x, heading.y, heading.z, 2F, 0.02F);
 		bullet.getEntityData().setInteger("homingTarget", e.getEntityId());
-		this.world.spawnEntityInWorld(bullet);
-		this.playSound("hbm:turret.richard_fire", 5.0F, 1.0F);
+		this.world.spawnEntity(bullet);
+		this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:turret.richard_fire"), 5.0F, 1.0F);
 	}
 
 	@Override
@@ -375,12 +375,12 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 		double d4 = (this.getX() - this.posX) / p_70790_7_;
 		double d5 = (this.getY() - this.posY) / p_70790_7_;
 		double d6 = (this.getZ() - this.posZ) / p_70790_7_;
-		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
 
 		for(int i = 1; i < p_70790_7_; ++i) {
 			axisalignedbb.offset(d4, d5, d6);
 
-			if(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
+			if(!this.world.getCollisionBoxes(this, axisalignedbb).isEmpty()) {
 				return false;
 			}
 		}
@@ -394,12 +394,12 @@ public class EntityUFO extends EntityFlying implements IMob, INtmBossDisplay, IR
 	}
 
 	@Override
-	protected String getHurtSound() {
-		return "mob.blaze.hit";
+	protected net.minecraft.util.SoundEvent getHurtSound(DamageSource damageSourceIn) {
+		return com.hbm.main.ModSoundEvents.resolve("mob.blaze.hit");
 	}
 
 	@Override
-	protected String getDeathSound() {
+	protected net.minecraft.util.SoundEvent getDeathSound() {
 		return null;
 	}
 

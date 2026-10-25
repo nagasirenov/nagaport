@@ -44,7 +44,6 @@ public class MapGenTiltedSpires extends MapGenBase {
 	}
 
 	// setup seeded random
-	@Override
 	public void generate(World world, int chunkX, int chunkZ, ChunkPrimer primer) {
 		if (this.world != world) {
 			this.rand.setSeed(world.getSeed() + 69);

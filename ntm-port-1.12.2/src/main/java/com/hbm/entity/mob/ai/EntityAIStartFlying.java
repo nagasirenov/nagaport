@@ -18,7 +18,7 @@ public class EntityAIStartFlying extends EntityAIBase {
 	@Override
 	public boolean shouldExecute() {
 		//take off if attacked, on fire or at random (avg 30s)
-		return this.flying.getFlyingState() == this.flying.STATE_WALKING && (this.living.getAITarget() != null || this.living.isBurning() || this.living.getRNG().nextInt(600) == 0);
+		return this.flying.getFlyingState() == this.flying.STATE_WALKING && (this.living.getRevengeTarget() != null || this.living.isBurning() || this.living.getRNG().nextInt(600) == 0);
 	}
 
 	@Override

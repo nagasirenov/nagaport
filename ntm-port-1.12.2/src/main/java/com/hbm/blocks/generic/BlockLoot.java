@@ -6,6 +6,8 @@ import java.util.Random;
 
 import com.hbm.util.Tuple.Quartet;
 
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -49,43 +51,44 @@ public class BlockLoot extends BlockContainer {
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
+
 		if(!world.isRemote) {
 			TileEntityLoot entity = (TileEntityLoot) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity != null) {
-				
+
 				for(Quartet<ItemStack, Double, Double, Double> quartet : entity.items) {
 					EntityItem item = new EntityItem(world, x + 0.5, y, z + 0.5, quartet.getW());
 					world.spawnEntity(item);
 				}
 			}
 		}
-		
-		super.breakBlock(world, x, y, z, block, meta);
+
+		super.breakBlock(world, pos, state);
 	}
-	
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+
+	private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return BOUNDS;
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		this.setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
 
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+
 		if(world.isRemote) {
 			return true;
-			
+
 		} else if(!player.isSneaking()) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return true;
-			
+
 		} else {
 			return false;
 		}
@@ -97,10 +100,10 @@ public class BlockLoot extends BlockContainer {
 	}
 
 	public static class TileEntityLoot extends TileEntity {
-		
+
 		public List<Quartet<ItemStack, Double, Double, Double>> items = new ArrayList();
 
-		
+
 		public TileEntityLoot addItem(ItemStack stack, double x, double y, double z) {
 			items.add(new Quartet(stack, x, y, z));
 			return this;
@@ -112,7 +115,7 @@ public class BlockLoot extends BlockContainer {
 			this.writeToNBT(nbt);
 			return new SPacketUpdateTileEntity(this.getPos(), 0, nbt);
 		}
-		
+
 		@Override
 		public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 			this.readFromNBT(pkt.getNbtCompound());
@@ -121,9 +124,9 @@ public class BlockLoot extends BlockContainer {
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
-			
+
 			int count = nbt.getInteger("count");
-			
+
 			for(int i = 0; i < count; i++) {
 				ItemStack stack = NullableInventoryStackNbt.read(nbt.getCompoundTag("item" + i));
 				if(stack == null || stack.getItem() == null) continue;
@@ -137,9 +140,9 @@ public class BlockLoot extends BlockContainer {
 		@Override
 		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
-			
+
 			nbt.setInteger("count", items.size());
-			
+
 			for(int i = 0; i < items.size(); i++) {
 				Quartet<ItemStack, Double, Double, Double> item = items.get(i);
 				if(item == null || item.getW() == null) continue;
@@ -152,14 +155,14 @@ public class BlockLoot extends BlockContainer {
 			}
 			return nbt;
 		}
-		
+
 		AxisAlignedBB bb = null;
-		
+
 		@Override
 		public AxisAlignedBB getRenderBoundingBox() {
-			
+
 			if(bb == null) {
-				bb = AxisAlignedBB.getBoundingBox(
+				bb = new AxisAlignedBB(
 						this.pos.getX() - 1,
 						this.pos.getY(),
 						this.pos.getZ() - 1,
@@ -168,7 +171,7 @@ public class BlockLoot extends BlockContainer {
 						this.pos.getZ() + 2
 						);
 			}
-			
+
 			return bb;
 		}
 	}

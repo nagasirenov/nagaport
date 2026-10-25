@@ -32,7 +32,7 @@ public class ContainerMachineGasFlare extends Container {
 		//Upgrades
 		this.addSlotToContainer(new Slot(tedf, 4, 80, 71));
 		this.addSlotToContainer(new Slot(tedf, 5, 98, 71));
-		
+
 		int offset = 37;
 
 		for(int i = 0; i < 3; i++) {
@@ -65,7 +65,7 @@ public class ContainerMachineGasFlare extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(var5, 3, 4, false)) {
 						return null;
@@ -85,7 +85,7 @@ public class ContainerMachineGasFlare extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

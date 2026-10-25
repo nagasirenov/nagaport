@@ -219,7 +219,6 @@ public class MachineDiFurnaceRTG extends BlockThermalFurnace {
 		}
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
 		return new ItemStack(ModBlocks.machine_difurnace_rtg_off);

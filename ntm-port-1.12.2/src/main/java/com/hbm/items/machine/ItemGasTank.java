@@ -18,22 +18,28 @@ import com.hbm.render.icon.IIcon;
 
 public class ItemGasTank extends Item {
 
-	IIcon overlayIcon;
-	IIcon labelIcon;
 
 	public ItemGasTank() {
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
-		
+
 		FluidType[] order = Fluids.getInNiceOrder();
 		for(int i = 1; i < order.length; ++i) {
 			FluidType type = order[i];
-			
+
 			if(type.getContainer(CD_Gastank.class) != null) {
 				list.add(new ItemStack(item, 1, type.getID()));
 			}
@@ -51,43 +57,4 @@ public class ItemGasTank extends Item {
 		return s;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean requiresMultipleRenderPasses() {
-		return true;
-	}
-	
-	@Override
-	public int getRenderPasses(int meta) {
-		return 3;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister reg) {
-		super.registerIcons(reg);
-		this.overlayIcon = reg.registerIcon(RefStrings.MODID + ":gas_bottle");
-		this.labelIcon = reg.registerIcon(RefStrings.MODID + ":gas_label");
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamageForRenderPass(int damage, int pass) {
-		return pass == 2 ? this.labelIcon : pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(damage, pass);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int pass) {
-		if(pass == 0) {
-			return 16777215;
-		} else {
-			
-			CD_Gastank tank = Fluids.fromID(stack.getItemDamage()).getContainer(CD_Gastank.class);
-			
-			if(tank == null) return 0xffffff;
-			
-			return pass == 1 ? tank.bottleColor : tank.labelColor;
-		}
-	}
 }

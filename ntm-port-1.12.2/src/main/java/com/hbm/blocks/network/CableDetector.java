@@ -5,6 +5,8 @@ import com.hbm.tileentity.network.TileEntityCableSwitch;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
@@ -14,6 +16,8 @@ import net.minecraft.world.World;
 
 public class CableDetector extends BlockContainer {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconOn;
 
@@ -21,14 +25,12 @@ public class CableDetector extends BlockContainer {
 		super(p_i45386_1_);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconOn = iconRegister.registerIcon(RefStrings.MODID + ":cable_detector_on");
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":cable_detector_off");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return metadata == 1 ? iconOn : blockIcon;
@@ -40,7 +42,8 @@ public class CableDetector extends BlockContainer {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		boolean on = world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z));
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
@@ -48,13 +51,13 @@ public class CableDetector extends BlockContainer {
 		boolean update = false;
 
 		if(on && meta == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 1, 2);
 			com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 1.0F);
 			update = true;
 		}
 
 		if(!on && meta == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 0, 2);
 			com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:block.reactorStart", 1.0F, 0.85F);
 			update = true;
 		}

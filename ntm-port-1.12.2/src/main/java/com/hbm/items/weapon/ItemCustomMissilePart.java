@@ -194,7 +194,7 @@ public class ItemCustomMissilePart extends Item {
 		this.bottom = size;
 		this.mass = mass;
 		this.attributes = new Object[] { type, punch };
-		setTextureName(RefStrings.MODID + ":mp_warhead");
+
 
 		parts.put(this.hashCode(), this);
 
@@ -208,7 +208,7 @@ public class ItemCustomMissilePart extends Item {
 		this.bottom = bottom;
 		this.mass = mass;
 		attributes = new Object[] { type, fuel };
-		setTextureName(RefStrings.MODID + ":mp_fuselage");
+
 
 		parts.put(this.hashCode(), this);
 
@@ -221,7 +221,7 @@ public class ItemCustomMissilePart extends Item {
 		this.top = size;
 		this.bottom = size;
 		this.attributes = new Object[] { inaccuracy };
-		setTextureName(RefStrings.MODID + ":mp_stability");
+
 
 		parts.put(this.hashCode(), this);
 
@@ -235,7 +235,7 @@ public class ItemCustomMissilePart extends Item {
 		this.bottom = PartSize.NONE;
 		this.mass = mass;
 		this.attributes = new Object[] { type, consumption, lift, thrust, isp };
-		setTextureName(RefStrings.MODID + ":mp_thruster");
+
 
 		parts.put(this.hashCode(), this);
 
@@ -243,8 +243,14 @@ public class ItemCustomMissilePart extends Item {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 
 		if(this == ModItems.rp_pod_20) return;
 
@@ -454,7 +460,6 @@ public class ItemCustomMissilePart extends Item {
 		part.attributes = this.attributes;
 		part.health = this.health;
 		part.mass = this.mass;
-		part.setTextureName(this.iconString);
 
 		return part;
 	}

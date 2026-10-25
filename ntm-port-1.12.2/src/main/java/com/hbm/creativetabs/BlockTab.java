@@ -12,14 +12,19 @@ public class BlockTab extends CreativeTabs {
 		super(p_i1853_1_, p_i1853_2_);
 	}
 
-	@Override
-	public Item getTabIconItem() {
-		
+
+		@Override
+	public net.minecraft.item.ItemStack createIcon() {
+		return new net.minecraft.item.ItemStack(getTabIconItem());
+	}
+
+public Item getTabIconItem() {
+
 		if(ModBlocks.ore_uranium != null)
 		{
 			return Item.getItemFromBlock(ModBlocks.ore_uranium);
 		}
-		
+
 		return Items.IRON_PICKAXE;
 	}
 

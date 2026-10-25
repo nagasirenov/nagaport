@@ -17,41 +17,49 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.util.math.MathHelper;
 
 public class ItemSoyuz extends Item {
-	
+
 	IIcon[] icons = new IIcon[3];
-	
+
 	public ItemSoyuz() {
         this.setHasSubtypes(true);
 	}
-    
-    @Override
-	@SideOnly(Side.CLIENT)
+
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs tab, List list) {
-    	
+
     	for(int i = 0; i < icons.length; i++)
     		list.add(new ItemStack(item, 1, i));
     }
-    
+
     @Override
 	public EnumRarity getRarity(ItemStack stack) {
-    	
+
     	if(stack.getItemDamage() == 0)
-    		return EnumRarity.uncommon;
-    	
+		return EnumRarity.UNCOMMON;
+
     	if(stack.getItemDamage() == 1)
-    		return EnumRarity.rare;
-    	
+		return EnumRarity.RARE;
+
     	if(stack.getItemDamage() == 2)
-    		return EnumRarity.epic;
-    	
-		return EnumRarity.common;
+		return EnumRarity.EPIC;
+
+		return EnumRarity.COMMON;
     }
 
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 
 		list.add("Skin:");
-		
+
 		switch(stack.getItemDamage()) {
 		case 0: list.add(TextFormatting.GOLD + "Original"); break;
 		case 1: list.add(TextFormatting.BLUE + "Luna Space Center"); break;
@@ -66,7 +74,7 @@ public class ItemSoyuz extends Item {
     		icons[i] = reg.registerIcon(RefStrings.MODID + ":soyuz_" + i);
     	}
     }
-	
+
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int meta)
     {

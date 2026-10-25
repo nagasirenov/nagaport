@@ -15,25 +15,25 @@ import com.hbm.lib.ForgeDirection;
 public class TileEntityFusionCollector extends TileEntity implements net.minecraft.util.ITickable {
 
 	protected GenNode plasmaNode;
-	
+
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			if(plasmaNode == null || plasmaNode.expired) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
 				plasmaNode = UniNodespace.getNode(this.world, this.pos.getX() + dir.offsetX * 2, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 2, PlasmaNetworkProvider.THE_PROVIDER);
-				
+
 				if(plasmaNode == null) {
 					plasmaNode = new GenNode(PlasmaNetworkProvider.THE_PROVIDER,
 							new BlockPos(this.pos.getX() + dir.offsetX * 2, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 2))
 							.setConnections(new DirPos(this.pos.getX() + dir.offsetX * 3, this.pos.getY() + 2, this.pos.getZ() + dir.offsetZ * 3, dir));
-					
+
 					UniNodespace.createNode(this.world, plasmaNode);
 				}
 			}
-			
+
 			if(plasmaNode != null && plasmaNode.hasValidNet()) plasmaNode.net.addReceiver(this);
 		}
 	}
@@ -46,14 +46,14 @@ public class TileEntityFusionCollector extends TileEntity implements net.minecra
 			if(this.plasmaNode != null) UniNodespace.destroyNode(this.world, plasmaNode);
 		}
 	}
-	
+
 	AxisAlignedBB bb = null;
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,

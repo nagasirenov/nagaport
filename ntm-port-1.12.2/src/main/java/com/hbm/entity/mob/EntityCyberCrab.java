@@ -24,6 +24,9 @@ import net.minecraft.world.World;
 
 public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRadiationImmune, ISuffocationImmune {
 
+	@Override
+	public void setSwingingArms(boolean swingingArms) { }
+
 	private static final Predicate<Entity> selector = new Predicate<Entity>() {
 		public boolean apply(Entity p_82704_1_) {
 			return !(p_82704_1_ instanceof EntityCyberCrab || p_82704_1_ instanceof EntityCreeper);
@@ -33,14 +36,13 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 	public EntityCyberCrab(World p_i1733_1_) {
 		super(p_i1733_1_);
 		this.setSize(0.75F, 0.35F);
-		this.getNavigator().setAvoidsWater(true);
 
 		if(!(this instanceof EntityTaintCrab))
 			this.tasks.addTask(0, new EntityAIPanic(this, 0.75D));
 
 		this.tasks.addTask(1, new EntityAIWander(this, 0.5F));
 		this.tasks.addTask(4, arrowAI());
-		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, true, true, selector));
 	}
 
@@ -51,8 +53,8 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(4.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.75F);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(4.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.75F);
 	}
 
 	@Override
@@ -67,7 +69,6 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 	/**
 	 * Returns true if the newer Entity AI code should be run
 	 */
-	@Override
 	public boolean isAIEnabled() {
 		return true;
 	}
@@ -76,7 +77,6 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 	 * The number of iterations PathFinder.getSafePoint will execute before
 	 * giving up.
 	 */
-	@Override
 	public int getMaxSafePointTries() {
 		return this.getAttackTarget() == null ? 3 : 3 + (int) (this.getHealth() - 1.0F);
 	}
@@ -110,7 +110,7 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 		super.onUpdate();
 
 		if(this.isInWater() || this.isWet() || this.isBurning())
-			this.attackEntityFrom(DamageSource.generic, 10F);
+			this.attackEntityFrom(DamageSource.GENERIC, 10F);
 
 		if(this.getHealth() <= 0) {
 			this.setDead();
@@ -126,16 +126,16 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 	 * Returns the sound this mob makes when it is hurt.
 	 */
 	@Override
-	protected String getHurtSound() {
-		return "hbm:entity.cybercrab";
+	protected net.minecraft.util.SoundEvent getHurtSound(DamageSource damageSourceIn) {
+		return com.hbm.main.ModSoundEvents.resolve("hbm:entity.cybercrab");
 	}
 
 	/**
 	 * Returns the sound this mob makes on death.
 	 */
 	@Override
-	protected String getDeathSound() {
-		return "hbm:entity.cybercrab";
+	protected net.minecraft.util.SoundEvent getDeathSound() {
+		return com.hbm.main.ModSoundEvents.resolve("hbm:entity.cybercrab");
 	}
 
 	/**
@@ -157,7 +157,7 @@ public class EntityCyberCrab extends EntityMob implements IRangedAttackMob, IRad
 		bullet.setIsCritical(true);
 		bullet.setTau(true);
 		bullet.damage = 3;
-		this.world.spawnEntityInWorld(bullet);
-		this.playSound("hbm:weapon.sawShoot", 1.0F, 2.0F);
+		this.world.spawnEntity(bullet);
+		this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:weapon.sawShoot"), 1.0F, 2.0F);
 	}
 }

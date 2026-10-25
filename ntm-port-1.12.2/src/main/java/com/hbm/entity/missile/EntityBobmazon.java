@@ -14,6 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class EntityBobmazon extends Entity {
+	private static final net.minecraft.network.datasync.DataParameter<Integer> STATE = net.minecraft.network.datasync.EntityDataManager.createKey(EntityBobmazon.class, net.minecraft.network.datasync.DataSerializers.VARINT);
 	
 	public ItemStack payload;
 
@@ -25,7 +26,7 @@ public class EntityBobmazon extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(16, Integer.valueOf(0));
+		this.dataManager.register(STATE, 0);
 	}
 	
 	@Override
@@ -41,7 +42,7 @@ public class EntityBobmazon extends Entity {
 		
 		for(int i = 0; i < 4; i++) {
 			
-			if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote && dataWatcher.getWatchableObjectInt(16) != 1) {
+			if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getMaterial() != Material.AIR && !this.world.isRemote && this.dataManager.get(STATE) != 1) {
 				ExplosionLarge.spawnParticles(this.world, posX, posY + 1, posZ, 50);
 
 	            com.hbm.sound.WorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "hbm:entity.oldExplosion", 10.0F, 0.5F + this.rand.nextFloat() * 0.1F);

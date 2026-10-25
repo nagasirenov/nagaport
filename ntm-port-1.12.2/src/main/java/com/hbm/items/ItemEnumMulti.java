@@ -66,17 +66,23 @@ public class ItemEnumMulti extends Item {
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
-		
+
+		// The original registered against the setTextureName base, not the
+		// registry name; the declared legacy texture carries that base.
+		String base = com.hbm.render.item.NativeItemTextureRegistry.texture(this);
+		if(base == null) base = this.getIconString();
+		if(base == null) base = this.getRegistryName().toString();
+
 		if(multiTexture) {
 			Enum[] enums = theEnum.getEnumConstants();
 			this.icons = new IIcon[enums.length];
-			
+
 			for(int i = 0; i < icons.length; i++) {
 				Enum num = enums[i];
-				this.icons[i] = reg.registerIcon(this.getIconString() + "." + num.name().toLowerCase(Locale.US));
+				this.icons[i] = reg.registerIcon(base + "." + num.name().toLowerCase(Locale.US));
 			}
 		} else {
-			this.itemIcon = reg.registerIcon(this.getIconString());
+			this.itemIcon = reg.registerIcon(base);
 		}
 	}
 

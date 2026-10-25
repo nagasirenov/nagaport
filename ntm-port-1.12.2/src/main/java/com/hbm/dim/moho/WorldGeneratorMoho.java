@@ -23,6 +23,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldGeneratorMoho implements IWorldGenerator {
 
@@ -69,8 +70,7 @@ public class WorldGeneratorMoho implements IWorldGenerator {
 		BlockOre.addValidBody(ModBlocks.ore_australium, SolarSystem.Body.MOHO);
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.getDimension() == SpaceConfig.mohoDimension) {
 			generateMoho(world, random, chunkX * 16, chunkZ * 16);
 		}
@@ -105,7 +105,7 @@ public class WorldGeneratorMoho implements IWorldGenerator {
 			for(int y = d - 5; y <= d; y++) {
 				Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 				if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR && (b == ModBlocks.moho_stone || b == ModBlocks.moho_regolith)) {
-					world.setBlock(x, y, z, ModBlocks.geysir_nether);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.geysir_nether);
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x+1; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.NETHERRACK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x-1; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.NETHERRACK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z+1; net.minecraft.block.Block nativePlacementBlock = Blocks.NETHERRACK; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -129,10 +129,10 @@ public class WorldGeneratorMoho implements IWorldGenerator {
 
 					if(b == Blocks.LAVA && com.hbm.world.WorldBlockState.read(world, ox, y - 1, oz).getBlock() == Blocks.AIR) {
 						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = ox; int nativePlacementY = y - 1; int nativePlacementZ = oz; net.minecraft.block.Block nativePlacementBlock = Blocks.FLOWING_LAVA; int nativePlacementMeta = 0; int nativePlacementFlags = 0; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-						world.markBlockForUpdate(ox, y - 1, oz);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(world, ox, y - 1, oz);
 					} else if(b == ModBlocks.volcano_core) {
-						world.setBlock(ox, y, oz, ModBlocks.volcano_core, BlockVolcano.META_STATIC_EXTINGUISHING, 0);
-						world.markBlockForUpdate(ox, y, oz);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, ox, y, oz, ModBlocks.volcano_core, BlockVolcano.META_STATIC_EXTINGUISHING, 0);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(world, ox, y, oz);
 					}
 				}
 			}

@@ -28,15 +28,15 @@ public class EntityGrenadeASchrab extends EntityGrenadeBase {
 			EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(this.world, posX, posY, posZ, BombConfig.aSchrabRadius);
 			if(!ex.isDead) {
 				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "random.explode", 100.0F, this.world.rand.nextFloat() * 0.1F + 0.9F);
-				this.world.spawnEntityInWorld(ex);
-	
+				this.world.spawnEntity(ex);
+
 				EntityCloudFleija cloud = new EntityCloudFleija(this.world, BombConfig.aSchrabRadius);
 				cloud.posX = this.posX;
 				cloud.posY = this.posY;
 				cloud.posZ = this.posZ;
-				this.world.spawnEntityInWorld(cloud);
+				this.world.spawnEntity(cloud);
 			}
-			
+
 			this.setDead();
 		}
 	}

@@ -37,7 +37,7 @@ public class BlockCap extends BlockEnumMulti {
 		}
 	}
 	
-	@Override public String getTextureMultiName(Enum num) { return this.getTextureName() + "_" + num.name().toLowerCase(Locale.US); }
+	@Override public String getTextureMultiName(Enum num) { return this.getRegistryName().toString() + "_" + num.name().toLowerCase(Locale.US); }
 	@Override public String getUnlocalizedMultiName(Enum num) { return super.getTranslationKey() + "_" + num.name().toLowerCase(Locale.US); }
 	
 	@Override
@@ -47,7 +47,8 @@ public class BlockCap extends BlockEnumMulti {
 	}
 	
 	@Override
-	public Item getItemDropped(int meta, Random rand, int j) {
+	public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState state, Random rand, int j) {
+		int meta = state.getBlock().getMetaFromState(state);
 		
 		EnumCapBlock cap = EnumUtil.grabEnumSafely(EnumCapBlock.class, meta);
 

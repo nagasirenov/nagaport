@@ -326,7 +326,81 @@ public class GunFactoryClient {
 		renderers.put(ModItems.gun_n_i_4_n_i,					new ItemRenderNI4NI());
 		renderers.put(ModItems.gun_pa_melee,					new ItemRenderPAMelee());
 
+		bindWeaponParticles();
 
-        return renderers;
-    }
+		return renderers;
+	}
+
+	/** Real model textures as the stitched atlas particle of each weapon item.
+	 * Native weapon routes bake from tracked placeholders, so the particle must
+	 * come from the texture each renderer binds, not from the baked model. */
+	private static void bindWeaponParticles() {
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_debug, ResourceManager.debug_gun_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_pepperbox, ResourceManager.pepperbox_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_light_revolver, ResourceManager.bio_revolver_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_light_revolver_atlas, ResourceManager.bio_revolver_atlas_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_light_revolver_dani, ResourceManager.dani_celestial_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_henry, ResourceManager.henry_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_henry_lincoln, ResourceManager.henry_lincoln_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_greasegun, ResourceManager.greasegun_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_maresleg, ResourceManager.maresleg_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_maresleg_akimbo, ResourceManager.maresleg_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_maresleg_broken, ResourceManager.maresleg_broken_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_flaregun, ResourceManager.flaregun_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_heavy_revolver, ResourceManager.heavy_revolver_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_heavy_revolver_lilmac, ResourceManager.lilmac_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_heavy_revolver_protege, ResourceManager.heavy_revolver_protege_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_carbine, ResourceManager.carbine_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_am180, ResourceManager.am180_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_liberator, ResourceManager.liberator_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_congolake, ResourceManager.congolake_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_flamer, ResourceManager.flamethrower_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_flamer_topaz, ResourceManager.flamethrower_topaz_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_flamer_daybreaker, ResourceManager.flamethrower_daybreaker_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_lag, ResourceManager.mike_hawk_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_uzi, ResourceManager.uzi_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_uzi_akimbo, ResourceManager.uzi_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_spas12, ResourceManager.spas_12_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_panzerschreck, ResourceManager.panzerschreck_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_star_f, ResourceManager.star_f_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_star_f_akimbo, ResourceManager.star_f_elite_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_stinger, ResourceManager.stinger_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_chemthrower, ResourceManager.chemthrower_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_amat, ResourceManager.amat_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_amat_subtlety, ResourceManager.amat_subtlety_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_amat_penance, ResourceManager.amat_penance_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_m2, ResourceManager.m2_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_autoshotgun, ResourceManager.shredder_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_autoshotgun_shredder, ResourceManager.shredder_orig_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_autoshotgun_sexy, ResourceManager.sexy_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_autoshotgun_heretic, ResourceManager.heretic_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_quadro, ResourceManager.quadro_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_minigun, ResourceManager.minigun_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_minigun_lacunae, ResourceManager.minigun_lacunae_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_minigun_dual, ResourceManager.minigun_dual_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_missile_launcher, ResourceManager.missile_launcher_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_tesla_cannon, ResourceManager.tesla_cannon_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_stg77, ResourceManager.stg77_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_tau, ResourceManager.tau_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_fatman, ResourceManager.fatman_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_lasrifle, ResourceManager.lasrifle_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_coilgun, ResourceManager.coilgun_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_hangman, ResourceManager.hangman_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_mas36, ResourceManager.mas36_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_bolter, ResourceManager.bolter_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_folly, ResourceManager.folly_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_aberrator, ResourceManager.aberrator_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_aberrator_eott, ResourceManager.eott_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_charge_thrower, ResourceManager.charge_thrower_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_drill, ResourceManager.drill_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_n_i_4_n_i, ResourceManager.n_i_4_n_i_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_pa_melee, ResourceManager.ncrpa_arm);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_laser_pistol, ResourceManager.laser_pistol_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_laser_pistol_pew_pew, ResourceManager.laser_pistol_pew_pew_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_laser_pistol_morning_glory, ResourceManager.laser_pistol_morning_glory_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_double_barrel, ResourceManager.double_barrel_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_double_barrel_sacred_dragon, ResourceManager.double_barrel_sacred_dragon_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_g3, ResourceManager.g3_tex);
+		com.hbm.render.item.nativeitem.NativeItemParticles.bind(ModItems.gun_g3_zebra, ResourceManager.g3_zebra_tex);
+	}
 }

@@ -50,7 +50,7 @@ public class ItemDesignatorPacket implements IMessage {
 		@Override
 		public IMessage onMessage(ItemDesignatorPacket m, MessageContext ctx) {
 			
-			EntityPlayer p = ctx.getServerHandler().playerEntity;
+			EntityPlayer p = ctx.getServerHandler().player;
 			
 			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(p);
 			

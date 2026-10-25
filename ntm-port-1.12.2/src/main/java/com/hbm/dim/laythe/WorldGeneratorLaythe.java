@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldGeneratorLaythe implements IWorldGenerator {
 
@@ -47,8 +48,7 @@ public class WorldGeneratorLaythe implements IWorldGenerator {
 		BlockOre.addValidBody(ModBlocks.ore_oil, SolarSystem.Body.LAYTHE);
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.getDimension() == SpaceConfig.laytheDimension) {
 			generateLaythe(world, random, chunkX * 16, chunkZ * 16);
 		}

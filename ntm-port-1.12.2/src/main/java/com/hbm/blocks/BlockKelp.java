@@ -6,6 +6,8 @@ import com.hbm.items.ModItems;
 import com.hbm.lib.RefStrings;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.init.Blocks;
@@ -15,19 +17,22 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class BlockKelp extends Block {
+	public BlockKelp withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 
 	private IIcon[] icons = new IIcon[2];
-	
+
 	public BlockKelp() {
 		super(Material.WATER);
 	}
 
-	@Override
 	public IIcon getIcon(int side, int meta) {
 		return (meta == 0 && side == 0) ? this.icons[0] : this.icons[1];
 	}
 
-	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.icons[0] = iconRegister.registerIcon(RefStrings.MODID + ":laythe_kelp");
 		this.icons[1] = iconRegister.registerIcon(RefStrings.MODID + ":laythe_kelp_top");
@@ -41,19 +46,23 @@ public class BlockKelp extends Block {
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		return null;
+	public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState blockState, net.minecraft.world.IBlockAccess worldIn, BlockPos pos) {
+		return NULL_AABB;
 	}
 
 	@Override
-	public int getRenderType() {
-		return 1; 
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
 	}
-	
-	@Override
-	public boolean canBlockStay(World world, int x, int y, int z) {
+
+
+	public boolean canBlockStay(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		return canBlockStay(worldIn, pos.getX(), pos.getY(), pos.getZ());
+	}
+
+public boolean canBlockStay(World world, int x, int y, int z) {
 		Block below = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
 		return below == this || below == ModBlocks.laythe_silt;
 	}
@@ -66,16 +75,16 @@ public class BlockKelp extends Block {
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-		this.updateBlockMeta(world, x, y, z);
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		this.updateBlockMeta(world, pos.getX(), pos.getY(), pos.getZ());
 	}
 
 	private void updateBlockMeta(World world, int x, int y, int z) {
 		Block above = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();
 		if (above == this) {
-			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 0, 2);
 		} else {
-			world.setBlockMetadataWithNotify(x, y, z, 8, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 8, 2);
 		}
 	}
 
@@ -85,16 +94,17 @@ public class BlockKelp extends Block {
 	}
 
 	@Override
-	public int quantityDropped(int meta, int fortune, java.util.Random random) {
-		return random.nextInt(4); 
+	public int quantityDropped(IBlockState state, int fortune, Random random) {
+		return random.nextInt(4);
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		if (!this.canBlockStay(world, x, y, z)) {
 			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.WATER; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		} else {
-			updateBlockMeta(world, x, y, z); 
+			updateBlockMeta(world, x, y, z);
 		}
 	}
 

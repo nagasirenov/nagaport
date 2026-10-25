@@ -178,7 +178,7 @@ public class ArmorHEV extends ArmorFSBPowered implements IItemRendererProvider {
 		GL11.glDepthMask(true);
 		GL11.glPopMatrix();
 
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 	@Override public Item getItemForRenderer() { return this; }
 

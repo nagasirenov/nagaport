@@ -12,6 +12,8 @@ import com.hbm.util.i18n.I18nUtil;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -22,38 +24,38 @@ public class RenderRBMKConsole extends TileEntitySpecialRenderer {
 	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 
 		GL11.glPushMatrix();
-		
+
 		GL11.glTranslatef((float)x + 0.5F, (float)y, (float)z + 0.5F);
-		
+
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		GL11.glEnable(GL11.GL_LIGHTING);
-		
+
 		switch(te.getBlockMetadata() - BlockDummyable.offset) {
 		case 2: GL11.glRotatef(90, 0F, 1F, 0F); break;
 		case 4: GL11.glRotatef(180, 0F, 1F, 0F); break;
 		case 3: GL11.glRotatef(270, 0F, 1F, 0F); break;
 		case 5: GL11.glRotatef(0, 0F, 1F, 0F); break;
 		}
-		
+
 		GL11.glTranslated(0.5, 0, 0);
 
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		bindTexture(ResourceManager.rbmk_console_tex);
 		ResourceManager.rbmk_console.renderAll();
 		GL11.glShadeModel(GL11.GL_FLAT);
-		
+
 		TileEntityRBMKConsole console = (TileEntityRBMKConsole) te;
-		
-		Tessellator tess = Tessellator.instance;
+
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder buffer = tess.getBuffer();
+		float[] colorState = {1F, 1F, 1F};
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		tess.startDrawingQuads();
-		tess.setBrightness(240);
-		tess.setNormal(1, 0, 0);
-		
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
+
 		for(int i = 0; i < console.columns.length; i++) {
-			
+
 			RBMKColumn col = console.columns[i];
-			
+
 			if(col == null)
 				continue;
 
@@ -63,30 +65,30 @@ public class RenderRBMKConsole extends TileEntitySpecialRenderer {
 
 			if(col.data.hasKey("color") && col.data.getByte("color") >= 0) {
 				byte color = col.data.getByte("color");
-				if(color == 0) tess.setColorOpaque_I(0xFF0000);
-				if(color == 1) tess.setColorOpaque_I(0xFFFF00);
-				if(color == 2) tess.setColorOpaque_I(0x008000);
-				if(color == 3) tess.setColorOpaque_I(0x0000FF);
-				if(color == 4) tess.setColorOpaque_I(0x8000FF);
+				if(color == 0) setColor(colorState, 0xFF0000);
+				if(color == 1) setColor(colorState, 0xFFFF00);
+				if(color == 2) setColor(colorState, 0x008000);
+				if(color == 3) setColor(colorState, 0x0000FF);
+				if(color == 4) setColor(colorState, 0x8000FF);
 			} else {
 				double heat = col.data.getDouble("heat") / col.data.getDouble("maxHeat");
-				double color = 0.65D + (i % 2) * 0.05D;
-				tess.setColorOpaque_F((float) (color + ((1 - color) * heat)), (float) color, (float) color);
+				double colorValue = 0.65D + (i % 2) * 0.05D;
+				setColor(colorState, (float) (colorValue + ((1 - colorValue) * heat)), (float) colorValue, (float) colorValue);
 			}
 
-			if(col.data.getByte("indicator") > 0) tess.setColorOpaque_F(1F, 1F, 0F);
-			
-			drawColumn(tess, kx, ky, kz, 0, 0);
-			
+			if(col.data.getByte("indicator") > 0) setColor(colorState, 1F, 1F, 0F);
+
+			drawColumn(buffer, colorState, kx, ky, kz);
+
 			switch(col.type) {
 			case FUEL:
-			case FUEL_SIM:		drawFuel(tess, kx + 0.01, ky, kz, col.data.getDouble("enrichment")); break;
-			case CONTROL:		drawControl(tess, kx + 0.01, ky, kz, col.data.getDouble("level")); break;
-			case CONTROL_AUTO:	drawControlAuto(tess, kx + 0.01, ky, kz, col.data.getDouble("level")); break;
+			case FUEL_SIM:		drawFuel(buffer, colorState, kx + 0.01, ky, kz, col.data.getDouble("enrichment")); break;
+			case CONTROL:		drawControl(buffer, colorState, kx + 0.01, ky, kz, col.data.getDouble("level")); break;
+			case CONTROL_AUTO:	drawControlAuto(buffer, colorState, kx + 0.01, ky, kz, col.data.getDouble("level")); break;
 			default:
 			}
 		}
-		
+
 		tess.draw();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 
@@ -94,90 +96,107 @@ public class RenderRBMKConsole extends TileEntitySpecialRenderer {
 		GL11.glTranslatef(-0.42F, 3.5F, 1.75F);
 		GL11.glDepthMask(false);
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-		
+
 		for(int i = 0; i < console.screens.length; i++) {
-			
+
 			GL11.glPushMatrix();
-			
+
 			if(i % 2 == 1)
 				GL11.glTranslatef(0, 0, 1.75F * -2);
-			
+
 			GL11.glTranslatef(0, -0.75F * (i / 2), 0);
-			
+
 			RBMKScreen screen = console.screens[i];
 			String text = screen.display;
-			
+
 			if(text != null && ! text.isEmpty()) {
-				
+
 				String[] parts = text.split("=");
-				
+
 				if(parts.length == 2) {
 					text = I18nUtil.resolveKey(parts[0], parts[1]);
 				}
 
 				int width = font.getStringWidth(text);
 				int height = font.FONT_HEIGHT;
-				
+
 				float f3 = Math.min(0.03F, 0.8F / Math.max(width, 1));
 				GL11.glScalef(f3, -f3, f3);
 				GL11.glNormal3f(0.0F, 0.0F, -1.0F);
 				GL11.glRotatef(90, 0, 1, 0);
-				
+
 				font.drawString(text, - width / 2, - height / 2, 0x00ff00);
 			}
 			GL11.glPopMatrix();
 		}
-		
+
 		GL11.glDepthMask(true);
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 
 		GL11.glPopMatrix();
 	}
-	
-	private void drawColumn(Tessellator tess, double x, double y, double z, float color, double heat) {
-		
+
+	private void drawColumn(BufferBuilder buffer, float[] color, double x, double y, double z) {
+
 		double width = 0.0625D * 0.75;
-		
-		tess.addVertex(x, y + width, z - width);
-		tess.addVertex(x, y + width, z + width);
-		tess.addVertex(x, y - width, z + width);
-		tess.addVertex(x, y - width, z - width);
+
+		addVertex(buffer, color, x, y + width, z - width);
+		addVertex(buffer, color, x, y + width, z + width);
+		addVertex(buffer, color, x, y - width, z + width);
+		addVertex(buffer, color, x, y - width, z - width);
 	}
-	
-	private void drawFuel(Tessellator tess, double x, double y, double z, double enrichment) {
-		this.drawDot(tess, x, y, z, 0F, 0.25F + (float) (enrichment * 0.75D), 0F);
+
+	private void drawFuel(BufferBuilder buffer, float[] color, double x, double y, double z, double enrichment) {
+		this.drawDot(buffer, color, x, y, z, 0F, 0.25F + (float) (enrichment * 0.75D), 0F);
 	}
-	
-	private void drawControl(Tessellator tess, double x, double y, double z, double level) {
-		this.drawDot(tess, x, y, z, (float) level, (float) level, 0F);
+
+	private void drawControl(BufferBuilder buffer, float[] color, double x, double y, double z, double level) {
+		this.drawDot(buffer, color, x, y, z, (float) level, (float) level, 0F);
 	}
-	
-	private void drawControlAuto(Tessellator tess, double x, double y, double z, double level) {
-		this.drawDot(tess, x, y, z, (float) level, 0F, (float) level);
+
+	private void drawControlAuto(BufferBuilder buffer, float[] color, double x, double y, double z, double level) {
+		this.drawDot(buffer, color, x, y, z, (float) level, 0F, (float) level);
 	}
-	
-	private void drawDot(Tessellator tess, double x, double y, double z, float r, float g, float b) {
-		
+
+	private void drawDot(BufferBuilder buffer, float[] color, double x, double y, double z, float r, float g, float b) {
+
 		double width = 0.03125D;
 		double edge = 0.022097D;
-		
-		tess.setColorOpaque_F(r, g, b);
-		
-		tess.addVertex(x, y + width, z);
-		tess.addVertex(x, y + edge, z + edge);
-		tess.addVertex(x, y, z + width);
-		tess.addVertex(x, y - edge, z + edge);
 
-		tess.addVertex(x, y + edge, z - edge);
-		tess.addVertex(x, y + width, z);
-		tess.addVertex(x, y - edge, z - edge);
-		tess.addVertex(x, y, z - width);
-		
-		tess.addVertex(x, y + width, z);
-		tess.addVertex(x, y - edge, z + edge);
-		tess.addVertex(x, y - width, z);
-		tess.addVertex(x, y - edge, z - edge);
-		
-		tess.setColorOpaque_F(1F, 1F, 1F);
+		setColor(color, r, g, b);
+
+		addVertex(buffer, color, x, y + width, z);
+		addVertex(buffer, color, x, y + edge, z + edge);
+		addVertex(buffer, color, x, y, z + width);
+		addVertex(buffer, color, x, y - edge, z + edge);
+
+		addVertex(buffer, color, x, y + edge, z - edge);
+		addVertex(buffer, color, x, y + width, z);
+		addVertex(buffer, color, x, y - edge, z - edge);
+		addVertex(buffer, color, x, y, z - width);
+
+		addVertex(buffer, color, x, y + width, z);
+		addVertex(buffer, color, x, y - edge, z + edge);
+		addVertex(buffer, color, x, y - width, z);
+		addVertex(buffer, color, x, y - edge, z - edge);
+
+		setColor(color, 1F, 1F, 1F);
+	}
+
+	private static void setColor(float[] color, int rgb) {
+		color[0] = (rgb >> 16 & 255) / 255F;
+		color[1] = (rgb >> 8 & 255) / 255F;
+		color[2] = (rgb & 255) / 255F;
+	}
+
+	private static void setColor(float[] color, float red, float green, float blue) {
+		color[0] = red;
+		color[1] = green;
+		color[2] = blue;
+	}
+
+	private static void addVertex(BufferBuilder buffer, float[] color, double x, double y, double z) {
+		buffer.pos(x, y, z).color(color[0], color[1], color[2], 1F).tex(0D, 0D)
+				.lightmap(0, 240).normal(1F, 0F, 0F).endVertex();
 	}
 }

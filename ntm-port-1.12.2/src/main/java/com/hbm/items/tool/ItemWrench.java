@@ -24,23 +24,30 @@ public class ItemWrench extends ItemSword {
 		super(mat);
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
 
 		if(!player.isSneaking()) {
-			
+
 			Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-			
+
 			if(b instanceof BlockDummyable) {
 				int[] core = ((BlockDummyable)b).findCore(world, x, y, z);
-				
+
 				if(core != null) {
 					x = core[0];
 					y = core[1];
 					z = core[2];
 				}
 			}
-			
+
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(te != null && te instanceof TileEntityPipelineBase) {
@@ -65,7 +72,7 @@ public class ItemWrench extends ItemSword {
 
 						TileEntityPipelineBase first = (TileEntityPipelineBase) world.getTileEntity(new net.minecraft.util.math.BlockPos(x1, y1, z1));
 						TileEntityPipelineBase second = ((TileEntityPipelineBase) te);
-						
+
 						switch (TileEntityPipelineBase.canConnect(first, second)) {
 							case 0:
 								first.addConnection(x, y, z);
@@ -77,7 +84,7 @@ public class ItemWrench extends ItemSword {
 							case 3: player.sendMessage(new TextComponentString("Pipe error - Pipe anchor is too far away")); break;
 							case 4: player.sendMessage(new TextComponentString("Pipe error - Pipe anchor fluid types do not match")); break;
 						}
-						
+
 						stack.setTagCompound(null);
 
 					} else {
@@ -87,7 +94,7 @@ public class ItemWrench extends ItemSword {
 					}
 				}
 
-				player.swingItem();
+				player.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 				return true;
 			}
 		}
@@ -108,8 +115,8 @@ public class ItemWrench extends ItemSword {
 		entity.motionX += dX;
 		entity.motionY += dY;
 		entity.motionZ += dZ;
-		world.playSoundAtEntity(entity, "random.anvil_land", 3.0F, 0.75F);
-		
+		world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("random.anvil_land"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 0.75F);
+
 		return false;
 	}
 
@@ -133,7 +140,7 @@ public class ItemWrench extends ItemSword {
 						entity.posX - stack.getTagCompound().getInteger("x"),
 						entity.posY - stack.getTagCompound().getInteger("y"),
 						entity.posZ - stack.getTagCompound().getInteger("z"));
-				
+
 				MainRegistry.proxy.displayTooltip(stack.getDisplayName() + ": " + ((int) vec.length()) + "m", MainRegistry.proxy.ID_WRENCH);
 			}
 		}

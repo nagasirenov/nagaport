@@ -42,11 +42,11 @@ public class ContainerStorageDrum extends Container {
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
 		ItemStack var3 = null;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
-		
+
 		if(var4 != null && var4.getHasStack()) {
 			ItemStack var5 = var4.getStack();
 			var3 = var5.copy();
-			
+
 			if(par2 <= drum.getSizeInventory() - 1) {
 				if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, drum.getSizeInventory(), this.inventorySlots.size(), true)) {
 					return null;
@@ -55,12 +55,12 @@ public class ContainerStorageDrum extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
 			}
-			
+
 			var4.onTake(p_82846_1_, var5);
 		}
 

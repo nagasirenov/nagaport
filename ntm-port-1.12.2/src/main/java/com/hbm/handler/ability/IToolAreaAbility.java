@@ -327,9 +327,9 @@ public interface IToolAreaAbility extends IBaseAbility {
 			double d3 = range;
 			if (player instanceof EntityPlayerMP)
 			{
-				d3 = ((EntityPlayerMP) player).theItemInWorldManager.getBlockReachDistance();
+				d3 = ((EntityPlayerMP) player).interactionManager.getBlockReachDistance();
 			}
-			Vec3d vec31 = vec3.addVector((double) f7 * d3, (double) f6 * d3, (double) f8 * d3);
+			Vec3d vec31 = vec3.add((double) f7 * d3, (double) f6 * d3, (double) f8 * d3);
 			return world.rayTraceBlocks(vec3, vec31, par3, !par3, par3);
 		}
 	};

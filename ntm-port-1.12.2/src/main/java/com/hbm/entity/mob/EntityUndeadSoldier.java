@@ -15,13 +15,21 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityUndeadSoldier extends EntityMob {
 
-	public static final int DW_TYPE = 12;
+	private static final DataParameter<Byte> TYPE = EntityDataManager.createKey(EntityUndeadSoldier.class, DataSerializers.BYTE);
 	public static final byte TYPE_ZOMBIE = 0;
 	public static final byte TYPE_SKELETON = 1;
 
@@ -32,37 +40,37 @@ public class EntityUndeadSoldier extends EntityMob {
 		this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.tasks.addTask(6, new EntityAILookIdle(this));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, true));
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true, false));
+		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, true, false));
 	}
 
+	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.getDataWatcher().addObject(DW_TYPE, Byte.valueOf((byte) 0));
+		this.dataManager.register(TYPE, Byte.valueOf(TYPE_ZOMBIE));
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
 	}
 
 	@Override
-	protected boolean isAIEnabled() {
-		return true;
+	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
+		IEntityLivingData result = super.onInitialSpawn(difficulty, data);
+		this.dataManager.set(TYPE, Byte.valueOf(rand.nextBoolean() ? TYPE_ZOMBIE : TYPE_SKELETON));
+		return result;
+	}
+
+	public byte getUndeadType() {
+		return this.dataManager.get(TYPE);
 	}
 
 	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		this.addRandomArmor();
-		this.dataWatcher.updateObject(DW_TYPE, rand.nextBoolean() ? TYPE_ZOMBIE : TYPE_SKELETON);
-		return super.onSpawnWithEgg(data);
-	}
-
-	@Override
-	protected void addRandomArmor() {
+	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
 		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(ModItems.taurun_helmet));
 		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST, new ItemStack(ModItems.taurun_plate));
 		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.LEGS, new ItemStack(ModItems.taurun_legs));
@@ -77,34 +85,34 @@ public class EntityUndeadSoldier extends EntityMob {
 	}
 
 	@Override
-	protected String getLivingSound() {
-		byte type = this.dataWatcher.getWatchableObjectByte(DW_TYPE);
-		if(type == TYPE_ZOMBIE) return "mob.zombie.say";
-		if(type == TYPE_SKELETON) return "mob.skeleton.say";
-		return super.getLivingSound();
+	protected SoundEvent getAmbientSound() {
+		byte type = this.dataManager.get(TYPE);
+		if(type == TYPE_ZOMBIE) return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
+		if(type == TYPE_SKELETON) return SoundEvents.ENTITY_SKELETON_AMBIENT;
+		return super.getAmbientSound();
 	}
 
 	@Override
-	protected String getHurtSound() {
-		byte type = this.dataWatcher.getWatchableObjectByte(DW_TYPE);
-		if(type == TYPE_ZOMBIE) return "mob.zombie.hurt";
-		if(type == TYPE_SKELETON) return "mob.skeleton.hurt";
-		return super.getHurtSound();
+	protected SoundEvent getHurtSound(DamageSource source) {
+		byte type = this.dataManager.get(TYPE);
+		if(type == TYPE_ZOMBIE) return SoundEvents.ENTITY_ZOMBIE_HURT;
+		if(type == TYPE_SKELETON) return SoundEvents.ENTITY_SKELETON_HURT;
+		return super.getHurtSound(source);
 	}
 
 	@Override
-	protected String getDeathSound() {
-		byte type = this.dataWatcher.getWatchableObjectByte(DW_TYPE);
-		if(type == TYPE_ZOMBIE) return "mob.zombie.death";
-		if(type == TYPE_SKELETON) return "mob.skeleton.death";
+	protected SoundEvent getDeathSound() {
+		byte type = this.dataManager.get(TYPE);
+		if(type == TYPE_ZOMBIE) return SoundEvents.ENTITY_ZOMBIE_DEATH;
+		if(type == TYPE_SKELETON) return SoundEvents.ENTITY_SKELETON_DEATH;
 		return super.getDeathSound();
 	}
 
 	@Override
-	protected void func_145780_a(int x, int y, int z, Block blck) {
-		byte type = this.dataWatcher.getWatchableObjectByte(DW_TYPE);
-		if(type == TYPE_ZOMBIE) this.playSound("mob.zombie.step", 0.15F, 1.0F);
-		if(type == TYPE_SKELETON) this.playSound("mob.skeleton.step", 0.15F, 1.0F);
+	protected void playStepSound(BlockPos pos, Block block) {
+		byte type = this.dataManager.get(TYPE);
+		if(type == TYPE_ZOMBIE) this.playSound(SoundEvents.ENTITY_ZOMBIE_STEP, 0.15F, 1.0F);
+		if(type == TYPE_SKELETON) this.playSound(SoundEvents.ENTITY_SKELETON_STEP, 0.15F, 1.0F);
 	}
 
 	@Override
@@ -114,7 +122,10 @@ public class EntityUndeadSoldier extends EntityMob {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return this.world.difficultySetting != EnumDifficulty.PEACEFUL && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && this.world.getCollidingBoundingBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.isAnyLiquid(this.getEntityBoundingBox());
+		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL
+				&& this.world.checkNoEntityCollision(this.getEntityBoundingBox())
+				&& this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty()
+				&& !this.world.containsAnyLiquid(this.getEntityBoundingBox());
 	}
 
 	@Override protected void dropFewItems(boolean player, int loot) { }

@@ -25,6 +25,8 @@ import net.minecraft.world.World;
 
 public class MachineShredder extends BlockContainer {
 
+	protected IIcon blockIcon;
+
     private final Random field_149933_a = new Random();
 	private static boolean keepInventory;
 	
@@ -33,7 +35,6 @@ public class MachineShredder extends BlockContainer {
 	private IIcon iconTop;
 	private IIcon iconSide;
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconBottom = iconRegister.registerIcon(RefStrings.MODID + ":machine_shredder_bottom_alt");
@@ -42,7 +43,6 @@ public class MachineShredder extends BlockContainer {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_shredder_front_alt");
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		if(side == 0)

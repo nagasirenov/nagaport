@@ -68,6 +68,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 	public void onDrill(int y) {
 		Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), y, this.pos.getZ()).getBlock();
 		ItemStack stack = new ItemStack(b);
+		if(stack.isEmpty()) return;
 		int[] ids = OreDictionary.getOreIDs(stack);
 		for(Integer i : ids) {
 			String name = OreDictionary.getOreName(i);
@@ -76,7 +77,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 				for(int j = 2; j < 6; j++) {
 					ForgeDirection dir = ForgeDirection.getOrientation(j);
 					if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ))) {
-						this.world.setBlock(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, ModBlocks.gas_radon_dense);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, ModBlocks.gas_radon_dense);
 					}
 				}
 			}
@@ -85,7 +86,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 				for(int j = 2; j < 6; j++) {
 					ForgeDirection dir = ForgeDirection.getOrientation(j);
 					if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ))) {
-						this.world.setBlock(this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, ModBlocks.gas_asbestos);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ, ModBlocks.gas_asbestos);
 					}
 				}
 			}
@@ -146,7 +147,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 7,
 					this.pos.getY(),
 					this.pos.getZ() - 7,
@@ -162,7 +163,7 @@ public class TileEntityMachinePumpjack extends TileEntityOilDrillBase {
 	@Override
 	public DirPos[] getConPos() {
 		this.getBlockMetadata();
-		ForgeDirection dir = ForgeDirection.getOrientation(this.blockMetadata - BlockDummyable.offset);
+		ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())) - BlockDummyable.offset);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.DOWN);
 
 		return new DirPos[] {

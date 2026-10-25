@@ -27,7 +27,7 @@ import com.hbm.lib.ForgeDirection;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 public class TileEntityCoreInjector extends TileEntityMachineBase implements IFluidStandardReceiver, SimpleComponent, IGUIProvider, CompatHandler.OCComponent {
-	
+
 	public FluidTank[] tanks;
 	public static final int range = 15;
 	public int beam;
@@ -46,42 +46,42 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.subscribeToAllAround(tanks[0].getTankType(), this);
 			this.subscribeToAllAround(tanks[1].getTankType(), this);
 
 			tanks[0].setType(0, 1, slots);
 			tanks[1].setType(2, 3, slots);
-			
+
 			beam = 0;
-			
+
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 			for(int i = 1; i <= range; i++) {
 
 				int x = this.pos.getX() + dir.offsetX * i;
 				int y = this.pos.getY() + dir.offsetY * i;
 				int z = this.pos.getZ() + dir.offsetZ * i;
-				
+
 				TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-				
+
 				if(te instanceof TileEntityCore) {
-					
+
 					TileEntityCore core = (TileEntityCore)te;
-					
+
 					for(int t = 0; t < 2; t++) {
-						
+
 						if(core.tanks[t].getTankType() == tanks[t].getTankType()) {
-							
+
 							int f = Math.min(tanks[t].getFill(), core.tanks[t].getMaxFill() - core.tanks[t].getFill());
 
 							tanks[t].setFill(tanks[t].getFill() - f);
 							core.tanks[t].setFill(core.tanks[t].getFill() + f);
 							core.markDirty();
-							
+
 						} else if(core.tanks[t].getFill() == 0) {
-							
+
 							core.tanks[t].setTankType(tanks[t].getTankType());
 							int f = Math.min(tanks[t].getFill(), core.tanks[t].getMaxFill() - core.tanks[t].getFill());
 
@@ -90,15 +90,15 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 							core.markDirty();
 						}
 					}
-					
+
 					beam = i;
 					break;
 				}
-				
-				if(!com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isAir(this.world, x, y, z))
+
+				if(!com.hbm.world.WorldBlockState.isAir(this.world, x, y, z))
 					break;
 			}
-			
+
 			this.markDirty();
 
 			this.networkPackNT(250);
@@ -122,7 +122,7 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 		tanks[0].deserialize(buf);
 		tanks[1].deserialize(buf);
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
@@ -133,7 +133,7 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 	public double getMaxRenderDistanceSquared() {
 		return 65536.0D;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
@@ -141,7 +141,7 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 		tanks[0].readFromNBT(nbt, "fuel1");
 		tanks[1].readFromNBT(nbt, "fuel2");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
@@ -160,7 +160,7 @@ public class TileEntityCoreInjector extends TileEntityMachineBase implements IFl
 	public FluidTank[] getAllTanks() {
 		return tanks;
 	}
-	
+
 	// do some opencomputer stuff
 	@Override
 	@Optional.Method(modid = "OpenComputers")

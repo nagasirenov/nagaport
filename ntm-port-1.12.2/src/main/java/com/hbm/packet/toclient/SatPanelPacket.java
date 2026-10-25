@@ -32,12 +32,7 @@ public class SatPanelPacket implements IMessage {
 		NBTTagCompound nbt = new NBTTagCompound();
 		sat.writeToNBT(nbt);
 
-		try {
-			buffer.writeNBTTagCompoundToBuffer(nbt);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		buffer.writeCompoundTag(nbt);
 	}
 
 	@Override
@@ -72,7 +67,7 @@ public class SatPanelPacket implements IMessage {
 
 			try {
 
-				NBTTagCompound nbt = m.buffer.readNBTTagCompoundFromBuffer();
+				NBTTagCompound nbt = m.buffer.readCompoundTag();
 				ItemSatInterface.currentSat = Satellite.create(m.type);
 
 				if(nbt != null)

@@ -351,7 +351,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 			debris.motionZ += 0.5D;
 		}
 
-		this.world.spawnEntityInWorld(debris);
+		this.world.spawnEntity(debris);
 	}
 
 	private void zirnoxDebris() {
@@ -380,7 +380,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 		}
 
 		int[] dimensions = {1, 0, 2, 2, 2, 2,};
-		this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.zirnox_destroyed, this.getBlockMetadata(), 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.zirnox_destroyed, this.getBlockMetadata(), 3);
 		MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), dimensions, ModBlocks.zirnox_destroyed, ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset));
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX(), this.pos.getY() + 2, this.pos.getZ(), "hbm:block.rbmk_explosion", 10.0F, 1.0F);
 		this.world.createExplosion(null, this.pos.getX(), this.pos.getY() + 3, this.pos.getZ(), 12.0F, true);
@@ -430,7 +430,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IC
 	}
 
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 5, this.pos.getZ() + 3);
+		return new AxisAlignedBB(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 5, this.pos.getZ() + 3);
 	}
 
 	@SideOnly(Side.CLIENT)

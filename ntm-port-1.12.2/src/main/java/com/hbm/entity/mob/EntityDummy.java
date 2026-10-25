@@ -15,7 +15,6 @@ public class EntityDummy extends EntityLiving implements IAnimals, ISuffocationI
 		super(world);
 	}
 
-	@Override
 	public boolean interact(EntityPlayer player) {
 
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemArmor) {
@@ -23,7 +22,7 @@ public class EntityDummy extends EntityLiving implements IAnimals, ISuffocationI
 			this.setItemStackToSlot(armor.armorType, com.hbm.util.NativeHeldItem.getMainHandNullable(player).copy());
 		}
 
-		return super.interact(player);
+		return super.processInitialInteract(player, net.minecraft.util.EnumHand.MAIN_HAND);
 	}
 
 	@Override @SideOnly(Side.CLIENT) public boolean getAlwaysRenderNameTagForRender() { return true; }

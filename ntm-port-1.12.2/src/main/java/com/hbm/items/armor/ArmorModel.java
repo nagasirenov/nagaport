@@ -94,7 +94,7 @@ public class ArmorModel extends ItemArmor {
 
 		if(this != ModItems.goggles && this != ModItems.hazmat_helmet_red && this != ModItems.hazmat_helmet_grey)
 			return;
-		
+
 		if(gogglesBlurs == null) gogglesBlurs = IntStream.range(0, 6)
 				.mapToObj(i -> new ResourceLocation(RefStrings.MODID + ":textures/misc/overlay_goggles_" + i + ".png"))
 				.toArray(ResourceLocation[]::new);
@@ -127,8 +127,14 @@ public class ArmorModel extends ItemArmor {
 		GL11.glDisable(GL11.GL_BLEND);
 	}
 
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 		if(this == ModItems.cape_radiation) list.add("Avalible for everyone");
 		if(this == ModItems.cape_gasmask) list.add("Avalible for everyone");
 		if(this == ModItems.cape_schrabidium) list.add("Avalible for everyone");

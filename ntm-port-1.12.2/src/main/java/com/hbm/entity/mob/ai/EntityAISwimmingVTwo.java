@@ -36,8 +36,13 @@ public class EntityAISwimmingVTwo extends EntityAIBase {
 		}
 	}
 
-	@Override
-	public boolean continueExecuting() {
+
+		@Override
+	public boolean shouldContinueExecuting() {
+		return continueExecuting();
+	}
+
+public boolean continueExecuting() {
 		return !this.fish.getNavigator().noPath();
 	}
 

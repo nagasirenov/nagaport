@@ -74,7 +74,7 @@ public class EntityWaypoint extends Entity {
 			this.setDead();
 		}
 
-		bb = AxisAlignedBB.getBoundingBox(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
+		bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
 
 		if(!this.world.isRemote) {
 
@@ -88,7 +88,7 @@ public class EntityWaypoint extends Entity {
 						EntityGlyphid bug = ((EntityGlyphid) e);
 
 						if(additional != null && !hasSpawned) {
-							this.world.spawnEntityInWorld(additional);
+							this.world.spawnEntity(additional);
 							hasSpawned = true;
 						}
 

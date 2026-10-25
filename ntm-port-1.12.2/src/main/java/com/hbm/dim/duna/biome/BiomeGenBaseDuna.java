@@ -24,7 +24,7 @@ public abstract class BiomeGenBaseDuna extends BiomeGenBaseCelestial {
 	}
 
 	@Override
-	protected BiomeDecorator createBiomeDecorator() {
+	public BiomeDecorator createBiomeDecorator() {
 		BiomeDecoratorCelestial decorator = new BiomeDecoratorCelestial(ModBlocks.duna_rock);
 		decorator.generateLakes = false;
 		return decorator;

@@ -110,12 +110,15 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fX, float fY, float fZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 
 		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		if(stack != null && stack.getItem() instanceof ItemBlock) {
 			ItemBlock ib = (ItemBlock) stack.getItem();
-			Block block = ib.field_150939_a;
+			Block block = net.minecraft.block.Block.getBlockFromItem(ib);
 
 			if(BlockCablePaintable.allowedPaint(block, this)) {
 				TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
@@ -125,14 +128,14 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 					if(tube.block == null) {
 						tube.block = block;
 						tube.meta = stack.getItemDamage() & 15;
-						world.markBlockForUpdate(x, y, z);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 						tube.markDirty();
 						return true;
 					}
 				}
 			}
 		} else if(ToolType.getType(stack) == ToolType.SCREWDRIVER || ToolType.getType(stack) == ToolType.HAND_DRILL) return false;
-		
+
 		if(!player.isSneaking()) {
 			TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(tile instanceof TileEntityPneumoTube) {
@@ -146,7 +149,7 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 				}
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -162,7 +165,7 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 			super.update();
 
 			if(this.world.isRemote && (lastMeta != meta || lastBlock != block)) {
-				this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				lastBlock = block;
 				lastMeta = meta;
 			}

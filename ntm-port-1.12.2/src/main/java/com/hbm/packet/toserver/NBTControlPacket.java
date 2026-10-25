@@ -30,11 +30,7 @@ public class NBTControlPacket implements IMessage {
 		this.y = y;
 		this.z = z;
 
-		try {
-			buffer.writeNBTTagCompoundToBuffer(nbt);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		buffer.writeCompoundTag(nbt);
 	}
 
 	@Override
@@ -66,16 +62,16 @@ public class NBTControlPacket implements IMessage {
 		@Override
 		public IMessage onMessage(NBTControlPacket m, MessageContext ctx) {
 
-			EntityPlayer p = ctx.getServerHandler().playerEntity;
+			EntityPlayer p = ctx.getServerHandler().player;
 
 			if(p.world == null)
 				return null;
 
-			TileEntity te = p.world.getTileEntity(m.x, m.y, m.z);
+			TileEntity te = p.world.getTileEntity(new net.minecraft.util.math.BlockPos(m.x, m.y, m.z));
 
 			try {
 
-				NBTTagCompound nbt = m.buffer.readNBTTagCompoundFromBuffer();
+				NBTTagCompound nbt = m.buffer.readCompoundTag();
 
 				if(nbt != null) {
 					if(te instanceof IControlReceiver) {

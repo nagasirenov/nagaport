@@ -11,6 +11,7 @@ import com.hbm.tileentity.machine.TileEntityOrbitalStationLauncher;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
 public class ContainerOrbitalStationLauncher extends ContainerBase {
@@ -50,14 +51,14 @@ public class ContainerOrbitalStationLauncher extends ContainerBase {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 
 		//L/R: 0
 		//M3: 3
 		//SHIFT: 1
 		//DRAG: 5
 
-		if(index >= tile.getSizeInventory() && mode == 1) {
+		if(index >= tile.getSizeInventory() && mode == ClickType.QUICK_MOVE) {
 			return null;
 		}
 

@@ -85,7 +85,7 @@ public class GUIReactorResearch extends GuiInfoContainer {
 		this.fontRenderer.drawString(labels[2], 6, 89, 15066597);
 	}
 
-    protected void mouseClicked(int mouseX, int mouseY, int i) {
+    protected void mouseClicked(int mouseX, int mouseY, int i) throws java.io.IOException {
     	super.mouseClicked(mouseX, mouseY, i);
     	this.field.mouseClicked(mouseX, mouseY, i);
     	
@@ -154,7 +154,7 @@ public class GUIReactorResearch extends GuiInfoContainer {
 	}
 	
 	@Override
-	protected void keyTyped(char c, int i) {
+	protected void keyTyped(char c, int i) throws java.io.IOException {
 
 		if(this.field.textboxKeyTyped(c, i))
 			return;

@@ -39,6 +39,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILookOverlay, ITooltipProvider {
+	public BlockMassStorage withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 
 	@SideOnly(Side.CLIENT) private IIcon[] iconTop;
 	@SideOnly(Side.CLIENT) private IIcon[] iconSide;
@@ -48,7 +53,6 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 		super(Material.IRON);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = new IIcon[4];
@@ -74,14 +78,13 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		list.add(new ItemStack(item, 1, 3));
-		list.add(new ItemStack(item, 1, 0));
-		list.add(new ItemStack(item, 1, 1));
-		list.add(new ItemStack(item, 1, 2));
+	public void getSubBlocks(CreativeTabs tab, net.minecraft.util.NonNullList<ItemStack> list) {
+		list.add(new ItemStack(this, 1, 3));
+		list.add(new ItemStack(this, 1, 0));
+		list.add(new ItemStack(this, 1, 1));
+		list.add(new ItemStack(this, 1, 2));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		int meta = this.rectify(metadata);
@@ -92,8 +95,8 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	}
 
 	@Override
-	public int damageDropped(int meta) {
-		return rectify(meta);
+	public int damageDropped(net.minecraft.block.state.IBlockState state) {
+		return rectify(state.getBlock().getMetaFromState(state));
 	}
 
 	@Override
@@ -107,7 +110,10 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && (com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemLock || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key_kit)) {
@@ -126,8 +132,10 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 
 	private static boolean dropInv = true;
 
-	@Override
-	public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest) {
+	public boolean removedByPlayer(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos pos, EntityPlayer player, boolean willHarvest) {
+		int x = pos.getX();
+		int y = pos.getY();
+		int z = pos.getZ();
 
 		if(!player.capabilities.isCreativeMode && !world.isRemote && willHarvest) {
 
@@ -159,12 +167,12 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 				}
 			}
 
-			if(inv instanceof TileEntityMassStorage && nbt.func_150296_c().size() > 0) {
+			if(inv instanceof TileEntityMassStorage && nbt.getKeySet().size() > 0) {
 				TileEntityMassStorage storage = (TileEntityMassStorage) inv;
 				nbt.setInteger("stack", storage.getStockpile());
 			}
 
-			if(!nbt.hasNoTags()) {
+			if(!nbt.isEmpty()) {
 				drop.setTagCompound(nbt);
 			}
 
@@ -179,7 +187,10 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, EntityLivingBase player, ItemStack stack) {
+		int x = pos.getX();
+		int y = pos.getY();
+		int z = pos.getZ();
 
 		ISidedInventory inv = (ISidedInventory)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
@@ -202,19 +213,22 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 			}
 		}
 
-		super.onBlockPlacedBy(world, x, y, z, player, stack);
+		super.onBlockPlacedBy(world, pos, state, player, stack);
 
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		int meta = stack.getItemDamage();
 
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, meta + 3 * getSubCount(), 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, meta + 1 * getSubCount(), 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, meta + 2 * getSubCount(), 2);
+		if(i == 0) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta, 2);
+		if(i == 1) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta + 3 * getSubCount(), 2);
+		if(i == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta + 1 * getSubCount(), 2);
+		if(i == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, meta + 2 * getSubCount(), 2);
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
 
 		if(dropInv) {
 			ISidedInventory sided = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
@@ -259,11 +273,11 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 					}
 				}
 
-				world.func_147453_f(x, y, z, block);
+				world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), block);
 			}
 		}
 
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override

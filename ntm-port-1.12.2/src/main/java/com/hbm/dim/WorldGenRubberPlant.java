@@ -14,7 +14,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenRubberPlant extends WorldGenerator {
 
-	@Override
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
+
 	public boolean generate(World world, Random rand, int x, int y, int z) {
 		boolean flag = false;
 		Biome currentBiome = world.getBiome(new BlockPos(x, 0, z));
@@ -26,7 +29,7 @@ public class WorldGenRubberPlant extends WorldGenerator {
 
 
 
-			if ((!world.provider.hasNoSky || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.rubber_grass) {
+			if ((world.provider.hasSkyLight() || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.rubber_grass) {
 
 				int plantType = rand.nextInt(3);  // 0, 1, or 2
 
@@ -45,16 +48,16 @@ public class WorldGenRubberPlant extends WorldGenerator {
 				{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = px; int nativeRegisteredWriteY = py; int nativeRegisteredWriteZ = pz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_plant; int nativeRegisteredWriteMeta = plantType; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				flag = true;
 
-			} else if ((!world.provider.hasNoSky || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.vinyl_sand) {
+			} else if ((world.provider.hasSkyLight() || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.vinyl_sand) {
 				if(rand.nextInt(64) == 0) {
 
-					world.setBlock(px, world.getTopSolidOrLiquidBlock(px, pz), pz, ModBlocks.spike_cacti, EnumBushType.CACT.ordinal(), 2);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, px, world.getTopSolidOrLiquidBlock(new net.minecraft.util.math.BlockPos(px, 0, pz)).getY(), pz, ModBlocks.spike_cacti, EnumBushType.CACT.ordinal(), 2);
 
 				}
 
 			}
 			if (currentBiome == BiomeGenBaseTekto.forest) {
-				if ((!world.provider.hasNoSky || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.rubber_grass) {
+				if ((world.provider.hasSkyLight() || py < 254) && com.hbm.world.WorldBlockState.read(world, px, py - 1, pz).getBlock() == ModBlocks.rubber_grass) {
 					int plantType = rand.nextInt(2);
 
 					switch (plantType) {
@@ -80,13 +83,13 @@ public class WorldGenRubberPlant extends WorldGenerator {
 						break;
 				}
 					if(rand.nextInt(4) == 0) {
-						world.setBlock(px, py, pz, ModBlocks.spike_cacti, plantType, 2);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, px, py, pz, ModBlocks.spike_cacti, plantType, 2);
 					} else {
 						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = px; int nativeRegisteredWriteY = py; int nativeRegisteredWriteZ = pz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.rubber_plant; int nativeRegisteredWriteMeta = OtherplantType; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 
 					}
 					if(rand.nextInt(10) == 0) {
-						world.setBlock(px, py, pz, ModBlocks.spike_cacti, EnumBushType.CACT.ordinal(), 2);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, px, py, pz, ModBlocks.spike_cacti, EnumBushType.CACT.ordinal(), 2);
 
 					}
 					flag = true;

@@ -97,9 +97,9 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 				//get old direction
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.DOWN);
 				//remove tile from the world to prevent inventory dropping
-				this.world.removeTileEntity(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				this.world.removeTileEntity(this.pos);
 				//use fillspace to create a new multiblock configuration
-				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.machine_fluidtank, dir.ordinal() + 10, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.machine_fluidtank, dir.ordinal() + 10, 3);
 				MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ((BlockDummyable) ModBlocks.machine_fluidtank).getDimensions(), ModBlocks.machine_fluidtank, dir);
 				//load the tile data to restore the old values
 				NBTTagCompound data = new NBTTagCompound();
@@ -204,7 +204,7 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 2.875, this.pos.getZ() + 1).offset(dir.offsetX * 0.5 - rot.offsetX * 2.25, 0, dir.offsetZ * 0.5 - rot.offsetZ * 2.25));
+		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 2.875, this.pos.getZ() + 1).offset(dir.offsetX * 0.5 - rot.offsetX * 2.25, 0, dir.offsetZ * 0.5 - rot.offsetZ * 2.25));
 
 		for(EntityPlayer player : players) {
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
@@ -273,7 +273,7 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 			new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, 5F).makeAmat().setBlockAllocator(null).setBlockProcessor(null).explode();
 
 		} else if(type.hasTrait(FT_Flammable.class) && onFire) {
-			List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 1.5, this.pos.getY(), this.pos.getZ() - 1.5, this.pos.getX() + 2.5, this.pos.getY() + 5, this.pos.getZ() + 2.5));
+			List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() - 1.5, this.pos.getY(), this.pos.getZ() - 1.5, this.pos.getX() + 2.5, this.pos.getY() + 5, this.pos.getZ() + 2.5));
 			for(Entity e : affected) e.setFire(5);
 			Random rand = this.world.rand;
 			ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + rand.nextDouble(), this.pos.getY() + 0.5 + rand.nextDouble(), this.pos.getZ() + rand.nextDouble(), rand.nextGaussian() * 0.2, 0.1, rand.nextGaussian() * 0.2);
@@ -354,7 +354,7 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,
@@ -568,10 +568,10 @@ public class TileEntityMachineFluidTank extends TileEntityMachineBase implements
 
 	@Override
 	public String runRORFunction(String name, String[] params) {
-		
+
 		if((PREFIX_FUNCTION + "setmode").equals(name) && params.length > 0) {
 			int mode = IRORInteractive.parseInt(params[0], 0, 3);
-			
+
 			if(mode != this.mode) {
 				this.mode = (short) mode;
 				this.markChanged();

@@ -16,6 +16,11 @@ import net.minecraft.network.datasync.EntityDataManager;
 
 
 public class EntityMagnusCartus extends EntityMinecart {
+
+	@Override
+	public net.minecraft.entity.item.EntityMinecart.Type getType() {
+		return net.minecraft.entity.item.EntityMinecart.Type.RIDEABLE;
+	}
 	private static final DataParameter<Integer> BOGIE_ID = EntityDataManager.createKey(EntityMagnusCartus.class, DataSerializers.VARINT);
 
 
@@ -29,7 +34,6 @@ public class EntityMagnusCartus extends EntityMinecart {
 		super(p_i1713_1_, p_i1713_2_, p_i1713_4_, p_i1713_6_);
 	}
 
-	@Override
 	public int getMinecartType() {
 		return -1;
 	}
@@ -63,7 +67,7 @@ public class EntityMagnusCartus extends EntityMinecart {
 				vec = vec.rotateYaw(rand.nextFloat() * 6.28F);
 				EntityMinecartBogie bog = new EntityMinecartBogie(this.world, posX + vec.x, posY + vec.y, posZ + vec.z);
 				this.setBogie(bog);
-				this.world.spawnEntityInWorld(bog);
+				this.world.spawnEntity(bog);
 			}
 
 			Vec3d delta = new Vec3d(posX - bogie.posX, posY - bogie.posY, posZ - bogie.posZ);

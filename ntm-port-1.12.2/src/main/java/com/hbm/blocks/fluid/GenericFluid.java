@@ -8,24 +8,21 @@ import net.minecraftforge.fluids.Fluid;
 public class GenericFluid extends Fluid {
 
 	public GenericFluid(String name) {
-		super(name);
+		super(name, new net.minecraft.util.ResourceLocation("hbm", "blocks/" + name + "_still"), new net.minecraft.util.ResourceLocation("hbm", "blocks/" + name + "_flowing"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon() {
 		return getStillIcon();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getStillIcon() {
-		return this.block.getIcon(0, 0);
+		return com.hbm.render.icon.LegacyIconRegister.wrapSprite(net.minecraft.client.Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(net.minecraft.item.Item.getItemFromBlock(this.block), 0));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getFlowingIcon() {
-		return this.block.getIcon(1, 0);
+		return com.hbm.render.icon.LegacyIconRegister.wrapSprite(net.minecraft.client.Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(net.minecraft.item.Item.getItemFromBlock(this.block), 1));
 	}
 }

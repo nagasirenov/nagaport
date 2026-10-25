@@ -52,17 +52,17 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 	public static final int maxSulfur = 10;
 	public static final long maxPower = 1000;
 	public FluidTank[] tanks;
-	
+
 	public boolean hasExploded = false;
 	public boolean onFire = false;
 	public Explosion lastExplosion = null;
-	
+
 	private AudioWrapper audio;
 	private int audioTime;
 	public boolean isOn;
 
 	private static final int[] slot_access = new int[] {11};
-	
+
 	public TileEntityMachineRefinery() {
 		super(13);
 		tanks = new FluidTank[5];
@@ -82,7 +82,7 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 	public boolean isItemValidForSlot(int i, ItemStack stack) {
 		return false;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
@@ -97,11 +97,11 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 		hasExploded = nbt.getBoolean("exploded");
 		onFire = nbt.getBoolean("onFire");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setLong("power", power);
 		tanks[0].writeToNBT(nbt, "input");
 		tanks[1].writeToNBT(nbt, "heavy");
@@ -113,7 +113,7 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 		nbt.setBoolean("onFire", onFire);
 		return nbt;
 	}
-	
+
 	@Override
 	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
 		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
@@ -131,40 +131,40 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i == 11;
 	}
-	
+
 	@Override
 	public void update() {
 
 		if(!this.world.isRemote) {
-			
+
 			this.isOn = false;
-			
+
 			if(this.getBlockMetadata() < 12) {
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata()).getRotation(ForgeDirection.DOWN);
-				this.world.removeTileEntity(this.pos.getX(), this.pos.getY(), this.pos.getZ());
-				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.machine_refinery, dir.ordinal() + 10, 3);
+				this.world.removeTileEntity(this.pos);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.machine_refinery, dir.ordinal() + 10, 3);
 				MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ((BlockDummyable) ModBlocks.machine_refinery).getDimensions(), ModBlocks.machine_refinery, dir);
 				NBTTagCompound data = new NBTTagCompound();
 				this.writeToNBT(data);
 				this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())).readFromNBT(data);
 				return;
 			}
-			
+
 			if(!this.hasExploded) {
-				
+
 				this.updateConnections();
-				
+
 				power = Library.chargeTEFromItems(slots, 0, power, maxPower);
 				tanks[0].setType(12, slots);
 				tanks[0].loadTank(1, 2, slots);
-				
+
 				refine();
-	
+
 				tanks[1].unloadTank(3, 4, slots);
 				tanks[2].unloadTank(5, 6, slots);
 				tanks[3].unloadTank(7, 8, slots);
 				tanks[4].unloadTank(9, 10, slots);
-				
+
 				for(DirPos pos : getConPos()) {
 					for(int i = 1; i < 5; i++) {
 						if(tanks[i].getFill() > 0) {
@@ -173,7 +173,7 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 					}
 				}
 			} else if(onFire){
-				
+
 				boolean hasFuel = false;
 				for(int i = 0; i < 5; i++) {
 					if(tanks[i].getFill() > 0) {
@@ -181,9 +181,9 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 						hasFuel = true;
 					}
 				}
-				
+
 				if(hasFuel) {
-					List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 1.5, this.pos.getY(), this.pos.getZ() - 1.5, this.pos.getX() + 2.5, this.pos.getY() + 8, this.pos.getZ() + 2.5));
+					List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() - 1.5, this.pos.getY(), this.pos.getZ() - 1.5, this.pos.getX() + 2.5, this.pos.getY() + 8, this.pos.getZ() + 2.5));
 					for(Entity e : affected) e.setFire(5);
 					Random rand = this.world.rand;
 					ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + rand.nextDouble(), this.pos.getY() + 1.5 + rand.nextDouble() * 3, this.pos.getZ() + rand.nextDouble(), rand.nextGaussian() * 0.05, 0.1, rand.nextGaussian() * 0.05);
@@ -197,13 +197,13 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 			this.networkPackNT(150);
 
 		} else {
-			
+
 			if(this.isOn) audioTime = 20;
-			
+
 			if(audioTime > 0) {
-				
+
 				audioTime--;
-				
+
 				if(audio == null) {
 					audio = createAudioLoop();
 					audio.startSound();
@@ -213,9 +213,9 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 
 				audio.updateVolume(getVolume(1F));
 				audio.keepAlive();
-				
+
 			} else {
-				
+
 				if(audio != null) {
 					audio.stopSound();
 					audio = null;
@@ -223,7 +223,7 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 			}
 		}
 	}
-	
+
 	@Override
 	public AudioWrapper createAudioLoop() {
 		return MainRegistry.proxy.getLoopedSound("hbm:block.boiler", this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0.25F, 15F, 1.0F, 20);
@@ -268,18 +268,18 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 		this.onFire = buf.readBoolean();
 		this.isOn = buf.readBoolean();
 	}
-	
+
 	private void refine() {
 		RefineryRecipe refinery = RefineryRecipes.getRefinery(tanks[0].getTankType());
 		if(refinery == null) {
 			for(int i = 1; i < 5; i++) tanks[i].setTankType(Fluids.NONE);
 			return;
 		}
-		
+
 		FluidStack[] stacks = refinery.outputs;
-		
+
 		for(int i = 0; i < stacks.length; i++) tanks[i + 1].setTankType(stacks[i].type);
-		
+
 		if(power < 5 || tanks[0].getFill() < 100) return;
 
 		for(int i = 0; i < stacks.length; i++) {
@@ -287,45 +287,45 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 				return;
 			}
 		}
-		
+
 		this.isOn = true;
 		tanks[0].setFill(tanks[0].getFill() - 100);
 
 		for(int i = 0; i < stacks.length; i++) tanks[i + 1].setFill(tanks[i + 1].getFill() + stacks[i].fill);
-		
+
 		this.sulfur++;
-		
+
 		if(this.sulfur >= maxSulfur) {
 			this.sulfur -= maxSulfur;
-			
+
 			ItemStack out = refinery.solid;
-			
+
 			if(out != null) {
-				
+
 				if(slots[11] == null) {
 					slots[11] = out.copy();
 				} else {
-					
-					if(out.getItem() == slots[11].getItem() && out.getItemDamage() == slots[11].getItemDamage() && slots[11].stackSize + out.stackSize <= slots[11].getMaxStackSize()) {
-						slots[11].stackSize += out.stackSize;
+
+					if(out.getItem() == slots[11].getItem() && out.getItemDamage() == slots[11].getItemDamage() && slots[11].getCount() + out.getCount() <= slots[11].getMaxStackSize()) {
+						slots[11].grow(out.getCount());
 					}
 				}
 			}
-			
+
 			this.markDirty();
 		}
 
 		if(this.world.getTotalWorldTime() % 20 == 0) PollutionHandler.incrementPollution(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), PollutionType.SOOT, PollutionHandler.SOOT_PER_SECOND * 5);
 		this.power -= 5;
 	}
-	
+
 	private void updateConnections() {
 		for(DirPos pos : getConPos()) {
 			this.trySubscribe(this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 			this.trySubscribe(tanks[0].getTankType(), this.world, pos.getX(), pos.getY(), pos.getZ(), pos.getDir());
 		}
 	}
-	
+
 	public DirPos[] getConPos() {
 		return new DirPos[] {
 				new DirPos(this.pos.getX() + 2, this.pos.getY(), this.pos.getZ() + 1, Library.POS_X),
@@ -338,7 +338,7 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 				new DirPos(this.pos.getX() - 1, this.pos.getY(), this.pos.getZ() - 2, Library.NEG_Z)
 		};
 	}
-	
+
 	public long getPowerScaled(long i) {
 		return (power * i) / maxPower;
 	}
@@ -351,19 +351,19 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 	@Override
 	public long getPower() {
 		return power;
-		
+
 	}
 
 	@Override
 	public long getMaxPower() {
 		return maxPower;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {
@@ -392,9 +392,9 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 
 	@Override
 	public void explode(World world, int x, int y, int z) {
-		
+
 		if(this.hasExploded) return;
-		
+
 		this.hasExploded = true;
 		this.onFire = true;
 		this.markChanged();
@@ -403,13 +403,13 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 	@Override
 	public void tryExtinguish(World world, int x, int y, int z, EnumExtinguishType type) {
 		if(!this.hasExploded || !this.onFire) return;
-		
+
 		if(type == EnumExtinguishType.FOAM || type == EnumExtinguishType.CO2) {
 			this.onFire = false;
 			this.markChanged();
 			return;
 		}
-		
+
 		if(type == EnumExtinguishType.WATER) {
 			for(FluidTank tank : tanks) {
 				if(tank.getFill() > 0) {
@@ -424,11 +424,11 @@ public class TileEntityMachineRefinery extends TileEntityMachineBase implements 
 	public boolean isDamaged() {
 		return this.hasExploded;
 	}
-	
+
 	List<AStack> repair = new ArrayList();
 	@Override
 	public List<AStack> getRepairMaterials() {
-		
+
 		if(!repair.isEmpty())
 			return repair;
 

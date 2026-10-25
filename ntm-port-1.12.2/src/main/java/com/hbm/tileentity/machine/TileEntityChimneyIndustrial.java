@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 
 public class TileEntityChimneyIndustrial extends TileEntityChimneyBase {
-	
+
 	@Override
 	public void spawnParticles() {
 
@@ -37,14 +37,14 @@ public class TileEntityChimneyIndustrial extends TileEntityChimneyBase {
 	public boolean cpaturesSoot() {
 		return true;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -53,10 +53,10 @@ public class TileEntityChimneyIndustrial extends TileEntityChimneyBase {
 					this.pos.getZ() + 2
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

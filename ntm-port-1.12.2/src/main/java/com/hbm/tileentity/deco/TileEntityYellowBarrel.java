@@ -1,4 +1,5 @@
 package com.hbm.tileentity.deco;
+import net.minecraft.util.math.AxisAlignedBB;
 
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.relauncher.Side;
@@ -20,7 +21,7 @@ public class TileEntityYellowBarrel extends TileEntity {
         double d7;
         double wat = 4*2;
         boolean isOccupied = false;
-        
+
 
         strength *= 2.0F;
         i = MathHelper.floor_double(this.xCoord - wat - 1.0D);
@@ -29,7 +30,7 @@ public class TileEntityYellowBarrel extends TileEntity {
         int i2 = MathHelper.floor_double(this.yCoord + wat + 1.0D);
         int l = MathHelper.floor_double(this.zCoord - wat - 1.0D);
         int j2 = MathHelper.floor_double(this.zCoord + wat + 1.0D);
-        List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(i, k, l, j, i2, j2));
+        List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(i, k, l, j, i2, j2));
         Vec3d vec3 = new Vec3d(this.xCoord, this.yCoord, this.zCoord);
 
         for (int i1 = 0; i1 < list.size(); ++i1)
@@ -53,7 +54,7 @@ public class TileEntityYellowBarrel extends TileEntity {
 
         strength = (int)f;
     }*/
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()

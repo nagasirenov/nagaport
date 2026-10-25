@@ -19,6 +19,8 @@ import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
@@ -41,6 +43,7 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	private final Random field_149933_a = new Random();
 	private static boolean keepInventory;
 	public long maxPower;
+	protected IIcon blockIcon;
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
@@ -52,7 +55,6 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 		this.maxPower = maxPower;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		if(this == ModBlocks.machine_battery) {
@@ -82,7 +84,6 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 		}
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 
@@ -98,34 +99,35 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		this.setDefaultDirection(world, x, y, z);
 	}
 
 	private void setDefaultDirection(World world, int x, int y, int z) {
 		if(!world.isRemote) {
-			Block block1 = com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock();
-			Block block2 = com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock();
-			Block block3 = com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock();
-			Block block4 = com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock();
+			net.minecraft.block.state.IBlockState state1 = com.hbm.world.WorldBlockState.read(world, x, y, z - 1);
+			net.minecraft.block.state.IBlockState state2 = com.hbm.world.WorldBlockState.read(world, x, y, z + 1);
+			net.minecraft.block.state.IBlockState state3 = com.hbm.world.WorldBlockState.read(world, x - 1, y, z);
+			net.minecraft.block.state.IBlockState state4 = com.hbm.world.WorldBlockState.read(world, x + 1, y, z);
 
 			byte b0 = 3;
 
-			if(block1.func_149730_j() && !block2.func_149730_j()) {
+			if(state1.isFullBlock() && !state2.isFullBlock()) {
 				b0 = 3;
 			}
-			if(block2.func_149730_j() && !block1.func_149730_j()) {
+			if(state2.isFullBlock() && !state1.isFullBlock()) {
 				b0 = 2;
 			}
-			if(block3.func_149730_j() && !block4.func_149730_j()) {
+			if(state3.isFullBlock() && !state4.isFullBlock()) {
 				b0 = 5;
 			}
-			if(block4.func_149730_j() && !block3.func_149730_j()) {
+			if(state4.isFullBlock() && !state3.isFullBlock()) {
 				b0 = 4;
 			}
 
-			world.setBlockMetadataWithNotify(x, y, z, b0, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, b0, 2);
 		}
 	}
 
@@ -135,16 +137,16 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 		}
 		if(i == 2) {
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 3) {
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 
 		if(itemStack.hasDisplayName()) {
@@ -176,7 +178,10 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	}
 
 	@Override
-	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
+	public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int p_149749_2_ = pos.getX(), p_149749_3_ = pos.getY(), p_149749_4_ = pos.getZ();
+		Block p_149749_5_ = state.getBlock();
+		int p_149749_6_ = p_149749_5_.getMetaFromState(state);
 		if(!keepInventory) {
 			TileEntity tile = p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
 
@@ -218,11 +223,11 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 					}
 				}
 
-				p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
+				p_149749_1_.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_), p_149749_5_);
 			}
 		}
 
-		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+		super.breakBlock(p_149749_1_, pos, state);
 	}
 
 	@Override
@@ -267,24 +272,38 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 		return battery.getComparatorPower();
 	}
 
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		return IPersistentNBT.getDrops(world, x, y, z, this);
 	}
 
-	@Override
-	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
+
+		@Override
+	public void onBlockHarvested(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.player.EntityPlayer player) {
+		int meta = state.getBlock().getMetaFromState(state);
+		onBlockHarvested(worldIn, pos.getX(), pos.getY(), pos.getZ(), meta, player);
+	}
+
+public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
 
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
-			this.dropBlockAsItem(world, x, y, z, meta, 0);
+			this.dropBlockAsItem(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), 0);
 			harvesters.set(null);
 		}
 	}
 
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
-		player.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);
+	public void harvestBlock(World worldIn, EntityPlayer player, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, @javax.annotation.Nullable net.minecraft.tileentity.TileEntity te, ItemStack stack) {
+		player.addStat(StatList.getBlockStats(this));
 		player.addExhaustion(0.025F);
 	}
 

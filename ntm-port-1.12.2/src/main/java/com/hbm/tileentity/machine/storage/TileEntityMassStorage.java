@@ -22,6 +22,25 @@ import net.minecraft.world.World;
 
 public class TileEntityMassStorage extends TileEntityCrateBase implements IControlReceiverFilter, IRORValueProvider, IRORInteractive, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private int stack = 0;
 	public boolean output = false;
 	private int capacity;
@@ -65,10 +84,10 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 			if(canInsert(slots[0])) {
 
 				int remaining = getCapacity() - getStockpile();
-				int toRemove = Math.min(remaining, slots[0].stackSize);
+				int toRemove = Math.min(remaining, slots[0].getCount());
 				this.decrStackSize(0, toRemove);
 				this.stack += toRemove;
-				this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+				this.world.markChunkDirty(this.pos, this);
 			}
 
 			if(output && getType() != null) {
@@ -82,10 +101,10 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 				if(amount > 0) {
 					if(slots[2] == null) {
 						slots[2] = slots[1].copy();
-						slots[2].stackSize = amount;
+						slots[2].setCount(amount);
 					} else {
-						amount = Math.min(amount, slots[2].getMaxStackSize() - slots[2].stackSize);
-						slots[2].stackSize += amount;
+						amount = Math.min(amount, slots[2].getMaxStackSize() - slots[2].getCount());
+						slots[2].grow(amount);
 					}
 					this.stack -= amount;
 				}
@@ -103,10 +122,10 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 		if(!canInsert(stack)) return false;
 
 		int remaining = getCapacity() - getStockpile();
-		if(remaining < stack.stackSize) return false;
+		if(remaining < stack.getCount()) return false;
 
-		this.stack += stack.stackSize;
-		stack.stackSize = 0;
+		this.stack += stack.getCount();
+		stack.setCount(0);
 		this.markDirty();
 
 		return true;
@@ -120,7 +139,7 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 		if(getStockpile() < amount) return null;
 
 		ItemStack result = slots[1].copy();
-		result.stackSize = amount;
+		result.setCount(amount);
 		this.stack -= amount;
 		this.markDirty();
 
@@ -323,10 +342,10 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 
 			if(slots[2] == null) {
 				slots[2] = slots[1].copy();
-				slots[2].stackSize = amount;
+				slots[2].setCount(amount);
 			} else {
-				amount = Math.min(amount, slots[2].getMaxStackSize() - slots[2].stackSize);
-				slots[2].stackSize += amount;
+				amount = Math.min(amount, slots[2].getMaxStackSize() - slots[2].getCount());
+				slots[2].grow(amount);
 			}
 			this.stack -= amount;
 		}

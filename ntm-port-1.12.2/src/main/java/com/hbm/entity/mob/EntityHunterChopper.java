@@ -70,7 +70,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 		if(!(source == ModDamageSource.shrapnel || source == ModDamageSource.nuclearBlast || source == ModDamageSource.blackhole || source.isExplosion() || ModDamageSource.getIsTau(source) || ModDamageSource.getIsSubatomic(source) || ModDamageSource.getIsDischarge(source)))
 			amount *= 0.1F;
 
-		if(this.isEntityInvulnerable() || source instanceof EntityDamageSource || this.getHealth() <= 0.1F) {
+		if(this.isEntityInvulnerable(source) || source instanceof EntityDamageSource || this.getHealth() <= 0.1F) {
 			return false;
 		} else if(amount >= this.getHealth()) {
 			this.initDeath();
@@ -111,17 +111,17 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(750.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(750.0D);
 	}
 
 	@Override
-	protected void updateEntityActionState() {
-		if(!this.world.isRemote && this.world.difficultySetting == EnumDifficulty.PEACEFUL) {
+	protected void updateAITasks() {
+		if(!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
 			this.setDead();
 		}
 
 		if(!isDying) {
-			this.world.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:misc.nullChopper", 10.0F, 0.5F);
+			this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:misc.nullChopper"), net.minecraft.util.SoundCategory.HOSTILE, 10.0F, 0.5F);
 
 			this.prevAttackCounter = this.attackCounter;
 			double d0 = this.waypointX - this.posX;
@@ -133,11 +133,11 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 				if(this.targetedEntity != null) {
 					this.waypointX = targetedEntity.posX + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
 					this.waypointZ = targetedEntity.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-					this.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
+					this.waypointY = this.world.getHeight((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
 				} else {
 					this.waypointX = this.posX + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
 					this.waypointZ = this.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-					this.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
+					this.waypointY = this.world.getHeight((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
 				}
 			}
 
@@ -152,7 +152,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 				} else {
 					this.waypointX = this.posX + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
 					this.waypointZ = this.posZ + (this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F;
-					this.waypointY = this.world.getHeightValue((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
+					this.waypointY = this.world.getHeight((int) waypointX, (int) waypointZ) + 10 + rand.nextInt(15);
 				}
 			}
 
@@ -169,7 +169,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 
 			double d4 = 64.0D;
 
-			if(this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < d4 * d4) {
+			if(this.targetedEntity != null && this.targetedEntity.getDistanceSq(this) < d4 * d4) {
 				double d8 = 2.0D;
 				Vec3d vec3 = this.getLook(1.0F);
 				double xStart = this.posX + vec3.x * d8;
@@ -185,7 +185,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 				}
 
 				if(this.attackCounter % 2 == 0 && attackCounter >= 120) {
-					this.world.playSoundAtEntity(this, "hbm:weapon.osiprShoot", 10.0F, 1.0F);
+					this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:weapon.osiprShoot"), 10.0F, 1.0F);
 					// EntityLargeFireball entitylargefireball = new
 					// EntityLargeFireball(this.worldObj, this, d5, d6, d7);
 					EntityBullet entityarrow = new EntityBullet(this.world, this, 3.0F, 35, 45, false, "chopper");
@@ -205,29 +205,29 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 					entityarrow.posX = xStart;
 					entityarrow.posY = yStart;
 					entityarrow.posZ = zStart;
-					// this.worldObj.spawnEntityInWorld(entitylargefireball);
-					this.world.spawnEntityInWorld(entityarrow);
+					// this.worldObj.spawnEntity(entitylargefireball);
+					this.world.spawnEntity(entityarrow);
 				}
 				if(this.attackCounter == 80) {
-					this.world.playSoundAtEntity(this, "hbm:entity.chopperCharge", 5.0F, 1.0F);
+					this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.chopperCharge"), 5.0F, 1.0F);
 				}
 
 				this.mineDropCounter++;
 				if(mineDropCounter > 100 && rand.nextInt(15) == 0) {
-					this.world.playSoundAtEntity(this, "hbm:entity.chopperDrop", 15.0F, 1.0F);
+					this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.chopperDrop"), 15.0F, 1.0F);
 					EntityChopperMine mine = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, 0, this);
 					this.mineDropCounter = 0;
-					this.world.spawnEntityInWorld(mine);
+					this.world.spawnEntity(mine);
 
 					if(rand.nextInt(3) == 0) {
 						EntityChopperMine mine1 = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, 1, -0.3, 0, this);
 						EntityChopperMine mine2 = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, 1, this);
 						EntityChopperMine mine3 = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, -1, -0.3, 0, this);
 						EntityChopperMine mine4 = new EntityChopperMine(this.world, this.posX, this.posY - 0.5, this.posZ, 0, -0.3, -1, this);
-						this.world.spawnEntityInWorld(mine1);
-						this.world.spawnEntityInWorld(mine2);
-						this.world.spawnEntityInWorld(mine3);
-						this.world.spawnEntityInWorld(mine4);
+						this.world.spawnEntity(mine1);
+						this.world.spawnEntity(mine2);
+						this.world.spawnEntity(mine3);
+						this.world.spawnEntity(mine4);
 					}
 				}
 
@@ -275,7 +275,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 				this.setDead();
 			}
 			if(this.ticksExisted % 2 == 0)
-				this.world.playSoundEffect(this.posX, this.posY, this.posZ, "hbm:misc.nullCrashing", 10.0F, 0.5F);
+				this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:misc.nullCrashing"), net.minecraft.util.SoundCategory.HOSTILE, 10.0F, 0.5F);
 		}
 
 		if(this.targetedEntity == null) {
@@ -316,12 +316,12 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 		double d4 = (this.waypointX - this.posX) / p_70790_7_;
 		double d5 = (this.waypointY - this.posY) / p_70790_7_;
 		double d6 = (this.waypointZ - this.posZ) / p_70790_7_;
-		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().copy();
+		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
 
 		for(int i = 1; i < p_70790_7_; ++i) {
 			axisalignedbb.offset(d4, d5, d6);
 
-			if(!this.world.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty()) {
+			if(!this.world.getCollisionBoxes(this, axisalignedbb).isEmpty()) {
 				return false;
 			}
 		}
@@ -330,12 +330,12 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 	}
 
 	@Override
-	protected String getHurtSound() {
+	protected net.minecraft.util.SoundEvent getHurtSound(DamageSource damageSourceIn) {
 		return null;
 	}
 
 	@Override
-	protected String getDeathSound() {
+	protected net.minecraft.util.SoundEvent getDeathSound() {
 		return null;
 	}
 
@@ -363,7 +363,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 	 */
 	@Override
 	public boolean getCanSpawnHere() {
-		return this.rand.nextInt(20) == 0 && super.getCanSpawnHere() && this.world.difficultySetting != EnumDifficulty.PEACEFUL;
+		return this.rand.nextInt(20) == 0 && super.getCanSpawnHere() && this.world.getDifficulty() != EnumDifficulty.PEACEFUL;
 	}
 
 	/**
@@ -399,7 +399,7 @@ public class EntityHunterChopper extends EntityFlying implements IMob, INtmBossD
 	public void initDeath() {
 		this.world.createExplosion(this, this.posX, this.posY, this.posZ, 10F, true);
 		if(!this.isDying)
-			this.world.playSoundAtEntity(this, "hbm:entity.chopperDamage", 10.0F, 1.0F);
+			this.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:entity.chopperDamage"), 10.0F, 1.0F);
 		isDying = true;
 	}
 

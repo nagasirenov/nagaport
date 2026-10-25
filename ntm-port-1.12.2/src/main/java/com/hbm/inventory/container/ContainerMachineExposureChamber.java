@@ -53,7 +53,7 @@ public class ContainerMachineExposureChamber extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(var5, 5, 7, false)) {
 						return null;
@@ -69,7 +69,7 @@ public class ContainerMachineExposureChamber extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

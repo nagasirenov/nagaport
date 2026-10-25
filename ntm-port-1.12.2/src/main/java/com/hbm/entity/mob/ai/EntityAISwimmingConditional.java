@@ -19,12 +19,12 @@ public class EntityAISwimmingConditional extends EntityAIBase {
 		this.living = living;
 		this.condition = condition;
 		this.setMutexBits(4);
-		living.getNavigator().setCanSwim(true);
+		living.getNavigator().getNodeProcessor().setCanSwim(true);
 	}
 
 	@Override
 	public boolean shouldExecute() {
-		return (this.living.isInWater() || this.living.handleLavaMovement()) && condition.test(living);
+		return (this.living.isInWater() || this.living.isInLava()) && condition.test(living);
 	}
 
 	@Override

@@ -13,14 +13,18 @@ import net.minecraft.item.ItemStack;
 import com.hbm.util.i18n.I18nUtil;
 
 public class BlockNTMDirt extends BlockDirt {
-	
+	public BlockNTMDirt withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 	@Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
+    public void getSubBlocks(net.minecraft.creativetab.CreativeTabs p_149666_2_, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> p_149666_3_)
     {
         p_149666_3_.add(new ItemStack(this, 1, 0));
     }
-    
+
     public String getLocalizedName()
     {
 		return ("" + I18nUtil.resolveKey(Blocks.DIRT.getTranslationKey()) + ".name").trim();

@@ -17,7 +17,7 @@ public class ItemAMSCore extends Item {
 	long powerBase;
 	int heatBase;
 	int fuelBase;
-	
+
 	public ItemAMSCore(long powerBase, int heatBase, int fuelBase) {
 		this.powerBase = powerBase;
 		this.heatBase = heatBase;
@@ -82,10 +82,10 @@ public class ItemAMSCore extends Item {
 
     	if(this == ModItems.ams_core_thingy)
     	{
-    		return EnumRarity.epic;
+		return EnumRarity.EPIC;
     	}
-    	
-    	return EnumRarity.uncommon;
+
+		return EnumRarity.UNCOMMON;
     }
 
     @Override
@@ -96,22 +96,22 @@ public class ItemAMSCore extends Item {
     	{
     		return true;
     	}
-    	
+
     	return false;
     }
-    
+
     public static long getPowerBase(ItemStack stack) {
 		if(stack == null || !(stack.getItem() instanceof ItemAMSCore))
 			return 0;
 		return ((ItemAMSCore)stack.getItem()).powerBase;
     }
-    
+
     public static int getHeatBase(ItemStack stack) {
 		if(stack == null || !(stack.getItem() instanceof ItemAMSCore))
 			return 0;
 		return ((ItemAMSCore)stack.getItem()).heatBase;
     }
-    
+
     public static int getFuelBase(ItemStack stack) {
 		if(stack == null || !(stack.getItem() instanceof ItemAMSCore))
 			return 0;

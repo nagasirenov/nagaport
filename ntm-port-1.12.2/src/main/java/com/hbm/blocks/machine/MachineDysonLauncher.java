@@ -38,7 +38,10 @@ public class MachineDysonLauncher extends BlockDummyable implements ILookOverlay
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -61,13 +64,13 @@ public class MachineDysonLauncher extends BlockDummyable implements ILookOverlay
 					return false;
 
 				launcher.slots[1] = heldStack.copy();
-				heldStack.stackSize = 0;
-				world.playSoundEffect(x, y, z, "hbm:item.upgradePlug", 1.0F, 1.0F);
+				heldStack.setCount(0);
+				world.playSound(null, x, y, z, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 			} else if(heldStack == null && launcher.slots[1] != null) {
 				if(player.inventory.addItemStackToInventory(launcher.slots[1].copy())) {
 					launcher.slots[1] = null;
 					launcher.markChanged();
-					world.playSoundEffect(x, y, z, "hbm:item.upgradePlug", 1.0F, 1.0F);
+					world.playSound(null, x, y, z, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 				}
 			}
 		}

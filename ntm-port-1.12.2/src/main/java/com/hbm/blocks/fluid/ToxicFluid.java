@@ -8,22 +8,19 @@ import net.minecraftforge.fluids.Fluid;
 public class ToxicFluid extends Fluid {
 
 	public ToxicFluid() {
-		super("toxic_fluid");
+		super("toxic_fluid", new net.minecraft.util.ResourceLocation("hbm", "blocks/toxic_still"), new net.minecraft.util.ResourceLocation("hbm", "blocks/toxic_flowing"));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon() {
     	return getStillIcon();
     }
 
-	@Override
 	@SideOnly(Side.CLIENT)
     public IIcon getStillIcon() {
         return ToxicBlock.stillIcon;
     }
 
-	@Override
 	@SideOnly(Side.CLIENT)
     public IIcon getFlowingIcon() {
         return ToxicBlock.flowingIcon;

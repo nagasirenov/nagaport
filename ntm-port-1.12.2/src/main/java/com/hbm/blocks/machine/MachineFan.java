@@ -55,8 +55,8 @@ public class MachineFan extends BlockContainer implements IToolable, ITooltipPro
 	@Override
 	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
-		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		int l = net.minecraft.util.EnumFacing.getDirectionFromEntityLiving(new net.minecraft.util.math.BlockPos(x, y, z), player).getIndex();
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, l, 2);
 	}
 
 	@Override
@@ -76,7 +76,7 @@ public class MachineFan extends BlockContainer implements IToolable, ITooltipPro
 
 	@Override
 	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
-		int meta = world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ());
+		int meta = com.hbm.world.WorldBlockState.readMetadata(world, pos.getX(), pos.getY(), pos.getZ());
 
 		if(side == EnumFacing.UP || side == EnumFacing.DOWN) return meta != 0 && meta != 1;
 		if(side == EnumFacing.NORTH || side == EnumFacing.SOUTH) return meta != 2 && meta != 3;
@@ -130,7 +130,7 @@ public class MachineFan extends BlockContainer implements IToolable, ITooltipPro
 					int y = dir.offsetY * effRange;
 					int z = dir.offsetZ * effRange;
 
-					List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5 + Math.min(x, 0), this.pos.getY() + 0.5 + Math.min(y, 0), this.pos.getZ() + 0.5 + Math.min(z, 0), this.pos.getX() + 0.5 + Math.max(x, 0), this.pos.getY() + 0.5 + Math.max(y, 0), this.pos.getZ() + 0.5 + Math.max(z, 0)).expand(0.5, 0.5, 0.5));
+					List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() + 0.5 + Math.min(x, 0), this.pos.getY() + 0.5 + Math.min(y, 0), this.pos.getZ() + 0.5 + Math.min(z, 0), this.pos.getX() + 0.5 + Math.max(x, 0), this.pos.getY() + 0.5 + Math.max(y, 0), this.pos.getZ() + 0.5 + Math.max(z, 0)).expand(0.5, 0.5, 0.5));
 
 					for(Entity e : affected) {
 
@@ -202,12 +202,12 @@ public class MachineFan extends BlockContainer implements IToolable, ITooltipPro
 		if(tool == ToolType.SCREWDRIVER) {
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
-			if(meta == 0) world.setBlockMetadataWithNotify(x, y, z, 1, 3);
-			if(meta == 1) world.setBlockMetadataWithNotify(x, y, z, 0, 3);
-			if(meta == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 3);
-			if(meta == 3) world.setBlockMetadataWithNotify(x, y, z, 2, 3);
-			if(meta == 4) world.setBlockMetadataWithNotify(x, y, z, 5, 3);
-			if(meta == 5) world.setBlockMetadataWithNotify(x, y, z, 4, 3);
+			if(meta == 0) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 1, 3);
+			if(meta == 1) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 0, 3);
+			if(meta == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 3);
+			if(meta == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 3);
+			if(meta == 4) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 3);
+			if(meta == 5) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 3);
 
 			return true;
 		}

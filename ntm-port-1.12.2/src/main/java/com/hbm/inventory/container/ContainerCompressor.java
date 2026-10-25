@@ -11,12 +11,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerCompressor extends Container {
-	
+
 	private TileEntityMachineCompressorBase compressor;
 
 	public ContainerCompressor(InventoryPlayer playerInv, TileEntityMachineCompressorBase tile) {
 		compressor = tile;
-		
+
 		//Fluid ID
 		this.addSlotToContainer(new Slot(tile, 0, 17, 72));
 		//Battery
@@ -55,7 +55,7 @@ public class ContainerCompressor extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IBatteryItem) {
 					if(!this.mergeItemStack(var5, 1, 2, false)) {
 						return null;
@@ -71,7 +71,7 @@ public class ContainerCompressor extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

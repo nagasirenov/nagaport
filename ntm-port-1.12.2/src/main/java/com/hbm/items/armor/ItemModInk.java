@@ -15,7 +15,7 @@ public class ItemModInk extends ItemArmorMod {
 	public ItemModInk() {
 		super(ArmorModHandler.extra, true, true, true, true);
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 
@@ -29,19 +29,19 @@ public class ItemModInk extends ItemArmorMod {
 	public void addDesc(List list, ItemStack stack, ItemStack armor) {
 		list.add(TextFormatting.LIGHT_PURPLE + "  " + stack.getDisplayName() + " (10% chance to nullify damage)");
 	}
-	
+
 	@Override
 	public void modDamage(LivingHurtEvent event, ItemStack armor) {
-		
+
 		if(event.getEntity().world.rand.nextInt(10) == 0) {
 			event.setAmount(0);
-			
+
 			if(!event.getEntity().world.isRemote) {
-				
+
 				if(event.getEntity().world.rand.nextInt(10) == 0)
-					event.getEntity().entityDropItem(new ItemStack(Blocks.yellow_flower), 1.0F);
-				
-				event.getEntity().entityDropItem(new ItemStack(Blocks.red_flower, 1, event.getEntity().world.rand.nextInt(9)), 1.0F);
+					event.getEntity().entityDropItem(new ItemStack(Blocks.YELLOW_FLOWER), 1.0F);
+
+				event.getEntity().entityDropItem(new ItemStack(Blocks.RED_FLOWER, 1, event.getEntity().world.rand.nextInt(9)), 1.0F);
 			}
 		}
 	}

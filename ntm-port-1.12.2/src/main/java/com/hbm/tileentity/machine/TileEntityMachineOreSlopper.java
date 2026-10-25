@@ -145,7 +145,7 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 
 				if(markDirty) this.markDirty();
 
-				List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 1, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 3, this.pos.getZ() + 1.5).offset(dir.offsetX, 0, dir.offsetZ));
+				List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY() + 1, this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 3, this.pos.getZ() + 1.5).offset(dir.offsetX, 0, dir.offsetZ));
 
 				for(Entity e : entities) {
 					e.attackEntityFrom(ModDamageSource.turbofan, 1000F);
@@ -168,8 +168,8 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 			for(CelestialBedrockOreType type : CelestialBedrockOre.getAllTypes()) {
 				ItemStack output = ItemBedrockOreNew.make(BedrockOreGrade.BASE, type);
 				outer: while(ores[type.index] >= 1) {
-					for(int i = 3; i <= 8; i++) if(slots[i] != null && slots[i].getItem() == output.getItem() && slots[i].getItemDamage() == output.getItemDamage() && slots[i].stackSize < output.getMaxStackSize()) {
-						slots[i].stackSize++; ores[type.index] -= 1F; continue outer;
+					for(int i = 3; i <= 8; i++) if(slots[i] != null && slots[i].getItem() == output.getItem() && slots[i].getItemDamage() == output.getItemDamage() && slots[i].getCount() < output.getMaxStackSize()) {
+						slots[i].grow(1); ores[type.index] -= 1F; continue outer;
 					}
 					for(int i = 3; i <= 8; i++) if(slots[i] == null) {
 						slots[i] = output; ores[type.index] -= 1F; continue outer;
@@ -361,7 +361,7 @@ public class TileEntityMachineOreSlopper extends TileEntityMachineBase implement
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 3,
 					this.pos.getY(),
 					this.pos.getZ() - 3,

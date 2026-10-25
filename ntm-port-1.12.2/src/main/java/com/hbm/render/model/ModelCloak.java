@@ -10,9 +10,13 @@ import net.minecraft.util.math.MathHelper;
 
 public class ModelCloak extends ModelBiped {
 
+	public net.minecraft.client.model.ModelRenderer bipedCloak;
+
 	public ModelCloak() {
 		this.textureWidth = 64;
 		this.textureHeight = 32;
+		this.bipedCloak = new net.minecraft.client.model.ModelRenderer(this, 0, 0);
+		this.bipedCloak.addBox(-5.0F, 0.0F, -1.0F, 10, 16, 1, 0.0F);
 	}
 
 	@Override
@@ -31,9 +35,9 @@ public class ModelCloak extends ModelBiped {
 
 			GL11.glPushMatrix();
 			GL11.glTranslatef(0.0F, 0.0F, 0.125F);
-			double d3 = player.field_71091_bM + (player.field_71094_bP - player.field_71091_bM) * scaleFactor - (player.prevPosX + (player.posX - player.prevPosX) * scaleFactor);
-			double d4 = player.field_71096_bN + (player.field_71095_bQ - player.field_71096_bN) * scaleFactor - (player.prevPosY + (player.posY - player.prevPosY) * scaleFactor);
-			double d0 = player.field_71097_bO + (player.field_71085_bR - player.field_71097_bO) * scaleFactor - (player.prevPosZ + (player.posZ - player.prevPosZ) * scaleFactor);
+			double d3 = player.prevChasingPosX + (player.chasingPosX - player.prevChasingPosX) * scaleFactor - (player.prevPosX + (player.posX - player.prevPosX) * scaleFactor);
+			double d4 = player.prevChasingPosY + (player.chasingPosY - player.prevChasingPosY) * scaleFactor - (player.prevPosY + (player.posY - player.prevPosY) * scaleFactor);
+			double d0 = player.prevChasingPosZ + (player.chasingPosZ - player.prevChasingPosZ) * scaleFactor - (player.prevPosZ + (player.posZ - player.prevPosZ) * scaleFactor);
 			float f4 = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * scaleFactor;
 			double d1 = MathHelper.sin(f4 * (float) Math.PI / 180.0F);
 			double d2 = (-MathHelper.cos(f4 * (float) Math.PI / 180.0F));

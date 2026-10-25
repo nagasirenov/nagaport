@@ -37,11 +37,11 @@ public class EntityTom extends EntityThrowable {
 				tom.posY = posY;
 				tom.posZ = posZ;
 				tom.destructionRange = 600;
-				this.world.spawnEntityInWorld(tom);
+				this.world.spawnEntity(tom);
 
 				EntityCloudTom cloud = new EntityCloudTom(this.world, 500);
 				cloud.setLocationAndAngles(posX, posY, posZ, 0, 0);
-				this.world.spawnEntityInWorld(cloud);
+				this.world.spawnEntity(cloud);
 			}
 			this.setDead();
 		}
@@ -59,12 +59,12 @@ public class EntityTom extends EntityThrowable {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getBrightnessForRender(float p_70070_1_) {
+	public int getBrightnessForRender() {
 		return 15728880;
 	}
 
 	@Override
-	public float getBrightness(float p_70013_1_) {
+	public float getBrightness() {
 		return 1.0F;
 	}
 }

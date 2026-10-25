@@ -60,7 +60,7 @@ public class EntityBuilding extends EntityThrowable {
 			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 3);
 			ExplosionLarge.spawnShock(this.world, posX, posY + 1, posZ, 24, 3);
 
-			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(posX - 8, posY - 8, posZ - 8, posX + 8, posY + 8, posZ + 8));
+			List<Entity> list = (List<Entity>) this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(posX - 8, posY - 8, posZ - 8, posX + 8, posY + 8, posZ + 8));
 
 			for(Entity e : list) e.attackEntityFrom(ModDamageSource.building, 1000);
 
@@ -75,7 +75,7 @@ public class EntityBuilding extends EntityThrowable {
 				rubble.motionX = vec.x;
 				rubble.motionY = vec.y;
 				rubble.motionZ = vec.z;
-				this.world.spawnEntityInWorld(rubble);
+				this.world.spawnEntity(rubble);
 			}
 		}
 	}

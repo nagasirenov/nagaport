@@ -50,7 +50,7 @@ public class XFactory50 {
 		silver.posX = mop.hitVec.x;
 		silver.posY = mop.hitVec.y + 50;
 		silver.posZ = mop.hitVec.z;;
-		bullet.world.spawnEntityInWorld(silver);
+		bullet.world.spawnEntity(silver);
 		bullet.setDead();
 	};
 

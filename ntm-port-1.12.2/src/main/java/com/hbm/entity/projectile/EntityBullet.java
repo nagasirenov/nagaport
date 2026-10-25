@@ -30,6 +30,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import com.hbm.blocks.bomb.BlockDetonatable;
@@ -94,7 +97,6 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.renderRangeWeight = 10.0D;
 		this.setSize(0.5F, 0.5F);
 		this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
-		this.yOffset = 0.0F;
 	}
 
 	public EntityBullet(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_,
@@ -119,7 +121,6 @@ public class EntityBullet extends Entity implements IProjectile {
 			double d4 = d0 / d3;
 			double d5 = d2 / d3;
 			this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
-			this.yOffset = 0.0F;
 			float f4 = 0;//(float) d3 * 0.2F;
 			this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
 		}
@@ -142,7 +143,6 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.posY -= 0.10000000149011612D;
 		this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
 		this.setPosition(this.posX, this.posY, this.posZ);
-		this.yOffset = 0.0F;
 		this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
@@ -172,7 +172,6 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.posY -= 0.10000000149011612D;
 		this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
 		this.setPosition(this.posX, this.posY, this.posZ);
-		this.yOffset = 0.0F;
 		this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
@@ -197,7 +196,6 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.posY -= 0.10000000149011612D;
 		this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
 		this.setPosition(this.posX, this.posY, this.posZ);
-		this.yOffset = 0.0F;
 		this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
@@ -208,7 +206,7 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.setChopper(isTau == "chopper");
 		this.setIsCritical(isTau != "chopper");
 	}
-	
+
 	//why the living shit did i make isTau a string? who knows, who cares.
 	public EntityBullet(World p_i1756_1_, EntityLivingBase p_i1756_2_, float p_i1756_3_, int dmgMin, int dmgMax,
 			boolean instakill, String isTau, EntityGrenadeTau grenade) {
@@ -223,7 +221,6 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.posY -= 0.10000000149011612D;
 		this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
 		this.setPosition(this.posX, this.posY, this.posZ);
-		this.yOffset = 0.0F;
 		this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
 				* MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI);
 		this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
@@ -282,7 +279,7 @@ public class EntityBullet extends Entity implements IProjectile {
 		this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(p_70186_3_, f3) * 180.0D / Math.PI);
 		this.ticksInGround = 0;
 	}
-	
+
 	public void setThrowableHeading2(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_,
 			float p_70186_8_) {
 		float f2 = MathHelper.sqrt(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
@@ -313,8 +310,8 @@ public class EntityBullet extends Entity implements IProjectile {
 	 */
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_,
-			float p_70056_8_, int p_70056_9_) {
+	public void setPositionAndRotationDirect(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_,
+			float p_70056_8_, int p_70056_9_, boolean teleport) {
 		this.setPosition(p_70056_1_, p_70056_3_, p_70056_5_);
 		this.setRotation(p_70056_7_, p_70056_8_);
 	}
@@ -355,20 +352,19 @@ public class EntityBullet extends Entity implements IProjectile {
 			// (float)(Math.atan2(this.motionY, (double)f) * 180.0D / Math.PI);
 		}
 
-		Block block = com.hbm.world.WorldBlockState.read(this.world, this.tileX, this.tileY, this.tileZ).getBlock();
+		net.minecraft.util.math.BlockPos hitPos = new net.minecraft.util.math.BlockPos(this.tileX, this.tileY, this.tileZ);
+		net.minecraft.block.state.IBlockState state = this.world.getBlockState(hitPos);
+		Block block = state.getBlock();
 
-		if (block.getDefaultState().getMaterial() != Material.AIR) {
-			block.setBlockBoundsBasedOnState(this.world, this.tileX, this.tileY,
-					this.tileZ);
-			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.world, this.tileX,
-					this.tileY, this.tileZ);
+		if (state.getMaterial() != Material.AIR) {
+			AxisAlignedBB axisalignedbb = state.getCollisionBoundingBox(this.world, hitPos);
 
 			if (axisalignedbb != null
-					&& axisalignedbb.isVecInside(new Vec3d(this.posX, this.posY, this.posZ))
+					&& axisalignedbb.offset(hitPos).contains(new Vec3d(this.posX, this.posY, this.posZ))
 					&& !this.getIsCritical()) {
 				this.inGround = true;
 			}
-			
+
 			if(block instanceof BlockDetonatable) {
 				((BlockDetonatable) block).onShot(this.world, this.tileX, this.tileY, this.tileZ);
 			}
@@ -376,8 +372,7 @@ public class EntityBullet extends Entity implements IProjectile {
 			if (block == Blocks.GLASS || block == Blocks.STAINED_GLASS || block == Blocks.GLASS_PANE
 					|| block == Blocks.STAINED_GLASS_PANE) {
 				com.hbm.world.WorldBlockState.write(this.world, this.tileX, this.tileY, this.tileZ, Blocks.AIR.getStateFromMeta(0), 3);
-				this.world.playSound(this.tileX, this.tileY, this.tileZ, "dig.glass",
-						1.0F, 1.0F, true);
+				this.world.playSound(null, new BlockPos(this.tileX, this.tileY, this.tileZ), SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			}
 		}
 
@@ -387,7 +382,7 @@ public class EntityBullet extends Entity implements IProjectile {
 
 		if (this.inGround && !this.getIsCritical()) {
 			this.setDead();
-			
+
 		} else {
 			++this.ticksInAir;
 			Vec3d vec31 = new Vec3d(this.posX, this.posY, this.posZ);
@@ -405,7 +400,7 @@ public class EntityBullet extends Entity implements IProjectile {
 
 			Entity entity = null;
 			List list = this.world.getEntitiesWithinAABBExcludingEntity(this,
-					this.getEntityBoundingBox().addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+					this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).grow(1.0D));
 			double d0 = 0.0D;
 			int i;
 			float f1;
@@ -470,13 +465,13 @@ public class EntityBullet extends Entity implements IProjectile {
 						//R: Chop
 						//X: NOT
 						//O: Direct
-						
+
 						//   X X   Bullet
 						//    \|
 						//   O-X   Tau
-						//   |/ 
+						//   |/
 						//   X-O   Displacer
-						
+
 						if (!this.getIsCritical() && !this.getIsChopper()) {
 							if (this.shootingEntity == null) {
 								damagesource = ModDamageSource.causeBulletDamage(this, this);
@@ -514,7 +509,7 @@ public class EntityBullet extends Entity implements IProjectile {
 												entitylivingbase.rotationYaw, entitylivingbase.rotationPitch);
 										if (!entitylivingbase.isDead)
 											if (!this.world.isRemote)
-												this.world.spawnEntityInWorld(creep);
+												this.world.spawnEntity(creep);
 										entitylivingbase.setDead();
 									} else if (entitylivingbase instanceof EntityVillager) {
 										EntityZombie creep = new EntityZombie(this.world);
@@ -522,7 +517,7 @@ public class EntityBullet extends Entity implements IProjectile {
 												entitylivingbase.rotationYaw, entitylivingbase.rotationPitch);
 										entitylivingbase.setDead();
 										if (!this.world.isRemote)
-											this.world.spawnEntityInWorld(creep);
+											this.world.spawnEntity(creep);
 									} else if (entitylivingbase instanceof EntityLivingBase
 											&& !(entitylivingbase instanceof EntityCreeperNuclear)
 											&& !(entitylivingbase instanceof EntityMooshroom)
@@ -532,10 +527,10 @@ public class EntityBullet extends Entity implements IProjectile {
 										entitylivingbase.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 1 * 60 * 20, 1));
 									}
 								}
-								
+
 								if(antidote)
 									entitylivingbase.clearActivePotions();
-								
+
 								if (this.knockbackStrength > 0) {
 									f4 = MathHelper
 											.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
@@ -548,8 +543,8 @@ public class EntityBullet extends Entity implements IProjectile {
 								}
 
 								if (this.shootingEntity != null && this.shootingEntity instanceof EntityLivingBase) {
-									EnchantmentHelper.func_151384_a(entitylivingbase, this.shootingEntity);
-									EnchantmentHelper.func_151385_b((EntityLivingBase) this.shootingEntity,
+									EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.shootingEntity);
+									EnchantmentHelper.applyArthropodEnchantments((EntityLivingBase) this.shootingEntity,
 											entitylivingbase);
 								}
 
@@ -564,7 +559,7 @@ public class EntityBullet extends Entity implements IProjectile {
 							if (!(movingobjectposition.entityHit instanceof EntityEnderman)) {
 								if (!this.world.isRemote) {
 									if (!instakill || movingobjectposition.entityHit instanceof EntityPlayer) {
-										// movingobjectposition.entityHit.attackEntityFrom(DamageSource.generic,
+										// movingobjectposition.entityHit.attackEntityFrom(DamageSource.GENERIC,
 										// dmgMin + rand.nextInt(dmgMax -
 										// dmgMin));
 									} else if (movingobjectposition.entityHit instanceof EntityLivingBase) {
@@ -576,24 +571,24 @@ public class EntityBullet extends Entity implements IProjectile {
 									;
 							}
 						} else {
-							
+
 							if(movingobjectposition.entityHit instanceof EntityLivingBase) {
-								
+
 								try {
 									Field lastDamage = ReflectionHelper.findField(EntityLivingBase.class, "lastDamage", "field_110153_bc");
-									
+
 									float dmg = (float) damage + lastDamage.getFloat(movingobjectposition.entityHit);
-									
+
 									movingobjectposition.entityHit.attackEntityFrom(damagesource, dmg);
 								} catch (Exception x) { }
 							}
-							
+
 						}
-						
-						
-						
-						
-						
+
+
+
+
+
 						/* else {
 							if (movingobjectposition.entityHit instanceof EntityLivingBase && !(movingobjectposition.entityHit instanceof EntityHunterChopper)) {
 								EntityLivingBase target = (EntityLivingBase) movingobjectposition.entityHit;
@@ -609,7 +604,7 @@ public class EntityBullet extends Entity implements IProjectile {
 					this.tileZ = movingobjectposition.getBlockPos().getZ();
 					this.field_145790_g = com.hbm.world.WorldBlockState.read(this.world, this.tileX, this.tileY,
 							this.tileZ).getBlock();
-					this.inData = this.world.getBlockMetadata(this.tileX, this.tileY,
+					this.inData = com.hbm.world.WorldBlockState.readMetadata(this.world, this.tileX, this.tileY,
 							this.tileZ);
 					this.motionX = ((float) (movingobjectposition.hitVec.x - this.posX));
 					this.motionY = ((float) (movingobjectposition.hitVec.y - this.posY));
@@ -623,8 +618,8 @@ public class EntityBullet extends Entity implements IProjectile {
 					this.arrowShake = 7;
 
 					if (this.field_145790_g.getDefaultState().getMaterial() != Material.AIR) {
-						this.field_145790_g.onEntityCollidedWithBlock(this.world, this.tileX,
-								this.tileY, this.tileZ, this);
+						BlockPos bpos = new BlockPos(this.tileX, this.tileY, this.tileZ);
+								this.field_145790_g.onEntityCollision(this.world, bpos, this.world.getBlockState(bpos), this);
 					}
 				}
 			}
@@ -661,10 +656,10 @@ public class EntityBullet extends Entity implements IProjectile {
 			/*
 			 * while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
 			 * this.prevRotationPitch += 360.0F; }
-			 * 
+			 *
 			 * while (this.rotationYaw - this.prevRotationYaw < -180.0F) {
 			 * this.prevRotationYaw -= 360.0F; }
-			 * 
+			 *
 			 * while (this.rotationYaw - this.prevRotationYaw >= 180.0F) {
 			 * this.prevRotationYaw += 360.0F; }
 			 */
@@ -695,7 +690,7 @@ public class EntityBullet extends Entity implements IProjectile {
 			this.motionZ *= f3;
 			this.motionY -= gravity;
 			this.setPosition(this.posX, this.posY, this.posZ);
-			this.func_145775_I();
+			this.doBlockCollisions();
 		}
 
 		if (this.ticksExisted > 250)
@@ -768,7 +763,6 @@ public class EntityBullet extends Entity implements IProjectile {
 		return false;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public float getShadowSize() {
 		return 0.0F;
@@ -793,7 +787,7 @@ public class EntityBullet extends Entity implements IProjectile {
 	 * If returns false, the item will not inflict any damage against entities.
 	 */
 	@Override
-	public boolean canAttackWithItem() {
+	public boolean canBeAttackedWithItem() {
 		return false;
 	}
 
@@ -849,21 +843,21 @@ public class EntityBullet extends Entity implements IProjectile {
 		byte b0 = this.dataManager.get(CHOPPER_FLAGS);
 		return (b0 & 1) != 0;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getBrightnessForRender(float p_70070_1_) {
+	public int getBrightnessForRender() {
 		if(this.getIsCritical() || this.getIsChopper())
 			return 15728880;
 		else
-			return super.getBrightnessForRender(p_70070_1_);
+			return super.getBrightnessForRender();
 	}
 
 	@Override
-	public float getBrightness(float p_70013_1_) {
+	public float getBrightness() {
 		if(this.getIsCritical() || this.getIsChopper())
 			return 1.0F;
 		else
-			return super.getBrightness(p_70013_1_);
+			return super.getBrightness();
 	}
 }

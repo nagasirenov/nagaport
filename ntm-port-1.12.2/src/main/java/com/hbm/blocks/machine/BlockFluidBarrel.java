@@ -104,7 +104,6 @@ public class BlockFluidBarrel extends BlockContainer implements ITooltipProvider
 
 	private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.125D, 0D, 0.125D, 0.875D, 1D, 0.875D);
 
-	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) { return BOUNDS; }
 
 	@Override

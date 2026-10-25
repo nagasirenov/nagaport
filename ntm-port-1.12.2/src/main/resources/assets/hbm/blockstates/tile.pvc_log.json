@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "hbm:pvc_log_log"
+    },
+    "axis=z": {
+      "model": "hbm:pvc_log_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "hbm:pvc_log_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=none": {
+      "model": "hbm:pvc_log_log"
+    }
+  }
+}

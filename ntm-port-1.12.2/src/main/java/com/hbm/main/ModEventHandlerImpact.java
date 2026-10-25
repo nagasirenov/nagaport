@@ -18,9 +18,10 @@ import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import net.minecraftforge.event.terraingen.BiomeEvent;
@@ -78,9 +79,8 @@ public class ModEventHandlerImpact {
 				if(data.time == data.dtime) {
 					EntityTom tom = new EntityTom(event.world);
 					tom.setPosition(data.x + 0.5, 600, data.z + 0.5);
-					event.world.spawnEntityInWorld(tom);
-					IChunkProvider provider = event.world.getChunkProvider();
-					provider.loadChunk(data.x >> 4, data.z >> 4);
+					event.world.spawnEntity(tom);
+					event.world.getChunk(data.x >> 4, data.z >> 4);
 				}
 				data.markDirty();
 			}
@@ -94,9 +94,9 @@ public class ModEventHandlerImpact {
 					if(e instanceof EntityLivingBase) {
 						EntityLivingBase entity = (EntityLivingBase) e;
 
-						if(data.fire > 0 && data.dust < 0.75f && event.world.getSavedLightValue(EnumSkyBlock.Sky, (int) entity.posX, (int) entity.posY, (int) entity.posZ) > 7) {
+						if(data.fire > 0 && data.dust < 0.75f && event.world.getLightFor(EnumSkyBlock.SKY, new BlockPos((int) entity.posX, (int) entity.posY, (int) entity.posZ)) > 7) {
 							entity.setFire(5);
-							entity.attackEntityFrom(DamageSource.onFire, 2);
+							entity.attackEntityFrom(DamageSource.ON_FIRE, 2);
 						}
 					}
 				}
@@ -159,8 +159,9 @@ public class ModEventHandlerImpact {
 
 	@SubscribeEvent
 	public void modifyVillageGen(BiomeEvent.GetVillageBlockID event) {
-		Block b = event.original;
-		Material mat = event.original.getMaterial();
+		IBlockState original = event.getOriginal();
+		Block b = original.getBlock();
+		Material mat = original.getMaterial();
 
 		TomSaveData data = TomSaveData.getLastCachedOrNull();
 
@@ -169,24 +170,24 @@ public class ModEventHandlerImpact {
 		}
 
 		if(data.impact) {
-			if(mat == Material.wood || mat == Material.GLASS || b == Blocks.LADDER || b instanceof BlockCrops ||
-					b == Blocks.CHEST || b instanceof BlockDoor || mat == Material.cloth || mat == Material.WATER || b == Blocks.STONE_SLAB) {
-				event.replacement = Blocks.AIR;
+			if(mat == Material.WOOD || mat == Material.GLASS || b == Blocks.LADDER || b instanceof BlockCrops ||
+					b == Blocks.CHEST || b instanceof BlockDoor || mat == Material.CLOTH || mat == Material.WATER || b == Blocks.STONE_SLAB) {
+				event.setReplacement(Blocks.AIR.getDefaultState());
 
 			} else if(b == Blocks.COBBLESTONE || b == Blocks.STONEBRICK) {
 				if(rand.nextInt(3) == 1) {
-					event.replacement = Blocks.GRAVEL;
+					event.setReplacement(Blocks.GRAVEL.getDefaultState());
 				}
 			} else if(b == Blocks.SANDSTONE) {
 				if(rand.nextInt(3) == 1) {
-					event.replacement = Blocks.SAND;
+					event.setReplacement(Blocks.SAND.getDefaultState());
 				}
 			} else if(b == Blocks.FARMLAND) {
-				event.replacement = Blocks.DIRT;
+				event.setReplacement(Blocks.DIRT.getDefaultState());
 			}
 		}
 
-		if(event.replacement != null) {
+		if(event.getReplacement() != null) {
 			event.setResult(Result.DENY);
 		}
 	}
@@ -200,11 +201,11 @@ public class ModEventHandlerImpact {
 		TomSaveData data = TomSaveData.getLastCachedOrNull(); //despite forcing the data, we cannot rule out canceling events or custom firing shenanigans
 		if(data != null && event.getBiome() != null) {
 			if(event.getBiome().topBlock != null) {
-				if(event.getBiome().topBlock == Blocks.GRASS) {
+				if(event.getBiome().topBlock.getBlock() == Blocks.GRASS) {
 					if(data.impact && (data.dust > 0 || data.fire > 0)) {
-						event.getBiome().topBlock = ModBlocks.impact_dirt;
+						event.getBiome().topBlock = ModBlocks.impact_dirt.getDefaultState();
 					} else {
-						event.getBiome().topBlock = Blocks.GRASS;
+						event.getBiome().topBlock = Blocks.GRASS.getDefaultState();
 					}
 				}
 			}
@@ -252,7 +253,7 @@ public class ModEventHandlerImpact {
 		TomSaveData data = TomSaveData.forWorld(event.getWorld());
 
 		if(data.impact) {
-			Chunk chunk = event.getWorld().getChunkFromChunkCoords(event.getChunkX(), event.getChunkZ());
+			Chunk chunk = event.getWorld().getChunk(event.getChunkX(), event.getChunkZ());
 
 			for(ExtendedBlockStorage storage : chunk.getBlockStorageArray()) {
 
@@ -263,18 +264,18 @@ public class ModEventHandlerImpact {
 							for(int z = 0; z < 16; ++z) {
 
 								if(data.dust > 0.25 || data.fire > 0) {
-									if(storage.getBlockByExtId(x, y, z) == Blocks.GRASS) {
-										storage.func_150818_a(x, y, z, ModBlocks.impact_dirt);
-									} else if(storage.getBlockByExtId(x, y, z) instanceof BlockLog) {
-										storage.func_150818_a(x, y, z, Blocks.AIR);
-									} else if(storage.getBlockByExtId(x, y, z) instanceof BlockLeaves) {
-										storage.func_150818_a(x, y, z, Blocks.AIR);
-									} else if(storage.getBlockByExtId(x, y, z).getMaterial() == Material.LEAVES) {
-										storage.func_150818_a(x, y, z, Blocks.AIR);
-									} else if(storage.getBlockByExtId(x, y, z).getMaterial() == Material.PLANTS) {
-										storage.func_150818_a(x, y, z, Blocks.AIR);
-									} else if(storage.getBlockByExtId(x, y, z) instanceof BlockBush) {
-										storage.func_150818_a(x, y, z, Blocks.AIR);
+									if(storage.get(x, y, z).getBlock() == Blocks.GRASS) {
+										storage.set(x, y, z, ModBlocks.impact_dirt.getDefaultState());
+									} else if(storage.get(x, y, z).getBlock() instanceof BlockLog) {
+										storage.set(x, y, z, Blocks.AIR.getDefaultState());
+									} else if(storage.get(x, y, z).getBlock() instanceof BlockLeaves) {
+										storage.set(x, y, z, Blocks.AIR.getDefaultState());
+									} else if(storage.get(x, y, z).getMaterial() == Material.LEAVES) {
+										storage.set(x, y, z, Blocks.AIR.getDefaultState());
+									} else if(storage.get(x, y, z).getMaterial() == Material.PLANTS) {
+										storage.set(x, y, z, Blocks.AIR.getDefaultState());
+									} else if(storage.get(x, y, z).getBlock() instanceof BlockBush) {
+										storage.set(x, y, z, Blocks.AIR.getDefaultState());
 									}
 								}
 							}

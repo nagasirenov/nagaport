@@ -39,9 +39,9 @@ public class RenderRBMKFuelChannel extends TileEntitySpecialRenderer {
 
 		for(int o = 1; o < 16; o++) {
 
-			if(te.getWorld().getBlock(te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ()) == te.getBlockType()) {
+			if(com.hbm.world.WorldBlockState.read(te.getWorld(), te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ()).getBlock() == te.getBlockType()) {
 				offset = o;
-				int meta = te.getWorld().getBlockMetadata(te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ());
+				int meta = com.hbm.world.WorldBlockState.readMetadata(te.getWorld(), te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ());
 				if(meta > 5 && meta < 12) break;
 
 			} else {
@@ -61,7 +61,7 @@ public class RenderRBMKFuelChannel extends TileEntitySpecialRenderer {
 				ResourceManager.rbmk_element_rods_vbo.renderPart("Rods");
 				GL11.glTranslated(0, 1, 0);
 			}
-			
+
 			GL11.glColor3f(1F, 1F, 1F);
 			GL11.glPopMatrix();
 		}

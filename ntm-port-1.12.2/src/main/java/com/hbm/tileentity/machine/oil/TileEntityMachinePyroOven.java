@@ -70,7 +70,7 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && stack.getItem() instanceof ItemMachineUpgrade && i >= 4 && i <= 5) {
-			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 		}
 	}
 
@@ -220,9 +220,9 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 		PyroOvenRecipe recipe = this.getMatchingRecipe();
 		if(recipe == null) return false; // no matching recipe
 		if(recipe.inputFluid != null && tanks[0].getFill() < recipe.inputFluid.fill) return false; // not enough input fluid
-		if(recipe.inputItem != null && slots[1].stackSize < recipe.inputItem.stacksize) return false; // not enough input item
+		if(recipe.inputItem != null && slots[1].getCount() < recipe.inputItem.stacksize) return false; // not enough input item
 		if(recipe.outputFluid != null && recipe.outputFluid.fill + tanks[1].getFill() > tanks[1].getMaxFill() && recipe.outputFluid.type == tanks[1].getTankType()) return false; // too much output fluid
-		if(recipe.outputItem != null && slots[2] != null && recipe.outputItem.stackSize + slots[2].stackSize > slots[2].getMaxStackSize()) return false; // too much output item
+		if(recipe.outputItem != null && slots[2] != null && recipe.outputItem.getCount() + slots[2].getCount() > slots[2].getMaxStackSize()) return false; // too much output item
 		if(recipe.outputItem != null && slots[2] != null && recipe.outputItem.getItem() != slots[2].getItem()) return false; // output item doesn't match
 		if(recipe.outputItem != null && slots[2] != null && recipe.outputItem.getItemDamage() != slots[2].getItemDamage()) return false; // output meta doesn't match
 
@@ -234,7 +234,7 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 			if(slots[2] == null) {
 				slots[2] = recipe.outputItem.copy();
 			} else {
-				slots[2].stackSize += recipe.outputItem.stackSize;
+				slots[2].grow(recipe.outputItem.getCount());
 			}
 		}
 		if(recipe.outputFluid != null) {
@@ -339,7 +339,7 @@ public class TileEntityMachinePyroOven extends TileEntityMachinePolluting implem
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 3, this.pos.getX() + 4, this.pos.getY() + 3.5, this.pos.getZ() + 4);
+		if(bb == null) bb = new AxisAlignedBB(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 3, this.pos.getX() + 4, this.pos.getY() + 3.5, this.pos.getZ() + 4);
 		return bb;
 	}
 

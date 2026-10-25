@@ -97,7 +97,7 @@ public class LiquefactionRecipes extends SerializableRecipe {
 
 		if(stack.getItem() instanceof ItemFood) {
 			ItemFood food = (ItemFood) stack.getItem();
-			float saturation = food.func_150905_g(stack) * food.func_150906_h(stack) * 20; //food val * saturation mod * 2 (constant) * 10 (quanta)
+			float saturation = food.getHealAmount(stack) * food.getSaturationModifier(stack) * 20; //food val * saturation mod * 2 (constant) * 10 (quanta)
 			return new FluidStack(Fluids.SALIENT, (int) saturation);
 		}
 

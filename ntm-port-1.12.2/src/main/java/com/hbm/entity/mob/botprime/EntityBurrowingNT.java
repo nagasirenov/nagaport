@@ -31,7 +31,7 @@ public abstract class EntityBurrowingNT extends EntityCreature {
 
 		float drag = this.dragInGround;
 
-		if(!isEntityInsideOpaqueBlock() && !isInWater() && !handleLavaMovement()) {
+		if(!isEntityInsideOpaqueBlock() && !isInWater() && !isInLava()) {
 			drag = this.dragInAir;
 		}
 
@@ -39,9 +39,9 @@ public abstract class EntityBurrowingNT extends EntityCreature {
 			drag *= 0.9F;
 		}
 
-		moveFlying(strafe, forward, 0.02F);
+		moveRelative(strafe, 0.0F, forward, 0.02F);
 
-		moveEntity(this.motionX, this.motionY, this.motionZ);
+		move(net.minecraft.entity.MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 
 		this.motionX *= drag;
 		this.motionY *= drag;

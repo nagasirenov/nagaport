@@ -293,7 +293,7 @@ public class TileEntityBlastDoor extends TileEntityLockableBase implements net.m
 		Block present = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 		if(!present.isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z)) && present != ModBlocks.dummy_block_blast) com.hbm.world.WorldBlockDestruction.destroy(this.world, x, y, z, false);
 
-		this.world.setBlock(x, y, z, ModBlocks.dummy_block_blast);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, x, y, z, ModBlocks.dummy_block_blast);
 
 		TileEntity te = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 

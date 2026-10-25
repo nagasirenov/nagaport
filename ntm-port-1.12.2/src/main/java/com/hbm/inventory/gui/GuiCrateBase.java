@@ -10,7 +10,7 @@ public abstract class GuiCrateBase extends GuiContainer {
 	}
 	
 	@Override
-	protected void mouseClicked(int x, int y, int button) {
+	protected void mouseClicked(int x, int y, int button) throws java.io.IOException {
 		boolean touchScreen = this.mc.gameSettings.touchscreen;
 		this.mc.gameSettings.touchscreen = false;
 		super.mouseClicked(x, y, button);

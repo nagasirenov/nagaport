@@ -103,7 +103,7 @@ public class SatelliteRailgun extends SatelliteWar {
 	}
 
 	public void playsound() {
-		Minecraft.getMinecraft().player.playSound("hbm:misc.fireflash", 10F, 1F);
+		Minecraft.getMinecraft().player.playSound(com.hbm.main.ModSoundEvents.resolve("hbm:misc.fireflash"), 10F, 1F);
 	}
 
 	@Override

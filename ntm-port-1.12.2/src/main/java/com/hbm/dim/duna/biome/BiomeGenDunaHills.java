@@ -48,11 +48,11 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 			k = (x & -16) + (z & 15);
 			l = (z & -16) + (x & 15);
 			double d1 = Math.min(Math.abs(noise),
-					this.perlin1.func_151601_a((double) k * 0.25D, (double) l * 0.25D));
+					this.perlin1.getValue((double) k * 0.25D, (double) l * 0.25D));
 
 			if (d1 > 0.0D) {
 				double d2 = 0.001953125D;
-				double d3 = Math.abs(this.perlin2.func_151601_a((double) k * d2, (double) l * d2));
+				double d3 = Math.abs(this.perlin2.getValue((double) k * d2, (double) l * d2));
 				d5 = d1 * d1 * 2.5D;
 				double d4 = Math.ceil(d3 * 50.0D) + 14.0D;
 
@@ -242,7 +242,7 @@ public class BiomeGenDunaHills extends BiomeGenBaseDuna {
 	}
 
 	private byte func_150618_d(int p_150618_1_, int p_150618_2_, int p_150618_3_) {
-		int l = (int)Math.round(this.perlin3.func_151601_a((double)p_150618_1_ * 1.0D / 512.0D, (double)p_150618_1_ * 1.0D / 512.0D) * 2.0D);
+		int l = (int)Math.round(this.perlin3.getValue((double)p_150618_1_ * 1.0D / 512.0D, (double)p_150618_1_ * 1.0D / 512.0D) * 2.0D);
 		return this.field_150621_aC[(p_150618_2_ + l + 64) % 64];
 	}
 

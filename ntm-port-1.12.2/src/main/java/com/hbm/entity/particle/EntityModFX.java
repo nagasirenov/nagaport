@@ -44,7 +44,6 @@ public class EntityModFX extends Entity
         super(p_i1218_1_);
         this.particleAlpha = 1.0F;
         this.setSize(0.2F, 0.2F);
-        this.yOffset = this.height / 2.0F;
         this.setPosition(p_i1218_2_, p_i1218_4_, p_i1218_6_);
         this.lastTickPosX = p_i1218_2_;
         this.lastTickPosY = p_i1218_4_;
@@ -145,7 +144,7 @@ public class EntityModFX extends Entity
         //}
 
         this.motionY -= 0.04D * this.particleGravity;
-        this.moveEntity(this.motionX, this.motionY, this.motionZ);
+        this.move(net.minecraft.entity.MoverType.SELF, this.motionX, this.motionY, this.motionZ);
         this.motionX *= 0.9800000190734863D;
         this.motionY *= 0.9800000190734863D;
         this.motionZ *= 0.9800000190734863D;
@@ -157,7 +156,7 @@ public class EntityModFX extends Entity
         }
     }
 
-    public void renderParticle(Tessellator p_70539_1_, float p_70539_2_, float p_70539_3_, float p_70539_4_, float p_70539_5_, float p_70539_6_, float p_70539_7_)
+    public void renderParticle(net.minecraft.client.renderer.BufferBuilder p_70539_1_, net.minecraft.client.renderer.texture.TextureAtlasSprite p_180434_2_, float p_70539_2_, float p_70539_3_, float p_70539_4_, float p_70539_5_, float p_70539_6_, float p_70539_7_)
     {
         float f6 = this.particleTextureIndexX / 16.0F;
         float f7 = f6 + 0.0624375F;
@@ -176,11 +175,10 @@ public class EntityModFX extends Entity
         float f11 = (float)(this.prevPosX + (this.posX - this.prevPosX) * p_70539_2_ - interpPosX);
         float f12 = (float)(this.prevPosY + (this.posY - this.prevPosY) * p_70539_2_ - interpPosY);
         float f13 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * p_70539_2_ - interpPosZ);
-        p_70539_1_.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-        p_70539_1_.addVertexWithUV(f11 - p_70539_3_ * f10 - p_70539_6_ * f10, f12 - p_70539_4_ * f10, f13 - p_70539_5_ * f10 - p_70539_7_ * f10, f7, f9);
-        p_70539_1_.addVertexWithUV(f11 - p_70539_3_ * f10 + p_70539_6_ * f10, f12 + p_70539_4_ * f10, f13 - p_70539_5_ * f10 + p_70539_7_ * f10, f7, f8);
-        p_70539_1_.addVertexWithUV(f11 + p_70539_3_ * f10 + p_70539_6_ * f10, f12 + p_70539_4_ * f10, f13 + p_70539_5_ * f10 + p_70539_7_ * f10, f6, f8);
-        p_70539_1_.addVertexWithUV(f11 + p_70539_3_ * f10 - p_70539_6_ * f10, f12 - p_70539_4_ * f10, f13 + p_70539_5_ * f10 - p_70539_7_ * f10, f6, f9);
+        p_70539_1_.pos(f11 - p_70539_3_ * f10 - p_70539_6_ * f10, f12 - p_70539_4_ * f10, f13 - p_70539_5_ * f10 - p_70539_7_ * f10).tex(f7, f9).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).endVertex();
+        p_70539_1_.pos(f11 - p_70539_3_ * f10 + p_70539_6_ * f10, f12 + p_70539_4_ * f10, f13 - p_70539_5_ * f10 + p_70539_7_ * f10).tex(f7, f8).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).endVertex();
+        p_70539_1_.pos(f11 + p_70539_3_ * f10 + p_70539_6_ * f10, f12 + p_70539_4_ * f10, f13 + p_70539_5_ * f10 + p_70539_7_ * f10).tex(f6, f8).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).endVertex();
+        p_70539_1_.pos(f11 + p_70539_3_ * f10 - p_70539_6_ * f10, f12 - p_70539_4_ * f10, f13 + p_70539_5_ * f10 - p_70539_7_ * f10).tex(f6, f9).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).endVertex();
     }
 
     public int getFXLayer()
@@ -245,7 +243,6 @@ public class EntityModFX extends Entity
     /**
      * If returns false, the item will not inflict any damage against entities.
      */
-    @Override
 	public boolean canAttackWithItem()
     {
         return false;

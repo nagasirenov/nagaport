@@ -38,8 +38,8 @@ public class ItemMold extends Item {
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 
-		blockOverrides.put(Mats.MAT_STONE,		new ItemStack(Blocks.stone));
-		blockOverrides.put(Mats.MAT_OBSIDIAN,	new ItemStack(Blocks.obsidian));
+		blockOverrides.put(Mats.MAT_STONE,		new ItemStack(Blocks.STONE));
+		blockOverrides.put(Mats.MAT_OBSIDIAN,	new ItemStack(Blocks.OBSIDIAN));
 
 		int S = 0;
 		int L = 1;
@@ -99,8 +99,16 @@ public class ItemMold extends Item {
 		this.moldById.put(mold.id, mold);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for(int i = 0; i < molds.size(); i++) {
 			Mold mold = molds.get(i);
@@ -192,13 +200,13 @@ public class ItemMold extends Item {
 						if(registry.startsWith(RefStrings.MODID)) {
 							if(registry.contains("fragment")) continue; // deprioritize fragments
 							ItemStack copy = ore.copy();
-							copy.stackSize = this.amount;
+							copy.setCount(this.amount);
 							return copy;
 						}
 					}
 					//...then try whatever comes first
 					ItemStack copy = ores.get(0).copy();
-					copy.stackSize = this.amount;
+					copy.setCount(this.amount);
 					return copy;
 				}
 			}
@@ -262,7 +270,7 @@ public class ItemMold extends Item {
 
 		@Override
 		public String getTitle() {
-			return out.getDisplayName() + " x" + this.out.stackSize;
+			return out.getDisplayName() + " x" + this.out.getCount();
 		}
 	}
 
@@ -280,7 +288,7 @@ public class ItemMold extends Item {
 			for(int i = 0; i < inputs.length; i += 2) {
 				map.put((NTMMaterial) inputs[i], (ItemStack) inputs[i + 1]);
 
-				if(i == 0) stacksize = (((ItemStack) inputs[i + 1])).stackSize;
+				if(i == 0) stacksize = (((ItemStack) inputs[i + 1])).getCount();
 			}
 		}
 

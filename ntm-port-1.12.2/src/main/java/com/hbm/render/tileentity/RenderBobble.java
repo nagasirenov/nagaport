@@ -521,8 +521,8 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 	}
 
 	private void renderItem(ItemStack stack) {
-		bindTexture(TextureMap.locationItemsTexture);
-		IIcon icon = stack.getIconIndex();
+		bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+		IIcon icon = com.hbm.render.icon.LegacyIconRegister.wrapSprite(net.minecraft.client.Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(stack.getItem(), stack.getItemDamage()));
 		float f14 = icon.getMinU();
 		float f15 = icon.getMaxU();
 		float f4 = icon.getMinV();

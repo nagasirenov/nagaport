@@ -22,10 +22,9 @@ public class ItemRemap extends Item {
 		this.remapMeta = meta;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int meta) {
-		return this.remapItem.getIconFromDamage(this.remapMeta);
+		return com.hbm.render.icon.LegacyIconRegister.wrapSprite(net.minecraft.client.Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(this.remapItem, this.remapMeta));
 	}
 
 	@Override
@@ -34,14 +33,14 @@ public class ItemRemap extends Item {
 		if(!(entity instanceof EntityPlayer)) return;
 
 		EntityPlayer player = (EntityPlayer) entity;
-		player.inventory.setInventorySlotContents(slot, new ItemStack(this.remapItem, stack.stackSize, this.remapMeta));
+		player.inventory.setInventorySlotContents(slot, new ItemStack(this.remapItem, stack.getCount(), this.remapMeta));
 	}
 
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
 		return 0xFF8080;
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add(TextFormatting.RED + "Compatibility item, hold in inventory to convert!");

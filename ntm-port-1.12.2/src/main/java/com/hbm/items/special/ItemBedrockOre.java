@@ -25,7 +25,6 @@ public class ItemBedrockOre extends ItemEnumMulti {
 		super(EnumBedrockOre.class, false, false);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
@@ -41,19 +40,17 @@ public class ItemBedrockOre extends ItemEnumMulti {
 	}
 	
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamageForRenderPass(int meta, int pass) {
 	    if (meta >= 0 && meta < EnumBedrockOre.values().length) {
 	        EnumBedrockOre ore = EnumBedrockOre.values()[meta];
 	        if (ore == EnumBedrockOre.BISMUTH) {
-	    		return pass == 1 ? this.overlayIconBismuth : super.getIconFromDamageForRenderPass(meta, pass);
+	    		return pass == 1 ? this.overlayIconBismuth : this.itemIcon;
 	        }
 	    }
-		return pass == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(meta, pass);
+		return pass == 1 ? this.overlayIcon : this.itemIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
 		

@@ -221,10 +221,10 @@ public class MobUtil {
 	}
 
 	public static void equipFullSet(EntityLivingBase entity, Item helmet, Item chest, Item legs, Item boots) { //for brainlets (me) to add more armorsets later when i forget about how this works
-		entity.setCurrentItemOrArmor(4, new ItemStack(helmet)); //p_70062_1_ is the slot number
-		entity.setCurrentItemOrArmor(3, new ItemStack(chest));
-		entity.setCurrentItemOrArmor(2, new ItemStack(legs));
-		entity.setCurrentItemOrArmor(1, new ItemStack(boots));
+		entity.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD, new ItemStack(helmet)); //p_70062_1_ is the slot number
+		entity.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST, new ItemStack(chest));
+		entity.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.LEGS, new ItemStack(legs));
+		entity.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.FEET, new ItemStack(boots));
 	}
 
 	public static void assignItemsToEntity(EntityLivingBase entity, Map<Integer, List<WeightedRandomObject>> slotPools, Random rand) {
@@ -248,7 +248,7 @@ public class MobUtil {
 				ArmorUtil.installGasMaskFilter(stack, new ItemStack(ModItems.gas_mask_filter));
 			}
 
-			entity.setCurrentItemOrArmor(slot, stack);
+			entity.setItemStackToSlot(slot == 0 ? net.minecraft.inventory.EntityEquipmentSlot.MAINHAND : net.minecraft.inventory.EntityEquipmentSlot.values()[slot + 1], stack);
 
 			//Give skeleton AI if it has a gun
 			if (slot == 0 && entity instanceof EntitySkeleton && pool == slotPools.get(0)) {

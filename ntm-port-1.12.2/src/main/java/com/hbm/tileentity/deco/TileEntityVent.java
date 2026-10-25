@@ -11,11 +11,11 @@ import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityVent extends TileEntity implements net.minecraft.util.ITickable {
-	
+
 	Random rand = new Random();
 
 	public void update() {
-		
+
 		if(!this.world.isRemote && this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))) {
 			Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock();
 
@@ -24,9 +24,9 @@ public class TileEntityVent extends TileEntity implements net.minecraft.util.ITi
 					double x = rand.nextGaussian() * 1.5;
 					double y = rand.nextGaussian() * 1.5;
 					double z = rand.nextGaussian() * 1.5;
-					
+
 					if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {
-						this.world.spawnEntityInWorld(new EntityChlorineFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
+						this.world.spawnEntity(new EntityChlorineFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}
 			}
@@ -35,9 +35,9 @@ public class TileEntityVent extends TileEntity implements net.minecraft.util.ITi
 				double x = rand.nextGaussian() * 1.75;
 				double y = rand.nextGaussian() * 1.75;
 				double z = rand.nextGaussian() * 1.75;
-				
+
 				if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {
-					this.world.spawnEntityInWorld(new EntityCloudFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
+					this.world.spawnEntity(new EntityCloudFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}
 			}
@@ -46,14 +46,14 @@ public class TileEntityVent extends TileEntity implements net.minecraft.util.ITi
 				double x = rand.nextGaussian() * 2;
 				double y = rand.nextGaussian() * 2;
 				double z = rand.nextGaussian() * 2;
-				
+
 				if(!com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z).isNormalCube()) {
-					this.world.spawnEntityInWorld(new EntityPinkCloudFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
+					this.world.spawnEntity(new EntityPinkCloudFX(this.world, this.pos.getX() + (int)x, this.pos.getY() + (int)y, this.pos.getZ() + (int)z, x/2, y/2, z/2));
 					}
 				//}
 			}
 		}
-		
+
 		/*if(worldObj.isRemote) {
 
 			NBTTagCompound data = new NBTTagCompound();
@@ -64,7 +64,7 @@ public class TileEntityVent extends TileEntity implements net.minecraft.util.ITi
 			data.setDouble("posX", xCoord + 0.5);
 			data.setDouble("posY", yCoord - 1);
 			data.setDouble("posZ", zCoord + 0.5);
-			
+
 			MainRegistry.proxy.effectNT(data);
 		}*/
 	}

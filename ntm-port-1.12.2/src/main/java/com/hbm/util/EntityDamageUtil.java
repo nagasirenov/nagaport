@@ -24,6 +24,8 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.init.SoundEvents;
 import net.minecraftforge.common.ForgeHooks;
 
 public class EntityDamageUtil {
@@ -59,13 +61,29 @@ public class EntityDamageUtil {
 				EntityLivingBase living = (EntityLivingBase) victim;
 
 				if(living.hurtResistantTime > living.maxHurtResistantTime / 2.0F) {
-					damage += living.lastDamage;
+					damage += getLastDamage(living);
 				}
 			}
 			return victim.attackEntityFrom(src, damage);
 		} else {
 			return true;
 		}
+	}
+
+	private static float getLastDamage(EntityLivingBase living) {
+		return ReflectionHelper.getPrivateValue(EntityLivingBase.class, living, "field_110153_bc", "lastDamage");
+	}
+
+	private static void setLastDamage(EntityLivingBase living, float damage) {
+		ReflectionHelper.setPrivateValue(EntityLivingBase.class, living, damage, "field_110153_bc", "lastDamage");
+	}
+
+	private static void setRecentlyHit(EntityLivingBase living, int ticks) {
+		ReflectionHelper.setPrivateValue(EntityLivingBase.class, living, ticks, "field_70718_bc", "recentlyHit");
+	}
+
+	private static void setAttackingPlayer(EntityLivingBase living, EntityPlayer player) {
+		ReflectionHelper.setPrivateValue(EntityLivingBase.class, living, player, "field_70717_bb", "attackingPlayer");
 	}
 
 	/** New and improved entity damage calc - only use this one */
@@ -94,7 +112,7 @@ public class EntityDamageUtil {
 	 */
 	private static boolean attackEntitySuperCompatibility(EntityLivingBase living, DamageSource source, float amount, boolean ignoreIFrame, boolean allowSpecialCancel, double knockbackMultiplier) {
 		//disable iframes
-		if(ignoreIFrame) { living.lastDamage = 0F; living.hurtResistantTime = 0; }
+		if(ignoreIFrame) { setLastDamage(living, 0F); living.hurtResistantTime = 0; }
 		//cache last velocity
 		double motionX = living.motionX;
 		double motionY = living.motionX;
@@ -124,13 +142,13 @@ public class EntityDamageUtil {
 	/** MK1 SEDNA damage system, basically re-implements the vanilla code (only from Entity, child class code is effectively ignored) with some adjustments */
 	private static boolean attackEntitySEDNAPatch(EntityLivingBase living, DamageSource source, float amount, boolean ignoreIFrame, boolean allowSpecialCancel, double knockbackMultiplier) {
 		living.attackEntityFrom(source, 0F);
-		if(ignoreIFrame) living.lastDamage = 0F;
+		if(ignoreIFrame) setLastDamage(living, 0F);
 		if(ForgeHooks.onLivingAttack(living, source, amount) && allowSpecialCancel) return false;
-		if(living.isEntityInvulnerable()) return false;
+		if(living.isEntityInvulnerable(source)) return false;
 		if(living.world.isRemote) return false;
 		if(living instanceof EntityPlayer && ((EntityPlayer) living).capabilities.disableDamage && !source.canHarmInCreative()) return false;
 
-		living.entityAge = 0;
+		ReflectionHelper.setPrivateValue(EntityLivingBase.class, living, 0, "field_70708_bq", "idleTime");
 		if(living.getHealth() <= 0.0F) return false;
 		if(source.isFireDamage() && living.isPotionActive(net.minecraft.init.MobEffects.FIRE_RESISTANCE)) return false;
 
@@ -138,13 +156,13 @@ public class EntityDamageUtil {
 		boolean didAttackRegister = true;
 
 		if(living.hurtResistantTime > living.maxHurtResistantTime / 2.0F && !ignoreIFrame) {
-			if(amount <= living.lastDamage) { return false; }
-			damageEntityNT(living, source, amount - living.lastDamage);
-			living.lastDamage = amount;
+			float lastDamage = getLastDamage(living);
+			if(amount <= lastDamage) { return false; }
+			damageEntityNT(living, source, amount - lastDamage);
+			setLastDamage(living, amount);
 			didAttackRegister = false;
 		} else {
-			living.lastDamage = amount;
-			living.prevHealth = living.getHealth();
+			setLastDamage(living, amount);
 			living.hurtResistantTime = living.maxHurtResistantTime;
 			damageEntityNT(living, source, amount);
 			living.hurtTime = living.maxHurtTime = 10;
@@ -159,14 +177,14 @@ public class EntityDamageUtil {
 			}
 
 			if(entity instanceof EntityPlayer) {
-				living.recentlyHit = 100;
-				living.attackingPlayer = (EntityPlayer) entity;
+				setRecentlyHit(living, 100);
+				setAttackingPlayer(living, (EntityPlayer) entity);
 			} else if(entity instanceof EntityTameable) {
 				EntityTameable entitywolf = (EntityTameable) entity;
 
 				if(entitywolf.isTamed()) {
-					living.recentlyHit = 100;
-					living.attackingPlayer = null;
+					setRecentlyHit(living, 100);
+					setAttackingPlayer(living, null);
 				}
 			}
 		}
@@ -174,7 +192,7 @@ public class EntityDamageUtil {
 		if(didAttackRegister) {
 			living.world.setEntityState(living, (byte) 2);
 
-			if(source != DamageSource.drown) setBeenAttacked(living); //#
+			if(source != DamageSource.DROWN) setBeenAttacked(living); //#
 
 			if(entity != null) {
 				double deltaX = entity.posX - living.posX;
@@ -191,14 +209,14 @@ public class EntityDamageUtil {
 			}
 		}
 
-		String sound;
+		SoundEvent sound;
 
 		if(living.getHealth() <= 0.0F) {
 			sound = getDeathSound(living);
 			if(didAttackRegister && sound != null) living.playSound(sound, getSoundVolume(living), getSoundPitch(living)); //#
 			living.onDeath(source);
 		} else {
-			sound = getHurtSound(living);
+			sound = getHurtSound(living, source);
 			if(didAttackRegister && sound != null) living.playSound(sound, getSoundVolume(living), getSoundPitch(living)); //#
 		}
 
@@ -224,7 +242,7 @@ public class EntityDamageUtil {
 	}
 
 	public static void damageEntityNT(EntityLivingBase living, DamageSource source, float amount) {
-		if(!living.isEntityInvulnerable()) {
+		if(!living.isEntityInvulnerable(source)) {
 			amount = ForgeHooks.onLivingHurt(living, source, amount);
 			if(amount <= 0) return;
 
@@ -238,7 +256,7 @@ public class EntityDamageUtil {
 			if(amount != 0.0F) {
 				float health = living.getHealth();
 				living.setHealth(health - amount);
-				living.func_110142_aN().func_94547_a(source, health, amount);
+				living.getCombatTracker().trackDamage(source, health, amount);
 				living.setAbsorptionAmount(living.getAbsorptionAmount() - amount);
 			}
 		}
@@ -262,19 +280,19 @@ public class EntityDamageUtil {
 
 		if(ForgeHooks.onLivingAttack(living, source, amount))
 			return false;
-		if(living.isEntityInvulnerable()) {
+		if(living.isEntityInvulnerable(source)) {
 			return false;
 		} else if(living.world.isRemote) {
 			return false;
 		} else {
-			living.entityAge = 0;
+			ReflectionHelper.setPrivateValue(EntityLivingBase.class, living, 0, "field_70708_bq", "idleTime");
 
 			if(living.getHealth() <= 0.0F) {
 				return false;
 			} else if(source.isFireDamage() && living.isPotionActive(net.minecraft.init.MobEffects.FIRE_RESISTANCE)) {
 				return false;
 			} else {
-				if((source == DamageSource.anvil || source == DamageSource.fallingBlock) && com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4) != null) {
+				if((source == DamageSource.ANVIL || source == DamageSource.FALLING_BLOCK) && com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4) != null) {
 					com.hbm.util.LivingEquipmentRead.getEquipmentNullable(living, 4).damageItem((int) (amount * 4.0F + living.getRNG().nextFloat() * amount * 2.0F), living);
 					amount *= 0.75F;
 				}
@@ -283,16 +301,16 @@ public class EntityDamageUtil {
 				boolean flag = true;
 
 				if((float) living.hurtResistantTime > (float) living.maxHurtResistantTime / 2.0F) {
-					if(amount <= living.lastDamage) {
+					float lastDamage = getLastDamage(living);
+					if(amount <= lastDamage) {
 						return false;
 					}
 
-					damageEntity(living, source, amount - living.lastDamage); //#
-					living.lastDamage = amount;
+						damageEntity(living, source, amount - lastDamage); //#
+						setLastDamage(living, amount);
 					flag = false;
 				} else {
-					living.lastDamage = amount;
-					living.prevHealth = living.getHealth();
+						setLastDamage(living, amount);
 					living.hurtResistantTime = living.maxHurtResistantTime;
 					damageEntity(living, source, amount); //#
 					living.hurtTime = living.maxHurtTime = 10;
@@ -307,14 +325,14 @@ public class EntityDamageUtil {
 					}
 
 					if(entity instanceof EntityPlayer) {
-						living.recentlyHit = 100;
-						living.attackingPlayer = (EntityPlayer) entity;
+						setRecentlyHit(living, 100);
+						setAttackingPlayer(living, (EntityPlayer) entity);
 					} else if(entity instanceof EntityTameable) {
 						EntityTameable entitywolf = (EntityTameable) entity;
 
 						if(entitywolf.isTamed()) {
-							living.recentlyHit = 100;
-							living.attackingPlayer = null;
+							setRecentlyHit(living, 100);
+							setAttackingPlayer(living, null);
 						}
 					}
 				}
@@ -322,7 +340,7 @@ public class EntityDamageUtil {
 				if(flag) {
 					living.world.setEntityState(living, (byte) 2);
 
-					if(source != DamageSource.drown) {
+					if(source != DamageSource.DROWN) {
 						setBeenAttacked(living); //#
 					}
 
@@ -341,7 +359,7 @@ public class EntityDamageUtil {
 					}
 				}
 
-				String s;
+				SoundEvent s;
 
 				if(living.getHealth() <= 0.0F) {
 					s = getDeathSound(living); //#
@@ -352,7 +370,7 @@ public class EntityDamageUtil {
 
 					living.onDeath(source);
 				} else {
-					s = getHurtSound(living); //#
+					s = getHurtSound(living, source); //#
 
 					if(flag && s != null) {
 						living.playSound(s, getSoundVolume(living), getSoundPitch(living)); //#
@@ -365,28 +383,28 @@ public class EntityDamageUtil {
 	}
 
 	// in this household we drink gasoline and sniff glue
-	public static String getDeathSound(EntityLivingBase living) {
-		Method m = ReflectionHelper.findMethod(EntityLivingBase.class, living, new String[] {"func_70673_aS", "getDeathSound"});
-		try { return (String) m.invoke(living); } catch(Exception e) { } return "game.neutral.die";
+	public static SoundEvent getDeathSound(EntityLivingBase living) {
+		Method m = ReflectionHelper.findMethod(EntityLivingBase.class, "getDeathSound", "func_184615_bR");
+		try { return (SoundEvent) m.invoke(living); } catch(Exception e) { return SoundEvents.ENTITY_GENERIC_DEATH; }
 	}
 
-	public static String getHurtSound(EntityLivingBase living) {
-		Method m = ReflectionHelper.findMethod(EntityLivingBase.class, living, new String[] {"func_70621_aR", "getHurtSound"});
-		try { return (String) m.invoke(living); } catch(Exception e) { } return "game.neutral.hurt";
+	public static SoundEvent getHurtSound(EntityLivingBase living, DamageSource source) {
+		Method m = ReflectionHelper.findMethod(EntityLivingBase.class, "getHurtSound", "func_184601_bQ", DamageSource.class);
+		try { return (SoundEvent) m.invoke(living, source); } catch(Exception e) { return SoundEvents.ENTITY_GENERIC_HURT; }
 	}
 
 	public static float getSoundVolume(EntityLivingBase living) {
-		Method m = ReflectionHelper.findMethod(EntityLivingBase.class, living, new String[] {"func_70599_aP", "getSoundVolume"});
+		Method m = ReflectionHelper.findMethod(EntityLivingBase.class, "getSoundVolume", "func_70599_aP");
 		try { return (float) m.invoke(living); } catch(Exception e) { } return 1F;
 	}
 
 	public static float getSoundPitch(EntityLivingBase living) {
-		Method m = ReflectionHelper.findMethod(EntityLivingBase.class, living, new String[] {"func_70647_i", "getSoundPitch"});
+		Method m = ReflectionHelper.findMethod(EntityLivingBase.class, "getSoundPitch", "func_70647_i");
 		try { return (float) m.invoke(living); } catch(Exception e) { } return 1F;
 	}
 
 	@Deprecated public static void damageEntity(EntityLivingBase living, DamageSource source, float amount) {
-		if(!living.isEntityInvulnerable()) {
+		if(!living.isEntityInvulnerable(source)) {
 			amount = ForgeHooks.onLivingHurt(living, source, amount);
 			if(amount <= 0)
 				return;
@@ -399,7 +417,7 @@ public class EntityDamageUtil {
 			if(amount != 0.0F) {
 				float f2 = living.getHealth();
 				living.setHealth(f2 - amount);
-				living.func_110142_aN().func_94547_a(source, f2, amount);
+				living.getCombatTracker().trackDamage(source, f2, amount);
 				living.setAbsorptionAmount(living.getAbsorptionAmount() - amount);
 			}
 		}
@@ -425,7 +443,7 @@ public class EntityDamageUtil {
 			int j;
 			float f1;
 
-			if(living.isPotionActive(net.minecraft.init.MobEffects.RESISTANCE) && source != DamageSource.outOfWorld) {
+			if(living.isPotionActive(net.minecraft.init.MobEffects.RESISTANCE) && source != DamageSource.OUT_OF_WORLD) {
 				resistance = (living.getActivePotionEffect(net.minecraft.init.MobEffects.RESISTANCE).getAmplifier() + 1) * 5;
 				j = 25 - resistance;
 				f1 = amount * (float) j;
@@ -436,7 +454,7 @@ public class EntityDamageUtil {
 				return 0.0F;
 			} else {
 
-				resistance = EnchantmentHelper.getEnchantmentModifierDamage(living.getLastActiveItems(), source);
+				resistance = EnchantmentHelper.getEnchantmentModifierDamage(living.getArmorInventoryList(), source);
 
 				if(resistance > 20) {
 					resistance = 20;
@@ -471,10 +489,10 @@ public class EntityDamageUtil {
 
 		Vec3d pos = getPosition(attacker);
 		Vec3d look = attacker.getLook(1F);
-		Vec3d end = pos.addVector(look.x * reach, look.y * reach, look.z * reach);
+		Vec3d end = pos.add(look.x * reach, look.y * reach, look.z * reach);
 		Vec3d hitvec = null;
 		float grace = 1.0F;
-		List list = world.getEntitiesWithinAABBExcludingEntity(attacker, attacker.getEntityBoundingBox().addCoord(look.x * reach, look.y * reach, look.z * reach).expand(grace, grace, grace));
+		List list = world.getEntitiesWithinAABBExcludingEntity(attacker, attacker.getEntityBoundingBox().expand(look.x * reach, look.y * reach, look.z * reach).grow(grace, grace, grace));
 
 		double closest = reach;
 
@@ -487,7 +505,7 @@ public class EntityDamageUtil {
 				AxisAlignedBB axisalignedbb = entity.getEntityBoundingBox().expand(borderSize, borderSize, borderSize);
 				RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(pos, end);
 
-				if(axisalignedbb.isVecInside(pos)) {
+				if(axisalignedbb.contains(pos)) {
 					if(0.0D <= closest) {
 						pointedEntity = entity;
 						hitvec = movingobjectposition == null ? pos : movingobjectposition.hitVec;
@@ -523,12 +541,12 @@ public class EntityDamageUtil {
 	public static RayTraceResult rayTrace(EntityPlayer player, double dist, float interp) {
 		Vec3d pos = getPosition(player);
 		Vec3d look = player.getLook(interp);
-		Vec3d end = pos.addVector(look.x * dist, look.y * dist, look.z * dist);
+		Vec3d end = pos.add(look.x * dist, look.y * dist, look.z * dist);
 		return player.world.rayTraceBlocks(pos, end, false, false, true);
 	}
 
 	public static Vec3d getPosition(EntityPlayer player) {
-		boolean client = player.yOffset != 0; // shitty hack to account for the weird offset rules i couldn't really work around otherwise
+		boolean client = player.getYOffset() != 0; // shitty hack to account for the weird offset rules i couldn't really work around otherwise
 		return new Vec3d(player.posX, player.posY + (client ? 0 : player.getEyeHeight()), player.posZ);
 	}
 }

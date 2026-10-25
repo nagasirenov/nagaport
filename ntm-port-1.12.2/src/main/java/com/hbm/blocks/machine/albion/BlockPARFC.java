@@ -21,7 +21,6 @@ public class BlockPARFC extends BlockDummyable implements ITooltipProvider {
 	public BlockPARFC() {
 		super(Material.IRON);
 		this.setCreativeTab(MainRegistry.machineTab);
-		this.setBlockTextureName(RefStrings.MODID + ":block_steel");
 	}
 
 	@Override

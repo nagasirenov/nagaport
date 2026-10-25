@@ -32,7 +32,7 @@ public class ContainerMachineOilWell extends Container {
 		this.addSlotToContainer(new Slot(tedf, 5, 152, 17));
 		this.addSlotToContainer(new Slot(tedf, 6, 152, 35));
 		this.addSlotToContainer(new Slot(tedf, 7, 152, 53));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
@@ -58,7 +58,7 @@ public class ContainerMachineOilWell extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var5.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(var5, 5, 8, true)) {
 						return null;
@@ -72,7 +72,7 @@ public class ContainerMachineOilWell extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

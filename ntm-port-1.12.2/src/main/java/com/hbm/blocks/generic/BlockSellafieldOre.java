@@ -37,6 +37,7 @@ public class BlockSellafieldOre extends BlockSellafieldSlaked implements IBlockM
 
 	public BlockSellafieldOre(Material mat) {
 		super(mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(MultipassContext.METADATA, 0));
 	}
 
 
@@ -86,14 +87,15 @@ public class BlockSellafieldOre extends BlockSellafieldSlaked implements IBlockM
 	private Random rand = new Random();
 
 	@Override
-	public int getExpDrop(IBlockAccess world, int meta, int fortune) {
+	public int getExpDrop(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, int fortune) {
+		int meta = com.hbm.world.WorldBlockState.metadata(state);
 		if(this.getItemDropped(getStateFromMeta(meta), rand, fortune) != Item.getItemFromBlock(this)) {
 			int j1 = 0;
 
-			if(this == ModBlocks.ore_sellafield_diamond) j1 = MathHelper.getRandomIntegerInRange(rand, 3, 7);
-			if(this == ModBlocks.ore_sellafield_emerald) j1 = MathHelper.getRandomIntegerInRange(rand, 3, 7);
-			if(this == ModBlocks.ore_sellafield_radgem) j1 = MathHelper.getRandomIntegerInRange(rand, 3, 7);
-			
+			if(this == ModBlocks.ore_sellafield_diamond) j1 = MathHelper.getInt(rand, 3, 7);
+			if(this == ModBlocks.ore_sellafield_emerald) j1 = MathHelper.getInt(rand, 3, 7);
+			if(this == ModBlocks.ore_sellafield_radgem) j1 = MathHelper.getInt(rand, 3, 7);
+
 			return j1;
 		}
 		return 0;

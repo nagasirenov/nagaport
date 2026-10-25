@@ -59,7 +59,7 @@ public class GUIFusionKlystron extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int i, int j, int button) {
+	protected void mouseClicked(int i, int j, int button) throws java.io.IOException {
 		super.mouseClicked(i, j, button);
 		
 		this.field.mouseClicked(i, j, button);
@@ -109,7 +109,7 @@ public class GUIFusionKlystron extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int key) {
+	protected void keyTyped(char c, int key) throws java.io.IOException {
 
 		if(this.field.textboxKeyTyped(c, key)) {
 			

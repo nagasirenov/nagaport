@@ -39,9 +39,9 @@ public class TileEntityGeysir extends TileEntity implements net.minecraft.util.I
 				timer = getDelay();
 
 				if(meta == 0)
-					this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1, 2);
+					com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1, 2);
 				else
-					this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 2);
+					com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 2);
 			}
 
 			if(meta == 1) {
@@ -58,7 +58,7 @@ public class TileEntityGeysir extends TileEntity implements net.minecraft.util.I
 		fx.motionZ = this.world.rand.nextGaussian() * 0.35;
 		fx.motionY = 2;
 
-		this.world.spawnEntityInWorld(fx);
+		this.world.spawnEntity(fx);
 	}
 
 	private void chlorine() {
@@ -70,7 +70,7 @@ public class TileEntityGeysir extends TileEntity implements net.minecraft.util.I
 			fx.motionZ = this.world.rand.nextGaussian() * 0.45;
 			fx.motionY = timer * 0.3;
 
-			this.world.spawnEntityInWorld(fx);
+			this.world.spawnEntity(fx);
 		}
 
 	}
@@ -78,7 +78,7 @@ public class TileEntityGeysir extends TileEntity implements net.minecraft.util.I
 	private void vapor() {
 
 		List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class,
-				AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5,
+				new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5,
 						this.pos.getY() + 2, this.pos.getZ() + 1.5));
 
 		if (!entities.isEmpty()) {
@@ -102,7 +102,7 @@ public class TileEntityGeysir extends TileEntity implements net.minecraft.util.I
 			fx.motionZ = this.world.rand.nextGaussian() * 0.05;
 			fx.motionY = 0.5 + this.world.rand.nextDouble() * timer * 0.01;
 
-			this.world.spawnEntityInWorld(fx);
+			this.world.spawnEntity(fx);
 		}
 
 		if(timer % 2 == 0) {

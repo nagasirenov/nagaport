@@ -312,7 +312,7 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 			return;
 		}
 
-		if(slots[2] != null && slots[2].stackSize >= slots[2].getMaxStackSize()) {
+		if(slots[2] != null && slots[2].getCount() >= slots[2].getMaxStackSize()) {
 			this.progress = 0;
 			return;
 		}
@@ -331,14 +331,14 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 			this.progress = 0;
 
 			if(slots[2] != null) {
-				slots[2].stackSize++;
+				slots[2].grow(1);
 			} else {
 				slots[2] = out.output.copy();
 			}
 
-			slots[1].stackSize--;
+			slots[1].shrink(1);
 
-			if(slots[1].stackSize <= 0)
+			if(slots[1].getCount() <= 0)
 				slots[1] = null;
 
 			this.markDirty();
@@ -378,8 +378,8 @@ public class TileEntityITER extends TileEntityMachineBase implements IEnergyRece
 			return;
 		}
 
-		if(slots[4].getItem() == by.getItem() && slots[4].getItemDamage() == by.getItemDamage() && slots[4].stackSize < slots[4].getMaxStackSize()) {
-			slots[4].stackSize++;
+		if(slots[4].getItem() == by.getItem() && slots[4].getItemDamage() == by.getItemDamage() && slots[4].getCount() < slots[4].getMaxStackSize()) {
+			slots[4].grow(1);
 		}
 	}
 

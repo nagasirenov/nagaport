@@ -32,20 +32,17 @@ public class GenericFiniteFluid extends BlockFluidFinite {
 		displacements.put(this, false);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return (side == 0 || side == 1) ? stillIcon : flowingIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 		stillIcon = register.registerIcon(RefStrings.MODID + ":" + stillName);
 		flowingIcon = register.registerIcon(RefStrings.MODID + ":" + flowingName);
 	}
 	
-	@Override
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
 		return this.quantaPerBlock - 1;
 	}

@@ -30,15 +30,18 @@ public class RBMKControlAuto extends RBMKPipedBase {
 		if(this.renderLid == LID_NONE && this == ModBlocks.rbmk_control_reasim_auto && side == 0) return textureBottom;
 		return super.getIcon(side, meta);
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		if(meta >= this.offset) return new TileEntityRBMKControlAuto();
 		return null;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		return openInv(world, x, y, z, player);
 	}
 

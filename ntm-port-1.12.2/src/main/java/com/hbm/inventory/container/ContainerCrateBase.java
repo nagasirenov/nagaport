@@ -5,6 +5,7 @@ import com.hbm.items.block.ItemBlockStorageCrate;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
@@ -33,11 +34,11 @@ public class ContainerCrateBase extends ContainerBase {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 		// prevents the player from moving around the currently open box
 		if(player.inventory.getStackInSlot(player.inventory.currentItem) != null &&
 			player.inventory.getStackInSlot(player.inventory.currentItem).getItem() instanceof ItemBlockStorageCrate && !(this.tile instanceof TileEntity)) {
-			if (mode == 2 && button == player.inventory.currentItem) {
+			if (mode == ClickType.SWAP && button == player.inventory.currentItem) {
 				return null;
 			}
 			if (index == player.inventory.currentItem + 27 + this.tile.getSizeInventory()) {

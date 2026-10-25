@@ -109,9 +109,9 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 			// Move all items into the target
 			for(int i = 0; i < inputSlotMax; i++) {
 				if(slots[i] != null) {
-					int beforeSize = slots[i].stackSize;
+					int beforeSize = slots[i].getCount();
 					slots[i] = InventoryUtil.tryAddItemToInventory(linkedTransporter.slots, linkedTransporter.inputSlotMax, linkedTransporter.outputSlotMax - 1, slots[i]);
-					int afterSize = slots[i] != null ? slots[i].stackSize : 0;
+					int afterSize = slots[i] != null ? slots[i].getCount() : 0;
 					sentItems += beforeSize - afterSize;
 					isDirty = true;
 				}
@@ -384,7 +384,7 @@ public abstract class TileEntityTransporterBase extends TileEntityMachineBase im
 	protected int itemCount() {
 		int count = 0;
 		for(int i = 0; i < inputSlotMax; i++) {
-			if(slots[i] != null) count += slots[i].stackSize;
+			if(slots[i] != null) count += slots[i].getCount();
 		}
 		for(int i = 0; i < inputTankMax; i++) {
 			count += tanks[i].getFill() / 1000;

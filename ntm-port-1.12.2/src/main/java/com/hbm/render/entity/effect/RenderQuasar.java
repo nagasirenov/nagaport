@@ -48,13 +48,12 @@ public class RenderQuasar extends RenderBlackHole {
 		return this.quasar;
 	}
 
-	@Override
 	protected void setColorFromIteration(Tessellator tess, int iteration, float alpha) {
 		float r = 1.0F;
 		float g = (float) Math.pow(iteration / 15F, 2);
 		float b = (float) Math.pow(iteration / 15F, 2);
 		
-		tess.setColorRGBA_F(r, g, b, alpha);
+		tess.getBuffer().color(r, g, b, alpha);
 	}
 
 	@Override

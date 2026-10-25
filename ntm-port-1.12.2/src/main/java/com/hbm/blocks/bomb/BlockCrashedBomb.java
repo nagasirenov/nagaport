@@ -29,7 +29,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvider, IBomb {
-	
+
 	public static enum EnumDudType {
 		BALEFIRE, CONVENTIONAL, NUKE, SALTED
 	}
@@ -49,11 +49,15 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 	@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }
 	@Override public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }
 
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
+	@Override
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fx, float fy, float fz) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int i = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) return true;
 
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.defuser) {
-			
+
 			EnumDudType type = EnumUtil.grabEnumSafely(EnumDudType.class, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 
 			if(type == type.BALEFIRE) {
@@ -75,14 +79,14 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 						new ItemStack(ModItems.billet_plutonium, 2),
 						new ItemStack(ModItems.ingot_cobalt, 12));
 			}
-			
+
 			com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 			return true;
 		}
 
 		return false;
 	}
-	
+
 	public static void dropItems(World world, int x, int y, int z, ItemStack... drops) {
 		for(ItemStack drop : drops) world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop));
 	}
@@ -99,7 +103,7 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 				EntityBalefire bf = new EntityBalefire(world);
 				bf.setPosition(x, y, z);
 				bf.destructionRange = (int) (BombConfig.fatmanRadius * 1.25);
-				world.spawnEntityInWorld(bf);
+				world.spawnEntity(bf);
 				spawnMush(world, x, y, z, true);
 			}
 
@@ -112,21 +116,21 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 				xnt.explode();
 				ExplosionCreator.composeEffectLarge(world, x + 0.5, y + 0.5, z + 0.5);
 			}
-			
+
 			if(type == type.NUKE) {
-				world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(world, 35, x + 0.5, y + 0.5, z + 0.5));
+				world.spawnEntity(EntityNukeExplosionMK5.statFac(world, 35, x + 0.5, y + 0.5, z + 0.5));
 				spawnMush(world, x, y, z, MainRegistry.polaroidID == 11 || world.rand.nextInt(100) == 0);
 			}
-			
+
 			if(type == type.SALTED) {
-				world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(world, 25, x + 0.5, y + 0.5, z + 0.5).moreFallout(25));
+				world.spawnEntity(EntityNukeExplosionMK5.statFac(world, 25, x + 0.5, y + 0.5, z + 0.5).moreFallout(25));
 				spawnMush(world, x, y, z, MainRegistry.polaroidID == 11 || world.rand.nextInt(100) == 0);
 			}
 		}
 
 		return BombReturnCode.DETONATED;
 	}
-	
+
 	public static void spawnMush(World world, int x, int y, int z, boolean balefire) {
 		com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 		NBTTagCompound data = new NBTTagCompound();

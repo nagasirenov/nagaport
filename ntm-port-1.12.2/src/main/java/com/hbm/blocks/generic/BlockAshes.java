@@ -13,22 +13,30 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 
 public class BlockAshes extends BlockFalling {
+	public BlockAshes withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 
 	public BlockAshes(Material mat) {
 		super(mat);
 	}
-	
+
 	public static int ashes = 0;
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_) {
-		super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
-		
+	public void randomDisplayTick(IBlockState state, World p_149734_1_, BlockPos pos, Random p_149734_5_) {
+		super.randomDisplayTick(state, p_149734_1_, pos, p_149734_5_);
+		int p_149734_2_ = pos.getX(), p_149734_3_ = pos.getY(), p_149734_4_ = pos.getZ();
+
 		if(p_149734_5_.nextInt(25) == 0) {
-			
+
 			if(ArmorUtil.checkArmorPiece(MainRegistry.proxy.me(), ModItems.ashglasses, 3)) {
 				if(ashes < 256 * 0.25) {
 					ashes++;

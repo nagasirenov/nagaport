@@ -58,13 +58,16 @@ public abstract class TileEntityRBMKSlottedBase extends TileEntityRBMKActiveBase
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : getName();
+	public boolean hasCustomName() {
+		return this.customName != null && this.customName.length() > 0;
 	}
 
-	@Override
+	public String getInventoryName() {
+		return getName();
+	}
+
 	public boolean hasCustomInventoryName() {
-		return this.customName != null && this.customName.length() > 0;
+		return hasCustomName();
 	}
 
 	public void setCustomName(String name) {
@@ -91,7 +94,7 @@ public abstract class TileEntityRBMKSlottedBase extends TileEntityRBMKActiveBase
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
@@ -99,16 +102,18 @@ public abstract class TileEntityRBMKSlottedBase extends TileEntityRBMKActiveBase
 		}
 	}
 
+
+
 	@Override
 	public ItemStack decrStackSize(int slot, int amount) {
 		if(slots[slot] != null) {
-			if(slots[slot].stackSize <= amount) {
+			if(slots[slot].getCount() <= amount) {
 				ItemStack itemStack = slots[slot];
 				slots[slot] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[slot].splitStack(amount);
-			if(slots[slot].stackSize == 0) {
+			if(slots[slot].getCount() == 0) {
 				slots[slot] = null;
 			}
 

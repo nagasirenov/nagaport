@@ -1,5 +1,6 @@
 package com.hbm.handler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.hbm.blocks.ModBlocks;
@@ -38,7 +39,7 @@ public class ImpactWorldHandler {
 
 		WorldServer serv = (WorldServer) world;
 
-		List<Chunk> list = serv.theChunkProviderServer.loadedChunks;
+		List<Chunk> list = new ArrayList<>(serv.getChunkProvider().getLoadedChunks());
 		int listSize = list.size();
 
 		if(listSize > 0) {
@@ -54,7 +55,7 @@ public class ImpactWorldHandler {
 
 						int X = coord.getXStart() + x;
 						int Z = coord.getZStart() + z;
-						int Y = world.getHeightValue(X, Z) - world.rand.nextInt(Math.max(1, world.getHeightValue(X, Z)));
+						int Y = world.getHeight(X, Z) - world.rand.nextInt(Math.max(1, world.getHeight(X, Z)));
 
 
 						if(data.dust > 0) {
@@ -73,7 +74,8 @@ public class ImpactWorldHandler {
 	public static void die(World world, int x, int y, int z) {
 
 		TomSaveData data = TomSaveData.forWorld(world);
-		int light = Math.max(world.getSavedLightValue(EnumSkyBlock.Block, x, y + 1, z), (int) (world.getBlockLightValue(x, y + 1, z) * (1 - data.dust)));
+		net.minecraft.util.math.BlockPos lightPos = new net.minecraft.util.math.BlockPos(x, y + 1, z);
+		int light = Math.max(world.getLightFor(EnumSkyBlock.BLOCK, lightPos), (int) (world.getLightFromNeighborsFor(EnumSkyBlock.BLOCK, lightPos) * (1 - data.dust)));
 
 		if(light < 4) {
 			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.GRASS) {
@@ -92,17 +94,17 @@ public class ImpactWorldHandler {
 	public static void burn(World world, int x, int y, int z) {
 
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-		if(com.hbm.lib.FacingCompat.isFlammable(b, world, x, y, z, ForgeDirection.UP) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR && world.getSavedLightValue(EnumSkyBlock.Sky, x, y + 1, z) >= 7) {
+		if(com.hbm.lib.FacingCompat.isFlammable(b, world, x, y, z, ForgeDirection.UP) && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR && world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(x, y + 1, z)) >= 7) {
 			if(b instanceof BlockLeaves || b instanceof BlockBush) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			}
 			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y + 1; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.FIRE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 
 		} else if((b == Blocks.GRASS || b == Blocks.MYCELIUM || b == ModBlocks.waste_earth || b == ModBlocks.frozen_grass || b == ModBlocks.waste_mycelium) &&
-				!world.canLightningStrikeAt(x, y, z) && world.getSavedLightValue(EnumSkyBlock.Sky, x, y + 1, z) >= 7) {
-			world.setBlock(x, y, z, ModBlocks.burning_earth);
+				!world.isRainingAt(new net.minecraft.util.math.BlockPos(x, y, z)) && world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(x, y + 1, z)) >= 7) {
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.burning_earth);
 
-		} else if(b == ModBlocks.frozen_dirt && world.getSavedLightValue(EnumSkyBlock.Sky, x, y + 1, z) >= 7) {
+		} else if(b == ModBlocks.frozen_dirt && world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(x, y + 1, z)) >= 7) {
 			{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		}
 	}

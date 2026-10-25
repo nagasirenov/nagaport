@@ -28,7 +28,7 @@ public class ContainerMachinePrecAss extends ContainerBase {
 		this.addSlots(assembler, 4, 8, 27, 3, 3);
 		// Output
 		this.addOutputSlots(invPlayer.player, assembler, 13, 80, 27, 3, 3);
-		
+
 		this.playerInv(invPlayer, 8, 174);
 	}
 
@@ -47,7 +47,7 @@ public class ContainerMachinePrecAss extends ContainerBase {
 					return null;
 				}
 			} else {
-				
+
 				if(slotOriginal.getItem() instanceof IBatteryItem || slotOriginal.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(slotStack, 0, 1, false)) return null;
 				} else if(slotOriginal.getItem() == ModItems.blueprints) {
@@ -59,7 +59,7 @@ public class ContainerMachinePrecAss extends ContainerBase {
 				}
 			}
 
-			if(slotStack.stackSize == 0) {
+			if(slotStack.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();

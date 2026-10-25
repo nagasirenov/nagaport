@@ -17,6 +17,25 @@ import net.minecraft.world.World;
 
 public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIProvider, IBufPacketReceiver, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private int timer = 0;
 	private int playersUsing = 0;
 	//meh, it's literally just two extra variables
@@ -141,7 +160,7 @@ public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIPr
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

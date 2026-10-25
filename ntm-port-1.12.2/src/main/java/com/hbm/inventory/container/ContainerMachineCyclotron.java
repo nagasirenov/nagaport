@@ -16,11 +16,11 @@ import net.minecraft.item.ItemStack;
 public class ContainerMachineCyclotron extends Container {
 
 	private TileEntityMachineCyclotron cyclotron;
-	
+
 	public ContainerMachineCyclotron(InventoryPlayer invPlayer, TileEntityMachineCyclotron tile) {
-		
+
 		cyclotron = tile;
-		
+
 		//Input
 		this.addSlotToContainer(new Slot(tile, 0, 11, 18));
 		this.addSlotToContainer(new Slot(tile, 1, 11, 36));
@@ -38,7 +38,7 @@ public class ContainerMachineCyclotron extends Container {
 		//Upgrades
 		this.addSlotToContainer(new SlotUpgrade(tile, 10, 60, 81));
 		this.addSlotToContainer(new SlotUpgrade(tile, 11, 78, 81));
-		
+
 		for(int i = 0; i < 3; i++)
 		{
 			for(int j = 0; j < 9; j++)
@@ -46,16 +46,16 @@ public class ContainerMachineCyclotron extends Container {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 15 + j * 18, 133 + i * 18));
 			}
 		}
-		
+
 		for(int i = 0; i < 9; i++)
 		{
 			this.addSlotToContainer(new Slot(invPlayer, i, 15 + i * 18, 191));
 		}
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		
+
 		ItemStack var3 = null;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
@@ -67,37 +67,37 @@ public class ContainerMachineCyclotron extends Container {
 				if(!this.mergeItemStack(stack, 16, this.inventorySlots.size(), true)) {
 					return null;
 				}
-				
+
 			} else {
-				
+
 				if(stack.getItem() instanceof IBatteryItem || stack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 9, 10, true))
 						return null;
-					
+
 				} else if(stack.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(stack, 10, 11, true))
 						if(!this.mergeItemStack(stack, 11, 12, true))
 							return null;
-					
+
 				} else {
-					
+
 					if(stack.getItem() == ModItems.part_lithium ||
 							stack.getItem() == ModItems.part_beryllium ||
 							stack.getItem() == ModItems.part_carbon ||
 							stack.getItem() == ModItems.part_copper ||
 							stack.getItem() == ModItems.part_plutonium) {
-						
+
 						if(!this.mergeItemStack(stack, 0, 3, true))
 							return null;
 					} else {
-						
+
 						if(!this.mergeItemStack(stack, 3, 6, true))
 							return null;
 					}
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

@@ -183,7 +183,7 @@ public class GUIAnvil extends GuiContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int k) {
+	protected void mouseClicked(int x, int y, int k) throws java.io.IOException {
 		super.mouseClicked(x, y, k);
 
 		this.search.mouseClicked(x, y, k);
@@ -301,7 +301,7 @@ public class GUIAnvil extends GuiContainer {
 					}
 					if(input.matchesRecipe(stackItem, true)) {
 						hasItem = true;
-						amount += stackItem.stackSize;
+						amount += stackItem.getCount();
 					}
 				}
 				if(hasItem && amount >= stack.stacksize) {
@@ -311,7 +311,7 @@ public class GUIAnvil extends GuiContainer {
 				}
 			} else if(stack instanceof OreDictStack) {
 				OreDictStack input = (OreDictStack) stack;
-				ArrayList<ItemStack> ores = OreDictionary.getOres(input.name);
+				net.minecraft.util.NonNullList<ItemStack> ores = OreDictionary.getOres(input.name);
 
 				if(ores.size() > 0) {
 					boolean hasItem = false;
@@ -323,7 +323,7 @@ public class GUIAnvil extends GuiContainer {
 						}
 						if(input.matchesRecipe(stackItem, true)) {
 							hasItem = true;
-							amount += stackItem.stackSize;
+							amount += stackItem.getCount();
 						}
 					}
 					ItemStack inStack = ores.get((int) (Math.abs(System.currentTimeMillis() / 1000) % ores.size()));
@@ -342,7 +342,7 @@ public class GUIAnvil extends GuiContainer {
 		list.add(TextFormatting.YELLOW + "Outputs:");
 
 		for(AnvilOutput stack : recipe.output) {
-			list.add(">" + stack.stack.stackSize + "x " + stack.stack.getDisplayName() + (stack.chance != 1F ? (" (" + (stack.chance * 100) + "%)") : ""));
+			list.add(">" + stack.stack.getCount() + "x " + stack.stack.getDisplayName() + (stack.chance != 1F ? (" (" + (stack.chance * 100) + "%)") : ""));
 		}
 
 		return list;
@@ -364,7 +364,7 @@ public class GUIAnvil extends GuiContainer {
 
 			} else if(stack instanceof OreDictStack) {
 				OreDictStack input = (OreDictStack) stack;
-				ArrayList<ItemStack> ores = OreDictionary.getOres(input.name);
+				net.minecraft.util.NonNullList<ItemStack> ores = OreDictionary.getOres(input.name);
 
 				if(ores.size() > 0) {
 					for(ItemStack ore : ores) {
@@ -443,7 +443,7 @@ public class GUIAnvil extends GuiContainer {
 			if (font == null) font = fontRenderer;
 
 			itemRender.zLevel = 100.0F;
-			itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), recipe.getDisplay(), guiLeft + 17 + 18 * (ind / 2), guiTop + 72 + 18 * (ind % 2));
+			itemRender.renderItemAndEffectIntoGUI(recipe.getDisplay(), guiLeft + 17 + 18 * (ind / 2), guiTop + 72 + 18 * (ind % 2));
 			itemRender.zLevel = 0.0F;
 
 			GL11.glEnable(GL11.GL_ALPHA_TEST);
@@ -460,7 +460,7 @@ public class GUIAnvil extends GuiContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int key) {
+	protected void keyTyped(char c, int key) throws java.io.IOException {
 
 		if(this.search.textboxKeyTyped(c, key)) {
 			search(this.search.getText());

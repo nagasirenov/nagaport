@@ -7,17 +7,18 @@ import com.hbm.items.ItemInventoryTransfer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerLeadBox extends Container {
-	
+
 	private InventoryLeadBox box;
-	
+
 	public ContainerLeadBox(InventoryPlayer invPlayer, InventoryLeadBox box) {
 		this.box = box;
 		this.box.openInventory(invPlayer.player);
-		
+
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 5; j++) {
 				this.addSlotToContainer(new SlotNonRetarded(box, j + i * 5, 43 + j * 18, 18 + i * 18));
@@ -65,9 +66,9 @@ public class ContainerLeadBox extends Container {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 		// prevents the player from moving around the currently open box
-		if(mode == 2 && button == player.inventory.currentItem) return null;
+		if(mode == ClickType.SWAP && button == player.inventory.currentItem) return ItemStack.EMPTY;
 		if(index == player.inventory.currentItem + 47) return null;
 		return super.slotClick(index, button, mode, player);
 	}
@@ -76,7 +77,7 @@ public class ContainerLeadBox extends Container {
 	public boolean canInteractWith(EntityPlayer player) {
 		return box.isUsableByPlayer(player);
 	}
-	
+
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);

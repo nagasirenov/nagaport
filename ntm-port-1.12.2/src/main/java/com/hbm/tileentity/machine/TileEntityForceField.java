@@ -37,6 +37,25 @@ import com.hbm.lib.ForgeDirection;
 
 public class TileEntityForceField extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IGUIProvider, IConfigurableMachine, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack slots[];
 
 	public int health = 100;
@@ -134,13 +153,21 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.forceField";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.forceField";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
+	}
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
 	}
 
 	public void setCustomName(String name) {
@@ -154,7 +181,7 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
@@ -162,6 +189,8 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <=64;
 		}
 	}
+
+
 
 	//You scrubs aren't needed for anything (right now)
 	@Override
@@ -185,14 +214,14 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null)
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
@@ -255,7 +284,7 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
@@ -302,12 +331,12 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 			maxHealth = 100;
 
 			if(slots[1] != null && slots[1].getItem() == ModItems.upgrade_radius) {
-				rStack = slots[1].stackSize;
+				rStack = slots[1].getCount();
 				radius += rStack * radUpgrade;
 			}
 
 			if(slots[2] != null && slots[2].getItem() == ModItems.upgrade_health) {
-				hStack = slots[2].stackSize;
+				hStack = slots[2].getCount();
 				maxHealth += hStack * shUpgrade;
 			}
 
@@ -384,7 +413,7 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 		outside.clear();
 		inside.clear();
 
-		List<Object> list = this.world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5 - (rad + 25), this.pos.getY() + 0.5 - (rad + 25), this.pos.getZ() + 0.5 - (rad + 25), this.pos.getX() + 0.5 + (rad + 25), this.pos.getY() + 0.5 + (rad + 25), this.pos.getZ() + 0.5 + (rad + 25)));
+		List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5 - (rad + 25), this.pos.getY() + 0.5 - (rad + 25), this.pos.getZ() + 0.5 - (rad + 25), this.pos.getX() + 0.5 + (rad + 25), this.pos.getY() + 0.5 + (rad + 25), this.pos.getZ() + 0.5 + (rad + 25)));
 
 		for(Object o : list) {
 
@@ -427,7 +456,7 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 						entity.posY -= entity.motionY;
 						entity.posZ -= entity.motionZ;
 
-			    		this.world.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
+			    		this.world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.sparkShoot"), net.minecraft.util.SoundCategory.PLAYERS, 2.5F, 1.0F);
 						outside.add(entity);
 
 						if(!this.world.isRemote) {
@@ -457,7 +486,7 @@ public class TileEntityForceField extends TileEntityLoadedBase implements ISided
 						entity.posY -= entity.motionY;
 						entity.posZ -= entity.motionZ;
 
-			    		this.world.playSoundAtEntity(entity, "hbm:weapon.sparkShoot", 2.5F, 1.0F);
+			    		this.world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.sparkShoot"), net.minecraft.util.SoundCategory.PLAYERS, 2.5F, 1.0F);
 						inside.add(entity);
 
 						if(!this.world.isRemote) {

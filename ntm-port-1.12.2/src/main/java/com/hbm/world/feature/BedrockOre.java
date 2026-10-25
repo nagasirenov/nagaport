@@ -181,18 +181,18 @@ public class BedrockOre {
 			for(int iz = z - 1; iz <= z + 1; iz++) {
 
 				Block b = com.hbm.world.WorldBlockState.read(world, ix, 0, iz).getBlock();
-				if(b.isReplaceableOreGen(world, ix, 0, iz, Blocks.BEDROCK)) {
+				if(com.hbm.world.WorldBlockState.isReplaceableOreGen(b, world, ix, 0, iz, Blocks.BEDROCK)) {
 					if((ix == x && iz == z) || world.rand.nextBoolean()) {
 
-						world.setBlock(ix, 0, iz, ModBlocks.ore_bedrock);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, ix, 0, iz, ModBlocks.ore_bedrock);
 						TileEntityBedrockOre ore = (TileEntityBedrockOre) world.getTileEntity(new net.minecraft.util.math.BlockPos(ix, 0, iz));
 						ore.resource = stack;
 						ore.color = color;
 						ore.shape = world.rand.nextInt(10);
 						ore.acidRequirement = acid;
 						ore.tier = tier;
-						world.markBlockForUpdate(ix, 0, iz);
-						world.markTileEntityChunkModified(ix, 0, iz, ore);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(world, ix, 0, iz);
+						world.markChunkDirty(new net.minecraft.util.math.BlockPos(ix, 0, iz), ore);
 					}
 				}
 			}
@@ -205,8 +205,8 @@ public class BedrockOre {
 					if(iy < 3 || com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock() == Blocks.BEDROCK) {
 
 						Block b = com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock();
-						if(b.isReplaceableOreGen(world, ix, iy, iz, targetBlock) || b.isReplaceableOreGen(world, ix, iy, iz, Blocks.BEDROCK)) {
-							world.setBlock(ix, iy, iz, depthRock);
+						if(com.hbm.world.WorldBlockState.isReplaceableOreGen(b, world, ix, iy, iz, targetBlock) || com.hbm.world.WorldBlockState.isReplaceableOreGen(b, world, ix, iy, iz, Blocks.BEDROCK)) {
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, ix, iy, iz, depthRock);
 						}
 					}
 				}

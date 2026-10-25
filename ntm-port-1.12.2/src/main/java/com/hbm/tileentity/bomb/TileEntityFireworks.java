@@ -37,9 +37,9 @@ public class TileEntityFireworks extends TileEntity implements net.minecraft.uti
 					double offZ = (mod % 3 - 1) * 0.3125;
 
 					EntityFireworks fireworks = new EntityFireworks(this.world, this.pos.getX() + 0.5 + offX, this.pos.getY() + 1.5, this.pos.getZ() + 0.5 + offZ, color, c);
-					this.world.spawnEntityInWorld(fireworks);
+					this.world.spawnEntity(fireworks);
 
-					this.world.playSoundAtEntity(fireworks, "hbm:weapon.rocketFlame", 3.0F, 1.0F);
+					this.world.playSound(null, fireworks.posX, fireworks.posY, fireworks.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.rocketFlame"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 
 					charges--;
 					this.markDirty();

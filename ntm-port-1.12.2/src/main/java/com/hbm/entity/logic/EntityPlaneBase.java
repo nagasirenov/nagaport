@@ -29,7 +29,7 @@ import net.minecraftforge.common.ForgeChunkManager.Type;
 public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 	protected static final DataParameter<Float> PLANE_HEALTH = EntityDataManager.createKey(EntityPlaneBase.class, DataSerializers.FLOAT);
 
-	
+
 	protected int turnProgress;
 	protected double syncPosX;
 	protected double syncPosY;
@@ -45,7 +45,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 
 	private Ticket loaderTicket;
 	private List<ChunkPos> loadedChunks = new ArrayList<ChunkPos>();
-	
+
 	public float health = getMaxHealth();
 	public int timer = getLifetime();
 
@@ -53,13 +53,13 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 
 	public float getMaxHealth() { return 50F; }
 	public int getLifetime() { return 200; }
-	
+
 	@Override public boolean canBeCollidedWith() { return this.health > 0; }
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if(source == ModDamageSource.nuclearBlast) return false;
-		if(this.isEntityInvulnerable()) return false;
+		if(this.isEntityInvulnerable(null)) return false;
 		if(!this.isDead && !this.world.isRemote && this.health > 0) {
 			health -= amount;
 			if(this.health <= 0) this.killPlane();
@@ -89,10 +89,10 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 			ForgeChunkManager.forceChunk(loaderTicket, new ChunkPos(chunkCoordX, chunkCoordZ));
 		}
 	}
-	
+
 	@Override
 	public void onUpdate() {
-		
+
 		if(!this.world.isRemote) {
 			this.dataManager.set(PLANE_HEALTH, health);
 		} else {
@@ -100,7 +100,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 		}
 
 		if(this.world.isRemote) {
-			
+
 			this.lastTickPosX = this.posX;
 			this.lastTickPosY = this.posY;
 			this.lastTickPosZ = this.posZ;
@@ -116,21 +116,21 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 			} else {
 				this.setPosition(this.posX, this.posY, this.posZ);
 			}
-			
+
 		} else {
 			this.lastTickPosX = this.prevPosX = posX;
 			this.lastTickPosY = this.prevPosY = posY;
 			this.lastTickPosZ = this.prevPosZ = posZ;
 			this.setPosition(posX + motionX, posY + motionY, posZ + motionZ);
-			
+
 			this.rotation();
-			
+
 			if(this.health <= 0) {
 				motionY -= 0.025;
-				
+
 				for(int i = 0; i < 10; i++) ParticleUtil.spawnGasFlame(this.world, this.posX + rand.nextGaussian() * 0.5 - motionX * 2, this.posY + rand.nextGaussian() * 0.5 - motionY * 2, this.posZ + rand.nextGaussian() * 0.5 - motionZ * 2, 0.0, 0.1, 0.0);
-				
-				if((!com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().isAir(this.world, (int) posX, (int) posY, (int) posZ) || posY < 0)) {
+
+				if((!com.hbm.world.WorldBlockState.isAir(this.world, (int) posX, (int) posY, (int) posZ) || posY < 0)) {
 					this.setDead();
 					ExplosionCreator.composeEffectLarge(this.world, posX, posY, posZ);
 					new ExplosionVNT(this.world, posX, posY, posZ, 15F).makeStandard().explode();
@@ -140,12 +140,12 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 			} else {
 				this.motionY = 0F;
 			}
-			
+
 			if(this.ticksExisted > timer) this.setDead();
 			loadNeighboringChunks((int)Math.floor(posX / 16D), (int)Math.floor(posZ / 16D));
 		}
 	}
-	
+
 	protected void rotation() {
 		float motionHorizontal = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 		this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
@@ -154,14 +154,14 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 		while(this.rotationYaw - this.prevRotationYaw < -180.0F) this.prevRotationYaw -= 360.0F;
 		while(this.rotationYaw - this.prevRotationYaw >= 180.0F) this.prevRotationYaw += 360.0F;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void setVelocity(double velX, double velY, double velZ) {
 		this.velocityX = this.motionX = velX;
 		this.velocityY = this.motionY = velY;
 		this.velocityZ = this.motionZ = velZ;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void setPositionAndRotation2(double x, double y, double z, float yaw, float pitch, int theNumberThree) {
 		this.syncPosX = x;
@@ -192,7 +192,7 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 		nbt.setInteger("ticksExisted", ticksExisted);
 		nbt.setFloat("health", this.dataManager.get(PLANE_HEALTH));
 	}
-	
+
 	public void clearChunkLoader() {
 		if(!this.world.isRemote && loaderTicket != null) {
 			ForgeChunkManager.releaseTicket(loaderTicket);
@@ -210,6 +210,6 @@ public abstract class EntityPlaneBase extends Entity implements IChunkLoader {
 			for(ChunkPos chunk : loadedChunks) ForgeChunkManager.forceChunk(loaderTicket, chunk);
 		}
 	}
-	
+
 	@Override @SideOnly(Side.CLIENT) public boolean isInRangeToRenderDist(double distance) { return true; }
 }

@@ -11,6 +11,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -44,7 +46,7 @@ public class RenderFallout extends Render<Entity> {
 
 		Minecraft mc = Minecraft.getMinecraft();
 
-		EntityLivingBase entitylivingbase = mc.renderViewEntity;
+		EntityLivingBase entitylivingbase = mc.getRenderViewEntity() instanceof EntityLivingBase ? (EntityLivingBase) mc.getRenderViewEntity() : mc.player;
 		Vec3d vector = new Vec3d(entitylivingbase.posX - entity.posX, entitylivingbase.posY - entity.posY, entitylivingbase.posZ - entity.posZ);
 
 		if(vector.length() <= entity.getScale()) {
@@ -89,7 +91,7 @@ public class RenderFallout extends Render<Entity> {
 			}
 
 			WorldClient worldclient = mc.world;
-			EntityLivingBase camera = mc.renderViewEntity;
+			EntityLivingBase camera = mc.getRenderViewEntity() instanceof EntityLivingBase ? (EntityLivingBase) mc.getRenderViewEntity() : mc.player;
 
 			int playerX = MathHelper.floor(camera.posX);
 			int playerY = MathHelper.floor(camera.posY);
@@ -104,7 +106,7 @@ public class RenderFallout extends Render<Entity> {
 
 			if(mc.gameSettings.fancyGraphics) renderLayerCount = 10;
 
-			Tessellator tessellator = Tessellator.instance;
+			Tessellator tessellator = Tessellator.getInstance();
 			GL11.glDisable(GL11.GL_CULL_FACE);
 			GL11.glNormal3f(0.0F, 1.0F, 0.0F);
 			GL11.glEnable(GL11.GL_BLEND);
@@ -119,19 +121,20 @@ public class RenderFallout extends Render<Entity> {
 					float rainCoordX = this.rainXCoords[rainCoord] * 0.5F;
 					float rainCoordY = this.rainYCoords[rainCoord] * 0.5F;
 
-					int rainHeight = worldclient.getPrecipitationHeight(layerX, layerZ);
+					int rainHeight = worldclient.getPrecipitationHeight(new net.minecraft.util.math.BlockPos(layerX, 0, layerZ)).getY();
 					int minHeight = playerY - renderLayerCount;
 					int maxHeight = playerY + renderLayerCount;
 
 					if(minHeight < rainHeight) minHeight = rainHeight;
 					if(maxHeight < rainHeight) maxHeight = rainHeight;
-					
+
 					int layerY = rainHeight;
 					if(rainHeight < playerHeight) layerY = playerHeight;
 
 					if(minHeight != maxHeight) {
 						this.random.setSeed(layerX * layerX * 3121 + layerX * 45238971 ^ layerZ * layerZ * 418711 + layerZ * 13761);
 
+						BufferBuilder buf = tessellator.getBuffer();
 						if(layer != 1) {
 							if(layer >= 0) {
 								tessellator.draw();
@@ -139,7 +142,7 @@ public class RenderFallout extends Render<Entity> {
 
 							layer = 1;
 							mc.getTextureManager().bindTexture(RenderFallout.falloutTexture);
-							tessellator.startDrawingQuads();
+							buf.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 						}
 
 						float fallSpeed = 1.0F;
@@ -150,15 +153,19 @@ public class RenderFallout extends Render<Entity> {
 						double distZ = layerZ + 0.5F - camera.posZ;
 						float intensityMod = MathHelper.sqrt(distX * distX + distZ * distZ) / renderLayerCount;
 						float colorMod = 1.0F;
-						
-						tessellator.setBrightness((worldclient.getLightBrightnessForSkyBlocks(layerX, layerY, layerZ, 0) * 3 + 15728880) / 4);
-						tessellator.setColorRGBA_F(colorMod, colorMod, colorMod, ((1.0F - intensityMod * intensityMod) * 0.3F + 0.5F) * intensity);
-						tessellator.setTranslation(-dX * 1.0D, -dY * 1.0D, -dZ * 1.0D);
-						tessellator.addVertexWithUV(layerX - rainCoordX + 0.5D, minHeight, layerZ - rainCoordY + 0.5D, 0.0F * fallSpeed + fallVariation, minHeight * fallSpeed / 4.0F + swayLoop * fallSpeed + swayVariation);
-						tessellator.addVertexWithUV(layerX + rainCoordX + 0.5D, minHeight, layerZ + rainCoordY + 0.5D, 1.0F * fallSpeed + fallVariation, minHeight * fallSpeed / 4.0F + swayLoop * fallSpeed + swayVariation);
-						tessellator.addVertexWithUV(layerX + rainCoordX + 0.5D, maxHeight, layerZ + rainCoordY + 0.5D, 1.0F * fallSpeed + fallVariation, maxHeight * fallSpeed / 4.0F + swayLoop * fallSpeed + swayVariation);
-						tessellator.addVertexWithUV(layerX - rainCoordX + 0.5D, maxHeight, layerZ - rainCoordY + 0.5D, 0.0F * fallSpeed + fallVariation, maxHeight * fallSpeed / 4.0F + swayLoop * fallSpeed + swayVariation);
-						tessellator.setTranslation(0.0D, 0.0D, 0.0D);
+						float alpha = ((1.0F - intensityMod * intensityMod) * 0.3F + 0.5F) * intensity;
+
+						int combinedLight = worldclient.getCombinedLight(new net.minecraft.util.math.BlockPos(layerX, layerY, layerZ), 0);
+						int brightness = (combinedLight * 3 + 15728880) / 4;
+						int skyLight = brightness >> 16 & 65535;
+						int blockLight = brightness & 65535;
+
+						buf.setTranslation(-dX * 1.0D, -dY * 1.0D, -dZ * 1.0D);
+						buf.pos(layerX - rainCoordX + 0.5D, minHeight, layerZ - rainCoordY + 0.5D).tex(0.0F * fallSpeed + fallVariation, minHeight * fallSpeed / 4.0F + swayLoop * fallSpeed + swayVariation).color(colorMod, colorMod, colorMod, alpha).lightmap(skyLight, blockLight).endVertex();
+						buf.pos(layerX + rainCoordX + 0.5D, minHeight, layerZ + rainCoordY + 0.5D).tex(1.0F * fallSpeed + fallVariation, minHeight * fallSpeed / 4.0F + swayLoop * fallSpeed + swayVariation).color(colorMod, colorMod, colorMod, alpha).lightmap(skyLight, blockLight).endVertex();
+						buf.pos(layerX + rainCoordX + 0.5D, maxHeight, layerZ + rainCoordY + 0.5D).tex(1.0F * fallSpeed + fallVariation, maxHeight * fallSpeed / 4.0F + swayLoop * fallSpeed + swayVariation).color(colorMod, colorMod, colorMod, alpha).lightmap(skyLight, blockLight).endVertex();
+						buf.pos(layerX - rainCoordX + 0.5D, maxHeight, layerZ - rainCoordY + 0.5D).tex(0.0F * fallSpeed + fallVariation, maxHeight * fallSpeed / 4.0F + swayLoop * fallSpeed + swayVariation).color(colorMod, colorMod, colorMod, alpha).lightmap(skyLight, blockLight).endVertex();
+						buf.setTranslation(0.0D, 0.0D, 0.0D);
 					}
 				}
 			}

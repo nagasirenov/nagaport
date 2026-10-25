@@ -15,19 +15,24 @@ public class ItemDemonCore extends Item {
 
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
-		
+
 		if(entityItem != null && !entityItem.world.isRemote && entityItem.onGround) {
-			entityItem.setEntityItemStack(new ItemStack(ModItems.demon_core_closed));
+			entityItem.setItem(new ItemStack(ModItems.demon_core_closed));
 			entityItem.world.spawnEntity(new EntityItem(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, new ItemStack(ModItems.screwdriver)));
 			return true;
 		}
-		
+
 		return false;
 	}
-	
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
-		super.addInformation(itemstack, player, list, bool);
+
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 		list.add(TextFormatting.RED + "[" + I18nUtil.resolveKey("trait.drop") + "]");
 	}
 }

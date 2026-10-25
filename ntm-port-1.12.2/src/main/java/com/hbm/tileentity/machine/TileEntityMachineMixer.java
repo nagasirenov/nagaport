@@ -192,7 +192,7 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 
 			if(slots[1] == null) return false;
 
-			if(!recipe.solidInput.matchesRecipe(slots[1], true) || recipe.solidInput.stacksize > slots[1].stackSize) return false;
+			if(!recipe.solidInput.matchesRecipe(slots[1], true) || recipe.solidInput.stacksize > slots[1].getCount()) return false;
 		}
 
 		this.processTime = recipe.processTime;
@@ -314,7 +314,7 @@ public class TileEntityMachineMixer extends TileEntityMachineBase implements ICo
 		if(aabb != null)
 			return aabb;
 
-		aabb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 3, this.pos.getZ() + 1);
+		aabb = new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 3, this.pos.getZ() + 1);
 		return aabb;
 	}
 

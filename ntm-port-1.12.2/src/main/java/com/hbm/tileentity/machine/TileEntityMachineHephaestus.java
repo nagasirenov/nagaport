@@ -138,7 +138,7 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 
 			input.setFill(input.getFill() - step.amountReq * ops);
 			output.setFill(output.getFill() + step.amountProduced * ops);
-			this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+			this.world.markChunkDirty(this.pos, this);
 		}
 	}
 
@@ -288,7 +288,7 @@ public class TileEntityMachineHephaestus extends TileEntityLoadedBase implements
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 3,
 					this.pos.getY(),
 					this.pos.getZ() - 3,

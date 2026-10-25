@@ -23,20 +23,31 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.IMinecartCollisionHandler;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 /**
  * Not to be used for any minecarts! This class only exists for analyzing the vanilla minecart code!
  *
  */
 public abstract class EntityMinecartDeobf extends Entity {
+	private static final DataParameter<Integer> ROLLING_AMPLITUDE = EntityDataManager.createKey(EntityMinecartDeobf.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> ROLLING_DIRECTION = EntityDataManager.createKey(EntityMinecartDeobf.class, DataSerializers.VARINT);
+	private static final DataParameter<Float> DAMAGE = EntityDataManager.createKey(EntityMinecartDeobf.class, DataSerializers.FLOAT);
+	private static final DataParameter<Integer> DISPLAY_TILE = EntityDataManager.createKey(EntityMinecartDeobf.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> DISPLAY_TILE_OFFSET = EntityDataManager.createKey(EntityMinecartDeobf.class, DataSerializers.VARINT);
+	private static final DataParameter<Byte> HAS_DISPLAY_TILE = EntityDataManager.createKey(EntityMinecartDeobf.class, DataSerializers.BYTE);
 	private boolean isInReverse;
 	private String entityName;
 	/** Minecart rotational logic matrix */
@@ -83,7 +94,11 @@ public abstract class EntityMinecartDeobf extends Entity {
 		super(p_i1712_1_);
 		this.preventEntitySpawning = true;
 		this.setSize(0.98F, 0.7F);
-		this.yOffset = this.height / 2.0F;
+	}
+
+	@Override
+	public double getYOffset() {
+		return this.height / 2.0F;
 	}
 
 	/**
@@ -121,13 +136,14 @@ public abstract class EntityMinecartDeobf extends Entity {
 		return false;
 	}
 
+	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(17, new Integer(0));
-		this.dataWatcher.addObject(18, new Integer(1));
-		this.dataWatcher.addObject(19, new Float(0.0F));
-		this.dataWatcher.addObject(20, new Integer(0));
-		this.dataWatcher.addObject(21, new Integer(6));
-		this.dataWatcher.addObject(22, Byte.valueOf((byte) 0));
+		this.dataManager.register(ROLLING_AMPLITUDE, Integer.valueOf(0));
+		this.dataManager.register(ROLLING_DIRECTION, Integer.valueOf(1));
+		this.dataManager.register(DAMAGE, Float.valueOf(0.0F));
+		this.dataManager.register(DISPLAY_TILE, Integer.valueOf(0));
+		this.dataManager.register(DISPLAY_TILE_OFFSET, Integer.valueOf(6));
+		this.dataManager.register(HAS_DISPLAY_TILE, Byte.valueOf((byte) 0));
 	}
 
 	/**
@@ -178,18 +194,18 @@ public abstract class EntityMinecartDeobf extends Entity {
 	 */
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if(!this.world.isRemote && !this.isDead) {
-			if(this.isEntityInvulnerable()) {
+			if(this.isEntityInvulnerable(source)) {
 				return false;
 			} else {
 				this.setRollingDirection(-this.getRollingDirection());
 				this.setRollingAmplitude(10);
-				this.setBeenAttacked();
+				this.velocityChanged = true;
 				this.setDamage(this.getDamage() + amount * 10.0F);
 				boolean flag = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;
 
 				if(flag || this.getDamage() > 40.0F) {
 					if(this.isBeingRidden()) {
-						this.riddenByEntity.mountEntity(this);
+						this.removePassengers();
 					}
 
 					if(flag && !this.hasCustomInventoryName()) {
@@ -256,12 +272,12 @@ public abstract class EntityMinecartDeobf extends Entity {
 		}
 
 		if(this.posY < -64.0D) {
-			this.kill();
+			this.setDead();
 		}
 
 		if(!this.world.isRemote && this.world instanceof WorldServer) {
 			this.world.profiler.startSection("portal");
-			MinecraftServer minecraftserver = ((WorldServer) this.world).func_73046_m();
+			MinecraftServer minecraftserver = ((WorldServer) this.world).getMinecraftServer();
 			int portalTime = this.getMaxInPortalTime();
 
 			if(this.inPortal) {
@@ -277,7 +293,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 							destination = -1;
 						}
 
-						this.travelToDimension(destination);
+						this.changeDimension(destination);
 					}
 
 					this.inPortal = false;
@@ -328,29 +344,29 @@ public abstract class EntityMinecartDeobf extends Entity {
 			int railY = MathHelper.floor(this.posY);
 			int railZ = MathHelper.floor(this.posZ);
 
-			if(BlockRailBase.func_150049_b_(this.world, railX, railY - 1, railZ) /* b instanceof BlockRail */) {
+			if(BlockRailBase.isRailBlock(this.world, new BlockPos(railX, railY - 1, railZ)) /* b instanceof BlockRail */) {
 				--railY; //if the block below the current one is a rail use that one. used for downward slopes i'd imagine
 			}
 
 			double groundSpeedNoRail = 0.4D;
 			Block block = com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ).getBlock();
 
-			if(canUseRail() && BlockRailBase.func_150051_a(block) /* b instanceof BlockRail */) {
+			if(canUseRail() && BlockRailBase.isRailBlock(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ)) /* b instanceof BlockRail */) {
 				/*
 				 * MAJOR SECION: THE CART IS ON A RAIL
 				 */
 				float railMaxSpeed = 1F; //((BlockRailBase) block).getRailMaxSpeed(worldObj, this, l, i, i1);
 				double maxSpeed = Math.min(railMaxSpeed, getCurrentCartSpeedCapOnRail());
-				this.useRail(railX, railY, railZ, maxSpeed, getSlopeAdjustment(), block, this.world.getBlockMetadata(railX, railY, railZ));
+				this.useRail(railX, railY, railZ, maxSpeed, getSlopeAdjustment(), block, com.hbm.world.WorldBlockState.readMetadata(this.world, railX, railY, railZ));
 
 				if(block == Blocks.ACTIVATOR_RAIL) {
-					this.onActivatorRailPass(railX, railY, railZ, (this.world.getBlockMetadata(railX, railY, railZ) & 8) != 0);
+					this.onActivatorRailPass(railX, railY, railZ, (com.hbm.world.WorldBlockState.readMetadata(this.world, railX, railY, railZ) & 8) != 0);
 				}
 			} else {
 				this.limitSpeedApplyDragAndMoveWithoutRail(onGround ? groundSpeedNoRail : getMaxSpeedAirLateral());
 			}
 
-			this.func_145775_I(); //collide with blocks (Entity.class)
+			this.doBlockCollisions(); //collide with blocks (Entity.class)
 			this.rotationPitch = 0.0F;
 			double d8 = this.prevPosX - this.posX;
 			double d4 = this.prevPosZ - this.posZ;
@@ -380,18 +396,14 @@ public abstract class EntityMinecartDeobf extends Entity {
 				for(int k = 0; k < list.size(); ++k) {
 					Entity entity = (Entity) list.get(k);
 
-					if(entity != this.riddenByEntity && entity.canBePushed() && entity instanceof EntityMinecart) {
+					if(!this.isPassenger(entity) && entity.canBePushed() && entity instanceof EntityMinecart) {
 						entity.applyEntityCollision(this);
 					}
 				}
 			}
 
-			if(this.isBeingRidden() && this.riddenByEntity.isDead) {
-				if(this.riddenByEntity.ridingEntity == this) {
-					this.riddenByEntity.ridingEntity = null;
-				}
-
-				this.riddenByEntity = null;
+			if(this.isBeingRidden() && this.getPassengers().get(0).isDead) {
+				this.removePassengers();
 			}
 
 			//MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, l, i, i1));
@@ -436,13 +448,17 @@ public abstract class EntityMinecartDeobf extends Entity {
 			this.motionZ *= 0.5D;
 		}
 
-		this.moveEntity(this.motionX, moveY, this.motionZ);
+		this.move(net.minecraft.entity.MoverType.SELF, this.motionX, moveY, this.motionZ);
 
 		if(!this.onGround) {
 			this.motionX *= getDragAir();
 			this.motionY *= getDragAir();
 			this.motionZ *= getDragAir();
 		}
+	}
+
+	private static boolean isPoweredRail(Block block) {
+		return block instanceof BlockRailBase && ((Boolean) ReflectionHelper.getPrivateValue(BlockRailBase.class, (BlockRailBase) block, "field_150053_a", "isPowered")).booleanValue();
 	}
 
 	protected void useRail(int railX, int railY, int railZ, double maxSpeed, double slopeAdjustment, Block rail, int meta) {
@@ -452,12 +468,12 @@ public abstract class EntityMinecartDeobf extends Entity {
 		boolean flag = false;
 		boolean flag1 = false;
 
-		if(rail == Blocks.GOLDEN_RAIL) {
-			flag = (this.world.getBlockMetadata(railX, railY, railZ) & 8) != 0;
+		if(isPoweredRail(rail)) {
+			flag = (com.hbm.world.WorldBlockState.readMetadata(this.world, railX, railY, railZ) & 8) != 0;
 			flag1 = !flag;
 		}
 
-		if(((BlockRailBase) rail).isPowered()) {
+		if(isPoweredRail(rail)) {
 			meta &= 7;
 		}
 
@@ -505,12 +521,13 @@ public abstract class EntityMinecartDeobf extends Entity {
 		double d9;
 		double d10;
 
-		if(this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase) {
-			motion = (double) ((EntityLivingBase) this.riddenByEntity).moveForward;
+		Entity rider = this.getControllingPassenger();
+		if(rider instanceof EntityLivingBase) {
+			motion = (double) ((EntityLivingBase) rider).moveForward;
 
 			if(motion > 0.0D) {
-				d8 = -Math.sin((double) (this.riddenByEntity.rotationYaw * (float) Math.PI / 180.0F));
-				d9 = Math.cos((double) (this.riddenByEntity.rotationYaw * (float) Math.PI / 180.0F));
+				d8 = -Math.sin((double) (rider.rotationYaw * (float) Math.PI / 180.0F));
+				d9 = Math.cos((double) (rider.rotationYaw * (float) Math.PI / 180.0F));
 				d10 = this.motionX * this.motionX + this.motionZ * this.motionZ;
 
 				if(d10 < 0.01D) {
@@ -559,7 +576,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 
 		this.posX = d8 + sideDeltaX * motion;
 		this.posZ = d9 + sideDeltaZ * motion;
-		this.setPosition(this.posX, this.posY + (double) this.yOffset, this.posZ);
+		this.setPosition(this.posX, this.posY + (double) this.getYOffset(), this.posZ);
 
 		moveMinecartOnRail(railX, railY, railZ, maxSpeed);
 
@@ -638,16 +655,16 @@ public abstract class EntityMinecartDeobf extends Entity {
 		int y = MathHelper.floor(interpY);
 		int z  = MathHelper.floor(interpZ);
 
-		if(BlockRailBase.func_150049_b_(this.world, x, y - 1, z)) {
+		if(BlockRailBase.isRailBlock(this.world, new BlockPos(x, y - 1, z))) {
 			--y;
 		}
 
 		Block block = com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock();
 
-		if(!BlockRailBase.func_150051_a(block)) {
+		if(!BlockRailBase.isRailBlock(com.hbm.world.WorldBlockState.read(this.world, x, y, z))) {
 			return null;
 		} else {
-			int meta = this.world.getBlockMetadata(x, y, z);
+			int meta = com.hbm.world.WorldBlockState.readMetadata(this.world, x, y, z);
 
 			interpY = (double) y;
 
@@ -679,14 +696,14 @@ public abstract class EntityMinecartDeobf extends Entity {
 		int railY = MathHelper.floor(y);
 		int railZ = MathHelper.floor(z);
 
-		if(BlockRailBase.func_150049_b_(this.world, railX, railY - 1, railZ)) {
+		if(BlockRailBase.isRailBlock(this.world, new BlockPos(railX, railY - 1, railZ))) {
 			--railY;
 		}
 
 		Block block = com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ).getBlock();
 
-		if(BlockRailBase.func_150051_a(block)) {
-			int l = this.world.getBlockMetadata(railX, railY, railZ);
+		if(BlockRailBase.isRailBlock(com.hbm.world.WorldBlockState.read(this.world, railX, railY, railZ))) {
+			int l = com.hbm.world.WorldBlockState.readMetadata(this.world, railX, railY, railZ);
 			y = (double) railY;
 
 			if(l >= 2 && l <= 5) {
@@ -778,10 +795,10 @@ public abstract class EntityMinecartDeobf extends Entity {
 	public void applyEntityCollision(Entity entity) {
 		//MinecraftForge.EVENT_BUS.post(new MinecartCollisionEvent(this, p_70108_1_));
 		if(!this.world.isRemote) {
-			if(entity != this.riddenByEntity) {
+			if(!this.isPassenger(entity)) {
 				if(entity instanceof EntityLivingBase && !(entity instanceof EntityPlayer) && !(entity instanceof EntityIronGolem) && canBeRidden()
 						&& this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && !this.isBeingRidden() && entity.getRidingEntity() == null) {
-					entity.mountEntity(this);
+					entity.startRiding(this);
 				}
 
 				double deltaX = entity.posX - this.posX;
@@ -789,7 +806,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 				double delta = deltaX * deltaX + deltaZ * deltaZ;
 
 				if(delta >= 10E-5D) {
-					
+
 					delta = (double) MathHelper.sqrt(delta);
 					deltaX /= delta;
 					deltaZ /= delta;
@@ -812,8 +829,8 @@ public abstract class EntityMinecartDeobf extends Entity {
 						double d4 = entity.posX - this.posX;
 						double d5 = entity.posZ - this.posZ;
 						Vec3d vec3 = new Vec3d(d4, 0.0D, d5).normalize();
-						Vec3d vec31 = Vec3d
-								.createVectorHelper((double) MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F), 0.0D, (double) MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F))
+						Vec3d vec31 = new Vec3d(
+								(double) MathHelper.cos(this.rotationYaw * (float) Math.PI / 180.0F), 0.0D, (double) MathHelper.sin(this.rotationYaw * (float) Math.PI / 180.0F))
 								.normalize();
 						double d6 = Math.abs(vec3.dotProduct(vec31));
 
@@ -881,7 +898,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	 * time. The cart breaks when this is over 40.
 	 */
 	public void setDamage(float p_70492_1_) {
-		this.dataWatcher.updateObject(19, Float.valueOf(p_70492_1_));
+		this.dataManager.set(DAMAGE, Float.valueOf(p_70492_1_));
 	}
 
 	/**
@@ -899,21 +916,21 @@ public abstract class EntityMinecartDeobf extends Entity {
 	 * time. The cart breaks when this is over 40.
 	 */
 	public float getDamage() {
-		return this.dataWatcher.getWatchableObjectFloat(19);
+		return this.dataManager.get(DAMAGE).floatValue();
 	}
 
 	/**
 	 * Sets the rolling amplitude the cart rolls while being attacked.
 	 */
 	public void setRollingAmplitude(int p_70497_1_) {
-		this.dataWatcher.updateObject(17, Integer.valueOf(p_70497_1_));
+		this.dataManager.set(ROLLING_AMPLITUDE, Integer.valueOf(p_70497_1_));
 	}
 
 	/**
 	 * Gets the rolling amplitude the cart rolls while being attacked.
 	 */
 	public int getRollingAmplitude() {
-		return this.dataWatcher.getWatchableObjectInt(17);
+		return this.dataManager.get(ROLLING_AMPLITUDE).intValue();
 	}
 
 	/**
@@ -921,7 +938,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	 * or -1.
 	 */
 	public void setRollingDirection(int p_70494_1_) {
-		this.dataWatcher.updateObject(18, Integer.valueOf(p_70494_1_));
+		this.dataManager.set(ROLLING_DIRECTION, Integer.valueOf(p_70494_1_));
 	}
 
 	/**
@@ -929,7 +946,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	 * or -1.
 	 */
 	public int getRollingDirection() {
-		return this.dataWatcher.getWatchableObjectInt(18);
+		return this.dataManager.get(ROLLING_DIRECTION).intValue();
 	}
 
 	public abstract int getMinecartType();
@@ -938,7 +955,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 		if(!this.hasDisplayTile()) {
 			return this.func_145817_o();
 		} else {
-			int i = this.getDataWatcher().getWatchableObjectInt(20) & 65535;
+			int i = this.dataManager.get(DISPLAY_TILE).intValue() & 65535;
 			return Block.getBlockById(i);
 		}
 	}
@@ -948,7 +965,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	}
 
 	public int getDisplayTileData() {
-		return !this.hasDisplayTile() ? this.getDefaultDisplayTileData() : this.getDataWatcher().getWatchableObjectInt(20) >> 16;
+		return !this.hasDisplayTile() ? this.getDefaultDisplayTileData() : this.dataManager.get(DISPLAY_TILE).intValue() >> 16;
 	}
 
 	public int getDefaultDisplayTileData() {
@@ -956,7 +973,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	}
 
 	public int getDisplayTileOffset() {
-		return !this.hasDisplayTile() ? this.getDefaultDisplayTileOffset() : this.getDataWatcher().getWatchableObjectInt(21);
+		return !this.hasDisplayTile() ? this.getDefaultDisplayTileOffset() : this.dataManager.get(DISPLAY_TILE_OFFSET).intValue();
 	}
 
 	public int getDefaultDisplayTileOffset() {
@@ -964,26 +981,26 @@ public abstract class EntityMinecartDeobf extends Entity {
 	}
 
 	public void func_145819_k(int p_145819_1_) {
-		this.getDataWatcher().updateObject(20, Integer.valueOf(p_145819_1_ & 65535 | this.getDisplayTileData() << 16));
+		this.dataManager.set(DISPLAY_TILE, Integer.valueOf(p_145819_1_ & 65535 | this.getDisplayTileData() << 16));
 		this.setHasDisplayTile(true);
 	}
 
 	public void setDisplayTileData(int p_94092_1_) {
-		this.getDataWatcher().updateObject(20, Integer.valueOf(Block.getIdFromBlock(this.func_145820_n()) & 65535 | p_94092_1_ << 16));
+		this.dataManager.set(DISPLAY_TILE, Integer.valueOf(Block.getIdFromBlock(this.func_145820_n()) & 65535 | p_94092_1_ << 16));
 		this.setHasDisplayTile(true);
 	}
 
 	public void setDisplayTileOffset(int p_94086_1_) {
-		this.getDataWatcher().updateObject(21, Integer.valueOf(p_94086_1_));
+		this.dataManager.set(DISPLAY_TILE_OFFSET, Integer.valueOf(p_94086_1_));
 		this.setHasDisplayTile(true);
 	}
 
 	public boolean hasDisplayTile() {
-		return this.getDataWatcher().getWatchableObjectByte(22) == 1;
+		return this.dataManager.get(HAS_DISPLAY_TILE).byteValue() == 1;
 	}
 
 	public void setHasDisplayTile(boolean p_94096_1_) {
-		this.getDataWatcher().updateObject(22, Byte.valueOf((byte) (p_94096_1_ ? 1 : 0)));
+		this.dataManager.set(HAS_DISPLAY_TILE, Byte.valueOf((byte) (p_94096_1_ ? 1 : 0)));
 	}
 
 	/**
@@ -998,7 +1015,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	 * "Rcon")
 	 */
 	public String getCommandSenderName() {
-		return this.entityName != null ? this.entityName : super.getCommandSenderName();
+		return this.entityName != null ? this.entityName : super.getName();
 	}
 
 	/**
@@ -1045,13 +1062,13 @@ public abstract class EntityMinecartDeobf extends Entity {
 			motionZ = maxSpeed;
 		}
 
-		this.moveEntity(motionX, 0.0D, motionZ);
+		this.move(net.minecraft.entity.MoverType.SELF, motionX, 0.0D, motionZ);
 	}
 
 	/**
 	 * Gets the current global Minecart Collision handler if none is registered,
 	 * returns null
-	 * 
+	 *
 	 * @return The collision handler or null
 	 */
 	public static IMinecartCollisionHandler getCollisionHandler() {
@@ -1061,7 +1078,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	/**
 	 * Sets the global Minecart Collision handler, overwrites any that is
 	 * currently set.
-	 * 
+	 *
 	 * @param handler
 	 *            The new handler
 	 */
@@ -1073,7 +1090,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	 * This function returns an ItemStack that represents this cart. This should
 	 * be an ItemStack that can be used by the player to place the cart, but is
 	 * not necessary the item the cart drops when destroyed.
-	 * 
+	 *
 	 * @return An ItemStack that can be used to place the cart.
 	 */
 	public ItemStack getCartItem() {
@@ -1083,7 +1100,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	/**
 	 * Returns true if this cart can currently use rails. This function is
 	 * mainly used to gracefully detach a minecart from a rail.
-	 * 
+	 *
 	 * @return True if the minecart can use rails.
 	 */
 	public boolean canUseRail() {
@@ -1093,7 +1110,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	/**
 	 * Set whether the minecart can use rails. This function is mainly used to
 	 * gracefully detach a minecart from a rail.
-	 * 
+	 *
 	 * @param use
 	 *            Whether the minecart can currently use rails.
 	 */
@@ -1104,7 +1121,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	/**
 	 * Return false if this cart should not call onMinecartPass() and should
 	 * ignore Powered Rails.
-	 * 
+	 *
 	 * @return True if this cart should call onMinecartPass().
 	 */
 	public boolean shouldDoRailFunctions() {
@@ -1113,7 +1130,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 
 	/**
 	 * Returns true if this cart is self propelled.
-	 * 
+	 *
 	 * @return True if powered.
 	 */
 	public boolean isPoweredCart() {
@@ -1122,7 +1139,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 
 	/**
 	 * Returns true if this cart can be ridden by an Entity.
-	 * 
+	 *
 	 * @return True if this cart can be ridden.
 	 */
 	public boolean canBeRidden() {

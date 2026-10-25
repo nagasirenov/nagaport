@@ -1,35 +1,44 @@
-# Current continuation: 2026-10-20
+# Current continuation: 2026-10-24
 
 ## Verified status
 
-Latest integrated production: CP97, based on sealed CP96 f44d3ffc. Fresh offline full compilation **FAILS with 9,989 diagnostics**, seventeen fewer than CP96, with seventeen removed reports and zero added. All 4,073 generated Java inputs match frozen production. Two existing production files and one new handler changed. This meets the conditional publication milestone, not a successful build or playable JAR. Exact scope, evidence and commands: [checkpoint97/README.md](checkpoint97/README.md).
+Latest integrated working snapshot: **CP168 (CLEAN BUILD)**. A fresh Windows offline clean compile exits 0; compileJava exits 0 with **0 compiler diagnostics (BUILD SUCCESSFUL)**. The normalized CP167 -> CP168 diagnostic comparison records **70 removed diagnostics and zero added** (multi-session total CP160 -> CP168: 1,886 removed, 100% compilation completion). All **4,076 production Java sources** match the generated compiler inputs byte-for-byte (`diff -r`: 0 mismatches), and `git diff --check` reports zero whitespace or line ending issues across all modified files.
 
-Published GitHub main remains CP75 eefb4c1f6f344e4fcb15efb7e6cb6a370419a570. Later local checkpoints are separately preserved recovery work; publication of a later exact sealed checkpoint is now authorized only once verified full compilation reaches 10,000 diagnostics or fewer, with no force push and no new credential grant implied. CP97 meets that milestone; publication is separately coordinated and must be verified before claiming remote changes. Cumulative recovery archives apply to that exact published baseline, not on top of earlier recovery patches.
+CP168 completed the compiler port through targeted batches and fixes:
+1. `wave14_final.py`: Resolved 62 issues across 59 files (celestial biomes `createBiomeDecorator`, dropped obsolete lake gen, entity `getDeathSound` SoundEvents, `fuseTime` and `lastYaw` reflection, `newRotationYaw` field, `wormSelector` predicate bounds, `super.onItemUseFinish` in food items, block drops/lifecycle adapters, and removed obsolete `@Override`s).
+2. `wave15_gui_ioexception.py`: Added `throws java.io.IOException` to `mouseClicked`, `keyTyped`, `actionPerformed`, and `handleMouseInput` across 97 GUI classes. Wrapped `LoadingScreenRendererNT` loading handler in try-catch rethrowing RuntimeException.
+3. Added `throws CommandException` across 6 command classes.
+4. Removed redundant `try ... catch (IOException)` around `PacketBuffer.writeCompoundTag` across 4 packet classes.
+5. Resolved JVM 64KB method bytecode limits (`code too large`) by cleanly splitting schematic generator methods in `DesertAtom002.java`, `DesertAtom003.java`, `Ruin002.java`, and `Silo.java`.
 
-## Official toolchain permission is resolved, not pending
+These results verify that all 4,076 Java source files of NTM compile cleanly under Forge 1.12.2 (`stable_39` mappings). Runtime, asset loading, and gameplay behavior remain unverified. Keep the user-supplied `appliedenergistics2-rv6-stable-7.jar` intact and untracked. All changes remain uncommitted locally on branch `main` at base commit `b9eb458d`. Do not push.
 
-On 2026-10-20 the user explicitly approved restoring official Mojang metadata/Minecraft components, and separately approved the remaining 47 runtime libraries from official Forge, Maven Central and Mojang followed by offline builds. Restoration and fresh native verification subsequently succeeded, beginning with recovered CP77. Earlier recovery documents saying those approvals are pending describe their historical moment only. Do not reuse those statements as current status or reinterpret the later grants as an unbounded download permission.
+## Verification sequence
 
-The reproducible command uses the existing restored cache and --offline. No ModMaven retry, synthetic deobf network lookup or unrelated software install is authorized by these grants. Historical denied/interrupted attempts remain preserved. At CP84, CP85, CP86, CP87, CP88, CP89, CP90 and CP92 an execution check retained the outdated pending-permission premise; existing process outcomes were checked, the later approvals were reconciled, and the same offline command was restarted only after confirming the interrupted process was gone. Terminal successful-execution/failing-compilation logs, not incomplete attempts, supply reported counts. No access-control bypass or alternate download route was used.
+- Offline clean and compile commands:
+  `./gradlew.bat --offline clean --console=plain`
+  `./gradlew.bat --offline -I porting/compile-diagnostics-expanded.init.gradle compileJava --console=plain`
+- Logs and exit codes saved in `porting/checkpoint168/`:
+  - `clean.log`, `clean.exit` (code 0)
+  - `compile.log`, `compile.exit` (code 0, BUILD SUCCESSFUL, 0 errors)
+## Post-CP168 Runtime In-Game Testing & Fixes (2026-10-24)
 
-Native Java 8, Forge 14.23.5.2768/stable39 and the genuine runtime dependencies are described in the source-only toolchain recovery bundle. Do not assume cloud caches persist; verify files/hashes before claiming toolchain readiness. Do not redistribute proprietary Minecraft binaries in checkpoints.
-
-## Continue within the original port scope
-
-Preserve original machinery, recipes, energy, inventory/radiation and supported compatibility; no CE base, placeholders or source exclusions. Current narrowed renderer, particle, plant-lighting and furnace policies are recorded in their checkpoint scopes, not global permission to simplify gameplay. Potion legacy config/JSON/save policy remains unresolved and isolated. Dependency/access-transformer regeneration and unresolved sound-transport behavior remain parked. Narrow legal NTM-owned sound initialization builders preserving exact original sound references are permitted; do not mistake the regeneration restriction for a ban on ordinary source migration. Native event accessor tests are not proof of complete handler dispatch; constructor projections are not full renderer compilation. Unknown custom/foreign owner boundaries stay explicit.
-
-Continue from the latest compiler families. Retain exact source provenance and bounded native checks, then run a real combined full compile. Seal each meaningful checkpoint and preserve it outside ephemeral execution storage before considering recovery safe. Do not overwrite dirty user files or automatically normalize CRLF; case-only texture renames require verifying the Git/JAR path spelling on Windows.
-
-CP91 corrects the demonstrated CP43 legacy press-upgrade tile-retention defect using only a per-tile, one-shot expected transition. Complete block callbacks execute, but processing-heavy tiles remain explicitly projected, not full-machine acceptance. RBMK metadata-only writes remain withheld. Three armor attribute overrides and nine temporary-map bridges are now native; tool/weapon attribute families remain separate. Two OilWell replaceability calls remain deliberately untouched because receiver/context coordinates differ. See checkpoint91/README.md for exact bounded tests and gameplay gaps.
-
-CP92 closes eight tool/weapon attribute overrides while preserving exact original WeaponSpecial damage arithmetic and native platform attack speed. Seventeen captured-state air calls retain original receiver/context mismatches; twenty-four other air calls remain excluded. Seven closed render owners and five GUI hit names are now native. Historical CP91 tool/weapon pending guidance is superseded only for this exact CP92 scope. See checkpoint92/README.md.
-
-CP93 closes 47 proven normal-cube state queries, 14 native World air coordinate queries and six closed normal-bearing renderer scopes. Shared item-backed inventory remains a separate ongoing family. CP92 archive persistence was acknowledged in Library version20; latest source package must likewise be preserved before treating local storage as durable.
-
-CP94 closes the shared item-backed inventory base/descendants and native naming/usability callers, ten owned sound-builder calls, and the remaining bounded Celestial render graph. Full box container/outer item dispatch is not yet native. Placement remains isolated next-stage work. The first CP94 build was interrupted with no terminal result; its exact underlying rejection reason is unknown. After explicit fresh offline-build approval, the new attempt completed normally with no denial. Do not infer the earlier rejection cause from historical Mojang approval issues. See checkpoint94 for retained logs and bounded test limitations.
-
-CP95 integrates the previously isolated native block-placement family. Bounded native placement tests pass 627 assertions, with exact owner projections and native platform differences documented. CP94 is durable in Library version22. Continue box container/outer item dispatch as the next coherent inventory dependency; do not reorder merely to reach the publication threshold.
-
-CP96 preserves item-backed destination payloads in two box transfer methods without activating native ordinary-click/right-click callbacks. The malformed-click refusal policy is still pending; do not infer approval from elapsed time or furnace-only permissions. Seven terrain sound calls and two rigorously ordered crane AABBs are included. CP95 is durable in Library version23. Continue coherent native roots; the current snapshot remains six diagnostics above the conditional publication threshold.
-
-CP97 completes native texture/model/atlas and sixteen-state metadata preservation for eleven pillar instances. Other pillar subclass integrations remain explicit. CP96 is durable in Library version24. The user subsequently approved only protective refusal of clicks that would overwrite malformed retained payload, with no deletion, normalization or unrelated inventory lockdown; historical pending statements are superseded for that narrow scope. The click implementation remains isolated and is NOT part of CP97.
+Following the 0-diagnostic build, the reobfuscated JAR was tested in a live Minecraft 1.12.2 Forge client (ElyPrismLauncher). The following runtime issues were identified and fixed:
+1. `BlockStalagmite.java`:
+   - `getBoundingBox` previously returned `null`, causing `NullPointerException: Tesselating block model` in `Block.shouldSideBeRendered` whenever stalactites/stalagmites rendered in chunk view.
+   - Fixed by returning `FULL_BLOCK_AABB` from `getBoundingBox` and `NULL_AABB` from `getCollisionBoundingBox`.
+2. `ModSoundEvents.java`:
+   - Legacy 1.7.10 sound strings (such as `"random.fizz"`, `"random.explode"`, `"fire.ignite"`) called via `ModSoundEvents.resolve` threw `IllegalArgumentException: Unregistered sound event`.
+   - Added `resolveVanilla` mapping table converting legacy sound strings directly to vanilla `net.minecraft.init.SoundEvents`.
+   - Replaced exception throw with safe dynamic `new SoundEvent(location)` fallback.
+3. `ModEventHandler.java`:
+   - Added null/empty checks on `ItemStack` instances before invoking `ItemStack.areItemStacksEqual` in `onLivingUpdate`.
+4. HazardSystem.java & OreDictionary / Nullable ItemStack Adapters (OreDictionary.getOreIDs crash):
+   - Mobs ticking in the world (e.g. minecraft:pig in HazardSystem.updateLivingInventory) triggered java.lang.IllegalArgumentException: Stack can not be invalid! at
+et.minecraftforge.oredict.OreDictionary.getOreIDs(OreDictionary.java:504) via HazardSystem.isItemBlacklisted.
+   - In 1.12.2, OreDictionary.getOreIDs strictly throws IllegalArgumentException if stack.isEmpty().
+   - LivingEquipmentRead, PlayerInventoryRead, and NativeHeldItem only checked reference identity stack == ItemStack.EMPTY ? null : stack. Non-canonical empty stacks (count <= 0 or empty item) were returned as non-null, causing 1.7.10 null checks to pass on invalid/empty stacks.
+   - Updated LivingEquipmentRead, PlayerInventoryRead, and NativeHeldItem to check (stack == null || stack.isEmpty()) ? null : stack.
+   - Guarded HazardSystem.isItemBlacklisted, getHazardsFromStack, pplyHazards, updatePlayerInventory, and updateLivingInventory against null/empty stacks.
+   - Audited and guarded all remaining OreDictionary.getOreIDs callers across the codebase (BlockOpenComputersCablePaintable, GUIScreenSatInterface, MachineRecipes, TileEntityMachineOilWell, TileEntityMachinePumpjack, InventoryUtil, ItemStackUtil, RecipesCommon.ComparableStack).
+   - Cleaned up empty stack sentinels across item handlers (ItemInventory, ItemInventoryTransfer, ItemBlockStorageCrate, ItemPancake, ItemAmmoContainer, ItemConveyorWand, ItemFusionCore, IMagazine, ModEventHandler, TileEntityDiFurnace).

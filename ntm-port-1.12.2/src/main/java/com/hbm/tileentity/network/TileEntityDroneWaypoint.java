@@ -27,7 +27,7 @@ public class TileEntityDroneWaypoint extends TileEntityLoadedBase implements IDr
 
 		if(!this.world.isRemote) {
 			if(nextY != -1) {
-				List<EntityDeliveryDrone> drones = this.world.getEntitiesWithinAABB(EntityDeliveryDrone.class, AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1).offset(dir.offsetX * height, dir.offsetY * height, dir.offsetZ * height));
+				List<EntityDeliveryDrone> drones = this.world.getEntitiesWithinAABB(EntityDeliveryDrone.class, new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1).offset(dir.offsetX * height, dir.offsetY * height, dir.offsetZ * height));
 				for(EntityDeliveryDrone drone : drones) {
 					if(new Vec3d(drone.motionX, drone.motionY, drone.motionZ).length() < 0.05) {
 						drone.setTarget(nextX + 0.5, nextY, nextZ + 0.5);

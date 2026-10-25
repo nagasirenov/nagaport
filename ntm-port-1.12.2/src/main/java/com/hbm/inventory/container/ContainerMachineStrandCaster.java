@@ -59,7 +59,7 @@ public class ContainerMachineStrandCaster extends Container {
                 return null;
             }
 
-            if (originalStack.stackSize == 0) {
+            if (originalStack.getCount() == 0) {
                 slot.putStack(ItemStack.EMPTY);
             } else {
                 slot.onSlotChanged();
@@ -71,6 +71,6 @@ public class ContainerMachineStrandCaster extends Container {
 
     @Override
     public boolean canInteractWith(EntityPlayer player) {
-        return caster.isUseableByPlayer(player);
+        return caster.isUsableByPlayer(player);
     }
 }

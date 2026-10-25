@@ -29,7 +29,7 @@ public class ContainerMachinePUREX extends ContainerBase {
 		this.addSlots(chemicalPlant, 4, 8, 90, 1, 3);
 		// Solid Output
 		this.addOutputSlots(invPlayer.player, chemicalPlant, 7, 80, 36, 3, 2);
-		
+
 		this.playerInv(invPlayer, 8, 174);
 	}
 
@@ -48,7 +48,7 @@ public class ContainerMachinePUREX extends ContainerBase {
 					return null;
 				}
 			} else {
-				
+
 				if(slotOriginal.getItem() instanceof IBatteryItem || slotOriginal.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(slotStack, 0, 1, false)) return null;
 				} else if(slotOriginal.getItem() instanceof ItemBlueprints) {
@@ -60,7 +60,7 @@ public class ContainerMachinePUREX extends ContainerBase {
 				}
 			}
 
-			if(slotStack.stackSize == 0) {
+			if(slotStack.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();

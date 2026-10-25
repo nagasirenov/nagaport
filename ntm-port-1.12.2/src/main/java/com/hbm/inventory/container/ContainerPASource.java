@@ -13,12 +13,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerPASource extends Container {
-	
+
 	private TileEntityPASource source;
 
 	public ContainerPASource(InventoryPlayer playerInv, TileEntityPASource tile) {
 		source = tile;
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tile, 0, 8, 72));
 		//Inputs
@@ -58,7 +58,7 @@ public class ContainerPASource extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 0, 1, false)) return null;
 				} else {
@@ -66,7 +66,7 @@ public class ContainerPASource extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

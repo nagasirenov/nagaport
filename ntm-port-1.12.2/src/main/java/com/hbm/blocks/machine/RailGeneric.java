@@ -16,7 +16,7 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class RailGeneric extends BlockRailBase implements ITooltipProvider {
+public class RailGeneric extends net.minecraft.block.BlockRail implements ITooltipProvider {
 
 	@SideOnly(Side.CLIENT)
 	protected IIcon turnedIcon;
@@ -27,27 +27,14 @@ public class RailGeneric extends BlockRailBase implements ITooltipProvider {
 	protected boolean flexible = true;
 
 	public RailGeneric(String tool, int harvestLevel) {
-		super(false);
+		super();
 		setHarvestLevel(tool, harvestLevel);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
-		return (flexible && meta >= 6) ? this.turnedIcon : this.blockIcon;
-	}
+
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister reg) {
-		super.registerBlockIcons(reg);
-
-		if(flexible)
-			this.turnedIcon = reg.registerIcon(this.getTextureName() + "_turned");
-	}
-
-	@Override
-	public float getRailMaxSpeed(World world, EntityMinecart cart, int y, int x, int z) {
+	public float getRailMaxSpeed(World world, EntityMinecart cart, net.minecraft.util.math.BlockPos pos) {
 		return maxSpeed;
 	}
 
@@ -57,8 +44,8 @@ public class RailGeneric extends BlockRailBase implements ITooltipProvider {
 	}
 
 	@Override
-	public boolean isFlexibleRail(IBlockAccess world, int y, int x, int z) {
-		return !isPowered();
+	public boolean isFlexibleRail(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		return !isPowered;
 	}
 
 	public RailGeneric setFlexible(boolean flexible) {
@@ -67,8 +54,8 @@ public class RailGeneric extends BlockRailBase implements ITooltipProvider {
 	}
 
 	@Override
-	public boolean canMakeSlopes(IBlockAccess world, int x, int y, int z) {
-		return true;
+	public boolean canMakeSlopes(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		return slopable;
 	}
 
 	public RailGeneric setSlopable(boolean slopable) {

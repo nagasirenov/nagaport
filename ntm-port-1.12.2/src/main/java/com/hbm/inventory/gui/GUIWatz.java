@@ -57,7 +57,7 @@ public class GUIWatz extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 142 <= x && guiLeft + 142 + 18 > x && guiTop + 70 < y && guiTop + 70 + 18 >= y) {

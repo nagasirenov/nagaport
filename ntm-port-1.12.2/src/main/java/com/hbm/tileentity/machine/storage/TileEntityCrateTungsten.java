@@ -17,6 +17,25 @@ import com.hbm.lib.ForgeDirection;
 
 public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILaserable, IDysonConverter, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private int heatTimer;
 
 	public TileEntityCrateTungsten() {
@@ -36,10 +55,10 @@ public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILas
 				heatTimer--;
 
 			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) != 1 && heatTimer > 0)
-				this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1, 3);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 1, 3);
 
 			if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) != 0 && heatTimer <= 0)
-				this.world.setBlockMetadataWithNotify(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 3);
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0, 3);
 		}
 
 		if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()) ) == 1) {
@@ -72,7 +91,7 @@ public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILas
 		if(itemStack.getItem() == ModItems.crucible && itemStack.getItemDamage() > 0)
 			return false;
 
-		if(FurnaceRecipes.smelting().getSmeltingResult(itemStack) == null)
+		if(FurnaceRecipes.instance().getSmeltingResult(itemStack) == null)
 			return true;
 
 		return false;
@@ -87,7 +106,7 @@ public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILas
 			if(slots[i] == null)
 				continue;
 
-			ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(slots[i]);
+			ItemStack result = FurnaceRecipes.instance().getSmeltingResult(slots[i]);
 
 			if(slots[i].getItem() == ModItems.billet_polonium && energy > 10000000)
 				result = new ItemStack(ModItems.billet_yharonite);
@@ -95,11 +114,11 @@ public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILas
 			if(slots[i].getItem() == ModItems.crucible && slots[i].getItemDamage() > 0 && energy > 10000000)
 				result = new ItemStack(ModItems.crucible, 1, 0);
 
-			int size = slots[i].stackSize;
+			int size = slots[i].getCount();
 
-			if(result != null && result.stackSize * size <= result.getMaxStackSize()) {
+			if(result != null && result.getCount() * size <= result.getMaxStackSize()) {
 				slots[i] = result.copy();
-				slots[i].stackSize *= size;
+				slots[i].setCount(slots[i].getCount() * (size));
 			}
 		}
 	}

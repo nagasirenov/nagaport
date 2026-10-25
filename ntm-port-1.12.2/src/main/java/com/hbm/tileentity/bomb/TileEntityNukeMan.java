@@ -21,13 +21,32 @@ import net.minecraft.world.World;
 
 public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IGUIProvider {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack slots[];
 	private String customName;
-	
+
 	public TileEntityNukeMan() {
 		slots = new ItemStack[6];
 	}
-	
+
 	@Override
 	public int getSizeInventory() {
 		return slots.length;
@@ -42,18 +61,18 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null)
 		{
-			if(slots[i].stackSize <= j)
+			if(slots[i].getCount() <= j)
 			{
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if (slots[i].stackSize == 0)
+			if (slots[i].getCount() == 0)
 			{
 				slots[i] = null;
 			}
-			
+
 			return itemStack1;
 		} else {
 			return null;
@@ -83,15 +102,23 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.nukeMan";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.nukeMan";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
 	}
-	
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
+	}
+
 	public void setCustomName(String name) {
 		this.customName = name;
 		markDirty();
@@ -103,7 +130,7 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this)
 		{
 			return false;
@@ -112,14 +139,16 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 		}
 	}
 
+
+
 	@Override
 	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {
-		
+
 	}
 
 	@Override
 	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
-		
+
 	}
 
 	@Override
@@ -144,13 +173,13 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return j != 0 || i != 1 || itemStack.getItem() == Items.BUCKET;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		NBTTagList list = nbt.getTagList("items", 10);
 		slots = new ItemStack[getSizeInventory()];
-		
+
 		for(int i = 0; i < list.tagCount(); i++)
 		{
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
@@ -163,12 +192,12 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 
 		customName = nbt.getString("name");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		NBTTagList list = new NBTTagList();
-		
+
 		for(int i = 0; i < slots.length; i++)
 		{
 			if(slots[i] != null)
@@ -180,49 +209,49 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 			}
 		}
 		nbt.setTag("items", list);
-		
+
 		if (customName != null) {
 			nbt.setString("name", customName);
 		}
 		return nbt;
 	}
-	
+
 	public boolean exp1() {
 		if(this.slots[1] != null && this.slots[1].getItem() == ModItems.early_explosive_lenses)
 		{
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public boolean exp2() {
 		if(this.slots[2] != null && this.slots[2].getItem() == ModItems.early_explosive_lenses)
 		{
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public boolean exp3() {
 		if(this.slots[3] != null && this.slots[3].getItem() == ModItems.early_explosive_lenses)
 		{
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public boolean exp4() {
 		if(this.slots[4] != null && this.slots[4].getItem() == ModItems.early_explosive_lenses)
 		{
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public boolean isReady() {
 		if(this.exp1() == true && this.exp2() == true && this.exp3() == true && this.exp4() == true)
 		{
@@ -231,22 +260,22 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public void clearSlots() {
 		for(int i = 0; i < slots.length; i++)
 		{
 			slots[i] = null;
 		}
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()

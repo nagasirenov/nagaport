@@ -35,13 +35,13 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 
 	public int flux;
 	public float progress;
-	
+
 	private static final int[] slots_io = new int[] { 0, 1 };
 
 	public TileEntityMachineReactorBreeding() {
 		super(2);
 	}
-	
+
 	@Override
 	public String getDefaultName() {
 		return "container.reactorBreeding";
@@ -53,11 +53,11 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 		if(!this.world.isRemote) {
 			this.flux = 0;
 			getInteractions();
-			
+
 			if(canProcess()) {
-				
+
 				progress += 0.0025F * (this.flux / BreederRecipes.getOutput(slots[0]).flux);
-				
+
 				if(this.progress >= 1.0F) {
 					this.progress = 0F;
 					this.processItem();
@@ -84,13 +84,13 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 		this.flux = buf.readInt();
 		this.progress = buf.readFloat();
 	}
-	
+
 	public void getInteractions() {
-		
+
 		for(byte d = 2; d < 6; d++) {
 			ForgeDirection dir = ForgeDirection.getOrientation(d);
 			Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ).getBlock();
-			
+
 			if(b == ModBlocks.reactor_research) {
 
 				int[] pos = ((ReactorResearch) ModBlocks.reactor_research).findCore(this.world, this.pos.getX() + dir.offsetX, this.pos.getY(), this.pos.getZ() + dir.offsetZ);
@@ -108,15 +108,15 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 	}
 
 	public boolean canProcess() {
-		
+
 		if(slots[0] == null)
 			return false;
-		
+
 		BreederRecipe recipe = BreederRecipes.getOutput(slots[0]);
-		
+
 		if(recipe == null)
 			return false;
-		
+
 		if(this.flux < recipe.flux)
 			return false;
 
@@ -126,38 +126,38 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 		if(!slots[1].isItemEqual(recipe.output))
 			return false;
 
-		if(slots[1].stackSize < slots[1].getMaxStackSize())
+		if(slots[1].getCount() < slots[1].getMaxStackSize())
 			return true;
 		else
 			return false;
 	}
 
 	private void processItem() {
-		
+
 		if(canProcess()) {
-			
+
 			BreederRecipe rec = BreederRecipes.getOutput(slots[0]);
-			
+
 			if(rec == null)
 				return;
-			
+
 			ItemStack itemStack = rec.output;
 
 			if(slots[1] == null) {
 				slots[1] = itemStack.copy();
 			} else if(slots[1].isItemEqual(itemStack)) {
-				slots[1].stackSize += itemStack.stackSize;
+				slots[1].grow(itemStack.getCount());
 			}
 
-			slots[0].stackSize--;
-				
-			if(slots[0].stackSize <= 0) {
+			slots[0].shrink(1);
+
+			if(slots[0].getCount() <= 0) {
 				slots[0] = null;
 			}
 		}
 	}
 
-	
+
 
 	@Override
 	public int[] getSlotsForFace(net.minecraft.util.EnumFacing nativeFace) {
@@ -183,7 +183,7 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		flux = nbt.getInteger("flux");
 		progress = nbt.getFloat("progress");
 	}
@@ -191,19 +191,19 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		
+
 		nbt.setInteger("flux", flux);
 		nbt.setFloat("progress", progress);
 		return nbt;
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX(),
 					this.pos.getY(),
 					this.pos.getZ(),
@@ -212,16 +212,16 @@ public class TileEntityMachineReactorBreeding extends TileEntityMachineBase impl
 					this.pos.getZ() + 1
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {
 		return 65536.0D;
 	}
-	
+
 	// do some opencomputer stuff
 	@Override
 	@Optional.Method(modid = "OpenComputers")

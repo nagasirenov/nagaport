@@ -10,18 +10,18 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerDroneCrate extends Container {
-	
+
 	protected TileEntityDroneCrate crate;
-	
+
 	public ContainerDroneCrate(InventoryPlayer invPlayer, TileEntityDroneCrate inserter) {
 		this.crate = inserter;
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 6; j++) {
 				this.addSlotToContainer(new Slot(inserter, j + i * 6, 8 + j * 18, 17 + i * 18));
 			}
 		}
-		
+
 		this.addSlotToContainer(new Slot(inserter, 18, 125, 53));
 
 		for(int i = 0; i < 3; i++) {
@@ -49,18 +49,18 @@ public class ContainerDroneCrate extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IItemFluidIdentifier) {
 					 if(!this.mergeItemStack(var5, 18, 19, false))
 						 return null;
 				} else if(!this.mergeItemStack(var5, 0, 18, false)) {
 					 return null;
 				}
-				
+
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

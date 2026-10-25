@@ -32,12 +32,13 @@ public class ItemCanteen extends Item {
 	}
 
 	@Override
-	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+	public net.minecraft.item.ItemStack onItemUseFinish(ItemStack stack, World world, net.minecraft.entity.EntityLivingBase entity) {
+		EntityPlayer player = (EntityPlayer) entity;
 		stack.setItemDamage(stack.getMaxDamage());
 
 		if(this == ModItems.canteen_vodka) {
 			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 2));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 30 * 20, 2));
 		}
 
 		VersatileConfig.applyPotionSickness(player, 5);
@@ -52,13 +53,19 @@ public class ItemCanteen extends Item {
 
 	@Override
 	public EnumAction getItemUseAction(ItemStack p_77661_1_) {
-		return EnumAction.drink;
+		return EnumAction.DRINK;
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(stack.getItemDamage() == 0 && !VersatileConfig.hasPotionSickness(player))
-			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+			player.setActiveHand(net.minecraft.util.EnumHand.MAIN_HAND);
 
 		return stack;
 	}

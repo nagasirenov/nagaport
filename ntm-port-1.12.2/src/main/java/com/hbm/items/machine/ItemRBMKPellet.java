@@ -36,8 +36,16 @@ public class ItemRBMKPellet extends ItemNuclearWaste {
 		return hasXenon;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
 		for(int i = 0; i < (this.hasXenon ? 10 : 5); ++i) {
 			list.add(new ItemStack(item, 1, i));
@@ -50,10 +58,12 @@ public class ItemRBMKPellet extends ItemNuclearWaste {
 	@SideOnly(Side.CLIENT)
 	private IIcon xenonOverlay;
 
-	@Override
+	@SideOnly(Side.CLIENT)
+	protected IIcon itemIcon;
+
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister) {
-		super.registerIcons(iconRegister);
+		this.itemIcon = iconRegister.registerIcon(this.getRegistryName().toString());
 
 		this.enrichmentOverlays = new IIcon[5];
 
@@ -65,20 +75,23 @@ public class ItemRBMKPellet extends ItemNuclearWaste {
 			xenonOverlay = iconRegister.registerIcon("hbm:rbmk_pellet_overlay_xenon");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
 	}
 
-	@Override
 	public int getRenderPasses(int meta) {
 		return hasXenon(meta) ? 3 : 2;
 	}
 
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		super.addInformation(stack, player, list, bool);
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 
 		list.add(TextFormatting.ITALIC + this.fullName);
 		list.add(TextFormatting.DARK_GRAY + "" + TextFormatting.ITALIC + "Pellet for recycling");
@@ -97,7 +110,6 @@ public class ItemRBMKPellet extends ItemNuclearWaste {
 			list.add(TextFormatting.DARK_PURPLE + "High Xenon Poison");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamageForRenderPass(int meta, int pass) {
 

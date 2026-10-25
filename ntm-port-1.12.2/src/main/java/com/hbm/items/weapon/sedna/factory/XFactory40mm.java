@@ -104,7 +104,7 @@ public class XFactory40mm {
 		Lego.standardExplode(bullet, mop, 3F);
 		EntityFireLingering fire = new EntityFireLingering(world).setArea(5, 2).setDuration(duration).setType(phosphorus ? EntityFireLingering.TYPE_PHOSPHORUS : EntityFireLingering.TYPE_DIESEL);
 		fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
-		world.spawnEntityInWorld(fire);
+		world.spawnEntity(fire);
 		bullet.setDead();
 		for(int dx = -1; dx <= 1; dx++) {
 			for(int dy = -1; dy <= 1; dy++) {
@@ -112,9 +112,9 @@ public class XFactory40mm {
 					int x = (int) Math.floor(mop.hitVec.x) + dx;
 					int y = (int) Math.floor(mop.hitVec.y) + dy;
 					int z = (int) Math.floor(mop.hitVec.z) + dz;
-					if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isAir(bullet.world, x, y, z)) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+					if(com.hbm.world.WorldBlockState.isAir(bullet.world, x, y, z)) for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 						if(com.hbm.lib.FacingCompat.isFlammable(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock(), world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, dir.getOpposite())) {
-							world.setBlock(x, y, z, Blocks.fire);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, Blocks.FIRE);
 							break;
 						}
 					}
@@ -129,11 +129,11 @@ public class XFactory40mm {
 	public static void spawnPlane(Entity entity, C130PayloadType payload) {
 		if(!entity.world.isRemote && entity.ticksExisted == 40) {
 			EntityBulletBaseMK4 bullet = (EntityBulletBaseMK4) entity;
-			if(bullet.getThrower() != null) bullet.world.playSoundAtEntity(bullet.getThrower(), "hbm:item.techBleep", 1.0F, 1.0F);
+			if(bullet.getThrower() != null) bullet.world.playSound(null, bullet.getThrower().posX, bullet.getThrower().posY, bullet.getThrower().posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 			EntityC130 c130 = new EntityC130(bullet.world);
 			int x = (int) Math.floor(bullet.posX);
 			int z = (int) Math.floor(bullet.posZ);
-			int y = bullet.world.getHeightValue(x, z);
+			int y = bullet.world.getHeight(x, z);
 			c130.fac(bullet.world, x, y, z, payload);
 			WorldUtil.loadAndSpawnEntityInWorld(c130);
 			TrackerUtil.setTrackingRange(bullet.world, c130, 250);

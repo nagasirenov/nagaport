@@ -26,6 +26,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import com.hbm.lib.ForgeDirection;
 
 public class WorldGeneratorDuna implements IWorldGenerator {
@@ -33,7 +34,7 @@ public class WorldGeneratorDuna implements IWorldGenerator {
 	public WorldGeneratorDuna() {
 		NBTStructure.registerStructure(SpaceConfig.dunaDimension, new SpawnCondition("duna_comms") {{
 			structure = new JigsawPiece("duna_comms", StructureManager.duna_comms, -1);
-			canSpawn = biome -> biome.heightVariation < 0.1F;
+			canSpawn = biome -> biome.getHeightVariation() < 0.1F;
 			spawnWeight = 6;
 		}});
 		NBTStructure.registerNullWeight(SpaceConfig.dunaDimension, 18);
@@ -41,8 +42,7 @@ public class WorldGeneratorDuna implements IWorldGenerator {
 		BlockOre.addValidBody(ModBlocks.ore_oil, SolarSystem.Body.DUNA);
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.getDimension() == SpaceConfig.dunaDimension) {
 			generateDuna(world, random, chunkX * 16, chunkZ * 16);
 		}
@@ -66,7 +66,7 @@ public class WorldGeneratorDuna implements IWorldGenerator {
 		if(i == 0 && j == 0 && world.getWorldInfo().getTerrainType() == WorldTypeTeleport.martian) {
 			int x = 0;
 			int z = 0;
-			int y = world.getHeightValue(x, z) - 1;
+			int y = world.getHeight(x, z) - 1;
 
 			Spotlight.disableOnGeneration = false;
 			StructureManager.martian.build(world, x, y, z);
@@ -76,11 +76,11 @@ public class WorldGeneratorDuna implements IWorldGenerator {
 		if(rand.nextInt(1234) == 0) {
 			int x = i + rand.nextInt(16);
 			int z = j + rand.nextInt(16);
-			int y = world.getHeightValue(x, z);
+			int y = world.getHeight(x, z);
 
-			if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().canPlaceTorchOnTop(world, x, y - 1, z) && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().canPlaceTorchOnTop(com.hbm.world.WorldBlockState.read(world, x, y - 1, z), world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 
-				world.setBlock(x, y, z, ModBlocks.lantern_behemoth, 12, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.lantern_behemoth, 12, 3);
 				MultiblockHandlerXR.fillSpace(world, x, y, z, new int[] {4, 0, 0, 0, 0, 0}, ModBlocks.lantern_behemoth, ForgeDirection.NORTH);
 
 				TileEntityLanternBehemoth lantern = (TileEntityLanternBehemoth) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));

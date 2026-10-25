@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/ladder",
+  "textures": {
+    "ladder": "hbm:blocks/ladder_aluminium"
+  }
+}

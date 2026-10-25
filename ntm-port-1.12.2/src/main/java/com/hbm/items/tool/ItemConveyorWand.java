@@ -178,7 +178,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 				count = 256;
 			} else {
 				for(ItemStack inventoryStack : player.inventory.mainInventory) {
-					if (inventoryStack == ItemStack.EMPTY) inventoryStack = null;
+					if (inventoryStack == null || inventoryStack.isEmpty()) continue;
 					if(inventoryStack != null && inventoryStack.getItem() == this && inventoryStack.getItemDamage() == stack.getItemDamage()) {
 						count += inventoryStack.getCount();
 					}
@@ -206,7 +206,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 
 					if(!player.capabilities.isCreativeMode) {
 						for(ItemStack inventoryStack : player.inventory.mainInventory) {
-							if (inventoryStack == ItemStack.EMPTY) inventoryStack = null;
+							if (inventoryStack == null || inventoryStack.isEmpty()) continue;
 							if(inventoryStack != null && inventoryStack.getItem() == this && inventoryStack.getItemDamage() == stack.getItemDamage()) {
 								int removing = Math.min(toRemove, inventoryStack.getCount());
 								inventoryStack.shrink(removing);

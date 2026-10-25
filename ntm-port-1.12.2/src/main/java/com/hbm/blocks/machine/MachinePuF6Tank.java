@@ -1,4 +1,5 @@
 package com.hbm.blocks.machine;
+import com.hbm.render.icon.IIcon;
 
 import java.util.Random;
 
@@ -19,6 +20,8 @@ import net.minecraft.world.World;
 
 public class MachinePuF6Tank extends BlockContainer {
 
+	protected IIcon blockIcon;
+
 	public MachinePuF6Tank(Material p_i45386_1_) {
 		super(p_i45386_1_);
 	}
@@ -38,7 +41,6 @@ public class MachinePuF6Tank extends BlockContainer {
 		return false;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconregister) {
 		this.blockIcon = iconregister.registerIcon(RefStrings.MODID + ":machine_puf6_tank");
@@ -60,16 +62,16 @@ public class MachinePuF6Tank extends BlockContainer {
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 		}
 		if(i == 2) {
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 3) {
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 	}
 }

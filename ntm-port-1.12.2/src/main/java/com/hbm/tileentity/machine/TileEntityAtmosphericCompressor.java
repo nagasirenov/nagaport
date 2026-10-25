@@ -125,7 +125,7 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 			: null;
 
 		if(atmosphere == null) return false;
-		
+
 		for(FluidEntry entry : atmosphere.fluids) {
 			if(entry.fluid == targetFluid) {
 				tank.setTankType(targetFluid);
@@ -227,7 +227,7 @@ public class TileEntityAtmosphericCompressor extends TileEntityMachineBase imple
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 1,
 				this.pos.getY(),
 				this.pos.getZ() - 1,

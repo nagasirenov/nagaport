@@ -35,6 +35,14 @@ public class InventoryUtil {
 	 * @return the remainder of the stack that could not have been added, can return null
 	 */
 	public static ItemStack tryAddItemToInventory(ItemStack[] inv, int start, int end, ItemStack stack) {
+		return tryAddItemToInventory(java.util.Arrays.asList(inv), start, end, stack);
+	}
+
+	public static ItemStack tryAddItemToInventory(ItemStack[] inv, ItemStack stack) {
+		return tryAddItemToInventory(java.util.Arrays.asList(inv), stack);
+	}
+
+	public static ItemStack tryAddItemToInventory(java.util.List<net.minecraft.item.ItemStack> inv, int start, int end, ItemStack stack) {
 
 		ItemStack rem = tryAddItemToExistingStack(inv, start, end, stack);
 
@@ -49,8 +57,8 @@ public class InventoryUtil {
 			return rem;
 	}
 
-	public static ItemStack tryAddItemToInventory(ItemStack[] inv, ItemStack stack) {
-		return tryAddItemToInventory(inv, 0, inv.length - 1, stack);
+	public static ItemStack tryAddItemToInventory(java.util.List<net.minecraft.item.ItemStack> inv, ItemStack stack) {
+		return tryAddItemToInventory(inv, 0, inv.size() - 1, stack);
 	}
 
 	/**
@@ -61,22 +69,22 @@ public class InventoryUtil {
 	 * @param stack
 	 * @return
 	 */
-	public static ItemStack tryAddItemToExistingStack(ItemStack[] inv, int start, int end, ItemStack stack) {
+	public static ItemStack tryAddItemToExistingStack(java.util.List<net.minecraft.item.ItemStack> inv, int start, int end, ItemStack stack) {
 
-		if(stack == null || stack.stackSize == 0)
+		if(stack == null || stack.getCount() == 0)
 			return null;
 
 		for(int i = start; i <= end; i++) {
 
-			if(doesStackDataMatch(inv[i], stack)) {
+			if(doesStackDataMatch(inv.get(i), stack)) {
 
-				int transfer = Math.min(stack.stackSize, inv[i].getMaxStackSize() - inv[i].stackSize);
+				int transfer = Math.min(stack.getCount(), inv.get(i).getMaxStackSize() - inv.get(i).getCount());
 
 				if(transfer > 0) {
-					inv[i].stackSize += transfer;
-					stack.stackSize -= transfer;
+					inv.get(i).setCount(inv.get(i).getCount() + transfer);
+					stack.setCount(stack.getCount() - transfer);
 
-					if(stack.stackSize == 0)
+					if(stack.getCount() == 0)
 						return null;
 				}
 			}
@@ -93,15 +101,15 @@ public class InventoryUtil {
 	 * @param stack
 	 * @return whether the stack could be added or not
 	 */
-	public static boolean tryAddItemToNewSlot(ItemStack[] inv, int start, int end, ItemStack stack) {
+	public static boolean tryAddItemToNewSlot(java.util.List<net.minecraft.item.ItemStack> inv, int start, int end, ItemStack stack) {
 
-		if(stack == null || stack.stackSize == 0)
+		if(stack == null || stack.getCount() == 0)
 			return true;
 
 		for(int i = start; i <= end; i++) {
 
-			if(inv[i] == null) {
-				inv[i] = stack;
+			if(inv.get(i) == null || inv.get(i).isEmpty()) {
+				inv.set(i, stack);
 				return true;
 			}
 		}
@@ -174,7 +182,7 @@ public class InventoryUtil {
 		return false;
 	}
 
-	public static boolean tryConsumeAStack(ItemStack[] inv, int start, int end, AStack stack) {
+	public static boolean tryConsumeAStack(java.util.List<net.minecraft.item.ItemStack> inv, int start, int end, AStack stack) {
 
 		if(stack == null)
 			return true;
@@ -182,16 +190,16 @@ public class InventoryUtil {
 		AStack copy = stack.copy();
 
 		for(int i = start; i <= end; i++) {
-			ItemStack in = inv[i];
+			ItemStack in = inv.get(i);
 
 			if(stack.matchesRecipe(in, true)) {
-				int size = Math.min(copy.stacksize, in.stackSize);
+				int size = Math.min(copy.stacksize, in.getCount());
 
-				in.stackSize -= size;
+				in.setCount(in.getCount() - size);
 				copy.stacksize -= size;
 
-				if(in.stackSize == 0)
-					inv[i] = null;
+				if(in.getCount() == 0)
+					inv.set(i, net.minecraft.item.ItemStack.EMPTY);
 				if(copy.stacksize == 0)
 					return true;
 			}
@@ -229,9 +237,9 @@ public class InventoryUtil {
 	 */
 	public static boolean doesPlayerHaveAStacks(EntityPlayer player, List<AStack> stacks, boolean shouldRemove) {
 
-		ItemStack[] original = player.inventory.mainInventory;
-		ItemStack[] inventory = new ItemStack[original.length];
-		boolean[] modified = new boolean[original.length];
+		java.util.List<ItemStack> original = player.inventory.mainInventory;
+		ItemStack[] inventory = new ItemStack[original.size()];
+		boolean[] modified = new boolean[original.size()];
 		AStack[] input = new AStack[stacks.size()];
 
 		//first we copy the inputs into an array because 1. it's easier to deal with and 2. we can dick around with the stack sized with no repercussions
@@ -240,9 +248,9 @@ public class InventoryUtil {
 		}
 
 		//then we copy the inventory so we can dick around with it as well without making actual modifications to the player's inventory
-		for(int i = 0; i < original.length; i++) {
-			if(original[i] != null) {
-				inventory[i] = original[i].copy();
+		for(int i = 0; i < original.size(); i++) {
+			if(original.get(i) != null) {
+				inventory[i] = original.get(i).copy();
 			}
 		}
 
@@ -259,9 +267,9 @@ public class InventoryUtil {
 				//we check if it matches but ignore stack size for now
 				if(stack.matchesRecipe(inv, true)) {
 					//and NOW we care about the stack size
-					int size = Math.min(stack.stacksize, inv.stackSize);
+					int size = Math.min(stack.stacksize, inv.getCount());
 					stack.stacksize -= size;
-					inv.stackSize -= size;
+					inv.setCount(inv.getCount() - size);
 					modified[j] = true;
 
 					//spent stacks are removed from the equation so that we don't cross ourselves later on
@@ -270,7 +278,7 @@ public class InventoryUtil {
 						break;
 					}
 
-					if(inv.stackSize <= 0) {
+					if(inv.getCount() <= 0) {
 						inventory[j] = null;
 					}
 				}
@@ -284,12 +292,12 @@ public class InventoryUtil {
 		}
 
 		if(shouldRemove) {
-			for(int i = 0; i < original.length; i++) {
+			for(int i = 0; i < original.size(); i++) {
 
-				if(inventory[i] != null && inventory[i].stackSize <= 0) {
-					original[i] = null;
+				if(inventory[i] != null && inventory[i].getCount() <= 0) {
+					original.set(i, net.minecraft.item.ItemStack.EMPTY);
 				} else {
-					if(modified[i]) original[i] = inventory[i];
+					if(modified[i]) original.set(i, inventory[i]);
 				}
 			}
 		}
@@ -302,7 +310,7 @@ public class InventoryUtil {
 		for(AnvilOutput out : stacks) {
 			if(out.chance == 1.0F || player.getRNG().nextFloat() < out.chance) {
 				if(!player.inventory.addItemStackToInventory(out.stack.copy())) {
-					player.dropPlayerItemWithRandomChoice(out.stack.copy(), false);
+					player.dropItem(out.stack.copy(), false);
 				}
 			}
 		}
@@ -320,13 +328,13 @@ public class InventoryUtil {
 
 			ItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);
 
-			if(stack != null) {
+			if(stack != null && !stack.isEmpty()) {
 
 				int[] ids = OreDictionary.getOreIDs(stack);
 
 				for(int id : ids) {
 					if(OreDictionary.getOreName(id).equals(dict)) {
-						count += stack.stackSize;
+						count += stack.getCount();
 						break;
 					}
 				}
@@ -342,14 +350,14 @@ public class InventoryUtil {
 
 			ItemStack stack = com.hbm.util.PlayerInventoryRead.get(player.inventory.mainInventory, i);
 
-			if(stack != null) {
+			if(stack != null && !stack.isEmpty()) {
 
 				int[] ids = OreDictionary.getOreIDs(stack);
 
 				for(int id : ids) {
 					if(OreDictionary.getOreName(id).equals(dict)) {
 
-						int toConsume = Math.min(count, stack.stackSize);
+						int toConsume = Math.min(count, stack.getCount());
 						player.inventory.decrStackSize(i, toConsume);
 						count -= toConsume;
 						break;
@@ -459,10 +467,10 @@ public class InventoryUtil {
 					continue;
 
 				if(ingredient.matchesRecipe(input, true)) {
-					int size = Math.min(input.stackSize, ingredient.stacksize);
+					int size = Math.min(input.getCount(), ingredient.stacksize);
 
 					ingredient.stacksize -= size;
-					input.stackSize -= size;
+					input.setCount(input.getCount() - size);
 
 					if(ingredient.stacksize == 0)
 						break;
@@ -587,13 +595,13 @@ public class InventoryUtil {
 		return success;
 	}
 
-	public static int countAStackMatches(ItemStack[] inventory, AStack stack, boolean ignoreSize) {
+	public static int countAStackMatches(java.util.List<net.minecraft.item.ItemStack> inventory, AStack stack, boolean ignoreSize) {
 		int count = 0;
 
 		for(ItemStack itemStack : inventory) {
 			if(itemStack != null) {
 				if(stack.matchesRecipe(itemStack, true)) {
-					count += itemStack.stackSize;
+					count += itemStack.getCount();
 				}
 			}
 		}
@@ -608,12 +616,12 @@ public class InventoryUtil {
 		return doesInventoryHaveAStack(player.inventory.mainInventory, stack, shouldRemove, ignoreSize);
 	}
 
-	public static boolean doesInventoryHaveAStack(ItemStack[] inventory, AStack stack, boolean shouldRemove, boolean ignoreSize) {
+	public static boolean doesInventoryHaveAStack(java.util.List<net.minecraft.item.ItemStack> inventory, AStack stack, boolean shouldRemove, boolean ignoreSize) {
 		final int totalMatches;
 		int totalStacks = 0;
 		for(ItemStack itemStack : inventory) {
 			if(itemStack != null && stack.matchesRecipe(itemStack, ignoreSize))
-				totalStacks += itemStack.stackSize;
+				totalStacks += itemStack.getCount();
 			if(!shouldRemove && ignoreSize && totalStacks > 0)
 				return true;
 		}
@@ -626,8 +634,8 @@ public class InventoryUtil {
 				if(consumedStacks > requiredStacks)
 					break;
 				if(itemStack != null && stack.matchesRecipe(itemStack, true)) {
-					int toConsume = Math.min(itemStack.stackSize, requiredStacks - consumedStacks);
-					itemStack.stackSize -= toConsume;
+					int toConsume = Math.min(itemStack.getCount(), requiredStacks - consumedStacks);
+					itemStack.setCount(itemStack.getCount() - toConsume);
 					consumedStacks += toConsume;
 				}
 			}

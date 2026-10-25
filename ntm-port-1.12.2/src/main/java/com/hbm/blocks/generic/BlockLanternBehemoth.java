@@ -3,6 +3,7 @@ package com.hbm.blocks.generic;
 import java.util.Random;
 
 import com.hbm.blocks.BlockDummyable;
+import com.hbm.blocks.LegacyBlockTextures;
 import com.hbm.blocks.ILookOverlay;
 import com.hbm.extprop.HbmPlayerProps;
 import com.hbm.tileentity.IRepairable;
@@ -20,6 +21,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class BlockLanternBehemoth extends BlockDummyable implements IToolable, ILookOverlay {
 
+
 	public BlockLanternBehemoth() {
 		super(Material.IRON);
 	}
@@ -29,7 +31,7 @@ public class BlockLanternBehemoth extends BlockDummyable implements IToolable, I
 		if(meta >= 12) return new TileEntityLanternBehemoth();
 		return null;
 	}
-	
+
 	@Override
 	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
@@ -47,15 +49,15 @@ public class BlockLanternBehemoth extends BlockDummyable implements IToolable, I
 
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
-		
+
 		if(tool != ToolType.TORCH) return false;
 		boolean didRepair = IRepairable.tryRepairMultiblock(world, x, y, z, this, player);
-		
+
 		if(didRepair) {
 			HbmPlayerProps data = HbmPlayerProps.getData(player);
 			if(data.reputation < 25) data.reputation++;
 		}
-		
+
 		return didRepair;
 	}
 

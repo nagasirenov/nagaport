@@ -21,9 +21,9 @@ public class ItemRag extends Item {
 		if(entityItem != null && !entityItem.world.isRemote) {
 
 			if (com.hbm.world.WorldBlockState.read(entityItem.world, (int) Math.floor(entityItem.posX), (int) Math.floor(entityItem.posY),
-				(int) Math.floor(entityItem.posZ)).getBlock().getMaterial() == Material.WATER) {
-				ItemStack stack = entityItem.getEntityItem();
-				entityItem.setEntityItemStack(new ItemStack(ModItems.rag_damp, stack.stackSize));
+				(int) Math.floor(entityItem.posZ)).getMaterial() == Material.WATER) {
+				ItemStack stack = entityItem.getItem();
+				entityItem.setItem(new ItemStack(ModItems.rag_damp, stack.getCount()));
 				return true;
 			}
 		}
@@ -31,14 +31,19 @@ public class ItemRag extends Item {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(HbmLivingProps.getRadiation(player) > 500) {
-			stack.stackSize--;
+			stack.shrink(1);
 			player.inventory.addItemStackToInventory(new ItemStack(ModItems.rag_blood));
 			return stack;
 		} else {
-			stack.stackSize--;
+			stack.shrink(1);
 			player.inventory.addItemStackToInventory(new ItemStack(ModItems.rag_piss));
 			return stack;
 		}

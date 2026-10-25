@@ -32,6 +32,8 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class BlockAirPump extends BlockContainer implements ILookOverlay, IBlockSealable {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
@@ -39,7 +41,6 @@ public class BlockAirPump extends BlockContainer implements ILookOverlay, IBlock
 		super(p_i45386_1_);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 
@@ -47,7 +48,6 @@ public class BlockAirPump extends BlockContainer implements ILookOverlay, IBlock
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":vent_chlorine_seal_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 
@@ -106,7 +106,10 @@ public class BlockAirPump extends BlockContainer implements ILookOverlay, IBlock
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		}

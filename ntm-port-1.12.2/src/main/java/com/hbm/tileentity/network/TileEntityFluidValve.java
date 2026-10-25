@@ -14,7 +14,6 @@ public class TileEntityFluidValve extends TileEntityPipeBaseNT {
 
 	public void updateState() {
 
-		this.blockMetadata = -1; // delete cache
 
 		if(this.getBlockMetadata() == 0 && this.node != null) {
 			UniNodespace.destroyNode(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getType().getNetworkProvider());
@@ -22,7 +21,6 @@ public class TileEntityFluidValve extends TileEntityPipeBaseNT {
 		}
 	}
 
-	@Override
 	public boolean shouldRefresh(Block oldBlock, Block newBlock, int oldMeta, int newMeta, World world, int x, int y, int z) {
 		return oldBlock != newBlock;
 	}

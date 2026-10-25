@@ -24,12 +24,16 @@ import com.hbm.lib.ForgeDirection;
 
 public class Silo extends WorldGenerator
 {
+
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
 	Block Block2 = ModBlocks.launch_pad;
 	Block Block3 = ModBlocks.reinforced_light;
 	Block Block4 = ModBlocks.tape_recorder;
 	Block Block5 = ModBlocks.reinforced_glass;
 	Block Block6 = ModBlocks.deco_steel;
-	
+
 	protected Block[] GetValidSpawnBlocks()
 	{
 		return new Block[]
@@ -63,7 +67,7 @@ public class Silo extends WorldGenerator
 			{
 				return true;
 			}
-			else if (checkBlock.getMaterial() == Material.plants && blockBelow == i)
+			else if (checkBlock.getDefaultState().getMaterial() == Material.PLANTS && blockBelow == i)
 			{
 				return true;
 			}
@@ -71,7 +75,6 @@ public class Silo extends WorldGenerator
 		return false;
 	}
 
-	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z)
 	{
 		int i = rand.nextInt(1);
@@ -92,6 +95,14 @@ public class Silo extends WorldGenerator
 			return false;
 		}
 
+		generate_r0_sub1(world, rand, x, y, z);
+		generate_r0_sub2(world, rand, x, y, z);
+		generate_r02(world, rand, x, y, z);
+		return true;
+	}
+
+	private void generate_r0_sub1(World world, Random rand, int x, int y, int z)
+	{
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 7, y + -21, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 8, y + -21, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 9, y + -21, z + 1);
@@ -389,7 +400,7 @@ public class Silo extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 17, y + -20, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 18, y + -20, z + 10);
 		{ BlockPos dungeonPos = new BlockPos(x + 19, y + -20, z + 10); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(5), 3); }
-		world.setBlockMetadataWithNotify(x + 19, y + -20, z + 10, 5, 3);
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x + 19, y + -20, z + 10, 5, 3);
 		if((world.isValid(new BlockPos(x + 19, y + -20, z + 10)) ? world.getBlockState(new BlockPos(x + 19, y + -20, z + 10)).getBlock() : Blocks.AIR) == Blocks.CHEST)
 		{
 			WeightedRandomChestContent.generateChestContents(rand, ItemPool.getPool(ItemPoolsLegacy.POOL_EXPENSIVE), (TileEntityChest)world.getTileEntity(new BlockPos(x + 19, y + -20, z + 10)), rand.nextInt(2)+ 6);
@@ -799,6 +810,10 @@ public class Silo extends WorldGenerator
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 4, y + -18, z + 12);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 5, y + -18, z + 12);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 6, y + -18, z + 12);
+	}
+
+	private void generate_r0_sub2(World world, Random rand, int x, int y, int z)
+	{
 		{ BlockPos dungeonPos = new BlockPos(x + 7, y + -18, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -18, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -18, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -857,7 +872,7 @@ public class Silo extends WorldGenerator
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 11, y + -17, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 7, y + -17, z + 2);
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -17, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(3), 3); }
-		world.setBlockMetadataWithNotify(x + 8, y + -17, z + 2, 3, 3);
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x + 8, y + -17, z + 2, 3, 3);
 		if((world.isValid(new BlockPos(x + 8, y + -17, z + 2)) ? world.getBlockState(new BlockPos(x + 8, y + -17, z + 2)).getBlock() : Blocks.AIR) == Blocks.CHEST)
 		{
 			WeightedRandomChestContent.generateChestContents(rand, ItemPool.getPool(ItemPoolsComponent.POOL_SILO), (TileEntityChest)world.getTileEntity(new BlockPos(x + 8, y + -17, z + 2)), rand.nextInt(2)+ 6);
@@ -965,11 +980,11 @@ public class Silo extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -16, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -16, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 11, y + -16, z + 3);
-		world.setBlock(x + 7, y + -16, z + 4, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + -16, z + 4, Block3, 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -16, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -16, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -16, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 11, y + -16, z + 4, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 11, y + -16, z + 4, Block3, 0, 3);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 12, y + -16, z + 4);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 13, y + -16, z + 4);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 14, y + -16, z + 4);
@@ -1051,7 +1066,7 @@ public class Silo extends WorldGenerator
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 10, y + -16, z + 14);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 7, y + -15, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 8, y + -15, z + 1);
-		world.setBlock(x + 9, y + -15, z + 1, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 9, y + -15, z + 1, Block3, 0, 3);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 10, y + -15, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 11, y + -15, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 7, y + -15, z + 2);
@@ -1346,7 +1361,7 @@ public class Silo extends WorldGenerator
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 10, y + -13, z + 14);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 7, y + -12, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 8, y + -12, z + 1);
-		world.setBlock(x + 9, y + -12, z + 1, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 9, y + -12, z + 1, Block3, 0, 3);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 10, y + -12, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 11, y + -12, z + 1);
 		com.hbm.world.generator.DungeonToolbox.placeRandomConcrete(world, x + 7, y + -12, z + 2);
@@ -1576,14 +1591,18 @@ public class Silo extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-
-		generate_r02(world, rand, x, y, z);
-		return true;
-
 	}
+
 	public boolean generate_r02(World world, Random rand, int x, int y, int z)
 	{
+		generate_r02_sub1(world, rand, x, y, z);
+		generate_r02_sub2(world, rand, x, y, z);
+		generate_r03_last(world, rand, x, y, z);
+		return true;
+	}
 
+	private void generate_r02_sub1(World world, Random rand, int x, int y, int z)
+	{
 		{ BlockPos dungeonPos = new BlockPos(x + 11, y + -10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 12, y + -10, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 13; int nativePlacementY = y + -10; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -1624,7 +1643,7 @@ public class Silo extends WorldGenerator
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + -10; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -9; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + -9; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 9, y + -9, z + 1, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 9, y + -9, z + 1, Block3, 0, 3);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + -9; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + -9; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -9; int nativePlacementZ = z + 2; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -1641,14 +1660,14 @@ public class Silo extends WorldGenerator
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + -9; int nativePlacementZ = z + 4; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -9; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.CHEST.getStateFromMeta(2), 3); }
-		world.setBlockMetadataWithNotify(x + 8, y + -9, z + 5, 3, 3);
+		com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x + 8, y + -9, z + 5, 3, 3);
 		if((world.isValid(new BlockPos(x + 8, y + -9, z + 5)) ? world.getBlockState(new BlockPos(x + 8, y + -9, z + 5)).getBlock() : Blocks.AIR) == Blocks.CHEST)
 		{
 			WeightedRandomChestContent.generateChestContents(rand, ItemPool.getPool(ItemPoolsLegacy.POOL_GENERIC), (TileEntityChest)world.getTileEntity(new BlockPos(x + 8, y + -9, z + 5)), rand.nextInt(2)+ 8);
 		}
         { BlockPos dungeonPos = new BlockPos(x + 8, y + -10, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_SLAB.getStateFromMeta(8), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -9, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.PLANKS.getStateFromMeta(0), 3); }
-		world.setBlock(x + 10, y + -9, z + 5, Block4, 2, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 10, y + -9, z + 5, Block4, 2, 3);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + -9; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -9; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + -9; int nativePlacementZ = z + 6; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -1727,11 +1746,11 @@ public class Silo extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -8, z + 3); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + -8; int nativePlacementZ = z + 3; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 7, y + -8, z + 4, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + -8, z + 4, Block3, 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -8, z + 4); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 11, y + -8, z + 4, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 11, y + -8, z + 4, Block3, 0, 3);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -8; int nativePlacementZ = z + 5; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -8, z + 5); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
@@ -1888,7 +1907,7 @@ public class Silo extends WorldGenerator
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + -7; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -6; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + -6; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 9, y + -6, z + 1, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 9, y + -6, z + 1, Block3, 0, 3);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + -6; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + -6; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -6; int nativePlacementZ = z + 2; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -2036,6 +2055,10 @@ public class Silo extends WorldGenerator
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -5; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
+	}
+
+	private void generate_r02_sub2(World world, Random rand, int x, int y, int z)
+	{
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -5, z + 13); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + -5; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + -5; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -2112,7 +2135,7 @@ public class Silo extends WorldGenerator
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 9; int nativePlacementY = y + -4; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + -4; int nativePlacementZ = z + 14; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + -3; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 9, y + -3, z + 1, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 9, y + -3, z + 1, Block3, 0, 3);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + -3; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + -3; int nativePlacementZ = z + 2; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + -3; int nativePlacementZ = z + 2; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -2268,11 +2291,11 @@ public class Silo extends WorldGenerator
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + -1; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + -1; int nativePlacementZ = z + 7; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + -1; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 7, y + -1, z + 8, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + -1, z + 8, Block3, 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -1, z + 8); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 11, y + -1, z + 8, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 11, y + -1, z + 8, Block3, 0, 3);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + -1; int nativePlacementZ = z + 8; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 5; int nativePlacementY = y + -1; int nativePlacementZ = z + 9; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ BlockPos dungeonPos = new BlockPos(x + 6, y + -1, z + 9); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_BRICK_STAIRS.getStateFromMeta(5), 3); }
@@ -2302,11 +2325,11 @@ public class Silo extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 12, y + -1, z + 11); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.STONE_BRICK_STAIRS.getStateFromMeta(4), 3); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 13; int nativePlacementY = y + -1; int nativePlacementZ = z + 11; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + -1; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 7, y + -1, z + 12, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 7, y + -1, z + 12, Block3, 0, 3);
 		{ BlockPos dungeonPos = new BlockPos(x + 8, y + -1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 10, y + -1, z + 12); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.AIR.getStateFromMeta(0), 3); }
-		world.setBlock(x + 11, y + -1, z + 12, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 11, y + -1, z + 12, Block3, 0, 3);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 12; int nativePlacementY = y + -1; int nativePlacementZ = z + 12; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 6; int nativePlacementY = y + -1; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + -1; int nativePlacementZ = z + 13; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -2325,7 +2348,7 @@ public class Silo extends WorldGenerator
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 0; int nativePlacementZ = z + 0; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 0; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 8; int nativePlacementY = y + 0; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
-		world.setBlock(x + 9, y + 0, z + 1, Block3, 0, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 9, y + 0, z + 1, Block3, 0, 3);
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 10; int nativePlacementY = y + 0; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 11; int nativePlacementY = y + 0; int nativePlacementZ = z + 1; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 		{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x + 7; int nativePlacementY = y + 0; int nativePlacementZ = z + 2; net.minecraft.block.Block nativePlacementBlock = Library.getRandomConcrete(); int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -2478,19 +2501,16 @@ public class Silo extends WorldGenerator
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 8, y + 1, z + 13, Block6);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 9, y + 1, z + 13, Block6);
 		com.hbm.world.generator.DungeonToolbox.placeUnorientedStructureBlock(world, x + 10, y + 1, z + 13, Block6);
-		
+
 
 		BlockDummyable.safeRem = true;
-		world.setBlock(x + 9, y + -20, z + 10, ModBlocks.launch_pad, 12, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 9, y + -20, z + 10, ModBlocks.launch_pad, 12, 3);
 		((LaunchPad) ModBlocks.launch_pad).fillSpace(world, x + 9, y + -20, z + 10, ForgeDirection.NORTH, 0);
 		BlockDummyable.safeRem = false;
-		
-		//world.setBlock(x + 9, y + -20, z + 10, ModBlocks.stone_biome, 1, 3);
 
-		generate_r03_last(world, rand, x, y, z);
-		return true;
-
+		//com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 9, y + -20, z + 10, ModBlocks.stone_biome, 1, 3);
 	}
+
 	public boolean generate_r03_last(World world, Random rand, int x, int y, int z)
 	{
 
@@ -2532,7 +2552,7 @@ public class Silo extends WorldGenerator
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + -1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LADDER.getStateFromMeta(3), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 0, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LADDER.getStateFromMeta(3), 3); }
 		{ BlockPos dungeonPos = new BlockPos(x + 9, y + 1, z + 2); if (world.isValid(dungeonPos)) world.setBlockState(dungeonPos, Blocks.LADDER.getStateFromMeta(3), 3); }
-		
+
 		if(GeneralConfig.enableDebugMode)
 			System.out.print("[Debug] Successfully spawned missile silo at " + x + " " + y +" " + z + "\n");
 		return true;

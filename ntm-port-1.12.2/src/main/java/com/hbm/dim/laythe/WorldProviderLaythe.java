@@ -32,8 +32,8 @@ public class WorldProviderLaythe extends WorldProviderCelestial {
 	}
 
 	@Override
-	public String getDimensionName() {
-		return "Laythe";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class WorldProviderLaythe extends WorldProviderCelestial {
 
 	@Override
 	public float fogDensity(FogDensity event) {
-		if(event.block.getMaterial() == Material.WATER) {
+		if(event.getState().getMaterial() == Material.WATER) {
 			return 0.03F;
 		}
 

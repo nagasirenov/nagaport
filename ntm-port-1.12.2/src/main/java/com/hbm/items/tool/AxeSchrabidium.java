@@ -12,8 +12,8 @@ public class AxeSchrabidium extends ItemAxe {
 
     @Override
 	public EnumRarity getRarity(ItemStack p_77613_1_) {
-    	
-		return EnumRarity.rare;
+
+		return EnumRarity.RARE;
     }
 
 }

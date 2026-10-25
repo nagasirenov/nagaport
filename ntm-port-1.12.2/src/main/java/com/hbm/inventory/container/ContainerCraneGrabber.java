@@ -8,24 +8,25 @@ import com.hbm.tileentity.network.TileEntityCraneGrabber;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
 public class ContainerCraneGrabber extends ContainerBase {
-	
+
 	protected TileEntityCraneGrabber grabber;
-	
+
 	public ContainerCraneGrabber(InventoryPlayer invPlayer, TileEntityCraneGrabber grabber) {
 		super(invPlayer, grabber);
 
 		this.grabber = grabber;
-		
+
 		//filter
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
 				this.addSlotToContainer(new SlotPattern(grabber, j + i * 3, 40 + j * 18, 17 + i * 18));
 			}
 		}
-		
+
 		//upgrades
 		this.addSlotToContainer(new SlotUpgrade(grabber, 9, 121, 23));
 		this.addSlotToContainer(new SlotUpgrade(grabber, 10, 121, 47));
@@ -41,7 +42,7 @@ public class ContainerCraneGrabber extends ContainerBase {
 		if(var4 != null && var4.getHasStack()) {
 			ItemStack var5 = var4.getStack();
 			var3 = var5.copy();
-			
+
 			if(slot < 9) { //filters
 				return null;
 			}
@@ -51,7 +52,7 @@ public class ContainerCraneGrabber extends ContainerBase {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() == ModItems.upgrade_stack) {
 					 if(!this.mergeItemStack(var5, 9, 10, false))
 						 return null;
@@ -59,11 +60,11 @@ public class ContainerCraneGrabber extends ContainerBase {
 					 if(!this.mergeItemStack(var5, 10, 11, false))
 						 return null;
 				}
-				
+
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
@@ -76,33 +77,33 @@ public class ContainerCraneGrabber extends ContainerBase {
 	}
 
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
 		//L/R: 0
 		//M3: 3
 		//SHIFT: 1
 		//DRAG: 5
-		
+
 		if(index < 0 || index > 8) {
 			return super.slotClick(index, button, mode, player);
 		}
 
 		Slot slot = this.getSlot(index);
-		
+
 		ItemStack ret = null;
 		ItemStack held = player.inventory.getItemStack();
-		
+
 		if(slot.getHasStack())
 			ret = slot.getStack().copy();
-		
-		if(button == 1 && mode == 0 && slot.getHasStack()) {
+
+		if(button == 1 && mode == ClickType.PICKUP && slot.getHasStack()) {
 			grabber.nextMode(index);
 			return ret;
-			
+
 		} else {
 			slot.putStack(held);
 			grabber.matcher.initPatternStandard(grabber.getWorld(), slot.getStack(), index);
-			
+
 			return ret;
 		}
 	}

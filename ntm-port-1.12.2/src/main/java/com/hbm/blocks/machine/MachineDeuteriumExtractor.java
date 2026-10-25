@@ -22,6 +22,8 @@ import java.util.List;
 
 public class MachineDeuteriumExtractor extends BlockContainer implements ILookOverlay {
 
+	protected IIcon blockIcon;
+
 	public MachineDeuteriumExtractor(Material mat) {
 		super(mat);
 	}
@@ -35,14 +37,12 @@ public class MachineDeuteriumExtractor extends BlockContainer implements ILookOv
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTopH2O;
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":deuterium_extractor_side");
 		this.iconTopH2O = iconRegister.registerIcon(RefStrings.MODID + ":deuterium_extractor_top_water");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		if(side == 0 || side == 1) {

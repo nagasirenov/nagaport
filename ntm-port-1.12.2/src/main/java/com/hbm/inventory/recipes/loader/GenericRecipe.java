@@ -60,8 +60,8 @@ public class GenericRecipe {
 	public GenericRecipe setIcon(Item item) { return this.setIcon(new ItemStack(item)); }
 	public GenericRecipe setIcon(Block block) { return this.setIcon(new ItemStack(block)); }
 	public GenericRecipe setNamed() { this.customLocalization = true; return this; }
-	
-	public GenericRecipe setPools(String... pools) { 
+
+	public GenericRecipe setPools(String... pools) {
 		this.blueprintPools = pools;
 		for(String pool : pools) {
 			if(!GeneralConfig.enable528 && pool.startsWith(GenericRecipes.POOL_PREFIX_528)) throw new IllegalArgumentException("Tried initializing a recipe's default blueprint pool with a 528 blueprint - this is not allowed.");
@@ -80,7 +80,7 @@ public class GenericRecipe {
 	public GenericRecipe inputFluidsEx(FluidStack... input) { if(!GeneralConfig.enableExpensiveMode) return this; this.inputFluid = input; return this; }
 	public GenericRecipe outputItems(IOutput... output) { this.outputItem = output; return this; }
 	public GenericRecipe outputFluids(FluidStack... output) { this.outputFluid = output; return this; }
-	
+
 	private void checkStackLimit(AStack stack) {
 		boolean exceeds = false;
 		int max = 64;
@@ -146,21 +146,21 @@ public class GenericRecipe {
 
 		return list;
 	}
-	
+
 	protected void autoSwitch(List<String> list) {
 		if(this.autoSwitchGroup != null) {
 			String[] lines = I18nUtil.resolveKeyArray("autoswitch", I18nUtil.resolveKey(this.autoSwitchGroup));
 			for(String line : lines) list.add(TextFormatting.GOLD + line);
 		}
 	}
-	
+
 	protected void duration(List<String> list) {
 		if(duration > 0) {
 			double seconds = this.duration / 20D;
 			list.add(TextFormatting.RED + I18nUtil.resolveKey("gui.recipe.duration") + ": " + seconds + "s");
 		}
 	}
-	
+
 	protected void power(List<String> list) {
 		if(power > 0) {
 			list.add(TextFormatting.RED + I18nUtil.resolveKey("gui.recipe.consumption") + ": " + BobMathUtil.getShortNumber(power) + "HE/t");
@@ -171,7 +171,7 @@ public class GenericRecipe {
 		list.add(TextFormatting.BOLD + I18nUtil.resolveKey("gui.recipe.input") + ":");
 		if(inputItem != null) for(AStack stack : inputItem) {
 			ItemStack display = stack.extractForCyclingDisplay(20);
-			list.add("  " + TextFormatting.GRAY + display.stackSize + "x " + display.getDisplayName());
+			list.add("  " + TextFormatting.GRAY + display.getCount() + "x " + display.getDisplayName());
 		}
 		if (inputFluid != null) for (FluidStack fluid : inputFluid) list.add("  " + TextFormatting.BLUE + fluid.fill + "mB " + fluid.type.getLocalizedName() + (fluid.pressure == 0 ? "" : " " + I18nUtil.resolveKey("gui.recipe.atPressure") + " " + TextFormatting.RED + fluid.pressure + " PU"));
 	}

@@ -11,9 +11,9 @@ import net.minecraft.item.ItemSlab;
 public class ItemModSlab extends ItemSlab {
 
 	public ItemModSlab(Block block) {
-		super(block, shittyFuckingHackSingle(block), shittyFuckingHackDouble(block), shittyFuckingHackDouble(block) == block);
+		super(block, shittyFuckingHackSingle(block), shittyFuckingHackDouble(block));
 	}
-	
+
 	public static BlockSlab shittyFuckingHackSingle(Block b) {
 		if(b == ModBlocks.concrete_slab || b == ModBlocks.concrete_double_slab) return (BlockSlab) ModBlocks.concrete_slab;
 		if(b == ModBlocks.concrete_brick_slab || b == ModBlocks.concrete_brick_double_slab) return (BlockSlab) ModBlocks.concrete_brick_slab;
@@ -21,7 +21,7 @@ public class ItemModSlab extends ItemSlab {
 		if(b == ModBlocks.stones_slab || b == ModBlocks.stones_double_slab) return (BlockSlab) ModBlocks.stones_slab;
 		return null;
 	}
-	
+
 	public static BlockSlab shittyFuckingHackDouble(Block b) {
 		if(b == ModBlocks.concrete_slab || b == ModBlocks.concrete_double_slab) return (BlockSlab) ModBlocks.concrete_double_slab;
 		if(b == ModBlocks.concrete_brick_slab || b == ModBlocks.concrete_brick_double_slab) return (BlockSlab) ModBlocks.concrete_brick_double_slab;

@@ -186,6 +186,9 @@ public class ItemStackUtil {
 	public static List<String> getOreDictNames(ItemStack stack) {
 		List<String> list = new ArrayList();
 
+		if(stack == null || stack.isEmpty())
+			return list;
+
 		int ids[] = OreDictionary.getOreIDs(stack);
 		for(int i : ids) {
 			list.add(OreDictionary.getOreName(i));
@@ -200,6 +203,8 @@ public class ItemStackUtil {
 	 * @return
 	 */
 	public static String getModIdFromItemStack(ItemStack stack) {
+		if(stack == null || stack.isEmpty() || stack.getItem() == null)
+			return null;
 		ResourceLocation id = Item.REGISTRY.getNameForObject(stack.getItem());
 		if(id!=null) {
 			return id.getNamespace();

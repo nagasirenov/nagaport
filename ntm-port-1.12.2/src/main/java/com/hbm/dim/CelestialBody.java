@@ -396,7 +396,7 @@ public class CelestialBody {
 		// because atmochem runs infrequently, we will automatically scale this to react all it can immediately
 		for(FluidStack recipeFluid : recipe.getValue().inputFluids) {
 			boolean hasInput = false;
-			
+
 			for(CBT_Atmosphere.FluidEntry entry : atmosphere.fluids) {
 				if(entry.fluid == recipeFluid.type && entry.pressure * AstronomyUtil.MB_PER_ATM >= recipeFluid.fill * scale) hasInput = true;
 			}
@@ -717,8 +717,8 @@ public class CelestialBody {
 		}
 
 		// Load OR generate the desired chunk
-		Chunk chunk = world.getChunkFromChunkCoords(chunkX, chunkZ);
-		return chunk.heightMap;
+		Chunk chunk = world.getChunk(chunkX, chunkZ);
+		return chunk.getHeightMap();
 	}
 
 }

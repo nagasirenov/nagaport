@@ -16,10 +16,11 @@ import net.minecraft.world.World;
 
 public class BlockDecon extends BlockContainer {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		
@@ -27,7 +28,6 @@ public class BlockDecon extends BlockContainer {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":decon_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		
@@ -45,6 +45,6 @@ public class BlockDecon extends BlockContainer {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World p_149734_1_, int x, int y, int z, Random rand) { }
+	public void randomDisplayTick(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos pos, Random rand) { }
 
 }

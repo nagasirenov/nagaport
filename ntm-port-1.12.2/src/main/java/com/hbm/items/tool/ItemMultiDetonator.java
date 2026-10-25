@@ -39,8 +39,15 @@ public class ItemMultiDetonator extends Item {
 		}
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
 		if(stack.getTagCompound() == null) {
 			stack.setTagCompound(new NBTTagCompound());
 		}
@@ -55,7 +62,7 @@ public class ItemMultiDetonator extends Item {
 						.next("Position added!").color(TextFormatting.GREEN).flush());
 			}
 
-			world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBoop"), net.minecraft.util.SoundCategory.PLAYERS, 2.0F, 1.0F);
 
 			return true;
 		}
@@ -64,17 +71,22 @@ public class ItemMultiDetonator extends Item {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(stack.getTagCompound() == null || getLocations(stack) == null) {
-			
+
 			if(!world.isRemote) {
 				player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 						.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 						.next("] ").color(TextFormatting.DARK_AQUA)
 						.next("No position set!").color(TextFormatting.RED).flush());
 			}
-			
+
 		} else {
 
 			if(!player.isSneaking()) {
@@ -89,10 +101,10 @@ public class ItemMultiDetonator extends Item {
 					int z = locs[2][i];
 
 					if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof IBomb) {
-						
+
 						if(!world.isRemote) {
 							BombReturnCode ret = ((IBomb) com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()).explode(world, x, y, z);
-							
+
 							if(ret.wasSuccessful())
 								succ++;
 
@@ -101,24 +113,24 @@ public class ItemMultiDetonator extends Item {
 						}
 					}
 				}
-				
-				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
-				
+
+				world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
+
 				if(!world.isRemote) {
 					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)
 							.next("] ").color(TextFormatting.DARK_AQUA)
 							.next("Triggered " + succ + "/" + locs[0].length + "!").color(TextFormatting.YELLOW).flush());
 				}
-				
+
 			} else {
 
 				stack.getTagCompound().setIntArray("xValues", new int[0]);
 				stack.getTagCompound().setIntArray("yValues", new int[0]);
 				stack.getTagCompound().setIntArray("zValues", new int[0]);
 
-				world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F);
-				
+				world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBoop"), net.minecraft.util.SoundCategory.PLAYERS, 2.0F, 1.0F);
+
 				if(!world.isRemote) {
 					player.sendMessage(ChatBuilder.start("[").color(TextFormatting.DARK_AQUA)
 							.nextTranslation(this.getTranslationKey() + ".name").color(TextFormatting.DARK_AQUA)

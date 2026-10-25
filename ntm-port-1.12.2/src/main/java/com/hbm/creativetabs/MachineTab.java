@@ -12,12 +12,17 @@ public class MachineTab extends CreativeTabs {
 		super(p_i1853_1_, p_i1853_2_);
 	}
 
-	@Override
-	public Item getTabIconItem() {
-		
+
+		@Override
+	public net.minecraft.item.ItemStack createIcon() {
+		return new net.minecraft.item.ItemStack(getTabIconItem());
+	}
+
+public Item getTabIconItem() {
+
 		if(ModBlocks.pwr_controller != null)
 			return Item.getItemFromBlock(ModBlocks.pwr_controller);
-		
+
 		return Items.IRON_PICKAXE;
 	}
 }

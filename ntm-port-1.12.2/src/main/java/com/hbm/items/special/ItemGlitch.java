@@ -31,12 +31,17 @@ public class ItemGlitch extends Item implements IBatteryItem {
 		this.maxStackSize = 1;
 		this.setMaxDamage(1);
 	}
-	
+
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+
 		stack.damageItem(5, player);
-		
+
 		if(!world.isRemote)
 			switch(itemRand.nextInt(31)) {
 			case 0:
@@ -55,15 +60,15 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				player.attackEntityFrom(ModDamageSource.blackhole, 1000);
 				break;
 			case 5:
-				player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(0, itemRand, 0)));
+				player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(ModBlocks.block_meteor_treasure.getDefaultState(), itemRand, 0)));
 				break;
 			case 6:
 				for(int i = 0; i < 3; i++)
-					player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(0, itemRand, 0)));
+					player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(ModBlocks.block_meteor_treasure.getDefaultState(), itemRand, 0)));
 				break;
 			case 7:
 				for(int i = 0; i < 10; i++)
-					player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(0, itemRand, 0)));
+					player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.block_meteor_treasure.getItemDropped(ModBlocks.block_meteor_treasure.getDefaultState(), itemRand, 0)));
 				break;
 			case 8:
 				player.inventory.addItemStackToInventory(new ItemStack(ModItems.ammo_container, 10));
@@ -80,7 +85,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				pip.posX = player.posX;
 				pip.posY = player.posY + 50;
 				pip.posZ = player.posZ;
-				world.spawnEntityInWorld(pip);
+				world.spawnEntity(pip);
 				break;
 			case 12:
 				for(int i = 0; i < 10; i++) {
@@ -88,7 +93,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 					pippo.posX = player.posX + itemRand.nextGaussian() * 25;
 					pippo.posY = player.posY + 50;
 					pippo.posZ = player.posZ + itemRand.nextGaussian() * 25;
-					world.spawnEntityInWorld(pippo);
+					world.spawnEntity(pippo);
 				}
 				break;
 			case 13:
@@ -103,7 +108,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				break;
 			case 15:
 				for(int i = 0; i < 36; i++)
-					player.inventory.addItemStackToInventory(new ItemStack(Blocks.dirt, 64));
+					player.inventory.addItemStackToInventory(new ItemStack(Blocks.DIRT, 64));
 				break;
 			case 16:
 				player.sendMessage(new TextComponentString("v yvxr lbhe nggvghqr!"));
@@ -137,7 +142,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				player.sendMessage(new TextComponentString("Tank!"));
 				break;
 			case 25:
-				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 60 * 20, 9));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 60 * 20, 9));
 				player.sendMessage(new TextComponentString("More devastating than a falling boxcar!"));
 				break;
 			case 26:
@@ -149,14 +154,14 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				vortex.posX = player.posX;
 				vortex.posY = player.posY - 15;
 				vortex.posZ = player.posZ;
-				world.spawnEntityInWorld(vortex);
+				world.spawnEntity(vortex);
 				break;
 			case 28:
 				EntityMeteor mirv = new EntityMeteor(world);
 				mirv.posX = player.posX;
 				mirv.posY = player.posY + 100;
 				mirv.posZ = player.posZ;
-				world.spawnEntityInWorld(mirv);
+				world.spawnEntity(mirv);
 				player.sendMessage(new TextComponentString("Watch your head!"));
 				break;
 			case 29:
@@ -168,70 +173,70 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				player.sendMessage(new TextComponentString("It's dangerous to go alone, take this!"));
 				break;
 			}
-		
+
 		player.inventoryContainer.detectAndSendChanges();
-		
+
 		return stack;
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
 		list.add("It's a gamble!");
 		list.add("");
 		switch(MainRegistry.polaroidID) {
-		case 1: 
+		case 1:
 			list.add("Click-click-click!");
 			break;
-		case 2: 
+		case 2:
 			list.add("Creek!");
 			break;
-		case 3: 
+		case 3:
 			list.add("Bzzzt!");
 			break;
-		case 4: 
+		case 4:
 			list.add("TS staring off into space.");
 			break;
-		case 5: 
+		case 5:
 			list.add("BANG!!");
 			break;
-		case 6: 
+		case 6:
 			list.add("Woop!");
 			break;
-		case 7: 
+		case 7:
 			list.add("Poow!");
 			break;
-		case 8: 
+		case 8:
 			list.add("Pft!");
 			break;
-		case 9: 
+		case 9:
 			list.add("GF fgnevat bss vagb fcnpr.");
 			break;
-		case 10: 
+		case 10:
 			list.add("Backup memory #8 on 1.44 million bytes.");
 			break;
-		case 11: 
+		case 11:
 			list.add("PTANG!");
 			break;
-		case 12: 
+		case 12:
 			list.add("Bzzt-zrrt!");
 			break;
-		case 13: 
+		case 13:
 			list.add("Clang, click-brrthththrtrtrtrtrtr!");
 			break;
-		case 14: 
+		case 14:
 			list.add("KABLAM!");
 			break;
-		case 15: 
+		case 15:
 			list.add("PLENG!");
 			break;
-		case 16: 
+		case 16:
 			list.add("Wheeeeeeee-");
 			break;
-		case 17: 
+		case 17:
 			list.add("Thump.");
 			break;
-		case 18: 
+		case 18:
 			list.add("BANG! Choo-chooo! B A N G ! ! !");
 			break;
 		}

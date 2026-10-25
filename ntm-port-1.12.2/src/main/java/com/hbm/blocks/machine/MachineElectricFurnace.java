@@ -276,7 +276,6 @@ public class MachineElectricFurnace extends BlockContainer {
         }
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
     public ItemStack getItem(World world, BlockPos pos, IBlockState state)
     {

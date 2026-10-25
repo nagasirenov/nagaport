@@ -30,7 +30,7 @@ public class ItemPotatos extends ItemBattery {
     				
     		    	float pitch = (float)getCharge(stack) / (float)this.getMaxCharge(stack) * 0.5F + 0.5F;
     		    	
-    				world.playSoundAtEntity(p, "hbm:potatos.random", 1.0F, pitch);
+    				world.playSound(null, p.posX, p.posY, p.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:potatos.random"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, pitch);
     				setTimer(stack, 200 + itemRand.nextInt(100));
     			}
     		}

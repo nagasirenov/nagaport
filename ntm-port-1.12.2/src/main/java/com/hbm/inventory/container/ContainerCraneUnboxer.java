@@ -10,18 +10,18 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerCraneUnboxer extends Container {
-	
+
 	protected TileEntityCraneUnboxer unboxer;
-	
+
 	public ContainerCraneUnboxer(InventoryPlayer invPlayer, TileEntityCraneUnboxer unboxer) {
 		this.unboxer = unboxer;
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 7; j++) {
 				this.addSlotToContainer(new Slot(unboxer, j + i * 7, 8 + j * 18, 17 + i * 18));
 			}
 		}
-		
+
 		//upgrades
 		this.addSlotToContainer(new SlotUpgrade(unboxer, 21, 152, 23));
 		this.addSlotToContainer(new SlotUpgrade(unboxer, 22, 152, 47));
@@ -54,7 +54,7 @@ public class ContainerCraneUnboxer extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

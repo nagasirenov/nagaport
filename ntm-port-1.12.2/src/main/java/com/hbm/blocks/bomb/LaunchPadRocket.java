@@ -39,7 +39,10 @@ public class LaunchPadRocket extends BlockDummyable implements ILookOverlay, ITo
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(CelestialBody.inOrbit(world)) return false;
 		return this.standardOpenBehavior(world, x, y, z, player, 0);
 	}
@@ -71,10 +74,10 @@ public class LaunchPadRocket extends BlockDummyable implements ILookOverlay, ITo
 		BlockDummyable.safeRem = true;
 		for(int or = 1; or < 5; or++) {
 			for(int oy = 0; oy < 3; oy++) {
-				world.setBlock(x - rot.offsetX * or - dir.offsetX * 7, y + oy, z - rot.offsetZ * or - dir.offsetZ * 7, this, dir.getOpposite().ordinal() + extra, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x - rot.offsetX * or - dir.offsetX * 7, y + oy, z - rot.offsetZ * or - dir.offsetZ * 7, this, dir.getOpposite().ordinal() + extra, 3);
 			}
 		}
-		world.setBlock(x + rot.offsetX * 3 - dir.offsetX * 7, y, z + rot.offsetZ * 3 - dir.offsetZ * 7, this, dir.getOpposite().ordinal() + extra, 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + rot.offsetX * 3 - dir.offsetX * 7, y, z + rot.offsetZ * 3 - dir.offsetZ * 7, this, dir.getOpposite().ordinal() + extra, 3);
 		BlockDummyable.safeRem = false;
 	}
 

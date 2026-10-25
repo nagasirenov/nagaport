@@ -106,7 +106,7 @@ public class ShredderRecipes extends SerializableRecipe {
 
 			if(dust != null && dust.getItem() != ModItems.scrap) {
 
-				dust.stackSize = outCount;
+				dust.setCount(outCount);
 
 				for(ItemStack stack : matches) {
 					putIfValid(stack, dust, name);

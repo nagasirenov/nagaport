@@ -75,10 +75,10 @@ public class EntityBombletZeta extends EntityThrowable {
 					mist.setType(Fluids.CHLORINE);
 					mist.setPosition(this.posX - motionX, this.posY - motionY, this.posZ - motionZ);
 					mist.setArea(15, 7.5F);
-					this.world.spawnEntityInWorld(mist);
+					this.world.spawnEntity(mist);
 				}
 				if(type == 4) {
-					this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(this.world, (int) (BombConfig.fatmanRadius * 1.5), posX, posY, posZ));
+					this.world.spawnEntity(EntityNukeExplosionMK5.statFac(this.world, (int) (BombConfig.fatmanRadius * 1.5), posX, posY, posZ));
 
 					NBTTagCompound data = new NBTTagCompound();
 					data.setString("type", "muke");

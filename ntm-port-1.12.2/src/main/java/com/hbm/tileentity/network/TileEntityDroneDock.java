@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 public class TileEntityDroneDock extends TileEntityRequestNetworkContainer implements IGUIProvider {
 
 	public static final int pathingDepth = 10;
-	
+
 	public TileEntityDroneDock() {
 		super(9);
 	}
@@ -41,26 +41,26 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 	@Override
 	public void update() {
 		super.update();
-		
+
 		if(!this.world.isRemote && this.world.getTotalWorldTime() % 20 == 0 && this.hasDrone()) {
-			
+
 			// grab all nodes in a 5 chunk radius
 			HashedSet<PathNode> localNodes = this.getAllLocalNodes(this.world, this.pos.getX(), this.pos.getZ(), 5);
 			List<RequestNode> requests = new ArrayList();
 			List<OfferNode> offers = new ArrayList();
-			
+
 			for(PathNode local : localNodes) {
 				if(local instanceof RequestNode) requests.add((RequestNode) local);
 				if(local instanceof OfferNode) offers.add((OfferNode) local);
 			}
-			
+
 			attempt: for(int i = 0; i < 5; i++) {
-				
+
 				// randomize!
 				Collections.shuffle(requests);
 				Collections.shuffle(offers);
 				RequestNode firstRequest = null;
-				
+
 				// simply pick the first request node that has unfulfilled requests
 				for(RequestNode request : requests) {
 					if(request.active && !request.request.isEmpty()) {
@@ -68,14 +68,14 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 						break;
 					}
 				}
-				
+
 				if(firstRequest != null) {
 
 					PathNode own = localNodes.getMap().get(new BlockPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()).hashCode());
 					AStack request = firstRequest.request.get(this.world.rand.nextInt(firstRequest.request.size()));
-					
+
 					outer: for(OfferNode offer : offers) {
-						
+
 						for(ItemStack stack : offer.offer) {
 							if(offer.active && stack != null && request.matchesRecipe(stack, true)) {
 								if(tryEmbark(own, firstRequest, offer, request, localNodes)) break attempt; // if the drone can be pathed and spawned, stop doing more attempts
@@ -87,7 +87,7 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 			}
 		}
 	}
-	
+
 	public boolean tryEmbark(PathNode dock, RequestNode request, OfferNode offer, AStack item, HashedSet localNodes) {
 
 		List<PathNode> dockToOffer = generatePath(dock, offer, localNodes);
@@ -97,7 +97,7 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 		List<PathNode> requestToDock = generatePath(request, dock, localNodes);
 		if(requestToDock == null) return false;
 
-		
+
 		for(int i = 0; i < this.slots.length; i++) {
 			ItemStack stack = slots[i];
 			if(stack != null && stack.getItem() == ModItems.drone && stack.getItemDamage() == EnumDroneType.REQUEST.ordinal()) {
@@ -105,10 +105,10 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 				break;
 			}
 		}
-		
+
 		EntityRequestDrone drone = new EntityRequestDrone(this.world);
 		drone.setPosition(this.pos.getX() + 0.5, this.pos.getY() + 1, this.pos.getZ() + 0.5);
-		
+
 		// write programming
 		for(PathNode node : dockToOffer) drone.program.add(node.pos);
 		drone.program.add(offer.pos);
@@ -119,65 +119,65 @@ public class TileEntityDroneDock extends TileEntityRequestNetworkContainer imple
 		for(PathNode node : requestToDock) drone.program.add(node.pos);
 		drone.program.add(dock.pos);
 		drone.program.add(DroneProgram.DOCK);
-		
-		this.world.spawnEntityInWorld(drone);
+
+		this.world.spawnEntity(drone);
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.storageOpen", 2.0F, 1.0F);
-		
+
 		return true;
 	}
-	
+
 	public List<PathNode> generatePath(PathNode start, PathNode end, HashedSet<PathNode> localNodes) {
-		
+
 		List<List<PathNode>> paths = new ArrayList();
 		List<PathNode> init = new ArrayList();
 		init.add(start);
 		paths.add(init);
-		
+
 		// breadth-first search
 		outer: for(int i = 0; i < pathingDepth; i++) {
-			
+
 			int iterationBrake = 1000;
-			
+
 			List<List<PathNode>> newPaths = new ArrayList();
-			
+
 			for(List<PathNode> oldPath : paths) {
 				for(PathNode connectedUnsafe : oldPath.get(oldPath.size() - 1).reachableNodes) {
-					
+
 					PathNode connectedSafe = localNodes.getMap().get(connectedUnsafe.hashCode()); // lookup to translate potentially outdated nodes into current ones
 					if(connectedSafe != null) {
-						
+
 						List<PathNode> newPath = new ArrayList();
 						newPath.addAll(oldPath);
-						
+
 						if(connectedSafe.hashCode() == end.hashCode()) {
 							newPath.remove(0); // we only want the in-betweens
 							return newPath;
 						}
-	
+
 						newPath.add(connectedSafe);
 						newPaths.add(newPath);
 					}
-					
+
 					// emergency halt after 1000 iterations, forces pathing depth to proceed
 					// theoretical maximum is therefore 10k iterations
 					iterationBrake--;
 					if(iterationBrake <= 0) continue outer;
 				}
 			}
-			
+
 			paths = newPaths;
 		}
-		
+
 		return null;
 	}
-	
+
 	public boolean hasDrone() {
-		
+
 		for(int i = 0; i < this.slots.length; i++) {
 			ItemStack stack = slots[i];
 			if(stack != null && stack.getItem() == ModItems.drone && stack.getItemDamage() == EnumDroneType.REQUEST.ordinal()) return true;
 		}
-		
+
 		return false;
 	}
 

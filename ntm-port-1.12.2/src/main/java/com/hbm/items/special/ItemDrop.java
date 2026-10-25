@@ -33,23 +33,23 @@ public class ItemDrop extends Item {
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
 		if (entityItem != null) {
-			
+
 			if(this == ModItems.beta) {
 				entityItem.setDead();
 				return true;
 			}
-			
-			ItemStack stack = entityItem.getEntityItem();
+
+			ItemStack stack = entityItem.getItem();
 
 			if (stack.getItem() != null && stack.getItem() == ModItems.detonator_deadman) {
 				if (!entityItem.world.isRemote) {
-					
+
 					if(stack.getTagCompound() != null) {
-						
+
 						 int x = stack.getTagCompound().getInteger("x");
 						 int y = stack.getTagCompound().getInteger("y");
 						 int z = stack.getTagCompound().getInteger("z");
-						 
+
 						 if(com.hbm.world.WorldBlockState.read(entityItem.world, x, y, z).getBlock() instanceof IBomb)
 						 {
 							if(!entityItem.world.isRemote)
@@ -75,10 +75,10 @@ public class ItemDrop extends Item {
 		    		if(GeneralConfig.enableExtendedLogging)
 		    			MainRegistry.logger.log(Level.INFO, "[DET] Detonated dead man's explosive at " + ((int)entityItem.posX) + " / " + ((int)entityItem.posY) + " / " + ((int)entityItem.posZ) + "!");
 				}
-				
+
 				entityItem.setDead();
 			}
-			
+
 			if (entityItem.onGround) {
 
 				if (stack.getItem() != null && stack.getItem() == ModItems.cell_antimatter && WeaponConfig.dropCell) {
@@ -102,13 +102,13 @@ public class ItemDrop extends Item {
 						EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, BombConfig.aSchrabRadius);
 						if(!ex.isDead) {
 							com.hbm.sound.VanillaWorldSoundEffects.play(entityItem.world, entityItem.posX, entityItem.posY, entityItem.posZ, "random.explode", 100.0F, entityItem.world.rand.nextFloat() * 0.1F + 0.9F);
-							entityItem.world.spawnEntityInWorld(ex);
+							entityItem.world.spawnEntity(ex);
 
 							EntityCloudFleija cloud = new EntityCloudFleija(entityItem.world, BombConfig.aSchrabRadius);
 							cloud.posX = entityItem.posX;
 							cloud.posY = entityItem.posY;
 							cloud.posZ = entityItem.posZ;
-							entityItem.world.spawnEntityInWorld(cloud);
+							entityItem.world.spawnEntity(cloud);
 						}
 					}
 				}
@@ -119,7 +119,7 @@ public class ItemDrop extends Item {
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.world.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntity(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_counter_resonant && WeaponConfig.dropSing) {
@@ -129,7 +129,7 @@ public class ItemDrop extends Item {
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.world.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntity(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_super_heated && WeaponConfig.dropSing) {
@@ -139,7 +139,7 @@ public class ItemDrop extends Item {
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.world.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntity(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.black_hole && WeaponConfig.dropSing) {
@@ -148,7 +148,7 @@ public class ItemDrop extends Item {
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.world.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntity(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.singularity_spark && WeaponConfig.dropSing) {
@@ -157,7 +157,7 @@ public class ItemDrop extends Item {
 						bl.posX = entityItem.posX;
 						bl.posY = entityItem.posY;
 						bl.posZ = entityItem.posZ;
-						entityItem.world.spawnEntityInWorld(bl);
+						entityItem.world.spawnEntity(bl);
 					}
 				}
 				if (stack.getItem() != null && stack.getItem() == ModItems.crystal_xen && WeaponConfig.dropCrys) {
@@ -173,7 +173,7 @@ public class ItemDrop extends Item {
 		}
 		return false;
     }
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
@@ -230,38 +230,45 @@ public class ItemDrop extends Item {
 		if (this == ModItems.detonator_de) {
 			list.add("Explodes when dropped!");
 		}
-		
+
 		list.add(TextFormatting.RED + "[" + I18nUtil.resolveKey("trait.drop") + "]");
 	}
-	
-	@Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+
+
+        @Override
+    public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+        net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+        int side = facing != null ? facing.getIndex() : 0;
+        return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+    }
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
     {
 		if(this != ModItems.detonator_deadman) {
-			return super.onItemUse(stack, player, world, x, y, z, p_77648_7_, p_77648_8_, p_77648_9_, p_77648_10_);
+			return false;
 		}
-		
+
 		if(stack.getTagCompound() == null)
 		{
 			stack.setTagCompound(new NBTTagCompound());
 		}
-		
+
 		if(player.isSneaking())
 		{
 			stack.getTagCompound().setInteger("x", x);
 			stack.getTagCompound().setInteger("y", y);
 			stack.getTagCompound().setInteger("z", z);
-			
+
 			if(world.isRemote)
 			{
 				player.sendMessage(new TextComponentString("Position set!"));
 			}
-			
-	        world.playSoundAtEntity(player, "hbm:item.techBoop", 2.0F, 1.0F);
-        	
+
+	        world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBoop"), net.minecraft.util.SoundCategory.PLAYERS, 2.0F, 1.0F);
+
 			return true;
 		}
-		
+
 		return false;
     }
 

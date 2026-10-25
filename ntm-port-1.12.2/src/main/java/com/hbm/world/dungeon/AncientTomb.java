@@ -15,81 +15,81 @@ import net.minecraft.world.World;
 
 public class AncientTomb {
 
-	
+
 	public void build(World world, Random rand, int x, int y, int z) {
 
 		List<MetaBlock> concrete = Arrays.asList(new MetaBlock[] {
 				new MetaBlock(ModBlocks.brick_concrete),
 				new MetaBlock(ModBlocks.brick_concrete_broken),
 				new MetaBlock(ModBlocks.brick_concrete_cracked)});
-		
+
 		y = 20;
-		
+
 		/// PYRAMID Y LOCATION ///
-		int yOff = Math.max(world.getHeightValue(x, z), 35) - 5;
-		
+		int yOff = Math.max(world.getHeight(x, z), 35) - 5;
+
 		int pySize = 15;
-		
+
 		/// PRINT PYRAMID ///
 		for(int iy = pySize; iy > 0; iy--) {
-			
+
 			int range = (pySize - iy);
-			
+
 			for(int ix = -range; ix <= range; ix++) {
 				for(int iz = -range; iz <= range; iz++) {
-					
+
 					if((ix <= -range + 1 || ix >= range - 1) && (iz <= -range + 1 || iz >= range - 1)) {
 						{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x + ix; int nativeRegisteredWriteY = yOff + iy; int nativeRegisteredWriteZ = z + iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.reinforced_stone; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 						continue;
 					}
-					
+
 					if(iy == 1) {
-						world.setBlock(x + ix, yOff + iy, z + iz, ModBlocks.concrete_smooth);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + ix, yOff + iy, z + iz, ModBlocks.concrete_smooth);
 						continue;
 					}
-					
+
 					if((ix <= -range + 1 || ix >= range - 1) || (iz <= -range + 1 || iz >= range - 1)) {
-						world.setBlock(x + ix, yOff + iy, z + iz, ModBlocks.concrete_smooth);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + ix, yOff + iy, z + iz, ModBlocks.concrete_smooth);
 						continue;
 					}
-					
+
 					com.hbm.world.WorldAirRemoval.remove(world, x + ix, yOff + iy, z + iz);
 				}
 			}
 		}
-		
+
 		DungeonToolbox.generateBox(world, x - 2, yOff + 2, z - 2, 5, 4, 5, concrete);
-		world.setBlock(x + 2, yOff + 3, z, ModBlocks.brick_concrete_marked);
-		world.setBlock(x - 2, yOff + 3, z, ModBlocks.brick_concrete_marked);
-		world.setBlock(x, yOff + 3, z + 2, ModBlocks.brick_concrete_marked);
-		world.setBlock(x, yOff + 3, z - 2, ModBlocks.brick_concrete_marked);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 2, yOff + 3, z, ModBlocks.brick_concrete_marked);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x - 2, yOff + 3, z, ModBlocks.brick_concrete_marked);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, yOff + 3, z + 2, ModBlocks.brick_concrete_marked);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, yOff + 3, z - 2, ModBlocks.brick_concrete_marked);
 
 		DungeonToolbox.generateBox(world, x + 5, yOff + 2, z + 5, 1, 7, 1, ModBlocks.concrete_pillar);
 		DungeonToolbox.generateBox(world, x + 5, yOff + 2, z - 5, 1, 7, 1, ModBlocks.concrete_pillar);
 		DungeonToolbox.generateBox(world, x - 5, yOff + 2, z - 5, 1, 7, 1, ModBlocks.concrete_pillar);
 		DungeonToolbox.generateBox(world, x - 5, yOff + 2, z + 5, 1, 7, 1, ModBlocks.concrete_pillar);
-		
+
 		/// PRINT SPIKES ///
 		int spikeCount = 36 + rand.nextInt(15);
-		
+
 		Vec3d vec = new Vec3d(20, 0, 0);
 		float rot = (float)Math.toRadians(360F / spikeCount);
-		
+
 		for(int i = 0; i < spikeCount; i++) {
-			
+
 			vec = vec.rotateYaw(rot);
-			
+
 			double variance = 1D + rand.nextDouble() * 0.4D;
 
 			int ix = (int) (x + vec.x * variance);
 			int iz = (int) (z + vec.z * variance);
-			int iy = world.getHeightValue(ix, iz) - 3;
-			
+			int iy = world.getHeight(ix, iz) - 3;
+
 			for(int j = iy; j < iy + 7; j++) {
 				{ net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = j; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 2; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 			}
 		}
-		
+
 		/// GENERATE TUNNEL ///
 		Vec3d sVec = new Vec3d(10, 0, 0);
 		float sRot = (float) Math.toRadians(360F / 32F);
@@ -98,9 +98,9 @@ public class AncientTomb {
 
 			int ix = (int) Math.floor(sVec.x);
 			int iz = (int) Math.floor(sVec.z);
-			
+
 			int h = i < yOff ? 3 : 2;
-			
+
 			if(i > 40)
 				DungeonToolbox.generateBox(world, x + ix - 1, i, z + iz - 1, 3, h, 3, Blocks.AIR);
 			else
@@ -118,7 +118,7 @@ public class AncientTomb {
 						if(b != Blocks.AIR && b != ModBlocks.gas_radon_tomb && b != ModBlocks.concrete && b != ModBlocks.concrete_smooth && b != ModBlocks.brick_concrete && b != ModBlocks.brick_concrete_cracked && b != ModBlocks.brick_concrete_broken) {
 
 							MetaBlock meta = DungeonToolbox.getRandom(concrete, rand);
-							world.setBlock(dx, dy, dz, meta.block, meta.meta, 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, dx, dy, dz, meta.block, meta.meta, 3);
 						}
 					}
 				}
@@ -126,24 +126,24 @@ public class AncientTomb {
 
 			sVec = sVec.rotateYaw(sRot);
 		}
-		
+
 		for(int dx = x + 4; dx < x + 8; dx++) {
 			for(int dy = y - 1; dy < y + 4; dy++) {
 				for(int dz = z - 2; dz < z + 3; dz++) {
-					
+
 					Block b = com.hbm.world.WorldBlockState.read(world, dx, dy, dz).getBlock();
-					
+
 					if(b != Blocks.AIR && b != ModBlocks.gas_radon_tomb && b != ModBlocks.concrete &&
 							b != ModBlocks.concrete_smooth && b != ModBlocks.brick_concrete &&
 							b != ModBlocks.brick_concrete_cracked && b != ModBlocks.brick_concrete_broken) {
-						
+
 						MetaBlock meta = DungeonToolbox.getRandom(concrete, rand);
-						world.setBlock(dx, dy, dz, meta.block, meta.meta, 3);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, dx, dy, dz, meta.block, meta.meta, 3);
 					}
 				}
 			}
 		}
-		
+
 		/// PRINT TOMB CHAMBER ///
 		int size = 5;
 		int cladding = size - 1;
@@ -159,7 +159,7 @@ public class AncientTomb {
 		DungeonToolbox.generateBox(world, x + size, y - size, z - size, 1, dimOuter, dimOuter, concrete);
 		DungeonToolbox.generateBox(world, x - size, y + size, z - size, dimOuter, 1, dimOuter, concrete);
 		DungeonToolbox.generateBox(world, x - size, y - size, z + size, dimOuter, dimOuter, 1, concrete);
-		
+
 		DungeonToolbox.generateBox(world, x - cladding, y - cladding, z - cladding, 1, dimInner, dimInner, ModBlocks.brick_obsidian);
 		DungeonToolbox.generateBox(world, x - cladding, y - cladding, z - cladding, dimInner, 1, dimInner, ModBlocks.brick_obsidian);
 		DungeonToolbox.generateBox(world, x - cladding, y - cladding, z - cladding, dimInner, dimInner, 1, ModBlocks.brick_obsidian);
@@ -168,7 +168,7 @@ public class AncientTomb {
 		DungeonToolbox.generateBox(world, x - cladding, y - cladding, z + cladding, dimInner, dimInner, 1, ModBlocks.brick_obsidian);
 
 		DungeonToolbox.generateBox(world, x - core, y - core, z - core, dimCore, dimCore, dimCore, ModBlocks.ancient_scrap);
-		
+
 		/// PRINT ACCESS ///
 		DungeonToolbox.generateBox(world, x + 6, y - 2, z - 1, 2, 1, 3, concrete);
 		DungeonToolbox.generateBox(world, x + 4, y - 1, z - 1, 5, 3, 3, ModBlocks.gas_radon_tomb);

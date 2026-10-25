@@ -28,7 +28,7 @@ public class EntityGrenadeZOMG extends EntityGrenadeBouncyBase {
 
 		if(!this.world.isRemote) {
 			this.setDead();
-			
+
 			EntityNukeExplosionMK3 ex = new EntityNukeExplosionMK3(this.world);
 			ex.posX = posX;
 			ex.posY = posY;
@@ -37,15 +37,15 @@ public class EntityGrenadeZOMG extends EntityGrenadeBouncyBase {
 			ex.speed = BombConfig.blastSpeed;
 			ex.coefficient = 1.0F;
 			ex.waste = false;
-			this.world.spawnEntityInWorld(ex);
-			
+			this.world.spawnEntity(ex);
+
 			com.hbm.sound.VanillaWorldSoundEffects.play(this.world, this.posX, this.posY, this.posZ, "random.explode", 100000.0F, 1.0F);
-			
+
 			EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(this.world, 50);
 			cloud.posX = posX;
 			cloud.posY = posY;
 			cloud.posZ = posZ;
-			this.world.spawnEntityInWorld(cloud);
+			this.world.spawnEntity(cloud);
 		}
 	}
 

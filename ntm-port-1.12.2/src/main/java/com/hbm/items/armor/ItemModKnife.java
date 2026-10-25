@@ -50,14 +50,14 @@ public class ItemModKnife extends ItemArmorMod {
 
 			if(entity.ticksExisted % 50 == 0 && entity.getMaxHealth() > 2F) {
 
-				entity.world.playSoundAtEntity(entity, "hbm:entity.slicer", 1.0F, 1.0F);
+				entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:entity.slicer"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 				NBTTagCompound nbt = new NBTTagCompound();
 				nbt.setString("type", "bloodvomit");
 				nbt.setInteger("entity", entity.getEntityId());
 				PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 25));
 
-				IAttributeInstance attributeinstance = entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.maxHealth);
+				IAttributeInstance attributeinstance = entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MAX_HEALTH);
 
 				float health = entity.getMaxHealth();
 

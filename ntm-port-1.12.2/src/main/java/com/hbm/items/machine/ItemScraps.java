@@ -26,7 +26,7 @@ import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
 
 public class ItemScraps extends ItemAutogen {
-	
+
 	@SideOnly(Side.CLIENT) public IIcon liquidIcon;
 	@SideOnly(Side.CLIENT) public IIcon addiviceIcon;
 
@@ -41,8 +41,16 @@ public class ItemScraps extends ItemAutogen {
 		this.addiviceIcon = reg.registerIcon(RefStrings.MODID + ":scraps_additive");
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for(NTMMaterial mat : Mats.orderedList) {
 			if(mat.smeltable == SmeltingBehavior.SMELTABLE || mat.smeltable == SmeltingBehavior.ADDITIVE) {
@@ -54,54 +62,60 @@ public class ItemScraps extends ItemAutogen {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int layer) {
-		
+
 		if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("liquid")) {
-			
+
 			NTMMaterial mat = Mats.matById.get(stack.getItemDamage());
-			
+
 			if(mat != null) {
 				return mat.moltenColor;
 			}
 		}
-		
+
 		return super.getColorFromItemStack(stack, layer);
 	}
 
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconIndex(ItemStack stack) {
-		
+
 		if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("liquid")) {
-			
+
 			NTMMaterial mat = Mats.matById.get(stack.getItemDamage());
-			
+
 			if(mat != null) {
 				if(mat.smeltable == mat.smeltable.SMELTABLE) return this.liquidIcon;
 				if(mat.smeltable == mat.smeltable.ADDITIVE) return this.addiviceIcon;
 			}
 		}
-		
+
 		return this.getIconFromDamage(stack.getItemDamage());
 	}
 
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
-		
+
 		if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("liquid")) {
 			MaterialStack contents = getMats(stack);
 			if(contents != null) {
 				return I18nUtil.resolveKey(contents.material.getUnlocalizedName());
 			}
 		}
-		
+
 		return ("" + I18nUtil.resolveKey(this.getUnlocalizedNameInefficiently(stack) + ".name")).trim();
 	}
-	
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
 		MaterialStack contents = getMats(stack);
-		
+
 		if(contents != null) {
-			
+
 			if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("liquid")) {
 				list.add(Mats.formatAmount(contents.amount, Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)));
 				if(contents.material.smeltable == contents.material.smeltable.ADDITIVE) list.add(TextFormatting.DARK_RED + "Additive, not castable!");
@@ -110,27 +124,27 @@ public class ItemScraps extends ItemAutogen {
 			}
 		}
 	}
-	
+
 	public static MaterialStack getMats(ItemStack stack) {
-		
+
 		if(stack.getItem() != ModItems.scraps) return null;
-		
+
 		NTMMaterial mat = Mats.matById.get(stack.getItemDamage());
 		if(mat == null) return null;
-		
+
 		int amount = MaterialShapes.INGOT.q(1);
-		
+
 		if(stack.hasTagCompound()) {
 			amount = stack.getTagCompound().getInteger("amount");
 		}
-		
+
 		return new MaterialStack(mat, amount);
 	}
-	
+
 	public static ItemStack create(MaterialStack stack) {
 		return create(stack, false);
 	}
-	
+
 	public static ItemStack create(MaterialStack stack, boolean liquid) {
 		if(stack.material == null)
 			return new ItemStack(ModItems.nothing); //why do i bother adding checks for fucking everything when they don't work

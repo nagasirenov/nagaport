@@ -12,8 +12,13 @@ public class WeaponTab extends CreativeTabs {
 		super(index, name);
 	}
 
-	@Override
-	public Item getTabIconItem() {
+
+		@Override
+	public net.minecraft.item.ItemStack createIcon() {
+		return new net.minecraft.item.ItemStack(getTabIconItem());
+	}
+
+public Item getTabIconItem() {
 		if(ModItems.gun_greasegun != null) return ModItems.gun_greasegun;
 		return Items.IRON_PICKAXE;
 	}

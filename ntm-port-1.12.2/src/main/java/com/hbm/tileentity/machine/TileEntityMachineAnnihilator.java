@@ -37,16 +37,16 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineAnnihilator extends TileEntityMachineBase implements IFluidStandardReceiverMK2, IControlReceiver, IGUIProvider {
-	
+
 	public String pool = "Recycling";
 	public int timer;
-	
+
 	public FluidTank tank;
 	public BigInteger monitorBigInt = BigInteger.ZERO;
 
 	public TileEntityMachineAnnihilator() {
 		super(11);
-		
+
 		this.tank = new FluidTank(Fluids.NONE, 2_500_000);
 	}
 
@@ -57,20 +57,20 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.tank.setType(1, slots);
-			
+
 			if(this.pool != null && !this.pool.isEmpty()) {
-				
+
 				for(DirPos pos : getConPos()) {
 					if(tank.getTankType() != Fluids.NONE) this.trySubscribe(tank.getTankType(), this.world, pos);
 				}
-				
+
 				AnnihilatorSavedData data = AnnihilatorSavedData.getData(this.world);
 				boolean didSomething = false;
-				
+
 				if(slots[0] != null) {
 					onDestroy(slots[0]);
 					tryAddPayout(data.pushToPool(pool, slots[0], false));
@@ -85,7 +85,7 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 					this.markChanged();
 					didSomething = true;
 				}
-				
+
 				if(didSomething) {
 					ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 					ParticleUtil.spawnGasFlame(this.world, this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, this.world.rand.nextGaussian() * 0.05, 0.1, this.world.rand.nextGaussian() * 0.05);
@@ -93,7 +93,7 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 					if(this.world.getTotalWorldTime() % 3 == 0)
 						com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5 - dir.offsetX * 3, this.pos.getY() + 8.75, this.pos.getZ() + 0.5 - dir.offsetZ * 3, "hbm:weapon.flamethrowerShoot", getVolume(1F), 0.5F + this.world.rand.nextFloat() * 0.25F);
 				}
-				
+
 				if(slots[8] != null) {
 					if(slots[8].getItem() instanceof IItemFluidIdentifier) {
 						IItemFluidIdentifier id = (IItemFluidIdentifier) slots[8].getItem();
@@ -103,7 +103,7 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 						monitor(data, new ComparableStack(slots[8]).makeSingular());
 					}
 				}
-				
+
 				if(slots[9] != null) {
 					ItemStack single = slots[9].copy();
 					single.setCount(1);
@@ -114,17 +114,17 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 						if(slots[10] == null) {
 							slots[10] = payout;
 						} else if(slots[10] != null && slots[10].getItem() == payout.getItem() && slots[10].getItemDamage() == payout.getItemDamage() &&
-								ItemStack.areItemStackTagsEqual(slots[10], payout) && slots[10].getMaxStackSize() >= slots[10].stackSize + payout.stackSize) {
-							slots[10].stackSize += payout.stackSize;
+								ItemStack.areItemStackTagsEqual(slots[10], payout) && slots[10].getMaxStackSize() >= slots[10].getCount() + payout.getCount()) {
+							slots[10].grow(payout.getCount());
 						}
 					}
 				}
 			}
-			
+
 			this.networkPackNT(25);
 		}
 	}
-	
+
 	public void onDestroy(ItemStack stack) {
 		float radiation = HazardSystem.getHazardLevelFromStack(stack, HazardRegistry.RADIATION);
 		if(radiation > 0) {
@@ -132,18 +132,18 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 			ChunkRadiationManager.proxy.incrementRad(this.world, this.pos.getX() - dir.offsetX * 3, this.pos.getY() + 9, this.pos.getZ() - dir.offsetZ * 3, Math.min(radiation * 5F, 1_000F));
 		}
 	}
-	
+
 	public DirPos[] getConPos() {
 		ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10);
 		ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-		
+
 		return new DirPos[] {
 				new DirPos(this.pos.getX() + dir.offsetX * 5, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 5, dir),
 				new DirPos(this.pos.getX() + dir.offsetX * 3 + rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3 + rot.offsetZ * 2, rot),
 				new DirPos(this.pos.getX() + dir.offsetX * 3 - rot.offsetX * 2, this.pos.getY(), this.pos.getZ() + dir.offsetZ * 3 - rot.offsetZ * 2, rot.getOpposite())
 		};
 	}
-	
+
 	public void monitor(AnnihilatorSavedData data, Object type) {
 		AnnihilatorPool pool = data.pools.get(this.pool);
 		if(pool != null) {
@@ -153,19 +153,19 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 			this.monitorBigInt = BigInteger.ZERO;
 		}
 	}
-	
+
 	public void tryAddPayout(ItemStack payout) {
 		if(payout == null) return;
-		
+
 		for(int i = 2; i <= 7; i++) {
 			if(slots[i] != null && slots[i].getItem() == payout.getItem() && slots[i].getItemDamage() == payout.getItemDamage() &&
-					ItemStack.areItemStackTagsEqual(slots[i], payout) && slots[i].getMaxStackSize() >= slots[i].stackSize + payout.stackSize) {
-				slots[i].stackSize += payout.stackSize;
+					ItemStack.areItemStackTagsEqual(slots[i], payout) && slots[i].getMaxStackSize() >= slots[i].getCount() + payout.getCount()) {
+				slots[i].grow(payout.getCount());
 				this.markDirty();
 				return;
 			}
 		}
-		
+
 		for(int i = 2; i <= 7; i++) {
 			if(slots[i] == null) {
 				slots[i] = payout;
@@ -195,14 +195,14 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return new int[] {0, 2, 3, 4, 5, 6, 7};
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		this.tank.readFromNBT(nbt, "t");
 		this.pool = nbt.getString("pool");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
@@ -251,14 +251,14 @@ public class TileEntityMachineAnnihilator extends TileEntityMachineBase implemen
 			}
 		}
 	}
-	
+
 	AxisAlignedBB bb = null;
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 5,
 					this.pos.getY(),
 					this.pos.getZ() - 5,

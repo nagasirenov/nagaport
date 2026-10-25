@@ -26,7 +26,7 @@ public class ItemGunStinger extends ItemGunBaseNT {
 
 	public static float prevLockon;
 	public static float lockon;
-	
+
 	public ItemGunStinger(WeaponQuality quality, GunConfig... cfg) {
 		super(quality, cfg);
 	}
@@ -34,20 +34,20 @@ public class ItemGunStinger extends ItemGunBaseNT {
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isHeld) {
 		super.onUpdate(stack, world, entity, slot, isHeld);
-		
+
 		if(entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
 			if(!world.isRemote && !isHeld && this.getIsLockingOn(stack)) {
 				this.setIsLockingOn(stack, false);
 			}
-			
+
 			this.prevLockon = this.lockon;
-			
+
 			if(!world.isRemote) {
 				int prevTarget = this.getLockonTarget(stack);
 				if(isHeld && this.getIsLockingOn(stack) && this.getIsAiming(stack) && this.getConfig(stack, 0).getReceivers(stack)[0].getMagazine(stack).getAmount(stack, player.inventory) > 0) {
 					int newLockonTarget = this.getLockonTarget(player, 150D, 10D);
-					
+
 					if(newLockonTarget == -1) {
 						if(!this.getIsLockedOn(stack)) resetLockon(world, stack);
 					} else {
@@ -56,9 +56,9 @@ public class ItemGunStinger extends ItemGunBaseNT {
 							this.setLockonTarget(stack, newLockonTarget);
 						}
 						progressLockon(world, stack);
-						
+
 						if(this.getLockonProgress(stack) >= 60 && !this.getIsLockedOn(stack)) {
-							player.world.playSoundAtEntity(player, "hbm:item.techBleep", 1F, 1F);
+							player.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1F, 1F);
 							this.setIsLockedOn(stack, true);
 						}
 					}
@@ -74,18 +74,18 @@ public class ItemGunStinger extends ItemGunBaseNT {
 			}
 		}
 	}
-	
+
 	public void resetLockon(World world, ItemStack stack) {
 		this.setLockonProgress(stack, 0);
 		this.setIsLockedOn(stack, false);
 	}
-	
+
 	public void progressLockon(World world, ItemStack stack) {
 		this.setLockonProgress(stack, this.getLockonProgress(stack) + 1);
 	}
-	
+
 	public static int getLockonTarget(EntityPlayer player, double distance, double angleThreshold) {
-		
+
 		if(player == null) return -1;
 
 		double x = player.posX;
@@ -97,50 +97,50 @@ public class ItemGunStinger extends ItemGunBaseNT {
 		Vec3NT left = new Vec3NT(delta).add(x, y, z).rotateAroundYDeg(-angleThreshold).add(0, 10, 0);
 		Vec3NT right = new Vec3NT(delta).add(x, y, z).rotateAroundYDeg(angleThreshold).add(0, -10, 0);
 		Vec3NT pos = new Vec3NT(x, y, z);
-		
-		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(Vec3NT.getMinX(look, left, right, pos), Vec3NT.getMinY(look, left, right, pos), Vec3NT.getMinZ(look, left, right, pos),
+
+		AxisAlignedBB aabb = new AxisAlignedBB(Vec3NT.getMinX(look, left, right, pos), Vec3NT.getMinY(look, left, right, pos), Vec3NT.getMinZ(look, left, right, pos),
 				Vec3NT.getMaxX(look, left, right, pos), Vec3NT.getMaxY(look, left, right, pos), Vec3NT.getMaxZ(look, left, right, pos));
 		List<Entity> entities = player.world.getEntitiesWithinAABBExcludingEntity(player, aabb);
 		Entity closestEntity = null;
 		double closestAngle = 360D;
-		
+
 		Vec3NT toEntity = new Vec3NT(0, 0, 0);
-		
+
 		for(Entity entity : entities) {
 			if(entity.height < 0.5F || !entity.canBeCollidedWith()) continue;
 			toEntity.setComponents(entity.posX - x, entity.posY + entity.height / 2D - y, entity.posZ - z);
-			
+
 			double vecProd = toEntity.x * delta.x + toEntity.y * delta.y + toEntity.z * delta.z;
 			double bot = toEntity.length() * delta.length();
 			double angle = Math.abs(Math.acos(vecProd / bot) * 180 / Math.PI);
-			
+
 			if(angle < closestAngle && angle < angleThreshold) {
 				closestAngle = angle;
 				closestEntity = entity;
 			}
 		}
-		
+
 		return closestEntity == null ? - 1 : closestEntity.getEntityId();
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void renderHUD(Pre event, ElementType type, EntityPlayer player, ItemStack stack) {
-		
+
 		ItemGunBaseNT gun = (ItemGunBaseNT) stack.getItem();
-		
+
 		if(type == ElementType.CROSSHAIRS) {
 			event.setCanceled(true);
 			if(aimingProgress < 1F) return;
 			RenderScreenOverlay.renderCustomCrosshairs(event.getResolution(), Minecraft.getMinecraft().ingameGUI, gun.getConfig(stack, 0).getCrosshair(stack));
 			RenderScreenOverlay.renderStingerLockon(event.getResolution(), Minecraft.getMinecraft().ingameGUI);
 		}
-		
+
 		int confNo = this.configs_DNA.length;
-		
+
 		for(int i = 0; i < confNo; i++) {
 			IHUDComponent[] components = gun.getConfig(stack, i).getHUDComponents(stack);
-			
+
 			if(components != null) for(IHUDComponent component : components) {
 				int bottomOffset = 0;
 				component.renderHUDComponent(event, type, player, stack, bottomOffset, i);

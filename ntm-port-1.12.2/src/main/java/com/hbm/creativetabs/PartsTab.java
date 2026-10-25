@@ -12,14 +12,19 @@ public class PartsTab extends CreativeTabs {
 		super(p_i1853_1_, p_i1853_2_);
 	}
 
-	@Override
-	public Item getTabIconItem() {
-		
+
+		@Override
+	public net.minecraft.item.ItemStack createIcon() {
+		return new net.minecraft.item.ItemStack(getTabIconItem());
+	}
+
+public Item getTabIconItem() {
+
 		if(ModItems.ingot_uranium != null)
 		{
 			return ModItems.ingot_uranium;
 		}
-		
+
 		return Items.IRON_PICKAXE;
 	}
 

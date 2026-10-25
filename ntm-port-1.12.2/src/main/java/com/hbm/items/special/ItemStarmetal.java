@@ -15,43 +15,52 @@ import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
 
 public class ItemStarmetal extends Item {
-	
+
+	protected IIcon itemIcon;
+
 	private IIcon[] icons = new IIcon[4];
-	
+
 	public ItemStarmetal() {
 		this.setHasSubtypes(true);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
-		this.itemIcon = reg.registerIcon(this.getIconString());
+		this.itemIcon = reg.registerIcon(this.getRegistryName().toString());
 
 		this.icons[0] = reg.registerIcon(RefStrings.MODID + ":ingot_starmetal");
 		this.icons[1] = reg.registerIcon(RefStrings.MODID + ":ingot_starmetal_astra");
 		this.icons[2] = reg.registerIcon(RefStrings.MODID + ":ingot_starmetal_ursa");
 		this.icons[3] = reg.registerIcon(RefStrings.MODID + ":ingot_starmetal_orion");
 	}
-	
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		
-		super.getSubItems(item, tab, list);
-		
+
+		list.add(new net.minecraft.item.ItemStack(item, 1, 0));
+
 		//for(int i = 0; i < 4; i++)
 		//	list.add(new ItemStack(item, 1, i));
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int meta) {
-		
+
 		int s = Math.abs(meta) % 4;
 		return icons[s];
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
-		
+
 		switch(stack.getItemDamage()) {
 		case 1: list.add(TextFormatting.ITALIC + "Astra"); break;
 		case 2: list.add(TextFormatting.ITALIC + "Ursa"); break;

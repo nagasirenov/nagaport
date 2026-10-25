@@ -37,39 +37,39 @@ public class AnvilCraftPacket implements IMessage {
 	}
 
 	public static class Handler implements IMessageHandler<AnvilCraftPacket, IMessage> {
-		
+
 		@Override
 		public IMessage onMessage(AnvilCraftPacket m, MessageContext ctx) {
-			
+
 			if(m.recipeIndex < 0 || m.recipeIndex >= AnvilRecipes.getConstruction().size()) //recipe is out of range -> bad
 				return null;
-			
-			EntityPlayer p = ctx.getServerHandler().playerEntity;
-			
+
+			EntityPlayer p = ctx.getServerHandler().player;
+
 			if(!(p.openContainer instanceof ContainerAnvil)) //player isn't even using an anvil -> bad
 				return null;
-			
+
 			ContainerAnvil anvil = (ContainerAnvil) p.openContainer;
 			AnvilConstructionRecipe recipe = AnvilRecipes.getConstruction().get(m.recipeIndex);
-			
+
 			if(!recipe.isTierValid(anvil.tier)) //player is using the wrong type of anvil -> bad
 				return null;
-			
-			int count = m.mode == 1 ? (recipe.output.size() > 1 ? 64 : (recipe.output.get(0).stack.getMaxStackSize() / recipe.output.get(0).stack.stackSize)) : 1;
-			
+
+			int count = m.mode == 1 ? (recipe.output.size() > 1 ? 64 : (recipe.output.get(0).stack.getMaxStackSize() / recipe.output.get(0).stack.getCount())) : 1;
+
 			for(int i = 0; i < count; i++) {
-				
+
 				if(InventoryUtil.doesPlayerHaveAStacks(p, recipe.input, true)) {
 					InventoryUtil.giveChanceStacksToPlayer(p, recipe.output);
 					AchievementHandler.fire(p, recipe.output.get(0).stack);
-					
+
 				} else {
 					break;
 				}
 			}
-			
+
 			p.inventoryContainer.detectAndSendChanges();
-			
+
 			return null;
 		}
 	}

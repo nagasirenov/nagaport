@@ -47,13 +47,13 @@ public class EntityPlasticBag extends EntityWaterMob implements ISuffocationImmu
 
 	@Override
 	public EntityItem entityDropItem(ItemStack stack, float offset) {
-		if(stack.stackSize != 0 && stack.getItem() != null) {
+		if(stack.getCount() != 0 && stack.getItem() != null) {
 			EntityItemBuoyant entityitem = new EntityItemBuoyant(this.world, this.posX, this.posY + (double) offset, this.posZ, stack);
-			entityitem.delayBeforeCanPickup = 10;
+			entityitem.setPickupDelay(10);
 			if(captureDrops) {
 				capturedDrops.add(entityitem);
 			} else {
-				this.world.spawnEntityInWorld(entityitem);
+				this.world.spawnEntity(entityitem);
 			}
 			return entityitem;
 		} else {
@@ -62,17 +62,17 @@ public class EntityPlasticBag extends EntityWaterMob implements ISuffocationImmu
 	}
 
 	@Override
-	protected String getLivingSound() {
+	protected net.minecraft.util.SoundEvent getAmbientSound() {
 		return null;
 	}
 
 	@Override
-	protected String getHurtSound() {
+	protected net.minecraft.util.SoundEvent getHurtSound(DamageSource damageSourceIn) {
 		return null;
 	}
 
 	@Override
-	protected String getDeathSound() {
+	protected net.minecraft.util.SoundEvent getDeathSound() {
 		return null;
 	}
 
@@ -134,15 +134,15 @@ public class EntityPlasticBag extends EntityWaterMob implements ISuffocationImmu
 	}
 
 	@Override
-	public void moveEntityWithHeading(float forward, float strafe) {
-		this.moveEntity(this.motionX, this.motionY, this.motionZ);
+	public void travel(float strafe, float vertical, float forward) {
+		this.move(net.minecraft.entity.MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 	}
 
 	@Override
-	protected void updateEntityActionState() {
-		++this.entityAge;
+	protected void updateAITasks() {
+		++this.idleTime;
 
-		if(this.entityAge > 100) {
+		if(this.idleTime > 100) {
 			this.randomMotionVecX = this.randomMotionVecY = this.randomMotionVecZ = 0.0F;
 		} else if(this.rand.nextInt(50) == 0 || !this.inWater || this.randomMotionVecX == 0.0F && this.randomMotionVecY == 0.0F && this.randomMotionVecZ == 0.0F) {
 			float f = this.rand.nextFloat() * (float) Math.PI * 2.0F;

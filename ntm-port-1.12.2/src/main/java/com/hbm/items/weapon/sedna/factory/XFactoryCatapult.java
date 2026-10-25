@@ -82,7 +82,7 @@ public class XFactoryCatapult {
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY && bullet.ticksExisted < 3 && mop.entityHit == bullet.getThrower()) return;
 		if(bullet.isDead) return;
 		bullet.setDead();
-		bullet.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(bullet.world, 35, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
+		bullet.world.spawnEntity(EntityNukeExplosionMK5.statFac(bullet.world, 35, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
 		spawnMush(bullet, mop);
 	};
 

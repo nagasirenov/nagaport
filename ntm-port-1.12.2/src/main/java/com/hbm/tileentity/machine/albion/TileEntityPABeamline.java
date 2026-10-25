@@ -12,22 +12,22 @@ import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityPABeamline extends TileEntityLoadedBase implements IParticleUser, net.minecraft.util.ITickable {
-	
+
 	public boolean window = false;
 	public boolean didPass = false;
 	public float light;
 	public float prevLight;
-	
+
 	@Override
 	public void update() {
-		
+
 		if(this.world.isRemote) {
-			
+
 			this.prevLight = this.light;
 			if(this.light > 0) this.light -= 0.25F;
-			
+
 			if(this.light > this.prevLight) this.prevLight = this.light;
-			
+
 		} else {
 			this.networkPackNT(150);
 		}
@@ -80,14 +80,14 @@ public class TileEntityPABeamline extends TileEntityLoadedBase implements IParti
 		ForgeDirection beamlineDir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getRotation(ForgeDirection.DOWN);
 		return new BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()).offset(beamlineDir, 2);
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -96,10 +96,10 @@ public class TileEntityPABeamline extends TileEntityLoadedBase implements IParti
 					this.pos.getZ() + 2
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

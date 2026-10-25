@@ -15,53 +15,60 @@ import net.minecraft.world.World;
 
 public class ItemTeleLink extends Item {
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+
 		if(!player.isSneaking() && !world.isRemote) {
-			
+
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 			if(!(te instanceof TileEntityMachineTeleporter)) {
-				
+
 				if(stack.getTagCompound() == null) {
 					stack.setTagCompound(new NBTTagCompound());
 				}
-	
+
 				stack.getTagCompound().setInteger("x", x);
 				stack.getTagCompound().setInteger("y", y);
 				stack.getTagCompound().setInteger("z", z);
 				stack.getTagCompound().setInteger("dim", player.dimension);
-				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+				world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				player.sendMessage(new TextComponentString(TextFormatting.AQUA + "[TeleLink] Set teleporter exit to " + x + ", " + y + ", " + z + "."));
-				player.swingItem();
-				
+				player.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
+
 				return true;
-				
+
 			} else {
-				
+
 				if(!stack.hasTagCompound()) {
-					world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F);
+					world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBoop"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 					player.sendMessage(new TextComponentString(TextFormatting.RED + "[TeleLink] No destination set!"));
 					return false;
 				}
-				
+
 				int x1 = stack.getTagCompound().getInteger("x");
 				int y1 = stack.getTagCompound().getInteger("y");
 				int z1 = stack.getTagCompound().getInteger("z");
 				int dim = stack.getTagCompound().getInteger("dim");
-				
+
 				TileEntityMachineTeleporter tele = (TileEntityMachineTeleporter) te;
 
 				tele.targetX = x1;
 				tele.targetY = y1;
 				tele.targetZ = z1;
 				tele.targetDim = dim;
-				
+
 				tele.markDirty();
-				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+				world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				player.sendMessage(new TextComponentString(TextFormatting.AQUA + "[TeleLink] Teleporters destination has been set!"));
-				player.swingItem();
+				player.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 				return true;
 			}
 		}

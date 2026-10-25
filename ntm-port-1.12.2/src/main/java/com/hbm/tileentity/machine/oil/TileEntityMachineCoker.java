@@ -97,7 +97,7 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 							if(slots[1] == null) {
 								slots[1] = output.copy();
 							} else {
-								slots[1].stackSize += output.stackSize;
+								slots[1].grow(output.getCount());
 							}
 						}
 
@@ -171,7 +171,7 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 		if(output != null && slots[1] != null) {
 			if(output.getItem() != slots[1].getItem()) return false;
 			if(output.getItemDamage() != slots[1].getItemDamage()) return false;
-			if(output.stackSize + slots[1].stackSize > output.getMaxStackSize()) return false;
+			if(output.getCount() + slots[1].getCount() > output.getMaxStackSize()) return false;
 		}
 
 		return true;
@@ -276,7 +276,7 @@ public class TileEntityMachineCoker extends TileEntityMachineBase implements Sim
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,

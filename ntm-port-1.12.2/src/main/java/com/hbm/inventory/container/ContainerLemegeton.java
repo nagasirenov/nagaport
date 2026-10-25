@@ -44,8 +44,8 @@ public class ContainerLemegeton extends Container {
 		super.onContainerClosed(player);
 
 		if(!player.world.isRemote) {
-			ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(0);
-			if(itemstack != null) player.dropPlayerItemWithRandomChoice(itemstack, false);
+			ItemStack itemstack = this.craftMatrix.removeStackFromSlot(0);
+			if(itemstack != null) player.dropItem(itemstack, false);
 		}
 	}
 
@@ -68,13 +68,13 @@ public class ContainerLemegeton extends Container {
 				return null;
 			}
 
-			if(itemstack1.stackSize == 0) {
+			if(itemstack1.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
 			}
 
-			if(itemstack1.stackSize == itemstack.stackSize) {
+			if(itemstack1.getCount() == itemstack.getCount()) {
 				return null;
 			}
 
@@ -86,11 +86,11 @@ public class ContainerLemegeton extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return player.inventory.hasItem(ModItems.book_lemegeton);
+		return player.inventory.hasItemStack(new ItemStack(ModItems.book_lemegeton));
 	}
 
 	@Override
-	public boolean func_94530_a(ItemStack stack, Slot slot) {
-		return slot.inventory != this.craftResult && super.func_94530_a(stack, slot);
+	public boolean canMergeSlot(ItemStack stack, Slot slot) {
+		return slot.inventory != this.craftResult && super.canMergeSlot(stack, slot);
 	}
 }

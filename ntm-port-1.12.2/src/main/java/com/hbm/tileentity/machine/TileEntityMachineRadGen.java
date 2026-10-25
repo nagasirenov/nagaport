@@ -39,10 +39,10 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 	public int[] production = new int[12];
 	public ItemStack[] processing = new ItemStack[12];
 	protected int output;
-	
+
 	public long power;
 	public static final long maxPower = 1000000;
-	
+
 	public boolean isOn = false;
 
 	public TileEntityMachineRadGen() {
@@ -56,22 +56,22 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			this.output = 0;
 
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 			this.tryProvide(this.world, this.pos.getX() - dir.offsetX * 4, this.pos.getY(), this.pos.getZ() - dir.offsetZ * 4, dir.getOpposite());
-			
+
 			//check if reload necessary for any queues
 			for(int i = 0; i < 12; i++) {
-				
+
 				if(processing[i] == null && slots[i] != null && getDurationFromItem(slots[i]) > 0 &&
 						(getOutputFromItem(slots[i]) == null || slots[i + 12] == null ||
 						(getOutputFromItem(slots[i]).getItem() == slots[i + 12].getItem() && getOutputFromItem(slots[i]).getItemDamage() == slots[i + 12].getItemDamage() &&
-						getOutputFromItem(slots[i]).stackSize + slots[i + 12].stackSize <= slots[i + 12].getMaxStackSize()))) {
-					
+						getOutputFromItem(slots[i]).getCount() + slots[i + 12].getCount() <= slots[i + 12].getMaxStackSize()))) {
+
 					progress[i] = 0;
 					maxProgress[i] = this.getDurationFromItem(slots[i]);
 					production[i] = this.getPowerFromItem(slots[i]);
@@ -80,37 +80,37 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 					this.markDirty();
 				}
 			}
-			
+
 			this.isOn = false;
-			
+
 			for(int i = 0; i < 12; i++) {
-				
+
 				if(processing[i] != null) {
-					
+
 					this.isOn = true;
 					this.power += production[i];
 					this.output += production[i];
 					progress[i]++;
-					
+
 					if(progress[i] >= maxProgress[i]) {
 						progress[i] = 0;
 						ItemStack out = getOutputFromItem(processing[i]);
-						
+
 						if(out != null) {
-							
+
 							if(slots[i + 12] == null) {
 								slots[i + 12] = out;
 							} else {
-								slots[i + 12].stackSize += out.stackSize;
+								slots[i + 12].grow(out.getCount());
 							}
 						}
-						
+
 						processing[i] = null;
 						this.markDirty();
 					}
 				}
 			}
-			
+
 			if(this.power > maxPower)
 				this.power = maxPower;
 
@@ -137,17 +137,17 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 		this.power = buf.readLong();
 		this.isOn = buf.readBoolean();
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		this.progress = nbt.getIntArray("progress");
-		
+
 		if(progress.length != 12) {
 			progress = new int[12];
 			return;
 		}
-		
+
 		this.maxProgress = nbt.getIntArray("maxProgress");
 		this.production = nbt.getIntArray("production");
 		this.power = nbt.getLong("power");
@@ -161,10 +161,10 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 				processing[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
-		
+
 		this.power = nbt.getLong("power");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
@@ -173,7 +173,7 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 		nbt.setIntArray("production", this.production);
 		nbt.setLong("power", this.power);
 		nbt.setBoolean("isOn", this.isOn);
-		
+
 		NBTTagList list = new NBTTagList();
 		for(int i = 0; i < processing.length; i++) {
 			if(processing[i] != null) {
@@ -184,30 +184,30 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 			}
 		}
 		nbt.setTag("progressing", list);
-		
+
 		nbt.setLong("power", this.power);
 		return nbt;
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack stack) {
-		
+
 		if(i >= 12 || getDurationFromItem(stack) <= 0)
 			return false;
-		
+
 		if(slots[i] == null)
 			return true;
-		
-		int size = slots[i].stackSize;
-		
+
+		int size = slots[i].getCount();
+
 		for(int j = 0; j < 12; j++) {
 			if(slots[j] == null)
 				return false;
-			
-			if(slots[j].getItem() == stack.getItem() && slots[j].getItemDamage() == stack.getItemDamage() && slots[j].stackSize < size)
+
+			if(slots[j].getItem() == stack.getItem() && slots[j].getItemDamage() == stack.getItemDamage() && slots[j].getCount() < size)
 				return false;
 		}
-		
+
 		return true;
 	}
 
@@ -223,9 +223,9 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 		int j = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return i >= 12;
 	}
-	
+
 	public static final HashMap<ComparableStack, Triplet<Integer, Integer, ItemStack>> fuels = new HashMap();
-	
+
 	static {
 
 		for(int i = 0; i < ItemWasteShort.WasteClass.values().length; i++) {
@@ -240,25 +240,25 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 		fuels.put(		new ComparableStack(ModItems.scrap_nuclear),					new Triplet<Integer, Integer, ItemStack>(50,		5 * 60 * 20,		null));
 		fuels.put(		new ComparableStack(ModItems.gem_rad),							new Triplet<Integer, Integer, ItemStack>(25_000,	30 * 60 * 20,		new ItemStack(Items.DIAMOND)));
 	}
-	
+
 	private Triplet<Integer, Integer, ItemStack> grabResult(ItemStack stack) {
 		return fuels.get(new ComparableStack(stack).makeSingular());
 	}
-	
+
 	private int getPowerFromItem(ItemStack stack) {
 		Triplet<Integer, Integer, ItemStack> result = grabResult(stack);
 		if(result == null)
 			return 0;
 		return result.getX();
 	}
-	
+
 	private int getDurationFromItem(ItemStack stack) {
 		Triplet<Integer, Integer, ItemStack> result = grabResult(stack);
 		if(result == null)
 			return 0;
 		return result.getY();
 	}
-	
+
 	private ItemStack getOutputFromItem(ItemStack stack) {
 		Triplet<Integer, Integer, ItemStack> result = grabResult(stack);
 		if(result == null)
@@ -282,7 +282,7 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 	public void setPower(long i) {
 		this.power = i;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;

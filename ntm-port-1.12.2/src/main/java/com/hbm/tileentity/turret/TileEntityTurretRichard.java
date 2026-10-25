@@ -156,7 +156,7 @@ public class TileEntityTurretRichard extends TileEntityTurretBaseNT {
 		EntityBulletBaseMK4 proj = new EntityBulletBaseMK4(this.world, bullet, baseDamage, bullet.spread, (float) rotationYaw, (float) rotationPitch);
 		proj.setPositionAndRotation(pos.x + vec.x, pos.y + vec.y, pos.z + vec.z, proj.rotationYaw, proj.rotationPitch);
 		proj.lockonTarget = this.target;
-		this.world.spawnEntityInWorld(proj);
+		this.world.spawnEntity(proj);
 	}
 
 	@Override

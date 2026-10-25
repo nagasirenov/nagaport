@@ -35,7 +35,10 @@ public class ReactorZirnox extends BlockDummyable {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -115,7 +118,7 @@ public class ReactorZirnox extends BlockDummyable {
 						int sz = cz + dz;
 
 						if (world.isBlockPowered(new net.minecraft.util.math.BlockPos(sx, sy, sz)) ||
-							world.getBlockPowerInput(sx, sy, sz) > 0) {
+							world.getStrongPower(new net.minecraft.util.math.BlockPos(sx, sy, sz)) > 0) {
 
 							powered = true;
 							break;

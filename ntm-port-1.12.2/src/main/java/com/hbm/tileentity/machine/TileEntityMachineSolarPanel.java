@@ -23,13 +23,13 @@ public class TileEntityMachineSolarPanel extends TileEntityLoadedBase implements
 		if(!this.world.isRemote) {
 			
 			// Sun power ranges from 1-4
-			int sun = this.world.getSavedLightValue(EnumSkyBlock.Sky, this.pos.getX(), this.pos.getY(), this.pos.getZ()) - this.world.skylightSubtracted - 11;
+			int sun = this.world.getLightFor(EnumSkyBlock.SKY, new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) - this.world.getSkylightSubtracted() - 11;
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 				tryProvide(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
 			}
 			
-			if(sun <= 0 || !this.world.canBlockSeeTheSky(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ())) {
+			if(sun <= 0 || !this.world.canSeeSky(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ()))) {
 				return;
 			}
 			

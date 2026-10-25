@@ -29,6 +29,8 @@ import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.world.World;
 
 public class EntityMaskMan extends EntityMob implements INtmBossDisplay, IRadiationImmune, ISuffocationImmune {
+	private float prevHealth;
+
 
 	public EntityMaskMan(World world) {
 		super(world);
@@ -41,7 +43,7 @@ public class EntityMaskMan extends EntityMob implements INtmBossDisplay, IRadiat
 		this.tasks.addTask(4, new EntityAILookIdle(this));
 		this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 
 		this.setSize(2F, 5F);
 		this.isImmuneToFire = true;
@@ -51,11 +53,11 @@ public class EntityMaskMan extends EntityMob implements INtmBossDisplay, IRadiat
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(100.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(15.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1000.0D);
 	}
 
 	@Override
@@ -90,6 +92,7 @@ public class EntityMaskMan extends EntityMob implements INtmBossDisplay, IRadiat
 			if(!this.world.isRemote)
 				this.world.createExplosion(this, posX, posY + 4, posZ, 2.5F, true);
 		}
+		this.prevHealth = this.getHealth();
 	}
 
 	@Override
@@ -103,7 +106,6 @@ public class EntityMaskMan extends EntityMob implements INtmBossDisplay, IRadiat
 		}
 	}
 
-	@Override
 	public boolean isAIEnabled() {
 		return true;
 	}

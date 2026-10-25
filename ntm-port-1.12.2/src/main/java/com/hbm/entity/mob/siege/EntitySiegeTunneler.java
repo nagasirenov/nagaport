@@ -35,35 +35,34 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
 		super(world);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.setSize(1F, 1F);
-		this.yOffset = 0.5F;
 	}
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float damage) {
-		
-		if(this.isEntityInvulnerable())
+
+		if(this.isEntityInvulnerable(null))
 			return false;
-		
+
 		SiegeTier tier = this.getTier();
-		
+
 		if(tier.fireProof && source.isFireDamage()) {
 			this.extinguish();
 			return false;
 		}
-		
+
 		//noFF can't be harmed by other mobs
 		if(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getTrueSource() instanceof EntityPlayer))
 			return false;
-		
+
 		damage -= tier.dt;
-		
+
 		if(damage < 0) {
 			//worldObj.playSoundAtEntity(this, "random.break", 5F, 1.0F + rand.nextFloat() * 0.5F);
 			return false;
 		}
-		
+
 		damage *= (1F - tier.dr);
-		
+
 		return super.attackEntityFrom(source, damage);
 	}
 
@@ -76,20 +75,20 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage);
+		this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.15D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(1.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.15D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1.0D);
 	}
-	
+
 	public void setTier(SiegeTier tier) {
 		this.getDataManager().set(SIEGE_TIER, tier.id);
 
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).applyModifier(new AttributeModifier("Tier Damage Mod", tier.damageMod, 1));
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.5);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(new AttributeModifier("Tier Damage Mod", tier.damageMod, 1));
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(tier.health * 0.5);
 		this.setHealth(this.getMaxHealth());
 	}
-	
+
 	public SiegeTier getTier() {
 		SiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];
 		return tier != null ? tier : SiegeTier.CLAY;
@@ -108,8 +107,8 @@ public class EntitySiegeTunneler extends EntityBurrowingSwingingBase {
 	}
 
 	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+	public IEntityLivingData onInitialSpawn(net.minecraft.world.DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setTier(SiegeTier.tiers[rand.nextInt(SiegeTier.getLength())]);
-		return super.onSpawnWithEgg(data);
+		return super.onInitialSpawn(difficulty, data);
 	}
 }

@@ -25,13 +25,13 @@ public class WeaponizedCell extends Item {
 					EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(world, item.posX, item.posY, item.posZ, 100);
 					if(!ex.isDead) {
 						com.hbm.sound.VanillaWorldSoundEffects.play(world, item.posX, item.posY, item.posZ, "random.explode", 100.0F, world.rand.nextFloat() * 0.1F + 0.9F);
-						world.spawnEntityInWorld(ex);
+						world.spawnEntity(ex);
 
 						EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(world, 100);
 						cloud.posX = item.posX;
 						cloud.posY = item.posY;
 						cloud.posZ = item.posZ;
-						world.spawnEntityInWorld(cloud);
+						world.spawnEntity(cloud);
 					}
 				}
 

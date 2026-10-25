@@ -111,9 +111,12 @@ public class BlockAtmosphericCompressor extends BlockDummyable implements ILookO
 
 		return true;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(player.isSneaking()) {
 			return false;
 		} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || !(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IItemFluidIdentifier)) {
@@ -126,14 +129,14 @@ public class BlockAtmosphericCompressor extends BlockDummyable implements ILookO
 
 			TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(!(te instanceof TileEntityAtmosphericCompressor)) return true;
-			
+
 			TileEntityAtmosphericCompressor compressor = (TileEntityAtmosphericCompressor) te;
 			FluidType type = ((IItemFluidIdentifier) com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem()).getType(world, x, y, z, com.hbm.util.NativeHeldItem.getMainHandNullable(player));
 			if(compressor.switchGas(type)) {
 				compressor.markDirty();
 				player.sendMessage(new TextComponentString("Changed type to ").setStyle(new Style().setColor(TextFormatting.YELLOW)).appendSibling(new TextComponentTranslation(type.getConditionalName())).appendSibling(new TextComponentString("!")));
 			}
-			
+
 			return true;
 		}
 	}

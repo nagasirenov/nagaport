@@ -138,8 +138,11 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 
 	private static TextureAtlasSprite resolve(IIcon icon) {
 		if(icon == null) return null;
-		if(icon instanceof LegacyTextureAtlasSprite) return ((LegacyTextureAtlasSprite) icon).getSprite();
-		if(icon instanceof TextureAtlasSprite) return (TextureAtlasSprite) icon;
+		TextureAtlasSprite direct = null;
+		if(icon instanceof com.hbm.render.icon.WrappedIcon) direct = ((com.hbm.render.icon.WrappedIcon) icon).getSprite();
+		else if(icon instanceof LegacyTextureAtlasSprite) direct = ((LegacyTextureAtlasSprite) icon).getSprite();
+		else if(icon instanceof TextureAtlasSprite) direct = (TextureAtlasSprite) icon;
+		if(direct != null) return direct;
 		return Minecraft.getMinecraft().getTextureMapBlocks().getTextureExtry(icon.getIconName());
 	}
 

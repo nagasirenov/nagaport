@@ -26,6 +26,8 @@ import java.util.Random;
 
 public class MachineReactorControl extends BlockContainer {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
@@ -40,7 +42,6 @@ public class MachineReactorControl extends BlockContainer {
 		super(p_i45386_1_);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":machine_controller_top");
@@ -49,7 +50,6 @@ public class MachineReactorControl extends BlockContainer {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_controller_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 
@@ -78,19 +78,19 @@ public class MachineReactorControl extends BlockContainer {
 
 		if(i == 0)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 1)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 		}
 		if(i == 2)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 3)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 
 		if(itemStack.hasDisplayName())

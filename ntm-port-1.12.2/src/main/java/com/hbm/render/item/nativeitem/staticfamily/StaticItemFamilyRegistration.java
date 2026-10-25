@@ -35,6 +35,7 @@ public final class StaticItemFamilyRegistration {
     @SubscribeEvent public void register(ModelRegistryEvent event) {
         for(StaticItemDescriptor descriptor : descriptors) {
             ModelBakery.registerItemVariants(descriptor.item(), descriptor.modelLocation());
+            com.hbm.main.BakeOwnedModelLoader.registerMissing(descriptor.modelLocation(), "StaticItemFamilyRegistration");
             // Old renderer ownership was item-keyed, not damage-specific.
             ModelLoader.setCustomMeshDefinition(descriptor.item(), descriptor::modelLocation);
         }

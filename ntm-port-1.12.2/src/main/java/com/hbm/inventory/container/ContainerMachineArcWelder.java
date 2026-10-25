@@ -15,12 +15,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineArcWelder extends Container {
-	
+
 	private TileEntityMachineArcWelder welder;
 
 	public ContainerMachineArcWelder(InventoryPlayer playerInv, TileEntityMachineArcWelder tile) {
 		welder = tile;
-		
+
 		//Inputs
 		this.addSlotToContainer(new Slot(tile, 0, 17, 36));
 		this.addSlotToContainer(new Slot(tile, 1, 35, 36));
@@ -65,7 +65,7 @@ public class ContainerMachineArcWelder extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 4, 5, false)) return null;
 				} else if(rStack.getItem() instanceof IItemFluidIdentifier) {
@@ -77,7 +77,7 @@ public class ContainerMachineArcWelder extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

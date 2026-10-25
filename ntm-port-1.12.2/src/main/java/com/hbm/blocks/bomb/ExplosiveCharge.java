@@ -78,11 +78,11 @@ public class ExplosiveCharge extends BlockDetonatable implements IBomb, IDetConn
 				ExplosionCreator.composeEffectStandard(world, x + 0.5, y + 1, z + 0.5);
 			}
 			if(this == ModBlocks.det_nuke) {
-				world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(world, BombConfig.missileRadius, x + 0.5, y + 0.5, z + 0.5));
+				world.spawnEntity(EntityNukeExplosionMK5.statFac(world, BombConfig.missileRadius, x + 0.5, y + 0.5, z + 0.5));
 				EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, BombConfig.missileRadius);
 			}
 			if(this == ModBlocks.det_salt) {
-				world.spawnEntityInWorld(EntityNukeExplosionMK5.statFacSalted(world, BombConfig.missileRadius, x + 0.5, y + 0.5, z + 0.5));
+				world.spawnEntity(EntityNukeExplosionMK5.statFacSalted(world, BombConfig.missileRadius, x + 0.5, y + 0.5, z + 0.5));
 
 				EntityNukeTorex.statFacStandard(world, x + 0.5, y + 0.5, z + 0.5, BombConfig.missileRadius);
 			}
@@ -96,7 +96,7 @@ public class ExplosiveCharge extends BlockDetonatable implements IBomb, IDetConn
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
-				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
+				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
 			}
 		}
 	}

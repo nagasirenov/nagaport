@@ -12,8 +12,8 @@ public class RenderMaggot extends RenderLiving {
 
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID, "textures/entity/parasite_maggot.png");
 
-	public RenderMaggot() {
-		super(new ModelSilverfish(), 0.3F);
+	public RenderMaggot(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+		super(renderManager, new ModelSilverfish(), 0.3F);
 	}
 
 	@Override

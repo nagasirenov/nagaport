@@ -1,5 +1,6 @@
 package com.hbm.main;
 
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.Vec3d;
 import com.hbm.blocks.ILookOverlay;
@@ -92,7 +93,6 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -109,6 +109,9 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.Entity;
@@ -117,6 +120,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Slot;
+import net.minecraft.util.NonNullList;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -141,7 +145,6 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import java.lang.reflect.Method;
 import java.util.*;
 
 public class ModEventHandlerClient {
@@ -160,19 +163,19 @@ public class ModEventHandlerClient {
 		if(event.getType() == ElementType.CROSSHAIRS && (flashTimestamp + flashDuration - Clock.get_ms()) > 0 && ClientConfig.NUKE_HUD_FLASH.get()) {
 			int width = event.getResolution().getScaledWidth();
 			int height = event.getResolution().getScaledHeight();
-			Tessellator tess = Tessellator.instance;
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder buffer = tess.getBuffer();
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 			GL11.glAlphaFunc(GL11.GL_GEQUAL, 0.0F);
 			GL11.glDepthMask(false);
-			tess.startDrawingQuads();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
 			float brightness = (flashTimestamp + flashDuration - Clock.get_ms()) / (float) flashDuration;
-			tess.setColorRGBA_F(1F, 1F, 1F, brightness * 1F);
-			tess.addVertex(width, 0, 0);
-			tess.addVertex(0, 0, 0);
-			tess.addVertex(0, height, 0);
-			tess.addVertex(width, height, 0);
+			buffer.pos(width, 0, 0).color(1F, 1F, 1F, brightness).endVertex();
+			buffer.pos(0, 0, 0).color(1F, 1F, 1F, brightness).endVertex();
+			buffer.pos(0, height, 0).color(1F, 1F, 1F, brightness).endVertex();
+			buffer.pos(width, height, 0).color(1F, 1F, 1F, brightness).endVertex();
 			tess.draw();
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -184,13 +187,13 @@ public class ModEventHandlerClient {
 		/*if(event.type == ElementType.CROSSHAIRS && player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.gun_aberrator) {
 			int width = event.resolution.getScaledWidth();
 			int height = event.resolution.getScaledHeight();
-			Tessellator tess = Tessellator.instance;
+			Tessellator tess = Tessellator.getInstance();
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glEnable(GL11.GL_BLEND);
 			OpenGlHelper.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE_MINUS_SRC_COLOR, 1, 0);
 			GL11.glAlphaFunc(GL11.GL_GEQUAL, 0.0F);
 			GL11.glDepthMask(false);
-			tess.startDrawingQuads();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
 			float intensity = 0.2F;
 			tess.setColorRGBA_F(intensity, intensity, intensity, 1F);
 			tess.addVertex(width, 0, 0);
@@ -214,7 +217,7 @@ public class ModEventHandlerClient {
 
 			if(!(ArmorFSB.hasFSBArmor(player) && ((ArmorFSB)com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 2).getItem()).customGeiger)) {
 
-				if(player.inventory.hasItem(ModItems.geiger_counter)) {
+				if(player.inventory.mainInventory.stream().anyMatch(stack -> !stack.isEmpty() && stack.getItem() == ModItems.geiger_counter)) {
 
 					float rads = HbmLivingProps.getRadiation(player);
 
@@ -244,7 +247,7 @@ public class ModEventHandlerClient {
 					/*List<String> text = new ArrayList();
 					text.add("Meta: " + world.getBlockState(mop.getBlockPos()));
 					ILookOverlay.printGeneric(event, "DEBUG", 0xffff00, 0x4040000, text);*/
-					
+
 					if(ClientConfig.SHOW_BLOCK_META_OVERLAY.get()) {
 						Block b = world.getBlockState(mop.getBlockPos()).getBlock();
 						int i = b.getMetaFromState(world.getBlockState(mop.getBlockPos()));
@@ -280,7 +283,7 @@ public class ModEventHandlerClient {
 				GL11.glDisable(GL11.GL_BLEND);
 				GL11.glColor3f(1F, 1F, 1F);
 				GL11.glPopMatrix();
-				Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+				Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 			}*/
 
 			/*List<String> text = new ArrayList();
@@ -392,8 +395,14 @@ public class ModEventHandlerClient {
 		}
 
 		//prevents NBT changes (read: every fucking tick) on guns from bringing up the item's name over the hotbar
-		if(held != null && held.getItem() instanceof ItemGunBaseNT && Minecraft.getMinecraft().ingameGUI.highlightingItemStack != null && Minecraft.getMinecraft().ingameGUI.highlightingItemStack.getItem() == held.getItem()) {
-			Minecraft.getMinecraft().ingameGUI.highlightingItemStack = held;
+		if(held != null && held.getItem() instanceof ItemGunBaseNT) {
+			Minecraft mc = Minecraft.getMinecraft();
+			ItemStack highlighted = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(
+					net.minecraft.client.gui.GuiIngame.class, mc.ingameGUI, "field_92016_l", "highlightingItemStack");
+			if(highlighted != null && highlighted.getItem() == held.getItem()) {
+				net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(
+						net.minecraft.client.gui.GuiIngame.class, mc.ingameGUI, held, "field_92016_l", "highlightingItemStack");
+			}
 		}
 
 		/// HANDLE FLASHBANG OVERLAY///
@@ -456,7 +465,8 @@ public class ModEventHandlerClient {
 		/// HANDLE ELECTRIC FSB HUD ///
 
 		EntityPlayer player = Minecraft.getMinecraft().player;
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder buffer = tess.getBuffer();
 
 		if(!event.isCanceled() && event.getType() == ElementType.HEALTH) {
 			if(player.isPotionActive(HbmPotion.nitan)) {
@@ -497,7 +507,7 @@ public class ModEventHandlerClient {
 			}
 
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
-			tess.startDrawingQuads();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
 
 			if(ForgeHooks.getTotalArmorValue(player) == 0) {
 				GuiIngameForge.left_height -= 10;
@@ -531,11 +541,10 @@ public class ModEventHandlerClient {
 						if (i != 1) hstart += 1;
 					}
 
-					tess.setColorOpaque_F(0.25F, 0.25F, 0.25F);
-					tess.addVertex(hstart, top - 1, 0);
-					tess.addVertex(hstart, top + 2, 0);
-					tess.addVertex(hend, top + 2, 0);
-					tess.addVertex(hend, top - 1, 0);
+					buffer.pos(hstart, top - 1, 0).color(0.25F, 0.25F, 0.25F, 1F).endVertex();
+					buffer.pos(hstart, top + 2, 0).color(0.25F, 0.25F, 0.25F, 1F).endVertex();
+					buffer.pos(hend, top + 2, 0).color(0.25F, 0.25F, 0.25F, 1F).endVertex();
+					buffer.pos(hend, top - 1, 0).color(0.25F, 0.25F, 0.25F, 1F).endVertex();
 
 					float valx = hstart + (hend - hstart - 1) * val;
 
@@ -544,11 +553,10 @@ public class ModEventHandlerClient {
 					float g = ((color >> 8) & 0xFF) / 255F;
 					float b = (color & 0xFF) / 255F;
 
-					tess.setColorOpaque_F(r, g, b);
-					tess.addVertex(hstart+1, top, 0);
-					tess.addVertex(hstart+1, top + 1, 0);
-					tess.addVertex(valx, top + 1, 0);
-					tess.addVertex(valx, top, 0);
+					buffer.pos(hstart+1, top, 0).color(r, g, b, 1F).endVertex();
+					buffer.pos(hstart+1, top + 1, 0).color(r, g, b, 1F).endVertex();
+					buffer.pos(valx, top + 1, 0).color(r, g, b, 1F).endVertex();
+					buffer.pos(valx, top, 0).color(r, g, b, 1F).endVertex();
 				}
 
 				GuiIngameForge.left_height += 4;
@@ -581,7 +589,7 @@ public class ModEventHandlerClient {
 		if(invis != null && invis.getAmplifier() > 0)
 			event.setCanceled(true);
 
-		if(player.getDisplayName().toLowerCase(Locale.US).equals("martmn")) {
+		if(player.getName().toLowerCase(Locale.US).equals("martmn")) {
 
 			event.setCanceled(true);
 
@@ -600,13 +608,13 @@ public class ModEventHandlerClient {
 			GL11.glTranslatef(pX - mX, pY - mY + 0.75F - (float)player.getYOffset(), pZ - mZ);
 			GL11.glRotatef(-me.rotationYaw, 0.0F, 1.0F, 0.0F);
 			GL11.glRotatef(me.rotationPitch, 1.0F, 0.0F, 0.0F);
-			Tessellator t = Tessellator.instance;
-			t.startDrawingQuads();
-			t.setBrightness(240);
-			t.addVertexWithUV(-1, 1, 0, 0, 0);
-			t.addVertexWithUV(1, 1, 0, 1, 0);
-			t.addVertexWithUV(1, -1, 0, 1, 1);
-			t.addVertexWithUV(-1, -1, 0, 0, 1);
+			Tessellator t = Tessellator.getInstance();
+			BufferBuilder b = t.getBuffer();
+			b.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+			b.pos(-1, 1, 0).tex(0, 0).endVertex();
+			b.pos(1, 1, 0).tex(1, 0).endVertex();
+			b.pos(1, -1, 0).tex(1, 1).endVertex();
+			b.pos(-1, -1, 0).tex(0, 1).endVertex();
 			t.draw();
 
 			GL11.glEnable(GL11.GL_LIGHTING);
@@ -615,14 +623,20 @@ public class ModEventHandlerClient {
 		}
 
 		ResourceLocation cloak = RenderAccessoryUtility.getCloakFromPlayer(player);
-
-		if(cloak != null)
-			player.func_152121_a(Type.CAPE, cloak);
+		if(cloak != null) {
+			net.minecraft.client.network.NetworkPlayerInfo playerInfo = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(
+					AbstractClientPlayer.class, player, "field_175157_a", "playerInfo");
+			if(playerInfo != null) {
+				Map<Type, ResourceLocation> textures = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(
+						net.minecraft.client.network.NetworkPlayerInfo.class, playerInfo, "field_187107_a", "playerTextures");
+				if(textures != null) textures.put(Type.CAPE, cloak);
+			}
+		}
 
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof IHoldableWeapon) {
-			renderer.modelBipedMain.aimedBow = true;
-			renderer.modelArmor.aimedBow = true;
-			renderer.modelArmorChestplate.aimedBow = true;
+			ModelBiped model = renderer.getMainModel();
+			model.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+			model.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 		}
 	}
 
@@ -820,7 +834,7 @@ public class ModEventHandlerClient {
 		/// HAZARDS ///
 		HazardSystem.addFullTooltip(stack, event.getEntityPlayer(), list);
 
-		if(event.showAdvancedItemTooltips && ClientConfig.ITEM_TOOLTIP_SHOW_OREDICT.get()) {
+		if(Minecraft.getMinecraft().gameSettings.advancedItemTooltips && ClientConfig.ITEM_TOOLTIP_SHOW_OREDICT.get()) {
 			List<String> names = ItemStackUtil.getOreDictNames(stack);
 
 			if(names.size() > 0) {
@@ -844,8 +858,8 @@ public class ModEventHandlerClient {
 				String rads2 = "" + (Math.floor(level* 1000) / 1000);
 				list.add(TextFormatting.YELLOW + (rads2 + "RAD/s"));
 
-				if(stack.stackSize > 1) {
-					list.add(TextFormatting.YELLOW + "Stack: " + ((Math.floor(level * 1000 * stack.stackSize) / 1000) + "RAD/s"));
+				if(stack.getCount() > 1) {
+					list.add(TextFormatting.YELLOW + "Stack: " + ((Math.floor(level * 1000 * stack.getCount()) / 1000) + "RAD/s"));
 				}
 			}
 		}
@@ -899,7 +913,7 @@ public class ModEventHandlerClient {
 
 		if(!materials.isEmpty()) {
 			for(MaterialStack mat : materials) {
-				list.add(EnumChatFormatting.DARK_PURPLE + mat.material.names[0] + ": " + Mats.formatAmount(mat.amount * stack.stackSize));
+				list.add(EnumChatFormatting.DARK_PURPLE + mat.material.names[0] + ": " + Mats.formatAmount(mat.amount * stack.getCount()));
 			}
 		}*/
 
@@ -909,7 +923,7 @@ public class ModEventHandlerClient {
 			if(block instanceof net.minecraft.block.BlockOre || block instanceof BlockRedstoneOre) {
 				BlockOre ore = BlockOre.vanillaMap.get(block);
 				if(ore != null) {
-					ore.addInformation(stack, event.getEntityPlayer(), list, event.showAdvancedItemTooltips);
+					ore.addInformation(stack, event.getEntityPlayer(), list, Minecraft.getMinecraft().gameSettings.advancedItemTooltips);
 				} else if(block == Blocks.COAL_ORE) {
 					// we don't have any celestial coal, special case
 					list.add(TextFormatting.GOLD + "Can be found on:");
@@ -939,7 +953,7 @@ public class ModEventHandlerClient {
 		GL11.glRotatef((float)-mc.player.rotationYaw, 0, 1, 0);
 		GL11.glRotatef((float)(mc.player.rotationPitch), 1, 0, 0);
 
-		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+		ScaledResolution resolution = new ScaledResolution(mc);
 
 		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		GL11.glDepthMask(false);
@@ -952,9 +966,10 @@ public class ModEventHandlerClient {
 		double off = Clock.get_ms() / -10000D % 10000D;
 		double aw = 25;
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder buffer = tessellator.getBuffer();
 
-		//int d = mc.theWorld.getLightBrightnessForSkyBlocks(MathHelper.floor_double(mc.thePlayer.posX), MathHelper.floor_double(mc.thePlayer.posY), MathHelper.floor_double(mc.thePlayer.posZ), 0);
+		//int d = mc.theWorld.getCombinedLight(new net.minecraft.util.math.BlockPos(MathHelper.floor_double(mc.thePlayer.posX), MathHelper.floor_double(mc.thePlayer.posY), MathHelper.floor_double(mc.thePlayer.posZ)), 0);
 		int cX = currentBrightness % 65536;
 		int cY = currentBrightness / 65536;
 		int lX = lastBrightness % 65536;
@@ -966,7 +981,7 @@ public class ModEventHandlerClient {
 
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)(lX + (cX - lX) * interp) / 1.0F, (float)(lY + (cY - lY) * interp) / 1.0F);
 
-		mc.entityRenderer.enableLightmap((double)event.getPartialTicks());
+		mc.entityRenderer.enableLightmap();
 
 		mc.getTextureManager().bindTexture(ashes);
 
@@ -975,15 +990,15 @@ public class ModEventHandlerClient {
 			GL11.glRotatef(-15, 0, 0, 1);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, BlockAshes.ashes / 256F * 0.98F / i);
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-w * 0.25, 	h * 0.25, 	aw, 0.0D + off * i, 1.0D);
-			tessellator.addVertexWithUV(w * 0.25, 	h * 0.25, 	aw, 1.0D + off * i, 1.0D);
-			tessellator.addVertexWithUV(w * 0.25, 	-h * 0.25, 	aw, 1.0D + off * i, 0.0D);
-			tessellator.addVertexWithUV(-w * 0.25, 	-h * 0.25, 	aw, 0.0D + off * i, 0.0D);
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+			buffer.pos(-w * 0.25, h * 0.25, aw).tex(0.0D + off * i, 1.0D).endVertex();
+			buffer.pos(w * 0.25, h * 0.25, aw).tex(1.0D + off * i, 1.0D).endVertex();
+			buffer.pos(w * 0.25, -h * 0.25, aw).tex(1.0D + off * i, 0.0D).endVertex();
+			buffer.pos(-w * 0.25, -h * 0.25, aw).tex(0.0D + off * i, 0.0D).endVertex();
 			tessellator.draw();
 		}
 
-		mc.entityRenderer.disableLightmap((double)event.getPartialTicks());
+		mc.entityRenderer.disableLightmap();
 
 		GL11.glDepthMask(true);
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
@@ -1028,27 +1043,27 @@ public class ModEventHandlerClient {
 
 			if(mc.world.getTotalWorldTime() % 20 == 0) {
 				lastBrightness = currentBrightness;
-				currentBrightness = mc.world.getLightBrightnessForSkyBlocks(MathHelper.floor_double(mc.player.posX), MathHelper.floor_double(mc.player.posY), MathHelper.floor_double(mc.player.posZ), 0);
+				currentBrightness = mc.world.getCombinedLight(mc.player.getPosition(), 0);
 			}
 
 			if(ArmorUtil.isWearingEmptyMask(mc.player)) {
 				MainRegistry.proxy.displayTooltip(TextFormatting.RED + "Your mask has no filter!", ServerProxy.ID_FILTER);
 			}
-			
+
 			//prune other entities' muzzle flashes
 			if(mc.world.getTotalWorldTime() % 30 == 0) {
 				long millis = System.currentTimeMillis();
 				//dead entities may have later insertion order than actively firing ones, so we be safe
 				ItemRenderWeaponBase.flashMap.values().removeIf(entry -> millis - entry.longValue() >= 150);
 			}
-			
+
 			CelestialBody body = CelestialBody.getBody(mc.world);
 			CBT_Invasion invasion = body.getTrait(Minecraft.getMinecraft().player.world, CBT_Invasion.class);
-			
+
 			if(invasion != null) {
 				if (invasion.isInvading && invasion.wave < 4 && body.hasTrait(Minecraft.getMinecraft().player.world, CBT_Invasion.class)) {
 					MainRegistry.proxy.displayTooltip(TextFormatting.GREEN + "Kills Left: " + (invasion.killreq - invasion.kills), 14);
-				}	
+				}
 			}
 
 		}
@@ -1127,7 +1142,9 @@ public class ModEventHandlerClient {
 					if(collapsedClasses.contains(item.getClass())) {
 						stacks.add(new ItemStack(item));
 					} else {
-						item.getSubItems(item, null, stacks);
+						NonNullList<ItemStack> subItems = NonNullList.create();
+						item.getSubItems(item.getCreativeTab(), subItems);
+						stacks.addAll(subItems);
 					}
 				}
 
@@ -1173,7 +1190,7 @@ public class ModEventHandlerClient {
 				for(int i = 0; i < war.getProjectiles().size(); i++) {
 					CBT_War.Projectile projectile = war.getProjectiles().get(i);
 					if(projectile != null && projectile.getTravel() >= 18 && projectile.getTravel() <= 18) {
-						Minecraft.getMinecraft().player.playSound("hbm:misc.impact", 10F, 1F);
+						Minecraft.getMinecraft().player.playSound(ModSoundEvents.resolve("hbm:misc.impact"), 10F, 1F);
 					}
 				}
 			}
@@ -1221,7 +1238,7 @@ public class ModEventHandlerClient {
 		Minecraft mc = Minecraft.getMinecraft();
 		if(mc.currentScreen instanceof GuiContainer) {
 
-			ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+			ScaledResolution scaledresolution = new ScaledResolution(mc);
 			int width = scaledresolution.getScaledWidth();
 			int height = scaledresolution.getScaledHeight();
 			int mouseX = Mouse.getX() * width / mc.displayWidth;
@@ -1229,20 +1246,8 @@ public class ModEventHandlerClient {
 
 			GuiContainer container = (GuiContainer) mc.currentScreen;
 
-			for(Object o : container.inventorySlots.inventorySlots) {
-				Slot slot = (Slot) o;
-
-				if(slot.getHasStack()) {
-					try {
-						Method isMouseOverSlot = ReflectionHelper.findMethod(GuiContainer.class, container, new String[] {"func_146981_a", "isMouseOverSlot"}, Slot.class, int.class, int.class);
-
-						if((boolean) isMouseOverSlot.invoke(container, slot, mouseX, mouseY)) {
-							return slot.getStack();
-						}
-
-					} catch(Exception ex) { }
-				}
-			}
+			Slot slot = container.getSlotUnderMouse();
+			if(slot != null && slot.getHasStack()) return slot.getStack();
 		}
 
 		return null;
@@ -1284,7 +1289,7 @@ public class ModEventHandlerClient {
 					Vec3NT pos = new Vec3NT(player.posX, player.posY, player.posZ);
 					Vec3NT lodestarHeading = new Vec3NT(0, 0, -1D).rotateAroundXDeg(-15).multiply(25);
 					Vec3NT nextPos = new Vec3NT(pos).add(lodestarHeading.x,lodestarHeading.y, lodestarHeading.z);
-					RayTraceResult mop = world.rayTraceBlocks(pos, nextPos, false, true, false);
+					RayTraceResult mop = world.rayTraceBlocks(new Vec3d(pos.x, pos.y, pos.z), new Vec3d(nextPos.x, nextPos.y, nextPos.z), false, true, false);
 					if(mop != null && mop.typeOfHit == RayTraceResult.Type.BLOCK && world.getBlockState(mop.getBlockPos()).getBlock() == ModBlocks.glass_polarized) {
 						renderLodeStar = true;
 					}
@@ -1330,15 +1335,15 @@ public class ModEventHandlerClient {
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		EntityPlayer player = event.player;
 
-		int x = MathHelper.floor_double(player.posX);
-		int y = MathHelper.floor_double(player.posY);
-		int z = MathHelper.floor_double(player.posZ);
+		int x = MathHelper.floor(player.posX);
+		int y = MathHelper.floor(player.posY);
+		int z = MathHelper.floor(player.posZ);
 		Block b = com.hbm.world.WorldBlockState.read(player.world, x, y, z).getBlock();
 
 		// Support climbing freestanding vines and chains using spacebar
 		if (
-			b.isLadder(player.world, x, y, z, player) &&
-			b.getCollisionBoundingBoxFromPool(player.world, x, y, z) == null &&
+			b.isLadder(player.world.getBlockState(new BlockPos(x, y, z)), player.world, new BlockPos(x, y, z), player) &&
+			b.getCollisionBoundingBox(player.world.getBlockState(new BlockPos(x, y, z)), player.world, new BlockPos(x, y, z)) == null &&
 			!player.capabilities.isFlying &&
 			GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindJump) &&
 			player.motionY < 0.15
@@ -1535,12 +1540,13 @@ public class ModEventHandlerClient {
 
 			GL11.glDisable(GL11.GL_LIGHTING);
 			Minecraft.getMinecraft().renderEngine.bindTexture(poster);
-			Tessellator tess = Tessellator.instance;
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(0.5, 0.5 + o, p * 0.5, 1, 0);
-			tess.addVertexWithUV(-0.5, 0.5 + o, p * 0.5, 0, 0);
-			tess.addVertexWithUV(-0.5, -0.5 + o, p * 0.5, 0, 1);
-			tess.addVertexWithUV(0.5, -0.5 + o, p * 0.5, 1, 1);
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder buffer = tess.getBuffer();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+			buffer.pos(0.5, 0.5 + o, p * 0.5).tex(1, 0).endVertex();
+			buffer.pos(-0.5, 0.5 + o, p * 0.5).tex(0, 0).endVertex();
+			buffer.pos(-0.5, -0.5 + o, p * 0.5).tex(0, 1).endVertex();
+			buffer.pos(0.5, -0.5 + o, p * 0.5).tex(1, 1).endVertex();
 			tess.draw();
 			GL11.glEnable(GL11.GL_LIGHTING);
 		}
@@ -1553,12 +1559,13 @@ public class ModEventHandlerClient {
 
 			GL11.glDisable(GL11.GL_LIGHTING);
 			Minecraft.getMinecraft().renderEngine.bindTexture(poster_cat);
-			Tessellator tess = Tessellator.instance;
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(0.5, 0.5 + o, p * 0.5, 1, 0);
-			tess.addVertexWithUV(-0.5, 0.5 + o, p * 0.5, 0, 0);
-			tess.addVertexWithUV(-0.5, -0.5 + o, p * 0.5, 0, 1);
-			tess.addVertexWithUV(0.5, -0.5 + o, p * 0.5, 1, 1);
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder buffer = tess.getBuffer();
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+			buffer.pos(0.5, 0.5 + o, p * 0.5).tex(1, 0).endVertex();
+			buffer.pos(-0.5, 0.5 + o, p * 0.5).tex(0, 0).endVertex();
+			buffer.pos(-0.5, -0.5 + o, p * 0.5).tex(0, 1).endVertex();
+			buffer.pos(0.5, -0.5 + o, p * 0.5).tex(1, 1).endVertex();
 			tess.draw();
 			GL11.glEnable(GL11.GL_LIGHTING);
 		}
@@ -1585,6 +1592,10 @@ public class ModEventHandlerClient {
 		}
 	}
 
+	private static void setSplash(net.minecraft.client.gui.GuiMainMenu main, String splash) {
+		net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.client.gui.GuiMainMenu.class, main, splash, "splashText", "field_73975_c");
+	}
+
 	@SubscribeEvent
 	public void onOpenGUI(GuiOpenEvent event) {
 
@@ -1593,24 +1604,24 @@ public class ModEventHandlerClient {
 			int rand = (int)(Math.random() * 150);
 
 			switch(rand) {
-			case 0: main.splashText = "Floppenheimer!"; break;
-			case 1: main.splashText = "i should dip my balls in sulfuric acid"; break;
-			case 2: main.splashText = "All answers are popbob!"; break;
-			case 3: main.splashText = "None may enter The Orb!"; break;
-			case 4: main.splashText = "Wacarb was here"; break;
-			case 5: main.splashText = "SpongeBoy me Bob I am overdosing on ketamine agagagagaga"; break;
-			case 6: main.splashText = TextFormatting.RED + "I know where you live, " + System.getProperty("user.name"); break;
-			case 7: main.splashText = "Nice toes, now hand them over."; break;
-			case 8: main.splashText = "I smell burnt toast!"; break;
-			case 9: main.splashText = "There are bugs under your skin!"; break;
-			case 10: main.splashText = "Fentanyl!"; break;
-			case 11: main.splashText = "Do drugs!"; break;
-			case 12: main.splashText = "Imagine being scared by splash texts!"; break;
-			case 13: main.splashText = "Semantic versioning? More like pedantic versioning."; break;
+			case 0: setSplash(main, "Floppenheimer!"); break;
+			case 1: setSplash(main, "i should dip my balls in sulfuric acid"); break;
+			case 2: setSplash(main, "All answers are popbob!"); break;
+			case 3: setSplash(main, "None may enter The Orb!"); break;
+			case 4: setSplash(main, "Wacarb was here"); break;
+			case 5: setSplash(main, "SpongeBoy me Bob I am overdosing on ketamine agagagagaga"); break;
+			case 6: setSplash(main, TextFormatting.RED + "I know where you live, " + System.getProperty("user.name")); break;
+			case 7: setSplash(main, "Nice toes, now hand them over."); break;
+			case 8: setSplash(main, "I smell burnt toast!"); break;
+			case 9: setSplash(main, "There are bugs under your skin!"); break;
+			case 10: setSplash(main, "Fentanyl!"); break;
+			case 11: setSplash(main, "Do drugs!"); break;
+			case 12: setSplash(main, "Imagine being scared by splash texts!"); break;
+			case 13: setSplash(main, "Semantic versioning? More like pedantic versioning."); break;
 			}
 
 			double d = Math.random();
-			if(d < 0.1) main.splashText = "Redditors aren't people!";
+			if(d < 0.1) setSplash(main, "Redditors aren't people!");
 		}
 	}
 }

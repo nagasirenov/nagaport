@@ -46,9 +46,9 @@ public class SatelliteHorizons extends Satellite {
 		tom.setPosition(x + 0.5, 600, z + 0.5);
 
 		IChunkProvider provider = world.getChunkProvider();
-		provider.loadChunk(x >> 4, z >> 4);
+		world.getChunk(x >> 4, z >> 4);
 
-		world.spawnEntityInWorld(tom);
+		world.spawnEntity(tom);
 		for(Object p : world.playerEntities)
 			com.hbm.advancement.NtmAdvancements.award(((EntityPlayer)p), MainRegistry.horizonsEnd);
 

@@ -14,7 +14,7 @@ public class RenderSifterEel extends RenderLiving {
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID, "textures/entity/shifterEel_1.png");
 
 	public RenderSifterEel(ModelBase p_i1252_1_, float p_i1252_2_) {
-		super(p_i1252_1_, p_i1252_2_);
+		super(net.minecraft.client.Minecraft.getMinecraft().getRenderManager(), p_i1252_1_, p_i1252_2_);
 	}
 
 	protected ResourceLocation getEntityTexture(Entity entity) {

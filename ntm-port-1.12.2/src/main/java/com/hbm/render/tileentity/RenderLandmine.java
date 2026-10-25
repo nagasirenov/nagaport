@@ -24,13 +24,13 @@ public class RenderLandmine extends TileEntitySpecialRenderer {
 
 		GL11.glRotatef(180, 0F, 1F, 0F);
 
-		Block block = tileEntity.getWorld().getBlock(tileEntity.getPos().getX(), tileEntity.getPos().getY(), tileEntity.getPos().getZ());
+		Block block = com.hbm.world.WorldBlockState.read(tileEntity.getWorld(), tileEntity.getPos().getX(), tileEntity.getPos().getY(), tileEntity.getPos().getZ()).getBlock();
 
 		if(block == ModBlocks.mine_ap) {
 			GL11.glScaled(0.375D, 0.375D, 0.375D);
 			GL11.glTranslated(0, -0.0625 * 3.5, 0);
 			Biome biome = tileEntity.getWorld().getBiome(new BlockPos(tileEntity.getPos().getX(), 0, tileEntity.getPos().getZ()));
-			if(tileEntity.getWorld().getHeightValue(tileEntity.getPos().getX(), tileEntity.getPos().getZ()) > tileEntity.getPos().getY() + 2) bindTexture(ResourceManager.mine_ap_stone_tex);
+			if(tileEntity.getWorld().getHeight(tileEntity.getPos().getX(), tileEntity.getPos().getZ()) > tileEntity.getPos().getY() + 2) bindTexture(ResourceManager.mine_ap_stone_tex);
 			else if(biome.getEnableSnow()) bindTexture(ResourceManager.mine_ap_snow_tex);
 			else if(biome.getDefaultTemperature() >= 1.5F && biome.getRainfall() <= 0.1F) bindTexture(ResourceManager.mine_ap_desert_tex);
 			else bindTexture(ResourceManager.mine_ap_grass_tex);

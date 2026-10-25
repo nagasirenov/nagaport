@@ -26,13 +26,11 @@ public class EntityMinecartTest extends EntityMinecartModBase
         super(p_i1728_1_, p_i1728_2_, p_i1728_4_, p_i1728_6_);
     }
 
-    @Override
 	public int getMinecartType()
     {
         return 9;
     }
 
-    @Override
 	public Block func_145817_o()
     {
         return ModBlocks.crate;
@@ -107,15 +105,15 @@ public class EntityMinecartTest extends EntityMinecartModBase
      * Called when the mob is falling. Calculates and applies fall damage.
      */
     @Override
-	protected void fall(float p_70069_1_)
+    public void fall(float distance, float damageMultiplier)
     {
-        if (p_70069_1_ >= 3.0F)
+        if (distance >= 3.0F)
         {
-            float f1 = p_70069_1_ / 10.0F;
+            float f1 = distance / 10.0F;
             this.explodeCart(f1 * f1);
         }
 
-        super.fall(p_70069_1_);
+        super.fall(distance, damageMultiplier);
     }
 
     /**
@@ -131,8 +129,8 @@ public class EntityMinecartTest extends EntityMinecartModBase
     }
 
     @Override
-	@SideOnly(Side.CLIENT)
-    public void handleHealthUpdate(byte p_70103_1_)
+    @SideOnly(Side.CLIENT)
+    public void handleStatusUpdate(byte p_70103_1_)
     {
         if (p_70103_1_ == 10)
         {
@@ -140,7 +138,7 @@ public class EntityMinecartTest extends EntityMinecartModBase
         }
         else
         {
-            super.handleHealthUpdate(p_70103_1_);
+            super.handleStatusUpdate(p_70103_1_);
         }
     }
 
@@ -154,8 +152,14 @@ public class EntityMinecartTest extends EntityMinecartModBase
         if (!this.world.isRemote)
         {
             this.world.setEntityState(this, (byte)10);
-            this.world.playSoundAtEntity(this, "game.tnt.primed", 1.0F, 1.0F);
+            this.playSound(net.minecraft.init.SoundEvents.ENTITY_TNT_PRIMED, 1.0F, 1.0F);
         }
+    }
+
+    @SideOnly(Side.CLIENT)
+    public int getFuseTicks()
+    {
+        return this.minecartTNTFuse;
     }
 
     @SideOnly(Side.CLIENT)
@@ -173,15 +177,15 @@ public class EntityMinecartTest extends EntityMinecartModBase
     }
 
     @Override
-	public float func_145772_a(Explosion p_145772_1_, World p_145772_2_, int p_145772_3_, int p_145772_4_, int p_145772_5_, Block p_145772_6_)
+    public float getExplosionResistance(Explosion explosionIn, World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState blockStateIn)
     {
-        return this.isIgnited() && (BlockRailBase.func_150051_a(p_145772_6_) || BlockRailBase.func_150049_b_(p_145772_2_, p_145772_3_, p_145772_4_ + 1, p_145772_5_)) ? 0.0F : super.func_145772_a(p_145772_1_, p_145772_2_, p_145772_3_, p_145772_4_, p_145772_5_, p_145772_6_);
+        return this.isIgnited() && (BlockRailBase.isRailBlock(blockStateIn) || BlockRailBase.isRailBlock(worldIn, pos.up())) ? 0.0F : super.getExplosionResistance(explosionIn, worldIn, pos, blockStateIn);
     }
 
     @Override
-	public boolean func_145774_a(Explosion p_145774_1_, World p_145774_2_, int p_145774_3_, int p_145774_4_, int p_145774_5_, Block p_145774_6_, float p_145774_7_)
+    public boolean canExplosionDestroyBlock(Explosion explosionIn, World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState blockStateIn, float p_174816_5_)
     {
-        return this.isIgnited() && (BlockRailBase.func_150051_a(p_145774_6_) || BlockRailBase.func_150049_b_(p_145774_2_, p_145774_3_, p_145774_4_ + 1, p_145774_5_)) ? false : super.func_145774_a(p_145774_1_, p_145774_2_, p_145774_3_, p_145774_4_, p_145774_5_, p_145774_6_, p_145774_7_);
+        return this.isIgnited() && (BlockRailBase.isRailBlock(blockStateIn) || BlockRailBase.isRailBlock(worldIn, pos.up())) ? false : super.canExplosionDestroyBlock(explosionIn, worldIn, pos, blockStateIn, p_174816_5_);
     }
 
     /**

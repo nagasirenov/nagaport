@@ -532,7 +532,7 @@ public class TileEntityMachineTurbineGas extends TileEntityMachineBase implement
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 5,
 					this.pos.getY(),
 					this.pos.getZ() - 5,

@@ -4,8 +4,10 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.blocks.generic.BlockWandStructure.TileEntityWandStructure;
 
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.tileentity.TileEntity;
 
 public class RenderWandStructure extends TileEntitySpecialRenderer {
@@ -35,49 +37,48 @@ public class RenderWandStructure extends TileEntitySpecialRenderer {
 
 
 
-			Tessellator tess = Tessellator.instance;
-			tess.startDrawing(GL11.GL_LINES);
-			tess.setBrightness(240);
-			tess.setColorRGBA_F(1F, 1F, 1F, 1F);
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder buffer = tess.getBuffer();
+			buffer.begin(GL11.GL_LINES, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 
 			// top
-			tess.addVertex(x1, y2, z1);
-			tess.addVertex(x1, y2, z2);
+			addVertex(buffer, x1, y2, z1);
+			addVertex(buffer, x1, y2, z2);
 
-			tess.addVertex(x1, y2, z2);
-			tess.addVertex(x2, y2, z2);
+			addVertex(buffer, x1, y2, z2);
+			addVertex(buffer, x2, y2, z2);
 
-			tess.addVertex(x2, y2, z2);
-			tess.addVertex(x2, y2, z1);
+			addVertex(buffer, x2, y2, z2);
+			addVertex(buffer, x2, y2, z1);
 
-			tess.addVertex(x2, y2, z1);
-			tess.addVertex(x1, y2, z1);
+			addVertex(buffer, x2, y2, z1);
+			addVertex(buffer, x1, y2, z1);
 
 			// bottom
-			tess.addVertex(x1, y1, z1);
-			tess.addVertex(x1, y1, z2);
+			addVertex(buffer, x1, y1, z1);
+			addVertex(buffer, x1, y1, z2);
 
-			tess.addVertex(x1, y1, z2);
-			tess.addVertex(x2, y1, z2);
+			addVertex(buffer, x1, y1, z2);
+			addVertex(buffer, x2, y1, z2);
 
-			tess.addVertex(x2, y1, z2);
-			tess.addVertex(x2, y1, z1);
+			addVertex(buffer, x2, y1, z2);
+			addVertex(buffer, x2, y1, z1);
 
-			tess.addVertex(x2, y1, z1);
-			tess.addVertex(x1, y1, z1);
+			addVertex(buffer, x2, y1, z1);
+			addVertex(buffer, x1, y1, z1);
 
 			// sides
-			tess.addVertex(x1, y1, z1);
-			tess.addVertex(x1, y2, z1);
+			addVertex(buffer, x1, y1, z1);
+			addVertex(buffer, x1, y2, z1);
 
-			tess.addVertex(x2, y1, z1);
-			tess.addVertex(x2, y2, z1);
+			addVertex(buffer, x2, y1, z1);
+			addVertex(buffer, x2, y2, z1);
 
-			tess.addVertex(x2, y1, z2);
-			tess.addVertex(x2, y2, z2);
+			addVertex(buffer, x2, y1, z2);
+			addVertex(buffer, x2, y2, z2);
 
-			tess.addVertex(x1, y1, z2);
-			tess.addVertex(x1, y2, z2);
+			addVertex(buffer, x1, y1, z2);
+			addVertex(buffer, x1, y2, z2);
 
 			tess.draw();
 
@@ -87,6 +88,10 @@ public class RenderWandStructure extends TileEntitySpecialRenderer {
 
 		}
 		GL11.glPopMatrix();
+	}
+
+	private static void addVertex(BufferBuilder buffer, double x, double y, double z) {
+		buffer.pos(x, y, z).tex(0D, 0D).color(1F, 1F, 1F, 1F).lightmap(0, 240).endVertex();
 	}
 
 }

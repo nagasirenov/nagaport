@@ -34,14 +34,14 @@ public class EntityCreeperNuclear extends EntityCreeper {
 
 	public EntityCreeperNuclear(World world) {
 		super(world);
-		this.fuseTime = 75;
+		net.minecraftforge.fml.relauncher.ReflectionHelper.setPrivateValue(net.minecraft.entity.monster.EntityCreeper.class, this, 75, "fuseTime", "field_82225_f");
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
 	}
 
 	@Override
@@ -104,13 +104,12 @@ public class EntityCreeperNuclear extends EntityCreeper {
 		}
 	}
 
-	@Override
 	public void func_146077_cc() {
 		if(!this.world.isRemote) {
 
 			this.setDead();
 
-			boolean flag = this.world.getGameRules().getGameRuleBooleanValue("mobGriefing");
+			boolean flag = this.world.getGameRules().getBoolean("mobGriefing");
 
 			if(this.getPowered()) {
 
@@ -120,7 +119,7 @@ public class EntityCreeperNuclear extends EntityCreeper {
 				com.hbm.sound.WorldSoundEffects.play(this.world, posX, posY + 0.5, posZ, "hbm:weapon.mukeExplosion", 15.0F, 1.0F);
 
 				if(flag) {
-					this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFac(this.world, 50, posX, posY, posZ));
+					this.world.spawnEntity(EntityNukeExplosionMK5.statFac(this.world, 50, posX, posY, posZ));
 				} else {
 					ExplosionNukeGeneric.dealDamage(this.world, posX, posY + 0.5, posZ, 100);
 				}

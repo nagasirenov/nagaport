@@ -41,16 +41,16 @@ public class WeaponSpecial extends ItemSword {
 	@Override
 	public EnumRarity getRarity(ItemStack p_77613_1_) {
 		if(this == ModItems.schrabidium_hammer) {
-			return EnumRarity.rare;
+			return EnumRarity.RARE;
 		}
 		if(this == ModItems.ullapool_caber) {
-			return EnumRarity.uncommon;
+			return EnumRarity.UNCOMMON;
 		}
 		if(this == ModItems.shimmer_sledge || this == ModItems.shimmer_axe) {
-			return EnumRarity.epic;
+			return EnumRarity.EPIC;
 		}
 
-		return EnumRarity.common;
+		return EnumRarity.COMMON;
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class WeaponSpecial extends ItemSword {
 			if(!world.isRemote) {
 				entity.setHealth(0.0F);
 			}
-			world.playSoundAtEntity(entity, "hbm:weapon.bonk", 3.0F, 1.0F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.bonk"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 		}
 
 		if(this == ModItems.bottle_opener) {
@@ -72,11 +72,11 @@ public class WeaponSpecial extends ItemSword {
 				if(i == 1)
 					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 5 * 60 * 20, 2));
 				if(i == 2)
-					entity.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 5 * 60 * 20, 2));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.MINING_FATIGUE, 5 * 60 * 20, 2));
 				if(i == 3)
 					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 1 * 60 * 20, 0));
 			}
-			world.playSoundAtEntity(entity, "random.anvil_land", 3.0F, 1.F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, net.minecraft.init.SoundEvents.BLOCK_ANVIL_LAND, net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 		}
 
 		if(this == ModItems.ullapool_caber) {
@@ -96,23 +96,23 @@ public class WeaponSpecial extends ItemSword {
 			entity.motionX += dX;
 			entity.motionY += dY;
 			entity.motionZ += dZ;
-			world.playSoundAtEntity(entity, "hbm:weapon.bang", 3.0F, 1.F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.bang"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 		}
 
 		if(this == ModItems.shimmer_axe) {
 			entity.setHealth(entity.getHealth() / 2);
 
-			world.playSoundAtEntity(entity, "hbm:weapon.slice", 3.0F, 1.F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.slice"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 		}
 
 		if(this == ModItems.wood_gavel) {
-			world.playSoundAtEntity(entity, "hbm:weapon.whack", 3.0F, 1.F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.whack"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 		}
 
 		if(this == ModItems.lead_gavel) {
-			world.playSoundAtEntity(entity, "hbm:weapon.whack", 3.0F, 1.F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.whack"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 
-			entity.addPotionEffect(new PotionEffect(HbmPotion.lead.id, 15 * 20, 4));
+			entity.addPotionEffect(new PotionEffect(HbmPotion.lead, 15 * 20, 4));
 		}
 
 		if(this == ModItems.diamond_gavel) {
@@ -120,7 +120,7 @@ public class WeaponSpecial extends ItemSword {
 			float ded = entity.getMaxHealth() / 3;
 			entity.setHealth(entity.getHealth() - ded);
 
-			world.playSoundAtEntity(entity, "hbm:weapon.whack", 3.0F, 1.F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.whack"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 		}
 
 		if(this == ModItems.wrench) {
@@ -134,7 +134,7 @@ public class WeaponSpecial extends ItemSword {
 			entity.motionX += dX;
 			entity.motionY += dY;
 			entity.motionZ += dZ;
-			world.playSoundAtEntity(entity, "random.anvil_land", 3.0F, 0.75F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, net.minecraft.init.SoundEvents.BLOCK_ANVIL_LAND, net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 0.75F);
 		}
 
 		if(this == ModItems.memespoon && !world.isRemote) {
@@ -143,7 +143,7 @@ public class WeaponSpecial extends ItemSword {
 				return false;
 
 			if(entityPlayer.fallDistance >= 2) {
-				world.playSoundAtEntity(entity, "hbm:weapon.bang", 3.0F, 0.75F);
+				world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.bang"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 0.75F);
 				entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entityPlayer), 50F);
 			}
 
@@ -157,16 +157,23 @@ public class WeaponSpecial extends ItemSword {
 		}
 
 		if(this == ModItems.stopsign || this == ModItems.sopsign)
-			world.playSoundAtEntity(entity, "hbm:weapon.stop", 1.0F, 1.0F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.stop"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 		return false;
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f1, float f2, float f3) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f1, float f2, float f3) {
 
 		if(this == ModItems.shimmer_sledge) {
-			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getExplosionResistance(null) < 6000) {
+			if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getExplosionResistance(null) < 6000) {
 
 				EntityRubble rubble = new EntityRubble(world);
 				rubble.posX = x + 0.5F;
@@ -183,11 +190,11 @@ public class WeaponSpecial extends ItemSword {
 				rubble.motionX += dX;
 				rubble.motionY += dY;
 				rubble.motionZ += dZ;
-				world.playSoundAtEntity(rubble, "hbm:weapon.bang", 3.0F, 1.0F);
+				world.playSound(null, rubble.posX, rubble.posY, rubble.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.bang"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 1.0F);
 
 				if(!world.isRemote) {
 
-					world.spawnEntityInWorld(rubble);
+					world.spawnEntity(rubble);
 					com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 				}
 			}
@@ -199,13 +206,13 @@ public class WeaponSpecial extends ItemSword {
 			com.hbm.sound.WorldSoundEffects.play(world, x + 0.5, y + 0.5, z + 0.5, "hbm:weapon.kapeng", 3.0F, 1.0F);
 
 			if(!world.isRemote) {
-				if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getExplosionResistance(null) < 6000) {
+				if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getExplosionResistance(null) < 6000) {
 					com.hbm.world.WorldBlockDestruction.destroy(world, x, y, z, false);
 				}
-				if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getExplosionResistance(null) < 6000) {
+				if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getExplosionResistance(null) < 6000) {
 					com.hbm.world.WorldBlockDestruction.destroy(world, x, y + 1, z, false);
 				}
-				if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != Blocks.air && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().getExplosionResistance(null) < 6000) {
+				if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().getExplosionResistance(null) < 6000) {
 					com.hbm.world.WorldBlockDestruction.destroy(world, x, y - 1, z, false);
 				}
 			}

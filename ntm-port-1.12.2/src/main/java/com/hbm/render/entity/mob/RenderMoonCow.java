@@ -12,8 +12,8 @@ public class RenderMoonCow extends RenderLiving {
 
 	public static final ResourceLocation texture = new ResourceLocation(RefStrings.MODID, "textures/entity/moon_cow.png");
 
-	public RenderMoonCow(ModelBase mainModel, float shadowSize) {
-		super(mainModel, shadowSize);
+	public RenderMoonCow(net.minecraft.client.renderer.entity.RenderManager renderManager, ModelBase mainModel, float shadowSize) {
+		super(renderManager, mainModel, shadowSize);
 	}
 
 	protected ResourceLocation getEntityTexture(Entity entity) {

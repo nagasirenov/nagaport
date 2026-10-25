@@ -46,13 +46,12 @@ public class DetMiner extends BlockPillar implements IBomb, IFuckingExplode {
 		return BombReturnCode.DETONATED;
 	}
 
-	@Override
 	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion) {
 		if(!world.isRemote) {
 			EntityTNTPrimedBase tntPrimed = new EntityTNTPrimedBase(world, x + 0.5D, y + 0.5D, z + 0.5D, explosion != null ? explosion.getExplosivePlacedBy() : null, this);
 			tntPrimed.fuse = 0;
 			tntPrimed.detonateOnCollision = false;
-			world.spawnEntityInWorld(tntPrimed);
+			world.spawnEntity(tntPrimed);
 		}
 	}
 

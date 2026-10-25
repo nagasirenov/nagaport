@@ -27,7 +27,7 @@ public abstract class BiomeGenBaseDres extends BiomeGenBaseCelestial {
 	}
 
 	@Override
-	protected BiomeDecorator createBiomeDecorator() {
+	public BiomeDecorator createBiomeDecorator() {
 		BiomeDecoratorCelestial decorator = new BiomeDecoratorCelestial(ModBlocks.dres_rock);
 		decorator.generateLakes = false;
 		return decorator;

@@ -10,33 +10,40 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemTooling extends ItemCraftingDegradation {
-	
+
 	protected ToolType type;
-	
+
 	public ItemTooling(ToolType type, int durability) {
 		super(durability);
 		this.type = type;
 		this.setFull3D();
 		this.setCreativeTab(MainRegistry.controlTab);
-		
+
 		type.register(new ItemStack(this));
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
-		
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
+
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-		
+
 		if(b instanceof IToolable) {
 			if(((IToolable)b).onScrew(world, player, x, y, z, side, fX, fY, fZ, this.type)) {
-				
+
 				if(this.getMaxDamage() > 0)
 					stack.damageItem(1, player);
-				
+
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 }

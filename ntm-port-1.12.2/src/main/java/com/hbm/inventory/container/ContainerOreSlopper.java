@@ -14,7 +14,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerOreSlopper extends Container {
-	
+
 	public TileEntityMachineOreSlopper slopper;
 
 	public ContainerOreSlopper(InventoryPlayer player, TileEntityMachineOreSlopper slopper) {
@@ -36,7 +36,7 @@ public class ContainerOreSlopper extends Container {
 		//Upgrades
 		this.addSlotToContainer(new Slot(slopper, 9, 62, 72));
 		this.addSlotToContainer(new Slot(slopper, 10, 80, 72));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(player, j + i * 9 + 9, 8 + j * 18, 122 + i * 18));
@@ -62,7 +62,7 @@ public class ContainerOreSlopper extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() == ModItems.bedrock_ore_base) {
 					if(!this.mergeItemStack(var5, 2, 3, false)) {
 						return null;
@@ -84,7 +84,7 @@ public class ContainerOreSlopper extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

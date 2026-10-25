@@ -35,11 +35,11 @@ public class ItemAppleEuphemium extends ItemFood {
             p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 2147483647, 120));
         }
     }
-    
+
     @Override
 	public EnumRarity getRarity(ItemStack p_77613_1_)
     {
-		return EnumRarity.epic;
+		return EnumRarity.EPIC;
     }
 
 }

@@ -34,7 +34,7 @@ public class GUIRBMKAutoloader extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 74 <= x && guiLeft + 74 + 12 > x && guiTop + 36 < y && guiTop + 36 + 12 >= y) {

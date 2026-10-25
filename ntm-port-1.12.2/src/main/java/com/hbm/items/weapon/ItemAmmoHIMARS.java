@@ -54,13 +54,21 @@ public class ItemAmmoHIMARS extends Item {
 	public ItemAmmoHIMARS() {
 		this.setHasSubtypes(true);
 		this.setCreativeTab(MainRegistry.weaponTab);
-		this.setTextureName(RefStrings.MODID + ":ammo_standard.rocket_he");
+
 		this.setMaxStackSize(1);
 		init();
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, SMALL));
 		list.add(new ItemStack(item, 1, SMALL_HE));
@@ -189,11 +197,11 @@ public class ItemAmmoHIMARS extends Item {
 				ExplosionLarge.spawnShrapnels(rocket.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 30);
 				ExplosionChaos.burn(rocket.world, (int) mop.hitVec.x, (int) mop.hitVec.y, (int) mop.hitVec.z, 20);
 				int radius = 30;
-				List<Entity> hit = rocket.world.getEntitiesWithinAABBExcludingEntity(rocket, AxisAlignedBB.getBoundingBox(rocket.posX - radius, rocket.posY - radius, rocket.posZ - radius, rocket.posX + radius, rocket.posY + radius, rocket.posZ + radius));
+				List<Entity> hit = rocket.world.getEntitiesWithinAABBExcludingEntity(rocket, new AxisAlignedBB(rocket.posX - radius, rocket.posY - radius, rocket.posZ - radius, rocket.posX + radius, rocket.posY + radius, rocket.posZ + radius));
 				for(Entity e : hit) {
 					e.setFire(5);
 					if(e instanceof EntityLivingBase) {
-						PotionEffect eff = new PotionEffect(HbmPotion.phosphorus.id, 30 * 20, 0, true);
+						PotionEffect eff = new PotionEffect(HbmPotion.phosphorus, 30 * 20, 0, true, false);
 						eff.getCurativeItems().clear();
 						((EntityLivingBase)e).addPotionEffect(eff);
 					}

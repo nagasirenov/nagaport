@@ -9,7 +9,7 @@ public abstract class GlyphidStats {
 
 	public static GlyphidStats GLYPHID_STATS_70K = new GlyphidStats70K();
 	public static GlyphidStats GLYPHID_STATS_NT = new GlyphidStatsNT();
-	
+
 	public static GlyphidStats getStats() {
 		return GLYPHID_STATS_NT;
 	}
@@ -23,7 +23,7 @@ public abstract class GlyphidStats {
 	protected StatBundle statsBrenda;
 	protected StatBundle statsNuclear;
 	protected StatBundle statsScout;
-	
+
 	public static class StatBundle {
 		public final double health;
 		public final double speed;
@@ -33,11 +33,11 @@ public abstract class GlyphidStats {
 		/** Base threshold is calculated using this number * the glyphid's armor */
 		public final float thresholdMultForArmor;
 		public final float resistanceMult;
-		
+
 		public StatBundle(double health, double speed, double damage, float divisor, float damageThreshold) {
 			this(health, speed, damage, divisor, damageThreshold, 0F, 0F);
 		}
-		
+
 		public StatBundle(double health, double speed, double damage, float divisor, float damageThreshold, float thresholdMultPerArmor, float resistanceMult) {
 			this.health = health;
 			this.speed = speed;
@@ -48,7 +48,7 @@ public abstract class GlyphidStats {
 			this.resistanceMult = resistanceMult;
 		}
 	}
-	
+
 	public abstract boolean handleAttack(EntityGlyphid glyphid, DamageSource source, float amount);
 
 	/** Tier 1 */				public StatBundle getGrunt() { return statsGrunt; }
@@ -60,9 +60,9 @@ public abstract class GlyphidStats {
 	/** Tier 4 */				public StatBundle getBrenda() { return statsBrenda; }
 	/** Tier 4 Specialist */	public StatBundle getNuclear() { return statsNuclear; }
 	/** Tier 0 */				public StatBundle getScout() { return statsScout; }
-	
+
 	public static class GlyphidStats70K extends GlyphidStats {
-		
+
 		public GlyphidStats70K() {
 			this.statsGrunt =		new StatBundle(30D,		1D,		5D,		1F,		0.5F);
 			this.statsBombardier =	new StatBundle(20D,		1D,		5D,		1F,		0.5F);
@@ -79,9 +79,7 @@ public abstract class GlyphidStats {
 		public boolean handleAttack(EntityGlyphid glyphid, DamageSource source, float amount) {
 
 			if(!source.isDamageAbsolute() && !source.isUnblockable() && !glyphid.world.isRemote && !source.isFireDamage() && !source.getDamageType().equals(ModDamageSource.s_cryolator)) {
-				byte armor = glyphid.getDataWatcher().getWatchableObjectByte(glyphid.DW_ARMOR);
-
-				if(armor != 0) { //if at least one bit of armor is present
+				if(glyphid.getGlyphidArmor() != 0) { //if at least one bit of armor is present
 
 					if(amount < glyphid.getStats().damageThreshold) return false;
 
@@ -104,21 +102,21 @@ public abstract class GlyphidStats {
 				amount *= glyphid.getScale() < 1.25 ? 1.5 : glyphid.getScale() < 1.3 ? 0.8 : 0.5;
 			} else if(source == ModDamageSource.acid || ModDamageSource.s_acid.equals(source.getDamageType())) {
 				amount = 0;
-			} else if(source == DamageSource.inWall) {
+			} else if(source == DamageSource.IN_WALL) {
 				amount *= 15F;
 			}
 
-			if(glyphid.isPotionActive(HbmPotion.phosphorus.getId())){
+			if(glyphid.isPotionActive(HbmPotion.phosphorus)){
 				amount *= 1.5F;
 			}
 
 			return glyphid.attackSuperclass(source, amount);
 		}
 	}
-	
+
 	/** UNTESTED! Spreadsheet will be consulted soon */
 	public static class GlyphidStatsNT extends GlyphidStats {
-		
+
 		public GlyphidStatsNT() {
 			this.statsGrunt =		new StatBundle(20D,		1D,		2D,		0.25F,	0F,		1F,		0.1F);
 			this.statsBombardier =	new StatBundle(15D,		1D,		2D,		0.25F,	0F,		1F,		0.1F);

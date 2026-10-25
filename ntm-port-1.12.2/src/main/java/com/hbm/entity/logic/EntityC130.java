@@ -21,11 +21,11 @@ public class EntityC130 extends EntityPlaneBase {
 		this.ignoreFrustumCheck = true;
 		this.setSize(8.0F, 4.0F);
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 		if(this.world.isRemote) {
 			if(this.dataManager.get(PLANE_HEALTH) > 0) {
 				if(audio == null || !audio.isPlaying()) {
@@ -41,7 +41,7 @@ public class EntityC130 extends EntityPlaneBase {
 				}
 			}
 		}
-		
+
 		if(!this.world.isRemote && this.ticksExisted == this.getLifetime() / 2 && this.health > 0) {
 			EntityParachuteCrate crate = new EntityParachuteCrate(this.world);
 			crate.setPosition(posX - motionX * 7, posY - 10, posZ - motionZ * 7);
@@ -54,8 +54,8 @@ public class EntityC130 extends EntityPlaneBase {
 				for(int i = 0; i < amount; i++) crate.items.add(ItemPool.getStack(ItemPoolsC130.POOL_WEAPONS, this.rand));
 				for(int i = 0; i < 6; i++) crate.items.add(ItemPool.getStack(ItemPoolsC130.POOL_AMMO, this.rand));
 			}
-			
-			this.world.spawnEntityInWorld(crate);
+
+			this.world.spawnEntity(crate);
 		}
 	}
 
@@ -76,7 +76,7 @@ public class EntityC130 extends EntityPlaneBase {
 		Vec3d vector = new Vec3d(world.rand.nextDouble() - 0.5, 0, world.rand.nextDouble() - 0.5);
 		vector = vector.normalize();
 		vector = new Vec3d(vector.x * 2, vector.y, vector.z * 2);
-		
+
 		this.payload = payload;
 
 		this.setLocationAndAngles(x - vector.x * 100, y + 100, z - vector.z * 100, 0.0F, 0.0F);

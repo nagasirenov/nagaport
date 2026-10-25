@@ -1,4 +1,5 @@
 package com.hbm.entity.train;
+import net.minecraft.util.math.AxisAlignedBB;
 
 import org.lwjgl.opengl.GL11;
 
@@ -26,14 +27,14 @@ import net.minecraft.world.World;
 public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIProvider {
 
 	/*
-	 * 
+	 *
 	 *                         <--
-	 *                         
+	 *
 	 * _O\____________________________________________/O_
 	 * |____|                                      |____|
 	 *    \__________________________________________/
 	 *        '( + )'                      '( + )'
-	 * 
+	 *
 	 */
 
 	public TrainCargoTramTrailer(World world) {
@@ -46,8 +47,9 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 	@Override public double getLengthSpan() { return 1.5; }
 	@Override public double getCollisionSpan() { return 2.5; }
 	@Override public int getSizeInventory() { return 45; }
-	@Override public String getInventoryName() { return this.hasCustomInventoryName() ? this.getEntityName() : "container.trainTramTrailer"; }
-	//@Override public AxisAlignedBB getCollisionBox() { return AxisAlignedBB.getBoundingBox(renderX, renderY, renderZ, renderX, renderY + 1, renderZ).expand(4, 0, 4); }
+	@Override public String getName() { return this.hasCustomName() ? this.getEntityName() : "container.trainTramTrailer"; }
+	public String getInventoryName() { return getName(); }
+	//@Override public AxisAlignedBB getCollisionBox() { return new AxisAlignedBB(renderX, renderY, renderZ, renderX, renderY + 1, renderZ).expand(4, 0, 4); }
 	@Override public double getCouplingDist(TrainCoupling coupling) { return coupling != null ? 2.75 : 0; }
 	@Override public double getCurrentSpeed() { return 0; }
 
@@ -65,18 +67,18 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 		if(!this.world.isRemote && !this.isDead) {
 			this.setDead();
 		}
-		
+
 		return true;
 	}
 
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
 		if(super.interactFirst(player)) return false;
-		
+
 		if(!this.world.isRemote) {
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, this.world, this.getEntityId(), 0, 0);
 		}
-		
+
 		return true;
 	}
 
@@ -90,7 +92,7 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return new GUITrainCargoTramTrailer(player.inventory, this);
 	}
-	
+
 	/*
 	 * ##### ##### #   # ##### ##### ### #   # ##### ####
 	 * #     #   # ##  #   #   #   #  #  ##  # #     #   #
@@ -116,7 +118,7 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 				this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 198));
 			}
 		}
-		
+
 		@Override
 		public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 			ItemStack stackCopy = ItemStack.EMPTY;
@@ -128,7 +130,7 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 					if(!this.mergeItemStack(stack, train.getSizeInventory(), this.inventorySlots.size(), true)) {
 						return ItemStack.EMPTY;
 					}
-				} else 
+				} else
 					if(!this.mergeItemStack(stack, 0, 45, false)) {
 						return ItemStack.EMPTY;
 					}
@@ -146,7 +148,7 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 			return train.isUsableByPlayer(player);
 		}
 	}
-	
+
 	/*
 	 * ##### #   # ###
 	 * #     #   #  #
@@ -164,7 +166,7 @@ public class TrainCargoTramTrailer extends EntityRailCarCargo implements IGUIPro
 			this.xSize = 176;
 			this.ySize = 222;
 		}
-		
+
 		@Override
 		protected void drawGuiContainerForegroundLayer(int i, int j) {
 			String name = this.train.hasCustomInventoryName() ? this.train.getInventoryName() : I18n.format(this.train.getInventoryName());

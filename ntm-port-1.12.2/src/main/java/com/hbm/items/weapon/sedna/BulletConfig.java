@@ -37,11 +37,11 @@ import net.minecraft.world.WorldServer;
 
 @NotableComments
 public class BulletConfig implements Cloneable {
-	
+
 	public static List<BulletConfig> configs = new ArrayList();
-	
+
 	public int id;
-	
+
 	public ComparableStack ammo;
 	public ItemStack casingItem;
 	public int casingAmount;
@@ -59,9 +59,9 @@ public class BulletConfig implements Cloneable {
 	public float armorPiercingPercent = 0.0F;
 	public float knockbackMult = 0.1F;
 	public float headshotMult = 1.25F;
-	
+
 	public DamageClass dmgClass = DamageClass.PHYSICAL;
-	
+
 	public float ricochetAngle = 5F;
 	public int maxRicochetCount = 2;
 	/** Whether damage dealt to an entity is subtracted from the projectile's damage on penetration */
@@ -72,7 +72,7 @@ public class BulletConfig implements Cloneable {
 	public BiConsumer<EntityBulletBeamBase, RayTraceResult> onImpactBeam; //fuck fuck fuck fuck i should have used a better base class here god dammit
 	public BiConsumer<EntityBulletBaseMK4, RayTraceResult> onRicochet = LAMBDA_STANDARD_RICOCHET;
 	public BiConsumer<EntityBulletBaseMK4, RayTraceResult> onEntityHit = LAMBDA_STANDARD_ENTITY_HIT;
-	
+
 	public double gravity = 0;
 	public int expires = 30;
 	public boolean impactsEntities = true;
@@ -80,18 +80,18 @@ public class BulletConfig implements Cloneable {
 	/** Whether projectiles ignore blocks entirely */
 	public boolean isSpectral = false;
 	public int selfDamageDelay = 2;
-	
+
 	public boolean blackPowder = false;
 	public boolean renderRotations = true;
 	public SpentCasing casing;
 	public BiConsumer<EntityBulletBaseMK4, Float> renderer;
 	public BiConsumer<EntityBulletBeamBase, Float> rendererBeam;
-	
+
 	public BulletConfig() {
 		this.id = configs.size();
 		configs.add(this);
 	}
-	
+
 	/** Required for the clone() operation to reset the ID, otherwise the ID and config entry will be the same as the original */
 	public BulletConfig forceReRegister() {
 		this.id = configs.size();
@@ -132,7 +132,7 @@ public class BulletConfig implements Cloneable {
 	public BulletConfig setBlackPowder(boolean bp) {									this.blackPowder = bp; return this; }
 	public BulletConfig setRenderRotations(boolean rot) {								this.renderRotations = rot; return this; }
 	public BulletConfig setCasing(SpentCasing casing) {									this.casing = casing; return this; }
-	
+
 	public BulletConfig setRenderer(BiConsumer<EntityBulletBaseMK4, Float> renderer) {		this.renderer = renderer; return this; }
 	public BulletConfig setRendererBeam(BiConsumer<EntityBulletBeamBase, Float> renderer) {	this.rendererBeam = renderer; return this; }
 
@@ -141,21 +141,21 @@ public class BulletConfig implements Cloneable {
 	public BulletConfig setOnImpact(BiConsumer<EntityBulletBaseMK4, RayTraceResult> lambda) {			this.onImpact = lambda; return this; }
 	public BulletConfig setOnBeamImpact(BiConsumer<EntityBulletBeamBase, RayTraceResult> lambda) {	this.onImpactBeam = lambda; return this; }
 	public BulletConfig setOnEntityHit(BiConsumer<EntityBulletBaseMK4, RayTraceResult> lambda) {		this.onEntityHit = lambda; return this; }
-	
+
 	public static enum ProjectileType {
 		BULLET,
 		BULLET_CHUNKLOADING,
 		BEAM
 	}
-	
+
 	@SuppressWarnings("incomplete-switch") //shut up
 	public static DamageSource getDamage(Entity projectile, EntityLivingBase shooter, DamageClass dmgClass) {
-		
+
 		DamageSource dmg;
-		
+
 		if(shooter != null) dmg = new DamageSourceSednaWithAttacker(dmgClass.name(), projectile, shooter);
 		else dmg = new DamageSourceSednaNoAttacker(dmgClass.name());
-		
+
 		switch(dmgClass) {
 		case PHYSICAL: dmg.setProjectile(); break;
 		case FIRE: dmg.setFireDamage(); break;
@@ -164,14 +164,14 @@ public class BulletConfig implements Cloneable {
 		case LASER: break;
 		case SUBATOMIC: break;
 		}
-		
+
 		return dmg;
 	}
-	
+
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_RICOCHET = (bullet, mop) -> {
-		
+
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
-			
+
 			Block b = bullet.world.getBlockState(mop.getBlockPos()).getBlock();
 			if(b.getDefaultState().getMaterial() == Material.GLASS) {
 				com.hbm.world.WorldBlockDestruction.destroy(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
@@ -182,30 +182,30 @@ public class BulletConfig implements Cloneable {
 				((BlockDetonatable) b).onShot(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
 			}
 			if(b == ModBlocks.deco_crt) {
-				int meta = bullet.world.getBlockMetadata(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
-				bullet.world.setBlockMetadataWithNotify(mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), meta % 4 + 4, 3);
+				int meta = com.hbm.world.WorldBlockState.readMetadata(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ());
+				com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(bullet.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), meta % 4 + 4, 3);
 			}
 
 			net.minecraft.util.EnumFacing side = mop.sideHit;
-			Vec3d face = new Vec3d(side.getFrontOffsetX(), side.getFrontOffsetY(), side.getFrontOffsetZ());
+			Vec3d face = new Vec3d(side.getXOffset(), side.getYOffset(), side.getZOffset());
 			Vec3d vel = new Vec3d(bullet.motionX, bullet.motionY, bullet.motionZ).normalize();
 
 			double angle = Math.abs(BobMathUtil.getCrossAngle(vel, face) - 90);
 
 			if(angle <= bullet.config.ricochetAngle) {
-				
+
 				bullet.ricochets++;
 				if(bullet.ricochets > bullet.config.maxRicochetCount) {
 					bullet.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 					bullet.setDead();
 				}
-				
+
 				switch(mop.sideHit.getIndex()) {
 				case 0: case 1: bullet.motionY *= -1; break;
 				case 2: case 3: bullet.motionZ *= -1; break;
 				case 4: case 5: bullet.motionX *= -1; break;
 				}
-				bullet.world.playSoundAtEntity(bullet, "hbm:weapon.ricochet", 0.25F, 1.0F);
+				bullet.world.playSound(null, bullet.posX, bullet.posY, bullet.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.ricochet"), net.minecraft.util.SoundCategory.PLAYERS, 0.25F, 1.0F);
 				bullet.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 				//send a teleport so the ricochet is more accurate instead of the interp smoothing fucking everything up
 				if(bullet.world instanceof WorldServer) TrackerUtil.sendTeleport((WorldServer) bullet.world, bullet);
@@ -217,87 +217,87 @@ public class BulletConfig implements Cloneable {
 			}
 		}
 	};
-	
+
 	public static BiConsumer<EntityBulletBaseMK4, RayTraceResult> LAMBDA_STANDARD_ENTITY_HIT = (bullet, mop) -> {
-		
+
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 			Entity entity = mop.entityHit;
-			
+
 			if(entity == bullet.getThrower() && bullet.ticksExisted < bullet.selfDamageDelay()) return;
 			if(entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getHealth() <= 0) return;
-			
+
 			DamageSource source = bullet.config.getDamage(bullet, bullet.getThrower(), bullet.config.dmgClass);
 			float intendedDamage = bullet.damage;
-			
+
 			if(!(entity instanceof EntityLivingBase)) {
 				EntityDamageUtil.attackEntityFromIgnoreIFrame(entity, source, bullet.damage);
 				return;
 			} else if(bullet.config.headshotMult > 1F) {
-				
+
 				EntityLivingBase living = (EntityLivingBase) entity;
 				double head = living.height - living.getEyeHeight();
-				
+
 				if(!!living.isEntityAlive() && mop.hitVec != null && mop.hitVec.y > (living.posY + living.height - head * 2)) {
 					intendedDamage *= bullet.config.headshotMult;
 				}
 			}
-			
+
 			EntityLivingBase living = (EntityLivingBase) entity;
 			float prevHealth = living.getHealth();
-			
+
 			EntityDamageUtil.attackEntityFromNT(living, source, intendedDamage, true, true, bullet.config.knockbackMult, bullet.config.armorThresholdNegation, bullet.config.armorPiercingPercent);
-			
+
 			float newHealth = living.getHealth();
-			
+
 			if(bullet.config.damageFalloffByPen) bullet.damage -= Math.max(prevHealth - newHealth, 0) * 0.5;
 			if(!bullet.doesPenetrate() || bullet.damage < 0) {
 				bullet.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 				bullet.setDead();
 			}
-			
+
 			if(!living.isEntityAlive()) ConfettiUtil.decideConfetti(living, source);
 		}
 	};
-	
+
 	public static BiConsumer<EntityBulletBeamBase, RayTraceResult> LAMBDA_STANDARD_BEAM_HIT = (bullet, mop) -> {
-		
+
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 			Entity entity = mop.entityHit;
-			
+
 			if(entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getHealth() <= 0) return;
 
 			DamageSource source = bullet.config.getDamage(bullet, bullet.getThrower(), bullet.config.dmgClass);
-			
+
 			if(!(entity instanceof EntityLivingBase)) {
 				EntityDamageUtil.attackEntityFromIgnoreIFrame(entity, source, bullet.damage);
 				return;
 			}
-			
+
 			EntityLivingBase living = (EntityLivingBase) entity;
 			EntityDamageUtil.attackEntityFromNT(living, source, bullet.damage, true, true, bullet.config.knockbackMult, bullet.config.armorThresholdNegation, bullet.config.armorPiercingPercent);
 			if(!living.isEntityAlive()) ConfettiUtil.decideConfetti(living, source);
 		}
 	};
-	
+
 	public static BiConsumer<EntityBulletBeamBase, RayTraceResult> LAMBDA_BEAM_HIT = (beam, mop) -> {
-		
+
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 			Entity entity = mop.entityHit;
-			
+
 			if(entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getHealth() <= 0) return;
-			
+
 			DamageSource source = beam.config.getDamage(beam, beam.thrower, beam.config.dmgClass);
-			
+
 			if(!(entity instanceof EntityLivingBase)) {
 				EntityDamageUtil.attackEntityFromIgnoreIFrame(entity, source, beam.damage);
 				return;
 			}
-			
+
 			EntityLivingBase living = (EntityLivingBase) entity;
 			EntityDamageUtil.attackEntityFromNT(living, source, beam.damage, true, false, beam.config.knockbackMult, beam.config.armorThresholdNegation, beam.config.armorPiercingPercent);
 		}
 	};
-	
+
 	@Override
 	public BulletConfig clone() {
 		try {

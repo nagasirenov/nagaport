@@ -14,7 +14,7 @@ public class ContainerHeaterHeatex extends Container {
 
 	public ContainerHeaterHeatex(InventoryPlayer invPlayer, TileEntityHeaterHeatex tedf) {
 		heater = tedf;
-		
+
 		this.addSlotToContainer(new Slot(tedf, 0, 80, 72));
 
 		for(int i = 0; i < 3; i++) {
@@ -47,7 +47,7 @@ public class ContainerHeaterHeatex extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

@@ -100,10 +100,10 @@ public class ItemLemon extends ItemFood {
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
 	{
 		if(this == ModItems.med_ipecac || this == ModItems.med_ptsd) {
-			player.addPotionEffect(new PotionEffect(Potion.hunger.id, 50, 49));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HUNGER, 50, 49));
 			HbmPlayerProps props = HbmPlayerProps.getData(player);
 			if (props.nitanCount > 0){
-				player.removePotionEffect(HbmPotion.nitan.id);
+				player.removePotionEffect(HbmPotion.nitan);
 				props.nitanCount = 0;
 			}
 			NBTTagCompound nbt = new NBTTagCompound();
@@ -111,7 +111,7 @@ public class ItemLemon extends ItemFood {
 			nbt.setInteger("entity", player.getEntityId());
 			PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 25));
 
-			world.playSoundEffect(player.posX, player.posY, player.posZ, "hbm:entity.vomit", 1.0F, 1.0F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:entity.vomit"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 		}
 
 		if(this == ModItems.med_schizophrenia) {
@@ -121,19 +121,20 @@ public class ItemLemon extends ItemFood {
 			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20 * 20, 1));
 			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60 * 20, 2));
 			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 1));
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 20 * 20, 2));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 20 * 20, 2));
 		}
 		if(this == ModItems.s_cream) {
 			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20 * 20, 2));
 		}
     }
 
-    public ItemStack onEaten(ItemStack stack, World worldObj, EntityPlayer player)
+    @Override
+    public ItemStack onItemUseFinish(ItemStack stack, World worldObj, net.minecraft.entity.EntityLivingBase entityLiving)
     {
-        ItemStack sta = super.onEaten(stack, worldObj, player);
+        ItemStack sta = super.onItemUseFinish(stack, worldObj, entityLiving);
 
         if(this == ModItems.loop_stew)
-        	return new ItemStack(Items.bowl);
+            return new ItemStack(Items.BOWL);
 
         return sta;
     }

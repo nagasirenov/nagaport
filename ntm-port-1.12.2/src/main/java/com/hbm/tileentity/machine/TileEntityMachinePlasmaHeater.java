@@ -158,7 +158,7 @@ public class TileEntityMachinePlasmaHeater extends TileEntityMachineBase impleme
 		
 		this.getBlockMetadata();
 		
-		ForgeDirection dir = ForgeDirection.getOrientation(this.blockMetadata - BlockDummyable.offset);
+		ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())) - BlockDummyable.offset);
 		ForgeDirection side = dir.getRotation(ForgeDirection.UP);
 		
 		for(int i = 1; i < 4; i++) {

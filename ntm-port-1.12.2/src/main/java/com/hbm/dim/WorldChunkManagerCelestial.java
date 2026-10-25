@@ -23,12 +23,11 @@ public class WorldChunkManagerCelestial extends BiomeProvider {
 
 	// getBiomesToSpawnIn is never called for celestial bodies, so fuck that noise lmao
 
-	@Override
-	public float[] getRainfall(float[] values, int x, int z, int width, int length) {
+	public int[] getRainfall(int[] values, int x, int z, int width, int length) {
 		IntCache.resetIntCache();
 
 		if(values == null || values.length < width * length) {
-			values = new float[width * length];
+			values = new int[width * length];
 		}
 
 		int[] biomeIds = biomeDetailLayer.getInts(x, z, width, length);
@@ -38,7 +37,7 @@ public class WorldChunkManagerCelestial extends BiomeProvider {
 
 			if(rainfall > 1.0F) rainfall = 1.0F;
 
-			values[i] = rainfall;
+			values[i] = (int) (rainfall * 65536.0F);
 		}
 
 		return values;

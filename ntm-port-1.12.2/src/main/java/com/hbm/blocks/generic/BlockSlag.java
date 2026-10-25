@@ -19,7 +19,7 @@ public class BlockSlag extends BlockBeaconable {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		super.registerBlockIcons(iconRegister);
-		this.iconAlt = iconRegister.registerIcon(this.getTextureName() + "_broken");
+		this.iconAlt = iconRegister.registerIcon(this.getRegistryName().toString() + "_broken");
 	}
 
 	@Override

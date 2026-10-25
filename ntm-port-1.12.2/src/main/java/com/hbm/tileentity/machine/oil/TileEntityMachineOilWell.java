@@ -58,6 +58,7 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 	public void onDrill(int y) {
 		Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), y, this.pos.getZ()).getBlock();
 		ItemStack stack = new ItemStack(b);
+		if(stack.isEmpty()) return;
 		int[] ids = OreDictionary.getOreIDs(stack);
 		for(Integer i : ids) {
 			String name = OreDictionary.getOreName(i);
@@ -65,8 +66,8 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 			if("oreUranium".equals(name)) {
 				for(int j = -1; j <= 1; j++) {
 					for(int k = -1; k <= 1; k++) {
-						if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + j, this.pos.getY() + 10, this.pos.getZ() + j).getBlock().isReplaceable(this.world, this.pos.getX() + j, this.pos.getY() + 7, this.pos.getZ() + k)) {
-							this.world.setBlock(this.pos.getX() + k, this.pos.getY() + 10, this.pos.getZ() + k, ModBlocks.gas_radon_dense);
+						if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + j, this.pos.getY() + 7, this.pos.getZ() + k).getMaterial().isReplaceable()) {
+							this.world.setBlockState(new net.minecraft.util.math.BlockPos(this.pos.getX() + k, this.pos.getY() + 10, this.pos.getZ() + k), ModBlocks.gas_radon_dense.getDefaultState());
 						}
 					}
 				}
@@ -75,8 +76,8 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 			if("oreAsbestos".equals(name)) {
 				for(int j = -1; j <= 1; j++) {
 					for(int k = -1; k <= 1; k++) {
-						if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + j, this.pos.getY() + 10, this.pos.getZ() + j).getBlock().isReplaceable(this.world, this.pos.getX() + j, this.pos.getY() + 7, this.pos.getZ() + k)) {
-							this.world.setBlock(this.pos.getX() + k, this.pos.getY() + 10, this.pos.getZ() + k, ModBlocks.gas_asbestos);
+						if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + j, this.pos.getY() + 7, this.pos.getZ() + k).getMaterial().isReplaceable()) {
+							this.world.setBlockState(new net.minecraft.util.math.BlockPos(this.pos.getX() + k, this.pos.getY() + 10, this.pos.getZ() + k), ModBlocks.gas_asbestos.getDefaultState());
 						}
 					}
 				}
@@ -97,7 +98,7 @@ public class TileEntityMachineOilWell extends TileEntityOilDrillBase {
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

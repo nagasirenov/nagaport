@@ -184,7 +184,7 @@ public abstract class TileEntityOilDrillBase extends TileEntityMachineBase imple
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && i >= 5 && i <= 7 && stack.getItem() instanceof ItemMachineUpgrade)
-			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.0F, 1.0F);
+			this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 	}
 
 	public int getPowerReqEff() {

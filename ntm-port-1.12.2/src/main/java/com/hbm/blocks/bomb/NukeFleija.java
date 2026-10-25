@@ -15,6 +15,8 @@ import com.hbm.tileentity.bomb.TileEntityNukeFleija;
 
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -115,7 +117,8 @@ public class NukeFleija extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
+	public void neighborChanged(IBlockState state, World p_149695_1_, BlockPos pos, Block p_149695_5_, BlockPos fromPos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		TileEntityNukeFleija entity = (TileEntityNukeFleija) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z)) && !p_149695_1_.isRemote) {
 			if(entity.isReady()) {
@@ -132,13 +135,13 @@ public class NukeFleija extends BlockContainer implements IBomb {
 			EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(world, x + 0.5, y + 0.5, z + 0.5, r);
 			if(!ex.isDead) {
 				com.hbm.sound.VanillaWorldSoundEffects.play(world, x, y, z, "random.explode", 1.0f, world.rand.nextFloat() * 0.1F + 0.9F);
-				world.spawnEntityInWorld(ex);
-	
+				world.spawnEntity(ex);
+
 				EntityCloudFleija cloud = new EntityCloudFleija(world, r);
 				cloud.posX = x;
 				cloud.posY = y;
 				cloud.posZ = z;
-				world.spawnEntityInWorld(cloud);
+				world.spawnEntity(cloud);
 			}
 		}
 
@@ -166,27 +169,27 @@ public class NukeFleija extends BlockContainer implements IBomb {
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 		}
 		if(i == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 2) {
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 		if(i == 3) {
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
-				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
-		}	
+				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
+		}
 	}
 }
 
 	@Override
 	public BombReturnCode explode(World world, int x, int y, int z) {
-		
+
 		if(!world.isRemote) {
 			TileEntityNukeFleija entity = (TileEntityNukeFleija) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			if(entity.isReady()) {
@@ -196,10 +199,10 @@ public class NukeFleija extends BlockContainer implements IBomb {
 				igniteTestBomb(world, x, y, z, BombConfig.fleijaRadius);
 				return BombReturnCode.DETONATED;
 			}
-			
+
 			return BombReturnCode.ERROR_MISSING_COMPONENT;
 		}
-		
+
 		return BombReturnCode.UNDEFINED;
 	}
 

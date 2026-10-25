@@ -24,16 +24,24 @@ public class ItemTemFlakes extends ItemFood {
     {
     	p_77849_3_.heal(2F);
     }
-    
-    @Override
-	@SideOnly(Side.CLIENT)
+
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
     public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List p_150895_3_)
     {
         p_150895_3_.add(new ItemStack(p_150895_1_, 1, 0));
         p_150895_3_.add(new ItemStack(p_150895_1_, 1, 1));
         p_150895_3_.add(new ItemStack(p_150895_1_, 1, 2));
     }
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{

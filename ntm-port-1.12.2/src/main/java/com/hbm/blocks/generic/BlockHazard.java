@@ -13,6 +13,7 @@ import com.hbm.main.MainRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -20,13 +21,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockHazard extends Block implements ITooltipProvider {
-		
+
 	protected float rad = 0.0F;
 	private ExtDisplayEffect extEffect = null;
-	
+
 	private boolean beaconable = false;
 
 	public BlockHazard() {
@@ -36,37 +38,39 @@ public class BlockHazard extends Block implements ITooltipProvider {
 	public BlockHazard(Material mat) {
 		super(mat);
 	}
-	
+
 	public BlockHazard setDisplayEffect(ExtDisplayEffect extEffect) {
 		this.extEffect = extEffect;
 		return this;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
-		
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		if(extEffect == null)
 			return;
-		
+
 		switch(extEffect) {
 		case RADFOG:
 		case SCHRAB:
 		case FLAMES:
 			sPart(world, x, y, z, rand);
 			break;
-			
+
 		case SPARKS:
 			break;
-			
+
 		case LAVAPOP:
 			world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, x + rand.nextFloat(), y + 1.1F, z + rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 			break;
-			
+
 		default: break;
 		}
 	}
-	
+
 	private void sPart(World world, int x, int y, int z, Random rand) {
 
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
@@ -118,13 +122,17 @@ public class BlockHazard extends Block implements ITooltipProvider {
 		return this;
 	}
 
-	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ) {
 		return beaconable;
 	}
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
 
 		if(this.rad > 0) {
 			ChunkRadiationManager.proxy.incrementRad(world, x, y, z, rad);
@@ -141,16 +149,18 @@ public class BlockHazard extends Block implements ITooltipProvider {
 		return super.tickRate(world);
 	}
 
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
-		
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		super.onBlockAdded(world, pos, state);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		// who wrote this???
 		rad = HazardSystem.getHazardLevelFromStack(new ItemStack(this), HazardRegistry.RADIATION) * 0.1F;
 
 		if(this.rad > 0)
 			world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world));
 	}
-	
+
 	public static enum ExtDisplayEffect {
 		RADFOG,
 		SPARKS,
@@ -164,14 +174,14 @@ public class BlockHazard extends Block implements ITooltipProvider {
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
-		
+
 		if(this == ModBlocks.block_schraranium
 				|| this == ModBlocks.block_schraranium
 				|| this == ModBlocks.block_schrabidate
 				|| this == ModBlocks.block_solinium
 				|| this == ModBlocks.block_schrabidium_fuel)
-			return EnumRarity.rare;
-		
-		return EnumRarity.common;
+			return EnumRarity.RARE;
+
+		return EnumRarity.COMMON;
 	}
 }

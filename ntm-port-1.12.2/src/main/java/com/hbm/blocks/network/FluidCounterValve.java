@@ -21,6 +21,8 @@ import java.util.List;
 
 public class FluidCounterValve extends FluidDuctBase implements ILookOverlay, ITooltipProvider {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconOn;
 
@@ -28,14 +30,12 @@ public class FluidCounterValve extends FluidDuctBase implements ILookOverlay, IT
 		super(mat);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconOn = iconRegister.registerIcon(RefStrings.MODID + ":fluid_counter_valve_on");
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":fluid_counter_valve_off");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return metadata == 1 ? iconOn : blockIcon;

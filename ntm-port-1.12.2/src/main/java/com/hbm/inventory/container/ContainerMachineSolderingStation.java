@@ -18,12 +18,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineSolderingStation extends Container {
-	
+
 	private TileEntityMachineSolderingStation solderer;
 
 	public ContainerMachineSolderingStation(InventoryPlayer playerInv, TileEntityMachineSolderingStation tile) {
 		solderer = tile;
-		
+
 		//Inputs
 		for(int i = 0; i < 2; i++) for(int j = 0; j < 3; j++) this.addSlotToContainer(new SlotNonRetarded(tile, i * 3 + j, 17 + j * 18, 18 + i * 18));
 		//Output
@@ -61,7 +61,7 @@ public class ContainerMachineSolderingStation extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 7, 8, false)) return null;
 				} else if(rStack.getItem() instanceof IItemFluidIdentifier) {
@@ -76,7 +76,7 @@ public class ContainerMachineSolderingStation extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

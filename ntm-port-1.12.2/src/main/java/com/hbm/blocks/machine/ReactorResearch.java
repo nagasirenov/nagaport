@@ -15,6 +15,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public class ReactorResearch extends BlockDummyable {
@@ -22,7 +24,7 @@ public class ReactorResearch extends BlockDummyable {
 	public ReactorResearch(Material mat) {
 		super(mat);
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 
@@ -33,14 +35,17 @@ public class ReactorResearch extends BlockDummyable {
 
 		return null;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
 			BossSpawnHandler.markFBI(player);
-			
+
 			int[] pos = this.findCore(world, x, y, z);
 
 			if(pos == null)
@@ -52,12 +57,13 @@ public class ReactorResearch extends BlockDummyable {
 			return false;
 		}
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
-		
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
 			if(dir == ForgeDirection.DOWN || dir == ForgeDirection.UP)
@@ -78,12 +84,12 @@ public class ReactorResearch extends BlockDummyable {
 			}
 		}
 	}
-	
+
 	@Override
 	public int[] getDimensions() {
-		return new int[] {2, 0, 0, 0, 0, 0,}; 
+		return new int[] {2, 0, 0, 0, 0, 0,};
 	}
-	
+
 	@Override
 	public int getOffset() {
 		return 0;

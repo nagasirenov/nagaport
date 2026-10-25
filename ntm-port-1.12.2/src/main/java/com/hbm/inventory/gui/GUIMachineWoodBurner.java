@@ -61,7 +61,7 @@ public class GUIMachineWoodBurner extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 53 <= x && guiLeft + 53 + 16 > x && guiTop + 17 < y && guiTop + 17 + 15 >= y) {

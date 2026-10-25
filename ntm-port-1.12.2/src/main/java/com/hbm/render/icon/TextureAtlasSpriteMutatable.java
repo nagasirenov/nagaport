@@ -44,10 +44,17 @@ public class TextureAtlasSpriteMutatable extends TextureAtlasSprite {
 
 	@Override
 	public boolean load(IResourceManager manager, ResourceLocation location, Function<ResourceLocation, TextureAtlasSprite> textureGetter) {
-		String path = location.getPath();
+		// Forge wraps the icon name as textures/<name>.png before handing it to
+		// custom loaders; the base atlas name lives on the sprite itself.
+		String path = this.getIconName();
 		int suffix = path.indexOf('-');
 		if(suffix >= 0) path = path.substring(0, suffix);
-		ResourceLocation source = new ResourceLocation(location.getNamespace(), path);
+		// The icon name may carry its own namespace; keep it and drop the
+		// wrapper's, so the source path never doubles the prefix.
+		ResourceLocation source;
+		int domain = path.indexOf(':');
+		if(domain >= 0) source = new ResourceLocation(path.substring(0, domain), path.substring(domain + 1));
+		else source = new ResourceLocation(location.getNamespace(), path);
 		ResourceLocation sourceTexture = completeResourceLocation(source, 0);
 
 		try(IResource resource = manager.getResource(sourceTexture)) {

@@ -25,6 +25,8 @@ import java.util.function.Function;
 
 public class LogicBlock extends BlockContainer {
 
+	protected com.hbm.render.icon.IIcon itemIcon;
+
 	public LogicBlock() {
 		super(Material.ROCK);
 	}
@@ -34,30 +36,32 @@ public class LogicBlock extends BlockContainer {
 		return new LogicBlock.TileEntityLogicBlock();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-		TileEntity tile = world.getTileEntity(x, y, z);
+		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
 		if(tile instanceof LogicBlock.TileEntityLogicBlock){
 			LogicBlock.TileEntityLogicBlock logicBlock = (LogicBlock.TileEntityLogicBlock) tile;
 			if(logicBlock.disguise != null){
-				return logicBlock.disguise.getIcon(side, logicBlock.disguiseMeta);
+				return ((com.hbm.blocks.BlockBase) logicBlock.disguise).getIcon(side, logicBlock.disguiseMeta);
 			}
 		}
 
-		return super.getIcon(world, x, y, z, side);
+		return this.itemIcon;
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, int x, int y, int z, EntityPlayer player, int side, float subX, float subY, float subZ) {
+	public boolean onBlockActivated(World worldIn, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float subX, float subY, float subZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		TileEntity te = worldIn.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(te instanceof LogicBlock.TileEntityLogicBlock && ((LogicBlock.TileEntityLogicBlock) te).interaction != null) {
 			((LogicBlock.TileEntityLogicBlock) te).interaction.accept(new Object[]{worldIn, te, x, y, z, player, side, subX, subY, subZ});
 			return true;
 		}
 
-		return super.onBlockActivated(worldIn, x, y, z, player, side, subX, subY, subZ);
+		return super.onBlockActivated(worldIn, nativePos, nativeState, player, nativeHand, nativeFacing, subX, subY, subZ);
 	}
 
 	public static class TileEntityLogicBlock extends TileEntity implements net.minecraft.util.ITickable {
@@ -124,7 +128,7 @@ public class LogicBlock extends BlockContainer {
 			nbt.setInteger("direction", direction.ordinal());
 			if(disguise != null){
 				nbt.setInteger("disguiseMeta", disguiseMeta);
-				nbt.setString("disguise", GameRegistry.findUniqueIdentifierFor(disguise).toString());
+				nbt.setString("disguise", disguise.getRegistryName().toString());
 			}
 			return nbt;
 		}

@@ -15,7 +15,6 @@ public class ItemCraftingDegradation extends Item {
 		this.setCreativeTab(MainRegistry.controlTab);
 	}
 
-	@Override
 	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
 		return false;
 	}

@@ -16,24 +16,24 @@ import net.minecraft.item.ItemStack;
 
 /** Base class for typical magazines, i.e. ones that hold bullets, shells, grenades, etc, any ammo item. Stores a single type of BulletConfigs */
 public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> {
-	
+
 	public static final String KEY_MAG_COUNT = "magcount";
 	public static final String KEY_MAG_TYPE = "magtype";
 	public static final String KEY_MAG_PREV = "magprev";
 	public static final String KEY_MAG_AFTER = "magafter";
 
 	public List<BulletConfig> acceptedBullets = new ArrayList();
-	
+
 	/** A number so the gun tell multiple mags apart */
 	public int index;
 	/** How much ammo this mag can hold */
 	public int capacity;
-	
+
 	public MagazineSingleTypeBase(int index, int capacity) {
 		this.index = index;
 		this.capacity = capacity;
 	}
-	
+
 	public MagazineSingleTypeBase addConfigs(BulletConfig... cfgs) { for(BulletConfig cfg : cfgs) acceptedBullets.add(cfg); return this; }
 
 	@Override
@@ -85,7 +85,7 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 		BulletConfig nextConfig = getFirstConfig(stack, inventory);
 		return nextConfig != null;
 	}
-	
+
 	public void standardReload(ItemStack stack, IInventory inventory, int loadLimit) {
 
 		if(inventory == null) {
@@ -94,22 +94,22 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 			this.setAmount(stack, this.capacity);
 			return;
 		}
-		
+
 		for(int i = 0; i < inventory.getSizeInventory(); i++) {
 			ItemStack slot = inventory.getStackInSlot(i);
-			
+
 			if(loadLimit <= 0) return;
-			
+
 			if(slot != null && !slot.isEmpty()) {
-				
+
 				//mag is empty, assume next best type
 				if(this.getAmount(stack, null) == 0) {
-					
+
 					for(BulletConfig config : this.acceptedBullets) {
 						if(config.ammo.matchesRecipe(slot, true)) {
 							this.setType(stack, config);
 							int wantsToLoad = (int) Math.ceil((double) this.getCapacity(stack) / (double) config.ammoReloadCount);
-							int toLoad = BobMathUtil.min(wantsToLoad, slot.stackSize, loadLimit);
+							int toLoad = BobMathUtil.min(wantsToLoad, slot.getCount(), loadLimit);
 							this.setAmount(stack, Math.min(toLoad * config.ammoReloadCount, this.capacity));
 							inventory.decrStackSize(i, toLoad);
 							loadLimit -= toLoad;
@@ -124,30 +124,30 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 					if(config.ammo.matchesRecipe(slot, true)) {
 						int alreadyLoaded = this.getAmount(stack, null);
 						int wantsToLoad = (int) Math.ceil((double) (this.getCapacity(stack) - alreadyLoaded) / (double) config.ammoReloadCount);
-						int toLoad = BobMathUtil.min(wantsToLoad, slot.stackSize, loadLimit);
+						int toLoad = BobMathUtil.min(wantsToLoad, slot.getCount(), loadLimit);
 						this.setAmount(stack, Math.min((toLoad * config.ammoReloadCount) + alreadyLoaded, this.capacity));
 						inventory.decrStackSize(i, toLoad);
 						loadLimit -= toLoad;
 					}
 				}
-				
+
 				boolean infBag = slot.getItem() == ModItems.ammo_bag_infinite;
 				if(slot.getItem() == ModItems.ammo_bag || infBag) {
 					InventoryAmmoBag bag = new InventoryAmmoBag(slot);
-					
+
 					for(int j = 0; j < bag.getSizeInventory(); j++) {
 						ItemStack bagslot = bag.getStackInSlot(j);
-						
+
 						if(bagslot != null) {
-							
+
 							//mag is empty, assume next best type
 							if(this.getAmount(stack, null) == 0) {
-								
+
 								for(BulletConfig config : this.acceptedBullets) {
 									if(config.ammo.matchesRecipe(bagslot, true)) {
 										this.setType(stack, config);
 										int wantsToLoad = (int) Math.ceil((double) this.getCapacity(stack) / (double) config.ammoReloadCount);
-										int toLoad = BobMathUtil.min(wantsToLoad, infBag ? 9_999 : bagslot.stackSize, loadLimit);
+										int toLoad = BobMathUtil.min(wantsToLoad, infBag ? 9_999 : bagslot.getCount(), loadLimit);
 										this.setAmount(stack, Math.min(toLoad * config.ammoReloadCount, this.capacity));
 										if(!infBag) bag.decrStackSize(j, toLoad);
 										loadLimit -= toLoad;
@@ -162,7 +162,7 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 								if(config.ammo.matchesRecipe(bagslot, true)) {
 									int alreadyLoaded = this.getAmount(stack, bag);
 									int wantsToLoad = (int) Math.ceil((double) (this.getCapacity(stack) - alreadyLoaded) / (double) config.ammoReloadCount);
-									int toLoad = BobMathUtil.min(wantsToLoad, infBag ? 9_999 : bagslot.stackSize, loadLimit);
+									int toLoad = BobMathUtil.min(wantsToLoad, infBag ? 9_999 : bagslot.getCount(), loadLimit);
 									this.setAmount(stack, Math.min((toLoad * config.ammoReloadCount) + alreadyLoaded, this.capacity));
 									if(!infBag) bag.decrStackSize(j, toLoad);
 									loadLimit -= toLoad;
@@ -174,14 +174,14 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 			}
 		}
 	}
-	
+
 	/** Returns the config of the first potential loadable round, either what's already chambered or the first valid one if empty */
 	public BulletConfig getFirstConfig(ItemStack stack, IInventory inventory) {
 		if(inventory == null) return null;
-		
+
 		for(int i = 0; i < inventory.getSizeInventory(); i++) {
 			ItemStack slot = inventory.getStackInSlot(i);
-			
+
 			if(slot != null && !slot.isEmpty()) {
 				if(this.getAmount(stack, null) == 0) {
 					for(BulletConfig config : this.acceptedBullets) {
@@ -192,13 +192,13 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 					if(config == null) { config = this.acceptedBullets.get(0); this.setType(stack, config); }
 					if(config.ammo.matchesRecipe(slot, true)) return config;
 				}
-				
+
 				if(slot.getItem() == ModItems.ammo_bag || slot.getItem() == ModItems.ammo_bag_infinite) {
 					InventoryAmmoBag bag = new InventoryAmmoBag(slot);
-					
+
 					for(int j = 0; j < bag.getSizeInventory(); j++) {
 						ItemStack bagslot = bag.getStackInSlot(j);
-						
+
 						if(bagslot != null) {
 							if(this.getAmount(stack, null) == 0) {
 								for(BulletConfig config : this.acceptedBullets) {
@@ -214,10 +214,10 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	@Override public void initNewType(ItemStack stack, IInventory inventory) {
 		if(inventory == null) return;
 		BulletConfig nextConfig = getFirstConfig(stack, inventory);
@@ -230,7 +230,7 @@ public abstract class MagazineSingleTypeBase implements IMagazine<BulletConfig> 
 	@Override public int getCapacity(ItemStack stack) { return capacity; }
 	@Override public int getAmount(ItemStack stack, IInventory inventory) { return getMagCount(stack, index); }
 	@Override public void setAmount(ItemStack stack, int amount) { setMagCount(stack, index, Math.max(amount, 0)); }
-	
+
 	@Override public void setAmountBeforeReload(ItemStack stack, int amount) { ItemGunBaseNT.setValueInt(stack, KEY_MAG_PREV + index, amount); }
 	@Override public int getAmountBeforeReload(ItemStack stack) { return ItemGunBaseNT.getValueInt(stack, KEY_MAG_PREV + index); }
 	@Override public void setAmountAfterReload(ItemStack stack, int amount) { ItemGunBaseNT.setValueInt(stack, KEY_MAG_AFTER + index, amount); }

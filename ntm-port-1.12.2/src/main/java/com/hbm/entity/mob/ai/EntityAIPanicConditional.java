@@ -22,13 +22,13 @@ public class EntityAIPanicConditional extends EntityAIBase {
 		this.condition = condition;
 		this.setMutexBits(1);
 	}
-	
+
 	@Override
 	public boolean shouldExecute() {
-		
+
 		if(!condition.test(creature)) return false;
-		
-		if(this.creature.getAITarget() == null && !this.creature.isBurning()) {
+
+		if(this.creature.getRevengeTarget() == null && !this.creature.isBurning()) {
 			return false;
 		} else {
 			Vec3d vec3 = RandomPositionGenerator.findRandomTarget(this.creature, 5, 4);
@@ -49,8 +49,13 @@ public class EntityAIPanicConditional extends EntityAIBase {
 		this.creature.getNavigator().tryMoveToXYZ(this.randPosX, this.randPosY, this.randPosZ, this.speed);
 	}
 
-	@Override
-	public boolean continueExecuting() {
+
+		@Override
+	public boolean shouldContinueExecuting() {
+		return continueExecuting();
+	}
+
+public boolean continueExecuting() {
 		return !this.creature.getNavigator().noPath() && condition.test(creature);
 	}
 }

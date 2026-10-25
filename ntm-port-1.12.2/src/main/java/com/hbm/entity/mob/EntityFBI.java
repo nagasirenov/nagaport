@@ -44,7 +44,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 
 	public EntityFBI(World world) {
 		super(world);
-		this.getNavigator().setBreakDoors(true);
+		this.getNavigator().getNodeProcessor().setCanEnterDoors(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIBreaking(this));
 		this.tasks.addTask(2, new EntityAIRangedAttackNT(this, 1D, 20, 25, 15.0F));
@@ -55,7 +55,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.tasks.addTask(8, new EntityAILookIdle(this));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, false));
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, false));
 		this.setSize(0.6F, 1.8F);
 
 		this.isImmuneToFire = true;
@@ -64,7 +64,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.5D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
 	}
 
 	public boolean attackEntityFrom(DamageSource source, float amount) {
@@ -125,7 +125,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 		super.updateAITasks();
 
 		if(this.getAttackTarget() == null) {
-			this.setAttackTarget(this.world.getClosestVulnerablePlayerToEntity(this, 128.0D));
+			this.setAttackTarget(this.world.getNearestAttackablePlayer(this, 128.0D, 128.0D));
 		}
 
 		// hell yeah!!
@@ -146,7 +146,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 	private static final Set<Block> canDestroy = new HashSet();
 
 	static {
-		canDestroy.add(Blocks.wooden_door);
+		canDestroy.add(Blocks.OAK_DOOR);
 		canDestroy.add(Blocks.IRON_DOOR);
 		canDestroy.add(Blocks.TRAPDOOR);
 		canDestroy.add(ModBlocks.machine_press);
@@ -169,10 +169,13 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 		canDestroy.add(Blocks.TRAPPED_CHEST);
 	}
 
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+	public IEntityLivingData onInitialSpawn(net.minecraft.world.DifficultyInstance difficulty, IEntityLivingData data) {
 		this.addRandomArmor();
-		return super.onSpawnWithEgg(data);
+		return super.onInitialSpawn(difficulty, data);
 	}
+
+	@Override
+	public void setSwingingArms(boolean swingingArms) { }
 
 	public boolean isPotionApplicable(PotionEffect potion) {
 		if(com.hbm.util.LivingEquipmentRead.getEquipmentNullable(this, 4) == null)
@@ -204,7 +207,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 
 		double range = 1.5;
 
-		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
+		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
 
 		for(EntityItem item : items)
 			item.setFire(10);

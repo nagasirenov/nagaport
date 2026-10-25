@@ -15,8 +15,8 @@ public class EntityMoonWalkHelper extends EntityMoveHelper {
 	public void onUpdateMoveHelper() {
 		this.entity.setMoveForward(0.0F);
 
-		if(this.update) {
-			this.update = false;
+		if(this.isUpdating()) {
+			this.action = net.minecraft.entity.ai.EntityMoveHelper.Action.WAIT;
 			int i = MathHelper.floor(this.entity.getEntityBoundingBox().minY + 0.5D);
 			double d0 = this.posX - this.entity.posX;
 			double d1 = this.posZ - this.entity.posZ;
@@ -26,7 +26,7 @@ public class EntityMoonWalkHelper extends EntityMoveHelper {
 			if(d3 >= 2.500000277905201E-7D) {
 				float f = (float) (Math.atan2(d1, d0) * 180.0D / Math.PI) + 90.0F;
 				this.entity.rotationYaw = this.limitAngle(this.entity.rotationYaw, f, 30.0F);
-				float speed = (float) (this.speed * this.entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue());
+				float speed = (float) (this.speed * this.entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue());
 				this.entity.setAIMoveSpeed(speed);
 				this.entity.setMoveForward(-speed);
 

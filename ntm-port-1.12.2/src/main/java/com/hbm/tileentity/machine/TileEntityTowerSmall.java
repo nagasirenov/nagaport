@@ -19,7 +19,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 
 public class TileEntityTowerSmall extends TileEntityCondenser {
-	
+
 	//Configurable values
 	public static int inputTankSizeTS = 1_000;
 	public static int outputTankSizeTS = 1_000;
@@ -29,7 +29,7 @@ public class TileEntityTowerSmall extends TileEntityCondenser {
 		tanks[0] = new FluidTank(Fluids.SPENTSTEAM, inputTankSizeTS);
 		tanks[1] = new FluidTank(Fluids.WATER, outputTankSizeTS);
 	}
-	
+
 	@Override
 	public String getConfigName() {
 		return "condenserTowerSmall";
@@ -50,9 +50,9 @@ public class TileEntityTowerSmall extends TileEntityCondenser {
 	@Override
 	public void update() {
 		super.update();
-		
+
 		if(this.world.isRemote) {
-			
+
 			if(ClientConfig.COOLING_TOWER_PARTICLES.get() && (this.waterTimer > 0 && this.world.getTotalWorldTime() % 2 == 0)) {
 				NBTTagCompound data = new NBTTagCompound();
 				data.setString("type", "tower");
@@ -60,11 +60,11 @@ public class TileEntityTowerSmall extends TileEntityCondenser {
 				data.setFloat("base", 0.5F);
 				data.setFloat("max", 4F);
 				data.setInteger("life", 250 + this.world.rand.nextInt(250));
-	
+
 				data.setDouble("posX", this.pos.getX() + 0.5);
 				data.setDouble("posZ", this.pos.getZ() + 0.5);
 				data.setDouble("posY", this.pos.getY() + 18);
-				
+
 				MainRegistry.proxy.effectNT(data);
 			}
 		}
@@ -85,14 +85,14 @@ public class TileEntityTowerSmall extends TileEntityCondenser {
 		this.sendFluid(this.tanks[1], this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() + 3, Library.POS_Z);
 		this.sendFluid(this.tanks[1], this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ() - 3, Library.NEG_Z);
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,
@@ -101,10 +101,10 @@ public class TileEntityTowerSmall extends TileEntityCondenser {
 					this.pos.getZ() + 3
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

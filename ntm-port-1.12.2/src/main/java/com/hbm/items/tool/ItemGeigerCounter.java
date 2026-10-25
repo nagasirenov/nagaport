@@ -46,9 +46,9 @@ public class ItemGeigerCounter extends Item {
 				int r = list.get(rand.nextInt(list.size()));
 
 				if(r > 0)
-					world.playSoundAtEntity(entity, "hbm:item.geiger" + r, 1.0F, 1.0F);
+					world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.geiger" + r), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 			} else if(rand.nextInt(50) == 0) {
-				world.playSoundAtEntity(entity, "hbm:item.geiger"+ (1 + rand.nextInt(1)), 1.0F, 1.0F);
+				world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.geiger"+ (1 + rand.nextInt(1))), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 			}
 		}
 	}
@@ -73,10 +73,15 @@ public class ItemGeigerCounter extends Item {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(!world.isRemote) {
-			world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBoop"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 			ContaminationUtil.printGeigerData(player);
 		}
 

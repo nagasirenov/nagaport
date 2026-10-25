@@ -75,7 +75,6 @@ public class EntitySchrab extends Entity implements IProjectile
         this.renderRangeWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
         this.setPosition(p_i1754_2_, p_i1754_4_, p_i1754_6_);
-        this.yOffset = 0.0F;
     }
 
     public EntitySchrab(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_)
@@ -102,7 +101,6 @@ public class EntitySchrab extends Entity implements IProjectile
             double d4 = d0 / d3;
             double d5 = d2 / d3;
             this.setLocationAndAngles(p_i1755_2_.posX + d4, this.posY, p_i1755_2_.posZ + d5, f2, f3);
-            this.yOffset = 0.0F;
             float f4 = (float)d3 * 0.2F;
             this.shoot(d0, d1 + f4, d2, p_i1755_4_, p_i1755_5_);
         }
@@ -125,7 +123,6 @@ public class EntitySchrab extends Entity implements IProjectile
         this.posY -= 0.10000000149011612D;
         this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F;
         this.setPosition(this.posX, this.posY, this.posZ);
-        this.yOffset = 0.0F;
         this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
         this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI);
         this.motionY = (-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
@@ -137,11 +134,11 @@ public class EntitySchrab extends Entity implements IProjectile
     	this.posX = x + 0.5F;
     	this.posY = y + 0.5F;
     	this.posZ = z + 0.5F;
-    	
+
     	this.motionX = mx;
     	this.motionY = my;
     	this.motionZ = mz;
-    	
+
     	this.gravity = grav;
     }
 
@@ -182,7 +179,7 @@ public class EntitySchrab extends Entity implements IProjectile
      */
     @Override
 	@SideOnly(Side.CLIENT)
-    public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_)
+    public void setPositionAndRotationDirect(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_, boolean teleport)
     {
         this.setPosition(p_70056_1_, p_70056_3_, p_70056_5_);
         this.setRotation(p_70056_7_, p_70056_8_);
@@ -227,14 +224,14 @@ public class EntitySchrab extends Entity implements IProjectile
             //this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(this.motionY, (double)f) * 180.0D / Math.PI);
         }
 
-        Block block = com.hbm.world.WorldBlockState.read(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f).getBlock();
+        net.minecraft.util.math.BlockPos hitPos = new net.minecraft.util.math.BlockPos(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+        net.minecraft.block.state.IBlockState state = this.world.getBlockState(hitPos);
 
-        if (block.getDefaultState().getMaterial() != Material.AIR)
+        if (state.getMaterial() != Material.AIR)
         {
-            block.setBlockBoundsBasedOnState(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f);
-            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            AxisAlignedBB axisalignedbb = state.getCollisionBoundingBox(this.world, hitPos);
 
-            if (axisalignedbb != null && axisalignedbb.isVecInside(new Vec3d(this.posX, this.posY, this.posZ)))
+            if (axisalignedbb != null && axisalignedbb.offset(hitPos).contains(new Vec3d(this.posX, this.posY, this.posZ)))
             {
                 this.inGround = true;
             }
@@ -247,7 +244,7 @@ public class EntitySchrab extends Entity implements IProjectile
 
         if (this.inGround)
         {
-            /*int j = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            /*int j = com.hbm.world.WorldBlockState.readMetadata(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
 
             if (block == this.field_145790_g && j == this.inData)
             {
@@ -277,7 +274,7 @@ public class EntitySchrab extends Entity implements IProjectile
             	ExplosionNukeGeneric.wasteNoSchrab(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 20);
             	ExplosionChaos.poison(this.world, (int)this.posX, (int)this.posY, (int)this.posZ, 20);
             }
-            this.world.spawnEntityInWorld(new EntityLightningBolt(this.world, this.posX, this.posY, this.posZ));
+            this.world.spawnEntity(new EntityLightningBolt(this.world, this.posX, this.posY, this.posZ, false));
         	this.setDead();
         }
         else
@@ -295,7 +292,7 @@ public class EntitySchrab extends Entity implements IProjectile
             }
 
             Entity entity = null;
-            List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).grow(1.0D));
             double d0 = 0.0D;
             int i;
             float f1;
@@ -387,8 +384,8 @@ public class EntitySchrab extends Entity implements IProjectile
 
                             if (this.shootingEntity != null && this.shootingEntity instanceof EntityLivingBase)
                             {
-                                EnchantmentHelper.func_151384_a(entitylivingbase, this.shootingEntity);
-                                EnchantmentHelper.func_151385_b((EntityLivingBase)this.shootingEntity, entitylivingbase);
+                                EnchantmentHelper.applyThornEnchantments(entitylivingbase, this.shootingEntity);
+                                EnchantmentHelper.applyArthropodEnchantments((EntityLivingBase)this.shootingEntity, entitylivingbase);
                             }
 
                             if (this.shootingEntity != null && movingobjectposition.entityHit != this.shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)
@@ -422,7 +419,7 @@ public class EntitySchrab extends Entity implements IProjectile
                     this.field_145792_e = movingobjectposition.getBlockPos().getY();
                     this.field_145789_f = movingobjectposition.getBlockPos().getZ();
                     this.field_145790_g = com.hbm.world.WorldBlockState.read(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f).getBlock();
-                    this.inData = this.world.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+                    this.inData = com.hbm.world.WorldBlockState.readMetadata(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f);
                     this.motionX = ((float)(movingobjectposition.hitVec.x - this.posX));
                     this.motionY = ((float)(movingobjectposition.hitVec.y - this.posY));
                     this.motionZ = ((float)(movingobjectposition.hitVec.z - this.posZ));
@@ -430,14 +427,14 @@ public class EntitySchrab extends Entity implements IProjectile
                     this.posX -= this.motionX / f2 * 0.05000000074505806D;
                     this.posY -= this.motionY / f2 * 0.05000000074505806D;
                     this.posZ -= this.motionZ / f2 * 0.05000000074505806D;
-                    this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+                    this.playSound(net.minecraft.init.SoundEvents.ENTITY_ARROW_HIT, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
                     this.inGround = true;
                     this.arrowShake = 7;
                     this.setIsCritical(false);
 
                     if (this.field_145790_g.getDefaultState().getMaterial() != Material.AIR)
                     {
-                        this.field_145790_g.onEntityCollidedWithBlock(this.world, this.field_145791_d, this.field_145792_e, this.field_145789_f, this);
+                        this.field_145790_g.onEntityCollision(this.world, new net.minecraft.util.math.BlockPos(this.field_145791_d, this.field_145792_e, this.field_145789_f), this.world.getBlockState(new net.minecraft.util.math.BlockPos(this.field_145791_d, this.field_145792_e, this.field_145789_f)), this);
                     }
                 }
             }
@@ -502,7 +499,7 @@ public class EntitySchrab extends Entity implements IProjectile
             this.motionZ *= f3;
             this.motionY -= gravity;
             this.setPosition(this.posX, this.posY, this.posZ);
-            this.func_145775_I();
+            this.doBlockCollisions();
         }
 
 		if (this.ticksExisted > 250)
@@ -569,7 +566,7 @@ public class EntitySchrab extends Entity implements IProjectile
 
             if (flag)
             {
-                this.playSound("random.pop", 0.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+                this.playSound(net.minecraft.init.SoundEvents.ENTITY_ITEM_PICKUP, 0.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
                 p_70100_1_.onItemPickup(this, 1);
                 this.setDead();
             }
@@ -586,8 +583,7 @@ public class EntitySchrab extends Entity implements IProjectile
         return false;
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public float getShadowSize()
     {
         return 0.0F;
@@ -615,7 +611,7 @@ public class EntitySchrab extends Entity implements IProjectile
      * If returns false, the item will not inflict any damage against entities.
      */
     @Override
-	public boolean canAttackWithItem()
+    public boolean canBeAttackedWithItem()
     {
         return false;
     }

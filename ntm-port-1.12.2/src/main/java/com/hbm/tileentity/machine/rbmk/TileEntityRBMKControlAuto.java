@@ -19,6 +19,25 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class TileEntityRBMKControlAuto extends TileEntityRBMKControl implements IControlReceiver, ICopiable {
+
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
 	
 	public RBMKFunction function = RBMKFunction.LINEAR;
 	public double levelLower;

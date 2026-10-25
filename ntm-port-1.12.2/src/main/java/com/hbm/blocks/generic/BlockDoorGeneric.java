@@ -68,7 +68,10 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer playerIn, int side, float hitX, float hitY, float hitZ){
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer playerIn, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(!world.isRemote && !playerIn.isSneaking()) {
 			int[] pos1 = findCore(world, x, y, z);
 			if(pos1 == null) return false;
@@ -84,21 +87,20 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 	@Override
 	public boolean onScrew(World world, EntityPlayer player, int x, int y, int z, int side, float fX, float fY, float fZ, ToolType tool) {
 		if(tool != ToolType.SCREWDRIVER || !player.isSneaking()) return false;
-		
+
 		int[] pos1 = findCore(world, x, y, z);
 		if(pos1 == null) return false;
 		TileEntityDoorGeneric door = (TileEntityDoorGeneric) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos1[0], pos1[1], pos1[2]));
-		
+
 		if(door == null || !door.getDoorType().hasSkins()) return false;
 		if(world.isRemote) return true;
 		door.cycleSkinIndex();
 		return true;
 	}
 
-	@Override
 	public boolean isLadder(IBlockAccess world, int x, int y, int z, EntityLivingBase entity) {
-		TileEntity te = world.getTileEntity(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
+		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+		int meta = com.hbm.world.WorldBlockState.readMetadata(world, x, y, z);
 		boolean open = hasExtra(meta) || (te instanceof TileEntityDoorGeneric && ((TileEntityDoorGeneric)te).shouldUseBB);
 		return type.isLadder(open);
 	}
@@ -106,18 +108,18 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 	@Override
 	public void addCollisionBoxesToList(World worldIn, int x, int y, int z, AxisAlignedBB entityBox, List collidingBoxes, Entity entityIn) {
 		AxisAlignedBB box = getBoundingBox(worldIn, x, y, z, true);
-		box = AxisAlignedBB.getBoundingBox(
+		box = new AxisAlignedBB(
 				Math.min(box.minX, box.maxX), Math.min(box.minY, box.maxY), Math.min(box.minZ, box.maxZ),
 				Math.max(box.minX, box.maxX), Math.max(box.minY, box.maxY), Math.max(box.minZ, box.maxZ));
 
 		if(box.minY == y && box.maxY == y) return;
 		if(box.minX == box.maxX && box.minY == box.maxY && box.minZ == box.maxZ) return;
 
-		if(box != null && box.intersectsWith(entityBox)) {
+		if(box != null && box.intersects(entityBox)) {
 			collidingBoxes.add(box);
 		}
 
-		//if(hasExtra(worldIn.getBlockMetadata(x, y, z))) //transition hatch only worked with this, but fire door doesn't
+		//if(hasExtra(com.hbm.world.WorldBlockState.readMetadata(worldIn, x, y, z))) //transition hatch only worked with this, but fire door doesn't
 		//	return;
 		//super.addCollisionBoxesToList(worldIn, x, y, z, entityBox, collidingBoxes, entityIn);
 	}
@@ -133,7 +135,7 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 	@Override
 	public RayTraceResult collisionRayTrace(IBlockState state, World world, net.minecraft.util.math.BlockPos pos, Vec3d startVec, Vec3d endVec) {
 		AxisAlignedBB box = getBoundingBox(world, pos.getX(), pos.getY(), pos.getZ(), false);
-		box = AxisAlignedBB.getBoundingBox(
+		box = new AxisAlignedBB(
 			Math.min(box.minX, box.maxX), Math.min(box.minY, box.maxY), Math.min(box.minZ, box.maxZ),
 			Math.max(box.minX, box.maxX), Math.max(box.minY, box.maxY), Math.max(box.minZ, box.maxZ)
 		);
@@ -145,9 +147,8 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 		return null;
 	}
 
-	@Override //should fix AI pathfinding
 	public boolean getBlocksMovement(IBlockAccess world, int x, int y, int z) { //btw the method name is the exact opposite of that it's doing, check net.minecraft.pathfinding.PathNavigate#512
-		return hasExtra(world.getBlockMetadata(x, y, z)); //if it's open
+		return hasExtra(com.hbm.world.WorldBlockState.readMetadata(world, x, y, z)); //if it's open
 	}
 
 	@Override
@@ -168,8 +169,9 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 	}
 
 	@Override
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
-		return getBoundingBox(world, x, y, z, false);
+	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		return getBoundingBox((net.minecraft.world.World) world, x, y, z, false);
 	}
 
 	public AxisAlignedBB getBoundingBox(World world, int x, int y, int z, boolean forCollision) {
@@ -178,7 +180,7 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 		int[] core = this.findCore(world, x, y, z);
 		boolean open = hasExtra(meta) || (te instanceof TileEntityDoorGeneric && ((TileEntityDoorGeneric)te).state != 0);
 		if(core == null){
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
+			return new AxisAlignedBB(x, y, z, x + 1, y + 1, z + 1);
 		}
 		TileEntity te2 = world.getTileEntity(new net.minecraft.util.math.BlockPos(core[0], core[1], core[2]));
 		ForgeDirection dir = ForgeDirection.getOrientation(te2.getBlockMetadata() - BlockDummyable.offset);
@@ -186,12 +188,12 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 		AxisAlignedBB box = type.getBlockBound(pos.getX(), pos.getY(), pos.getZ(), open, forCollision);
 
 		switch(te2.getBlockMetadata() - offset){
-		case 2: return AxisAlignedBB.getBoundingBox(x + 1 - box.minX, y + box.minY, z + 1 - box.minZ, x + 1 - box.maxX, y + box.maxY, z + 1 - box.maxZ);
-		case 4: return AxisAlignedBB.getBoundingBox(x + 1 - box.minZ, y + box.minY, z + box.minX, x + 1 - box.maxZ, y + box.maxY, z + box.maxX);
-		case 3: return AxisAlignedBB.getBoundingBox(x + box.minX, y + box.minY, z + box.minZ, x + box.maxX, y + box.maxY, z + box.maxZ);
-		case 5: return AxisAlignedBB.getBoundingBox(x + box.minZ, y + box.minY, z + 1 - box.maxX, x + box.maxZ, y + box.maxY, z + 1 - box.minX);
+		case 2: return new AxisAlignedBB(x + 1 - box.minX, y + box.minY, z + 1 - box.minZ, x + 1 - box.maxX, y + box.maxY, z + 1 - box.maxZ);
+		case 4: return new AxisAlignedBB(x + 1 - box.minZ, y + box.minY, z + box.minX, x + 1 - box.maxZ, y + box.maxY, z + box.maxX);
+		case 3: return new AxisAlignedBB(x + box.minX, y + box.minY, z + box.minZ, x + box.maxX, y + box.maxY, z + box.maxZ);
+		case 5: return new AxisAlignedBB(x + box.minZ, y + box.minY, z + 1 - box.maxX, x + box.maxZ, y + box.maxY, z + 1 - box.minX);
 		}
-		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
+		return new AxisAlignedBB(x, y, z, x + 1, y + 1, z + 1);
 	}
 
 	@Override
@@ -203,18 +205,18 @@ public class BlockDoorGeneric extends BlockDummyable implements IBomb, IBlockSea
 	@Override
 	public boolean checkRequirement(World world, int x, int y, int z, ForgeDirection dir, int o) {
 		if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o, getDimensions(), x, y, z, dir)) return false;
-		
+
 		if(type.getExtraDimensions() != null) for(int[] dims : type.getExtraDimensions()) {
 			if(!MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o, dims, x, y, z, dir)) return false;
 		}
-		
+
 		return true;
 	}
 
 	@Override
 	public void fillSpace(World world, int x, int y, int z, ForgeDirection dir, int o) {
 		MultiblockHandlerXR.fillSpace(world, x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o, getDimensions(), this, dir);
-		
+
 		if(type.getExtraDimensions() != null) for(int[] dims : type.getExtraDimensions()) {
 			MultiblockHandlerXR.fillSpace(world, x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o, dims, this, dir);
 		}

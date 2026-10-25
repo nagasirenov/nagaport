@@ -35,7 +35,7 @@ public class SoyuzLauncher extends BlockDummyable {
 
 		if(meta >= 12) return new TileEntitySoyuzLauncher();
 		if(meta >= 6) return new TileEntityProxyCombo().power().fluid();
-		
+
 		return null;
 	}
 
@@ -43,21 +43,24 @@ public class SoyuzLauncher extends BlockDummyable {
 	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
 		return null;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote)
 		{
 			return true;
 		} else if(!player.isSneaking())
 		{
 			int[] pos = this.findCore(world, x, y, z);
-			
+
 			if(pos == null)
 				return false;
-			
+
 			BossSpawnHandler.markFBI(player);
-			
+
 			TileEntitySoyuzLauncher entity = (TileEntitySoyuzLauncher) world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 			if(entity != null)
 			{
@@ -68,54 +71,54 @@ public class SoyuzLauncher extends BlockDummyable {
 			return false;
 		}
 	}
-	
+
 	public static final int height = 4;
-	
+
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		
+
 		if(!(player instanceof EntityPlayer))
 			return;
-		
+
 		EntityPlayer pl = (EntityPlayer) player;
-		
+
 		int o = -getOffset();
-		
+
 		ForgeDirection dir = ForgeDirection.EAST;
-		
+
 		if(!checkRequirement(world, x, y, z, dir, o)) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
-			
+
 			if(!pl.capabilities.isCreativeMode) {
 				ItemStack stack = com.hbm.util.PlayerInventoryRead.get(pl.inventory.mainInventory, pl.inventory.currentItem);
 				Item item = Item.getItemFromBlock(this);
-				
+
 				if(stack == null) {
 					pl.inventory.mainInventory.set(pl.inventory.currentItem, new ItemStack(this));
 				} else {
-					if(stack.getItem() != item || stack.stackSize == stack.getMaxStackSize()) {
+					if(stack.getItem() != item || stack.getCount() == stack.getMaxStackSize()) {
 						pl.inventory.addItemStackToInventory(new ItemStack(this));
 					} else {
-						com.hbm.util.NativeHeldItem.getMainHandNullable(pl).stackSize++;
+						com.hbm.util.NativeHeldItem.getMainHandNullable(pl).grow(1);
 					}
 				}
 			}
-			
+
 			return;
 		}
-		
-		com.hbm.util.NativeHeldItem.getMainHandNullable(pl).stackSize--;
-		
-		world.setBlock(x + dir.offsetX * o , y + dir.offsetY * o + height, z + dir.offsetZ * o, this, dir.ordinal() + offset, 3);
+
+		com.hbm.util.NativeHeldItem.getMainHandNullable(pl).shrink(1);
+
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + dir.offsetX * o , y + dir.offsetY * o + height, z + dir.offsetZ * o, this, dir.ordinal() + offset, 3);
 		fillSpace(world, x, y, z, dir, o);
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2);
 
-		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+		super.onBlockPlacedBy(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), player, itemStack);
 	}
-	
+
 	public boolean checkRequirement(World world, int x, int y, int z, ForgeDirection dir, int o) {
-		
+
 		x = x + dir.offsetX * o;
 		y = y + dir.offsetY * o + height;
 		z = z + dir.offsetZ * o;
@@ -127,12 +130,12 @@ public class SoyuzLauncher extends BlockDummyable {
 		if(!MultiblockHandlerXR.checkSpace(world, x, y, z, new int[] { -2, 4, -3, 6, 6, -3 }, x, y, z, dir)) return false;
 		if(!MultiblockHandlerXR.checkSpace(world, x, y, z, new int[] { 0, 4, 1, 1, -6, 8 }, x, y, z, dir)) return false;
 		if(!MultiblockHandlerXR.checkSpace(world, x, y, z, new int[] { 0, 4, 2, 2, 9, -5 }, x, y, z, dir)) return false;
-		
+
 		return true;
 	}
-	
+
 	public void fillSpace(World world, int x, int y, int z, ForgeDirection dir, int o) {
-		
+
 		x = x + dir.offsetX * o;
 		y = y + dir.offsetY * o + height;
 		z = z + dir.offsetZ * o;
@@ -144,11 +147,11 @@ public class SoyuzLauncher extends BlockDummyable {
 		MultiblockHandlerXR.fillSpace(world, x, y, z, new int[] { -2, 4, -3, 6, 6, -3 }, this, dir);
 		MultiblockHandlerXR.fillSpace(world, x, y, z, new int[] { 0, 4, 1, 1, -6, 8 }, this, dir);
 		MultiblockHandlerXR.fillSpace(world, x, y, z, new int[] { 0, 4, 2, 2, 9, -5 }, this, dir);
-		
+
 		keepInventory = true;
 		for(int ix = -6; ix <= 6; ix++) {
 			for(int iz = -6; iz <= 6; iz++) {
-				
+
 				if(ix == 6 || ix == -6 || iz == 6 || iz == -6) {
 					this.makeExtra(world, x + ix, y, z + iz);
 					this.makeExtra(world, x + ix, y + 1, z + iz);
@@ -168,10 +171,10 @@ public class SoyuzLauncher extends BlockDummyable {
 	public int getOffset() {
 		return 0;
 	}
-	
+
 	private final Random field_149933_a = new Random();
 	private static boolean keepInventory;
-	
+
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block p_149749_5_, int i) {
 		if(!keepInventory) {
@@ -224,7 +227,7 @@ public class SoyuzLauncher extends BlockDummyable {
 				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.concrete_smooth, 38)));
 				world.spawnEntity(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(ModBlocks.struct_soyuz_core, 1)));
 
-				world.func_147453_f(x, y, z, p_149749_5_);
+				world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), p_149749_5_);
 			}
 		}
 

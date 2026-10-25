@@ -56,7 +56,7 @@ public abstract class PSysFXMoving extends PSysFX {
 		this.collisionData = new boolean[6];
 
 		if(!noClip) {
-			List<AxisAlignedBB> list = this.world.getCollidingBoundingBoxes(null, this.getBoundingBox().expand(x, y, z));
+			List<AxisAlignedBB> list = this.world.getCollisionBoxes(null, this.getBoundingBox().expand(x, y, z));
 
 			for(AxisAlignedBB aabb : list) y = aabb.calculateYOffset(this.getBoundingBox(), y);
 			this.setBoundingBox(this.getBoundingBox().offset(0.0D, y, 0.0D));

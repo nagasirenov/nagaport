@@ -14,11 +14,11 @@ import net.minecraft.item.ItemStack;
 public class ContainerMachineVacuumDistill extends Container {
 
 	private TileEntityMachineVacuumDistill distill;
-	
+
 	public ContainerMachineVacuumDistill(InventoryPlayer invPlayer, TileEntityMachineVacuumDistill tedf) {
-		
+
 		distill = tedf;
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(tedf, 0, 26, 90));
 		//Canister Input (removed, requires pressurization)
@@ -43,7 +43,7 @@ public class ContainerMachineVacuumDistill extends Container {
 		this.addSlotToContainer(new SlotTakeOnly(tedf, 10, 134, 108));
 		//Fluid ID
 		this.addSlotToContainer(new Slot(tedf, 11, 26, 108));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 156 + i * 18));
@@ -54,12 +54,12 @@ public class ContainerMachineVacuumDistill extends Container {
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 214));
 		}
 	}
-	
+
 	@Override
 	public void addListener(IContainerListener crafting) {
 		super.addListener(crafting);
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
 		ItemStack var3 = null;
@@ -82,7 +82,7 @@ public class ContainerMachineVacuumDistill extends Container {
 									return null;
 								}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
@@ -91,7 +91,7 @@ public class ContainerMachineVacuumDistill extends Container {
 
 		return var3;
 	}
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return distill.isUsableByPlayer(player);

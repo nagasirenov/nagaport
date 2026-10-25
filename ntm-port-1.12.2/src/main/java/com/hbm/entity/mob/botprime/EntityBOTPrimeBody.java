@@ -11,6 +11,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityBOTPrimeBody extends EntityBOTPrimeBase {
+	private static final net.minecraft.network.datasync.DataParameter<Byte> STATE = net.minecraft.network.datasync.EntityDataManager.createKey(EntityBOTPrimeBody.class, net.minecraft.network.datasync.DataSerializers.BYTE);
 
 	//private WormMovementBodyNT movement = new WormMovementBodyNT(this);
 
@@ -25,7 +26,7 @@ public class EntityBOTPrimeBody extends EntityBOTPrimeBase {
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(17, (byte) 0);
+		this.dataManager.register(STATE, (byte) 0);
 	}
 
 	@Override

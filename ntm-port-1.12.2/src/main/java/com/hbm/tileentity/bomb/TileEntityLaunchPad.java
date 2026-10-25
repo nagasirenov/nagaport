@@ -44,7 +44,7 @@ public class TileEntityLaunchPad extends TileEntityLaunchPadBase {
 
 		} else {
 
-			List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
+			List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(int i = 0; i < 15; i++) {
@@ -110,7 +110,7 @@ public class TileEntityLaunchPad extends TileEntityLaunchPadBase {
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,

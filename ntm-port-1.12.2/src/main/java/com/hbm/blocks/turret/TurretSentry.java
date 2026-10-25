@@ -30,7 +30,7 @@ public class TurretSentry extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
-		
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -55,11 +55,14 @@ public class TurretSentry extends BlockContainer {
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	Random rand = new Random();
-	
+
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block b, int meta) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block b = state.getBlock();
+		int meta = b.getMetaFromState(state);
 
 		TileEntityTurretSentry sentry = (TileEntityTurretSentry) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
@@ -99,9 +102,9 @@ public class TurretSentry extends BlockContainer {
 				}
 			}
 
-			world.func_147453_f(x, y, z, b);
+			world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), b);
 		}
 
-		super.breakBlock(world, x, y, z, b, meta);
+		super.breakBlock(world, pos, state);
 	}
 }

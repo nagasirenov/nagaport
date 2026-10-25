@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class EntitySiegeLaser extends EntityThrowable {
 
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntitySiegeLaser.class, DataSerializers.VARINT);
-	
+
 	private float damage = 2;
 	private float explosive = 0F;
 	private float breakChance = 0F;
@@ -34,37 +34,37 @@ public class EntitySiegeLaser extends EntityThrowable {
 	public EntitySiegeLaser(World world, double x, double y, double z) {
 		super(world, x, y, z);
 	}
-	
+
 	@Override
 	protected void entityInit() {
 		this.dataManager.register(COLOR, (int) 0xffffff);
 	}
-	
+
 	public EntitySiegeLaser setDamage(float f) {
 		this.damage = f;
 		return this;
 	}
-	
+
 	public EntitySiegeLaser setExplosive(float f) {
 		this.explosive = f;
 		return this;
 	}
-	
+
 	public EntitySiegeLaser setBreakChance(float f) {
 		this.breakChance = f;
 		return this;
 	}
-	
+
 	public EntitySiegeLaser setIncendiary() {
 		this.incendiary = true;
 		return this;
 	}
-	
+
 	public EntitySiegeLaser setColor(int color) {
 		this.dataManager.set(COLOR, color);
 		return this;
 	}
-	
+
 	public int getColor() {
 		return this.dataManager.get(COLOR);
 	}
@@ -72,14 +72,14 @@ public class EntitySiegeLaser extends EntityThrowable {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 		if(this.ticksExisted > 60)
 			this.setDead();
 	}
 
 	@Override
 	protected void onImpact(RayTraceResult mop) {
-		
+
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 			DamageSource dmg;
 
@@ -87,34 +87,34 @@ public class EntitySiegeLaser extends EntityThrowable {
 				dmg = new EntityDamageSourceIndirect(ModDamageSource.s_laser, this, this.getThrower());
 			else
 				dmg = new DamageSource(ModDamageSource.s_laser);
-			
+
 			if(mop.entityHit.attackEntityFrom(dmg, this.damage)) {
 				this.setDead();
-				
+
 				if(this.incendiary)
 					mop.entityHit.setFire(3);
-				
+
 				if(this.explosive > 0)
 					this.world.newExplosion(this, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, this.explosive, this.incendiary, false);
 			}
-			
-			
+
+
 		} else if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
-			
+
 			if(this.explosive > 0) {
 				this.world.newExplosion(this, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, this.explosive, this.incendiary, false);
-				
+
 			} else if(this.incendiary) {
 				net.minecraft.util.EnumFacing side = mop.sideHit;
-				int x = mop.getBlockPos().getX() + side.getFrontOffsetX();
-				int y = mop.getBlockPos().getY() + side.getFrontOffsetY();
-				int z = mop.getBlockPos().getZ() + side.getFrontOffsetZ();
-				
+				int x = mop.getBlockPos().getX() + side.getXOffset();
+				int y = mop.getBlockPos().getY() + side.getYOffset();
+				int z = mop.getBlockPos().getZ() + side.getZOffset();
+
 				if(com.hbm.world.WorldBlockState.read(this.world, x, y, z).getBlock().isReplaceable(this.world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 					com.hbm.world.WorldBlockState.write(this.world, x, y, z, Blocks.FIRE.getStateFromMeta(0), 3);
 				}
 			}
-			
+
 			if(this.rand.nextFloat() < this.breakChance) {
 				com.hbm.world.WorldBlockDestruction.destroy(this.world, mop.getBlockPos().getX(), mop.getBlockPos().getY(), mop.getBlockPos().getZ(), false);
 			}
@@ -122,12 +122,12 @@ public class EntitySiegeLaser extends EntityThrowable {
 			this.setDead();
 		}
 	}
-	
+
 	@Override
 	protected float getGravityVelocity() {
 		return 0.0F;
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
@@ -146,6 +146,6 @@ public class EntitySiegeLaser extends EntityThrowable {
 		this.breakChance = nbt.getFloat("breakChance");
 		this.incendiary = nbt.getBoolean("incendiary");
 		this.setColor(nbt.getInteger("color"));
-		
+
 	}
 }

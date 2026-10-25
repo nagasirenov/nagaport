@@ -10,6 +10,10 @@ import com.hbm.tileentity.bomb.TileEntityLaunchTable;
 import com.hbm.tileentity.machine.TileEntityDummy;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,8 +30,26 @@ import net.minecraft.world.World;
 
 public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 
+	public static final net.minecraft.block.properties.PropertyInteger ORIENTATION = net.minecraft.block.properties.PropertyInteger.create("orientation", 0, 3);
+
 	public LaunchTable(Material p_i45386_1_) {
 		super(p_i45386_1_);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(ORIENTATION, 0));
+	}
+
+	@Override
+	protected net.minecraft.block.state.BlockStateContainer createBlockState() {
+		return new net.minecraft.block.state.BlockStateContainer(this, ORIENTATION);
+	}
+
+	@Override
+	public net.minecraft.block.state.IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(ORIENTATION, meta & 3);
+	}
+
+	@Override
+	public int getMetaFromState(net.minecraft.block.state.IBlockState state) {
+		return state.getValue(ORIENTATION);
 	}
 
 	@Override
@@ -86,7 +108,7 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 
 		if(d == 0) {
 
-			worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 0, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(worldObj, xCoord, yCoord, zCoord, 0, 2);
 			for(int i = 1; i < 12; i++)
 				{ net.minecraft.world.World nativePlacementWorld = worldObj; int nativePlacementX = xCoord + 3; int nativePlacementY = yCoord + i; int nativePlacementZ = zCoord; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 
@@ -99,7 +121,7 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 					placeDummy(worldObj, xCoord, yCoord, zCoord + i, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_launch_table);
 		}
 		if(d == 1) {
-			worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(worldObj, xCoord, yCoord, zCoord, 2, 2);
 			for(int i = 1; i < 12; i++)
 				{ net.minecraft.world.World nativePlacementWorld = worldObj; int nativePlacementX = xCoord; int nativePlacementY = yCoord + i; int nativePlacementZ = zCoord + 3; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 
@@ -112,7 +134,7 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 					placeDummy(worldObj, xCoord, yCoord, zCoord + i, xCoord, yCoord, zCoord, ModBlocks.dummy_port_launch_table);
 		}
 		if(d == 2) {
-			worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(worldObj, xCoord, yCoord, zCoord, 1, 2);
 			for(int i = 1; i < 12; i++)
 				{ net.minecraft.world.World nativePlacementWorld = worldObj; int nativePlacementX = xCoord - 3; int nativePlacementY = yCoord + i; int nativePlacementZ = zCoord; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 
@@ -125,7 +147,7 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 					placeDummy(worldObj, xCoord, yCoord, zCoord + i, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_launch_table);
 		}
 		if(d == 3) {
-			worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(worldObj, xCoord, yCoord, zCoord, 3, 2);
 			for(int i = 1; i < 12; i++)
 				{ net.minecraft.world.World nativePlacementWorld = worldObj; int nativePlacementX = xCoord; int nativePlacementY = yCoord + i; int nativePlacementZ = zCoord - 3; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 
@@ -146,7 +168,7 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 
 	private void placeDummy(World world, int x, int y, int z, int xCoord, int yCoord, int zCoord, Block block) {
 
-		world.setBlock(x, y, z, block);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, block);
 
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 
@@ -160,18 +182,18 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 
 	@Override
 	public BombReturnCode explode(World world, int x, int y, int z) {
-		
+
 		if(!world.isRemote) {
 			TileEntityLaunchTable entity = (TileEntityLaunchTable) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-	
+
 			if(entity.canLaunch()) {
 				entity.launchFromDesignator();
 				return BombReturnCode.LAUNCHED;
 			}
-			
+
 			return BombReturnCode.ERROR_MISSING_COMPONENT;
 		}
-		
+
 		return BombReturnCode.UNDEFINED;
 	}
 
@@ -179,7 +201,10 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 	private final static Random field_149933_a = new Random();
 
 	@Override
-	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
+	public void breakBlock(World p_149749_1_, BlockPos pos, IBlockState state) {
+		int p_149749_2_ = pos.getX(), p_149749_3_ = pos.getY(), p_149749_4_ = pos.getZ();
+		Block p_149749_5_ = state.getBlock();
+		int p_149749_6_ = p_149749_5_.getMetaFromState(state);
 		if(!keepInventory) {
 			ISidedInventory tileentityfurnace = (ISidedInventory) p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
 
@@ -219,11 +244,11 @@ public class LaunchTable extends BlockContainer implements IMultiblock, IBomb {
 					}
 				}
 
-				p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
+				p_149749_1_.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_), p_149749_5_);
 			}
 		}
 
-		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+		super.breakBlock(p_149749_1_, pos, state);
 	}
 
 }

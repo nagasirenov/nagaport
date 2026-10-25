@@ -32,8 +32,13 @@ public class ItemLaserDetonator extends Item implements IHoldableWeapon {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+
 		RayTraceResult pos = Library.rayTrace(player, 500, 1);
 		int x = pos.getBlockPos().getX();
 		int y = pos.getBlockPos().getY();
@@ -45,20 +50,20 @@ public class ItemLaserDetonator extends Item implements IHoldableWeapon {
 
 				if(GeneralConfig.enableExtendedLogging)
 					MainRegistry.logger.log(Level.INFO, "[DET] Tried to detonate block at " + x + " / " + y + " / " + z + " by " + player.getDisplayName() + "!");
-				
-				world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+
+				world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start("").nextTranslation(ret.getUnlocalizedMessage()).color(ret.wasSuccessful() ? TextFormatting.YELLOW : TextFormatting.RED).flush(), MainRegistry.proxy.ID_DETONATOR), (EntityPlayerMP) player);
-				
+
 			} else {
-				world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F);
+				world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBoop"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(ChatBuilder.start("").nextTranslation(BombReturnCode.ERROR_NO_BOMB.getUnlocalizedMessage()).color(TextFormatting.RED).flush(), MainRegistry.proxy.ID_DETONATOR), (EntityPlayerMP) player);
 			}
 		} else {
-			
+
 			Vec3d vec = new Vec3d(x + 0.5 - player.posX, y + 0.5 - player.posY, z + 0.5 - player.posZ);
 			double len = Math.min(vec.length(), 15D);
 			vec = vec.normalize();
-			
+
 			for(int i = 0; i < len; i++) {
 				double rand = world.rand.nextDouble() * len + 3;
 				world.spawnParticle(net.minecraft.util.EnumParticleTypes.REDSTONE, player.posX + vec.x * rand, player.posY + vec.y * rand, player.posZ + vec.z * rand, 0, 0, 0);

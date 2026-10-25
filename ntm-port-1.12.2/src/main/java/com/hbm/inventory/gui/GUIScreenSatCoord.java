@@ -60,7 +60,7 @@ public class GUIScreenSatCoord extends GuiScreen {
 		this.zField.setMaxStringLength(7);
 	}
 
-	protected void mouseClicked(int i, int j, int k) {
+	protected void mouseClicked(int i, int j, int k) throws java.io.IOException {
 		super.mouseClicked(i, j, k);
 
 		if(ItemSatInterface.currentSat == null)
@@ -149,7 +149,7 @@ public class GUIScreenSatCoord extends GuiScreen {
 		}
 	}
 
-	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
+	protected void keyTyped(char p_73869_1_, int p_73869_2_) throws java.io.IOException {
 
 		if(this.xField.textboxKeyTyped(p_73869_1_, p_73869_2_)) {
 		} else if(ItemSatInterface.currentSat != null && ItemSatInterface.currentSat.coordAcs.contains(CoordActions.HAS_Y) && this.yField.textboxKeyTyped(p_73869_1_, p_73869_2_)) {

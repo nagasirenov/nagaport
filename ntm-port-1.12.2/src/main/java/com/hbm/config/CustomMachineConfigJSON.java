@@ -221,7 +221,7 @@ public class CustomMachineConfigJSON {
 				for(int j = 0; j < components.size(); j++) {
 					JsonObject compObject = components.get(j).getAsJsonObject();
 					ComponentDefinition compDef = new ComponentDefinition();
-					compDef.block = (Block) Block.blockRegistry.getObject(compObject.get("block").getAsString());
+					compDef.block = (Block) net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValue(new net.minecraft.util.ResourceLocation(compObject.get("block").getAsString()));
 					compDef.x = compObject.get("x").getAsInt();
 					compDef.y = compObject.get("y").getAsInt();
 					compDef.z = compObject.get("z").getAsInt();

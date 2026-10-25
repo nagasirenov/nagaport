@@ -44,11 +44,11 @@ public class Compat {
 	public static final String MOD_OC = "OpenComputers";
 
 	public static Item tryLoadItem(String domain, String name) {
-		return (Item) Item.itemRegistry.getObject(getReg(domain, name));
+		return Item.getByNameOrId(getReg(domain, name));
 	}
 
 	public static Block tryLoadBlock(String domain, String name) {
-		return (Block) Block.blockRegistry.getObject(getReg(domain, name));
+		return (Block) net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValue(new net.minecraft.util.ResourceLocation(getReg(domain, name)));
 	}
 
 	private static String getReg(String domain, String name) {
@@ -140,10 +140,10 @@ public class Compat {
 
 					if(stackTag instanceof NBTTagCompound) {
 						NBTTagCompound compound = (NBTTagCompound) stackTag;
-						ItemStack stack = ItemStack.loadItemStackFromNBT(compound);
+						ItemStack stack = new net.minecraft.item.ItemStack(compound);
 
 						int count = nbt.getInteger("@" + i);
-						stack.stackSize = count;
+						stack.setCount(count);
 						stacks.add(stack);
 					}
 				}

@@ -10,13 +10,20 @@ import com.hbm.items.ModItems;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 
 public class MeltedFlesh extends Block {
+
+	public MeltedFlesh withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
 
 	private final net.minecraft.util.math.AxisAlignedBB shape;
 
@@ -36,9 +43,9 @@ public class MeltedFlesh extends Block {
 
 	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		if(this == ModBlocks.flesh_block) {
-			return ModItems.flesh;	
+			return ModItems.flesh;
 		} else if(this == ModBlocks.charred_flesh_block) {
-			return ModItems.grilled_flesh;	
+			return ModItems.grilled_flesh;
 		}
 
 		return ModItems.powder_coal_tiny;
@@ -67,10 +74,12 @@ public class MeltedFlesh extends Block {
 	public boolean isReplaceable(IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return true;
 	}
-	
+
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		super.randomDisplayTick(world, x, y, z, rand);
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+		super.randomDisplayTick(state, world, pos, rand);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
 		CBT_Temperature temperature = CelestialBody.getTrait(world, CBT_Temperature.class);
 		if(temperature != null && temperature.degrees > 100) {
@@ -85,26 +94,25 @@ public class MeltedFlesh extends Block {
 				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
 				world.spawnParticle(net.minecraft.util.EnumParticleTypes.CLOUD, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
 			} else if(this == ModBlocks.charred_flesh_block) {
-				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_LARGE, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);	        	
+				world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_LARGE, (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
 			}
-		}		
+		}
 	}
-	
+
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		CBT_Temperature temperature = CelestialBody.getTrait(world, CBT_Temperature.class);
 		if(temperature != null && temperature.degrees > 100) {
 			if(this == ModBlocks.flesh_block) {
-				world.setBlock(x, y, z, ModBlocks.charred_flesh_block);    	
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.charred_flesh_block);
 			} else if(this == ModBlocks.charred_flesh_block) {
-				world.setBlock(x, y, z, ModBlocks.carbonized_flesh_block);    	
-			}  
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.carbonized_flesh_block);
+			}
 		}
 	}
 
 
 
-	@Override
 	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return shape;
 	}

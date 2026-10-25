@@ -141,7 +141,7 @@ public class RenderInfoSystem {
 		GL11.glColor3f(1F, 1F, 1F);
 
 		GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.ICONS);
 	}
 	
 	public static void push(InfoEntry entry) {

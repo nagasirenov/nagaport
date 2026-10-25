@@ -23,32 +23,32 @@ public class ItemPancake extends ItemFood {
 
     @Override
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
-    	
-    	for(ItemStack st : player.inventory.armorInventory) {
-    		if (st == ItemStack.EMPTY) st = null;
-    		
-    		if(st == null)
-    			continue;
-    		
-    		if(st.getItem() instanceof IBatteryItem) {
-    			((IBatteryItem)st.getItem()).setCharge(st, ((IBatteryItem)st.getItem()).getMaxCharge(st));
-    		}
-    	}
+
+	for(ItemStack st : player.inventory.armorInventory) {
+		if (st == null || st.isEmpty()) continue;
+
+		if(st == null)
+			continue;
+
+		if(st.getItem() instanceof IBatteryItem) {
+			((IBatteryItem)st.getItem()).setCharge(st, ((IBatteryItem)st.getItem()).getMaxCharge(st));
+		}
+	}
     }
-    
+
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-    	
-    	if(ArmorFSB.hasFSBArmorIgnoreCharge(player) && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).getItem() == ModItems.bj_helmet) {
-        	return super.onItemRightClick(stack, world, player);
-    	}
-    	
-    	if(!world.isRemote)
+    public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand hand) {
+	ItemStack stack = player.getHeldItem(hand);
+	if(ArmorFSB.hasFSBArmorIgnoreCharge(player) && com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3).getItem() == ModItems.bj_helmet) {
+	return super.onItemRightClick(world, player, hand);
+	}
+
+	if(!world.isRemote)
 		player.sendMessage(new TextComponentString(TextFormatting.YELLOW + "Your teeth are too soft to eat this."));
-    	
-    	return stack;
+
+	return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.FAIL, stack);
     }
-	
+
 	@Override
 	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add("Can be eaten to recharge lunar cybernetic armor");

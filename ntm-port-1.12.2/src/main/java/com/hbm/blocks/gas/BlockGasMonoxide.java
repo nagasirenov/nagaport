@@ -18,14 +18,19 @@ public class BlockGasMonoxide extends BlockGasBase {
 		super(0.1F, 0.1F, 0.1F);
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity) {
-		
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity) {
+
 		if(!(entity instanceof EntityLivingBase))
 			return;
-		
+
 		EntityLivingBase entityLiving = (EntityLivingBase) entity;
-		
+
 		if(ArmorRegistry.hasAllProtection(entityLiving, 3, HazardClass.GAS_MONOXIDE))
 			ArmorUtil.damageGasMaskFilter(entityLiving, 1);
 		else
@@ -42,14 +47,19 @@ public class BlockGasMonoxide extends BlockGasBase {
 		return this.randomHorizontal(world);
 	}
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
 
 		if(!world.isRemote && rand.nextInt(100) == 0) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return;
 		}
-		
+
 		super.updateTick(world, x, y, z, rand);
 	}
 }

@@ -25,7 +25,7 @@ public class EntityGrenadeCloud extends EntityGrenadeBase {
 		if (!this.world.isRemote) {
 			this.setDead();
 
-            this.world.playAuxSFX(2002, (int)Math.round(this.posX), (int)Math.round(this.posY), (int)Math.round(this.posZ), 0);
+            this.world.playEvent(2002, new net.minecraft.util.math.BlockPos((int)Math.round(this.posX), (int)Math.round(this.posY), (int)Math.round(this.posZ)), 0);
 			ExplosionChaos.spawnPoisonCloud(this.world, posX, posY, posZ, 250, 1.5, 1);
 		}
 	}

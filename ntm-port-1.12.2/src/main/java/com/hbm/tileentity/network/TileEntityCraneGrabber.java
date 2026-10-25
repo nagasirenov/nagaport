@@ -112,7 +112,7 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 						newItem.setItemStack(item.getItemStack().copy());
 						newItem.setPosition(snap.x, snap.y, snap.z);
 						item.setDead();
-						this.world.spawnEntityInWorld(newItem);
+						this.world.spawnEntity(newItem);
 						break;
 					}
 
@@ -156,13 +156,13 @@ public class TileEntityCraneGrabber extends TileEntityCraneBase implements IGUIP
 							lastGrabbedTick = this.world.getTotalWorldTime();
 
 							ItemStack copy = stack.copy();
-							int toAdd = Math.min(stack.stackSize, amount);
-							copy.stackSize = toAdd;
+							int toAdd = Math.min(stack.getCount(), amount);
+							copy.setCount(toAdd);
 							ItemStack ret = CraneInserter.addToInventory((IInventory) te, access, copy, outputSide.getOpposite().ordinal());
-							int didAdd = toAdd - (ret != null ? ret.stackSize : 0);
-							stack.stackSize -= didAdd;
+							int didAdd = toAdd - (ret != null ? ret.getCount() : 0);
+							stack.shrink(didAdd);
 
-							if(stack.stackSize <= 0) {
+							if(stack.getCount() <= 0) {
 								item.setDead();
 							}
 

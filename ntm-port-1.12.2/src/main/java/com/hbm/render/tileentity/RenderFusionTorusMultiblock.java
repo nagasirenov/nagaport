@@ -17,7 +17,7 @@ public class RenderFusionTorusMultiblock extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x, y, z);
 		
-		bindTexture(TextureMap.locationBlocksTexture);
+		bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 		SmallBlockPronter.startDrawing();
 		
 		for(int iy = 0; iy < 5; iy++) {

@@ -14,6 +14,9 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 
 public class ModelJetPack extends ModelBiped {
+	protected int heldItemRight = 0;
+	protected boolean aimedBow = false;
+
 
 	ModelRenderer Tank1;
 	ModelRenderer Tank2;
@@ -114,9 +117,9 @@ public class ModelJetPack extends ModelBiped {
 			if (itemstack != null && player.getItemInUseCount() > 0) {
 				EnumAction enumaction = itemstack.getItemUseAction();
 
-				if (enumaction == EnumAction.block) {
+				if (enumaction == EnumAction.BLOCK) {
 					this.heldItemRight = 3;
-				} else if (enumaction == EnumAction.bow) {
+				} else if (enumaction == EnumAction.BOW) {
 					this.aimedBow = true;
 				}
 			}

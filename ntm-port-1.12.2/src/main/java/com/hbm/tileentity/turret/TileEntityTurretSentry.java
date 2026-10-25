@@ -223,7 +223,7 @@ public class TileEntityTurretSentry extends TileEntityTurretBaseNT implements IG
 		super.seekNewTarget();
 
 		if(lastTarget != this.target && this.target != null) {
-			this.world.playSoundAtEntity(target, "hbm:turret.sentry_lockon", 2.0F, 1.5F);
+			this.world.playSound(null, target.posX, target.posY, target.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:turret.sentry_lockon"), net.minecraft.util.SoundCategory.PLAYERS, 2.0F, 1.5F);
 		}
 	}
 

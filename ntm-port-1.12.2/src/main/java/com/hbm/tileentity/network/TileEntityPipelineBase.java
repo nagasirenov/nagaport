@@ -120,9 +120,9 @@ public abstract class TileEntityPipelineBase extends TileEntityPipeBaseNT {
 
 	public Vec3d getConnectionPoint() {
 		Vec3d mount = this.getMountPos();
-		return mount.addVector(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+		return mount.add(this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
-	
+
 	public List<int[]> getConnected() {
 		return connected;
 	}

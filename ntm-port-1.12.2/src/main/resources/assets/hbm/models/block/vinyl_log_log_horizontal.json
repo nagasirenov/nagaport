@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "hbm:blocks/vinyl_log_top",
+    "side": "hbm:blocks/vinyl_log_side"
+  }
+}

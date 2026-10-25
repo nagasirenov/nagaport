@@ -28,7 +28,6 @@ public class MapGenChainloader extends MapGenBase {
 	private static List<MapGenBase> netherGenerators = new ArrayList<>();
 
 	// Executes our chainloaded parent, and all our child generators
-	@Override
 	public void generate(World world, int chunkX, int chunkZ, ChunkPrimer primer) {
 		parent.generate(world, chunkX, chunkZ, primer);
 

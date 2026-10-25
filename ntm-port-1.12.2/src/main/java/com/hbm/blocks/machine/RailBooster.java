@@ -12,7 +12,7 @@ public class RailBooster extends RailGeneric {
 	}
 
 	@Override
-	public void onMinecartPass(World world, EntityMinecart cart, int y, int x, int z) {
+	public void onMinecartPass(World world, EntityMinecart cart, net.minecraft.util.math.BlockPos pos) {
 		cart.motionX *= 1.15F;
 		cart.motionY *= 1.15F;
 		cart.motionZ *= 1.15F;

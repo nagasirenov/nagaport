@@ -9,6 +9,8 @@ import com.hbm.tileentity.machine.TileEntityDummy;
 import com.hbm.tileentity.machine.TileEntityMachineSatDock;
 
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -34,36 +36,28 @@ public class MachineSatDock extends BlockContainer implements IMultiblock {
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		return new TileEntityMachineSatDock();
 	}
-	
+
 	@Override
 	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
 		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_)
-    {
-        float f = 0.0625F;
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 12*f, 1.0F);
-    }
-	
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        float f = 0.0625F;
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 12*f, 1.0F);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+
+		private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 12 * 0.0625F, 1.0F);
+
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return BOUNDS;
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
@@ -82,7 +76,7 @@ public class MachineSatDock extends BlockContainer implements IMultiblock {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)
     {
@@ -145,19 +139,19 @@ public class MachineSatDock extends BlockContainer implements IMultiblock {
 						com.hbm.world.WorldBlockDestruction.destroy(worldObj, xCoord, yCoord, zCoord, true);
 						return;
 					}
-		
+
 		for(int k = -1; k <= 1; k++)
 			for(int l = -1; l <= 1; l++)
 				if(l != 0 || k != 0)
 					placeDummy(worldObj, xCoord + k, yCoord, zCoord + l, xCoord, yCoord, zCoord, ModBlocks.dummy_plate_cargo);
 	}
-	
+
 	private void placeDummy(World world, int x, int y, int z, int xCoord, int yCoord, int zCoord, Block block) {
-		
-		world.setBlock(x, y, z, block);
-		
+
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, block);
+
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(te instanceof TileEntityDummy) {
 			TileEntityDummy dummy = (TileEntityDummy)te;
 			dummy.targetX = xCoord;

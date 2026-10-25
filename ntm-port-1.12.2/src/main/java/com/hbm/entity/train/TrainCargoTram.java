@@ -1,4 +1,5 @@
 package com.hbm.entity.train;
+import net.minecraft.util.math.AxisAlignedBB;
 
 import org.lwjgl.opengl.GL11;
 
@@ -25,7 +26,7 @@ import net.minecraft.world.World;
 public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvider {
 
 	/*
-	 * 
+	 *
 	 *     _________
 	 *    | |       \          <--
 	 *    | |       |___
@@ -34,7 +35,7 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 	 * |____|                                      |____|
 	 *    \__________________________________________/
 	 *        '( + )'                      '( + )'
-	 * 
+	 *
 	 */
 
 	public TrainCargoTram(World world) {
@@ -54,8 +55,9 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 	@Override public Vec3d getRiderSeatPosition() { return new Vec3d(0.375, 2.375, 0.5); }
 	@Override public boolean shouldRiderSit() { return false; }
 	@Override public int getSizeInventory() { return 29; }
-	@Override public String getInventoryName() { return this.hasCustomInventoryName() ? this.getEntityName() : "container.trainTram"; }
-	//@Override public AxisAlignedBB getCollisionBox() { return AxisAlignedBB.getBoundingBox(renderX, renderY, renderZ, renderX, renderY + 1, renderZ).expand(4, 0, 4); }
+	@Override public String getName() { return this.hasCustomName() ? this.getEntityName() : "container.trainTram"; }
+	public String getInventoryName() { return getName(); }
+	//@Override public AxisAlignedBB getCollisionBox() { return new AxisAlignedBB(renderX, renderY, renderZ, renderX, renderY + 1, renderZ).expand(4, 0, 4); }
 	@Override public double getCouplingDist(TrainCoupling coupling) { return coupling != null ? 2.75 : 0; }
 
 	@Override public int getMaxPower() { return this.getPowerConsumption() * 100; }
@@ -77,7 +79,7 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 		if(!this.world.isRemote && !this.isDead) {
 			this.setDead();
 		}
-		
+
 		return true;
 	}
 
@@ -99,7 +101,7 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return new GUITrainCargoTram(player.inventory, this);
 	}
-	
+
 	/*
 	 * ##### ##### #   # ##### ##### ### #   # ##### ####
 	 * #     #   # ##  #   #   #   #  #  ##  # #     #   #
@@ -126,7 +128,7 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 				this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 180));
 			}
 		}
-		
+
 		@Override
 		public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 			ItemStack stackCopy = ItemStack.EMPTY;
@@ -139,7 +141,7 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 						return ItemStack.EMPTY;
 					}
 				} else {
-					
+
 					if(stackCopy.getItem() instanceof IBatteryItem) {
 						if(!this.mergeItemStack(stack, 28, 29, false)) {
 							return ItemStack.EMPTY;
@@ -164,7 +166,7 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 			return train.isUsableByPlayer(player);
 		}
 	}
-	
+
 	/*
 	 * ##### #   # ###
 	 * #     #   #  #
@@ -182,13 +184,13 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 			this.xSize = 176;
 			this.ySize = 204;
 		}
-		
+
 		@Override
 		public void drawScreen(int x, int y, float interp) {
 			super.drawScreen(x, y, interp);
 			this.drawElectricityInfo(this, x, y, guiLeft + 152, guiTop + 18, 16, 52, train.getPower(), train.getMaxPower());
 		}
-		
+
 		@Override
 		protected void drawGuiContainerForegroundLayer(int i, int j) {
 			String name = this.train.hasCustomInventoryName() ? this.train.getInventoryName() : I18nUtil.format(this.train.getInventoryName());
@@ -201,10 +203,10 @@ public class TrainCargoTram extends EntityRailCarElectric implements IGUIProvide
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 			drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-			
+
 			int i = train.getPower() * 53 / train.getMaxPower();
 			drawTexturedModalRect(guiLeft + 152, guiTop + 70 - i, 176, 52 - i, 16, i);
-			
+
 			if(train.getPower() > train.getPowerConsumption()) {
 				drawTexturedModalRect(guiLeft + 156, guiTop + 4, 176, 52, 9, 12);
 			}

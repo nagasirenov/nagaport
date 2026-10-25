@@ -38,7 +38,6 @@ public class TileEntityMachineStrandCaster extends TileEntityFoundryCastingBase 
 		return "container.machineStrandCaster";
 	}
 
-	@Override
 	public String getInventoryName() {
 		return getName();
 	}
@@ -55,7 +54,7 @@ public class TileEntityMachineStrandCaster extends TileEntityFoundryCastingBase 
 		if(!this.world.isRemote) {
 
 			if(this.lastType != this.type || this.lastAmount != this.amount) {
-				this.world.markBlockForUpdate(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				com.hbm.world.WorldBlockState.markBlockForUpdate(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 				this.lastType = this.type;
 				this.lastAmount = this.amount;
 			}
@@ -75,16 +74,16 @@ public class TileEntityMachineStrandCaster extends TileEntityFoundryCastingBase 
 			this.updateConnections();
 
 			int moldsToCast = maxProcessable();
-		
+
 			// Makes it flush the buffers after 10 seconds of inactivity, or when they're full
 			if (moldsToCast > 0 && (moldsToCast >= 9 || this.world.getWorldTime() >= lastProgressTick + 200)) {
 
 				ItemMold.Mold mold = this.getInstalledMold();
-				
+
 				this.amount -= moldsToCast * mold.getCost();
 
 				ItemStack out = mold.getOutput(type);
-				int remaining = out.stackSize * moldsToCast;
+				int remaining = out.getCount() * moldsToCast;
 				final int maxStackSize = out.getMaxStackSize();
 
 				for (int i = 1; i < 7; i++) {
@@ -97,8 +96,8 @@ public class TileEntityMachineStrandCaster extends TileEntityFoundryCastingBase 
 					}
 
 					if (slots[i].isItemEqual(out)) {
-						int toDeposit = Math.min(remaining, maxStackSize - slots[i].stackSize);
-						slots[i].stackSize += toDeposit;
+						int toDeposit = Math.min(remaining, maxStackSize - slots[i].getCount());
+						slots[i].grow(toDeposit);
 						remaining -= toDeposit;
 					}
 				}
@@ -128,12 +127,12 @@ public class TileEntityMachineStrandCaster extends TileEntityFoundryCastingBase 
 			if (slots[i] == null) {
 				freeSlots += stackLimit;
 			} else if (slots[i].isItemEqual(mold.getOutput(type))) {
-				freeSlots += stackLimit - slots[i].stackSize;
+				freeSlots += stackLimit - slots[i].getCount();
 			}
 		}
 
 		int moldsToCast = amount / mold.getCost();
-		moldsToCast = Math.min(moldsToCast, freeSlots / mold.getOutput(type).stackSize);
+		moldsToCast = Math.min(moldsToCast, freeSlots / mold.getOutput(type).getCount());
 		moldsToCast = Math.min(moldsToCast, water.getFill() / getWaterRequired());
 		moldsToCast = Math.min(moldsToCast, (steam.getMaxFill() - steam.getFill()) / getWaterRequired());
 
@@ -306,17 +305,19 @@ public class TileEntityMachineStrandCaster extends TileEntityFoundryCastingBase 
 	}
 
 	public void markChanged() {
-		this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+		this.world.markChunkDirty(this.pos, this);
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 128;
 		}
 	}
+
+
 
 	@Override
 	public boolean canInsertItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
@@ -336,7 +337,7 @@ public class TileEntityMachineStrandCaster extends TileEntityFoundryCastingBase 
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 7, this.pos.getY(), this.pos.getZ() - 7, this.pos.getX() + 7, this.pos.getY() + 3, this.pos.getZ() + 7);
+			bb = new AxisAlignedBB(this.pos.getX() - 7, this.pos.getY(), this.pos.getZ() - 7, this.pos.getX() + 7, this.pos.getY() + 3, this.pos.getZ() + 7);
 		}
 		return bb;
 	}

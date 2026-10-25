@@ -194,16 +194,16 @@ public class Library {
 	}
 
 	public static RayTraceResult rayTrace(EntityPlayer player, double length, float interpolation) {
-		Vec3d vec3 = getPosition(interpolation, player).addVector(0, player.eyeHeight, 0);
+		Vec3d vec3 = getPosition(interpolation, player).add(0, player.eyeHeight, 0);
 		Vec3d vec31 = player.getLook(interpolation);
-		Vec3d vec32 = vec3.addVector(vec31.x * length, vec31.y * length, vec31.z * length);
+		Vec3d vec32 = vec3.add(vec31.x * length, vec31.y * length, vec31.z * length);
 		return player.world.rayTraceBlocks(vec3, vec32, false, false, true);
 	}
 
 	public static RayTraceResult rayTrace(EntityPlayer player, double length, float interpolation, boolean allowLiquids, boolean disallowNonCollidingBlocks, boolean mopOnMiss) {
-		Vec3d vec3 = getPosition(interpolation, player).addVector(0, player.eyeHeight, 0);
+		Vec3d vec3 = getPosition(interpolation, player).add(0, player.eyeHeight, 0);
 		Vec3d vec31 = player.getLook(interpolation);
-		Vec3d vec32 = vec3.addVector(vec31.x * length, vec31.y * length, vec31.z * length);
+		Vec3d vec32 = vec3.add(vec31.x * length, vec31.y * length, vec31.z * length);
 		return player.world.rayTraceBlocks(vec3, vec32, allowLiquids, disallowNonCollidingBlocks, mopOnMiss);
 	}
 
@@ -233,7 +233,7 @@ public class Library {
 
 		if(power < 0) return 0;
 		if(power > maxPower) return maxPower;
-		
+
 		if(slots[index] != null && slots[index].getItem() == ModItems.battery_creative) return 0;
 
 		if(slots[index] != null && slots[index].getItem() instanceof IBatteryItem) {

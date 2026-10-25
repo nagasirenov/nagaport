@@ -21,11 +21,10 @@ import net.minecraft.util.ResourceLocation;
 public class RenderTankbot extends RenderLiving {
 
 	public static final ResourceLocation glyphid_infested_tex = new ResourceLocation(RefStrings.MODID, "textures/entity/glyphid_infestation.png");
-	
-	public RenderTankbot() {
-		super(new ModelTankbot(), 1.0F);
+
+	public RenderTankbot(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+		super(renderManager, new ModelTankbot(), 1.0F);
 		this.shadowOpaque = 0.0F;
-		this.setRenderPassModel(this.mainModel);
 	}
 
 	@Override
@@ -33,7 +32,6 @@ public class RenderTankbot extends RenderLiving {
 		return ResourceManager.tankbot_tex;
 	}
 
-	@Override
 	protected int shouldRenderPass(EntityLivingBase entity, int pass, float interp) {
 		if(pass != 0) {
 			return -1;
@@ -49,13 +47,13 @@ public class RenderTankbot extends RenderLiving {
 		@Override
 		public void setLivingAnimations(EntityLivingBase entity, float limbSwing, float limbSwingAmount, float interp) {
 		    if (entity instanceof EntityTankbot) {
-		        EntityTankbot tankbot = (EntityTankbot) entity; 
+		        EntityTankbot tankbot = (EntityTankbot) entity;
 		        bite = tankbot.getSwingProgress(interp);
-		        
-		        int targetId = tankbot.getDataWatcher().getWatchableObjectInt(20);
+
+		        int targetId = tankbot.getTargetEntityId();
 
 		        EntityLivingBase targetBase = (EntityLivingBase) tankbot.world.getEntityByID(targetId);
-		        
+
 		        if (tankbot.world != null) {
 		            if (targetBase != null) {
 		                double dx = targetBase.posX - tankbot.posX;
@@ -77,22 +75,22 @@ public class RenderTankbot extends RenderLiving {
 			GL11.glTranslatef(0, -1.5F, 0);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glDisable(GL11.GL_CULL_FACE);
-			
+
 			this.renderModel(entity, limbSwing);
 			//GL11.glRotatef((float) headTargetYaw, 1, 0, 0);
 
 			GL11.glPopMatrix();
 		}
-		
+
 		public void renderModel(Entity entity, float limbSwing) {
-			
+
 			GL11.glPushMatrix();
-			
+
 			double s = 2;
 			GL11.glScaled(s, s, s);
-			
+
 			EntityLivingBase living = (EntityLivingBase) entity;
-	        EntityTankbot tankbot = (EntityTankbot) entity; 
+	        EntityTankbot tankbot = (EntityTankbot) entity;
 
 			double walkCycle = limbSwing;
 
@@ -104,12 +102,12 @@ public class RenderTankbot extends RenderLiving {
 
 			double bite = tankbot.headTargetYaw;
 			double headTilt = Math.sin(this.bite * Math.PI) * 30;
-			
+
 			ResourceManager.tankbot.renderPart("body");
-			
+
 			/// LEFT ARM ///
 			GL11.glPushMatrix();
-			
+
 			GL11.glPushMatrix();
 
 			GL11.glTranslated(0.25, 0.625, 0.0625);
@@ -155,9 +153,9 @@ public class RenderTankbot extends RenderLiving {
 			ResourceManager.tankbot.renderPart("back2leg");
 			ResourceManager.tankbot.renderPart("back2knee");
 			GL11.glPopMatrix();
-			
+
 			GL11.glPopMatrix();
-			
+
 			GL11.glPushMatrix();
 			//this makes NO SENSE but its working okay for some reason...
 			//someone help me :(
@@ -173,7 +171,7 @@ public class RenderTankbot extends RenderLiving {
 
 
 
-			
+
 			GL11.glPopMatrix();
 		}
 	}

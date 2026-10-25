@@ -26,19 +26,17 @@ public class CoriumFinite extends GenericFiniteFluid {
 		this.tickRate = 30;
 	}
 
-	@Override
 	public boolean canDisplace(IBlockAccess world, int x, int y, int z) {
-		Block b = world.getBlock(x, y, z);
+		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		float res = (float) (Math.sqrt(b.getExplosionResistance(null)) * 3);
-		
+
 		if(res < 1)
 			return true;
 		Random rand = new Random();
-		
+
 		return b.getDefaultState().getMaterial().isLiquid() || rand.nextInt((int) res) == 0;
 	}
 
-	@Override
 	public boolean displaceIfPossible(World world, int x, int y, int z) {
 
 		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock().getDefaultState().getMaterial().isLiquid()) {
@@ -47,38 +45,47 @@ public class CoriumFinite extends GenericFiniteFluid {
 		return canDisplace(world, x, y, z);
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		entity.setInWeb();
 		entity.setFire(3);
 		entity.attackEntityFrom(ModDamageSource.radiation, 2F);
-		
+
 		if(entity instanceof EntityLivingBase)
 			ContaminationUtil.contaminate((EntityLivingBase)entity, HazardType.RADIATION, ContaminationType.CREATIVE, 1F);
 	}
-	
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
 
 		// COFH core apparently replaces the water block class with an incompatible type which breaks
 		// the finite fluid implementation. can't recreate the issue, but according to the provided log
 		// it seems like this shitty band aid might work
 		try {
-			super.updateTick(world, x, y, z, rand);
+			super.updateTick(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), rand);
 		} catch(ClassCastException ex) {
 			if(!world.isRemote) com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		}
-		
+
 		if(!world.isRemote && rand.nextInt(10) == 0 && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != this) {
-			
+
 			if(rand.nextInt(3) == 0)
-				world.setBlock(x, y, z, ModBlocks.block_corium);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_corium);
 			else
-				world.setBlock(x, y, z, ModBlocks.block_corium_cobble);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.block_corium_cobble);
 		}
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass() {
 		return 0;

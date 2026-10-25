@@ -47,11 +47,17 @@ import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
 
 public abstract class WorldProviderCelestial extends WorldProviderSurface implements DimensionFishingLoot.Provider {
 
+	public boolean isHellWorld;
+
+	public net.minecraft.world.World getWorldObj() {
+		return this.world;
+	}
+
 	public List<AstroMetric> metrics;
 
 	private double eclipseAmount;
 	private long localTime = -1;
-	
+
 	public static ArrayList<Meteor> meteors = new ArrayList<>();
 
 	// Ore gen will attempt to replace this block with ores
@@ -86,7 +92,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		// Will prevent water from existing, will be unset immediately before using a bucket if inside a pressurized room
 		isHellWorld = !this.world.isRemote && pressure <= 0.2F && !Loader.isModLoaded(Compat.MOD_COFH);
 
-		
+
 		Random rand = new Random();
 		CBT_Invasion invasion = CelestialBody.getTrait(this.world, CBT_Invasion.class);
 
@@ -98,7 +104,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 				for (int i = 0; i < meteors.size(); i++) {
 					meteors.get(i).update();
 				}
-				
+
 				if (rand.nextInt(Math.max(1, 5 - invasion.wave)) == 0 && invasion.isInvading) {
 					Meteor meteor = new Meteor((player.posX + rand.nextInt(16000)) - 8000, 2017,(player.posZ + rand.nextInt(16000)) - 8000);
 					meteors.add(meteor);
@@ -120,10 +126,10 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		this.world.prevThunderingStrength = 0.0F;
 		this.world.thunderingStrength = 0.0F;
 
-		
-		
+
+
 	}
-	
+
 
 	// Can be overridden to provide fog changing events based on weather
 	public float fogDensity(FogDensity event) {
@@ -293,8 +299,8 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		color.y *= pressureFactor;
 		color.z *= pressureFactor;
 
-		if(Minecraft.getMinecraft().renderViewEntity.posY > 600) {
-			double curvature = MathHelper.clamp((1000.0F - (float)Minecraft.getMinecraft().renderViewEntity.posY) / 400.0F, 0.0F, 1.0F);
+		if(Minecraft.getMinecraft().getRenderViewEntity().posY > 600) {
+			double curvature = MathHelper.clamp((1000.0F - (float)Minecraft.getMinecraft().getRenderViewEntity().posY) / 400.0F, 0.0F, 1.0F);
 			color.x *= curvature;
 			color.y *= curvature;
 			color.z *= curvature;
@@ -498,10 +504,10 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	}
 
 	// this function should be called `getCloudColor`, please slap the next MCP dev you see lmao
-	@Override
+	
 	@SideOnly(Side.CLIENT)
 	public Vec3d drawClouds(float partialTicks) {
-		return super.drawClouds(partialTicks);
+		return this.getCloudColor(partialTicks);
 	}
 
 	@Override
@@ -645,7 +651,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		super.resetRainAndThunder();
 
 		if(this.getDimension() == 0) return;
-		if(!this.world.getGameRules().getGameRuleBooleanValue("doDaylightCycle")) return;
+		if(!this.world.getGameRules().getBoolean("doDaylightCycle")) return;
 
 		long dayLength = (long)getDayLength();
 		long i = getWorldTime() % dayLength;
@@ -658,8 +664,9 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			return super.getWorldTime();
 		}
 
-		if(!this.world.isRemote) {
-			localTime = CelestialBodyWorldSavedData.get(this).getLocalTime();
+		if(this.world != null && !this.world.isRemote) {
+			CelestialBodyWorldSavedData data = CelestialBodyWorldSavedData.get(this);
+			if(data != null) localTime = data.getLocalTime();
 		}
 
 		return localTime;
@@ -672,8 +679,9 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			return;
 		}
 
-		if(!this.world.isRemote) {
-			CelestialBodyWorldSavedData.get(this).setLocalTime(time);
+		if(this.world != null && !this.world.isRemote) {
+			CelestialBodyWorldSavedData data = CelestialBodyWorldSavedData.get(this);
+			if(data != null) data.setLocalTime(time);
 		}
 
 		localTime = time;

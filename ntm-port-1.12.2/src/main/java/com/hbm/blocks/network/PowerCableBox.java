@@ -140,7 +140,6 @@ public class PowerCableBox extends BlockContainer implements IBlockMulti {
         return getBoundingBox(state, world, pos);
     }
 
-    @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
         return bounds(getMetaFromState(state), connections(world, pos, world.getTileEntity(pos)));
     }

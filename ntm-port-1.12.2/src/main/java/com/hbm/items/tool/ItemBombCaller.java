@@ -44,16 +44,20 @@ public class ItemBombCaller extends Item {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
-	{
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		RayTraceResult pos = Library.rayTrace(player, 500, 1);
 		int x = pos.getBlockPos().getX();
 		int y = pos.getBlockPos().getY();
 		int z = pos.getBlockPos().getZ();
-		
+
 		boolean b = false;
 		boolean b2 = false;
-		
+
 	    if(!world.isRemote)
 		{
 			EntityBomber bomber;
@@ -73,22 +77,30 @@ public class ItemBombCaller extends Item {
 			}
 			WorldUtil.loadAndSpawnEntityInWorld(bomber);
 			player.sendMessage(new TextComponentString("Called in airstrike!"));
-			world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 			if(b2){
 				player.sendMessage(new TextComponentString("Rerouted Civilian Traffic!"));
-		        world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+		        world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 			}
 
 		}
 
-		stack.stackSize -= 1;
+		stack.shrink(1);
 
 		return stack;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List p_150895_3_)
 	{
 		p_150895_3_.add(new ItemStack(p_150895_1_, 1, 0));

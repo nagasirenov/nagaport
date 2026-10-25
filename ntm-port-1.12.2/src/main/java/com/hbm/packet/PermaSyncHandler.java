@@ -54,7 +54,7 @@ public class PermaSyncHandler {
 		List<Integer> ids = new ArrayList<Integer>();
 		for(Object o : world.playerEntities) {
 			EntityPlayer p = (EntityPlayer) o;
-			if(p.isPotionActive(HbmPotion.death.id)) {
+			if(p.isPotionActive(HbmPotion.death)) {
 				ids.add(p.getEntityId());
 			}
 		}
@@ -254,7 +254,7 @@ public class PermaSyncHandler {
 		int ridingId = buf.readInt();
 		if(ridingId >= 0 && player.getRidingEntity() == null) {
 			Entity entity = world.getEntityByID(ridingId);
-			player.mountEntity(entity);
+			player.startRiding(entity);
 		}
 		/// RIDING DESYNC FIX ///
 

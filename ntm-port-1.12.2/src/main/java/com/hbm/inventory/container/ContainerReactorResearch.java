@@ -11,11 +11,11 @@ import net.minecraft.item.ItemStack;
 public class ContainerReactorResearch extends Container {
 
 private TileEntityReactorResearch reactor;
-	
+
 	public ContainerReactorResearch(InventoryPlayer invPlayer, TileEntityReactorResearch tedf) {
-		
+
 		reactor = tedf;
-		
+
 		//Rods
 		this.addSlotToContainer(new Slot(tedf, 0, 95, 22));
 		this.addSlotToContainer(new Slot(tedf, 1, 131, 22));
@@ -29,7 +29,7 @@ private TileEntityReactorResearch reactor;
 		this.addSlotToContainer(new Slot(tedf, 9, 149, 76));
 		this.addSlotToContainer(new Slot(tedf, 10, 95, 94));
 		this.addSlotToContainer(new Slot(tedf, 11, 131, 94));
-		
+
 		for(int i = 0; i < 3; i++)
 		{
 			for(int j = 0; j < 9; j++)
@@ -37,22 +37,22 @@ private TileEntityReactorResearch reactor;
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18 + 56));
 			}
 		}
-		
+
 		for(int i = 0; i < 9; i++)
 		{
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 142 + 56));
 		}
 	}
-	
+
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack var3 = null;
 		Slot slot = (Slot) this.inventorySlots.get(index);
-		
+
 		if (slot != null && slot.getHasStack()) {
 			ItemStack stack = slot.getStack();
 			var3 = stack.copy();
-			
+
             if (index <= 12) {
 				if (!this.mergeItemStack(stack, 13, this.inventorySlots.size(), true)){
 					return null;
@@ -65,13 +65,13 @@ private TileEntityReactorResearch reactor;
 					return null;
 				}
 			}
-			if (stack.stackSize == 0) {
+			if (stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
 			}
 		}
-		
+
 		return var3;
     }
 

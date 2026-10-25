@@ -35,87 +35,95 @@ public class ItemAppleSchrabidium extends ItemFood {
 
     @Override
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
-    	
+
 		if (!world.isRemote) {
-			
+
 			if(stack.getItem() == ModItems.apple_schrabidium) {
 				if (stack.getItemDamage() == 0) {
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 600, 4));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 6000, 0));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 6000, 0));
 				}
-	
+
 				if (stack.getItemDamage() == 1) {
-					
+
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 1200, 4));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 1200, 4));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 1200, 0));
-					player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 1200, 4));
-					player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 1200, 2));
+					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 1200, 4));
+					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 1200, 2));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 1200, 2));
-					player.addPotionEffect(new PotionEffect(Potion.jump.id, 1200, 4));
+					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 1200, 4));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HEALTH_BOOST, 1200, 9));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 1200, 4));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 1200, 9));
 				}
-	
+
 				if (stack.getItemDamage() == 2) {
-					
+
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 2147483647, 4));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2147483647, 1));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 2147483647, 0));
-					player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2147483647, 9));
-					player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 2147483647, 4));
+					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 2147483647, 9));
+					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 2147483647, 4));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 2147483647, 3));
-					player.addPotionEffect(new PotionEffect(Potion.jump.id, 2147483647, 4));
+					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 2147483647, 4));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HEALTH_BOOST, 2147483647, 24));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 2147483647, 14));
 					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 2147483647, 99));
 				}
 			}
-			
+
 			if(stack.getItem() == ModItems.apple_lead) {
-				
+
 				if (stack.getItemDamage() == 0) {
-					player.addPotionEffect(new PotionEffect(HbmPotion.lead.id, 15 * 20, 2));
+					player.addPotionEffect(new PotionEffect(HbmPotion.lead, 15 * 20, 2));
 				}
-	
+
 				if (stack.getItemDamage() == 1) {
 
-					player.addPotionEffect(new PotionEffect(HbmPotion.lead.id, 60 * 20, 4));
+					player.addPotionEffect(new PotionEffect(HbmPotion.lead, 60 * 20, 4));
 				}
-	
+
 				if (stack.getItemDamage() == 2) {
-					
+
 					player.attackEntityFrom(ModDamageSource.lead, 500F);
 				}
 			}
 		}
     }
-    
+
     @Override
 	public EnumRarity getRarity(ItemStack p_77613_1_)
     {
     	if(p_77613_1_.getItemDamage() == 0)
     	{
-    		return EnumRarity.uncommon;
+		return EnumRarity.UNCOMMON;
     	}
-    	
+
     	if(p_77613_1_.getItemDamage() == 1)
     	{
-    		return EnumRarity.rare;
+		return EnumRarity.RARE;
     	}
-    	
+
     	if(p_77613_1_.getItemDamage() == 2)
     	{
-    		return EnumRarity.epic;
+		return EnumRarity.EPIC;
     	}
-    	
-		return EnumRarity.common;
+
+		return EnumRarity.COMMON;
     }
-    
-    @Override
-	@SideOnly(Side.CLIENT)
+
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
     public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List p_150895_3_)
     {
         p_150895_3_.add(new ItemStack(p_150895_1_, 1, 0));

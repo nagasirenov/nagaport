@@ -80,12 +80,18 @@ public class ItemSatellite extends ItemCustomMissilePart implements ISatChip {
 		if(canLaunchByHand) {
 			list.add(TextFormatting.GOLD + I18nUtil.resolveKey("item.sat.desc.launch_by_hand"));
 
-			if(CelestialBody.inOrbit(player.world))
+			// Minecraft may request tooltips without a player while building its search tree.
+			if(player != null && player.world != null && CelestialBody.inOrbit(player.world))
 				list.add(TextFormatting.BOLD + I18nUtil.resolveKey("item.sat.desc.deploy_orbit"));
 		}
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(!canLaunchByHand) return stack;
 		if(!CelestialBody.inOrbit(world)) return stack;
@@ -105,7 +111,7 @@ public class ItemSatellite extends ItemCustomMissilePart implements ISatChip {
 			player.sendMessage(new TextComponentString("Satellite launched successfully!"));
 		}
 
-		stack.stackSize--;
+		stack.shrink(1);
 
 		return stack;
 	}

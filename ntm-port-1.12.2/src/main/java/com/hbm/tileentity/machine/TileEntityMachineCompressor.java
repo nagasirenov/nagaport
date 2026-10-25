@@ -9,7 +9,7 @@ import net.minecraft.util.math.MathHelper;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineCompressor extends TileEntityMachineCompressorBase {
-	
+
 	public float fanSpin;
 	public float prevFanSpin;
 	public float piston;
@@ -71,7 +71,7 @@ public class TileEntityMachineCompressor extends TileEntityMachineCompressorBase
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,

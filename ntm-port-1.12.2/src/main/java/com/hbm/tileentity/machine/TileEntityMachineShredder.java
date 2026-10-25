@@ -30,6 +30,25 @@ import com.hbm.lib.ForgeDirection;
 
 public class TileEntityMachineShredder extends TileEntityLoadedBase implements ISidedInventory, IEnergyReceiverMK2, IGUIProvider, net.minecraft.util.ITickable {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	private ItemStack slots[];
 
 	public long power;
@@ -78,13 +97,21 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.machineShredder";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.machineShredder";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && this.customName.length() > 0;
+	}
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
 	}
 
 	public void setCustomName(String name) {
@@ -98,13 +125,15 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		if(this.world.getTileEntity(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) != this) {
 			return false;
 		} else {
 			return player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D) <= 64;
 		}
 	}
+
+
 
 	// You scrubs aren't needed for anything (right now)
 	@Override
@@ -130,13 +159,13 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
 		if(slots[i] != null) {
-			if(slots[i].stackSize <= j) {
+			if(slots[i].getCount() <= j) {
 				ItemStack itemStack = slots[i];
 				slots[i] = null;
 				return itemStack;
 			}
 			ItemStack itemStack1 = slots[i].splitStack(j);
-			if(slots[i].stackSize == 0) {
+			if(slots[i].getCount() == 0) {
 				slots[i] = null;
 			}
 
@@ -202,13 +231,13 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 		if(slots[slot] == null)
 			return true;
 
-		int size = slots[slot].stackSize;
+		int size = slots[slot].getCount();
 
 		for(int k = 0; k < 9; k++) {
 			if(slots[k] == null)
 				return false;
 
-			if(slots[k].getItem() == itemStack.getItem() && slots[k].getItemDamage() == itemStack.getItemDamage() && slots[k].stackSize < size)
+			if(slots[k].getItem() == itemStack.getItem() && slots[k].getItemDamage() == itemStack.getItemDamage() && slots[k].getCount() < size)
 				return false;
 		}
 
@@ -321,10 +350,10 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 				boolean flag = false;
 
 				for(int outSlot = 9; outSlot < 27; outSlot++) {
-					if(slots[outSlot] != null && slots[outSlot].getItem() == outp.getItem() && slots[outSlot].getItemDamage() == outp.getItemDamage() && slots[outSlot].stackSize + outp.stackSize <= outp.getMaxStackSize()) {
+					if(slots[outSlot] != null && slots[outSlot].getItem() == outp.getItem() && slots[outSlot].getItemDamage() == outp.getItemDamage() && slots[outSlot].getCount() + outp.getCount() <= outp.getMaxStackSize()) {
 
-						slots[outSlot].stackSize += outp.stackSize;
-						slots[inpSlot].stackSize -= 1;
+						slots[outSlot].grow(outp.getCount());
+						slots[inpSlot].shrink(1);
 						flag = true;
 						break;
 					}
@@ -334,12 +363,12 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 					for(int outSlot = 9; outSlot < 27; outSlot++) {
 						if(slots[outSlot] == null) {
 							slots[outSlot] = outp.copy();
-							slots[inpSlot].stackSize -= 1;
+							slots[inpSlot].shrink(1);
 							break;
 						}
 					}
 
-				if(slots[inpSlot].stackSize <= 0)
+				if(slots[inpSlot].getCount() <= 0)
 					slots[inpSlot] = null;
 			}
 
@@ -354,7 +383,7 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 					com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 					this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5, true, true);
 					break;
-				} else if(slots[i] != null && slots[i].stackSize > 0 && hasSpace(slots[i])) {
+				} else if(slots[i] != null && slots[i].getCount() > 0 && hasSpace(slots[i])) {
 					return true;
 				}
 			}
@@ -373,7 +402,7 @@ public class TileEntityMachineShredder extends TileEntityLoadedBase implements I
 					return true;
 				}
 
-				if(slots[i] != null && slots[i].getItem().equals(result.getItem()) && slots[i].stackSize + result.stackSize <= result.getMaxStackSize()) {
+				if(slots[i] != null && slots[i].getItem().equals(result.getItem()) && slots[i].getCount() + result.getCount() <= result.getMaxStackSize()) {
 					return true;
 				}
 			}

@@ -124,14 +124,14 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 					} else if(slots[2] == null) {
 						slots[2] = container.copy();
 						canStore = true;
-					} else if(slots[2].getItem() == container.getItem() && slots[2].getItemDamage() == container.getItemDamage() && slots[2].stackSize < slots[2].getMaxStackSize()) {
-						slots[2].stackSize++;
+					} else if(slots[2].getItem() == container.getItem() && slots[2].getItemDamage() == container.getItemDamage() && slots[2].getCount() < slots[2].getMaxStackSize()) {
+						slots[2].grow(1);
 						canStore = true;
 					}
 
 					if(canStore) {
 						slots[1] = slots[0].copy();
-						slots[1].stackSize = 0;
+						slots[1].setCount(0);
 						this.decrStackSize(0, 1);
 						this.savedParticles = this.maxParticles;
 					}
@@ -141,7 +141,7 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 			if(slots[1] != null && this.savedParticles > 0 && this.power >= this.consumption) {
 				ExposureChamberRecipe recipe = this.getRecipe(slots[1], slots[3]);
 
-				if(recipe != null && (slots[4] == null || (slots[4].getItem() == recipe.output.getItem() && slots[4].getItemDamage() == recipe.output.getItemDamage() && slots[4].stackSize + recipe.output.stackSize <= slots[4].getMaxStackSize()))) {
+				if(recipe != null && (slots[4] == null || (slots[4].getItem() == recipe.output.getItem() && slots[4].getItemDamage() == recipe.output.getItemDamage() && slots[4].getCount() + recipe.output.getCount() <= slots[4].getMaxStackSize()))) {
 					this.progress++;
 					this.power -= this.consumption;
 					this.isOn = true;
@@ -154,7 +154,7 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 						if(slots[4] == null) {
 							slots[4] = recipe.output.copy();
 						} else {
-							slots[4].stackSize += recipe.output.stackSize;
+							slots[4].grow(recipe.output.getCount());
 						}
 					}
 
@@ -291,7 +291,7 @@ public class TileEntityMachineExposureChamber extends TileEntityMachineBase impl
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 8,
 					this.pos.getY(),
 					this.pos.getZ() - 8,

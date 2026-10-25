@@ -36,7 +36,7 @@ public class ItemToolingWeapon extends ItemTooling {
 			entity.motionX += dX;
 			entity.motionY += dY;
 			entity.motionZ += dZ;
-			world.playSoundAtEntity(entity, "random.anvil_land", 3.0F, 0.75F);
+			world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve("random.anvil_land"), net.minecraft.util.SoundCategory.PLAYERS, 3.0F, 0.75F);
 		}
 		
 		return false;

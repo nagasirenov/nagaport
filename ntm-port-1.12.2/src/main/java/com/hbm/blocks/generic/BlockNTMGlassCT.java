@@ -8,6 +8,11 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockNTMGlassCT extends BlockNTMGlass implements IBlockCT {
 
+	@Override
+	public net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
 	public BlockNTMGlassCT(int layer, String name, Material material) {
 		super(layer, name, material);
 	}

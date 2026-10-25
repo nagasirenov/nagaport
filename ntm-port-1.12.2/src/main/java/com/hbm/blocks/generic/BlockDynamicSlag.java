@@ -17,6 +17,7 @@ import com.hbm.util.Compat;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
@@ -36,7 +37,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockDynamicSlag extends BlockContainer {
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon blockIcon;
 
@@ -67,58 +68,47 @@ public class BlockDynamicSlag extends BlockContainer {
 			}
 		}
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-		
-		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(x, y, z);
-		
+
+		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+
 		if(tile != null && tile.mat != null) {
 			IIcon override = iconMap.get(tile.mat);
 			if(override != null) {
 				return override;
 			}
 		}
-		
+
 		return this.blockIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
-		
-		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(x, y, z);
-		
+
+		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+
 		if(tile != null && tile.mat != null) {
 			if(!iconMap.containsKey(tile.mat)) {
 				return tile.mat.moltenColor;
 			}
 		}
-		
+
 		return 0xffffff;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(x, y, z);
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(pos);
 		if(tile != null) {
-			this.setBlockBounds(0F, 0F, 0F, 1F, (float) tile.amount / (float) TileEntitySlag.maxAmount, 1F);
+			return new AxisAlignedBB(0F, 0F, 0F, 1F, (float) tile.amount / (float) TileEntitySlag.maxAmount, 1F);
 		}
-	}
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		if(tile != null) {
-			this.setBlockBounds(0F, 0F, 0F, 1F, (float) tile.amount / (float) TileEntitySlag.maxAmount, 1F);
-		}
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
+		return FULL_BLOCK_AABB;
 	}
 
 	@Override
@@ -127,124 +117,138 @@ public class BlockDynamicSlag extends BlockContainer {
 
 		TileEntity s = Compat.getTileStandard(world, x, y, z);
 		TileEntity b = Compat.getTileStandard(world, x, y - 1, z);
-		
+
 		/* Error here, delete the block */
 		if(s == null || !(s instanceof TileEntitySlag)) {
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return;
 		}
-		
+
 		TileEntitySlag self = (TileEntitySlag) s;
-		
+
 		/* Flow down */
 		if(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y - 1, z)) && y > 0) {
-			world.setBlock(x, y - 1, z, ModBlocks.slag);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y - 1, z, ModBlocks.slag);
 			TileEntitySlag tile = (TileEntitySlag) Compat.getTileStandard(world, x, y - 1, z);
 			tile.mat = self.mat;
 			tile.amount = self.amount;
-			world.markBlockForUpdate(x, y - 1, z);
+			com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y - 1, z);
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			return;
 		} else if(b instanceof TileEntitySlag) {
-			
+
 			TileEntitySlag below = (TileEntitySlag) b;
-			
+
 			if(below.mat == self.mat && below.amount < TileEntitySlag.maxAmount) {
 				int transfer = Math.min(TileEntitySlag.maxAmount - below.amount, self.amount);
 				below.amount += transfer;
 				self.amount -= transfer;
-				
+
 				if(self.amount <= 0){
 					com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 				} else {
-					world.markBlockForUpdate(x, y, z);
+					com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 				}
 
-				world.markBlockForUpdate(x, y - 1, z);
+				com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y - 1, z);
 				world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y - 1, z), ModBlocks.slag, 1);
 				return;
 			}
 		}
-		
+
 		/* Flow sideways, no neighbors */
 		ForgeDirection[] sides = new ForgeDirection[] { ForgeDirection.NORTH, ForgeDirection.SOUTH, ForgeDirection.EAST, ForgeDirection.WEST };
 		int count = 0;
 		for(ForgeDirection dir : sides) {
 			int iX = x + dir.offsetX;
 			int iZ = z + dir.offsetZ;
-			
+
 			if(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(iX, y, iZ))) {
 				count++;
 			}
 		}
-		
+
 		if(self.amount >= self.maxAmount / 5 && count > 0) {
 			int toSpread = Math.max(self.amount / (count * 2), 1);
-			
+
 			for(ForgeDirection dir : sides) {
 				int iX = x + dir.offsetX;
 				int iZ = z + dir.offsetZ;
-				
+
 				if(com.hbm.world.WorldBlockState.read(world, iX, y, iZ).getBlock().isReplaceable(world, new net.minecraft.util.math.BlockPos(iX, y, iZ))) {
-					world.setBlock(iX, y, iZ, ModBlocks.slag);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, iX, y, iZ, ModBlocks.slag);
 					TileEntitySlag tile = (TileEntitySlag) Compat.getTileStandard(world, iX, y, iZ);
-					world.markBlockForUpdate(iX, y, iZ);
+					com.hbm.world.WorldBlockState.markBlockForUpdate(world, iX, y, iZ);
 					world.scheduleUpdate(new net.minecraft.util.math.BlockPos(iX, y, iZ), ModBlocks.slag, 1);
 					tile.mat = self.mat;
 					tile.amount = toSpread;
 					self.amount -= toSpread;
-					world.markBlockForUpdate(x, y, z);
+					com.hbm.world.WorldBlockState.markBlockForUpdate(world, x, y, z);
 				}
 			}
 		}
 	}
 
-	@Override
-	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
-		
+
+		@Override
+	public void onBlockHarvested(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.player.EntityPlayer player) {
+		int meta = state.getBlock().getMetaFromState(state);
+		onBlockHarvested(worldIn, pos.getX(), pos.getY(), pos.getZ(), meta, player);
+	}
+
+public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
+
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
-			this.dropBlockAsItem(world, x, y, z, meta, 0);
+			this.dropBlockAsItem(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), 0);
 			harvesters.set(null);
 		}
 	}
-	
+
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
-		player.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);
+	public void harvestBlock(World worldIn, EntityPlayer player, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, @javax.annotation.Nullable net.minecraft.tileentity.TileEntity te, ItemStack stack) {
+		player.addStat(StatList.getBlockStats(this));
 		player.addExhaustion(0.025F);
 	}
 
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		
+
 		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(tile != null && tile.mat != null && tile.amount > 0) {
 			ret.add(ItemScraps.create(new MaterialStack(tile.mat, tile.amount)));
 		}
-		
+
 		return ret;
 	}
-	
+
 	@Override
-	public ItemStack getPickBlock(RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(net.minecraft.block.state.IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
 
 		TileEntitySlag tile = (TileEntitySlag) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(tile != null) {
 			return ItemScraps.create(new MaterialStack(tile.mat, tile.amount));
 		}
-		
-		return super.getPickBlock(target, world, pos, player);
+
+		return super.getPickBlock(state, target, world, pos, player);
 	}
 
 	public static class TileEntitySlag extends TileEntity {
-		
+
 		public NTMMaterial mat;
 		public int amount;
 		public static int maxAmount = MaterialShapes.BLOCK.q(16);
@@ -256,7 +260,7 @@ public class BlockDynamicSlag extends BlockContainer {
 			this.writeToNBT(nbt);
 			return new SPacketUpdateTileEntity(this.getPos(), 0, nbt);
 		}
-		
+
 		@Override
 		public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 			this.readFromNBT(pkt.getNbtCompound());

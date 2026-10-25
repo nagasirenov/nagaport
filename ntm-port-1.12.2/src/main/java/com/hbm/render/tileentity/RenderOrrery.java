@@ -46,8 +46,8 @@ public class RenderOrrery extends TileEntitySpecialRenderer implements IItemRend
 			}
 			public void renderCommon() {
 				Minecraft.getMinecraft().renderEngine.bindTexture(SolarSystem.kerbol.texture);
-				Tessellator.instance.disableColor();
-				RenderUtil.renderBlock(Tessellator.instance, 0.375, 0.625);
+				Tessellator.getInstance().getBuffer().noColor();
+				RenderUtil.renderBlock(Tessellator.getInstance(), 0.375, 0.625);
 			}
 		};
 	}

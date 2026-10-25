@@ -356,7 +356,7 @@ public class RBMKNeutronHandler {
 					return;
 				} else if(type == RBMKType.ABSORBER) {
 					((TileEntityRBMKAbsorber) nodeTE).heat += RBMKDials.getAbsorberHeatConversion(worldObj) * this.fluxQuantity;
-					
+
 					if(absorberEfficiency == 1)
 						return;
 
@@ -405,8 +405,8 @@ public class RBMKNeutronHandler {
 				// I have had this one line cause me like tens of problems
 				// I FUCKING HATE THIS
 				// total count of bugs fixed attributed to this function: 14
-				Block block = origin.tile.getWorld().getBlock(pos.getX(), pos.getY() + h, pos.getZ());
-				if(block.isOpaqueCube())
+				Block block = com.hbm.world.WorldBlockState.read(origin.tile.getWorld(), pos.getX(), pos.getY() + h, pos.getZ()).getBlock();
+				if(block.getDefaultState().isOpaqueCube())
 					hits += 1;
 			}
 

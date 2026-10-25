@@ -43,11 +43,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.enchantment.Enchantment;
+import net.minecraft.init.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -62,7 +62,13 @@ import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.play.server.SPacketBlockChange;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -71,15 +77,15 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
-import net.minecraftforge.event.world.BlockEvent;
 
 public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIProvider, IItemControlReceiver, IKeybindReceiver, IItemHUD {
 
 	protected boolean isShears = false;
 	protected EnumToolType toolType;
-	protected EnumRarity rarity = EnumRarity.common;
+	protected EnumRarity rarity = EnumRarity.COMMON;
 	//was there a reason for this to be private?
 	protected float damage;
+	private final float toolEfficiency;
 	protected double movement;
 	protected AvailableAbilities availableAbilities = new AvailableAbilities().addToolAbilities();
 	protected boolean rockBreaker = false;
@@ -88,18 +94,18 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 		PICKAXE(
 				Sets.newHashSet(new Material[] { Material.IRON, Material.ANVIL, Material.ROCK, Material.GLASS }),
-				Sets.newHashSet(new Block[] { Blocks.cobblestone, Blocks.double_stone_slab, Blocks.stone_slab, Blocks.stone, Blocks.sandstone, Blocks.mossy_cobblestone, Blocks.iron_ore, Blocks.iron_block, Blocks.coal_ore, Blocks.gold_block, Blocks.gold_ore, Blocks.diamond_ore, Blocks.diamond_block, Blocks.ice, Blocks.netherrack, Blocks.lapis_ore, Blocks.lapis_block, Blocks.redstone_ore, Blocks.lit_redstone_ore, Blocks.rail, Blocks.detector_rail, Blocks.golden_rail, Blocks.activator_rail })
+				Sets.newHashSet(new Block[] { Blocks.COBBLESTONE, Blocks.DOUBLE_STONE_SLAB, Blocks.STONE_SLAB, Blocks.STONE, Blocks.SANDSTONE, Blocks.MOSSY_COBBLESTONE, Blocks.IRON_ORE, Blocks.IRON_BLOCK, Blocks.COAL_ORE, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.DIAMOND_ORE, Blocks.DIAMOND_BLOCK, Blocks.ICE, Blocks.NETHERRACK, Blocks.LAPIS_ORE, Blocks.LAPIS_BLOCK, Blocks.REDSTONE_ORE, Blocks.LIT_REDSTONE_ORE, Blocks.RAIL, Blocks.DETECTOR_RAIL, Blocks.GOLDEN_RAIL, Blocks.ACTIVATOR_RAIL })
 		),
 		AXE(
-				Sets.newHashSet(new Material[] { Material.wood, Material.PLANTS, Material.VINE }),
-				Sets.newHashSet(new Block[] { Blocks.planks, Blocks.bookshelf, Blocks.log, Blocks.log2, Blocks.chest, Blocks.pumpkin, Blocks.lit_pumpkin })
+				Sets.newHashSet(new Material[] { Material.WOOD, Material.PLANTS, Material.VINE }),
+				Sets.newHashSet(new Block[] { Blocks.PLANKS, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST, Blocks.PUMPKIN, Blocks.LIT_PUMPKIN })
 		),
 		SHOVEL(
-				Sets.newHashSet(new Material[] { Material.CLAY, Material.SAND, Material.ground, Material.SNOW, Material.CRAFTED_SNOW }),
-				Sets.newHashSet(new Block[] { Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.gravel, Blocks.snow_layer, Blocks.snow, Blocks.clay, Blocks.farmland, Blocks.soul_sand, Blocks.mycelium })
+				Sets.newHashSet(new Material[] { Material.CLAY, Material.SAND, Material.GROUND, Material.SNOW, Material.CRAFTED_SNOW }),
+				Sets.newHashSet(new Block[] { Blocks.GRASS, Blocks.DIRT, Blocks.SAND, Blocks.GRAVEL, Blocks.SNOW_LAYER, Blocks.SNOW, Blocks.CLAY, Blocks.FARMLAND, Blocks.SOUL_SAND, Blocks.MYCELIUM })
 		),
 		MINER(
-				Sets.newHashSet(new Material[] { Material.GRASS, Material.IRON, Material.ANVIL, Material.GLASS, Material.ROCK, Material.CLAY, Material.SAND, Material.ground, Material.SNOW, Material.CRAFTED_SNOW })
+				Sets.newHashSet(new Material[] { Material.GRASS, Material.IRON, Material.ANVIL, Material.GLASS, Material.ROCK, Material.CLAY, Material.SAND, Material.GROUND, Material.SNOW, Material.CRAFTED_SNOW })
 		);
 
 		private EnumToolType(Set<Material> materials) {
@@ -123,6 +129,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	public ItemToolAbility(float damage, double movement, ToolMaterial material, EnumToolType type) {
 		super(material, type.blocks);
 		this.damage = damage;
+		this.toolEfficiency = material.getEfficiency();
 		this.movement = movement;
 		this.toolType = type;
 
@@ -153,7 +160,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	}
 
 	public EnumRarity getRarity(ItemStack stack) {
-		return this.rarity != EnumRarity.common ? this.rarity : super.getRarity(stack);
+		return this.rarity != EnumRarity.COMMON ? this.rarity : super.getRarity(stack);
 	}
 
 	public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase attacker) {
@@ -175,10 +182,12 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	public static int dropX, dropY, dropZ;
 
 	@Override
-	public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
+	public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player) {
 
 		World world = player.world;
-		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		IBlockState state = com.hbm.world.WorldBlockState.read(world, x, y, z);
+		Block block = state.getBlock();
 
 		/*
 		 * The original implementation of this always returned FALSE which uses the vanilla block break code.
@@ -192,7 +201,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 		 */
 		if(block == ModBlocks.stone_keyhole || block == ModBlocks.stone_keyhole_meta) return false;
 
-		if(!world.isRemote && (canHarvestBlock(block, stack) || canShearBlock(block, stack, world, x, y, z)) && canOperate(stack)) {
+		if(!world.isRemote && (canHarvestBlockWithStack(state, stack) || canShearBlock(block, stack, world, pos)) && canOperate(stack)) {
 			Configuration config = getConfiguration(stack);
 			ToolPreset preset = config.getActivePreset();
 
@@ -217,31 +226,29 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	}
 
 	@Override
-	public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase player) {
-		return super.onBlockDestroyed(stack, world, block, x, y, z, player);
+	public boolean onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase player) {
+		return super.onBlockDestroyed(stack, world, state, pos, player);
 	}
 
 	@Override
-	public float getDigSpeed(ItemStack stack, Block block, int meta) {
+	public float getDestroySpeed(ItemStack stack, IBlockState state) {
 
 		if(!canOperate(stack))
 			return 1;
 
 		if(toolType == null)
-			return super.getDigSpeed(stack, block, meta);
+			return super.getDestroySpeed(stack, state);
 
-		if(toolType.blocks.contains(block) || toolType.materials.contains(block.getDefaultState().getMaterial()))
-			return this.efficiencyOnProperMaterial;
+		if(toolType.blocks.contains(state.getBlock()) || toolType.materials.contains(state.getMaterial()))
+			return this.toolEfficiency;
 
-		return super.getDigSpeed(stack, block, meta);
+		return super.getDestroySpeed(stack, state);
 	}
 
 	public boolean canOperate(ItemStack stack) {
 		return true;
 	}
-
-	@Override
-	public boolean canHarvestBlock(Block block, ItemStack stack) {
+	private boolean canHarvestBlockWithStack(IBlockState state, ItemStack stack) {
 
 		if(!canOperate(stack))
 			return false;
@@ -249,7 +256,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 		if(this.getConfiguration(stack).getActivePreset().harvestAbility == IToolHarvestAbility.SILK)
 			return true;
 
-		return getDigSpeed(stack, block, 0) > 1;
+		return getDestroySpeed(stack, state) > 1;
 	}
 
 	@Override
@@ -257,8 +264,8 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 		return canOperate(tool) && this.rockBreaker;
 	}
 
-	public boolean canShearBlock(Block block, ItemStack stack, World world, int x, int y, int z) {
-		return this.isShears(stack) && block instanceof IShearable && ((IShearable) block).isShearable(stack, world, x, y, z);
+	public boolean canShearBlock(Block block, ItemStack stack, World world, BlockPos pos) {
+		return this.isShears(stack) && block instanceof IShearable && ((IShearable) block).isShearable(stack, world, pos);
 	}
 
 	public boolean isShears(ItemStack stack) {
@@ -293,7 +300,8 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 	public void breakExtraBlock(World world, int x, int y, int z, EntityPlayer playerEntity, int refX, int refY, int refZ) {
 
-		if(world.isAirBlock(new net.minecraft.util.math.BlockPos(x, y, z)))
+		BlockPos pos = new BlockPos(x, y, z);
+		if(world.isAirBlock(pos))
 			return;
 
 		if(!(playerEntity instanceof EntityPlayerMP))
@@ -306,27 +314,30 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 			return;
 		}
 
-		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
+		IBlockState state = com.hbm.world.WorldBlockState.read(world, x, y, z);
+		Block block = state.getBlock();
+		int meta = com.hbm.world.WorldBlockState.metadata(state);
 
-		if(!(canHarvestBlock(block, stack) ||
-				canShearBlock(block, stack, world, x, y, z)) ||
-				(block.getBlockHardness(world, x, y, z) == -1.0F && block.getPlayerRelativeBlockHardness(player, world, x, y, z) == 0.0F) ||
+		if(!(canHarvestBlockWithStack(state, stack) ||
+				canShearBlock(block, stack, world, pos)) ||
+				(com.hbm.world.WorldBlockState.getBlockHardness(world, x, y, z) == -1.0F && block.getPlayerRelativeBlockHardness(state, player, world, pos) == 0.0F) ||
 				block == ModBlocks.stone_keyhole) return;
 
-		Block refBlock = com.hbm.world.WorldBlockState.read(world, refX, refY, refZ).getBlock();
-		float refStrength = ForgeHooks.blockStrength(refBlock, player, world, refX, refY, refZ);
-		float strength = ForgeHooks.blockStrength(block, player, world, x, y, z);
+		BlockPos refPos = new BlockPos(refX, refY, refZ);
+		IBlockState refState = com.hbm.world.WorldBlockState.read(world, refX, refY, refZ);
+		Block refBlock = refState.getBlock();
+		float refStrength = ForgeHooks.blockStrength(refState, player, world, refPos);
+		float strength = ForgeHooks.blockStrength(state, player, world, pos);
 
 		if(
-			!ForgeHooks.canHarvestBlock(block, player, meta) ||
+			!ForgeHooks.canHarvestBlock(block, player, world, pos) ||
 			refStrength / strength > 10f ||
-			refBlock.getPlayerRelativeBlockHardness(player, world, refX, refY, refZ) < 0
+			refBlock.getPlayerRelativeBlockHardness(refState, player, world, refPos) < 0
 		)
 			return;
 
-		BlockEvent.BreakEvent event = ForgeHooks.onBlockBreakEvent(world, player.theItemInWorldManager.getGameType(), player, x, y, z);
-		if(event.isCanceled())
+		int event = ForgeHooks.onBlockBreakEvent(world, player.interactionManager.getGameType(), player, pos);
+		if(event == -1)
 			return;
 
 		Configuration config = getConfiguration(stack);
@@ -341,8 +352,9 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 		ItemStack held = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 		IShearable target = (IShearable) block;
-		if(target.isShearable(held, player.world, x, y, z)) {
-			ArrayList<ItemStack> drops = target.onSheared(held, player.world, x, y, z, EnchantmentHelper.getEnchantmentLevel(Enchantment.fortune.effectId, held));
+		BlockPos pos = new BlockPos(x, y, z);
+		if(target.isShearable(held, player.world, pos)) {
+			List<ItemStack> drops = target.onSheared(held, player.world, pos, EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, held));
 			Random rand = new Random();
 
 			for(ItemStack stack : drops) {
@@ -351,50 +363,53 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 				double d1 = (double) (rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
 				double d2 = (double) (rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
 				EntityItem entityitem = new EntityItem(player.world, (double) dropX + d, (double) dropY + d1, (double) dropZ + d2, stack);
-				entityitem.delayBeforeCanPickup = 10;
-				player.world.spawnEntityInWorld(entityitem);
+				entityitem.setPickupDelay(10);
+				player.world.spawnEntity(entityitem);
 			}
 
 			held.damageItem(1, player);
-			player.addStat(StatList.mineBlockStatArray[Block.getIdFromBlock(block)], 1);
+			player.addStat(StatList.getBlockStats(block), 1);
 		}
 	}
 
 	// Since it's added by forge, access transformers don't affect it (even wildcards), so we do it the old-fashioned way
-	private static Method blockCaptureDrops = ReflectionHelper.findMethod(Block.class, null, new String[] { "captureDrops" }, new Class[] { boolean.class });
+	private static Method blockCaptureDrops = ReflectionHelper.findMethod(Block.class, "captureDrops", "captureDrops", boolean.class);
 
 	public static void standardDigPost(World world, int x, int y, int z, EntityPlayerMP player) {
 
-		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-		world.playAuxSFXAtEntity(player, 2001, x, y, z, Block.getIdFromBlock(block) + (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) << 12));
+		BlockPos pos = new BlockPos(x, y, z);
+		IBlockState state = com.hbm.world.WorldBlockState.read(world, x, y, z);
+		Block block = state.getBlock();
+		int l = com.hbm.world.WorldBlockState.metadata(state);
+		TileEntity tile = world.getTileEntity(pos);
+		world.playEvent(player, 2001, pos, Block.getStateId(state));
 		boolean removedByPlayer = false;
 
 		if(player.capabilities.isCreativeMode) {
 			removedByPlayer = removeBlock(world, x, y, z, false, player);
 			player.connection.sendPacket(new SPacketBlockChange(world, new BlockPos(x, y, z)));
 		} else {
-			ItemStack itemstack = player.getCurrentEquippedItem();
-			boolean canHarvest = block.canHarvestBlock(player, l);
+			ItemStack itemstack = player.getHeldItemMainhand();
+			boolean canHarvest = block.canHarvestBlock(world, pos, player);
 
 			removedByPlayer = removeBlock(world, x, y, z, canHarvest, player);
 
-			if(itemstack != null) {
-				itemstack.func_150999_a(world, block, x, y, z, player);
+			if(!itemstack.isEmpty()) {
+				itemstack.onBlockDestroyed(world, state, pos, player);
 
-				if(itemstack.stackSize == 0) {
-					player.destroyCurrentEquippedItem();
+				if(itemstack.isEmpty()) {
+					player.setHeldItem(EnumHand.MAIN_HAND, ItemStack.EMPTY);
 				}
 			}
 
 			if(removedByPlayer && canHarvest) {
 				try {
-					
+
 					blockCaptureDrops.invoke(block, true);
-					block.harvestBlock(world, player, x, y, z, l);
+					block.harvestBlock(world, player, pos, state, tile, itemstack);
 					List<ItemStack> drops = (List)blockCaptureDrops.invoke(block, false);
 					for (ItemStack stack : drops) {
-						block.dropBlockAsItem(world, dropX, dropY, dropZ, stack);
+						net.minecraft.block.Block.spawnAsEntity(world, new net.minecraft.util.math.BlockPos(dropX, dropY, dropZ), stack);
 					}
 				} catch (IllegalAccessException e) {
 					// Shouldn't be possible with ReflectionHelper
@@ -414,13 +429,14 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	}
 
 	public static boolean removeBlock(World world, int x, int y, int z, boolean canHarvest, EntityPlayerMP player) {
-		Block block = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-		block.onBlockHarvested(world, x, y, z, l, player);
-		boolean flag = block.removedByPlayer(world, player, x, y, z, canHarvest);
+		BlockPos pos = new BlockPos(x, y, z);
+		IBlockState state = com.hbm.world.WorldBlockState.read(world, x, y, z);
+		Block block = state.getBlock();
+		block.onBlockHarvested(world, pos, state, player);
+		boolean flag = block.removedByPlayer(state, world, pos, player, canHarvest);
 
 		if(flag) {
-			block.onBlockDestroyedByPlayer(world, x, y, z, l);
+			block.onPlayerDestroy(world, pos, state);
 		}
 
 		return flag;
@@ -567,10 +583,10 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 			World world = player.world;
 			if(!canOperate(stack)) return;
-			
+
 			EntityPlayerMP playerMP = (EntityPlayerMP) player;
-			RayTraceResult mop = EntityDamageUtil.getMouseOver(playerMP, playerMP.theItemInWorldManager.getBlockReachDistance());
-			
+			RayTraceResult mop = EntityDamageUtil.getMouseOver(playerMP, playerMP.interactionManager.getBlockReachDistance());
+
 			if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 				// this is horrifying and won't always produce the correct results, but it beats not having anything
 				// simply put, we check if we are aiming at a block, and if we do, we compare that block's onBlockActivated
@@ -579,14 +595,8 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 				Block b = world.getBlockState(mop.getBlockPos()).getBlock();
 				// IDE
 				try {
-					Method m0 = b.getClass().getMethod("onBlockActivated", World.class, int.class, int.class, int.class, EntityPlayer.class, int.class, float.class, float.class, float.class);
-					Method m1 = Block.class.getMethod("onBlockActivated", World.class, int.class, int.class, int.class, EntityPlayer.class, int.class, float.class, float.class, float.class);
-					if(m0.getDeclaringClass() != m1.getDeclaringClass()) return;
-				} catch(Throwable e) { }
-				// COMP
-				try {
-					Method m0 = b.getClass().getMethod("func_149727_a", World.class, int.class, int.class, int.class, EntityPlayer.class, int.class, float.class, float.class, float.class);
-					Method m1 = Block.class.getMethod("func_149727_a", World.class, int.class, int.class, int.class, EntityPlayer.class, int.class, float.class, float.class, float.class);
+					Method m0 = ReflectionHelper.findMethod(b.getClass(), "onBlockActivated", "func_180639_a", World.class, BlockPos.class, IBlockState.class, EntityPlayer.class, EnumHand.class, EnumFacing.class, float.class, float.class, float.class);
+					Method m1 = ReflectionHelper.findMethod(Block.class, "onBlockActivated", "func_180639_a", World.class, BlockPos.class, IBlockState.class, EntityPlayer.class, EnumHand.class, EnumFacing.class, float.class, float.class, float.class);
 					if(m0.getDeclaringClass() != m1.getDeclaringClass()) return;
 				} catch(Throwable e) { }
 			}
@@ -602,7 +612,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 
 			setConfiguration(stack, config);
 			PacketDispatcher.wrapper.sendTo(new PlayerInformPacket(config.getActivePreset().getMessage(), MainRegistry.proxy.ID_TOOLABILITY), playerMP);
-			world.playSoundAtEntity(player, "random.orb", 0.25F, config.getActivePreset().isNone() ? 0.75F : 1.25F);
+			world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.25F, config.getActivePreset().isNone() ? 0.75F : 1.25F);
 		}
 	}
 
@@ -643,7 +653,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 		OpenGlHelper.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
 		GL11.glDisable(GL11.GL_BLEND);
 		GL11.glPopMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(Gui.icons);
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("textures/gui/icons.png"));
 	}
 
 }

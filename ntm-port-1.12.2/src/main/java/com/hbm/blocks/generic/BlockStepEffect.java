@@ -10,6 +10,7 @@ import com.hbm.potion.HbmPotion;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,6 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 
 public class BlockStepEffect extends Block {
 
@@ -122,26 +124,31 @@ public class BlockStepEffect extends Block {
 		return 1;
 	}
 
-    @Override
-	public void onEntityWalking(World p_149724_1_, int p_149724_2_, int p_149724_3_, int p_149724_4_, Entity entity) {
+
+		@Override
+	public void onEntityWalk(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entityIn) {
+		onEntityWalking(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityWalking(World p_149724_1_, int p_149724_2_, int p_149724_3_, int p_149724_4_, Entity entity) {
 		if(entity instanceof EntityLivingBase) {
 			if(this == ModBlocks.frozen_dirt) {
 				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 60 * 20, 2));
 			}
 			if(this == ModBlocks.block_trinitite) {
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 30 * 20, 2));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation, 30 * 20, 2));
 			}
 			if(this == ModBlocks.block_waste) {
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 30 * 20, 2));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation, 30 * 20, 2));
 			}
 			if((this == ModBlocks.waste_trinitite || this == ModBlocks.waste_trinitite_red)) {
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 30 * 20, 0));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation, 30 * 20, 0));
 			}
 			if(this == ModBlocks.brick_jungle_ooze) {
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 15 * 20, 9));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation, 15 * 20, 9));
 			}
 			if(this == ModBlocks.brick_jungle_mystic) {
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.taint.id, 15 * 20, 2));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.taint, 15 * 20, 2));
 			}
 		}
 
@@ -150,15 +157,17 @@ public class BlockStepEffect extends Block {
 	}
 
 	@Override
-	public int damageDropped(int meta) {
+	public int damageDropped(net.minecraft.block.state.IBlockState state) {
+		int meta = state.getBlock().getMetaFromState(state);
 		if(this == ModBlocks.ore_gneiss_rare) return EnumChunkType.RARE.ordinal();
 		return this == ModBlocks.waste_planks ? 1 : meta;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_) {
-		super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
+	public void randomDisplayTick(IBlockState state, World p_149734_1_, BlockPos pos, Random p_149734_5_) {
+		super.randomDisplayTick(state, p_149734_1_, pos, p_149734_5_);
+		int p_149734_2_ = pos.getX(), p_149734_3_ = pos.getY(), p_149734_4_ = pos.getZ();
 
 		if(this == ModBlocks.waste_trinitite || this == ModBlocks.waste_trinitite_red || this == ModBlocks.block_trinitite || this == ModBlocks.block_waste) {
 			p_149734_1_.spawnParticle(net.minecraft.util.EnumParticleTypes.TOWN_AURA, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1F, p_149734_4_ + p_149734_5_.nextFloat(), 0.0D, 0.0D, 0.0D);
@@ -176,7 +185,6 @@ public class BlockStepEffect extends Block {
 		}
 	}
 
-	@Override
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int i) {
 
 		if(this == ModBlocks.block_meteor_molten) {

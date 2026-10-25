@@ -195,7 +195,7 @@ public class EntityNukeExplosionMK3 extends EntityExplosionChunkloading {
 				fallout.posZ = this.posZ;
 				fallout.setScale((int)(this.destructionRange * 1.8));
 
-				this.world.spawnEntityInWorld(fallout);
+				this.world.spawnEntity(fallout);
 				//this.worldObj.getWorldInfo().setRaining(true);
 
 				did2 = true;
@@ -259,7 +259,7 @@ public class EntityNukeExplosionMK3 extends EntityExplosionChunkloading {
 				break;
 			}
 		}
-		
+
 		if(!entity.isDead) {
 			entity.loadChunk((int) Math.floor(x / 16D), (int) Math.floor(z / 16D));
 		}

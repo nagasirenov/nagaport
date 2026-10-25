@@ -1,5 +1,7 @@
 package com.hbm.blocks.machine;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import com.hbm.tileentity.machine.TileEntityGeiger;
 import com.hbm.util.ContaminationUtil;
 
@@ -47,85 +49,51 @@ public class GeigerCounter extends BlockContainer {
 
 		if(i == 0)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 1)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 		if(i == 2)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 3)
 		{
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
+		}
+	}
+
+	private static final AxisAlignedBB BOUNDS_DEFAULT = new AxisAlignedBB(0.0D, 0.0D, 2 * 0.0625D, 1.0D, 1.0D, 14 * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_WEST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 14 * 0.0625D, 9 * 0.0625D, 14.5D * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_NORTH = new AxisAlignedBB(1.5D * 0.0625D, 0.0D, 0.0D, 1.0D, 9 * 0.0625D, 14 * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_EAST = new AxisAlignedBB(2 * 0.0625D, 0.0D, 1.5D * 0.0625D, 1.0D, 9 * 0.0625D, 1.0D);
+	private static final AxisAlignedBB BOUNDS_SOUTH = new AxisAlignedBB(0.0D, 0.0D, 2 * 0.0625D, 14.5D * 0.0625D, 9 * 0.0625D, 1.0D);
+
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		int te = com.hbm.world.WorldBlockState.readMetadata(source, pos.getX(), pos.getY(), pos.getZ());
+		switch(te) {
+		case 4: return BOUNDS_WEST;
+		case 2: return BOUNDS_NORTH;
+		case 5: return BOUNDS_EAST;
+		case 3: return BOUNDS_SOUTH;
+		default: return BOUNDS_DEFAULT;
 		}
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_)
-    {
-		int te = p_149719_1_.getBlockMetadata(p_149719_2_, p_149719_3_, p_149719_4_);
-        float f = 0.0625F;
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
 
-        this.setBlockBounds(0.0F, 0.0F, 2*f, 1.0F, 1.0F, 14*f);
-        switch(te)
-		{
-		case 4:
-	        this.setBlockBounds(0*f, 0.0F, 0*f, 14*f, 9*f, 14.5F*f);
-            break;
-		case 2:
-	        this.setBlockBounds(1.5F*f, 0.0F, 0*f, 16*f, 9*f, 14*f);
-            break;
-		case 5:
-	        this.setBlockBounds(2*f, 0.0F, 1.5F*f, 16*f, 9*f, 16*f);
-            break;
-		case 3:
-	        this.setBlockBounds(0*f, 0.0F, 2*f, 14.5F*f, 9*f, 16*f);
-            break;
-		}
-    }
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		// xyz,xyz (negative, positive)
-		int te = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
-        float f = 0.0625F;
-
-        this.setBlockBounds(0.0F, 0.0F, 2*f, 1.0F, 1.0F, 14*f);
-        switch(te)
-		{
-		// FACING WEST
-		case 4:
-	        this.setBlockBounds(0*f, 0.0F, 0*f, 14*f, 9*f, 14.5F*f);
-            break;
-		// FACING NORTH
-		case 2:
-	        this.setBlockBounds(1.5F*f, 0.0F, 0*f, 16*f, 9*f, 14*f);
-            break;
-		// FACING EAST
-		case 5:
-	        this.setBlockBounds(2*f, 0.0F, 1.5F*f, 16*f, 9*f, 16*f);
-            break;
-		// FACING SOUTH
-		case 3:
-	        this.setBlockBounds(0*f, 0.0F, 2*f, 14.5F*f, 9*f, 16*f);
-            break;
-		}
-
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
-	}
-
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 
 		if(world.isRemote)
 		{
 			return true;
 		} else if(!player.isSneaking())
 		{
-	    	world.playSoundAtEntity(player, "hbm:item.techBoop", 1.0F, 1.0F);
+	    	world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBoop"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 	    	ContaminationUtil.printGeigerData(player);
 			return true;
 		} else {

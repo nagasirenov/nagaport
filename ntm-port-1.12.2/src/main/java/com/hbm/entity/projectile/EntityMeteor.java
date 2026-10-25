@@ -55,7 +55,7 @@ public class EntityMeteor extends Entity {
 		// Get current block info
 		Block block = com.hbm.world.WorldBlockState.read(world, blockX, blockY, blockZ).getBlock();
 		if(block == null) return;
-		float hardness = block.getBlockHardness(world, blockX, blockY, blockZ);
+		float hardness = com.hbm.world.WorldBlockState.getBlockHardness(world, blockX, blockY, blockZ);
 
 		// Check if the block is weak and can be destroyed
 		if(block == Blocks.LEAVES || block == Blocks.LOG || (hardness >= 0 && hardness <= 0.3F)) {
@@ -68,7 +68,7 @@ public class EntityMeteor extends Entity {
 			if(rand.nextInt(6) == 1) {
 				// Turn blocks into damaged variants
 				if(block == Blocks.DIRT) {
-					world.setBlock(blockX, blockY, blockZ, ModBlocks.dirt_dead);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, blockX, blockY, blockZ, ModBlocks.dirt_dead);
 				} else if(block == Blocks.SAND) {
 					if(rand.nextInt(2) == 1) {
 						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = blockX; int nativePlacementY = blockY; int nativePlacementZ = blockZ; net.minecraft.block.Block nativePlacementBlock = Blocks.SANDSTONE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
@@ -78,7 +78,7 @@ public class EntityMeteor extends Entity {
 				} else if(block == Blocks.STONE) {
 					{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = blockX; int nativePlacementY = blockY; int nativePlacementZ = blockZ; net.minecraft.block.Block nativePlacementBlock = Blocks.COBBLESTONE; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 				} else if(block == Blocks.GRASS) {
-					world.setBlock(blockX, blockY, blockZ, ModBlocks.waste_earth);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, blockX, blockY, blockZ, ModBlocks.waste_earth);
 				}
 			}
 		}
@@ -104,7 +104,7 @@ public class EntityMeteor extends Entity {
 		this.motionY -= 0.03;
 		if(motionY < -2.5) motionY = -2.5;
 
-		this.moveEntity(motionX, motionY, motionZ);
+		this.move(net.minecraft.entity.MoverType.SELF, motionX, motionY, motionZ);
 
 		if(!this.world.isRemote && this.posY < 260) {
 			clearMeteorPath(this.world, (int) this.posX, (int) this.posY, (int) this.posZ);
@@ -177,8 +177,8 @@ public class EntityMeteor extends Entity {
 	}
 
 	@Override @SideOnly(Side.CLIENT) public boolean isInRangeToRenderDist(double distance) { return true; }
-	@Override @SideOnly(Side.CLIENT) public int getBrightnessForRender(float f) { return 15728880; }
-	@Override public float getBrightness(float f) { return 1.0F; }
+	@Override @SideOnly(Side.CLIENT) public int getBrightnessForRender() { return 15728880; }
+	@Override public float getBrightness() { return 1.0F; }
 
 	@Override protected void entityInit() { }
 	@Override protected void readEntityFromNBT(NBTTagCompound nbt) { this.safe = nbt.getBoolean("safe"); }

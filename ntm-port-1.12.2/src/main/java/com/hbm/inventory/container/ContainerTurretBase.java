@@ -16,7 +16,7 @@ public class ContainerTurretBase extends Container {
 	public ContainerTurretBase(InventoryPlayer invPlayer, TileEntityTurretBaseNT te) {
 		turret = te;
 		turret.openInventory(invPlayer.player);
-		
+
 		this.addSlotToContainer(new Slot(te, 0, 98, 27));
 
 		for(int i = 0; i < 3; i++) {
@@ -24,9 +24,9 @@ public class ContainerTurretBase extends Container {
 				this.addSlotToContainer(new Slot(te, 1 + i * 3 + j, 80 + j * 18, 63 + i * 18));
 			}
 		}
-		
+
 		this.addSlotToContainer(new Slot(te, 10, 152, 99));
-		
+
 		for(int i = 0; i < 3; i++)
 		{
 			for(int j = 0; j < 9; j++)
@@ -34,7 +34,7 @@ public class ContainerTurretBase extends Container {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18 + (18 * 3) + 2));
 			}
 		}
-		
+
 		for(int i = 0; i < 9; i++)
 		{
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 142 + (18 * 3) + 2));
@@ -55,15 +55,15 @@ public class ContainerTurretBase extends Container {
 					return null;
 				}
 			} else if(var5.getItem() == ModItems.turret_chip) {
-				
+
 				if(!this.mergeItemStack(var5, 0, 1, false))
 					return null;
-				
+
 			} else if(!this.mergeItemStack(var5, 1, turret.getSizeInventory(), false)) {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
@@ -79,7 +79,7 @@ public class ContainerTurretBase extends Container {
 	public boolean canInteractWith(EntityPlayer player) {
 		return turret.isUsableByPlayer(player);
 	}
-	
+
 	@Override
 	public void onContainerClosed(EntityPlayer p_75134_1_) {
 		super.onContainerClosed(p_75134_1_);

@@ -27,9 +27,9 @@ import net.minecraft.world.World;
 public class EntityBlackHole extends Entity {
 
 	protected static final DataParameter<Float> BLACK_HOLE_SIZE = EntityDataManager.createKey(EntityBlackHole.class, DataSerializers.FLOAT);
-	
+
 	public boolean breaksBlocks = true;
-	
+
 	public EntityBlackHole(World world) {
 		super(world);
 		this.ignoreFrustumCheck = true;
@@ -41,7 +41,7 @@ public class EntityBlackHole extends Entity {
 		this(world);
 		this.dataManager.set(BLACK_HOLE_SIZE, size);
 	}
-	
+
 	public float getBlackHoleSize() {
 		return this.dataManager.get(BLACK_HOLE_SIZE);
 	}
@@ -50,13 +50,13 @@ public class EntityBlackHole extends Entity {
 		this.breaksBlocks = false;
 		return this;
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 		float size = this.dataManager.get(BLACK_HOLE_SIZE);
-		
+
 		if(!this.world.isRemote && breaksBlocks) {
 			for(int k = 0; k < size * 2; k++) {
 				double phi = rand.nextDouble() * (Math.PI * 2);
@@ -65,94 +65,94 @@ public class EntityBlackHole extends Entity {
 				double x = Math.sin( theta) * Math.cos( phi );
 				double y = Math.sin( theta) * Math.sin( phi );
 				double z = Math.cos( theta );
-				
+
 				Vec3d vec = new Vec3d(x, y, z);
 				int length = (int)Math.ceil(size * 15);
-				
+
 				for(int i = 0; i < length; i ++) {
 					int x0 = (int)(this.posX + (vec.x * i));
 					int y0 = (int)(this.posY + (vec.y * i));
 					int z0 = (int)(this.posZ + (vec.z * i));
-					
-					if(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock().getMaterial().isLiquid()) {
+
+					if(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getMaterial().isLiquid()) {
 						com.hbm.world.WorldBlockState.write(this.world, x0, y0, z0, Blocks.AIR.getStateFromMeta(0), 3);
 					}
-					
+
 					if(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock() != Blocks.AIR) {
 						EntityRubble rubble = new EntityRubble(this.world);
 						rubble.posX = x0 + 0.5F;
 						rubble.posY = y0;
 						rubble.posZ = z0 + 0.5F;
-						rubble.setMetaBasedOnBlock(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock(), this.world.getBlockMetadata(x0, y0, z0));
-						
-						this.world.spawnEntityInWorld(rubble);
-					
+						rubble.setMetaBasedOnBlock(com.hbm.world.WorldBlockState.read(this.world, x0, y0, z0).getBlock(), com.hbm.world.WorldBlockState.readMetadata(this.world, x0, y0, z0));
+
+						this.world.spawnEntity(rubble);
+
 						com.hbm.world.WorldBlockState.write(this.world, x0, y0, z0, Blocks.AIR.getStateFromMeta(0), 3);
 						break;
 					}
 				}
 			}
 		}
-		
+
 		double range = size * 15;
-		
-		List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(
+
+		List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(
 				posX - range, posY - range, posZ - range, posX + range, posY + range, posZ + range));
-		
+
 		for(Entity e : entities) {
-			
+
 			if(e instanceof EntityPlayer && ((EntityPlayer)e).capabilities.isCreativeMode)
 				continue;
-			
+
 			if(e instanceof EntityFallingBlock && !this.world.isRemote && e.ticksExisted > 1) {
-				
+
 				double x = e.posX;
 				double y = e.posY;
 				double z = e.posZ;
-				Block b = ((EntityFallingBlock)e).func_145805_f();
-				int meta = ((EntityFallingBlock)e).field_145814_a;
-				
+				net.minecraft.block.state.IBlockState fstate = ((EntityFallingBlock)e).getBlock(); Block b = fstate.getBlock();
+				int meta = com.hbm.world.WorldBlockState.metadata(fstate);
+
 				e.setDead();
-				
+
 				EntityRubble rubble = new EntityRubble(this.world);
 				rubble.setMetaBasedOnBlock(b, meta);
 				rubble.setPositionAndRotation(x, y, z, 0, 0);
 				rubble.motionX = e.motionX;
 				rubble.motionY = e.motionY;
 				rubble.motionZ = e.motionZ;
-				this.world.spawnEntityInWorld(rubble);
+				this.world.spawnEntity(rubble);
 			}
-			
+
 			Vec3d vec = new Vec3d(posX - e.posX, posY - e.posY, posZ - e.posZ);
-			
+
 			double dist = vec.length();
-			
+
 			if(dist > range)
 				continue;
-			
+
 			vec = vec.normalize();
-			
+
 			if(!(e instanceof EntityItem))
 				vec = vec.rotateYaw((float)Math.toRadians(15));
-			
+
 			double speed = 0.1D;
 			e.motionX += vec.x * speed;
 			e.motionY += vec.y * speed * 2;
 			e.motionZ += vec.z * speed;
-			
+
 			if(e instanceof EntityBlackHole)
 				continue;
-			
+
 			if(dist < size * 1.5) {
 				e.attackEntityFrom(ModDamageSource.blackhole, 1000);
-				
+
 				if(!(e instanceof EntityLivingBase))
 					e.setDead();
-				
+
 				if(!this.world.isRemote && e instanceof EntityItem) {
 					EntityItem item = (EntityItem) e;
-					ItemStack stack = item.getEntityItem();
-					
+					ItemStack stack = item.getItem();
+
 					if(stack.getItem() == ModItems.pellet_antimatter || stack.getItem() == ModItems.flame_pony) {
 						this.setDead();
 						this.world.createExplosion(null, this.posX, this.posY, this.posZ, 5.0F, true);
@@ -161,9 +161,9 @@ public class EntityBlackHole extends Entity {
 				}
 			}
 		}
-		
+
 		this.setPosition(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-		
+
 		this.motionX *= 0.99D;
 		this.motionY *= 0.99D;
 		this.motionZ *= 0.99D;
@@ -185,7 +185,7 @@ public class EntityBlackHole extends Entity {
 		nbt.setFloat("size", this.dataManager.get(BLACK_HOLE_SIZE));
 		nbt.setBoolean("breaksBlocks", breaksBlocks);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isInRangeToRenderDist(double distance) {
@@ -194,12 +194,12 @@ public class EntityBlackHole extends Entity {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getBrightnessForRender(float p_70070_1_) {
+	public int getBrightnessForRender() {
 		return 15728880;
 	}
 
 	@Override
-	public float getBrightness(float p_70013_1_) {
+	public float getBrightness() {
 		return 1.0F;
 	}
 }

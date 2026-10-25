@@ -20,40 +20,40 @@ public class TileEntityFusionCoupler extends TileEntityLoadedBase implements IFu
 
 	protected GenNode klystronNode;
 	protected GenNode plasmaNode;
-	
+
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
-			
+
 			ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata() - 10).getOpposite();
 			ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
-			
+
 			// christ on the cross why didn't i just make a baseclass to shove this crap into
 			if(klystronNode == null || klystronNode.expired) {
 				klystronNode = UniNodespace.getNode(this.world, this.pos.getX() + rot.offsetX, this.pos.getY() + 2, this.pos.getZ() + rot.offsetZ, KlystronNetworkProvider.THE_PROVIDER);
-				
+
 				if(klystronNode == null) {
 					klystronNode = new GenNode(KlystronNetworkProvider.THE_PROVIDER,
 							new BlockPos(this.pos.getX() + rot.offsetX, this.pos.getY() + 2, this.pos.getZ() + rot.offsetZ))
 							.setConnections(new DirPos(this.pos.getX() + rot.offsetX * 2, this.pos.getY() + 2, this.pos.getZ() + rot.offsetZ * 2, rot));
-					
+
 					UniNodespace.createNode(this.world, klystronNode);
 				}
 			}
-			
+
 			if(plasmaNode == null || plasmaNode.expired) {
 				plasmaNode = UniNodespace.getNode(this.world, this.pos.getX() - rot.offsetX, this.pos.getY() + 2, this.pos.getZ() - rot.offsetZ, PlasmaNetworkProvider.THE_PROVIDER);
-				
+
 				if(plasmaNode == null) {
 					plasmaNode = new GenNode(PlasmaNetworkProvider.THE_PROVIDER,
 							new BlockPos(this.pos.getX() - rot.offsetX, this.pos.getY() + 2, this.pos.getZ() - rot.offsetZ))
 							.setConnections(new DirPos(this.pos.getX() - rot.offsetX * 2, this.pos.getY() + 2, this.pos.getZ() - rot.offsetZ * 2, rot.getOpposite()));
-					
+
 					UniNodespace.createNode(this.world, plasmaNode);
 				}
 			}
-			
+
 			if(klystronNode.net != null) klystronNode.net.addProvider(this);
 			if(plasmaNode.net != null) plasmaNode.net.addReceiver(this);
 		}
@@ -63,16 +63,16 @@ public class TileEntityFusionCoupler extends TileEntityLoadedBase implements IFu
 
 	@Override
 	public void receiveFusionPower(long fusionPower, double neutronPower) {
-		
+
 		// more copy pasted crap code ! ! !
 		if(klystronNode != null && klystronNode.net != null) {
 			KlystronNetwork net = (KlystronNetwork) klystronNode.net;
-			
+
 			for(Object o : net.receiverEntries.entrySet()) {
 				Entry e = (Entry) o;
 				if(e.getKey() instanceof TileEntityFusionTorus) {
 					TileEntityFusionTorus torus = (TileEntityFusionTorus) e.getKey();
-					
+
 					if(torus.isLoaded() && !torus.isInvalid()) {
 						torus.klystronEnergy += fusionPower;
 						break;
@@ -98,7 +98,7 @@ public class TileEntityFusionCoupler extends TileEntityLoadedBase implements IFu
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

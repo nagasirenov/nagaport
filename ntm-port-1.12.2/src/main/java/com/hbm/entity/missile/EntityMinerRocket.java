@@ -42,7 +42,7 @@ public class EntityMinerRocket extends Entity {
 		this.dataManager.register(FLIGHT_MODE, 0);
 		this.dataManager.register(SATELLITE_FREQUENCY, 0);
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		if(dataManager.get(FLIGHT_MODE) == 0)
@@ -51,37 +51,37 @@ public class EntityMinerRocket extends Entity {
 			motionY = 0;
 		if(dataManager.get(FLIGHT_MODE) == 2)
 			motionY = 1;
-		
+
 		motionX = 0;
 		motionZ = 0;
-		
+
 		this.setPositionAndRotation(posX + motionX, posY + motionY, posZ + motionZ, 0.0F, 0.0F);
 
 		if(dataManager.get(FLIGHT_MODE) == 0 && com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY - 0.5), (int)(posZ - 0.5)).getBlock() == ModBlocks.sat_dock) {
 			dataManager.set(FLIGHT_MODE, 1);
 			motionY = 0;
 			posY = (int)posY;
-		} else if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getBlock().getMaterial() != Material.AIR && !this.world.isRemote && dataManager.get(FLIGHT_MODE) != 1) {
+		} else if(com.hbm.world.WorldBlockState.read(this.world, (int)(posX - 0.5), (int)(posY + 1), (int)(posZ - 0.5)).getMaterial() != Material.AIR && !this.world.isRemote && dataManager.get(FLIGHT_MODE) != 1) {
 			this.setDead();
 			ExplosionLarge.explodeFire(this.world, posX - 0.5, posY, posZ - 0.5, 10F, true, false, true);
-			//worldObj.setBlock((int)(posX - 0.5), (int)(posY + 0.5), (int)(posZ - 0.5), Blocks.dirt);
+			//worldObj.setBlock((int)(posX - 0.5), (int)(posY + 0.5), (int)(posZ - 0.5), Blocks.DIRT);
 		}
-		
+
 		if(dataManager.get(FLIGHT_MODE) == 1) {
 			if(!this.world.isRemote && ticksExisted % 4 == 0)
 				ExplosionLarge.spawnShock(this.world, posX, posY, posZ, 1 + rand.nextInt(3), 1 + rand.nextGaussian());
-			
+
 			timer++;
-			
+
 			if(timer > 100) {
 				dataManager.set(FLIGHT_MODE, 2);
 			}
 		}
-		
+
 		if(dataManager.get(FLIGHT_MODE) != 1 && !this.world.isRemote && ticksExisted % 2 == 0) {
 			ParticleUtil.spawnGasFlame(this.world, posX, posY - 0.5, posZ, 0.0, -1.0, 0.0);
 		}
-		
+
 		if(dataManager.get(FLIGHT_MODE) == 2 && posY > 300)
 			this.setDead();
 	}

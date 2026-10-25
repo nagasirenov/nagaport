@@ -14,8 +14,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderGhost extends RenderBiped {
 
-	public RenderGhost() {
-		super(new ModelBiped(0.0F), 0.5F, 1.0F);
+	public RenderGhost(net.minecraft.client.renderer.entity.RenderManager renderManager) {
+		super(renderManager, new ModelBiped(0.0F), 0.5F);
 	}
 
 	@Override

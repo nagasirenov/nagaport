@@ -101,7 +101,7 @@ public class XFactory10ga {
 				rec.getOnFire(stack).accept(stack, ctx);
 
 				if(rec.getFireSound(stack) != null)
-					entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, rec.getFireSound(stack), rec.getFireVolume(stack), rec.getFirePitch(stack));
+					entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve(rec.getFireSound(stack)), net.minecraft.util.SoundCategory.BLOCKS, rec.getFireVolume(stack), rec.getFirePitch(stack));
 
 				ItemGunBaseNT.setState(stack, index, GunState.COOLDOWN);
 				ItemGunBaseNT.setTimer(stack, index, rec.getDelayAfterFire(stack));

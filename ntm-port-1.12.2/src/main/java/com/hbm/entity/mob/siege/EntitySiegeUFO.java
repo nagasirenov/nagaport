@@ -27,11 +27,11 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 	private double lastTargetX;
 	private double lastTargetY;
 	private double lastTargetZ;
-	
+
 	private int lifetime = 0;
 	private boolean isRetreating = false;
 	private static final int MAX_LIFETIME = 60 * 2 * 20;
-	
+
 	public EntitySiegeUFO(World world) {
 		super(world);
 		this.setSize(1.5F, 1F);
@@ -42,51 +42,51 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 		super.entityInit();
 		this.getDataManager().register(SIEGE_TIER, (int) 0);
 	}
-	
+
 	public void setTier(SiegeTier tier) {
 		this.getDataManager().set(SIEGE_TIER, tier.id);
 
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(tier.speedMod);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(tier.health * 0.25);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(tier.speedMod);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(tier.health * 0.25);
 		this.setHealth(this.getMaxHealth());
 	}
-	
+
 	public SiegeTier getTier() {
 		SiegeTier tier = SiegeTier.tiers[this.getDataManager().get(SIEGE_TIER)];
 		return tier != null ? tier : SiegeTier.CLAY;
 	}
-	
+
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float damage) {
-		
-		if(this.isEntityInvulnerable())
+
+		if(this.isEntityInvulnerable(null))
 			return false;
-		
+
 		SiegeTier tier = this.getTier();
-		
+
 		if(tier.fireProof && source.isFireDamage()) {
 			this.extinguish();
 			return false;
 		}
-		
+
 		if(tier.noFriendlyFire && source instanceof EntityDamageSource && !(((EntityDamageSource) source).getTrueSource() instanceof EntityPlayer))
 			return false;
-		
+
 		damage -= tier.dt;
-		
+
 		if(damage < 0) {
-			this.world.playSoundAtEntity(this, "random.break", 5F, 1.0F + rand.nextFloat() * 0.5F);
+			this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("random.break"), net.minecraft.util.SoundCategory.PLAYERS, 5F, 1.0F + rand.nextFloat() * 0.5F);
 			return false;
 		}
-		
+
 		damage *= (1F - tier.dr);
-		
+
 		return super.attackEntityFrom(source, damage);
 	}
 
 	@Override
-	protected void updateEntityActionState() {
-		
+	protected void updateEntityActionStateNT() {
+
 		if(!this.world.isRemote) {
 			lifetime++;
 			if(lifetime > MAX_LIFETIME) {
@@ -104,7 +104,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 			}
 		}
 
-		super.updateEntityActionState();
+		super.updateEntityActionStateNT();
 
 		if(this.courseChangeCooldown > 0) {
 			this.courseChangeCooldown--;
@@ -112,7 +112,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 		if(this.scanCooldown > 0) {
 			this.scanCooldown--;
 		}
-		
+
 		if(!this.world.isRemote) {
 			if(this.attackCooldown > 0) {
 				this.attackCooldown--;
@@ -131,7 +131,7 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 					this.lastTargetY = this.target.posY + this.target.getEyeHeight();
 					this.lastTargetZ = this.target.posZ;
 				}
-				
+
 				if(this.attackCooldown == 0) {
 					this.attackCooldown = 20 + rand.nextInt(25);
 
@@ -156,30 +156,30 @@ public class EntitySiegeUFO extends EntityUFOBase implements IRadiationImmune {
 					bullet.setRotationsFromVector(delta);
 					bullet.performHitscanExternal(250D);
 
-					this.world.spawnEntityInWorld(bullet);
-					this.playSound("hbm:entity.bfashoot", 2.0F, 1.0F);
+					this.world.spawnEntity(bullet);
+					this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:entity.bfashoot"), net.minecraft.util.SoundCategory.NEUTRAL, 2.0F, 1.0F);
 				}
 			}
 		}
-		
+
 		if(this.courseChangeCooldown > 0) {
-			    double speed = this.target == null ? 0.5D : 1.0D + (this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue() * 1.0D);
-			    
-			    if(isRetreating) speed *= 2.0D; 
-			    
+			    double speed = this.target == null ? 0.5D : 1.0D + (this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue() * 1.0D);
+
+			    if(isRetreating) speed *= 2.0D;
+
 			    approachPosition(speed);
 			}
-		
-		
+
+
 	}
 
-	
+
 	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+	public IEntityLivingData onInitialSpawn(net.minecraft.world.DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setTier(SiegeTier.tiers[rand.nextInt(SiegeTier.getLength())]);
-		return super.onSpawnWithEgg(data);
+		return super.onInitialSpawn(difficulty, data);
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);

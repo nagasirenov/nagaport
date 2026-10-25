@@ -48,6 +48,7 @@ import com.hbm.render.item.NativeItemTextureRegistry;
 
 import api.hbm.block.IToolable.ToolType;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -2666,7 +2667,7 @@ public class ModItems {
 		ore_nitrocrystalline = NativeItemTextureRegistry.texture(new ItemBedrockOre().setTranslationKey("ore_nitrocrystalline").setCreativeTab(MainRegistry.partsTab), RefStrings.MODID + ":ore_nitrocrystalline");
 		ore_deepcleaned = NativeItemTextureRegistry.texture(new ItemBedrockOre().setTranslationKey("ore_deepcleaned").setCreativeTab(MainRegistry.partsTab), RefStrings.MODID + ":ore_deepcleaned");
 		ore_seared = NativeItemTextureRegistry.texture(new ItemBedrockOre().setTranslationKey("ore_seared").setCreativeTab(MainRegistry.partsTab), RefStrings.MODID + ":ore_seared");
-		//ore_radcleaned = new ItemBedrockOre().setUnlocalizedName("ore_radcleaned").setCreativeTab(MainRegistry.partsTab).setTextureName(RefStrings.MODID + ":ore_radcleaned");
+		//ore_radcleaned = new ItemBedrockOre().setUnlocalizedName("ore_radcleaned").setCreativeTab(MainRegistry.partsTab);
 		ore_enriched = NativeItemTextureRegistry.texture(new ItemBedrockOre().setTranslationKey("ore_enriched").setCreativeTab(MainRegistry.partsTab), RefStrings.MODID + ":ore_enriched");
 		bedrock_ore_base = NativeItemTextureRegistry.texture(new ItemBedrockOreBase().setTranslationKey("bedrock_ore_base").setCreativeTab(MainRegistry.partsTab), RefStrings.MODID + ":bedrock_ore_new");
 		bedrock_ore = NativeItemTextureRegistry.texture(new ItemBedrockOreNew().setTranslationKey("bedrock_ore").setCreativeTab(MainRegistry.partsTab), RefStrings.MODID + ":bedrock_ore_new");
@@ -3542,7 +3543,7 @@ public class ModItems {
 		int tintFlashlead = 0x7B7B87;
 		int tintBalefire = 0xB2FF1B;
 		int tintDRX = 0xD77276;
-		
+
 		rbmk_fuel_empty = NativeItemTextureRegistry.texture(new Item().setTranslationKey("rbmk_fuel_empty").setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":rbmk_fuel_empty");
 		rbmk_fuel_ueu = (ItemRBMKRod) NativeItemTextureRegistry.texture(new ItemRBMKRod(rbmk_pellet_ueu)
 				.setYield(100_000_000D)
@@ -3648,7 +3649,7 @@ public class ModItems {
 				.setFunction(EnumBurnFunc.LINEAR)
 				.setHeat(2D)
 				.setMeltingPoint(2386)
-				.setTint(tintAmericium).setTranslationKey("rbmk_fuel_hea242"), RefStrings.MODID + ":rbmk_fuel_hea242");				
+				.setTint(tintAmericium).setTranslationKey("rbmk_fuel_hea242"), RefStrings.MODID + ":rbmk_fuel_hea242");
 		rbmk_fuel_bk247 = (ItemRBMKRod) NativeItemTextureRegistry.texture(new ItemRBMKRod(rbmk_pellet_bk247)
 				.setYield(100000000D)
 				.setStats(50)
@@ -4208,7 +4209,7 @@ public class ModItems {
 		quesadilla = NativeItemTextureRegistry.texture(new ItemLemon(8, 1F, false).setTranslationKey("cheese_quesadilla").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":quesadilla");
 		mucho_mango = NativeItemTextureRegistry.texture(new ItemMuchoMango(10).setTranslationKey("mucho_mango").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":mucho_mango");
 		glyphid_meat = NativeItemTextureRegistry.texture(new ItemLemon(3, 0.5F, true).setTranslationKey("glyphid_meat").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":glyphid_meat");
-		glyphid_meat_grilled = NativeItemTextureRegistry.texture(new ItemLemon(8, 0.75F, true).setPotionEffect(Potion.damageBoost.id, 180, 1, 1F).setTranslationKey("glyphid_meat_grilled").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":glyphid_meat_grilled");
+		glyphid_meat_grilled = NativeItemTextureRegistry.texture(new ItemLemon(8, 0.75F, true).setPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.STRENGTH, 180, 1), 1F).setTranslationKey("glyphid_meat_grilled").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":glyphid_meat_grilled");
 		chocolate_mint_billet = NativeItemTextureRegistry.texture(new ItemLemon(5, 5F, true).setTranslationKey("chocolate_mint_billet").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":chocolate_mint_billet");
 		egg_glyphid = NativeItemTextureRegistry.texture(new Item().setTranslationKey("egg_glyphid").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":egg_glyphid");
 		flour = NativeItemTextureRegistry.texture(new Item().setTranslationKey("flour").setCreativeTab(MainRegistry.consumableTab), RefStrings.MODID + ":flour");
@@ -4293,7 +4294,9 @@ public class ModItems {
 		battery_pack = NativeItemTextureRegistry.texture(new ItemBatteryPack().setTranslationKey("battery_pack"), RefStrings.MODID + ":battery_generic_new");
 		battery_creative = NativeItemTextureRegistry.texture(new ItemBatteryCreative().setTranslationKey("battery_creative").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":battery_creative_new");
 		cube_power = NativeItemTextureRegistry.texture(new ItemBattery(1000000000000000000L, 1000000000000000L, 1000000000000000L).setTranslationKey("cube_power").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":cube_power");
-		core_angel = NativeItemTextureRegistry.texture(new ItemBattery(16_000_000L, 16_000_000L, 800_000L).setTranslationKey("core_angel").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab), RefStrings.MODID + ":core_angel");
+		// The angel core is owned by its native mesh renderer; the original
+		// setTextureName was dead code and the fork never shipped that PNG.
+		core_angel = new ItemBattery(16_000_000L, 16_000_000L, 800_000L).setTranslationKey("core_angel").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab);
 
 		battery_sc_uranium = NativeItemTextureRegistry.texture(new ItemSelfcharger(5).setTranslationKey("battery_sc_uranium").setMaxStackSize(1).setCreativeTab(null), RefStrings.MODID + ":battery_sc_uranium");
 		battery_sc_technetium = NativeItemTextureRegistry.texture(new ItemSelfcharger(25).setTranslationKey("battery_sc_technetium").setMaxStackSize(1).setCreativeTab(null), RefStrings.MODID + ":battery_sc_technetium");
@@ -4510,7 +4513,7 @@ public class ModItems {
 	}
 
 	public static void initializeItem2() {
-		
+
 		ModItemsArmor.init();
 
 		chainsaw = NativeItemTextureRegistry.texture(new ItemChainsaw(25, -0.05, MainRegistry.tMatChainsaw, EnumToolType.AXE, 5000, 1, 250,

@@ -10,9 +10,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerWasteDrum extends Container {
-	
+
 	private TileEntityWasteDrum drum;
-	
+
 	public ContainerWasteDrum(InventoryPlayer invPlayer, TileEntityWasteDrum tedf) {
 		drum = tedf;
 
@@ -28,7 +28,7 @@ public class ContainerWasteDrum extends Container {
 		this.addSlotToContainer(new Slot(tedf, 9, 107, 57));
 		this.addSlotToContainer(new Slot(tedf, 10, 71, 75));
 		this.addSlotToContainer(new Slot(tedf, 11, 89, 75));
-		
+
 		for(int i = 0; i < 3; i++)
 		{
 			for(int j = 0; j < 9; j++)
@@ -36,13 +36,13 @@ public class ContainerWasteDrum extends Container {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18 + 23));
 			}
 		}
-		
+
 		for(int i = 0; i < 9; i++)
 		{
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 142 + 23));
 		}
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
 		ItemStack var3 = null;
@@ -60,12 +60,12 @@ public class ContainerWasteDrum extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();
 			}
-			
+
 			var4.onTake(p_82846_1_, var5);
 		}
 
@@ -74,6 +74,6 @@ public class ContainerWasteDrum extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return drum.isUseableByPlayer(player);
+		return drum.isUsableByPlayer(player);
 	}
 }

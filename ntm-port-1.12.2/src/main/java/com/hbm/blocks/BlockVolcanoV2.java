@@ -26,6 +26,11 @@ import com.hbm.lib.ForgeDirection;
 
 public class BlockVolcanoV2 extends BlockContainer {
 
+	public BlockVolcanoV2 withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
 	public BlockVolcanoV2(Material rock) {
 		super(rock);
 	}
@@ -128,7 +133,7 @@ public class BlockVolcanoV2 extends BlockContainer {
 
 		private void vapor() {
 			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class,
-					AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5,
+					new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY() + 0.5, this.pos.getZ() - 0.5, this.pos.getX() + 1.5,
 							this.pos.getY() + 60, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
@@ -136,7 +141,7 @@ public class BlockVolcanoV2 extends BlockContainer {
 
 					if(e instanceof EntityLivingBase)
 						if(e.attackEntityFrom(ModDamageSource.electricity, MathHelper.clamp(((EntityLivingBase) e).getMaxHealth() * 1F, (float) (3), (float) (20))))
-							this.world.playSoundAtEntity(e, "hbm:weapon.tesla", 1.0F, 1.0F);
+							this.world.playSound(null, e.posX, e.posY, e.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.tesla"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				}
 			}
 		}

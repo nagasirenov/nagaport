@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "hbm:carbonized_flesh_block_layer"
+    }
+  }
+}

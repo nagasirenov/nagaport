@@ -24,12 +24,27 @@ public class CommandLocate extends CommandBase {
 
 	private static final int MAX_DISTANCE = 256;
 
-	@Override
-	public String getCommandName() {
-		return "ntmlocate";
+
+		@Override
+	public String getName() {
+		return getCommandName();
 	}
 
 	@Override
+	public String getUsage(net.minecraft.command.ICommandSender sender) {
+		return getCommandUsage(sender);
+	}
+
+	@Override
+	public void execute(net.minecraft.server.MinecraftServer server, net.minecraft.command.ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+		processCommand(sender, args);
+	}
+
+public String getCommandName() {
+		return "ntmlocate";
+	}
+
+
 	public String getCommandUsage(ICommandSender sender) {
 		return String.format(Locale.US,
 			"%s/%s structure <name> %s- Locates the nearest structure with a given name.",
@@ -37,10 +52,10 @@ public class CommandLocate extends CommandBase {
 		);
 	}
 
-	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
+
+	public void processCommand(ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
 		if(!(sender instanceof EntityPlayer))
-			throw new PlayerNotFoundException();
+			throw new PlayerNotFoundException("commands.generic.player.notFound");
 
 		if(args.length == 0)
 			throw new WrongUsageException(getCommandUsage(sender), new Object[0]);
@@ -103,7 +118,7 @@ public class CommandLocate extends CommandBase {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> getTabCompletions(net.minecraft.server.MinecraftServer server, ICommandSender sender, String[] args, net.minecraft.util.math.BlockPos targetPos) {
 		if(args.length < 1)
 			return Collections.emptyList();
 

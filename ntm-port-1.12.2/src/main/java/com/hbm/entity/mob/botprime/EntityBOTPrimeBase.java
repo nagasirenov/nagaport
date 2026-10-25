@@ -46,11 +46,10 @@ public abstract class EntityBOTPrimeBase extends EntityWormBaseNT implements IRa
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15000.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15000.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 	}
 
-	@Override
 	protected boolean isAIEnabled() {
 		return true;
 	}
@@ -64,8 +63,9 @@ public abstract class EntityBOTPrimeBase extends EntityWormBaseNT implements IRa
 		return "mob.blaze.hit";
 	}
 
-	protected String getDeathSound() {
-		return "hbm:entity.bombDet";
+	@Override
+	protected net.minecraft.util.SoundEvent getDeathSound() {
+		return com.hbm.main.ModSoundEvents.resolve("hbm:entity.bombDet");
 	}
 
 	protected void laserAttack(Entity target, boolean head) {
@@ -80,15 +80,15 @@ public abstract class EntityBOTPrimeBase extends EntityWormBaseNT implements IRa
 			for(int i = 0; i < 5; i++) {
 
 				EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.WORM_LASER, this, living, 1.0F, i * 0.05F);
-				this.world.spawnEntityInWorld(bullet);
+				this.world.spawnEntity(bullet);
 			}
 
-			this.playSound("hbm:weapon.ballsLaser", 5.0F, 0.75F);
+			this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.ballsLaser"), net.minecraft.util.SoundCategory.NEUTRAL, 5.0F, 0.75F);
 
 		} else {
 			EntityBulletBaseNT bullet = new EntityBulletBaseNT(this.world, BulletConfigSyncingUtil.WORM_BOLT, this, living, 0.5F, 0.125F);
-			this.world.spawnEntityInWorld(bullet);
-			this.playSound("hbm:weapon.ballsLaser", 5.0F, 1.0F);
+			this.world.spawnEntity(bullet);
+			this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.ballsLaser"), net.minecraft.util.SoundCategory.NEUTRAL, 5.0F, 1.0F);
 		}
 	}
 }

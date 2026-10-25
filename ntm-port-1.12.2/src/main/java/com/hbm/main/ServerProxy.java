@@ -41,6 +41,7 @@ public class ServerProxy {
 	public void onLoadComplete() { }
 	public void registerPreRenderInfo() { }
 	public void registerRenderInfo() { }
+	public void registerPostRegistryInfo() { }
 	public void registerTileEntitySpecialRenderer() { }
 	public void registerItemRenderer() { }
 	public void registerEntityRenderer() { }

@@ -92,7 +92,6 @@ public class BlockDecoModel extends BlockEnumMulti implements INBTBlockTransform
 		return this;
 	}
 
-    @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
         switch(getMetaFromState(state) >> 2) {
             case 0: return new AxisAlignedBB(1 - mxX, mnY, 1 - mxZ, 1 - mnX, mxY, 1 - mnZ);

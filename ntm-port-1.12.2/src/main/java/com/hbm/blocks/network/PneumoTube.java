@@ -45,6 +45,11 @@ import net.minecraftforge.common.property.*;
 
 /** Native exposed pneumatic tube owner; transport stays in TileEntityPneumoTube. */
 public class PneumoTube extends BlockContainer implements IToolable, ITooltipProvider {
+	@Override
+	public net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
     public PneumoTube(){super(Material.IRON);}
     @Override protected BlockStateContainer createBlockState(){return new ExtendedBlockState(this,new IProperty<?>[0],new IUnlistedProperty<?>[]{PneumaticModelState.MODEL});}
     @Override public int getMetaFromState(IBlockState state){return 0;}

@@ -97,7 +97,6 @@ public class BlockConveyorClassic extends Block implements IConveyorBelt {
 		return BlockFaceShape.UNDEFINED;
 	}
 
-	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		return BELT_BOUNDS;
 	}

@@ -207,7 +207,7 @@ public class CompatHandler {
 
                 } else { // Disk path DOES exist, and it should be loaded.
 
-                    disk.item = Items.registerFloppy(s, disk.color, disk.fs); // The big part, actually registering the floppies!
+                    disk.item = li.cil.oc.api.Items.registerFloppy(s, net.minecraft.item.EnumDyeColor.byMetadata(disk.color & 15), disk.fs, false); // The big part, actually registering the floppies!
 					logger.info("Registered disk: {} at /assets/" + RefStrings.MODID + "/disks/{}", s, disk.fs.name);
 
                 }
@@ -270,7 +270,7 @@ public class CompatHandler {
          */
         @Override
         @Optional.Method(modid = "OpenComputers")
-        default boolean canConnectNode(ForgeDirection side) {
+        default boolean canConnectNode(net.minecraft.util.EnumFacing side) {
             return !this.getComponentName().equals(nullComponent);
         }
 

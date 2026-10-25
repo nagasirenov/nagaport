@@ -78,9 +78,10 @@ public class ItemSettingsTool extends Item {
 		}
 	}
 	@Override
-	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
+	public net.minecraft.util.EnumActionResult onItemUseFirst(EntityPlayer player, World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumFacing side, float fX, float fY, float fZ, net.minecraft.util.EnumHand hand) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ(); net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
 		Either<TileEntity, Block> schrodinger = getCopyInfoSource(world, x, y, z);
-		if(schrodinger == null) return false;
+		if(schrodinger == null) return net.minecraft.util.EnumActionResult.PASS;
 		ICopiable copiable = schrodinger.cast();
 
 		if(player.isSneaking()) {
@@ -119,7 +120,7 @@ public class ItemSettingsTool extends Item {
 			copiable.pasteSettings(stack.getTagCompound(), index, world, player, x, y, z);
 		}
 
-		return !world.isRemote;
+		return !world.isRemote ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
 	}
 
 	@Nullable

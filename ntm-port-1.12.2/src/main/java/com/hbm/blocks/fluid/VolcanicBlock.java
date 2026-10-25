@@ -8,11 +8,16 @@ import com.hbm.lib.RefStrings;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.init.Blocks;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 import net.minecraftforge.fluids.BlockFluidClassic;
@@ -31,13 +36,11 @@ public class VolcanicBlock extends BlockFluidClassic {
 		this.setQuantaPerBlock(4);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return (side == 0 || side == 1) ? stillIcon : flowingIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 		stillIcon = register.registerIcon(RefStrings.MODID + ":volcanic_lava_still");
@@ -45,18 +48,19 @@ public class VolcanicBlock extends BlockFluidClassic {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		super.onNeighborBlockChange(world, x, y, z, block);
-		
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		super.neighborChanged(state, world, pos, block, fromPos);
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			Block b = getReaction(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
-			
-			if(b != null) world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, b, b == ModBlocks.ore_basalt ? 3 : 0, 3);
+
+			if(b != null) com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, b, b == ModBlocks.ore_basalt ? 3 : 0, 3);
 		}
 	}
 
 	public Block getReaction(World world, int x, int y, int z) {
-		
+
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
 		if(b.getDefaultState().getMaterial() == Material.WATER) return Blocks.STONE;
 		if(b == Blocks.LOG || b == Blocks.LOG2) return ModBlocks.waste_log;
@@ -65,72 +69,82 @@ public class VolcanicBlock extends BlockFluidClassic {
 		if(b == Blocks.DIAMOND_ORE) return ModBlocks.ore_basalt;
 		return null;
 	}
-	
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		
-		super.updateTick(world, x, y, z, rand);
-		
+
+
+		@Override
+	public void updateTick(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, java.util.Random rand) {
+		updateTick(worldIn, pos.getX(), pos.getY(), pos.getZ(), rand);
+	}
+
+public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		super.updateTick(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), rand);
+
 		int lavaCount = 0;
 		int basaltCount = 0;
-		
+
 		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			Block b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();
-			
+
 			if(b == this)
 				lavaCount++;
 			if(b == getBasaltForCheck()) {
 				basaltCount++;
 			}
 		}
-		
-		if(!world.isRemote && ((!this.isSourceBlock(world, x, y, z) && lavaCount < 2) || (rand.nextInt(5) == 0) && lavaCount < 5) && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != this) {
+
+		if(!world.isRemote && ((!this.isSourceBlock(world, new BlockPos(x, y, z)) && lavaCount < 2) || (rand.nextInt(5) == 0) && lavaCount < 5) && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() != this) {
 			this.onSolidify(world, x, y, z, lavaCount, basaltCount, rand);
 		}
 	}
-	
+
 	public Block getBasaltForCheck() {
 		return ModBlocks.basalt;
 	}
-	
+
 	public void onSolidify(World world, int x, int y, int z, int lavaCount, int basaltCount, Random rand) {
 		int r = rand.nextInt(200);
-		
+
 		Block above = com.hbm.world.WorldBlockState.read(world, x, y + 10, z).getBlock();
 		boolean canMakeGem = lavaCount + basaltCount == 6 && lavaCount < 3 && (above == ModBlocks.basalt || above == ModBlocks.volcanic_lava_block);
-		
+
 		if(r < 2) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		else if(r == 2) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 1; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		else if(r == 3) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 2; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		else if(r == 4) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 4; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 		else if(r < 15 && canMakeGem) { net.minecraft.world.World nativeRegisteredWriteWorld = world; int nativeRegisteredWriteX = x; int nativeRegisteredWriteY = y; int nativeRegisteredWriteZ = z; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.ore_basalt; int nativeRegisteredWriteMeta = 3; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
-		else world.setBlock(x, y, z, ModBlocks.basalt);
+		else com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.basalt);
 	}
 
-	@Override
-	public boolean canDisplace(IBlockAccess world, int x, int y, int z) {
-		Block b = world.getBlock(x, y, z);
-		
+	public boolean canDisplace(IBlockAccess world, BlockPos pos) {
+		Block b = world.getBlockState(pos).getBlock();
+
 		if(Blocks.FIRE.getFlammability(b) > 0)
 			return true;
-		
-		if(b.isReplaceable(world, new net.minecraft.util.math.BlockPos(x, y, z)))
+
+		if(b.isReplaceable(world, pos))
 			return true;
-		
-		return super.canDisplace(world, x, y, z);
+
+		return super.canDisplace(world, pos);
 	}
 
-	@Override
-	public boolean displaceIfPossible(World world, int x, int y, int z) {
-		return super.displaceIfPossible(world, x, y, z) || canDisplace(world, x, y, z);
+	public boolean canDisplace(IBlockAccess world, int x, int y, int z) {
+		return canDisplace(world, new BlockPos(x, y, z));
 	}
-	
-	@Override
+
+	public boolean displaceIfPossible(World world, BlockPos pos) {
+		return super.displaceIfPossible(world, pos) || canDisplace(world, pos);
+	}
+
+	public boolean displaceIfPossible(World world, int x, int y, int z) {
+		return displaceIfPossible(world, new BlockPos(x, y, z));
+	}
+
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass() {
 		return 0;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 
@@ -138,21 +152,21 @@ public class VolcanicBlock extends BlockFluidClassic {
 		double dy;
 		double dz;
 
-		if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial() == Material.AIR && !com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().isOpaqueCube()) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial() == Material.AIR && !com.hbm.world.WorldBlockState.read(world, x, y + 1, z).isOpaqueCube()) {
 			if(rand.nextInt(100) == 0) {
 				dx = (double) ((float) x + rand.nextFloat());
-				dy = (double) y + this.maxY;
+				dy = (double) y + 1.0;
 				dz = (double) ((float) z + rand.nextFloat());
 				world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, dx, dy, dz, 0.0D, 0.0D, 0.0D);
-				world.playSound(dx, dy, dz, "liquid.lavapop", 0.2F + rand.nextFloat() * 0.2F, 0.9F + rand.nextFloat() * 0.15F, false);
+				world.playSound(null, dx, dy, dz, SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 0.2F + rand.nextFloat() * 0.2F, 0.9F + rand.nextFloat() * 0.15F);
 			}
 
 			if(rand.nextInt(200) == 0) {
-				world.playSound((double) x, (double) y, (double) z, "liquid.lava", 0.2F + rand.nextFloat() * 0.2F, 0.9F + rand.nextFloat() * 0.15F, false);
+				world.playSound(null, (double) x, (double) y, (double) z, SoundEvents.BLOCK_LAVA_AMBIENT, SoundCategory.BLOCKS, 0.2F + rand.nextFloat() * 0.2F, 0.9F + rand.nextFloat() * 0.15F);
 			}
 		}
 
-		if(rand.nextInt(10) == 0 && World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !com.hbm.world.WorldBlockState.read(world, x, y - 2, z).getBlock().getDefaultState().getMaterial().blocksMovement()) {
+		if(rand.nextInt(10) == 0 && world.getBlockState(new BlockPos(x, y - 1, z)).isTopSolid() && !com.hbm.world.WorldBlockState.read(world, x, y - 2, z).getBlock().getDefaultState().getMaterial().blocksMovement()) {
 			dx = (double) ((float) x + rand.nextFloat());
 			dy = (double) y - 1.05D;
 			dz = (double) ((float) z + rand.nextFloat());

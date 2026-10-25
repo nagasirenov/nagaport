@@ -17,7 +17,7 @@ import net.minecraft.world.World;
  *
  */
 public abstract class EntityMinecartContainerBase extends EntityMinecartNTM implements IInventory {
-	
+
 	protected ItemStack[] slots = new ItemStack[this.getSizeInventory()];
 
 	public EntityMinecartContainerBase(World world) {
@@ -32,20 +32,20 @@ public abstract class EntityMinecartContainerBase extends EntityMinecartNTM impl
 	public ItemStack getStackInSlot(int slot) {
 		return slots[slot];
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int slot, int amount) {
 		if(this.slots[slot] != null) {
 			ItemStack itemstack;
 
-			if(this.slots[slot].stackSize <= amount) {
+			if(this.slots[slot].getCount() <= amount) {
 				itemstack = this.slots[slot];
 				this.slots[slot] = null;
 				return itemstack;
 			} else {
 				itemstack = this.slots[slot].splitStack(amount);
 
-				if(this.slots[slot].stackSize == 0) {
+				if(this.slots[slot].getCount() == 0) {
 					this.slots[slot] = null;
 				}
 
@@ -78,8 +78,12 @@ public abstract class EntityMinecartContainerBase extends EntityMinecartNTM impl
 	}
 
 	@Override
+	public String getName() {
+		return this.hasCustomName() ? this.getCustomNameTag() : "container.minecart";
+	}
+
 	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.func_95999_t() : "container.minecart";
+		return getName();
 	}
 
 	@Override
@@ -91,8 +95,8 @@ public abstract class EntityMinecartContainerBase extends EntityMinecartNTM impl
 	public void markDirty() { }
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
-		return this.isDead ? false : player.getDistanceSqToEntity(this) <= 64.0D;
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		return this.isDead ? false : player.getDistanceSq(this) <= 64.0D;
 	}
 
 	@Override
@@ -105,7 +109,26 @@ public abstract class EntityMinecartContainerBase extends EntityMinecartNTM impl
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
 		return true;
 	}
-	
+
+	@Override
+	public boolean isEmpty() {
+		for(ItemStack stack : this.slots) {
+			if(stack != null && !stack.isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.slots.length; i++) {
+			this.slots[i] = null;
+		}
+	}
+
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);

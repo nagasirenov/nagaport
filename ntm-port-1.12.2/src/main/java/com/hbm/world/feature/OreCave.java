@@ -35,41 +35,41 @@ public class OreCave {
 	Block override;
 	boolean ignoreWater = false;
 	boolean spawnStalagmites = true;
-	
+
 	public OreCave(Block ore) {
 		this(ore, 0);
 	}
-	
+
 	public OreCave(Block ore, int meta) {
 		this.ore = new MetaBlock(ore, meta);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-	
+
 	public OreCave setThreshold(double threshold) {
 		this.threshold = threshold;
 		return this;
 	}
-	
+
 	public OreCave setRangeMult(int rangeMult) {
 		this.rangeMult = rangeMult;
 		return this;
 	}
-	
+
 	public OreCave setMaxRange(int maxRange) {
 		this.maxRange = maxRange;
 		return this;
 	}
-	
+
 	public OreCave setYLevel(int yLevel) {
 		this.yLevel = yLevel;
 		return this;
 	}
-	
+
 	public OreCave withFluid(Block fluid) {
 		this.fluid = fluid;
 		return this;
 	}
-	
+
 	public OreCave setDimension(int dim) {
 		this.dim = dim;
 		return this;
@@ -99,9 +99,9 @@ public class OreCave {
 	@SuppressWarnings("incomplete-switch")
 	@SubscribeEvent
 	public void onDecorate(DecorateBiomeEvent.Pre event) {
-		
+
 		World world = event.getWorld();
-		
+
 		if(world.provider == null) return;
 
 		Block replace = Blocks.STONE;
@@ -116,39 +116,39 @@ public class OreCave {
 		} else {
 			if(world.provider.getDimension() != this.dim) return;
 		}
-		
+
 		if(this.noise == null) {
 			this.noise = new NoiseGeneratorPerlin(new Random(event.getWorld().getSeed() + (ore.hashCode() * 31) + yLevel), 2);
 		}
-		
-		int cX = event.chunkX;
-		int cZ = event.chunkZ;
-		
+
+		int cX = event.getPos().getX();
+		int cZ = event.getPos().getZ();
+
 		double scale = 0.01D;
-		
+
 		for(int x = cX + 8; x < cX + 24; x++) {
 			for(int z = cZ + 8; z < cZ + 24; z++) {
-				
-				double n = noise.func_151601_a(x * scale, z * scale);
-				
+
+				double n = noise.getValue(x * scale, z * scale);
+
 				if(n > threshold) {
 					int range = (int)((n - threshold) * rangeMult);
-					
+
 					if(range > maxRange)
 						range = (maxRange * 2) - range;
-					
+
 					if(range < 0)
 						continue;
-					
+
 					for(int y = yLevel - range; y <= yLevel + range; y++) {
 						net.minecraft.block.state.IBlockState nativeCubeState_genTarget = com.hbm.world.WorldBlockState.read(world, x, y, z);
 						Block genTarget = nativeCubeState_genTarget.getBlock();
-						
-						if(genTarget.isNormalCube(nativeCubeState_genTarget) && genTarget.isReplaceableOreGen(world, x, y, z, replace)) {
-							
+
+						if(genTarget.isNormalCube(nativeCubeState_genTarget) && com.hbm.world.WorldBlockState.isReplaceableOreGen(genTarget, world, x, y, z, replace)) {
+
 							boolean shouldGen = false;
 							boolean canGenFluid = event.getRand().nextBoolean();
-							
+
 							for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 								net.minecraft.block.state.IBlockState nativeCubeState_neighbor = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
 								Block neighbor = nativeCubeState_neighbor.getBlock();
@@ -156,10 +156,10 @@ public class OreCave {
 								if(material == Material.AIR || (ignoreWater && material == Material.WATER) || neighbor instanceof BlockStalagmite) {
 									shouldGen = true;
 								}
-								
+
 								if(shouldGen && (fluid == null || !canGenFluid))
 									break;
-								
+
 								if(fluid != null) {
 									switch(dir) {
 									case UP: if(neighbor.getDefaultState().getMaterial() != Material.AIR && !(neighbor instanceof BlockStalagmite)) canGenFluid = false; break;
@@ -172,34 +172,34 @@ public class OreCave {
 									}
 								}
 							}
-							
+
 							if(fluid != null && canGenFluid) {
-								world.setBlock(x, y, z, fluid, 0, 2);
-								world.setBlock(x, y - 1, z, ore.block, ore.meta, 2);
-								
+								com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, fluid, 0, 2);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y - 1, z, ore.block, ore.meta, 2);
+
 								for(int i = 2; i < 6; i++) {
 									ForgeDirection dir = ForgeDirection.getOrientation(i);
 									int clX = x + dir.offsetX;
 									int clZ = z + dir.offsetZ;
 									net.minecraft.block.state.IBlockState nativeCubeState_neighbor = com.hbm.world.WorldBlockState.read(world, clX, y, clZ);
 									Block neighbor = nativeCubeState_neighbor.getBlock();
-									
+
 									if(neighbor.isNormalCube(nativeCubeState_neighbor))
-										world.setBlock(clX, y, clZ, ore.block, ore.meta, 2);
+										com.hbm.world.WorldBlockState.writeLegacyBlock(world, clX, y, clZ, ore.block, ore.meta, 2);
 								}
-								
+
 							} else if(shouldGen) {
-								world.setBlock(x, y, z, ore.block, ore.meta, 2);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ore.block, ore.meta, 2);
 							}
-							
+
 						} else if(spawnStalagmites) {
 
 							if((genTarget.getDefaultState().getMaterial() == Material.AIR || !genTarget.isNormalCube(nativeCubeState_genTarget)) && event.getRand().nextInt(5) == 0 && !genTarget.getDefaultState().getMaterial().isLiquid()) {
 								if(ModBlocks.stalactite.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
-									world.setBlock(x, y, z, ModBlocks.stalactite, BlockStalagmite.getMetaFromResource(ore.block, ore.meta), 2);
+									com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.stalactite, BlockStalagmite.getMetaFromResource(ore.block, ore.meta), 2);
 								} else {
 									if(ModBlocks.stalagmite.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
-										world.setBlock(x, y, z, ModBlocks.stalagmite, BlockStalagmite.getMetaFromResource(ore.block, ore.meta), 2);
+										com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.stalagmite, BlockStalagmite.getMetaFromResource(ore.block, ore.meta), 2);
 									}
 								}
 							}

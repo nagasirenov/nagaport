@@ -41,7 +41,7 @@ public class WorldUtil {
 	}
 
 	public static void setBiome(World world, int x, int z, Biome biome) {
-		Chunk chunk = world.getChunkFromBlockCoords(x, z);
+		Chunk chunk = world.getChunk(new net.minecraft.util.math.BlockPos(x, 0, z));
 		int biomeId = Biome.getIdForBiome(biome);
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
 			short[] array = getBiomeShortArray(chunk);
@@ -49,11 +49,11 @@ public class WorldUtil {
 		} else {
 			chunk.getBiomeArray()[(z & 15) << 4 | (x & 15)] = (byte)(biomeId & 255);
 		}
-		chunk.isModified = true;
+		chunk.setModified(true);
 	}
 
 	public static void syncBiomeChange(World world, int x, int z) {
-		Chunk chunk = world.getChunkFromBlockCoords(x, z);
+		Chunk chunk = world.getChunk(new net.minecraft.util.math.BlockPos(x, 0, z));
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
 			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x >> 4, z >> 4, getBiomeShortArray(chunk)), new TargetPoint(world.provider.getDimension(), x, 128, z, 1024D));
 		} else {
@@ -62,7 +62,7 @@ public class WorldUtil {
 	}
 
 	public static void syncBiomeChangeBlock(World world, int x, int z) {
-		Chunk chunk = world.getChunkFromBlockCoords(x, z);
+		Chunk chunk = world.getChunk(new net.minecraft.util.math.BlockPos(x, 0, z));
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
 			short biome = getBiomeShortArray(chunk)[(z & 15) << 4 | (x & 15)];
 			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x, z, biome), new TargetPoint(world.provider.getDimension(), x, 128, z, 1024D));
@@ -71,7 +71,7 @@ public class WorldUtil {
 			PacketDispatcher.wrapper.sendToAllAround(new BiomeSyncPacket(x, z, biome), new TargetPoint(world.provider.getDimension(), x, 128, z, 1024D));
 		}
 	}
-	
+
 	public static void syncBiomeChange(World world, Chunk chunk) {
 		/* "let's not make all this valuable information accessible, at all, hehe hoho huehue" -mojank, probably */
 		/*if(!(world instanceof WorldServer)) return;
@@ -81,7 +81,7 @@ public class WorldUtil {
 		int x = chunk.getPos().x;
 		int z = chunk.getPos().z;
 		PlayerManager.PlayerInstance playerinstance = (PlayerInstance) getOrCreateChunkWatcher.invoke(man, x, z, false);*/
-		
+
 		/* this sucks ass */
 		ChunkPos coord = chunk.getPos();
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
@@ -114,23 +114,23 @@ public class WorldUtil {
 
 		for(int k = chunkX - loadRadius; k <= chunkX + loadRadius; ++k) {
 			for(int l = chunkZ - loadRadius; l <= chunkZ + loadRadius; ++l) {
-				world.getChunkFromChunkCoords(k, l);
+				world.getChunk(k, l);
 			}
 		}
 
 		if(!world.loadedEntityList.contains(entity)) {
 			if(!MinecraftForge.EVENT_BUS.post(new EntityJoinWorldEvent(entity, world))) {
-				world.getChunkFromChunkCoords(chunkX, chunkZ).addEntity(entity);
+				world.getChunk(chunkX, chunkZ).addEntity(entity);
 				world.loadedEntityList.add(entity);
 				world.onEntityAdded(entity);
 			}
 		}
 	}
-	
+
 	public static Chunk provideChunk(WorldServer world, int chunkX, int chunkZ) {
 		try {
-			ChunkProviderServer provider = world.theChunkProviderServer;
-			Chunk chunk = (Chunk) provider.loadedChunkHashMap.getValueByKey(ChunkPos.asLong(chunkX, chunkZ));
+			ChunkProviderServer provider = world.getChunkProvider();
+			Chunk chunk = provider.getLoadedChunk(chunkX, chunkZ);
 			if(chunk != null) return chunk;
 			return loadChunk(world, provider, chunkX, chunkZ);
 		} catch(Throwable x) {
@@ -139,19 +139,9 @@ public class WorldUtil {
 	}
 
 	private static Chunk loadChunk(WorldServer world, ChunkProviderServer provider, int chunkX, int chunkZ) {
-		long chunkCoord = ChunkPos.asLong(chunkX, chunkZ);
-		provider.chunksToUnload.remove(Long.valueOf(chunkCoord));
-		Chunk chunk = (Chunk) provider.loadedChunkHashMap.getValueByKey(chunkCoord);
-		AnvilChunkLoader loader = null;
-
-		if(provider.currentChunkLoader instanceof AnvilChunkLoader) {
-			loader = (AnvilChunkLoader) provider.currentChunkLoader;
+		if(provider.isChunkGeneratedAt(chunkX, chunkZ)) {
+			return provider.loadChunk(chunkX, chunkZ);
 		}
-
-		if(chunk == null && loader != null && loader.chunkExists(world, chunkX, chunkZ)) {
-			chunk = ChunkIOExecutor.syncChunkLoad(world, loader, provider, chunkX, chunkZ);
-		}
-
-		return chunk;
+		return null;
 	}
 }

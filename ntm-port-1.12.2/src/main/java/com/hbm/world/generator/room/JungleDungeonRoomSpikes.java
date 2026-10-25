@@ -17,19 +17,19 @@ public class JungleDungeonRoomSpikes extends JungleDungeonRoom {
 
 	public void generateMain(final World world, final int x, final int y, final int z) {
 		super.generateMain(world, x, y, z);
-		
+
 		ITimedJob job = new ITimedJob() {
 
 			@Override
 			public void work() {
-				
+
 				Block bl = com.hbm.world.WorldBlockState.read(world, x + 2, y, z + 2).getBlock();
 				if(bl == ModBlocks.brick_jungle || bl == ModBlocks.brick_jungle_cracked || bl == ModBlocks.brick_jungle_lava) {
-					world.setBlock(x + 2, y, z + 2, ModBlocks.brick_jungle_trap, Trap.SPIKES.ordinal(), 3);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, x + 2, y, z + 2, ModBlocks.brick_jungle_trap, Trap.SPIKES.ordinal(), 3);
 				}
 			}
 		};
-		
+
 		TimedGenerator.addOp(world, job);
 	}
 }

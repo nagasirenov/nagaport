@@ -110,7 +110,7 @@ public class GUITransporterRocket extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int mouseX, int mouseY, int button) {
+	protected void mouseClicked(int mouseX, int mouseY, int button) throws java.io.IOException {
 		super.mouseClicked(mouseX, mouseY, button);
 		transporterName.mouseClicked(mouseX, mouseY, button);
 	}
@@ -132,7 +132,7 @@ public class GUITransporterRocket extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char c, int key) {
+	protected void keyTyped(char c, int key) throws java.io.IOException {
 		if(transporterName.textboxKeyTyped(c, key)) {
 			setName();
 		} else {

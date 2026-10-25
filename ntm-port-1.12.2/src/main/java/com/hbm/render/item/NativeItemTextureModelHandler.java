@@ -42,6 +42,12 @@ public final class NativeItemTextureModelHandler {
         for(Item item : NativeItemTextureRegistry.textures().keySet()) {
             if(!eligible(item)) continue;
             ModelResourceLocation location = location(item);
+            // Resolve declared generated geometry before Forge attempts absent JSON.
+            // Exact original keys keep specialized bake wrappers and valid assets intact.
+            com.hbm.main.BakeOwnedModelLoader.register(location, () ->
+                    ModelLoaderRegistry.getModel(item.isFull3D() ? HANDHELD : GENERATED)
+                            .retexture(ImmutableMap.of("layer0", NativeItemTextureRegistry.atlasLocation(
+                                    NativeItemTextureRegistry.texture(item)).toString())));
             ModelBakery.registerItemVariants(item, location);
             // These Forge fields are stable, non-obfuscated API implementation
             // details. Read them only: never erase another model owner's entry.

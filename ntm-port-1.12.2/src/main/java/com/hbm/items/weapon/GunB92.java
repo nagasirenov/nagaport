@@ -20,6 +20,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.SoundCategory;
+import com.hbm.main.ModSoundEvents;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
@@ -38,16 +41,18 @@ public class GunB92 extends Item {
 	}
 
 	@Override
-	public void onPlayerStoppedUsing(ItemStack p_77615_1_, World p_77615_2_, EntityPlayer p_77615_3_, int p_77615_4_) {
+	public void onPlayerStoppedUsing(ItemStack p_77615_1_, World p_77615_2_, EntityLivingBase p_77615_3_living, int p_77615_4_) {
+		if (!(p_77615_3_living instanceof EntityPlayer)) return;
+		EntityPlayer p_77615_3_ = (EntityPlayer) p_77615_3_living;
 		if (!p_77615_3_.isSneaking()) {
 			int j = this.getMaxItemUseDuration(p_77615_1_) - p_77615_4_;
 
-			ArrowLooseEvent event = new ArrowLooseEvent(p_77615_3_, p_77615_1_, j);
+			ArrowLooseEvent event = new ArrowLooseEvent(p_77615_3_, p_77615_1_, p_77615_2_, j, true);
 			MinecraftForge.EVENT_BUS.post(event);
 			j = event.getCharge();
 
 			boolean flag = true;
-			
+
 			if (flag) {
 				float f = j / 20.0F;
 				f = (f * f + f * 2.0F) / 3.0F;
@@ -64,24 +69,24 @@ public class GunB92 extends Item {
 					for(int i = 0; i < getPower(p_77615_1_); i++) {
 						EntityExplosiveBeam entityarrow1;
 						entityarrow1 = new EntityExplosiveBeam(p_77615_2_, p_77615_3_, 3.0F);
-						
+
 						float divergence = i * 0.2F;
-						
+
 						if(divergence > 1F)
 							divergence = 1F;
-						
+
 						if(i > 0) {
 							entityarrow1.motionX += rand.nextGaussian() * divergence;
 							entityarrow1.motionY += rand.nextGaussian() * divergence;
 							entityarrow1.motionZ += rand.nextGaussian() * divergence;
 						}
-				
+
 						p_77615_1_.damageItem(1, p_77615_3_);
 
-						p_77615_2_.spawnEntityInWorld(entityarrow1);
+						p_77615_2_.spawnEntity(entityarrow1);
 					}
 
-				p_77615_2_.playSoundAtEntity(p_77615_3_, "hbm:weapon.sparkShoot", 5.0F, 1.0F);
+				p_77615_2_.playSound(null, p_77615_3_.posX, p_77615_3_.posY, p_77615_3_.posZ, ModSoundEvents.resolve("hbm:weapon.sparkShoot"), SoundCategory.PLAYERS, 5.0F, 1.0F);
 
 				setAnim(p_77615_1_, 1);
 				setPower(p_77615_1_, 0);
@@ -101,24 +106,24 @@ public class GunB92 extends Item {
 				setAnim(stack, 0);
 
 			if (j == 15) {
-				world.playSoundAtEntity(entity, "hbm:weapon.b92Reload", 2F, 0.9F);
+				world.playSound(null, entity.posX, entity.posY, entity.posZ, ModSoundEvents.resolve("hbm:weapon.b92Reload"), SoundCategory.PLAYERS, 2F, 0.9F);
 				setPower(stack, getPower(stack) + 1);
-				
+
 				if(getPower(stack) > 10) {
-					
+
 					setPower(stack, 0);
-					
+
 					if(!world.isRemote) {
 						EntityNukeExplosionMK3 ex = EntityNukeExplosionMK3.statFacFleija(world, entity.posX, entity.posY, entity.posZ, 50);
 						if(!ex.isDead) {
 							com.hbm.sound.VanillaWorldSoundEffects.play(world, entity.posX, entity.posY, entity.posZ, "random.explode", 100.0f, world.rand.nextFloat() * 0.1F + 0.9F);
-							world.spawnEntityInWorld(ex);
-	
+							world.spawnEntity(ex);
+
 							EntityCloudFleijaRainbow cloud = new EntityCloudFleijaRainbow(world, 50);
 							cloud.posX = entity.posX;
 							cloud.posY = entity.posY;
 							cloud.posZ = entity.posZ;
-							world.spawnEntityInWorld(cloud);
+							world.spawnEntity(cloud);
 						}
 					}
 				}
@@ -128,7 +133,7 @@ public class GunB92 extends Item {
 	}
 
 	@Override
-	public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_) {
+	public ItemStack onItemUseFinish(ItemStack p_77654_1_, World p_77654_2_, EntityLivingBase p_77654_3_) {
 		return p_77654_1_;
 	}
 
@@ -146,7 +151,7 @@ public class GunB92 extends Item {
 	 */
 	@Override
 	public EnumAction getItemUseAction(ItemStack p_77661_1_) {
-		return EnumAction.bow;
+		return EnumAction.BOW;
 	}
 
 	/**
@@ -154,20 +159,21 @@ public class GunB92 extends Item {
 	 * pressed. Args: itemStack, world, entityPlayer
 	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_) {
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World p_77659_2_, EntityPlayer p_77659_3_, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack p_77659_1_ = p_77659_3_.getHeldItem(nativeHand);
 		if (!p_77659_3_.isSneaking() && getPower(p_77659_1_) > 0) {
-			ArrowNockEvent event = new ArrowNockEvent(p_77659_3_, p_77659_1_);
+			ArrowNockEvent event = new ArrowNockEvent(p_77659_3_, p_77659_1_, nativeHand, p_77659_2_, true);
 			MinecraftForge.EVENT_BUS.post(event);
 
 			if (this.getAnim(p_77659_1_) == 0)
-				p_77659_3_.setItemInUse(p_77659_1_, this.getMaxItemUseDuration(p_77659_1_));
+				p_77659_3_.setActiveHand(nativeHand);
 		} else {
 			if (getAnim(p_77659_1_) == 0) {
 				setAnim(p_77659_1_, 1);
 			}
 		}
 
-		return p_77659_1_;
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.SUCCESS, p_77659_1_);
 	}
 
 	/**
@@ -286,6 +292,6 @@ public class GunB92 extends Item {
 	@Override
 	public EnumRarity getRarity(ItemStack p_77613_1_) {
 
-		return EnumRarity.uncommon;
+		return EnumRarity.UNCOMMON;
 	}
 }

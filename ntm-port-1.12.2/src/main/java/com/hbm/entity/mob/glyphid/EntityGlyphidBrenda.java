@@ -19,7 +19,7 @@ public class EntityGlyphidBrenda extends EntityGlyphid {
 		this.setSize(2.5F, 1.75F);
 		this.isImmuneToFire = true;
 	}
-	
+
 	@Override
 	public ResourceLocation getSkin() {
 		return ResourceManager.glyphid_brenda_tex;
@@ -33,11 +33,11 @@ public class EntityGlyphidBrenda extends EntityGlyphid {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getBrenda().health);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getBrenda().speed);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getBrenda().damage);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(GlyphidStats.getStats().getBrenda().health);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(GlyphidStats.getStats().getBrenda().speed);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(GlyphidStats.getStats().getBrenda().damage);
 	}
-	
+
 	public StatBundle getStats() {
 		return GlyphidStats.getStats().statsBrenda;
 	}
@@ -57,12 +57,12 @@ public class EntityGlyphidBrenda extends EntityGlyphid {
 			mist.setPosition(posX, posY, posZ);
 			mist.setArea(14, 6);
 			mist.setDuration(80);
-			this.world.spawnEntityInWorld(mist);
+			this.world.spawnEntity(mist);
 			for(int i = 0; i < 12; ++i) {
 				EntityGlyphid glyphid = new EntityGlyphid(this.world);
 				glyphid.setLocationAndAngles(this.posX, this.posY + 0.5D, this.posZ, rand.nextFloat() * 360.0F, 0.0F);
-				this.world.spawnEntityInWorld(glyphid);
-				glyphid.moveEntity(rand.nextGaussian(), 0, rand.nextGaussian());
+				this.world.spawnEntity(glyphid);
+				glyphid.move(net.minecraft.entity.MoverType.SELF, rand.nextGaussian(), 0, rand.nextGaussian());
 			}
 		}
 	}

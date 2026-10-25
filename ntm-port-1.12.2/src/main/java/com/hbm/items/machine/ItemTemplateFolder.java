@@ -21,17 +21,22 @@ import net.minecraft.world.World;
 public class ItemTemplateFolder extends Item implements IGUIProvider {
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+
 		if(world.isRemote)
 			player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
-		
+
 		return stack;
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
-		
+
 		String[] lang = I18nUtil.resolveKeyArray(ModItems.template_folder.getTranslationKey() + ".desc");
 		TextFormatting color = BobMathUtil.getBlink() ? TextFormatting.RED : TextFormatting.YELLOW;
 		for(String line : lang) {

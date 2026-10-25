@@ -75,9 +75,12 @@ public class GuiFileList extends GuiListExtended {
 		}
 
 		@Override
-		public void drawEntry(int id, int x, int y, int width, int height, Tessellator tess, int mouseX, int mouseY, boolean isVisible) {
+		public void drawEntry(int id, int x, int y, int width, int height, int mouseX, int mouseY, boolean isVisible, float partialTicks) {
 			mc.fontRenderer.drawString(file.getName(), x + 20, y + 1, 0xFFFFFF);
 		}
+
+		@Override
+		public void updatePosition(int slotIndex, int x, int y, float partialTicks) { }
 
 		@Override
 		public boolean mousePressed(int id, int mouseX, int mouseY, int button, int hoverX, int hoverY) {

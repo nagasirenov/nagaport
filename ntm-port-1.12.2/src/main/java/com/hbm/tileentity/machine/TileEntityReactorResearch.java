@@ -50,25 +50,25 @@ import com.hbm.lib.ForgeDirection;
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 //TODO: fix reactor control;
 public class TileEntityReactorResearch extends TileEntityMachineBase implements IControlReceiver, SimpleComponent, IGUIProvider, IInfoProviderEC, CompatHandler.OCComponent {
-	
+
 	@SideOnly(Side.CLIENT)
 	public double lastLevel;
 	public double level;
 	public double speed = 0.04;
 	public double targetLevel;
-	
+
 	public int heat;
 	public byte water;
 	public final int maxHeat = 50000;
 	public int[] slotFlux = new int[12];
 	public int totalFlux = 0;
-	
+
 	private static final int[] slot_io = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 
 	public TileEntityReactorResearch() {
 		super(12);
 	}
-	
+
 	private static final HashMap<ComparableStack, ItemStack> fuelMap = new HashMap<ComparableStack, ItemStack>();
 	static {
 		fuelMap.put(new ComparableStack(ModItems.plate_fuel_u233), new ItemStack(ModItems.waste_plate_u233, 1, 1));
@@ -79,7 +79,7 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 		fuelMap.put(new ComparableStack(ModItems.plate_fuel_ra226be), new ItemStack(ModItems.waste_plate_ra226be, 1, 1));
 		fuelMap.put(new ComparableStack(ModItems.plate_fuel_pu238be), new ItemStack(ModItems.waste_plate_pu238be, 1, 1));
 	}
-	
+
 	public String getDefaultName() {
 		return "container.reactorResearch";
 	}
@@ -123,32 +123,32 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 		if(i < 12 && i >= 0)
 			if(fuelMap.containsValue(stack))
 				return true;
-		
+
 		return false;
 
 	}
-	
+
 	@Override
 	public void update() {
-		
+
 		rodControl();
 
 		if(!this.world.isRemote) {
 			totalFlux = 0;
-			
+
 			if(level > 0) {
 				reaction();
 			}
-						
+
 			if(this.heat > 0) {
 				water = getWater();
-				
+
 				if(water > 0) {
 					this.heat -= (this.heat * (float) 0.07 * water / 12);
 				} else if(water == 0) {
 					this.heat -= 1;
 				}
-			
+
 				if(this.heat < 0)
 					this.heat = 0;
 			}
@@ -162,31 +162,31 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 				double range = 25D;
 				ChunkRadiationManager.proxy.incrementRad(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), rad);
 				List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));
-				
+
 				if(!RadiationConfig.disableNeutron) {
 					for(EntityLivingBase e : entities) {
 						Vec3d vec = new Vec3d(e.posX - (this.pos.getX() + 0.5), (e.posY + e.getEyeHeight()) - (this.pos.getY() + 0.5), e.posZ - (this.pos.getZ() + 0.5));
 						double len = vec.length();
 						vec = vec.normalize();
-						
+
 						float res = 0;
-						
+
 						for(int i = 1; i < len; i++) {
 
 							int ix = (int)Math.floor(this.pos.getX() + 0.5 + vec.x * i);
 							int iy = (int)Math.floor(this.pos.getY() + 0.5 + vec.y * i);
 							int iz = (int)Math.floor(this.pos.getZ() + 0.5 + vec.z * i);
-							
+
 							res += com.hbm.world.WorldBlockState.read(this.world, ix, iy, iz).getBlock().getExplosionResistance(null);
 						}
-						
+
 						if(res < 1)
 							res = 1;
-						
+
 						float eRads = rad;
 						eRads /= (float)res;
 						eRads /= (float)(len * len);
-						
+
 						ContaminationUtil.contaminate(e, HazardType.NEUTRON, ContaminationType.CREATIVE, eRads);
 						if(e instanceof EntityPlayer) {
 							EntityPlayer player = (EntityPlayer) e;
@@ -198,7 +198,7 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 							}
 						}
 					}
-				}				
+				}
 			}
 
 			this.networkPackNT(150);
@@ -226,10 +226,10 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 		this.slotFlux = BufferUtil.readIntArray(buf);
 		this.totalFlux = buf.readInt();
 	}
-	
+
 	public byte getWater() {
 		byte water = 0;
-		
+
 		for(byte d = 0; d < 6; d++) {
 			ForgeDirection dir = ForgeDirection.getOrientation(d);
 			if(d < 2) {
@@ -242,18 +242,18 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 				}
 			}
 		}
-		
+
 		return water;
 	}
-	
+
 	public boolean isSubmerged() {
-		
+
 		return com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ()).getBlock().getDefaultState().getMaterial() == Material.WATER ||
 				com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ() + 1).getBlock().getDefaultState().getMaterial() == Material.WATER ||
 				com.hbm.world.WorldBlockState.read(this.world, this.pos.getX() - 1, this.pos.getY() + 1, this.pos.getZ()).getBlock().getDefaultState().getMaterial() == Material.WATER ||
 				com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ() - 1).getBlock().getDefaultState().getMaterial() == Material.WATER;
 	}
-	
+
 	/*private void getInteractions() {
 		getInteractionForBlock(xCoord + 1, yCoord + 1, zCoord);
 		getInteractionForBlock(xCoord - 1, yCoord + 1, zCoord);
@@ -264,7 +264,7 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 	private void getInteractionForBlock(int x, int y, int z) {
 
 		Block b = worldObj.getBlock(x, y, z);
-		TileEntity te = worldObj.getTileEntity(x, y, z);
+		TileEntity te = worldObj.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 	}*/
 
 	private boolean blocksRad(int x, int y, int z) {
@@ -282,7 +282,7 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 
 		return false;
 	}
-	
+
 	private int[] getNeighboringSlots(int id) {
 
 		switch(id) {
@@ -314,49 +314,49 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 
 		return null;
 	}
-	
+
 	private void reaction() {
 		for(byte i = 0; i < 12; i++) {
 			if(slots[i] == null)  {
 				slotFlux[i] = 0;
 				continue;
 			}
-			
+
 			if(slots[i].getItem() instanceof ItemPlateFuel) {
 				ItemPlateFuel rod = (ItemPlateFuel) slots[i].getItem();
-				
+
 				int outFlux = rod.react(this.world, slots[i], slotFlux[i]);
 				this.heat += outFlux * 2;
 				slotFlux[i] = 0;
 				totalFlux += outFlux;
-				
+
 				int[] neighborSlots = getNeighboringSlots(i);
-				
+
 				if(ItemPlateFuel.getLifeTime(slots[i]) > rod.lifeTime) {
 					slots[i] = fuelMap.get(new ComparableStack(slots[i])).copy();
 				}
-				
+
 				for(byte j = 0; j < neighborSlots.length; j++) {
 					slotFlux[neighborSlots[j]] += (int) (outFlux * level);
 				}
 				continue;
 			}
-			
+
 			if(slots[i].getItem() == ModItems.meteorite_sword_bred)
 				slots[i] = new ItemStack(ModItems.meteorite_sword_irradiated);
-			
+
 			slotFlux[i] = 0;
 		}
 	}
 
 	private void explode() {
-		
+
 		for(int i = 0; i < slots.length; i++) {
 			this.slots[i] = null;
 		}
-		
+
 		com.hbm.world.WorldAirRemoval.remove(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
-		
+
 		for(byte d = 0; d < 6; d++) {
 			ForgeDirection dir = ForgeDirection.getOrientation(d);
 			if(d < 2) {
@@ -369,67 +369,67 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 				}
 			}
 		}
-		
+
 		this.world.createExplosion(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 18.0F, true);
 		{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY(); int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
-		this.world.setBlock(this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), ModBlocks.corium_block);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY() + 1, this.pos.getZ(), ModBlocks.corium_block);
 		{ net.minecraft.world.World nativeRegisteredWriteWorld = this.world; int nativeRegisteredWriteX = this.pos.getX(); int nativeRegisteredWriteY = this.pos.getY() + 2; int nativeRegisteredWriteZ = this.pos.getZ(); net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.deco_steel; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 
 		ChunkRadiationManager.proxy.incrementRad(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 50);
-		
+
 		if(MobConfig.enableElementals) {
 			List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(100, 100, 100));
-			
+
 			for(EntityPlayer player : players) {
 				player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG).setBoolean("radMark", true);
 			}
 		}
 	}
-	
+
 	//Control Rods
 	@Override
 	public boolean hasPermission(EntityPlayer player) {
 		return new Vec3d(this.pos.getX() - player.posX, this.pos.getY() - player.posY, this.pos.getZ() - player.posZ).length() < 20;
 	}
-	
+
 	@Override
 	public void receiveControl(NBTTagCompound data) {
 		if(data.hasKey("level")) {
 			this.setTarget(data.getDouble("level"));
 		}
-		
+
 		this.markDirty();
 	}
-	
+
 	public void setTarget(double target) {
 		this.targetLevel = target;
 	}
-	
+
 	public void rodControl() {
 		if(this.world.isRemote) {
-			
+
 			this.lastLevel = this.level;
-		
+
 		} else {
-			
+
 			if(level < targetLevel) {
-				
+
 				level += speed;
-				
+
 				if(level >= targetLevel)
 					level = targetLevel;
 			}
-			
+
 			if(level > targetLevel) {
-				
+
 				level -= speed;
-				
+
 				if(level <= targetLevel)
 					level = targetLevel;
 			}
 		}
 	}
-	
+
 	public int[] getDisplayData() {
 		int[] data = new int[2];
 		data[0] = this.totalFlux;
@@ -447,7 +447,7 @@ public class TileEntityReactorResearch extends TileEntityMachineBase implements 
 	public double getMaxRenderDistanceSquared() {
 		return 65536.0D;
 	}
-	
+
 	// do some opencomputer stuff
 	@Override
 	@Optional.Method(modid = "OpenComputers")

@@ -28,7 +28,7 @@ public class ContainerMachineAnnihilator extends ContainerBase {
 		this.addSlotToContainer(new SlotNonRetarded(annihilator, 9, 152, 62));
 		// Payout Item
 		this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, annihilator, 10, 152, 80));
-		
+
 		this.playerInv(invPlayer, 8, 126);
 	}
 
@@ -47,7 +47,7 @@ public class ContainerMachineAnnihilator extends ContainerBase {
 					return null;
 				}
 			} else {
-				
+
 				if(slotOriginal.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(slotStack, 1, 2, false)) return null;
 				} else {
@@ -55,7 +55,7 @@ public class ContainerMachineAnnihilator extends ContainerBase {
 				}
 			}
 
-			if(slotStack.stackSize == 0) {
+			if(slotStack.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();

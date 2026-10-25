@@ -25,7 +25,7 @@ public abstract class BiomeGenBaseMoho extends BiomeGenBaseCelestial {
 	}
 
 	@Override
-	protected BiomeDecorator createBiomeDecorator() {
+	public BiomeDecorator createBiomeDecorator() {
 		BiomeDecoratorCelestial decorator = new BiomeDecoratorCelestial(ModBlocks.moho_stone);
 		decorator.lavaCount = 50;
 		return decorator;

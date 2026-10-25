@@ -81,7 +81,7 @@ public class GUICombustionEngine extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 89 <= x && guiLeft + 89 + 16 > x && guiTop + 13 < y && guiTop + 13 + 14 >= y) {
@@ -98,8 +98,8 @@ public class GUICombustionEngine extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseMovedOrUp(int x, int y, int i) {
-		super.mouseMovedOrUp(x, y, i);
+	protected void mouseReleased(int x, int y, int i) {
+		super.mouseReleased(x, y, i);
 		
 		if(isMouseLocked) {
 			

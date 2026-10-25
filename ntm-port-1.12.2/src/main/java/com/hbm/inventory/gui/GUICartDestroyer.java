@@ -27,7 +27,7 @@ public class GUICartDestroyer extends GuiContainer {
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
-		String name = this.cart.hasCustomInventoryName() ? this.cart.getInventoryName() : I18n.format(this.cart.getInventoryName());
+		String name = this.cart.hasCustomName() ? this.cart.getName() : I18n.format(this.cart.getName());
 		
 		this.fontRenderer.drawString(name, this.xSize / 2 - this.fontRenderer.getStringWidth(name) / 2, 6, 4210752);
 		this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 4, 4210752);

@@ -6,6 +6,8 @@ import com.hbm.blocks.BlockEnumMulti;
 import com.hbm.blocks.ModBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -17,7 +19,7 @@ public class BlockDeadPlant extends BlockEnumMulti {
 	public BlockDeadPlant() {
 		super(Material.PLANTS, EnumDeadPlantType.class, false, true);
 	}
-	
+
 	public static enum EnumDeadPlantType {
 		GENERIC,
 		GRASS,
@@ -37,25 +39,30 @@ public class BlockDeadPlant extends BlockEnumMulti {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		super.onNeighborBlockChange(world, x, y, z, block);
-		this.checkAndDropBlock(world, x, y, z);
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		super.neighborChanged(state, world, pos, block, fromPos);
+		this.checkAndDropBlock(world, pos.getX(), pos.getY(), pos.getZ());
 	}
-	
+
 	protected void checkAndDropBlock(World world, int x, int y, int z) {
 		if(!this.canBlockStay(world, x, y, z)) {
-			this.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
-			world.setBlock(x, y, z, getBlockById(0), 0, 2);
+			this.dropBlockAsItem(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), 0);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, getBlockById(0), 0, 2);
 		}
 	}
 
-	@Override
-	public boolean canBlockStay(World world, int x, int y, int z) {
+
+	public boolean canBlockStay(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		return canBlockStay(worldIn, pos.getX(), pos.getY(), pos.getZ());
+	}
+
+public boolean canBlockStay(World world, int x, int y, int z) {
 		return canPlaceBlockOn(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock());
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+	public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
 		return null;
 	}
 
@@ -70,8 +77,8 @@ public class BlockDeadPlant extends BlockEnumMulti {
 	}
 
 	@Override
-	public int getRenderType() {
-		return 1;
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
 	}
 
 	@Override

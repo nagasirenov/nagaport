@@ -88,7 +88,7 @@ public class RecipesCommon {
 		public int meta;
 
 		public ComparableStack(ItemStack stack) {
-			if(stack == null) {
+			if(stack == null || stack.isEmpty()) {
 				this.item = ModItems.nothing;
 				this.stacksize = 1;
 				return;

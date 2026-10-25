@@ -25,23 +25,23 @@ public class EntityGrenadeBurst extends EntityGrenadeBouncyBase {
 
     @Override
     public void explode() {
-    	
+
         if (!this.world.isRemote)
         {
             this.setDead();
-    		
-    		for(int i = 0; i < 8; i++) {
-    			
-    			EntityGrenadeBreach grenade = new EntityGrenadeBreach(this.world);
-    			grenade.posX = posX;
-    			grenade.posY = posY;
-    			grenade.posZ = posZ;
-    			grenade.motionX = rand.nextGaussian() * 0.1D;
-    			grenade.motionY = -0.25D;
-    			grenade.motionZ = rand.nextGaussian() * 0.1D;
-    			
-    			this.world.spawnEntityInWorld(grenade);
-    		}
+
+			for(int i = 0; i < 8; i++) {
+
+				EntityGrenadeBreach grenade = new EntityGrenadeBreach(this.world);
+				grenade.posX = posX;
+				grenade.posY = posY;
+				grenade.posZ = posZ;
+				grenade.motionX = rand.nextGaussian() * 0.1D;
+				grenade.motionY = -0.25D;
+				grenade.motionZ = rand.nextGaussian() * 0.1D;
+
+				this.world.spawnEntity(grenade);
+			}
         }
     }
 

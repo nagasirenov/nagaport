@@ -29,7 +29,7 @@ public class OilSpot {
 		for(int i = 0; i < count; i++) {
 			int rX = x + (int)(world.rand.nextGaussian() * width);
 			int rZ = z + (int)(world.rand.nextGaussian() * width);
-			int rY = world.getHeightValue(rX, rZ);
+			int rY = world.getHeight(rX, rZ);
 
 			for(int y = rY; y > rY - 4; y--) {
 
@@ -65,11 +65,11 @@ public class OilSpot {
 				}
 
 				if(ground == Blocks.GRASS || ground == Blocks.DIRT) {
-					world.setBlock(rX, y, rZ, world.rand.nextInt(10) == 0 ? ModBlocks.dirt_oily : ModBlocks.dirt_dead);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, rX, y, rZ, world.rand.nextInt(10) == 0 ? ModBlocks.dirt_oily : ModBlocks.dirt_dead);
 
 					if(addWillows && world.rand.nextInt(50) == 0) {
 						if(ModBlocks.plant_flower.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(rX, y + 1, rZ))) {
-							world.setBlock(rX, y + 1, rZ, ModBlocks.plant_flower, EnumFlowerType.CD0.ordinal(), 3);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, rX, y + 1, rZ, ModBlocks.plant_flower, EnumFlowerType.CD0.ordinal(), 3);
 						}
 					}
 
@@ -78,13 +78,13 @@ public class OilSpot {
 				} else if(ground == Blocks.SAND || ground == ModBlocks.ore_oil_sand) {
 
 					if(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, rX, y, rZ) ) == 1)
-						world.setBlock(rX, y, rZ, ModBlocks.sand_dirty_red);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, rX, y, rZ, ModBlocks.sand_dirty_red);
 					else
-						world.setBlock(rX, y, rZ, ModBlocks.sand_dirty);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, rX, y, rZ, ModBlocks.sand_dirty);
 					break;
 
 				} else if(ground == Blocks.STONE) {
-					world.setBlock(rX, y, rZ, ModBlocks.stone_cracked);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(world, rX, y, rZ, ModBlocks.stone_cracked);
 					break;
 
 				} else if(ground.getDefaultState().getMaterial() == Material.LEAVES && (meta & 8) != 0 && (meta & 4) == 0) {
@@ -104,11 +104,11 @@ public class OilSpot {
 			int rX = x + (int)(world.rand.nextGaussian() * width);
 			int rZ = z + (int)(world.rand.nextGaussian() * width);
 
-			double crack = crackGeneratorPerlin.func_151601_a(rX * 0.25, rZ * 0.25);
+			double crack = crackGeneratorPerlin.getValue(rX * 0.25, rZ * 0.25);
 
 			if(crack < 0.9) continue;
 
-			int rY = world.getHeightValue(rX, rZ);
+			int rY = world.getHeight(rX, rZ);
 
 			for(int y = rY; y > rY - 4; y--) {
 				net.minecraft.block.state.IBlockState nativeCubeState_below = com.hbm.world.WorldBlockState.read(world, rX, y - 1, rZ);
@@ -128,17 +128,17 @@ public class OilSpot {
 				}
 
 				if(ground == ModBlocks.rubber_silt || ground == ModBlocks.vinyl_sand || ground == ModBlocks.sellafield_slaked || ground == ModBlocks.basalt) {
-					if(below.getBlockHardness(world, rX, y - 1, rZ) == -1.0) break;
+					if(com.hbm.world.WorldBlockState.getBlockHardness(world, rX, y - 1, rZ) == -1.0) break;
 
 					com.hbm.world.WorldAirRemoval.remove(world, rX, y - 1, rZ);
 
 					// manually drop any non BlockFalling blocks
 					if(ground != ModBlocks.vinyl_sand) {
 						byte range = 64;
-						if(!BlockFalling.fallInstantly && world.checkChunksExist(x - range, y - range, z - range, x + range, y + range, z + range)) {
+						if(!BlockFalling.fallInstantly && world.isAreaLoaded(new net.minecraft.util.math.BlockPos(x - range, y - range, z - range), new net.minecraft.util.math.BlockPos(x + range, y + range, z + range))) {
 							EntityFallingBlockNT entityfallingblock = new EntityFallingBlockNT(world, rX + 0.5, y + 0.5, rZ + 0.5, ground, meta);
 							entityfallingblock.canDrop = false;
-							world.spawnEntityInWorld(entityfallingblock);
+							world.spawnEntity(entityfallingblock);
 						} else {
 							com.hbm.world.WorldAirRemoval.remove(world, rX, y, rZ);
 
@@ -147,7 +147,7 @@ public class OilSpot {
 							}
 
 							if(y > 0) {
-								world.setBlock(rX, y, rZ, ground, meta, 3);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(world, rX, y, rZ, ground, meta, 3);
 							}
 						}
 					}

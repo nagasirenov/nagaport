@@ -22,33 +22,40 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class ItemMirrorTool extends Item {
-	
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
-		
+
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
+
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-		
+
 		if(b == ModBlocks.machine_solar_boiler) {
-			
+
 			int[] pos = ((BlockDummyable)b).findCore(world, x, y, z);
-			
+
 			if(pos != null && !world.isRemote) {
-				
+
 				if(!stack.hasTagCompound())
 					stack.setTagCompound(new NBTTagCompound());
 
 				stack.getTagCompound().setInteger("posX", pos[0]);
 				stack.getTagCompound().setInteger("posY", pos[1] + 1);
 				stack.getTagCompound().setInteger("posZ", pos[2]);
-				
+
 				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".linked").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
-			
+
 			return true;
 		}
-		
+
 		if(b == ModBlocks.solar_mirror && stack.hasTagCompound()) {
-			
+
 			if(!world.isRemote) {
 				TileEntitySolarMirror mirror = (TileEntitySolarMirror) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				int tx = stack.getTagCompound().getInteger("posX");
@@ -57,28 +64,28 @@ public class ItemMirrorTool extends Item {
 
 				boolean withinReach = new Vec3d(x - tx, y - ty, z - tz).length() <= 100;
 				boolean withinAngle = (x - tx) * (x - tx) + (z - tz) * (z - tz) <= (y - ty) * (y - ty);
-				
+
 				if(!withinReach) player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".reach").setStyle(new Style().setColor(TextFormatting.RED)));
 				else if(!withinAngle) player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".angle").setStyle(new Style().setColor(TextFormatting.RED)));
 				else mirror.setTarget(tx, ty, tz);
 			}
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
-		
+
 		for(String s : I18nUtil.resolveKeyArray(this.getTranslationKey() + ".desc"))
 			list.add(TextFormatting.YELLOW + s);
 	}
 
 	@Override
 	public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {
-		
+
 		Multimap multimap = super.getAttributeModifiers(slot, stack);
 		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
 		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 2, 0));

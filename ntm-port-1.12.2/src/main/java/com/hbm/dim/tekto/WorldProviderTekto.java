@@ -26,8 +26,8 @@ public class WorldProviderTekto extends WorldProviderCelestial {
 	}
 
 	@Override
-	public String getDimensionName() {
-		return "Tekto";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	@Override

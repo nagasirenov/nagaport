@@ -18,7 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ArmorHazmatMask extends ArmorHazmat implements IGasMask {
-	
+
 	@SideOnly(Side.CLIENT)
 	private ModelM65 modelM65;
 
@@ -36,7 +36,7 @@ public class ArmorHazmatMask extends ArmorHazmat implements IGasMask {
 			}
 			return this.modelM65;
 		}
-		
+
 		return null;
 	}
 
@@ -59,11 +59,11 @@ public class ArmorHazmatMask extends ArmorHazmat implements IGasMask {
 	public void damageFilter(ItemStack stack, EntityLivingBase entity, int damage) {
 		ArmorUtil.damageGasMaskFilter(stack, damage);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
 		ArmorUtil.addGasMaskTooltip(stack, player, list, ext);
-		
+
 		super.addInformation(stack, player, list, ext);
 	}
 
@@ -73,23 +73,18 @@ public class ArmorHazmatMask extends ArmorHazmat implements IGasMask {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		ItemStack stack = player.getHeldItem(hand);
 		if(player.isSneaking()) {
-			
 			ItemStack filter = this.getFilter(stack, player);
-			
 			if(filter != null) {
 				ArmorUtil.removeFilter(stack);
-				
 				if(!player.inventory.addItemStackToInventory(filter)) {
-					player.dropPlayerItemWithRandomChoice(filter, true);
+					player.dropItem(filter, true);
 				}
-				
-				return stack;
+				return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.SUCCESS, stack);
 			}
 		}
-		
-		return super.onItemRightClick(stack, world, player);
+		return super.onItemRightClick(world, player, hand);
 	}
 }

@@ -87,8 +87,15 @@ public class ItemPWRPrinter extends Item implements IGUIProvider {
 		}
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
 		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(tile instanceof TileEntityPWRController)) return false;
 		if(world.isRemote) return true;
@@ -125,7 +132,7 @@ public class ItemPWRPrinter extends Item implements IGUIProvider {
 	}
 
 	public void findBounds(World world, TileEntityPWRController pwr) {
-		dir = ForgeDirection.getOrientation(world.getBlockMetadata(pwr.getPos().getX(), pwr.getPos().getY(), pwr.getPos().getZ())).getOpposite();
+		dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.readMetadata(world, pwr.getPos().getX(), pwr.getPos().getY(), pwr.getPos().getZ())).getOpposite();
 
 		fill.clear();
 		fill.add(new BlockPos(pwr.getPos().getX(), pwr.getPos().getY(), pwr.getPos().getZ()));

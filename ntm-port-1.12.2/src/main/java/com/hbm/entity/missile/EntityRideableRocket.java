@@ -183,7 +183,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 
 			int targetDimensionId = destination.body.getDimensionId();
 
-			EntityPlayer rider = (EntityPlayer) this.riddenByEntity;
+			EntityPlayer rider = this.getControllingPassenger() instanceof EntityPlayer ? (EntityPlayer) this.getControllingPassenger() : null;
 
 			if(canRide()) {
 				if(destination.body == SolarSystem.Body.ORBIT) {
@@ -259,7 +259,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 		station.orbiting = from.body;
 		station.target = to.body;
 
-		EntityPlayer rider = (EntityPlayer) this.riddenByEntity;
+		EntityPlayer rider = this.getControllingPassenger() instanceof EntityPlayer ? (EntityPlayer) this.getControllingPassenger() : null;
 
 		int x = station.dX * OrbitalStation.STATION_SIZE + (OrbitalStation.STATION_SIZE / 2);
 		int y = 128;
@@ -320,7 +320,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 			}
 		}
 
-		EntityPlayer rider = (EntityPlayer) this.riddenByEntity;
+		EntityPlayer rider = this.getControllingPassenger() instanceof EntityPlayer ? (EntityPlayer) this.getControllingPassenger() : null;
 
 		if(!this.world.isRemote) {
 			rotationYaw = -90.0F;
@@ -335,14 +335,18 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 			}
 
 			// If it's a satellite launcher, launch immediately
-			if(state == RocketState.AWAITING && ((rider != null && rider.isJumping) || !canRide())) {
+			boolean jumping = false;
+			if(rider instanceof EntityLivingBase) {
+				jumping = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(EntityLivingBase.class, (EntityLivingBase) rider, "field_70703_bu", "isJumping");
+			}
+			if(state == RocketState.AWAITING && ((rider != null && jumping) || !canRide())) {
 				attemptLaunch();
 
 				thrower = rider;
 			}
 
 			if(thrower != null && rider == null && !canExitCapsule() && forceExitTimer < 60) {
-				thrower.mountEntity(this);
+				thrower.startRiding(this);
 			}
 
 			if(state == RocketState.LAUNCHING) {
@@ -360,7 +364,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 					rotationPitch = 0;
 				}
 			} else if(state == RocketState.LANDING) {
-				double targetHeight = (double)this.world.getHeightValue((int)posX, (int)posZ);
+				double targetHeight = (double)this.world.getHeight((int)posX, (int)posZ);
 				rotationPitch = 0;
 
 				if(isReusable()) {
@@ -373,9 +377,10 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 					Destination destination = ItemVOTVdrive.getDestination(navDrive);
 
 					// Check if we're about to land on top of another rocket and adjust accordingly
-					AxisAlignedBB bb = this.getEntityBoundingBox().copy();
-					bb.minY = targetHeight;
-					if(!this.world.getEntitiesWithinAABBExcludingEntity(this, bb, entity -> entity instanceof EntityRideableRocket).isEmpty()) {
+					AxisAlignedBB bb = new AxisAlignedBB(this.getEntityBoundingBox().minX, targetHeight, this.getEntityBoundingBox().minZ, this.getEntityBoundingBox().maxX, this.getEntityBoundingBox().maxY, this.getEntityBoundingBox().maxZ);
+					List<EntityRideableRocket> nearbyRockets = this.world.getEntitiesWithinAABB(EntityRideableRocket.class, bb);
+					nearbyRockets.remove(this);
+					if(!nearbyRockets.isEmpty()) {
 						int distance = this.world.rand.nextBoolean() ? -5 : 5;
 						if(this.world.rand.nextBoolean()) {
 							destination.x += distance;
@@ -401,7 +406,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 						ExplosionLarge.explode(this.world, posX, posY, posZ, 5, true, false, true);
 						ExplosionLarge.spawnShrapnelShower(this.world, posX, posY, posZ, motionX, motionY, motionZ, 15, 0.075);
 
-						this.world.playSoundEffect(posX, posY, posZ, "hbm:entity.pipefail", 10_000, 0.8F + this.world.rand.nextFloat() * 0.4F);
+						this.world.playSound(null, posX, posY, posZ, com.hbm.main.ModSoundEvents.resolve("hbm:entity.pipefail"), net.minecraft.util.SoundCategory.NEUTRAL, 10000.0F, 0.8F + this.world.rand.nextFloat() * 0.4F);
 					}
 				}
 
@@ -477,7 +482,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 			}
 
 			if(state == RocketState.LANDING) {
-				Material material = com.hbm.world.WorldBlockState.read(this.world, MathHelper.floor(posX), MathHelper.floor(posY), MathHelper.floor(posZ)).getBlock().getMaterial();
+				Material material = this.world.getBlockState(new net.minecraft.util.math.BlockPos(MathHelper.floor(posX), MathHelper.floor(posY), MathHelper.floor(posZ))).getMaterial();
 
 				if(material.isLiquid()) setState(RocketState.TIPPING);
 				if(material == Material.LAVA) {
@@ -503,7 +508,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 					capDummy = new EntityRideableRocketDummy(this.world, this);
 					capDummy.parent = this;
 					capDummy.setPosition(posX, posY + offset, posZ);
-					this.world.spawnEntityInWorld(capDummy);
+					this.world.spawnEntity(capDummy);
 				} else {
 					capDummy.setPosition(posX, posY + offset, posZ);
 				}
@@ -574,7 +579,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 	}
 
 	@Override
-	public AxisAlignedBB getBoundingBox() {
+	public AxisAlignedBB getCollisionBoundingBox() {
 		if(motionMult() > 0) return null;
 		return this.getEntityBoundingBox();
 	}
@@ -586,26 +591,29 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 		return 4;
 	}
 
-	@Override
-	public boolean interactFirst(EntityPlayer player) {
+
+		@Override
+	public boolean processInitialInteract(net.minecraft.entity.player.EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		return interactFirst(player);
+	}
+
+public boolean interactFirst(EntityPlayer player) {
 		if(!canRide()) return false;
 
-		if(super.interactFirst(player)) {
+		if(false) {
 			return true;
-		} else if(!this.world.isRemote && (!this.isBeingRidden() || this.riddenByEntity == player)) {
-			player.mountEntity(this);
+		} else if(!this.world.isRemote && (!this.isBeingRidden() || this.isPassenger(player))) {
+			player.startRiding(this);
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	@Override
 	public boolean handleWaterMovement() {
 		return false;
 	}
 
-	@Override
 	public boolean handleLavaMovement() {
 		return false;
 	}
@@ -626,13 +634,13 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 	}
 
 	@Override
-	public void updateRiderPosition() {
-		if(!this.isBeingRidden()) return;
+	public void updatePassenger(Entity passenger) {
+		super.updatePassenger(passenger);
 
-		double length = getMountedYOffset() + riddenByEntity.getYOffset();
+		double length = getMountedYOffset() + passenger.getYOffset();
 		Vec3d target = BobMathUtil.getDirectionFromAxisAngle(rotationPitch - 90.0F, 180.0F - rotationYaw, length);
 
-		riddenByEntity.setPosition(posX + target.x, posY + target.y, posZ + target.z);
+		passenger.setPosition(posX + target.x, posY + target.y, posZ + target.z);
 	}
 
 	@Override
@@ -660,7 +668,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 
 		destinationOverride = null;
 
-		posY = (double)this.world.getHeightValue((int)posX, (int)posZ);
+		posY = (double)this.world.getHeight((int)posX, (int)posZ);
 	}
 
 	@Override
@@ -686,15 +694,15 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if(!this.world.isRemote && !isDead) {
-			if(isEntityInvulnerable()) {
+			if(isEntityInvulnerable(source)) {
 				return false;
-			} else if(riddenByEntity == null && source.getTrueSource() instanceof EntityPlayer) {
+			} else if(!this.isBeingRidden() && source.getTrueSource() instanceof EntityPlayer) {
 				// A pickaxe is required to break, unless it's just the capsule (or it has tipped over)
 				if((getRocket().stages.size() == 0 && getRocket().capsule.part != ModItems.rp_pod_20) || getState() == RocketState.TIPPING) {
 					dropNDie(source);
 				} else {
 					ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(((EntityPlayer) source.getTrueSource()));
-					if(stack != null && stack.getItem().canHarvestBlock(Blocks.STONE, stack)) {
+					if(stack != null && stack.getItem().canHarvestBlock(Blocks.STONE.getDefaultState(), stack)) {
 						dropNDie(source);
 					}
 				}
@@ -775,7 +783,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 				ParticleUtil.spawnGasFlame(this.world, x - r, y, z - r, -0.25, -0.75, -0.25);
 			}
 
-			double groundHeight = (double)this.world.getHeightValue((int)x, (int)z);
+			double groundHeight = (double)this.world.getHeight((int)x, (int)z);
 			double distanceToGround = y - groundHeight;
 			if(distanceToGround < 10) {
 				ExplosionLarge.spawnShock(this.world, x, groundHeight + 0.5, z, 1 + this.world.rand.nextInt(3), 1 + this.world.rand.nextGaussian());
@@ -790,7 +798,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 		if(state == RocketState.LANDING) {
 			ParticleUtil.spawnGasFlame(this.world, x, y, z, 0.0, -1.0, 0.0);
 
-			double groundHeight = (double)this.world.getHeightValue((int)x, (int)z);
+			double groundHeight = (double)this.world.getHeight((int)x, (int)z);
 			double distanceToGround = y - groundHeight;
 			if(distanceToGround < 10) {
 				ExplosionLarge.spawnShock(this.world, x, groundHeight + 0.5, z, 1 + this.world.rand.nextInt(3), 1 + this.world.rand.nextGaussian());
@@ -963,9 +971,9 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 			canLaunch = false;
 		}
 
-		if(riddenByEntity == null) {
+		if(!this.isBeingRidden()) {
 			text.add("Interact to enter");
-		} else if(riddenByEntity != player) {
+		} else if(!this.isPassenger(player)) {
 			text.add("OCCUPIED");
 		} else {
 			if(to.inOrbit) {
@@ -1061,7 +1069,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 			parent.printHook(event, world, x, y, z);
 		}
 
-		@Override
+
 		public boolean interactFirst(EntityPlayer player) {
 			if(parent == null) return false;
 			return parent.interactFirst(player);

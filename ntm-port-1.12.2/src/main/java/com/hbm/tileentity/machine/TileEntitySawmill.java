@@ -137,7 +137,7 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 						cog.motionX = rot.offsetX;
 						cog.motionY = 1 + (heat - 100) * 0.0001D;
 						cog.motionZ = rot.offsetZ;
-						this.world.spawnEntityInWorld(cog);
+						this.world.spawnEntity(cog);
 
 						this.markDirty();
 					}
@@ -226,7 +226,7 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack stack) {
-		return i == 0 && slots[0] == null && slots[1] == null && slots[2] == null && stack.stackSize == 1 && getOutput(stack) != null;
+		return i == 0 && slots[0] == null && slots[1] == null && slots[2] == null && stack.getCount() == 1 && getOutput(stack) != null;
 	}
 
 	@Override
@@ -289,13 +289,13 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 		}
 
 		if(names.contains("logWood")) {
-			for(Object o : CraftingManager.getInstance().getRecipeList()) {
+			for (Object o : net.minecraft.item.crafting.CraftingManager.REGISTRY) {
 				IRecipe recipe = (IRecipe) o;
 				if(recipe.matches(craftingInventory, this.world)) {
 					ItemStack out = recipe.getCraftingResult(craftingInventory);
 					if(out != null) {
 						out = out.copy(); //for good measure
-						out.stackSize = out.stackSize * 6 / 4; //4 planks become 6
+						out.setCount(out.getCount() * 6 / 4); //4 planks become 6
 						return out;
 					}
 				}
@@ -363,7 +363,7 @@ public class TileEntitySawmill extends TileEntityMachineBase {
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,

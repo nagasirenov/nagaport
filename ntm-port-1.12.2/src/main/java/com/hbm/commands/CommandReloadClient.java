@@ -19,16 +19,31 @@ public class CommandReloadClient extends CommandReloadConfig {
 		ClientCommandHandler.instance.registerCommand(new CommandReloadClient());
 	}
 
-	@Override
-	public String getCommandName() {
-		return "ntmclient";
+
+		@Override
+	public String getName() {
+		return getCommandName();
 	}
 
 	@Override
+	public String getUsage(net.minecraft.command.ICommandSender sender) {
+		return getCommandUsage(sender);
+	}
+
+	@Override
+	public void execute(net.minecraft.server.MinecraftServer server, net.minecraft.command.ICommandSender sender, String[] args) throws net.minecraft.command.CommandException {
+		processCommand(sender, args);
+	}
+
+public String getCommandName() {
+		return "ntmclient";
+	}
+
+
 	public String getCommandUsage(ICommandSender sender) {
 		return "/ntmclient help";
 	}
-	
+
 	@Override public void help(ICommandSender sender, String[] args) {
 		if(args.length >= 2) {
 			String command = args[1];
@@ -45,7 +60,7 @@ public class CommandReloadClient extends CommandReloadConfig {
 			sender.sendMessage(new TextComponentString(TextFormatting.YELLOW + "/ntmclient " + TextFormatting.GOLD + "set " + TextFormatting.RED + "<name> <value>"));
 		}
 	}
-	
+
 	@Override public HashMap<String, ConfigWrapper> getConfigMap() { return ClientConfig.configMap; }
 	@Override public void refresh() { ClientConfig.refresh(); }
 	@Override public void reload() { ClientConfig.reload(); }

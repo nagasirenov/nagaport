@@ -38,8 +38,13 @@ public class EntityAIStepTowardsTarget extends EntityAIBase {
         this.stepTimer = 0;
     }
 
-    @Override
-    public boolean continueExecuting() {
+
+        @Override
+    public boolean shouldContinueExecuting() {
+        return continueExecuting();
+    }
+
+public boolean continueExecuting() {
         return true;
     }
 
@@ -53,7 +58,7 @@ public class EntityAIStepTowardsTarget extends EntityAIBase {
                 double dx = target.posX - this.entity.posX;
                 double dz = target.posZ - this.entity.posZ;
                 double distance = Math.sqrt(dx * dx + dz * dz);
-                this.entity.playSound("hbm:entity.beep", 1.0F, 1.0F);
+                this.entity.world.playSound(null, this.entity.posX, this.entity.posY, this.entity.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:entity.beep"), net.minecraft.util.SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
                 if (distance > minDistance) {
                     dx = (dx / distance) * stepDistance;

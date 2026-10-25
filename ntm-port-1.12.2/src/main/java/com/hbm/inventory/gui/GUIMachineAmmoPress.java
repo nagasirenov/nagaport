@@ -45,15 +45,15 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 	public GUIMachineAmmoPress(InventoryPlayer invPlayer, TileEntityMachineAmmoPress press) {
 		super(new ContainerMachineAmmoPress(invPlayer, press));
 		this.press = press;
-		
+
 		this.xSize = 176;
 		this.ySize = 200;
-		
+
 		this.selection = press.selectedRecipe;
-		
+
 		regenerateRecipes();
 	}
-	
+
 	@Override
 	public void initGui() {
 
@@ -66,24 +66,24 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 		this.search.setEnableBackgroundDrawing(false);
 		this.search.setMaxStringLength(25);
 	}
-	
+
 	private void regenerateRecipes() {
-		
+
 		this.recipes.clear();
 		this.recipes.addAll(AmmoPressRecipes.recipes);
-		
+
 		resetPaging();
 	}
-	
+
 	private void search(String search) {
-		
+
 		search = search.toLowerCase(Locale.US);
 
 		this.recipes.clear();
-		
+
 		if(search.isEmpty()) {
 			this.recipes.addAll(AmmoPressRecipes.recipes);
-			
+
 		} else {
 			for(AmmoPressRecipe recipe : AmmoPressRecipes.recipes) {
 				if(recipe.output.getDisplayName().toLowerCase(Locale.US).contains(search)) {
@@ -91,23 +91,23 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 				}
 			}
 		}
-		
+
 		resetPaging();
 	}
-	
+
 	private void resetPaging() {
-		
+
 		this.index = 0;
 		this.size = Math.max(0, (int)Math.ceil((this.recipes.size() - 12) / 3D));
 	}
-	
+
 	@Override
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
-		
+
 		for(Object obj : this.inventorySlots.inventorySlots) {
 			Slot slot = (Slot) obj;
-			
+
 			// if the mouse is over a slot, cancel
 			if(this.isPointInRegion(slot.xPos, slot.yPos, 16, 16, x, y) && slot.getHasStack()) {
 				return;
@@ -117,19 +117,19 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 		if(guiLeft <= x && guiLeft + xSize > x && guiTop < y && guiTop + ySize >= y && getSlotAtPosition(x, y) == null) {
 			if(!Mouse.isButtonDown(0) && !Mouse.isButtonDown(1) && Mouse.next()) {
 				int scroll = Mouse.getEventDWheel();
-				
+
 				if(scroll > 0 && this.index > 0) this.index--;
 				if(scroll < 0 && this.index < this.size) this.index++;
 			}
 		}
 
 		for(int i = index * 3; i < index * 3 + 12; i++) {
-			
+
 			if(i >= this.recipes.size())
 				break;
-			
+
 			int ind = i - index * 3;
-			
+
 			int ix = 16 + 18 * (ind / 3);
 			int iy = 17 + 18 * (ind % 3);
 			if(guiLeft + ix <= x && guiLeft + ix + 18 > x && guiTop + iy < y && guiTop + iy + 18 >= y) {
@@ -138,19 +138,19 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 			}
 		}
 	}
-	
+
 	@Override
-	protected void mouseClicked(int x, int y, int k) {
+	protected void mouseClicked(int x, int y, int k) throws java.io.IOException {
 		super.mouseClicked(x, y, k);
-		
+
 		this.search.mouseClicked(x, y, k);
-		
+
 		if(guiLeft + 7 <= x && guiLeft + 7 + 9 > x && guiTop + 17 < y && guiTop + 17 + 54 >= y) {
 			click();
 			if(this.index > 0) this.index--;
 			return;
 		}
-		
+
 		if(guiLeft + 88 <= x && guiLeft + 88 + 9 > x && guiTop + 17 < y && guiTop + 17 + 54 >= y) {
 			click();
 			if(this.index < this.size) this.index++;
@@ -158,23 +158,23 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 		}
 
 		for(int i = index * 3; i < index * 3 + 12; i++) {
-			
+
 			if(i >= this.recipes.size())
 				break;
-			
+
 			int ind = i - index * 3;
-			
+
 			int ix = 16 + 18 * (ind / 3);
 			int iy = 17 + 18 * (ind % 3);
 			if(guiLeft + ix <= x && guiLeft + ix + 18 > x && guiTop + iy < y && guiTop + iy + 18 >= y) {
-				
+
 				int newSelection = AmmoPressRecipes.recipes.indexOf(this.recipes.get(i));
-				
+
 				if(this.selection != newSelection)
 					this.selection = newSelection;
 				else
 					this.selection = -1;
-				
+
 				NBTTagCompound data = new NBTTagCompound();
 				data.setInteger("selection", this.selection);
 				PacketDispatcher.wrapper.sendToServer(new NBTControlPacket(data, press.getPos().getX(), press.getPos().getY(), press.getPos().getZ()));
@@ -183,7 +183,7 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 			}
 		}
 	}
-	
+
 	@Override
 	protected void drawGuiContainerForegroundLayer(int i, int j) {
 		String name = this.press.hasCustomInventoryName() ? this.press.getInventoryName() : I18n.format(this.press.getInventoryName());
@@ -203,30 +203,30 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 		if(guiLeft + 88 <= x && guiLeft + 88 + 9 > x && guiTop + 17 < y && guiTop + 17 + 54 >= y) {
 			drawTexturedModalRect(guiLeft + 88, guiTop + 17, 185, 0, 9, 54);
 		}
-		
+
 		if(this.search.isFocused()) {
 			drawTexturedModalRect(guiLeft + 8, guiTop + 72, 176, 54, 70, 16);
 		}
-		
+
 		for(int i = index * 3; i < index * 3 + 12; i++) {
 			if(i >= recipes.size())
 				break;
-			
+
 			int ind = i - index * 3;
-			
+
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			RenderHelper.enableGUIStandardItemLighting();
 			GL11.glDisable(GL11.GL_LIGHTING);
 			GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-			
+
 			AmmoPressRecipe recipe = recipes.get(i);
-			
+
 			FontRenderer font = null;
 			if(recipe.output != null) font = recipe.output.getItem().getFontRenderer(recipe.output);
 			if(font == null) font = fontRenderer;
-			
+
 			itemRender.zLevel = 100.0F;
-			itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), recipe.output, guiLeft + 17 + 18 * (ind / 3), guiTop + 18 + 18 * (ind % 3));
+			itemRender.renderItemAndEffectIntoGUI(recipe.output, guiLeft + 17 + 18 * (ind / 3), guiTop + 18 + 18 * (ind % 3));
 
 			itemRender.zLevel = 0.0F;
 
@@ -234,22 +234,22 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 			GL11.glDisable(GL11.GL_LIGHTING);
 			this.mc.getTextureManager().bindTexture(texture);
 			this.zLevel = 300.0F;
-			
+
 			if(selection == AmmoPressRecipes.recipes.indexOf(this.recipes.get(i)))
 				this.drawTexturedModalRect(guiLeft + 16 + 18 * (ind / 3), guiTop + 17 + 18 * (ind % 3), 194, 0, 18, 18);
 			else
 				this.drawTexturedModalRect(guiLeft + 16 + 18 * (ind / 3), guiTop + 17 + 18 * (ind % 3), 212, 0, 18, 18);
-			
+
 			GL11.glPushMatrix();
 			GL11.glTranslated(guiLeft + 17 + 18 * (ind / 3) + 8, guiTop + 18 + 18 * (ind % 3) + 8, 0);
 			GL11.glScaled(0.5, 0.5, 1);
-			itemRender.renderItemOverlayIntoGUI(font, this.mc.getTextureManager(), recipe.output, 0, 0, recipe.output.stackSize + "");
+			itemRender.renderItemOverlayIntoGUI(font, recipe.output, 0, 0, recipe.output.getCount() + "");
 			GL11.glPopMatrix();
 		}
-		
+
 		if(selection >= 0 && selection < AmmoPressRecipes.recipes.size()) {
 			AmmoPressRecipe recipe = AmmoPressRecipes.recipes.get(selection);
-			
+
 			for(int i = 0; i < 9; i++) {
 				AStack stack = recipe.input[i];
 				if(stack == null) continue;
@@ -260,15 +260,15 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 				RenderHelper.enableGUIStandardItemLighting();
 				GL11.glDisable(GL11.GL_LIGHTING);
 				GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-				
+
 				FontRenderer font = input.getItem().getFontRenderer(input);
 				if(font == null) font = fontRenderer;
-				
+
 				itemRender.zLevel = 10.0F;
-				itemRender.renderItemAndEffectIntoGUI(font, this.mc.getTextureManager(), input, guiLeft + 116 + 18 * (i % 3), guiTop + 18 + 18 * (i / 3));
-				itemRender.renderItemOverlayIntoGUI(font, this.mc.getTextureManager(), input, guiLeft + 116 + 18 * (i % 3), guiTop + 18 + 18 * (i / 3), input.stackSize > 1 ? (input.stackSize + "") : null);
+				itemRender.renderItemAndEffectIntoGUI(input, guiLeft + 116 + 18 * (i % 3), guiTop + 18 + 18 * (i / 3));
+				itemRender.renderItemOverlayIntoGUI(font, input, guiLeft + 116 + 18 * (i % 3), guiTop + 18 + 18 * (i / 3), input.getCount() > 1 ? (input.getCount() + "") : null);
 				itemRender.zLevel = 0.0F;
-				
+
 				GL11.glEnable(GL11.GL_ALPHA_TEST);
 				GL11.glDisable(GL11.GL_LIGHTING);
 
@@ -287,10 +287,10 @@ public class GUIMachineAmmoPress extends GuiInfoContainer {
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		this.search.drawTextBox();
 	}
-	
+
 	@Override
-	protected void keyTyped(char c, int key) {
-		
+	protected void keyTyped(char c, int key) throws java.io.IOException {
+
 		if(this.search.textboxKeyTyped(c, key)) {
 			search(this.search.getText());
 		} else {

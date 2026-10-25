@@ -40,7 +40,7 @@ public class GUIFEL extends GuiInfoContainer {
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 182, guiTop + 27, 16, 113, fel.power, fel.maxPower);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		if(guiLeft + 142 <= x && guiLeft + 142 + 29 > x && guiTop + 41 < y && guiTop + 41 + 17 >= y) {

@@ -50,9 +50,9 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getNuclear().health);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getNuclear().speed);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getNuclear().damage);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(GlyphidStats.getStats().getNuclear().health);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(GlyphidStats.getStats().getNuclear().speed);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(GlyphidStats.getStats().getNuclear().damage);
 	}
 
 	public StatBundle getStats() {
@@ -67,7 +67,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 				setCurrentTask(TASK_IDLE, null);
 			}
 
-			if(getCurrentTask() == TASK_BUILD_HIVE && getAITarget() == null) {
+			if(getCurrentTask() == TASK_BUILD_HIVE && getAttackTarget() == null) {
 				this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 10 * 20, 3));
 			}
 
@@ -82,7 +82,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 	public void communicate(int task, @Nullable EntityWaypoint waypoint) {
 		int radius = waypoint != null ? waypoint.radius : 4;
 
-		AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(
+		AxisAlignedBB bb = new AxisAlignedBB(
 				this.posX - radius,
 				this.posY - radius,
 				this.posZ - radius,
@@ -123,7 +123,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 
 		if(deathTicks == 90){
 			int radius = 8;
-			AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
+			AxisAlignedBB bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
 
 			List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 			for (Entity e: bugs){
@@ -138,7 +138,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 			if(!this.world.isRemote) {
 				ExplosionVNT vnt = new ExplosionVNT(this.world, posX, posY, posZ, 25, this);
 
-				if(this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED) {
+				if(getGlyphidSubtype() == TYPE_INFECTED) {
 					int j = 15 + this.rand.nextInt(6);
 					for(int k = 0; k < j; ++k) {
 						float f = ((float) (k % 2) - 0.5F) * 0.5F;
@@ -148,7 +148,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 						maggot.motionX = f;
 						maggot.motionZ = f1;
 						maggot.velocityChanged = true;
-						this.world.spawnEntityInWorld(maggot);
+						this.world.spawnEntity(maggot);
 					}
 				} else {
 					vnt.setBlockAllocator(new BlockAllocatorStandard(24));

@@ -33,9 +33,10 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class BlockCustomMachine extends BlockContainer {
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFront;
+	protected IIcon blockIcon;
 
 	public BlockCustomMachine() {
 		super(Material.IRON);
@@ -45,32 +46,33 @@ public class BlockCustomMachine extends BlockContainer {
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityCustomMachine();
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconFront = iconRegister.registerIcon(RefStrings.MODID + ":cm_terminal_front");
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":cm_terminal_side");
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		if(metadata >= 100) return side == 3 ? this.iconFront : this.blockIcon;
 		return metadata == 0 && side == 3 ? this.iconFront : (side == metadata ? this.iconFront : this.blockIcon);
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			
+
 			TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-			
+
 			if(tile != null) {
-				
+
 				if(tile.checkStructure()) {
 					FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 				} else if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.wand_s) {
@@ -79,7 +81,7 @@ public class BlockCustomMachine extends BlockContainer {
 			}
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -88,20 +90,20 @@ public class BlockCustomMachine extends BlockContainer {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
-		if(i == 0) world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		if(i == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		if(i == 2) world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		if(i == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-		
+		if(i == 0) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
+		if(i == 1) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
+		if(i == 2) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
+		if(i == 3) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
+
 		TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(tile != null) {
 			int id = stack.getItemDamage() - 100;
-			
+
 			if(id >= 0 && id < CustomMachineConfigJSON.customMachines.size()) {
-				
+
 				MachineConfiguration config = CustomMachineConfigJSON.niceList.get(id);
-				
+
 				if(config != null) {
 					tile.machineType = config.unlocalizedName;
 					tile.init();
@@ -111,58 +113,75 @@ public class BlockCustomMachine extends BlockContainer {
 		}
 	}
 
-	@Override
-	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
-		
+
+		@Override
+	public void onBlockHarvested(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.player.EntityPlayer player) {
+		int meta = state.getBlock().getMetaFromState(state);
+		onBlockHarvested(worldIn, pos.getX(), pos.getY(), pos.getZ(), meta, player);
+	}
+
+public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player) {
+
 		if(!player.capabilities.isCreativeMode) {
 			harvesters.set(player);
-			this.dropBlockAsItem(world, x, y, z, meta, 0);
+			this.dropBlockAsItem(world, new net.minecraft.util.math.BlockPos(x, y, z), world.getBlockState(new net.minecraft.util.math.BlockPos(x, y, z)), 0);
 			harvesters.set(null);
 		}
 	}
-	
+
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
-		player.addStat(StatList.mineBlockStatArray[getIdFromBlock(this)], 1);
+	public void harvestBlock(World worldIn, EntityPlayer player, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, @javax.annotation.Nullable net.minecraft.tileentity.TileEntity te, ItemStack stack) {
+		player.addStat(StatList.getBlockStats(this));
 		player.addExhaustion(0.025F);
 	}
-	
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-		
+
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		Item item = getItemDropped(metadata, world.rand, fortune);
+		Item item = getItemDropped(this.getStateFromMeta(metadata), world.rand, fortune);
 		if(item != null) {
 
 			TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-			
+
 			if(tile != null) {
 				ItemStack stack = new ItemStack(item, 1, CustomMachineConfigJSON.niceList.indexOf(tile.config) + 100);
 				ret.add(stack);
 			}
 		}
-		
+
 		return ret;
 	}
-	
+
 	@Override
-	public ItemStack getPickBlock(RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(net.minecraft.block.state.IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
-		
+
 		TileEntityCustomMachine tile = (TileEntityCustomMachine) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(tile != null && tile.machineType != null && !tile.machineType.isEmpty()) {
 			ItemStack stack = new ItemStack(this, 1, CustomMachineConfigJSON.niceList.indexOf(tile.config) + 100);
 			return stack;
 		}
-		
-		return super.getPickBlock(target, world, pos, player);
+
+		return super.getPickBlock(state, target, world, pos, player);
 	}
-	
+
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
 
 		ISidedInventory sided = (ISidedInventory) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		Random rand = world.rand;
@@ -207,9 +226,9 @@ public class BlockCustomMachine extends BlockContainer {
 				}
 			}
 
-			world.func_147453_f(x, y, z, block);
+			world.updateComparatorOutputLevel(new net.minecraft.util.math.BlockPos(x, y, z), block);
 		}
 
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 }

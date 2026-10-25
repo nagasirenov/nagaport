@@ -28,7 +28,7 @@ public class EnchantmentUtil {
 
 		int i = 0;
 		for( ; i < stack.getEnchantmentTagList().tagCount(); i++) {
-			if(stack.getEnchantmentTagList().getCompoundTagAt(i).getShort("id") == enchantment.effectId)
+			if(stack.getEnchantmentTagList().getCompoundTagAt(i).getShort("id") == net.minecraft.enchantment.Enchantment.getEnchantmentID(enchantment))
 				break;
 		}
 
@@ -43,7 +43,7 @@ public class EnchantmentUtil {
 		if(stack.getEnchantmentTagList() == null) return 0;
 
 		for(int i = 0; i < stack.getEnchantmentTagList().tagCount(); i++) {
-			if(stack.getEnchantmentTagList().getCompoundTagAt(i).getShort("id") == enchantment.effectId)
+			if(stack.getEnchantmentTagList().getCompoundTagAt(i).getShort("id") == net.minecraft.enchantment.Enchantment.getEnchantmentID(enchantment))
 				return stack.getEnchantmentTagList().getCompoundTagAt(i).getShort("lvl");
 		}
 

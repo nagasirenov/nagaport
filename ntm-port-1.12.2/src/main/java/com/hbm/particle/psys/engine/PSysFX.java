@@ -7,12 +7,12 @@ import net.minecraft.world.World;
 
 /**
  * HBM: reinventing the fucking wheel for the 15th time since 2014
- * 
+ *
  * @author hbm
  */
 @SideOnly(Side.CLIENT)
 public abstract class PSysFX {
-	
+
 	public World world;
 	public double posX;
 	public double posY;
@@ -29,33 +29,33 @@ public abstract class PSysFX {
 	public boolean isExpired = false;
 	public boolean shouldExpireWhenUnloaded = true;
 	public boolean isUnloaded = false;
-	
+
 	public PSysFX(World world, double x, double y, double z) {
 		this.world = world;
 		this.posX = x;
 		this.posY = y;
 		this.posZ = z;
 	}
-	
+
 	public void updateParticle() {
 		this.prevPosX = posX;
 		this.prevPosY = posY;
 		this.prevPosZ = posZ;
-		this.isUnloaded = !world.getChunkProvider().chunkExists((int) Math.floor(posX) >> 4, (int) Math.floor(posZ) >> 4);
-		
+		this.isUnloaded = world.getChunkProvider().getLoadedChunk((int) Math.floor(posX) >> 4, (int) Math.floor(posZ) >> 4) == null;
+
 		this.particleAge++;
-		
+
 		if(this.particleAge >= this.particleMaxAge) {
 			this.expire();
 		}
-		
+
 		if(this.shouldExpireWhenUnloaded && this.isUnloaded) {
 			this.expire();
 		}
 	}
-	
+
 	public abstract void renderParticle();
-	
+
 	public AxisAlignedBB getBoundingBox() {
 		return this.boundingBox;
 	}
@@ -70,11 +70,11 @@ public abstract class PSysFX {
 		this.posY = aabb.minY;
 		this.posZ = (aabb.minZ + aabb.maxZ) / 2.0D;
 	}
-	
+
 	public void expire() {
 		this.isExpired = true;
 	}
-	
+
 	public void setExpireOnUnload(boolean expire) {
 		this.shouldExpireWhenUnloaded = expire;
 	}

@@ -24,7 +24,7 @@ public class RenderNeoCart extends Render {
 	}
 
 	public void doRender(EntityMinecartNTM cart, double x, double y, double z, float rot, float interp) {
-		
+
 		GL11.glPushMatrix();
 		this.bindEntityTexture(cart);
 		long rand = (long) cart.getEntityId() * 493286711L;
@@ -37,12 +37,12 @@ public class RenderNeoCart extends Render {
 		double interpY = cart.lastTickPosY + (cart.posY - cart.lastTickPosY) * (double) interp;
 		double interpZ = cart.lastTickPosZ + (cart.posZ - cart.lastTickPosZ) * (double) interp;
 		double mult = 0.3;
-		Vec3d vec3 = cart.func_70489_a(interpX, interpY, interpZ);
+		Vec3d vec3 = cart.getPos(interpX, interpY, interpZ);
 		float interpPitch = cart.prevRotationPitch + (cart.rotationPitch - cart.prevRotationPitch) * interp;
 
 		if(vec3 != null) {
-			Vec3d vec31 = cart.func_70495_a(interpX, interpY, interpZ, mult);
-			Vec3d vec32 = cart.func_70495_a(interpX, interpY, interpZ, -mult);
+			Vec3d vec31 = cart.getPosOffset(interpX, interpY, interpZ, mult);
+			Vec3d vec32 = cart.getPosOffset(interpX, interpY, interpZ, -mult);
 
 			if(vec31 == null) {
 				vec31 = vec3;
@@ -55,7 +55,7 @@ public class RenderNeoCart extends Render {
 			x += vec3.x - interpX;
 			y += (vec31.y + vec32.y) / 2.0D - interpY;
 			z += vec3.z - interpZ;
-			Vec3d vec33 = vec32.addVector(-vec31.x, -vec31.y, -vec31.z);
+			Vec3d vec33 = vec32.add(-vec31.x, -vec31.y, -vec31.z);
 
 			if(vec33.length() != 0.0D) {
 				vec33 = vec33.normalize();
@@ -94,7 +94,7 @@ public class RenderNeoCart extends Render {
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		return getEntityTexture((EntityMinecartNTM) entity);
 	}
-	
+
 	protected ResourceLocation getEntityTexture(EntityMinecartNTM entity) {
 		switch(entity.getBase()) {
 		case PAINTED: return ResourceManager.cart_metal;
@@ -106,8 +106,8 @@ public class RenderNeoCart extends Render {
 
 	//"NoT vIsIbLe" how about you kiss my fucking ass
 	@Override
-	public void bindEntityTexture(Entity entity) {
-		this.bindTexture(this.getEntityTexture(entity));
+	protected boolean bindEntityTexture(Entity entity) {
+		this.bindTexture(this.getEntityTexture(entity)); return true;
 	}
 
 	@Override

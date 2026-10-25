@@ -182,7 +182,7 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 			if(slots[i + 6] == null)
 				return true;
 
-			if(slots[i + 6].getItem() == out.getItem() && slots[i + 6].getItemDamage() == out.getItemDamage() && slots[i + 6].stackSize < out.getMaxStackSize())
+			if(slots[i + 6].getItem() == out.getItem() && slots[i + 6].getItemDamage() == out.getItemDamage() && slots[i + 6].getCount() < out.getMaxStackSize())
 				return true;
 		}
 
@@ -214,11 +214,11 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 				continue;
 			}
 
-			if(slots[i + 6].getItem() == out.getItem() && slots[i + 6].getItemDamage() == out.getItemDamage() && slots[i + 6].stackSize < out.getMaxStackSize()) {
+			if(slots[i + 6].getItem() == out.getItem() && slots[i + 6].getItemDamage() == out.getItemDamage() && slots[i + 6].getCount() < out.getMaxStackSize()) {
 
 				this.decrStackSize(i, 1);
 				this.decrStackSize(i + 3, 1);
-				slots[i + 6].stackSize++;
+				slots[i + 6].grow(1);
 
 				this.tanks[2].setFill(this.tanks[2].getFill() + (Integer)res[1]);
 			}
@@ -254,7 +254,7 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 4, this.pos.getZ() + 3);
+		return new AxisAlignedBB(this.pos.getX() - 2, this.pos.getY(), this.pos.getZ() - 2, this.pos.getX() + 3, this.pos.getY() + 4, this.pos.getZ() + 3);
 	}
 
 	@Override
@@ -314,7 +314,7 @@ public class TileEntityMachineCyclotron extends TileEntityMachineBase implements
 		super.setInventorySlotContents(i, stack);
 
 		if(stack != null && i >= 14 && i <= 15 && stack.getItem() instanceof ItemMachineUpgrade)
-			this.world.playSoundEffect(this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, "hbm:item.upgradePlug", 1.5F, 1.0F);
+			this.world.playSound(null, this.pos.getX() + 0.5, this.pos.getY() + 1.5, this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("hbm:item.upgradePlug"), net.minecraft.util.SoundCategory.BLOCKS, 1.5F, 1.0F);
 	}
 
 	@Override

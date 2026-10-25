@@ -51,7 +51,7 @@ public class GUINukeAntimatter extends GuiInfoContainer {
 		super.drawScreen(mouseX, mouseY, f);
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		this.timer.mouseClicked(x, y, i);
 
@@ -92,7 +92,7 @@ public class GUINukeAntimatter extends GuiInfoContainer {
 		this.timer.drawTextBox();
 	}
 
-	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
+	protected void keyTyped(char p_73869_1_, int p_73869_2_) throws java.io.IOException {
 
 		if(this.timer.textboxKeyTyped(p_73869_1_, p_73869_2_)) {
 

@@ -1,5 +1,7 @@
 package com.hbm.blocks.machine;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import com.hbm.tileentity.machine.TileEntityCharger;
 import com.hbm.world.gen.nbt.INBTBlockTransformable;
 
@@ -46,36 +48,33 @@ public class Charger extends BlockContainer implements INBTBlockTransformable {
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 2, 2);
 		}
 		if(i == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 5, 2);
 		}
 		if(i == 2) {
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 3, 2);
 		}
 		if(i == 3) {
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+			com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, x, y, z, 4, 2);
 		}
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-		float f = 0.0625F;
+	private static final AxisAlignedBB BOUNDS_DEFAULT = new AxisAlignedBB(5 * 0.0625D, 0.25D, 5 * 0.0625D, 11 * 0.0625D, 0.75D, 11 * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_NORTH = new AxisAlignedBB(5 * 0.0625D, 0.25D, 12 * 0.0625D, 11 * 0.0625D, 0.75D, 1.0D);
+	private static final AxisAlignedBB BOUNDS_SOUTH = new AxisAlignedBB(5 * 0.0625D, 0.25D, 0.0D, 11 * 0.0625D, 0.75D, 4 * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_WEST = new AxisAlignedBB(12 * 0.0625D, 0.25D, 5 * 0.0625D, 1.0D, 0.75D, 11 * 0.0625D);
+	private static final AxisAlignedBB BOUNDS_EAST = new AxisAlignedBB(0.0D, 0.25D, 5 * 0.0625D, 4 * 0.0625D, 0.75D, 11 * 0.0625D);
 
-		switch(world.getBlockMetadata(x, y, z)) {
-			case 2: this.setBlockBounds(5 * f, 0.25F, 12 * f, 11 * f, 0.75F, 1F); break;
-			case 3: this.setBlockBounds(5 * f, 0.25F, 0F, 11 * f, 0.75F, 4 * f); break;
-			case 4: this.setBlockBounds(12 * f, 0.25F, 5 * f, 1F, 0.75F, 11 * f); break;
-			case 5: this.setBlockBounds(0F, 0.25F, 5 * f, 4 * f, 0.75F, 11 * f); break;
-			default: this.setBlockBounds(5 * f, 0.25F, 5 * f, 11 * f, 0.75F, 11 * f); break;
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		switch(com.hbm.world.WorldBlockState.readMetadata(source, pos.getX(), pos.getY(), pos.getZ())) {
+		case 2: return BOUNDS_NORTH;
+		case 3: return BOUNDS_SOUTH;
+		case 4: return BOUNDS_WEST;
+		case 5: return BOUNDS_EAST;
+		default: return BOUNDS_DEFAULT;
 		}
-	}
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		this.setBlockBoundsBasedOnState(world, x, y, z);
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY, z + this.maxZ);
 	}
 
 	@Override

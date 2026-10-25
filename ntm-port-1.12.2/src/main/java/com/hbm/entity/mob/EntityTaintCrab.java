@@ -39,18 +39,18 @@ public class EntityTaintCrab extends EntityCyberCrab {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.5F);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5F);
 	}
 
 	public void onLivingUpdate() {
 
 		targets = TileEntityTesla.zap(this.world, posX, posY + 1.25, posZ, 10, this);
 
-		List<EntityLivingBase> targets = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(posX - 5, posY - 5, posZ - 5, posX + 5, posY + 5, posZ + 5));
+		List<EntityLivingBase> targets = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX - 5, posY - 5, posZ - 5, posX + 5, posY + 5, posZ + 5));
 
 		for(EntityLivingBase e : targets) {
-			if(!(e instanceof EntityCyberCrab)) e.addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 10, 15));
+			if(!(e instanceof EntityCyberCrab)) e.addPotionEffect(new PotionEffect(HbmPotion.radiation, 10, 15));
 		}
 
 		super.onLivingUpdate();
@@ -78,7 +78,7 @@ public class EntityTaintCrab extends EntityCyberCrab {
 		data.setDouble("mY", bullet.motionY * 0.3);
 		data.setDouble("mZ", bullet.motionZ * 0.3);
 		PacketThreading.createAllAroundThreadedPacket(new AuxParticlePacketNT(data, bullet.posX, bullet.posY, bullet.posZ), new TargetPoint(this.dimension, posX, posY, posZ, 50));
-		this.world.spawnEntityInWorld(bullet);
-		this.playSound("hbm:weapon.sawShoot", 1.0F, 0.5F);
+		this.world.spawnEntity(bullet);
+		this.world.playSound(null, this.posX, this.posY, this.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:weapon.sawShoot"), net.minecraft.util.SoundCategory.NEUTRAL, 1.0F, 0.5F);
 	}
 }

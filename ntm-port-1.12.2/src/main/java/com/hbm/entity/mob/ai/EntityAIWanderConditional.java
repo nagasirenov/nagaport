@@ -8,7 +8,7 @@ import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.util.math.Vec3d;
 
 public class EntityAIWanderConditional extends EntityAIBase {
-	
+
 	private EntityCreature creature;
 	private double speed;
 	private Predicate condition;
@@ -25,10 +25,10 @@ public class EntityAIWanderConditional extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		
+
 		if(!condition.test(creature)) return false;
-		
-		if(this.creature.getAge() >= 100) {
+
+		if(this.creature.getIdleTime() >= 100) {
 			return false;
 		} else if(this.creature.getRNG().nextInt(120) != 0) {
 			return false;
@@ -46,8 +46,13 @@ public class EntityAIWanderConditional extends EntityAIBase {
 		}
 	}
 
-	@Override
-	public boolean continueExecuting() {
+
+		@Override
+	public boolean shouldContinueExecuting() {
+		return continueExecuting();
+	}
+
+public boolean continueExecuting() {
 		return !this.creature.getNavigator().noPath() && condition.test(creature);
 	}
 

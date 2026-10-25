@@ -132,9 +132,9 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				//get old direction
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 				//remove tile from the world to prevent inventory dropping
-				this.world.removeTileEntity(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				this.world.removeTileEntity(this.pos);
 				//use fillspace to create a new multiblock configuration
-				this.world.setBlock(this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.machine_turbofan, dir.ordinal() + 10, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ModBlocks.machine_turbofan, dir.ordinal() + 10, 3);
 				MultiblockHandlerXR.fillSpace(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), ((BlockDummyable) ModBlocks.machine_turbofan).getDimensions(), ModBlocks.machine_turbofan, dir);
 				//restore connections
 				ForgeDirection rot = dir.getRotation(ForgeDirection.UP);
@@ -248,13 +248,13 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				double minZ = this.pos.getZ() + 0.5 - dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
 				double maxZ = this.pos.getZ() + 0.5 - dir.offsetZ * 19.5 + rot.offsetZ * 1.5;
 
-				List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
+				List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 
 					if(this.afterburner > 0) {
 						e.setFire(5);
-						e.attackEntityFrom(DamageSource.onFire, 5F);
+						e.attackEntityFrom(DamageSource.ON_FIRE, 5F);
 					}
 					e.motionX -= dir.offsetX * 0.2;
 					e.motionZ -= dir.offsetZ * 0.2;
@@ -265,7 +265,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				minZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
 				maxZ = this.pos.getZ() + 0.5 + dir.offsetZ * 8.5 + rot.offsetZ * 1.5;
 
-				list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
+				list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					e.motionX -= dir.offsetX * 0.2;
@@ -277,7 +277,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				minZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
 				maxZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.75 + rot.offsetZ * 1.5;
 
-				list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
+				list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					e.attackEntityFrom(ModDamageSource.turbofan, 1000);
@@ -360,7 +360,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				double minZ = this.pos.getZ() + 0.5 - dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
 				double maxZ = this.pos.getZ() + 0.5 - dir.offsetZ * 19.5 + rot.offsetZ * 1.5;
 
-				List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
+				List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					if(e == MainRegistry.proxy.me()) {
@@ -374,7 +374,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				minZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
 				maxZ = this.pos.getZ() + 0.5 + dir.offsetZ * 8.5 + rot.offsetZ * 1.5;
 
-				list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
+				list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					if(e == MainRegistry.proxy.me()) {
@@ -388,7 +388,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 				minZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.5 - rot.offsetZ * 1.5;
 				maxZ = this.pos.getZ() + 0.5 + dir.offsetZ * 3.75 + rot.offsetZ * 1.5;
 
-				list = this.world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
+				list = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(Math.min(minX, maxX), this.pos.getY(), Math.min(minZ, maxZ), Math.max(minX, maxX), this.pos.getY() + 3, Math.max(minZ, maxZ)));
 
 				for(Entity e : list) {
 					if(e == MainRegistry.proxy.me()) {

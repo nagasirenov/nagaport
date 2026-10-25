@@ -68,7 +68,7 @@ public class EntityOrangeFX extends EntityModFX {
 			this.posY += this.motionY / subdivisions;
 			this.posZ += this.motionZ / subdivisions;
 
-			if(com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock().getMaterial() != Material.AIR) {
+			if(com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getMaterial() != Material.AIR) {
 				this.setDead();
 
 				for(int a = -1; a < 2; a++) {

@@ -23,11 +23,11 @@ public class CBT_Lights extends CelestialBodyTrait{
 	}
 
 	public void addLight(Block block, int x, int y, int z) {
-		lights += block.getLightValue();
+		lights += block.getLightValue(block.getDefaultState());
 	}
 
 	public void removeLight(Block block, int x, int y, int z) {
-		lights -= block.getLightValue();
+		lights -= block.getLightValue(block.getDefaultState());
 		if(lights < 0) lights = 0;
 	}
 

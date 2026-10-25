@@ -28,42 +28,42 @@ public class RenderRBMKControlRod extends TileEntitySpecialRenderer {
 	public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha) {
 
 		GL11.glPushMatrix();
-		
+
 		TileEntityRBMKControl control = (TileEntityRBMKControl) te;
-		
+
 		int offset = 1;
-		
+
 		for(int o = 1; o < 16; o++) {
-			
-			if(te.getWorld().getBlock(te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ()) == te.getBlockType()) {
+
+			if(com.hbm.world.WorldBlockState.read(te.getWorld(), te.getPos().getX(), te.getPos().getY() + o, te.getPos().getZ()).getBlock() == te.getBlockType()) {
 				offset = o;
 			} else {
 				break;
 			}
 		}
-		
+
 		GL11.glTranslated(x + 0.5, y + offset, z + 0.5);
-		
+
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_CULL_FACE);
-		
-		int brightness = control.getWorld().getLightBrightnessForSkyBlocks(control.getPos().getX(), control.getPos().getY() + offset + 1, control.getPos().getZ(), 0);
+
+		int brightness = control.getWorld().getCombinedLight(new net.minecraft.util.math.BlockPos(control.getPos().getX(), control.getPos().getY() + offset + 1, control.getPos().getZ()), 0);
 		int lX = brightness % 65536;
 		int lY = brightness / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lX / 1.0F, (float)lY / 1.0F);
-		
+
 		ResourceLocation texture = textureAuto;
-		
+
 		if(control instanceof TileEntityRBMKControlManual) {
 			TileEntityRBMKControlManual crm = (TileEntityRBMKControlManual) control;
 			if(crm.color == null) texture = textureStandard;
 			else texture = textures[crm.color.ordinal()];
 		}
-		
+
 		bindTexture(texture);
-		
+
 		double level = control.lastLevel + (control.level - control.lastLevel) * i;
-		
+
 		GL11.glTranslated(0, level, 0);
 		ResourceManager.rbmk_rods_vbo.renderPart("Lid");
 

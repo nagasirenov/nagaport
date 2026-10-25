@@ -383,7 +383,7 @@ public class TileEntityMachineGasCent extends TileEntityMachineBase implements I
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 5, this.pos.getZ() + 1);
+			bb = new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 5, this.pos.getZ() + 1);
 		}
 		return bb;
 	}

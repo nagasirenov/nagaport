@@ -40,9 +40,9 @@ public class ItemPill extends ItemFood {
 	@Override
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
 		if(!world.isRemote) {
-			
+
 			VersatileConfig.applyPotionSickness(player, 5);
-			
+
 			if(this == ModItems.pill_iodine) {
 				player.removePotionEffect(net.minecraft.init.MobEffects.BLINDNESS);
 				player.removePotionEffect(net.minecraft.init.MobEffects.NAUSEA);
@@ -52,7 +52,7 @@ public class ItemPill extends ItemFood {
 				player.removePotionEffect(net.minecraft.init.MobEffects.POISON);
 				player.removePotionEffect(net.minecraft.init.MobEffects.WEAKNESS);
 				player.removePotionEffect(net.minecraft.init.MobEffects.WITHER);
-				player.removePotionEffect(HbmPotion.radiation.id);
+				player.removePotionEffect(HbmPotion.radiation);
 			}
 
 			if(this == ModItems.plan_c) {
@@ -61,29 +61,29 @@ public class ItemPill extends ItemFood {
 			}
 
 			if(this == ModItems.pill_red) {
-				player.addPotionEffect(new PotionEffect(HbmPotion.death.id, 60 * 60 * 20, 0));
+				player.addPotionEffect(new PotionEffect(HbmPotion.death, 60 * 60 * 20, 0));
 			}
 
 			if(this == ModItems.radx) {
-				player.addPotionEffect(new PotionEffect(HbmPotion.radx.id, 3 * 60 * 20, 0));
+				player.addPotionEffect(new PotionEffect(HbmPotion.radx, 3 * 60 * 20, 0));
 			}
-			
+
 			if(this == ModItems.siox) {
 				HbmLivingProps.setAsbestos(player, 0);
 				HbmLivingProps.setBlackLung(player, Math.min(HbmLivingProps.getBlackLung(player), HbmLivingProps.maxBlacklung / 5));
 			}
-			
+
 			if(this == ModItems.pill_herbal) {
 				HbmLivingProps.setAsbestos(player, 0);
 				HbmLivingProps.setBlackLung(player, Math.min(HbmLivingProps.getBlackLung(player), HbmLivingProps.maxBlacklung / 5));
 				HbmLivingProps.incrementRadiation(player, -100F);
-				
+
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));
-				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 10 * 60 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 10 * 60 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WEAKNESS, 10 * 60 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.MINING_FATIGUE, 10 * 60 * 20, 2));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 5 * 20, 2));
-				
-				PotionEffect eff = new PotionEffect(HbmPotion.potionsickness.id, 10 * 60 * 20);
+
+				PotionEffect eff = new PotionEffect(HbmPotion.potionsickness, 10 * 60 * 20);
 				eff.setCurativeItems(new ArrayList());
 				player.addPotionEffect(eff);
 			}
@@ -97,27 +97,27 @@ public class ItemPill extends ItemFood {
 				int y = (int)MathHelper.floor(player.posY);
 				int z = (int)MathHelper.floor(player.posZ);
 				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:player.oil", 1.0F, 1.0F);
-				
-				player.addPotionEffect(new PotionEffect(HbmPotion.run.id, 10 * 20, 0));
-				
+
+				player.addPotionEffect(new PotionEffect(HbmPotion.run, 10 * 20, 0));
+
 				NBTTagCompound nbt = new NBTTagCompound();
 				nbt.setString("type", "vomit");
 				nbt.setString("mode", "normal");
 				nbt.setInteger("count", 25);
 				nbt.setInteger("entity", player.getEntityId());
 				PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(nbt, 0, 0, 0),  new TargetPoint(player.dimension, x, y, z, 25));
-				
+
 				com.hbm.sound.WorldSoundEffects.play(world, x, y, z, "hbm:player.vomit", 1.0F, 1.0F);
-				player.addPotionEffect(new PotionEffect(Potion.hunger.id, 60, 19));
-			
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HUNGER, 60, 19));
+
 			}
 			if(this == ModItems.chocolate) {
 				if(rand.nextInt(25) == 0) {
 					player.attackEntityFrom(ModDamageSource.overdose, 1000);
 				}
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60 * 20, 3));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HASTE, 60 * 20, 3));
 				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 3));
-				player.addPotionEffect(new PotionEffect(Potion.jump.id, 60 * 20, 3));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.JUMP_BOOST, 60 * 20, 3));
 			}
 
 			if(this == ModItems.fmn) {
@@ -128,21 +128,21 @@ public class ItemPill extends ItemFood {
 
 			if(this == ModItems.five_htp) {
 				HbmLivingProps.setDigamma(player, 0);
-				player.addPotionEffect(new PotionEffect(HbmPotion.stability.id, 10 * 60 * 20, 0));
+				player.addPotionEffect(new PotionEffect(HbmPotion.stability, 10 * 60 * 20, 0));
 			}
 		}
 	}
-	
-	
+
+
 
 	@Override
 	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		String unloc = this.getTranslationKey() + ".desc"; //this should really be an interface...
 		String loc = I18nUtil.resolveKey(unloc);
-		
+
 		if(!unloc.equals(loc)) {
 			String[] locs = loc.split("\\$");
-			
+
 			for(String s : locs) {
 				list.add(s);
 			}
@@ -155,12 +155,13 @@ public class ItemPill extends ItemFood {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_) {
-
-		if(!VersatileConfig.hasPotionSickness(p_77659_3_))
-			p_77659_3_.setItemInUse(p_77659_1_, this.getMaxItemUseDuration(p_77659_1_));
-
-		return p_77659_1_;
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		ItemStack stack = player.getHeldItem(hand);
+		if(!VersatileConfig.hasPotionSickness(player)) {
+			player.setActiveHand(hand);
+			return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.SUCCESS, stack);
+		}
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, stack);
 	}
 
 }

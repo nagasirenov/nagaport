@@ -58,6 +58,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraft.util.EnumFacing;
+import com.hbm.main.ModSoundEvents;
 
 /**
  * Now with SmЯt™ lag-free entity detection! (patent pending)
@@ -65,6 +67,12 @@ import net.minecraft.world.WorldServer;
  */
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 public class TileEntityMachineRadarNT extends TileEntityMachineBase implements IEnergyReceiverMK2, IGUIProvider, IConfigurableMachine, IControlReceiver, SimpleComponent, CompatHandler.OCComponent {
+
+	@Override
+	@Optional.Method(modid = "OpenComputers")
+	public boolean canConnectNode(EnumFacing side) {
+		return !this.getComponentName().equals(CompatHandler.nullComponent);
+	}
 
 	public boolean scanMissiles = true;
 	public boolean scanShells = true;
@@ -181,18 +189,18 @@ public class TileEntityMachineRadarNT extends TileEntityMachineBase implements I
 					int x = this.pos.getX() - getRange() + iX;
 					int z = this.pos.getZ() - getRange() + iZ;
 
-					if(this.world.getChunkProvider().chunkExists(x >> 4, z >> 4)) {
-						this.map[index] = (byte) MathHelper.clamp_int(this.world.getHeightValue(x, z), 50, 128);
+					if(this.world.getChunkProvider().getLoadedChunk(x >> 4, z >> 4) != null) {
+						this.map[index] = (byte) MathHelper.clamp(this.world.getHeight(x, z), 50, 128);
 					} else {
 						if(this.map[index] == 0 && chunkLoads < chunkLoadCap) {
 							if(this.generateChunks) {
-								this.world.getChunkFromChunkCoords(x >> 4, z >> 4);
-								this.map[index] = (byte) MathHelper.clamp_int(this.world.getHeightValue(x, z), 50, 128);
+								this.world.getChunk(x >> 4, z >> 4);
+								this.map[index] = (byte) MathHelper.clamp(this.world.getHeight(x, z), 50, 128);
 								chunkLoads++;
 							} else {
 								WorldUtil.provideChunk((WorldServer) this.world, x >> 4, z >> 4);
-								this.map[index] = (byte) MathHelper.clamp_int(this.world.getHeightValue(x, z), 50, 128);
-								if(this.world.getChunkProvider().chunkExists(x >> 4, z >> 4)) chunkLoads++;
+								this.map[index] = (byte) MathHelper.clamp(this.world.getHeight(x, z), 50, 128);
+								if(this.world.getChunkProvider().getLoadedChunk(x >> 4, z >> 4) != null) chunkLoads++;
 							}
 						}
 					}
@@ -452,7 +460,7 @@ public class TileEntityMachineRadarNT extends TileEntityMachineBase implements I
 					if(data.hasKey("launchPosX")) {
 						int x = data.getInteger("launchPosX");
 						int z = data.getInteger("launchPosZ");
-						this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+						player.playSound(ModSoundEvents.resolve("hbm:item.techBleep"), 1.0F, 1.0F);
 						sat.onClick(world, x, z);
 					}
 				}
@@ -461,7 +469,7 @@ public class TileEntityMachineRadarNT extends TileEntityMachineBase implements I
 						int x = data.getInteger("launchPosX");
 						int z = data.getInteger("launchPosZ");
 						int y = 60; //one day I will make radars transmit Y coordinate as well and you will be butchered alhamdulila
-						this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+						player.playSound(ModSoundEvents.resolve("hbm:item.techBleep"), 1.0F, 1.0F);
 						sat.onCoordAction(world, player, x, y, z);
 					}
 				}
@@ -469,8 +477,8 @@ public class TileEntityMachineRadarNT extends TileEntityMachineBase implements I
 					if(data.hasKey("launchPosX")) {
 						int x = data.getInteger("launchPosX");
 						int z = data.getInteger("launchPosZ");
-						int y = world.getTopSolidOrLiquidBlock(x, z); //the top fucking block because I will never make radars transmit Y coordinates as well!
-						this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+						int y = world.getTopSolidOrLiquidBlock(new net.minecraft.util.math.BlockPos(x, 0, z)).getY(); //the top fucking block because I will never make radars transmit Y coordinates as well!
+						player.playSound(ModSoundEvents.resolve("hbm:item.techBleep"), 1.0F, 1.0F);
 						sat.onCoordAction(world, player, x, y, z);
 					}
 				}
@@ -487,14 +495,14 @@ public class TileEntityMachineRadarNT extends TileEntityMachineBase implements I
 							Entity entity = this.world.getEntityByID(data.getInteger("launchEntity"));
 							if(entity != null) {
 								if(rec.sendCommandEntity(entity)) {
-									this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+									player.playSound(ModSoundEvents.resolve("hbm:item.techBleep"), 1.0F, 1.0F);
 								}
 							}
 						} else if(data.hasKey("launchPosX")) {
 							int x = data.getInteger("launchPosX");
 							int z = data.getInteger("launchPosZ");
 							if(rec.sendCommandPosition(x, this.pos.getY(), z)) {
-								this.world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+								player.playSound(ModSoundEvents.resolve("hbm:item.techBleep"), 1.0F, 1.0F);
 							}
 						}
 					}
@@ -509,7 +517,7 @@ public class TileEntityMachineRadarNT extends TileEntityMachineBase implements I
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -564,7 +572,9 @@ public class TileEntityMachineRadarNT extends TileEntityMachineBase implements I
 	public static void updateSystem() {
 		matchingEntities.clear();
 
-		for(WorldServer world : MinecraftServer.getServer().worldServers) {
+		MinecraftServer mcServer = net.minecraftforge.fml.common.FMLCommonHandler.instance().getMinecraftServerInstance();
+		if(mcServer == null || mcServer.worlds == null) return;
+		for(WorldServer world : mcServer.worlds) {
 			for(Object entity : world.loadedEntityList) {
 				for(Class clazz : classes) {
 					if(clazz.isAssignableFrom(entity.getClass())) {

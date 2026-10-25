@@ -37,7 +37,7 @@ public class EntityDeathBlast extends Entity {
 		if(this.ticksExisted >= maxAge && !this.world.isRemote) {
 			this.setDead();
 
-			this.world.spawnEntityInWorld(EntityNukeExplosionMK5.statFacNoRad(this.world, 40, posX, posY, posZ));
+			this.world.spawnEntity(EntityNukeExplosionMK5.statFacNoRad(this.world, 40, posX, posY, posZ));
 
 			int count = 100;
 			for(int i = 0; i < count; i++) {
@@ -50,7 +50,7 @@ public class EntityDeathBlast extends Entity {
 				laser.motionX = vec.x;
 				laser.motionZ = vec.z;
 				laser.motionY = -0.01;
-				this.world.spawnEntityInWorld(laser);
+				this.world.spawnEntity(laser);
 			}
 
 			NBTTagCompound data = new NBTTagCompound();
@@ -62,12 +62,12 @@ public class EntityDeathBlast extends Entity {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getBrightnessForRender(float p_70070_1_) {
+	public int getBrightnessForRender() {
 		return 15728880;
 	}
 
 	@Override
-	public float getBrightness(float p_70013_1_) {
+	public float getBrightness() {
 		return 1.0F;
 	}
 

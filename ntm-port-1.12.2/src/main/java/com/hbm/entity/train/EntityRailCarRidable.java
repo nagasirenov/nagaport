@@ -19,10 +19,10 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
 public abstract class EntityRailCarRidable extends EntityRailCarCargo {
-	
+
 	public double engineSpeed;
 	public SeatDummyEntity[] passengerSeats;
-	
+
 	public EntityRailCarRidable(World world) {
 		super(world);
 		this.passengerSeats = new SeatDummyEntity[this.getPassengerSeats().length];
@@ -40,7 +40,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 	public abstract boolean canAccelerate();
 	/** Called every tick if acceleration is successful */
 	public void consumeFuel() { }
-	
+
 	/** An additive to the engine's speed yielding the total speed, caused by uneven surfaces */
 	public double getGravitySpeed() {
 		return 0D;
@@ -48,11 +48,12 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 
 	@Override
 	public double getCurrentSpeed() { // in its current form, only call once per tick
-		
-		if(this.riddenByEntity instanceof EntityPlayer) {
-			
-			EntityPlayer player = (EntityPlayer) this.riddenByEntity;
-			
+
+		Entity rider = this.getControllingPassenger();
+		if(rider instanceof EntityPlayer) {
+
+			EntityPlayer player = (EntityPlayer) rider;
+
 			if(this.canAccelerate()) {
 				if(player.moveForward > 0) {
 					engineSpeed += this.getPoweredAcceleration();
@@ -70,27 +71,27 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 			} else {
 				engineSpeed *= this.getPassivBrake();
 			}
-			
+
 		} else {
 			engineSpeed *= this.getPassivBrake();
 		}
-		
+
 		double maxSpeed = this.getMaxPoweredSpeed();
 		engineSpeed = MathHelper.clamp(engineSpeed, -maxSpeed, maxSpeed);
-		
+
 		return engineSpeed + this.getGravitySpeed();
 	}
 
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
-		
+
 		if(super.interactFirst(player)) return true;
 		if(this.world.isRemote) return true;
-		
+
 		int nearestSeat = this.getNearestSeat(player);
-		
+
 		if(nearestSeat == -1) {
-			player.mountEntity(this);
+			player.startRiding(this);
 		} else if(nearestSeat >= 0) {
 			SeatDummyEntity dummySeat = new SeatDummyEntity(this.world, this, nearestSeat);
 			Vec3d passengerSeat = this.getPassengerSeats()[nearestSeat];
@@ -100,27 +101,27 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 			double z = renderZ + passengerSeat.z;
 			dummySeat.setPosition(x, y - 1, z);
 			passengerSeats[nearestSeat] = dummySeat;
-			this.world.spawnEntityInWorld(dummySeat);
-			player.mountEntity(dummySeat);
+			this.world.spawnEntity(dummySeat);
+			player.startRiding(dummySeat);
 		}
 
 		return true;
 	}
-	
+
 	public int getNearestSeat(EntityPlayer player) {
-		
+
 		double nearestDist = Double.POSITIVE_INFINITY;
 		int nearestSeat = -3;
-		
+
 		Vec3d[] seats = getPassengerSeats();
-		Vec3d look = player.getLook(2).addVector(player.posX, player.posY + player.eyeHeight - player.yOffset, player.posZ);
-		
+		Vec3d look = player.getLook(2).add(player.posX, player.posY + player.eyeHeight - player.getYOffset(), player.posZ);
+
 		for(int i = 0; i < seats.length; i++) {
-			
+
 			Vec3d seat = seats[i];
 			if(seat == null) continue;
 			if(passengerSeats[i] != null) continue;
-			
+
 			seat = seat.rotateYaw((float) (-this.rotationYaw * Math.PI / 180));
 			double x = renderX + seat.x;
 			double y = renderY + seat.y;
@@ -128,7 +129,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 
 			Vec3d delta = new Vec3d(look.x - x, look.y - y, look.z - z);
 			double dist = delta.length();
-			
+
 			if(dist < nearestDist) {
 				nearestDist = dist;
 				nearestSeat = i;
@@ -144,24 +145,24 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 
 			Vec3d delta = new Vec3d(look.x - x, look.y - y, look.z - z);
 			double dist = delta.length();
-	
+
 			if(dist < nearestDist) {
 				nearestDist = dist;
 				nearestSeat = -1;
 			}
 		}
-		
+
 		if(nearestDist > 180) return -2;
-		
+
 		return nearestSeat;
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 		if(!this.world.isRemote) {
-			
+
 			Vec3d[] seats = this.getPassengerSeats();
 			for(int i = 0; i < passengerSeats.length; i++) {
 				SeatDummyEntity seat = passengerSeats[i];
@@ -184,23 +185,22 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 		}
 	}
 
-	@Override
 	public void updateRiderPosition() {
-		
+
 		com.hbm.util.Vec3NT offset = new com.hbm.util.Vec3NT(getRiderSeatPosition());
 		offset.rotateAroundXRad((float) (this.rotationPitch * Math.PI / 180));
 		offset.rotateAroundYRad((float) (-this.rotationYaw * Math.PI / 180));
-		
+
 		if(this.isBeingRidden()) {
-			this.riddenByEntity.setPosition(this.renderX + offset.x, this.renderY + offset.y, this.renderZ + offset.z);
+			this.getPassengers().get(0).setPosition(this.renderX + offset.x, this.renderY + offset.y, this.renderZ + offset.z);
 		}
 	}
 
 	/** Returns a Vec3d showing the relative position from the driver to the core */
 	public abstract Vec3d getRiderSeatPosition();
-	
+
 	public abstract Vec3d[] getPassengerSeats();
-	
+
 	/** Dynamic seats generated when a player clicks near a seat-spot, moves and rotates with the train as one would expect. */
 	public static class SeatDummyEntity extends Entity {
 
@@ -220,19 +220,19 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 			if(train != null) this.dataManager.set(TRAIN_ID, train.getEntityId());
 			this.dataManager.set(SEAT_INDEX, index);
 		}
-		
+
 		@Override protected void entityInit() { this.dataManager.register(TRAIN_ID, new Integer(0)); this.dataManager.register(SEAT_INDEX, new Integer(0)); }
 		@Override protected void writeEntityToNBT(NBTTagCompound nbt) { }
 		@Override public boolean writeToNBTOptional(NBTTagCompound nbt) { return false; }
 		@Override public void readEntityFromNBT(NBTTagCompound nbt) { this.setDead(); }
-		
+
 		@Override public void onUpdate() {
 			if(!this.world.isRemote) {
 				if(this.train == null || this.train.isDead) {
 					this.setDead();
 				}
 			} else {
-				
+
 				if(this.turnProgress > 0) {
 					this.prevRotationYaw = this.rotationYaw;
 					double x = this.posX + (this.trainX - this.posX) / (double) this.turnProgress;
@@ -245,18 +245,17 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 				}
 			}
 		}
-		
-		@Override @SideOnly(Side.CLIENT) public void setPositionAndRotation2(double posX, double posY, double posZ, float yaw, float pitch, int turnProg) {
+
+		@Override @SideOnly(Side.CLIENT) public void setPositionAndRotationDirect(double posX, double posY, double posZ, float yaw, float pitch, int turnProg, boolean teleport) {
 			this.trainX = posX;
 			this.trainY = posY;
 			this.trainZ = posZ;
 			this.turnProgress = turnProg + 2;
 		}
 
-		@Override
 		public void updateRiderPosition() {
 			if(this.isBeingRidden()) {
-				
+
 				if(train == null) {
 					int eid = this.dataManager.get(TRAIN_ID);
 					Entity entity = this.world.getEntityByID(eid);
@@ -264,13 +263,13 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 						train = (EntityRailCarRidable) entity;
 					}
 				}
-				
+
 				//fallback for when train is null
 				if(train == null) {
-					this.riddenByEntity.setPosition(posX, posY + 1, posZ);
+					if(this.isBeingRidden()) this.getPassengers().get(0).setPosition(posX, posY + 1, posZ);
 					return;
 				}
-				
+
 				//doing it like this instead of with the position directly removes any discrepancies caused by entity tick order
 				//mmhmhmhm silky smooth
 				int index = this.dataManager.get(SEAT_INDEX);
@@ -280,11 +279,11 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 				double x = train.renderX + rot.x;
 				double y = train.renderY + rot.y;
 				double z = train.renderZ + rot.z;
-				this.riddenByEntity.setPosition(x, y, z);
+				if(this.isBeingRidden()) this.getPassengers().get(0).setPosition(x, y, z);
 			}
 		}
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void printHook(RenderGameOverlayEvent.Pre event, World world, int x, int y, int z) {

@@ -25,7 +25,7 @@ public abstract class BiomeGenBaseEve extends BiomeGenBaseCelestial {
 	}
 
 	@Override
-	protected BiomeDecorator createBiomeDecorator() {
+	public BiomeDecorator createBiomeDecorator() {
 		return new BiomeDecoratorCelestial(ModBlocks.eve_rock);
 	}
 }

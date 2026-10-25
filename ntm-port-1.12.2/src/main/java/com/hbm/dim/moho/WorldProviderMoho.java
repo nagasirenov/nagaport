@@ -28,8 +28,8 @@ public class WorldProviderMoho extends WorldProviderCelestial {
 	}
 
 	@Override
-	public String getDimensionName() {
-		return "Moho";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	@Override

@@ -91,7 +91,7 @@ public class ExplosionLarge {
 			rubble.motionX = rand.nextGaussian() * 0.75	* (1 + (count / 50));
 			rubble.motionZ = rand.nextGaussian() * 0.75	* (1 + (count / 50));
 			rubble.setMetaBasedOnBlock(Blocks.STONE, 0);
-			world.spawnEntityInWorld(rubble);
+			world.spawnEntity(rubble);
 		}
 	}
 
@@ -106,7 +106,7 @@ public class ExplosionLarge {
 			shrapnel.motionX = rand.nextGaussian() * 1	* (1 + (count / 50));
 			shrapnel.motionZ = rand.nextGaussian() * 1	* (1 + (count / 50));
 			shrapnel.setTrail(rand.nextInt(3) == 0);
-			world.spawnEntityInWorld(shrapnel);
+			world.spawnEntity(shrapnel);
 		}
 	}
 
@@ -121,7 +121,7 @@ public class ExplosionLarge {
 			shrapnel.motionX = rand.nextGaussian() * 1	* (1 + (count / 50)) * 0.25F;
 			shrapnel.motionZ = rand.nextGaussian() * 1	* (1 + (count / 50)) * 0.25F;
 			shrapnel.setTrail(true);
-			world.spawnEntityInWorld(shrapnel);
+			world.spawnEntity(shrapnel);
 		}
 	}
 
@@ -136,7 +136,7 @@ public class ExplosionLarge {
 			shrapnel.motionY = motionY + rand.nextGaussian() * deviation;
 			shrapnel.motionZ = motionZ + rand.nextGaussian() * deviation;
 			shrapnel.setTrail(rand.nextInt(3) == 0);
-			world.spawnEntityInWorld(shrapnel);
+			world.spawnEntity(shrapnel);
 		}
 	}
 
@@ -145,7 +145,7 @@ public class ExplosionLarge {
 		if(debris != null) {
 			for(int i = 0; i < debris.size(); i++) {
 				if(debris.get(i) != null) {
-					int k = rand.nextInt(debris.get(i).stackSize + 1);
+					int k = rand.nextInt(debris.get(i).getCount() + 1);
 					for(int j = 0; j < k; j++) {
 						EntityItem item = new EntityItem(world, x, y, z, debris.get(i).copy());
 						item.motionX = (motionX + rand.nextGaussian() * deviation) * 0.85;
@@ -236,7 +236,7 @@ public class ExplosionLarge {
 
 					if(com.hbm.world.WorldBlockState.read(world, (int)x0, (int)y0, (int)z0).getBlock() != Blocks.AIR) {
 
-						if(com.hbm.world.WorldBlockState.read(world, (int)x0, (int)y0, (int)z0).getBlock().getExplosionResistance(null, world, (int)x0, (int)y0, (int)z0, posX, posY, posZ) > 70)
+						if(com.hbm.world.WorldBlockState.read(world, (int)x0, (int)y0, (int)z0).getBlock().getExplosionResistance(world, new net.minecraft.util.math.BlockPos((int)x0, (int)y0, (int)z0), null, null) > 70)
 							continue;
 
 			            EntityRubble rubble = new EntityRubble(world);
@@ -252,7 +252,7 @@ public class ExplosionLarge {
 						rubble.motionY = vec4.y * vel;
 						rubble.motionZ = vec4.z * vel;
 
-						world.spawnEntityInWorld(rubble);
+						world.spawnEntity(rubble);
 
 						{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = (int)x0; int nativePlacementY = (int)y0; int nativePlacementZ = (int)z0; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 						break;

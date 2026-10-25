@@ -10,13 +10,13 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerIGenerator extends Container {
-	
+
 	private TileEntityMachineIGenerator igen;
-	
+
 	public ContainerIGenerator(InventoryPlayer invPlayer, TileEntityMachineIGenerator te) {
-		
+
 		igen = te;
-		
+
 		//Battery
 		this.addSlotToContainer(new Slot(te, 0, 8, 134));
 		//Water
@@ -39,7 +39,7 @@ public class ContainerIGenerator extends Container {
 				this.addSlotToContainer(new Slot(te, 11 + i * 2 + j, 15 + j * 18, 35 + i * 18));
 			}
 		}
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18 + 71));
@@ -50,7 +50,7 @@ public class ContainerIGenerator extends Container {
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 142 + 71));
 		}
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
 		ItemStack var3 = null;
@@ -68,7 +68,7 @@ public class ContainerIGenerator extends Container {
 				return null;
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

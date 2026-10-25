@@ -24,21 +24,22 @@ public class BlockRemap extends Block implements ILookOverlay {
 		this.setTickRandomly(true);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int meta, int side) {
-		return this.remapBlock.getIcon(meta, side);
+		if(this.remapBlock instanceof BlockBase) return ((BlockBase) this.remapBlock).getIcon(side, meta);
+		return null;
 	}
 
 	@Override
-	public Item getItemDropped(int meta, Random rand, int fortune) {
-		return this.remapBlock.getItemDropped(meta, rand, fortune);
+	public net.minecraft.item.Item getItemDropped(net.minecraft.block.state.IBlockState state, Random rand, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		return this.remapBlock.getItemDropped(this.remapBlock.getStateFromMeta(meta), rand, fortune);
 	}
 
 	@Override
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
-		world.setBlock(x, y, z, this.remapBlock, this.remapMeta, 2);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, this.remapBlock, this.remapMeta, 2);
 	}
 
 	@Override

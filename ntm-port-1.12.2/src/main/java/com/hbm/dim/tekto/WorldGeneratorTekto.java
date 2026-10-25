@@ -29,8 +29,7 @@ public class WorldGeneratorTekto implements IWorldGenerator {
 		BlockOre.addValidBody(ModBlocks.ore_tekto, SolarSystem.Body.TEKTO);
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, net.minecraft.world.gen.IChunkGenerator chunkGenerator, net.minecraft.world.chunk.IChunkProvider chunkProvider) {
 		if(world.provider.getDimension() == SpaceConfig.tektoDimension) {
 			generateTekto(world, random, chunkX * 16, chunkZ * 16);
 		}
@@ -51,8 +50,8 @@ public class WorldGeneratorTekto implements IWorldGenerator {
 					int oz = j + z + 8;
 					Block b = com.hbm.world.WorldBlockState.read(world, ox, y, oz).getBlock();
 					if(b == ModBlocks.geysir_chloric) {
-						world.setBlock(ox, y, oz, ModBlocks.geysir_chloric);
-						world.markBlockForUpdate(ox, y, oz);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, ox, y, oz, ModBlocks.geysir_chloric);
+						com.hbm.world.WorldBlockState.markBlockForUpdate(world, ox, y, oz);
 					}
 				}
 			}
@@ -63,19 +62,19 @@ public class WorldGeneratorTekto implements IWorldGenerator {
 				if(rand.nextInt(10) == 0) {
 					int x = i + rand.nextInt(16) + 8;
 					int z = j + rand.nextInt(16) + 8;
-					int y = world.getHeightValue(x, z);
+					int y = world.getHeight(new BlockPos(x, 0, z)).getY();
 
 					WorldGenAbstractTree customTreeGen = new TTree(false, 4, 2, 10, 2, 4, false, ModBlocks.pvc_log, ModBlocks.rubber_leaves);
-					customTreeGen.generate(world, rand, x, y, z);
+					customTreeGen.generate(world, rand, new BlockPos(x, y, z));
 				}
 
 				if(rand.nextInt(8) == 0) {
 					int x = i + rand.nextInt(16) + 8;
 					int z = j + rand.nextInt(16) + 8;
-					int y = world.getHeightValue(x, z);
+					int y = world.getHeight(new BlockPos(x, 0, z)).getY();
 
 					WorldGenAbstractTree chopped = new TTree(false, 2, 4, 5, 3, 2, false, ModBlocks.vinyl_log, ModBlocks.pet_leaves);
-					chopped.generate(world, rand, x, y, z);
+					chopped.generate(world, rand, new BlockPos(x, y, z));
 				}
 			}
 
@@ -86,10 +85,10 @@ public class WorldGeneratorTekto implements IWorldGenerator {
 				for(int o = 0; o < 4; o++) {
 					int x = i + rand.nextInt(16) + 8;
 					int z = j + rand.nextInt(16) + 8;
-					int y = world.getHeightValue(x, z);
+					int y = world.getHeight(new BlockPos(x, 0, z)).getY();
 
 					WorldGenAbstractTree customTreeGen = new TTree(false, 3, 2, 14, 3, 3, false, ModBlocks.pvc_log, ModBlocks.rubber_leaves);
-					customTreeGen.generate(world, rand, x, y, z);
+					customTreeGen.generate(world, rand, new BlockPos(x, y, z));
 				}
 			}
 		}
@@ -98,14 +97,14 @@ public class WorldGeneratorTekto implements IWorldGenerator {
 			for(int o = 0; o < 8; o++) {
 				int x = i + rand.nextInt(16) + 8;
 				int z = j + rand.nextInt(16) + 8;
-				int y = world.getHeightValue(x, z);
+				int y = world.getHeight(new BlockPos(x, 0, z)).getY();
 
 				if(rand.nextInt(2) == 0) {
 					WorldGenAbstractTree customTreeGen = new TTree(false, 3, 2, 20, 3, 5, true, ModBlocks.pvc_log, ModBlocks.rubber_leaves);
-					customTreeGen.generate(world, rand, x, y, z);
+					customTreeGen.generate(world, rand, new BlockPos(x, y, z));
 				} else {
 					WorldGenAbstractTree tustomTreeGen = new TTree(false, 3, 1, 1, 3, 5, false, ModBlocks.pvc_log, ModBlocks.rubber_leaves);
-					tustomTreeGen.generate(world, rand, x, y, z);
+					tustomTreeGen.generate(world, rand, new BlockPos(x, y, z));
 				}
 			}
 		}

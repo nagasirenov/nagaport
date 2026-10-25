@@ -24,7 +24,6 @@ import com.hbm.lib.ForgeDirection;
 
 public class BlockConveyorChute extends BlockConveyorBase implements IToolable {
 
-	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		return FULL_BLOCK_AABB;
 	}

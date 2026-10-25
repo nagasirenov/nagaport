@@ -42,7 +42,7 @@ public class ItemMineralOre extends Item {
 	public final int CLUMP_HYDROCHLORIC = 4;
 	public final int CLUMP_SCHRABIDIC = 5;
 	/* non-item shell types */
-	
+
 	public ItemMineralOre() {
 		this.setHasSubtypes(true);
 		this.setCreativeTab(MainRegistry.partsTab);
@@ -57,7 +57,7 @@ public class ItemMineralOre extends Item {
 		String b = TextFormatting.BLUE + "";
 		String o = TextFormatting.GOLD + "";
 		String g = TextFormatting.GREEN + "";
-		
+
 		switch(stack.getItemDamage()) {
 		case CLUMP_PEROXIDE:
 			list.add(y + "[Peroxide]");
@@ -81,8 +81,16 @@ public class ItemMineralOre extends Item {
 	}
 	private IIcon[] icons = new IIcon[itemTypes.length];
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(item, 1, CLUMP_PEROXIDE));
 		list.add(new ItemStack(item, 1, CLUMP_NITRIC));
@@ -105,41 +113,40 @@ public class ItemMineralOre extends Item {
 		for(int i = 0; i < icons.length; i++) {
 			this.icons[i] = p_94581_1_.registerIcon(RefStrings.MODID + ":" + itemTypes[i].name);
 		}
-		
+
 	}
 
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconIndex(ItemStack stack) {
-		
+
 		return this.getIconFromDamage(stack.getItemDamage());
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int meta) {
 		return this.icons[meta];
 	}
-	
+
 	@Override
 	public String getTranslationKey(ItemStack stack) {
 		return "item." + itemTypes[Math.abs(stack.getItemDamage()) % itemTypes.length].name;
 	}
-	
+
 	//@Override
 	//public String getItemStackDisplayName(ItemStack stack) {
-		
+
 		//EnumMineralOre ore = EnumUtil.grabEnumSafely(EnumMineralOre.class, stack.getItemDamage());
 		//String oreName = StatCollector.translateToLocal("item.ore." + ore.oreName.toLowerCase());
 		///return StatCollector.translateToLocalFormatted(this.getUnlocalizedNameInefficiently(stack) + ".name", oreName);
 	//}
 	public abstract class Mineral {
-		
+
 		String name;
-		
+
 		public Mineral(String name) {
 			this.name = name;
 		}
-		
+
 	}
 	private void init() {
 		this.itemTypes[CLUMP_PEROXIDE] = new Mineral("clump_peroxide"){};
@@ -150,5 +157,5 @@ public class ItemMineralOre extends Item {
 		this.itemTypes[CLUMP_SCHRABIDIC] = new Mineral("clump_schrabidic") {};
 	}
 
-	
+
 }

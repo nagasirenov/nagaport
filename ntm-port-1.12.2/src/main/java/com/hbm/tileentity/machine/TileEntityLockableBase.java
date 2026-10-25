@@ -81,12 +81,12 @@ public abstract class TileEntityLockableBase extends TileEntityLoadedBase {
 			ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 
 			if(stack != null && stack.getItem() instanceof ItemKey && ItemKey.getPins(stack) == this.lock) {
-				this.world.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F);
+				this.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:block.lockOpen"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				return true;
 			}
 
 			if(stack != null && stack.getItem() == ModItems.key_red) {
-				this.world.playSoundAtEntity(player, "hbm:block.lockOpen", 1.0F, 1.0F);
+				this.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:block.lockOpen"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				return true;
 			}
 
@@ -100,15 +100,15 @@ public abstract class TileEntityLockableBase extends TileEntityLoadedBase {
 		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(player);
 		double chanceOfSuccess = this.lockMod * 100;
 
-		if(stack != null && stack.getItem() == ModItems.pin && (player.inventory.hasItem(ModItems.screwdriver) || player.inventory.hasItem(ModItems.screwdriver_desh))) {
+		if(stack != null && stack.getItem() == ModItems.pin && (player.inventory.hasItemStack(new ItemStack(ModItems.screwdriver)) || player.inventory.hasItemStack(new ItemStack(ModItems.screwdriver_desh)))) {
 
-			stack.stackSize--;
+			stack.shrink(1);
 			canPick = true;
 		}
 
-		if(stack != null && (stack.getItem() == ModItems.screwdriver || stack.getItem() == ModItems.screwdriver_desh) && player.inventory.hasItem(ModItems.pin)) {
+		if(stack != null && (stack.getItem() == ModItems.screwdriver || stack.getItem() == ModItems.screwdriver_desh) && player.inventory.hasItemStack(new ItemStack(ModItems.pin))) {
 
-			player.inventory.consumeInventoryItem(ModItems.pin);
+			player.inventory.clearMatchingItems(ModItems.pin, -1, 1, null);
 			player.inventoryContainer.detectAndSendChanges();
 			canPick = true;
 		}
@@ -121,11 +121,11 @@ public abstract class TileEntityLockableBase extends TileEntityLoadedBase {
 			double rand = player.world.rand.nextDouble() * 100;
 
 			if(chanceOfSuccess > rand) {
-				this.world.playSoundAtEntity(player, "hbm:item.pinUnlock", 1.0F, 1.0F);
+				this.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.pinUnlock"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 				return true;
 			}
 
-			this.world.playSoundAtEntity(player, "hbm:item.pinBreak", 1.0F, 0.8F + player.world.rand.nextFloat() * 0.2F);
+			this.world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.pinBreak"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 0.8F + player.world.rand.nextFloat() * 0.2F);
 		}
 
 		return false;

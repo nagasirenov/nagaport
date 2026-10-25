@@ -37,6 +37,7 @@ import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.biome.BiomeMushroomIsland;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class EntityMappings {
 
@@ -266,12 +267,12 @@ public class EntityMappings {
 		addMob(EntityDummy.class, "entity_ntm_test_dummy", 0xffffff, 0x000000);
 		addMob(EntityUndeadSoldier.class, "entity_ntm_undead_soldier", 0x749F30, 0x6C5B44);
 
-		Biome[] biomes = Biome.REGISTRY.getValuesCollection().toArray(new Biome[0]);
-		addSpawn(EntityCreeperPhosgene.class, 5, 1, 1, EnumCreatureType.monster, biomes);
-		addSpawn(EntityCreeperVolatile.class, 10, 1, 1, EnumCreatureType.monster, biomes);
-		addSpawn(EntityCreeperGold.class, 1, 1, 1, EnumCreatureType.monster, biomes);
-		addSpawn(EntityPlasticBag.class, 1, 1, 3, EnumCreatureType.waterCreature, BiomeDictionary.getBiomesForType(Type.OCEAN));
-		addSpawn(EntityPigeon.class, 1, 5, 10, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.PLAINS));
+		Biome[] biomes = ForgeRegistries.BIOMES.getValuesCollection().toArray(new Biome[0]);
+		addSpawn(EntityCreeperPhosgene.class, 5, 1, 1, EnumCreatureType.MONSTER, biomes);
+		addSpawn(EntityCreeperVolatile.class, 10, 1, 1, EnumCreatureType.MONSTER, biomes);
+		addSpawn(EntityCreeperGold.class, 1, 1, 1, EnumCreatureType.MONSTER, biomes);
+		addSpawn(EntityPlasticBag.class, 1, 1, 3, EnumCreatureType.WATER_CREATURE, BiomeDictionary.getBiomes(Type.OCEAN).toArray(new Biome[0]));
+		addSpawn(EntityPigeon.class, 1, 5, 10, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(Type.PLAINS).toArray(new Biome[0]));
 
 		int id = 0;
 		for(Quartet<Class<? extends Entity>, String, Integer, Boolean> entry : entityMappings) {

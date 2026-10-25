@@ -1,5 +1,7 @@
 package com.hbm.blocks.bomb;
 
+import com.hbm.lib.RefStrings;
+
 import static com.hbm.lib.ForgeDirection.DOWN;
 import static com.hbm.lib.ForgeDirection.EAST;
 import static com.hbm.lib.ForgeDirection.NORTH;
@@ -38,7 +40,7 @@ public class Balefire extends BlockFire {
 
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
-		icon = register.registerIcon(this.getTextureName());
+		icon = register.registerIcon(RefStrings.MODID + ":balefire");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -54,7 +56,7 @@ public class Balefire extends BlockFire {
 	@Override
 	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
 		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
-		if(world.getGameRules().getGameRuleBooleanValue("doFireTick")) {
+		if(world.getGameRules().getBoolean("doFireTick")) {
 
 			if(!this.canPlaceBlockAt(world, new net.minecraft.util.math.BlockPos(x, y, z))) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
@@ -64,42 +66,42 @@ public class Balefire extends BlockFire {
 
 			if(meta < 15) world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, this.tickRate(world) + rand.nextInt(10));
 
-			if(!this.canNeighborBurn(world, x, y, z) && !World.doesBlockHaveSolidTopSurface(world, x, y - 1, z)) {
+			if(!this.canNeighborBurn(world, x, y, z) && !world.getBlockState(new net.minecraft.util.math.BlockPos(x, y - 1, z)).isTopSolid()) {
 				com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 			} else {
 				if(meta < 15) {
-					this.tryCatchFire(world, x + 1, y, z, 500, rand, meta, WEST);
-					this.tryCatchFire(world, x - 1, y, z, 500, rand, meta, EAST);
-					this.tryCatchFire(world, x, y - 1, z, 300, rand, meta, UP);
-					this.tryCatchFire(world, x, y + 1, z, 300, rand, meta, DOWN);
-					this.tryCatchFire(world, x, y, z - 1, 500, rand, meta, SOUTH);
-					this.tryCatchFire(world, x, y, z + 1, 500, rand, meta, NORTH);
-					
+					this.tryCatchFire(world, x + 1, y, z, 500, rand, meta, ForgeDirection.WEST);
+					this.tryCatchFire(world, x - 1, y, z, 500, rand, meta, ForgeDirection.EAST);
+					this.tryCatchFire(world, x, y - 1, z, 300, rand, meta, ForgeDirection.UP);
+					this.tryCatchFire(world, x, y + 1, z, 300, rand, meta, ForgeDirection.DOWN);
+					this.tryCatchFire(world, x, y, z - 1, 500, rand, meta, ForgeDirection.SOUTH);
+					this.tryCatchFire(world, x, y, z + 1, 500, rand, meta, ForgeDirection.NORTH);
+
 					int h = 3;
 
 					for(int ix = x - h; ix <= x + h; ++ix) {
 						for(int iz = z - h; iz <= z + h; ++iz) {
 							for(int iy = y - 1; iy <= y + 4; ++iy) {
-								
+
 								if(ix != x || iy != y || iz != z) {
 									int fireLimit = 100;
 
 									if(iy > y + 1) {
 										fireLimit += (iy - (y + 1)) * 100;
 									}
-									
+
 									if(com.hbm.world.WorldBlockState.read(world, ix, iy, iz).getBlock() == ModBlocks.balefire && com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, ix, iy, iz) ) > meta + 1) {
-										world.setBlock(ix, iy, iz, this, meta + 1, 3);
+										com.hbm.world.WorldBlockState.writeLegacyBlock(world, ix, iy, iz, this, meta + 1, 3);
 										continue;
 									}
 
 									int neighborFireChance = this.getChanceOfNeighborsEncouragingFire(world, ix, iy, iz);
 
 									if(neighborFireChance > 0) {
-										int adjustedFireChance = (neighborFireChance + 40 + world.difficultySetting.getDifficultyId() * 7) / (meta + 30);
+										int adjustedFireChance = (neighborFireChance + 40 + world.getDifficulty().getId() * 7) / (meta + 30);
 
 										if(adjustedFireChance > 0 && rand.nextInt(fireLimit) <= adjustedFireChance) {
-											world.setBlock(ix, iy, iz, this, meta + 1, 3);
+											com.hbm.world.WorldBlockState.writeLegacyBlock(world, ix, iy, iz, this, meta + 1, 3);
 										}
 									}
 								}
@@ -120,10 +122,10 @@ public class Balefire extends BlockFire {
 		if(rand.nextInt(chance) < flammability) {
 			boolean flag = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == Blocks.TNT;
 
-			world.setBlock(x, y, z, this, fireMetadata + 1, 3);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, this, fireMetadata + 1, 3);
 
 			if(flag) {
-				Blocks.TNT.onBlockDestroyedByPlayer(world, x, y, z, 1);
+				Blocks.TNT.onPlayerDestroy(world, new BlockPos(x, y, z), Blocks.TNT.getDefaultState().withProperty(net.minecraft.block.BlockTNT.EXPLODE, true));
 			}
 		}
 	}
@@ -150,12 +152,12 @@ public class Balefire extends BlockFire {
 			return 0;
 		} else {
 			int spread = 0;
-			spread = this.getChanceToEncourageFire(world, x + 1, y, z, spread, WEST);
-			spread = this.getChanceToEncourageFire(world, x - 1, y, z, spread, EAST);
-			spread = this.getChanceToEncourageFire(world, x, y - 1, z, spread, UP);
-			spread = this.getChanceToEncourageFire(world, x, y + 1, z, spread, DOWN);
-			spread = this.getChanceToEncourageFire(world, x, y, z - 1, spread, SOUTH);
-			spread = this.getChanceToEncourageFire(world, x, y, z + 1, spread, NORTH);
+			spread = this.getChanceToEncourageFire(world, x + 1, y, z, spread, ForgeDirection.WEST);
+			spread = this.getChanceToEncourageFire(world, x - 1, y, z, spread, ForgeDirection.EAST);
+			spread = this.getChanceToEncourageFire(world, x, y - 1, z, spread, ForgeDirection.UP);
+			spread = this.getChanceToEncourageFire(world, x, y + 1, z, spread, ForgeDirection.DOWN);
+			spread = this.getChanceToEncourageFire(world, x, y, z - 1, spread, ForgeDirection.SOUTH);
+			spread = this.getChanceToEncourageFire(world, x, y, z + 1, spread, ForgeDirection.NORTH);
 			return spread;
 		}
 	}
@@ -165,20 +167,24 @@ public class Balefire extends BlockFire {
 		return face != null && world.getBlockState(pos).getBlock().isFlammable(world, pos, face);
 	}
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
+		@Override
+	public void onEntityCollision(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, net.minecraft.entity.Entity entityIn) {
+		onEntityCollidedWithBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), entityIn);
+	}
+
+public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		entity.setFire(10);
 
-		if(entity instanceof EntityLivingBase) ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 5 * 20, 9));
+		if(entity instanceof EntityLivingBase) ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation, 5 * 20, 9));
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int meta = com.hbm.world.WorldBlockState.readMetadata(world, x, y, z);
 		return Color.HSBtoRGB(0F, 0F, 1F - meta / 30F);
 	}
 
-	@Override
 	public int getRenderType() {
 		return 1;
 	}

@@ -15,21 +15,21 @@ import net.minecraft.world.World;
 
 public class PowerDetector extends BlockContainer {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconOn;
 
 	public PowerDetector(Material mat) {
 		super(mat);
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		super.registerBlockIcons(iconRegister);
+		this.blockIcon = iconRegister.registerIcon(this.getRegistryName().toString());
 		this.iconOn = iconRegister.registerIcon(RefStrings.MODID + ":machine_detector");
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return metadata == 1 ? iconOn : blockIcon;
@@ -39,13 +39,13 @@ public class PowerDetector extends BlockContainer {
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityMachineDetector();
 	}
-	
+
     public boolean canProvidePower(net.minecraft.block.state.IBlockState state) {
         return true;
     }
-    
+
     public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side) {
-        return world.getBlockMetadata(x, y, z) == 1 ? 15 : 0;
+        return com.hbm.world.WorldBlockState.readMetadata(world, x, y, z) == 1 ? 15 : 0;
     }
 
 }

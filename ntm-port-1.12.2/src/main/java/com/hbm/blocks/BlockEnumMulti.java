@@ -38,7 +38,11 @@ public class BlockEnumMulti extends BlockMulti {
 				this.icons[i] = reg.registerIcon(this.getTextureMultiName(num));
 			}
 		} else {
-			this.blockIcon = reg.registerIcon(this.getTextureName());
+			// The original used the setBlockTextureName base, not the registry name.
+			String base = com.hbm.blocks.LegacyBlockTextures.texture(this);
+			if(base == null) base = this.getTextureName();
+			if(base == null) base = this.getRegistryName().toString();
+			this.blockIcon = reg.registerIcon(base);
 		}
 	}
 
@@ -53,7 +57,7 @@ public class BlockEnumMulti extends BlockMulti {
 	}
 
 	public String getTextureMultiName(Enum num) {
-		return this.getTextureName() + "." + num.name().toLowerCase(Locale.US);
+		return this.getRegistryName().toString() + "." + num.name().toLowerCase(Locale.US);
 	}
 
 	public String getUnlocalizedMultiName(Enum num) {

@@ -18,9 +18,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuffocationImmune {
+
+	private static final DataParameter<Integer> TARGET_ID = EntityDataManager.createKey(EntityRADBeast.class, DataSerializers.VARINT);
+	protected int attackTime;
+	protected boolean hasAttacked;
 
 	private float heightOffset = 0.5F;
 	private int heightOffsetUpdateTime;
@@ -33,14 +41,14 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(120.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(16.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(16.0D);
 	}
 
 	public EntityRADBeast makeLeader() {
 		this.setDropChance(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, 1F);
 		this.setItemStackToSlot(net.minecraft.inventory.EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.coin_radiation));
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(360.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(360.0D);
 		this.heal(this.getMaxHealth());
 		return this;
 	}
@@ -49,21 +57,25 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 		return false;
 	}
 
+	@Override
 	protected void entityInit() {
 		super.entityInit();
-		this.dataWatcher.addObject(16, (int) 0);
+		this.dataManager.register(TARGET_ID, Integer.valueOf(0));
 	}
 
-	protected String getLivingSound() {
-		return "hbm:item.geiger" + (1 + rand.nextInt(6));
+	@Override
+	protected SoundEvent getAmbientSound() {
+		return com.hbm.main.ModSoundEvents.resolve("hbm:item.geiger" + (1 + rand.nextInt(6)));
 	}
 
-	protected String getHurtSound() {
-		return "mob.blaze.hit";
+	@Override
+	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+		return com.hbm.main.ModSoundEvents.resolve("mob.blaze.hit");
 	}
 
-	protected String getDeathSound() {
-		return "hbm:step.iron";
+	@Override
+	protected SoundEvent getDeathSound() {
+		return com.hbm.main.ModSoundEvents.resolve("hbm:step.iron");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -84,7 +96,7 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 		if(!this.world.isRemote) {
 
 			if(this.isWet()) {
-				this.attackEntityFrom(DamageSource.drown, 1.0F);
+				this.attackEntityFrom(DamageSource.DROWN, 1.0F);
 			}
 
 			--this.heightOffsetUpdateTime;
@@ -94,16 +106,16 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 				this.heightOffset = 0.5F + (float) this.rand.nextGaussian() * 3.0F;
 			}
 
-			if(this.getEntityToAttack() != null && this.getEntityToAttack().posY + (double) this.getEntityToAttack().getEyeHeight() > this.posY + (double) this.getEyeHeight() + (double) this.heightOffset) {
+			if(this.getAttackTarget() != null && this.getAttackTarget().posY + (double) this.getAttackTarget().getEyeHeight() > this.posY + (double) this.getEyeHeight() + (double) this.heightOffset) {
 				this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
 			}
 
-			if(this.entityToAttack != null && attackTime < 10) {
+			if(this.getAttackTarget() != null && attackTime < 10) {
 
-				if(this.dataWatcher.getWatchableObjectInt(16) != entityToAttack.getEntityId())
-					this.dataWatcher.updateObject(16, entityToAttack.getEntityId());
+				if(this.dataManager.get(TARGET_ID).intValue() != this.getAttackTarget().getEntityId())
+					this.dataManager.set(TARGET_ID, Integer.valueOf(this.getAttackTarget().getEntityId()));
 			} else {
-				this.dataWatcher.updateObject(16, 0);
+				this.dataManager.set(TARGET_ID, Integer.valueOf(0));
 			}
 		}
 
@@ -126,6 +138,14 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.LAVA, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height * 0.75, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
 		}
 
+		if(this.attackTime > 0) {
+			--this.attackTime;
+		}
+
+		if(!this.world.isRemote && this.getAttackTarget() != null) {
+			this.attackEntity(this.getAttackTarget(), (float) this.getDistance(this.getAttackTarget()));
+		}
+
 		super.onLivingUpdate();
 	}
 
@@ -140,11 +160,11 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 			double deltaX = target.posX - this.posX;
 			double deltaZ = target.posZ - this.posZ;
 
-			if(this.attackTime == 0 && getEntityToAttack() != null) {
+			if(this.attackTime == 0 && this.getAttackTarget() != null) {
 
 				ChunkRadiationManager.proxy.incrementRad(this.world, (int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(posZ), 100);
 				target.attackEntityFrom(ModDamageSource.radiation, 16.0F);
-				this.swingItem();
+				this.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 				this.playLivingSound();
 				this.attackTime = 20;
 			}
@@ -156,7 +176,7 @@ public class EntityRADBeast extends EntityMob implements IRadiationImmune, ISuff
 
 	public Entity getUnfortunateSoul() {
 
-		int id = this.dataWatcher.getWatchableObjectInt(16);
+		int id = this.dataManager.get(TARGET_ID).intValue();
 		return this.world.getEntityByID(id);
 	}
 

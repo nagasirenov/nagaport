@@ -12,6 +12,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenEveSpike extends WorldGenerator {
 
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
+
 	public boolean generate(World p_76484_1_, Random p_76484_2_, int p_76484_3_, int p_76484_4_, int p_76484_5_) {
 		while(p_76484_1_.isAirBlock(new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_, p_76484_5_)) && p_76484_4_ > 2) {
 			--p_76484_4_;
@@ -37,23 +41,23 @@ public class WorldGenEveSpike extends WorldGenerator {
 				k1 = MathHelper.ceil(f);
 
 				for(l1 = -k1; l1 <= k1; ++l1) {
-					float f1 = (float) MathHelper.abs_int(l1) - 0.25F;
+					float f1 = (float) MathHelper.abs(l1) - 0.25F;
 
 					for(int i2 = -k1; i2 <= k1; ++i2) {
-						float f2 = (float) MathHelper.abs_int(i2) - 0.25F;
+						float f2 = (float) MathHelper.abs(i2) - 0.25F;
 
 						if((l1 == 0 && i2 == 0 || f1 * f1 + f2 * f2 <= f * f) && (l1 != -k1 && l1 != k1 && i2 != -k1 && i2 != k1 || p_76484_2_.nextFloat() <= 0.75F)) {
 							Block block = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2).getBlock();
 
 							if(block.getDefaultState().getMaterial() == Material.AIR || block == ModBlocks.eve_silt || block == ModBlocks.eve_rock) {
-								this.func_150515_a(p_76484_1_, p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2, ModBlocks.eve_rock);
+								this.setBlockAndNotifyAdequately(p_76484_1_, new net.minecraft.util.math.BlockPos(p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2), ModBlocks.eve_rock.getDefaultState());
 							}
 
 							if(j1 != 0 && k1 > 1) {
 								block = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2).getBlock();
 
 								if (block.getDefaultState().getMaterial() == Material.AIR || block == ModBlocks.eve_silt || block == ModBlocks.eve_rock) {
-									this.func_150515_a(p_76484_1_, p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2, ModBlocks.eve_rock);
+									this.setBlockAndNotifyAdequately(p_76484_1_, new net.minecraft.util.math.BlockPos(p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2), ModBlocks.eve_rock.getDefaultState());
 								}
 							}
 						}
@@ -85,7 +89,7 @@ public class WorldGenEveSpike extends WorldGenerator {
 							Block block1 = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + j2, l1, p_76484_5_ + k1).getBlock();
 
 							if(block1.getDefaultState().getMaterial() == Material.AIR || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_silt || block1 == ModBlocks.eve_rock) {
-								this.func_150515_a(p_76484_1_, p_76484_3_ + j2, l1, p_76484_5_ + k1, ModBlocks.eve_rock);
+								this.setBlockAndNotifyAdequately(p_76484_1_, new net.minecraft.util.math.BlockPos(p_76484_3_ + j2, l1, p_76484_5_ + k1), ModBlocks.eve_rock.getDefaultState());
 								--l1;
 								--k2;
 

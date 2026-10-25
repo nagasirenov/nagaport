@@ -71,8 +71,10 @@ public final class ChargeObjModelHandler {
 			ResourceLocation name = block.getRegistryName();
 			if(name == null) continue;
 
-			IBakedModel blockMesh = bakeObj(block, "models/blocks/" + name.getPath() + ".obj", DefaultVertexFormats.BLOCK);
-			IBakedModel itemMesh = bakeObj(block, "models/blocks/" + name.getPath() + ".obj", DefaultVertexFormats.ITEM);
+			String modelName = name.getPath().startsWith("tile.") ? name.getPath().substring("tile.".length()) : name.getPath();
+			// OBJLoader resolves resources beneath assets/<domain>/models itself.
+			IBakedModel blockMesh = bakeObj(block, "blocks/" + modelName + ".obj", DefaultVertexFormats.BLOCK);
+			IBakedModel itemMesh = bakeObj(block, "blocks/" + modelName + ".obj", DefaultVertexFormats.ITEM);
 			ModelResourceLocation blockLocation = new ModelResourceLocation(name, "normal");
 			ModelResourceLocation itemLocation = new ModelResourceLocation(name, "inventory");
 
@@ -85,7 +87,9 @@ public final class ChargeObjModelHandler {
 		try {
 			ResourceLocation location = new ResourceLocation(RefStrings.MODID, path);
 			IModel source = ModelLoaderRegistry.getModel(location);
-			String iconName = block.getIcon(0, 0).getIconName();	// Same side-0 icon used by the old renderer.
+			// These legacy sprites are wrappers; calling their inherited Minecraft method
+			// through the pre-1.12 IIcon bridge can fail after ForgeGradle reobfuscation.
+			String iconName = RefStrings.MODID + ":blocks/" + block.getRegistryName().getPath().replaceFirst("^tile\\.", "");
 			ImmutableMap<String, String> texture = ImmutableMap.<String, String>builder()
 					.put("#" + OBJModel.Material.DEFAULT_NAME, iconName)
 					.put("#" + OBJModel.Material.WHITE_NAME, iconName)

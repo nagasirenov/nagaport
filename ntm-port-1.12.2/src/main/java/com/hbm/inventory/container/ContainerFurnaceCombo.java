@@ -11,9 +11,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerFurnaceCombo extends Container {
-	
+
 	protected TileEntityFurnaceCombination furnace;
-	
+
 	public ContainerFurnaceCombo(InventoryPlayer invPlayer, TileEntityFurnaceCombination furnace) {
 		this.furnace = furnace;
 
@@ -23,7 +23,7 @@ public class ContainerFurnaceCombo extends Container {
 		this.addSlotToContainer(new SlotSmelting(invPlayer.player, furnace, 1, 89, 36));
 		this.addSlotToContainer(new Slot(furnace, 2, 136, 18));
 		this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, furnace, 3, 136, 54));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 104 + i * 18));
@@ -48,14 +48,14 @@ public class ContainerFurnaceCombo extends Container {
 				if(!this.mergeItemStack(originalStack, 4, this.inventorySlots.size(), true)) {
 					return null;
 				}
-				
+
 				slot.onSlotChange(originalStack, stack);
-				
+
 			} else if(!this.mergeItemStack(originalStack, 0, 1, false)) {
 				return null;
 			}
 
-			if(originalStack.stackSize == 0) {
+			if(originalStack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

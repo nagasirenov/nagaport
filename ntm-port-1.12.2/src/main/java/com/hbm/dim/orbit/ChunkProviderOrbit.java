@@ -2,7 +2,6 @@ package com.hbm.dim.orbit;
 
 import java.util.List;
 
-import com.hbm.config.SpaceConfig;
 import com.hbm.util.Compat;
 import com.hbm.world.WorldUtil;
 
@@ -25,16 +24,20 @@ public class ChunkProviderOrbit implements IChunkGenerator {
 	@Override
 	public Chunk generateChunk(int x, int z) {
 		Chunk chunk = new Chunk(worldObj, x, z);
+		int orbitBiomeId = Biome.getIdForBiome(BiomeGenOrbit.biome);
+		if (orbitBiomeId < 0) {
+			throw new IllegalStateException("Orbit biome is not registered");
+		}
 
 		if(Loader.isModLoaded(Compat.MOD_EIDS)) {
 			short[] biomes = WorldUtil.getBiomeShortArray(chunk);
 			for(int k = 0; k < biomes.length; ++k) {
-				biomes[k] = (short) SpaceConfig.orbitBiome;
+				biomes[k] = (short) orbitBiomeId;
 			} 
 		} else {
 			byte[] biomes = chunk.getBiomeArray();
 			for(int k = 0; k < biomes.length; ++k) {
-				biomes[k] = (byte) SpaceConfig.orbitBiome;
+				biomes[k] = (byte) orbitBiomeId;
 			}
 		}
 

@@ -24,7 +24,6 @@ public class BiomeGenMoon extends BiomeGenBaseCelestial {
 			this.creatures.add(new Biome.SpawnListEntry(EntityMoonCow.class, 10, 4, 4));
 		}
 
-		this.decorator.generateLakes = false;
 
 		this.topBlock = ModBlocks.moon_turf;
 		this.fillerBlock = ModBlocks.moon_rock;

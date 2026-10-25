@@ -6,16 +6,19 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import com.hbm.entity.particle.EntityModFX;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
-import com.hbm.render.icon.IIcon;
 import net.minecraft.util.ResourceLocation;
 
-public class MultiCloudRenderer extends Render {
+public class MultiCloudRenderer extends Render<Entity> {
 	private Item[] field_94151_a;
 	private int field_94150_f;
 	public MultiCloudRenderer(RenderManager renderManager, Item[] p_i1259_1_, int p_i1259_2_) {
@@ -43,7 +46,7 @@ public class MultiCloudRenderer extends Render {
 			EntityModFX fx = (EntityModFX) p_76986_1_;
 
 			Item item = field_94151_a[0];
-			
+
 			if (fx.particleAge <= fx.maxAge && fx.particleAge >= fx.maxAge / 8 * 7) {
 				item = field_94151_a[7];
 			}
@@ -76,46 +79,48 @@ public class MultiCloudRenderer extends Render {
 				item = field_94151_a[0];
 			}
 
-			IIcon iicon = item.getIconFromDamage(field_94150_f);
+			if (item != null) {
+				TextureAtlasSprite iicon = Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(item, field_94150_f);
 
-			if (iicon != null) {
-				GL11.glPushMatrix();
-				GL11.glTranslatef((float) p_76986_2_, (float) p_76986_4_, (float) p_76986_6_);
-				GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-				GL11.glScalef(0.5F, 0.5F, 0.5F);
-				GL11.glScalef(7.5F, 7.5F, 7.5F);
-				
-				////
-				Random randy = new Random(p_76986_1_.hashCode());
-				////
-				
-				Random rand = new Random(100);
-				
-				for(int i = 0; i < 5; i++) {
-					
-					double d = randy.nextInt(10) * 0.05;
-					GL11.glColor3d(1 - d, 1 - d, 1 - d);
-
-					double dX = (rand.nextGaussian() - 1D) * 0.15D;
-					double dY = (rand.nextGaussian() - 1D) * 0.15D;
-					double dZ = (rand.nextGaussian() - 1D) * 0.15D;
-					double size = rand.nextDouble() * 0.5D + 0.25D;
-					
-					GL11.glTranslatef((float) dX, (float) dY, (float) dZ);
-					GL11.glScaled(size, size, size);
-
+				if (iicon != null) {
 					GL11.glPushMatrix();
-					this.bindEntityTexture(p_76986_1_);
-					Tessellator tessellator = Tessellator.instance;
-					this.func_77026_a(tessellator, iicon);
-					GL11.glPopMatrix();
+					GL11.glTranslatef((float) p_76986_2_, (float) p_76986_4_, (float) p_76986_6_);
+					GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+					GL11.glScalef(0.5F, 0.5F, 0.5F);
+					GL11.glScalef(7.5F, 7.5F, 7.5F);
 
-					GL11.glScaled(1/size, 1/size, 1/size);
-					GL11.glTranslatef((float) -dX, (float) -dY, (float) -dZ);
+					////
+					Random randy = new Random(p_76986_1_.hashCode());
+					////
+
+					Random rand = new Random(100);
+
+					for(int i = 0; i < 5; i++) {
+
+						double d = randy.nextInt(10) * 0.05;
+						GL11.glColor3d(1 - d, 1 - d, 1 - d);
+
+						double dX = (rand.nextGaussian() - 1D) * 0.15D;
+						double dY = (rand.nextGaussian() - 1D) * 0.15D;
+						double dZ = (rand.nextGaussian() - 1D) * 0.15D;
+						double size = rand.nextDouble() * 0.5D + 0.25D;
+
+						GL11.glTranslatef((float) dX, (float) dY, (float) dZ);
+						GL11.glScaled(size, size, size);
+
+						GL11.glPushMatrix();
+						this.bindEntityTexture(p_76986_1_);
+						Tessellator tessellator = Tessellator.getInstance();
+						this.func_77026_a(tessellator, iicon);
+						GL11.glPopMatrix();
+
+						GL11.glScaled(1/size, 1/size, 1/size);
+						GL11.glTranslatef((float) -dX, (float) -dY, (float) -dZ);
+					}
+
+					GL11.glDisable(GL12.GL_RESCALE_NORMAL);
+					GL11.glPopMatrix();
 				}
-				
-				GL11.glDisable(GL12.GL_RESCALE_NORMAL);
-				GL11.glPopMatrix();
 			}
 		}
 	}
@@ -126,10 +131,10 @@ public class MultiCloudRenderer extends Render {
 	 */
 	@Override
 	protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
-		return TextureMap.locationItemsTexture;
+		return TextureMap.LOCATION_BLOCKS_TEXTURE;
 	}
 
-	private void func_77026_a(Tessellator p_77026_1_, IIcon p_77026_2_) {
+	private void func_77026_a(Tessellator p_77026_1_, TextureAtlasSprite p_77026_2_) {
 		float f = p_77026_2_.getMinU();
 		float f1 = p_77026_2_.getMaxU();
 		float f2 = p_77026_2_.getMinV();
@@ -139,12 +144,12 @@ public class MultiCloudRenderer extends Render {
 		float f6 = 0.25F;
 		GL11.glRotatef(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
-		p_77026_1_.startDrawingQuads();
-		p_77026_1_.setNormal(0.0F, 1.0F, 0.0F);
-		p_77026_1_.addVertexWithUV(0.0F - f5, 0.0F - f6, 0.0D, f, f3);
-		p_77026_1_.addVertexWithUV(f4 - f5, 0.0F - f6, 0.0D, f1, f3);
-		p_77026_1_.addVertexWithUV(f4 - f5, f4 - f6, 0.0D, f1, f2);
-		p_77026_1_.addVertexWithUV(0.0F - f5, f4 - f6, 0.0D, f, f2);
+		BufferBuilder buf = p_77026_1_.getBuffer();
+		buf.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_NORMAL);
+		buf.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(f, f3).normal(0.0F, 1.0F, 0.0F).endVertex();
+		buf.pos(f4 - f5, 0.0F - f6, 0.0D).tex(f1, f3).normal(0.0F, 1.0F, 0.0F).endVertex();
+		buf.pos(f4 - f5, f4 - f6, 0.0D).tex(f1, f2).normal(0.0F, 1.0F, 0.0F).endVertex();
+		buf.pos(0.0F - f5, f4 - f6, 0.0D).tex(f, f2).normal(0.0F, 1.0F, 0.0F).endVertex();
 		p_77026_1_.draw();
 	}
 }

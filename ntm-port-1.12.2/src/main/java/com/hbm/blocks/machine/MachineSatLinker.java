@@ -24,6 +24,8 @@ import net.minecraft.world.World;
 
 public class MachineSatLinker extends BlockContainer {
 
+	protected IIcon blockIcon;
+
     private final Random field_149933_a = new Random();
 	private static boolean keepInventory;
 	
@@ -39,7 +41,6 @@ public class MachineSatLinker extends BlockContainer {
 		return new TileEntityMachineSatLinker();
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		
@@ -47,7 +48,6 @@ public class MachineSatLinker extends BlockContainer {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_satlinker_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);

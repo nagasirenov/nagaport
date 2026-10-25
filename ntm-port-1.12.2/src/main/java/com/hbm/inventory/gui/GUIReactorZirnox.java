@@ -58,7 +58,7 @@ public class GUIReactorZirnox extends GuiInfoContainer {
 
 	}
 
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 
 		NBTTagCompound control = new NBTTagCompound();

@@ -70,7 +70,7 @@ public class GunNPCFactory {
 				bolt.setThrower(bulletnt.getThrower());
 				bolt.setPosition(bulletnt.posX, bulletnt.posY, bulletnt.posZ);
 				bolt.shoot(motion.x, motion.y, motion.z, 0.5F, 0.05F);
-				bulletnt.world.spawnEntityInWorld(bolt);
+				bulletnt.world.spawnEntity(bolt);
 			}
 		};
 
@@ -149,7 +149,7 @@ public class GunNPCFactory {
 			meteor.setPosition(bulletnt.posX, bulletnt.posY + 30 + meteor.world.rand.nextInt(10), bulletnt.posZ);
 			meteor.motionY = -1D;
 			meteor.setThrower(bulletnt.getThrower());
-			bulletnt.world.spawnEntityInWorld(meteor);
+			bulletnt.world.spawnEntity(meteor);
 		};
 
 		return bullet;
@@ -267,7 +267,7 @@ public class GunNPCFactory {
 
 				if(target != null) {
 
-					if(bullet.getDistanceSqToEntity(target) < 5) {
+					if(bullet.getDistanceSq(target) < 5) {
 						bullet.getConfig().bntImpact.behaveBlockHit(bullet, -1, -1, -1, -1);
 						bullet.setDead();
 						return;
@@ -303,7 +303,7 @@ public class GunNPCFactory {
 					if(bullet.world.rayTraceBlocks(new Vec3d(bullet.posX, bullet.posY, bullet.posZ), new Vec3d(e.posX, e.posY + e.height / 2, e.posZ), false, true, false) != null)
 						continue;
 
-					double dist = e.getDistanceSqToEntity(bullet);
+					double dist = e.getDistanceSq(bullet);
 
 					if(dist < range * range) {
 

@@ -5,6 +5,11 @@ import net.minecraft.world.World;
 
 public class EntityMinecartBogie extends EntityMinecart {
 
+	@Override
+	public net.minecraft.entity.item.EntityMinecart.Type getType() {
+		return net.minecraft.entity.item.EntityMinecart.Type.RIDEABLE;
+	}
+
 	public EntityMinecartBogie(World world) {
 		super(world);
 	}
@@ -13,7 +18,6 @@ public class EntityMinecartBogie extends EntityMinecart {
 		super(world, x, y ,z);
 	}
 
-	@Override
 	public int getMinecartType() {
 		return -1;
 	}

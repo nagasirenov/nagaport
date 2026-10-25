@@ -3,6 +3,7 @@ package com.hbm.render.entity.mob;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.renderer.entity.RenderCreeper;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
@@ -13,8 +14,11 @@ public class RenderCreeperUniversal extends RenderCreeper {
 	private final ResourceLocation armoredCreeperTextures;
 	private float swellMod = 1.0F;
 
-	public RenderCreeperUniversal(String texture, String overlay) {
-		super();
+	/** The live RenderManager must come from the registration factory: at
+	 * registration time Minecraft's global manager is still unassigned, and a
+	 * captured null crashes every bindTexture with an NPE in world rendering. */
+	public RenderCreeperUniversal(RenderManager renderManager, String texture, String overlay) {
+		super(renderManager);
 
 		creeperTextures = new ResourceLocation(texture);
 		armoredCreeperTextures = new ResourceLocation(overlay);
@@ -46,7 +50,6 @@ public class RenderCreeperUniversal extends RenderCreeper {
 		GL11.glScalef(scaleHorizontal, scaleVertical, scaleHorizontal);
 	}
 
-	@Override
 	protected int shouldRenderPass(EntityCreeper creeper, int pass, float interp) {
 		if(creeper.getPowered()) {
 			if(creeper.isInvisible()) {
@@ -63,7 +66,7 @@ public class RenderCreeperUniversal extends RenderCreeper {
 				float x = time * 0.01F;
 				float y = time * 0.01F;
 				GL11.glTranslatef(x, y, 0.0F);
-				this.setRenderPassModel(this.creeperModel);
+				
 				GL11.glMatrixMode(GL11.GL_MODELVIEW);
 				GL11.glEnable(GL11.GL_BLEND);
 				float flashColor = 0.5F;

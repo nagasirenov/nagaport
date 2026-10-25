@@ -17,7 +17,7 @@ public class RenderTurretMaxwell extends RenderTurretBase {
 
 	@Override
 	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
-		
+
 		TileEntityTurretMaxwell turret = (TileEntityTurretMaxwell)te;
 		Vec3d pos = turret.getHorizontalOffset();
 
@@ -26,18 +26,18 @@ public class RenderTurretMaxwell extends RenderTurretBase {
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		
+
 		this.renderConnectors(turret, true, false, Fluids.NONE);
 
 		bindTexture(ResourceManager.turret_base_tex);
 		ResourceManager.turret_chekhov.renderPart("Base");
 		double yaw = -Math.toDegrees(turret.lastRotationYaw + (turret.rotationYaw - turret.lastRotationYaw) * interp) - 90D;
 		double pitch = Math.toDegrees(turret.lastRotationPitch + (turret.rotationPitch - turret.lastRotationPitch) * interp);
-		
+
 		GL11.glRotated(yaw, 0, 1, 0);
 		bindTexture(ResourceManager.turret_carriage_ciws_tex);
 		ResourceManager.turret_howard.renderPart("Carriage");
-		
+
 		GL11.glTranslated(0, 1.5, 0);
 		GL11.glRotated(pitch, 0, 0, 1);
 		GL11.glTranslated(0, -1.5, 0);
@@ -45,9 +45,9 @@ public class RenderTurretMaxwell extends RenderTurretBase {
 		ResourceManager.turret_maxwell.renderPart("Microwave");
 
 		if(turret.beam > 0) {
-			
+
 			double length = turret.lastDist - turret.getBarrelLength();
-			
+
 			GL11.glPushMatrix();
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glPushAttrib(GL11.GL_LIGHTING_BIT);
@@ -61,8 +61,8 @@ public class RenderTurretMaxwell extends RenderTurretBase {
 			GL11.glDisable(GL11.GL_ALPHA_TEST);
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
 			GL11.glDepthMask(false);
-			
-			/*Tessellator tess = Tessellator.instance;
+
+			/*Tessellator tess = Tessellator.getInstance();
 			tess.startDrawingQuads();
 			Vec3d v = new Vec3d(0, 0.375, 0);
 			for(int i = 0; i < 16; i++) {
@@ -77,7 +77,7 @@ public class RenderTurretMaxwell extends RenderTurretBase {
 				tess.setColorRGBA_F(1.0F, 1.0F, 1.0F, 0.35F);
 				tess.addVertex(0, v.y, v.z);
 			}
-			
+
 			tess.draw();*/
 
 			GL11.glDepthMask(true);
@@ -86,10 +86,10 @@ public class RenderTurretMaxwell extends RenderTurretBase {
 			GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
 			GL11.glDisable(GL11.GL_BLEND);
 			GL11.glShadeModel(GL11.GL_FLAT);
-			
+
 			for(int i = 0; i < 8; i++)
 				BeamPronter.prontBeam(new Vec3d(length, 0, 0), EnumWaveType.SPIRAL, EnumBeamType.SOLID, 0x2020ff, 0x2020ff, (int)((te.getWorld().getTotalWorldTime() + interp) * -50 + i * 45) % 360, (int)((turret.lastDist + 1)), 0.375F, 2, 0.05F, 0.5F);
-			
+
 			//BeamPronter.prontBeam(new Vec3d(length, 0, 0), EnumWaveType.SPIRAL, EnumBeamType.LINE, 0x0000ff, 0x8080ff, (int)((te.getWorldObj().getTotalWorldTime() + interp) * -50) % 360, (int)((turret.lastDist + 1) * 10), 0.4325F, 0, 0);
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();

@@ -44,7 +44,7 @@ public class GUICrateTungsten extends GuiCrateBase {
 
 		if (diFurnace instanceof TileEntityCrateTungsten) {
 			TileEntityCrateTungsten crate = (TileEntityCrateTungsten) diFurnace;
-			if(crate.getWorld().getBlockMetadata(crate.getPos().getX(), crate.getPos().getY(), crate.getPos().getZ()) == 0)
+			if(com.hbm.world.WorldBlockState.readMetadata(crate.getWorld(), crate.getPos().getX(), crate.getPos().getY(), crate.getPos().getZ()) == 0)
 				Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 			else
 				Minecraft.getMinecraft().getTextureManager().bindTexture(texture_hot);

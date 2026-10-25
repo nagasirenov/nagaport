@@ -24,38 +24,45 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class ItemRBMKTool extends Item {
-	
-	@Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
-		
+
+
+        @Override
+    public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+        net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+        int side = facing != null ? facing.getIndex() : 0;
+        return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+    }
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float fX, float fY, float fZ) {
+
 		Block b = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
-		
+
 		if(b instanceof RBMKBase) {
-			
+
 			int[] pos = ((BlockDummyable)b).findCore(world, x, y, z);
-			
+
 			if(pos != null && !world.isRemote) {
-				
+
 				if(!stack.hasTagCompound())
 					stack.setTagCompound(new NBTTagCompound());
 
 				stack.getTagCompound().setInteger("posX", pos[0]);
 				stack.getTagCompound().setInteger("posY", pos[1]);
 				stack.getTagCompound().setInteger("posZ", pos[2]);
-				
+
 				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".linked").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
-			
+
 			return true;
 		}
-		
+
 		//TODO: at this point just add a fucking interface
 		if(b == ModBlocks.rbmk_console && stack.hasTagCompound()) {
-			
+
 			if(!world.isRemote) {
-				
+
 				int[] pos = ((BlockDummyable)b).findCore(world, x, y, z);
-				
+
 				TileEntityRBMKConsole console = (TileEntityRBMKConsole)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 				int tx = stack.getTagCompound().getInteger("posX");
 				int ty = stack.getTagCompound().getInteger("posY");
@@ -63,16 +70,16 @@ public class ItemRBMKTool extends Item {
 				console.setTarget(tx, ty, tz);
 				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
-			
+
 			return true;
 		}
-		
+
 		if(b == ModBlocks.rbmk_crane_console && stack.hasTagCompound()) {
-			
+
 			if(!world.isRemote) {
-				
+
 				int[] pos = ((BlockDummyable)b).findCore(world, x, y, z);
-				
+
 				TileEntityCraneConsole console = (TileEntityCraneConsole)world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 				int tx = stack.getTagCompound().getInteger("posX");
 				int ty = stack.getTagCompound().getInteger("posY");
@@ -80,14 +87,14 @@ public class ItemRBMKTool extends Item {
 				console.setTarget(tx, ty, tz);
 				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
-			
+
 			return true;
 		}
-		
+
 		if(b == ModBlocks.rbmk_display && stack.hasTagCompound()) {
-			
+
 			if(!world.isRemote) {
-				
+
 				TileEntityRBMKDisplay console = (TileEntityRBMKDisplay) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 				int tx = stack.getTagCompound().getInteger("posX");
 				int ty = stack.getTagCompound().getInteger("posY");
@@ -95,23 +102,23 @@ public class ItemRBMKTool extends Item {
 				console.setTarget(tx, ty, tz);
 				player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".set").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 			}
-			
+
 			return true;
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
-		
+
 		for(String s : I18nUtil.resolveKeyArray(this.getTranslationKey() + ".desc"))
 			list.add(TextFormatting.YELLOW + s);
 	}
 
 	@Override
 	public Multimap getAttributeModifiers(net.minecraft.inventory.EntityEquipmentSlot slot, ItemStack stack) {
-		
+
 		Multimap multimap = super.getAttributeModifiers(slot, stack);
 		if(slot == net.minecraft.inventory.EntityEquipmentSlot.OFFHAND) return multimap;
 		multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 2, 0));

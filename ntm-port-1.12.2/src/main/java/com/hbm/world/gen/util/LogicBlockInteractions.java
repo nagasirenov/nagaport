@@ -27,7 +27,7 @@ public class LogicBlockInteractions {
 		if(logic.phase > 1) return;
 
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null)
-			com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
+			com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
 
 		logic.phase++;
 	};
@@ -37,12 +37,12 @@ public class LogicBlockInteractions {
 		EntityPlayer player = (EntityPlayer) array[5];
 
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null && com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.key){
-			com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
+			com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
 			player.sendMessage(new TextComponentString(
 					TextFormatting.LIGHT_PURPLE + "[RAD CONTAINMENT SYSTEM]" +
 						TextFormatting.RESET + " Radiation treatment administered"));
-			player.addPotionEffect(new PotionEffect(HbmPotion.radaway.getId(), 3 * 60 * 20, 4));
-			player.addPotionEffect(new PotionEffect(HbmPotion.radx.getId(), 3 * 60 * 20, 4));
+			player.addPotionEffect(new PotionEffect(HbmPotion.radaway, 3 * 60 * 20, 4));
+			player.addPotionEffect(new PotionEffect(HbmPotion.radx, 3 * 60 * 20, 4));
 			logic.phase = 2;
 			logic.timer = 0;
 		}

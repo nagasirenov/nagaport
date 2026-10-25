@@ -26,9 +26,11 @@ import net.minecraft.util.text.TextFormatting;
 import com.hbm.render.icon.IIcon;
 
 public class ItemICFPellet extends Item {
-	
+
+	protected com.hbm.render.icon.IIcon itemIcon;
+
 	protected IIcon iconBG;
-	
+
 	public static enum EnumICFFuel {
 
 		HYDROGEN(	0x4040FF,	1.00D,	0.85D,	1.00D),
@@ -47,12 +49,12 @@ public class ItemICFPellet extends Item {
 		CALCIUM(	0xD2C7A9,	3.00D,	1.00D,	9.75D),
 		//titanium
 		;
-		
+
 		public int color;
 		public double reactionMult;
 		public double depletionSpeed;
 		public double fusingDifficulty;
-		
+
 		private EnumICFFuel(int color, double react, double depl, double laser) {
 			this.color = color;
 			this.reactionMult = react;
@@ -60,10 +62,10 @@ public class ItemICFPellet extends Item {
 			this.fusingDifficulty = laser;
 		}
 	}
-	
+
 	public static HashMap<FluidType, EnumICFFuel> fluidMap = new HashMap();
 	public static HashMap<NTMMaterial, EnumICFFuel> materialMap = new HashMap();
-	
+
 	public static void init() {
 		if(!fluidMap.isEmpty() && !materialMap.isEmpty()) return;
 		fluidMap.put(Fluids.HYDROGEN, EnumICFFuel.HYDROGEN);
@@ -84,9 +86,17 @@ public class ItemICFPellet extends Item {
 	public ItemICFPellet() {
 		this.setMaxStackSize(1);
 	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
+
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		list.add(this.setup(EnumICFFuel.DEUTERIUM, EnumICFFuel.TRITIUM, false));
 		list.add(this.setup(EnumICFFuel.HELIUM3, EnumICFFuel.HELIUM4, false));
@@ -94,36 +104,36 @@ public class ItemICFPellet extends Item {
 		list.add(this.setup(EnumICFFuel.SODIUM, EnumICFFuel.CHLORINE, true));
 		list.add(this.setup(EnumICFFuel.BERYLLIUM, EnumICFFuel.CALCIUM, true));
 	}
-	
+
 	public static long getMaxDepletion(ItemStack stack) {
 		long base = 50_000_000_000L;
 		base /= getType(stack, true).depletionSpeed;
 		base /= getType(stack, false).depletionSpeed;
 		return base;
 	}
-	
+
 	public static long getFusingDifficulty(ItemStack stack) {
 		long base = 10_000_000L;
 		base *= getType(stack, true).fusingDifficulty * getType(stack, false).fusingDifficulty;
 		if(stack.hasTagCompound() && stack.getTagCompound().getBoolean("muon")) base /= 4;
 		return base;
 	}
-	
+
 	public static long getDepletion(ItemStack stack) {
 		if(!stack.hasTagCompound()) return 0L;
 		return stack.getTagCompound().getLong("depletion");
 	}
-	
+
 	public static long react(ItemStack stack, long heat) {
 		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		stack.getTagCompound().setLong("depletion", stack.getTagCompound().getLong("depletion") + heat);
 		return (long) (heat * getType(stack, true).reactionMult * getType(stack, false).reactionMult);
 	}
-	
+
 	public static ItemStack setup(EnumICFFuel type1, EnumICFFuel type2, boolean muon) {
 		return setup(new ItemStack(ModItems.icf_pellet), type1, type2, muon);
 	}
-	
+
 	public static ItemStack setup(ItemStack stack, EnumICFFuel type1, EnumICFFuel type2, boolean muon) {
 		if(!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		stack.getTagCompound().setByte("type1", (byte) type1.ordinal());
@@ -131,7 +141,7 @@ public class ItemICFPellet extends Item {
 		stack.getTagCompound().setBoolean("muon", muon);
 		return stack;
 	}
-	
+
 	public static EnumICFFuel getType(ItemStack stack, boolean first) {
 		if(!stack.hasTagCompound()) return first ? EnumICFFuel.DEUTERIUM : EnumICFFuel.TRITIUM;
 		return EnumUtil.grabEnumSafely(EnumICFFuel.class, stack.getTagCompound().getByte("type" + (first ? 1 : 2)));
@@ -147,26 +157,22 @@ public class ItemICFPellet extends Item {
 		return (double) getDepletion(stack) / (double) getMaxDepletion(stack);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
-		super.registerIcons(reg);
+		this.itemIcon = reg.registerIcon(this.getRegistryName().toString());
 		this.iconBG = reg.registerIcon(RefStrings.MODID + ":icf_pellet_bg");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamageForRenderPass(int meta, int pass) {
-		return pass == 1 ? super.getIconFromDamageForRenderPass(meta, pass) : this.iconBG;
+		return pass == 1 ? this.itemIcon : this.iconBG;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
 		if(pass == 0) {
@@ -179,7 +185,7 @@ public class ItemICFPellet extends Item {
 		}
 		return 0xffffff;
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		boolean muon = stack.hasTagCompound() && stack.getTagCompound().getBoolean("muon");

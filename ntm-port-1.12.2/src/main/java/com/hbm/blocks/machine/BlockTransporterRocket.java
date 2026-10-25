@@ -31,7 +31,10 @@ public class BlockTransporterRocket extends BlockDummyable {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		if(world.isRemote)
 			return com.hbm.util.NativeHeldItem.getMainHandNullable(player) == null || com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() != ModItems.transporter_linker;
 
@@ -44,7 +47,7 @@ public class BlockTransporterRocket extends BlockDummyable {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
+		super.onBlockPlacedBy(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), player, itemStack);
 		if(world.isRemote) return;
 
 		// If we don't have a position, we failed to place, and should skip chunkloading

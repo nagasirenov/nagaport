@@ -21,13 +21,18 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 	public ItemCasingBag() {
 		this.setMaxStackSize(1);
 	}
-	
+
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
 		return 1;
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if(!world.isRemote) player.openGui(MainRegistry.instance, 0, world, 0, 0, 0);
 		return stack;
@@ -43,7 +48,7 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return new GUICasingBag(player.inventory, new InventoryCasingBag(com.hbm.util.NativeHeldItem.getMainHandNullable(player)));
 	}
-	
+
 	/**
 	 * Returns true if ammo was able to be added
 	 * @param bag
@@ -53,7 +58,7 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 	 */
 	public static boolean pushCasing(ItemStack bag, ItemStack casing, float amount) {
 		if(!bag.hasTagCompound()) bag.setTagCompound(new NBTTagCompound());
-		String name = casing.getUnlocalizedName() + "@" + casing.getItemDamage();
+		String name = casing.getTranslationKey() + "@" + casing.getItemDamage();
 		boolean ret = false;
 		//only add if the previous number did not exceed 1 (i.e. the bag ran full, and may have been emptied, we don't know)
 		//this may also cause minor loss, which evens out the dupe mentioned below. not that it matters, casings only have a 50% recovery rate!
@@ -65,22 +70,22 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 			InventoryCasingBag inv = new InventoryCasingBag(bag);
 			ItemStack toAdd = casing.copy();
 			while(bag.getTagCompound().getFloat(name) >= 1) {
-				
+
 				boolean didSomething = false;
-				
+
 				for(int i = 0; i < inv.getSizeInventory(); i++) {
-					if(toAdd.stackSize <= 0) break;
+					if(toAdd.getCount() <= 0) break;
 					ItemStack slot = inv.getStackInSlot(i);
 					if(slot != null && slot.getItem() == toAdd.getItem() && slot.getItemDamage() == toAdd.getItemDamage()) {
-						int am = Math.min(toAdd.stackSize, slot.getMaxStackSize() - slot.stackSize);
-						toAdd.stackSize -= am;
-						slot.stackSize += am;
+						int am = Math.min(toAdd.getCount(), slot.getMaxStackSize() - slot.getCount());
+						toAdd.shrink(am);
+						slot.grow(am);
 						if(am > 0) didSomething = true;
 					}
 				}
-				
+
 				for(int i = 0; i < inv.getSizeInventory(); i++) {
-					if(toAdd.stackSize <= 0) break;
+					if(toAdd.getCount() <= 0) break;
 					ItemStack slot = inv.getStackInSlot(i);
 					if(slot == null) {
 						inv.setInventorySlotContents(i, toAdd);
@@ -88,7 +93,7 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 						break;
 					}
 				}
-				
+
 				if(didSomething) {
 					bag.getTagCompound().setFloat(name, bag.getTagCompound().getFloat(name) - 1F);
 					ret = true;
@@ -100,21 +105,45 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 		}
 		return ret;
 	}
-	
+
 	public static class InventoryCasingBag implements IInventory {
-		
+
+		@Override
+		public net.minecraft.util.text.ITextComponent getDisplayName() {
+			return new net.minecraft.util.text.TextComponentString(this.getName());
+		}
+
+		@Override
+		public boolean isEmpty() {
+			for(int i = 0; i < this.getSizeInventory(); i++) {
+				if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+			}
+			return true;
+		}
+
+		@Override public int getField(int id) { return 0; }
+		@Override public void setField(int id, int value) {}
+		@Override public int getFieldCount() { return 0; }
+
+		@Override
+		public void clear() {
+			for(int i = 0; i < this.getSizeInventory(); i++) {
+				this.setInventorySlotContents(i, null);
+			}
+		}
+
 		public final ItemStack box;
 		public ItemStack[] slots;
-		
+
 		public InventoryCasingBag(ItemStack box) {
 			this.box = box;
 			slots = new ItemStack[this.getSizeInventory()];
-			
+
 			if(!box.hasTagCompound())
 				box.setTagCompound(new NBTTagCompound());
-			
+
 			ItemStack[] fromNBT = ItemStackUtil.readStacksFromNBT(box, slots.length);
-			
+
 			if(fromNBT != null) {
 				for(int i = 0; i < slots.length; i++) {
 					slots[i] = fromNBT[i];
@@ -129,7 +158,7 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 		public ItemStack decrStackSize(int slot, int amount) {
 			ItemStack stack = getStackInSlot(slot);
 			if (stack != null) {
-				if (stack.stackSize > amount) {
+				if (stack.getCount() > amount) {
 					stack = stack.splitStack(amount);
 					markDirty();
 				} else {
@@ -149,31 +178,33 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 		@Override
 		public void setInventorySlotContents(int slot, ItemStack stack) {
 			stack = stack == null || stack.isEmpty() ? null : stack;
-			
+
 			if(stack != null) {
 				stack.setCount(Math.min(stack.getCount(), this.getInventoryStackLimit()));
 			}
-			
+
 			slots[slot] = stack;
 			markDirty();
 		}
 
-		@Override public String getInventoryName() { return "container.casingBag"; }
-		@Override public boolean hasCustomInventoryName() { return box.hasDisplayName(); }
+		@Override public String getName() { return "container.casingBag"; }
+		@Override public boolean hasCustomName() { return box.hasDisplayName(); }
+		public String getInventoryName() { return getName(); }
+		public boolean hasCustomInventoryName() { return hasCustomName(); }
 		@Override public int getInventoryStackLimit() { return 64; }
 
 		@Override
 		public void markDirty() {
 			for(int i = 0; i < getSizeInventory(); ++i) {
-				if(getStackInSlot(i) != null && getStackInSlot(i).stackSize == 0) {
+				if(getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
 					slots[i] = null;
 				}
 			}
-			
+
 			ItemStackUtil.addStacksToNBT(box, slots);
 		}
 
-		@Override public boolean isUseableByPlayer(EntityPlayer player) { return true; }
+		@Override public boolean isUsableByPlayer(EntityPlayer player) { return true; }
 		@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 		@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 		@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return false; }

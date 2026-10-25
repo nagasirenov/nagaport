@@ -26,7 +26,9 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class BlockFireworks extends BlockContainer {
-	
+
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
@@ -35,8 +37,7 @@ public class BlockFireworks extends BlockContainer {
 	public BlockFireworks(Material mat) {
 		super(mat);
 	}
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":fireworks_top");
@@ -44,7 +45,6 @@ public class BlockFireworks extends BlockContainer {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":fireworks_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconBottom : this.blockIcon);
@@ -55,40 +55,44 @@ public class BlockFireworks extends BlockContainer {
 		return new TileEntityFireworks();
 	}
 
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
-		
+	@Override
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fx, float fy, float fz) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int i = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(world.isRemote)
 			return true;
-		
+
 		TileEntityFireworks te = (TileEntityFireworks)world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+
 		if(com.hbm.util.NativeHeldItem.getMainHandNullable(player) != null) {
-			
+
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == Items.GUNPOWDER) {
-				te.charges += com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize * 3;
+				te.charges += com.hbm.util.NativeHeldItem.getMainHandNullable(player).getCount() * 3;
 				te.markDirty();
-				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize = 0;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).setCount(0);
 				return true;
 			}
-			
+
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == ModItems.sulfur) {
-				te.charges += com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize;
+				te.charges += com.hbm.util.NativeHeldItem.getMainHandNullable(player).getCount();
 				te.markDirty();
-				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize = 0;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).setCount(0);
 				return true;
 			}
-			
+
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() instanceof ItemDye) {
-				te.color = ItemDye.field_150922_c[com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage()];
+				te.color = ItemDye.DYE_COLORS[com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItemDamage()];
 				te.markDirty();
-				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
 				return true;
 			}
-			
+
 			if(com.hbm.util.NativeHeldItem.getMainHandNullable(player).getItem() == Items.NAME_TAG) {
 				te.message = com.hbm.util.NativeHeldItem.getMainHandNullable(player).getDisplayName();
 				te.markDirty();
-				com.hbm.util.NativeHeldItem.getMainHandNullable(player).stackSize--;
+				com.hbm.util.NativeHeldItem.getMainHandNullable(player).shrink(1);
 				return true;
 			}
 		}
@@ -97,7 +101,7 @@ public class BlockFireworks extends BlockContainer {
 		player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".charges", te.charges).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 		player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".color", Integer.toHexString(te.color)).setStyle(new Style().setColor(TextFormatting.YELLOW)));
 		player.sendMessage(new TextComponentTranslation(this.getTranslationKey() + ".message", te.message).setStyle(new Style().setColor(TextFormatting.YELLOW)));
-		
+
 		return true;
 	}
 	@Override
@@ -105,8 +109,8 @@ public class BlockFireworks extends BlockContainer {
 		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 	if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
-			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
-		}	
+			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
+		}
 	}
 	}
 

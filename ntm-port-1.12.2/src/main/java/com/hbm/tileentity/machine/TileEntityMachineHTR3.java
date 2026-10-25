@@ -220,7 +220,7 @@ public class TileEntityMachineHTR3 extends TileEntityMachineBase implements IPro
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		if(bb == null) bb = AxisAlignedBB.getBoundingBox(this.pos.getX() - 10, this.pos.getY() - 3, this.pos.getZ() - 10, this.pos.getX() + 11, this.pos.getY() + 4, this.pos.getZ() + 11);
+		if(bb == null) bb = new AxisAlignedBB(this.pos.getX() - 10, this.pos.getY() - 3, this.pos.getZ() - 10, this.pos.getX() + 11, this.pos.getY() + 4, this.pos.getZ() + 11);
 		return bb;
 	}
 

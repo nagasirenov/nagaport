@@ -69,8 +69,8 @@ public class XFactoryTool {
 			boolean fizz = false;
 			for(int i = -1; i <= 1; i++) for(int j = -1; j <= 1; j++) for(int k = -1; k <= 1; k++) {
 				Block block = com.hbm.world.WorldBlockState.read(bullet.world, ix + i, iy + j, iz + k).getBlock();
-				if(block == Blocks.fire || block == ModBlocks.foam_layer || block == ModBlocks.block_foam) {
-					bullet.world.setBlock(ix + i, iy + j, iz + k, Blocks.air);
+				if(block == Blocks.FIRE || block == ModBlocks.foam_layer || block == ModBlocks.block_foam) {
+					com.hbm.world.WorldBlockState.writeLegacyBlock(bullet.world, ix + i, iy + j, iz + k, Blocks.AIR);
 					fizz = true;
 				}
 			}
@@ -86,7 +86,7 @@ public class XFactoryTool {
 			NBTTagCompound data = new NBTTagCompound();
 			data.setString("type", "vanillaExt");
 			data.setString("mode", "blockdust");
-			data.setInteger("block", Block.getIdFromBlock(Blocks.water));
+			data.setInteger("block", Block.getIdFromBlock(Blocks.WATER));
 			data.setDouble("posX", bullet.posX); data.setDouble("posY", bullet.posY); data.setDouble("posZ", bullet.posZ);
 			data.setDouble("mX", bullet.motionX + bullet.world.rand.nextGaussian() * 0.05);
 			data.setDouble("mY", bullet.motionY - 0.2 + bullet.world.rand.nextGaussian() * 0.05);
@@ -96,8 +96,8 @@ public class XFactoryTool {
 			int x = (int)Math.floor(bullet.posX);
 			int y = (int)Math.floor(bullet.posY);
 			int z = (int)Math.floor(bullet.posZ);
-			if(com.hbm.world.WorldBlockState.read(bullet.world, x, y, z).getBlock() == ModBlocks.volcanic_lava_block && bullet.world.getBlockMetadata(x, y, z) == 0) {
-				bullet.world.setBlock(x, y, z, Blocks.obsidian);
+			if(com.hbm.world.WorldBlockState.read(bullet.world, x, y, z).getBlock() == ModBlocks.volcanic_lava_block && com.hbm.world.WorldBlockState.readMetadata(bullet.world, x, y, z) == 0) {
+				com.hbm.world.WorldBlockState.writeLegacyBlock(bullet.world, x, y, z, Blocks.OBSIDIAN);
 				bullet.setDead();
 			}
 		}
@@ -112,7 +112,7 @@ public class XFactoryTool {
 			for(int i = -1; i <= 1; i++) for(int j = -1; j <= 1; j++) for(int k = -1; k <= 1; k++) {
 				Block b = com.hbm.world.WorldBlockState.read(bullet.world, ix + i, iy + j, iz + k).getBlock();
 				if(b.getDefaultState().getMaterial() == Material.FIRE) {
-					bullet.world.setBlock(ix + i, iy + j, iz + k, Blocks.air);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(bullet.world, ix + i, iy + j, iz + k, Blocks.AIR);
 					fizz = true;
 				}
 			}
@@ -120,15 +120,15 @@ public class XFactoryTool {
 			if(core instanceof IRepairable) { ((IRepairable) core).tryExtinguish(bullet.world, ix, iy, iz, EnumExtinguishType.FOAM); return; }
 			if(bullet.world.rand.nextBoolean()) {
 				net.minecraft.util.EnumFacing side = mop.sideHit;
-				ix += side.getFrontOffsetX(); iy += side.getFrontOffsetY(); iz += side.getFrontOffsetZ();
+				ix += side.getXOffset(); iy += side.getYOffset(); iz += side.getZOffset();
 			}
 			Block b = com.hbm.world.WorldBlockState.read(bullet.world, ix, iy, iz).getBlock();
 			if(b.isReplaceable(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)) && ModBlocks.foam_layer.canPlaceBlockAt(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz))) {
 				if(b != ModBlocks.foam_layer) {
-					bullet.world.setBlock(ix, iy, iz, ModBlocks.foam_layer);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(bullet.world, ix, iy, iz, ModBlocks.foam_layer);
 				} else {
-					int meta = bullet.world.getBlockMetadata(ix, iy, iz);
-					if(meta < 6) bullet.world.setBlockMetadataWithNotify(ix, iy, iz, meta + 1, 3);
+					int meta = com.hbm.world.WorldBlockState.readMetadata(bullet.world, ix, iy, iz);
+					if(meta < 6) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(bullet.world, ix, iy, iz, meta + 1, 3);
 					else { net.minecraft.world.World nativeRegisteredWriteWorld = bullet.world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = iy; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.block_foam; int nativeRegisteredWriteMeta = 0; int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				}
 			}
@@ -159,15 +159,15 @@ public class XFactoryTool {
 			if(core instanceof IRepairable) { ((IRepairable) core).tryExtinguish(bullet.world, ix, iy, iz, EnumExtinguishType.SAND); return; }
 			if(bullet.world.rand.nextBoolean()) {
 				net.minecraft.util.EnumFacing side = mop.sideHit;
-				ix += side.getFrontOffsetX(); iy += side.getFrontOffsetY(); iz += side.getFrontOffsetZ();
+				ix += side.getXOffset(); iy += side.getYOffset(); iz += side.getZOffset();
 			}
 			Block b = com.hbm.world.WorldBlockState.read(bullet.world, ix, iy, iz).getBlock();
 			if((b.isReplaceable(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz)) || b == ModBlocks.sand_boron_layer) && ModBlocks.sand_boron_layer.canPlaceBlockAt(bullet.world, new net.minecraft.util.math.BlockPos(ix, iy, iz))) {
 				if(b != ModBlocks.sand_boron_layer) {
-					bullet.world.setBlock(ix, iy, iz, ModBlocks.sand_boron_layer);
+					com.hbm.world.WorldBlockState.writeLegacyBlock(bullet.world, ix, iy, iz, ModBlocks.sand_boron_layer);
 				} else {
-					int meta = bullet.world.getBlockMetadata(ix, iy, iz);
-					if(meta < 6) bullet.world.setBlockMetadataWithNotify(ix, iy, iz, meta + 1, 3);
+					int meta = com.hbm.world.WorldBlockState.readMetadata(bullet.world, ix, iy, iz);
+					if(meta < 6) com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(bullet.world, ix, iy, iz, meta + 1, 3);
 					else { net.minecraft.world.World nativeRegisteredWriteWorld = bullet.world; int nativeRegisteredWriteX = ix; int nativeRegisteredWriteY = iy; int nativeRegisteredWriteZ = iz; net.minecraft.block.Block nativeRegisteredWriteBlock = ModBlocks.sand_mix; int nativeRegisteredWriteMeta = EnumSandType.BORON.ordinal(); int nativeRegisteredWriteFlags = 3; if (nativeRegisteredWriteWorld == null) throw new NullPointerException(); if (nativeRegisteredWriteX >= -30000000 && nativeRegisteredWriteX < 30000000 && nativeRegisteredWriteZ >= -30000000 && nativeRegisteredWriteZ < 30000000 && nativeRegisteredWriteY >= 0 && nativeRegisteredWriteY < 256) com.hbm.world.WorldBlockState.write(nativeRegisteredWriteWorld, nativeRegisteredWriteX, nativeRegisteredWriteY, nativeRegisteredWriteZ, nativeRegisteredWriteBlock.getStateFromMeta(nativeRegisteredWriteMeta), nativeRegisteredWriteFlags); }
 				}
 				if(b.getDefaultState().getMaterial() == Material.FIRE) com.hbm.sound.VanillaWorldSoundEffects.play(bullet.world, bullet.posX, bullet.posY, bullet.posZ, "random.fizz", 1.0F, 1.5F + bullet.world.rand.nextFloat() * 0.5F);
@@ -275,7 +275,7 @@ public class XFactoryTool {
 						.setupStandardFire().recoil(LAMBDA_RECOIL_CT))
 				.setupStandardConfiguration()
 				.anim(LAMBDA_CT_ANIMS).orchestra(Orchestras.ORCHESTRA_CHARGE_THROWER)
-				).setDefaultAmmo(EnumAmmo.CT_MORTAR, 3).setUnlocalizedName("gun_charge_thrower");
+				).setDefaultAmmo(EnumAmmo.CT_MORTAR, 3).setTranslationKey("gun_charge_thrower");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> LAMBDA_RECOIL_CT = (stack, ctx) -> {

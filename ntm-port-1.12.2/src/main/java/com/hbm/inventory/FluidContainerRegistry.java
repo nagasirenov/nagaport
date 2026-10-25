@@ -34,12 +34,12 @@ public class FluidContainerRegistry {
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.WATER_BUCKET), new ItemStack(Items.BUCKET), Fluids.WATER, 1000));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.POTIONITEM), new ItemStack(Items.GLASS_BOTTLE), Fluids.WATER, 250));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(Items.LAVA_BUCKET), new ItemStack(Items.BUCKET), Fluids.LAVA, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_mud), new ItemStack(Items.BUCKET), Fluids.WATZ, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_schrabidic_acid), new ItemStack(Items.BUCKET), Fluids.SCHRABIDIC, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_sulfuric_acid), new ItemStack(Items.BUCKET), Fluids.SULFURIC_ACID, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_mercury), new ItemStack(Items.BUCKET), Fluids.MERCURY, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_bromine), new ItemStack(Items.BUCKET), Fluids.BROMINE, 1000));
-		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.BUCKET_ccl), new ItemStack(Items.BUCKET), Fluids.CCL, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_mud), new ItemStack(Items.BUCKET), Fluids.WATZ, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_schrabidic_acid), new ItemStack(Items.BUCKET), Fluids.SCHRABIDIC, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_sulfuric_acid), new ItemStack(Items.BUCKET), Fluids.SULFURIC_ACID, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_mercury), new ItemStack(Items.BUCKET), Fluids.MERCURY, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_bromine), new ItemStack(Items.BUCKET), Fluids.BROMINE, 1000));
+		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModItems.bucket_ccl), new ItemStack(Items.BUCKET), Fluids.CCL, 1000));
 
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModBlocks.red_barrel), new ItemStack(ModItems.tank_steel), Fluids.DIESEL, 10000));
 		FluidContainerRegistry.registerContainer(new FluidContainer(new ItemStack(ModBlocks.pink_barrel), new ItemStack(ModItems.tank_steel), Fluids.KEROSENE, 10000));

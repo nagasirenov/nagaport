@@ -72,7 +72,7 @@ public class EntityDepress extends Entity {
 		data.setInteger("color", 0xFFFFFF);
 		MainRegistry.proxy.effectNT(data);
 
-		List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, AxisAlignedBB.getBoundingBox(
+		List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(
 			posX - range, posY - range, posZ - range, posX + range, posY + range, posZ + range));
 
 		for(Entity entity : entities) {

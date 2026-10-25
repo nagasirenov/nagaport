@@ -51,10 +51,10 @@ public class ContainerBook extends Container {
 		if(!player.world.isRemote) {
 
 			for(int i = 0; i < 4; ++i) {
-				ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(i);
+				ItemStack itemstack = this.craftMatrix.removeStackFromSlot(i);
 
 				if(itemstack != null)
-					player.dropPlayerItemWithRandomChoice(itemstack, false);
+					player.dropItem(itemstack, false);
 			}
 		}
 	}
@@ -86,13 +86,13 @@ public class ContainerBook extends Container {
 				return null;
 			}
 
-			if(itemstack1.stackSize == 0) {
+			if(itemstack1.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
 			}
 
-			if(itemstack1.stackSize == itemstack.stackSize) {
+			if(itemstack1.getCount() == itemstack.getCount()) {
 				return null;
 			}
 
@@ -104,11 +104,11 @@ public class ContainerBook extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return player.inventory.hasItem(ModItems.book_of_);
+		return player.inventory.hasItemStack(new ItemStack(ModItems.book_of_));
 	}
 
 	@Override
-	public boolean func_94530_a(ItemStack stack, Slot slot) {
-		return slot.inventory != this.craftResult && super.func_94530_a(stack, slot);
+	public boolean canMergeSlot(ItemStack stack, Slot slot) {
+		return slot.inventory != this.craftResult && super.canMergeSlot(stack, slot);
 	}
 }

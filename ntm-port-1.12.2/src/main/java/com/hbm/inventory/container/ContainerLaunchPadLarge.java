@@ -14,13 +14,13 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerLaunchPadLarge extends Container {
-	
+
 	private TileEntityLaunchPadBase launchpad;
-	
+
 	public ContainerLaunchPadLarge(InventoryPlayer invPlayer, TileEntityLaunchPadBase tedf) {
-		
+
 		launchpad = tedf;
-		
+
 		//Missile
 		this.addSlotToContainer(new Slot(tedf, 0, 26, 36));
 		//Designator
@@ -35,7 +35,7 @@ public class ContainerLaunchPadLarge extends Container {
 		this.addSlotToContainer(new Slot(tedf, 5, 143, 90));
 		//Oxidizer out
 		this.addSlotToContainer(new SlotTakeOnly(tedf, 6, 143, 108));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 154 + i * 18));
@@ -61,7 +61,7 @@ public class ContainerLaunchPadLarge extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(var3.getItem() instanceof IBatteryItem || var3.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(var5, 2, 3, false)) {
 						return null;
@@ -91,7 +91,7 @@ public class ContainerLaunchPadLarge extends Container {
 				}
 			}
 
-			if(var5.stackSize == 0) {
+			if(var5.getCount() == 0) {
 				var4.putStack((ItemStack) null);
 			} else {
 				var4.onSlotChanged();

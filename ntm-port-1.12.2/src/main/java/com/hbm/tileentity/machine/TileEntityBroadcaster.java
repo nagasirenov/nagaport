@@ -77,14 +77,14 @@ public class TileEntityBroadcaster extends TileEntityLoadedBase implements net.m
 		Random rand = new Random(this.pos.getX() + this.pos.getY() + this.pos.getZ());
 		return MainRegistry.proxy.getLoopedSound("hbm:block.broadcast" + (rand.nextInt(3) + 1), this.pos.getX(), this.pos.getY(), this.pos.getZ(), 25F, 25F, 1.0F, 20);
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX(),
 					this.pos.getY(),
 					this.pos.getZ(),
@@ -93,10 +93,10 @@ public class TileEntityBroadcaster extends TileEntityLoadedBase implements net.m
 					this.pos.getZ() + 1
 					);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {

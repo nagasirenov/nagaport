@@ -22,8 +22,8 @@ public class WorldProviderIke extends WorldProviderCelestial {
 	}
 
 	@Override
-	public String getDimensionName() {
-		return "Ike";
+	public net.minecraft.world.DimensionType getDimensionType() {
+		return net.minecraftforge.common.DimensionManager.getProviderType(this.getDimension());
 	}
 
 	@Override

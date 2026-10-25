@@ -37,11 +37,11 @@ public class TileEntityGeiger extends TileEntity implements SimpleComponent, IIn
 			ticker = check();
 
 			// To update the adjacent comparators
-			this.world.notifyBlocksOfNeighborChange(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType());
+			this.world.notifyNeighborsOfStateChange(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()), this.getBlockType(), true);
 		}
 
 		if(timer % 5 == 0) {
-			
+
 			if(ticker > 0) {
 				if(this.world.rand.nextFloat() > ticker) return;
 				List<Integer> list = new ArrayList<Integer>();
@@ -57,10 +57,10 @@ public class TileEntityGeiger extends TileEntity implements SimpleComponent, IIn
 
 				int r = list.get(this.world.rand.nextInt(list.size()));
 
-				if(r > 0) this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:item.geiger" + r, 1.0F, 1.0F);
-				
+				if(r > 0) this.world.playSound(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.main.ModSoundEvents.resolve("hbm:item.geiger" + r), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
+
 			} else if(this.world.rand.nextInt(50) == 0) {
-				this.world.playSoundEffect(this.pos.getX(), this.pos.getY(), this.pos.getZ(), "hbm:item.geiger"+ (1 + this.world.rand.nextInt(1)), 1.0F, 1.0F);
+				this.world.playSound(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), com.hbm.main.ModSoundEvents.resolve("hbm:item.geiger"+ (1 + this.world.rand.nextInt(1))), net.minecraft.util.SoundCategory.BLOCKS, 1.0F, 1.0F);
 			}
 		}
 
@@ -69,7 +69,7 @@ public class TileEntityGeiger extends TileEntity implements SimpleComponent, IIn
 	public float check() {
 		return ChunkRadiationManager.proxy.getRadiation(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 	}
-	
+
 	@Override
 	@Optional.Method(modid = "OpenComputers")
 	public String getComponentName() {
@@ -89,10 +89,10 @@ public class TileEntityGeiger extends TileEntity implements SimpleComponent, IIn
 		data.setString(CompatEnergyControl.S_CHUNKRAD, chunkPrefix + rads + " RAD/s");
 
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1);
+		return new AxisAlignedBB(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.pos.getX() + 1, this.pos.getY() + 1, this.pos.getZ() + 1);
 	}
 
 	@Override

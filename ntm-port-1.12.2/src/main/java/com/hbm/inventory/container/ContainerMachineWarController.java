@@ -15,20 +15,20 @@ import net.minecraft.item.ItemStack;
 public class ContainerMachineWarController extends ContainerBase {
 
 	private TileEntityMachineWarController shill;
-	
+
 	public ContainerMachineWarController(InventoryPlayer invPlayer, TileEntityMachineWarController tedf) {
 		super(invPlayer, tedf);
 		shill = tedf;
-		
+
 		// 4 Slots (shifted upwards by modifying y values)
-		this.addSlotToContainer(new Slot(tedf, 0, 6, 52)); 
-		this.addSlotToContainer(new Slot(tedf, 1, 29, 11)); 
-		this.addSlotToContainer(new Slot(tedf, 2, 49, 11));  
-		this.addSlotToContainer(new Slot(tedf, 3, 29, 31));  
-		
+		this.addSlotToContainer(new Slot(tedf, 0, 6, 52));
+		this.addSlotToContainer(new Slot(tedf, 1, 29, 11));
+		this.addSlotToContainer(new Slot(tedf, 2, 49, 11));
+		this.addSlotToContainer(new Slot(tedf, 3, 29, 31));
+
 		playerInv(invPlayer,8,103,162);
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = null;
@@ -47,7 +47,7 @@ public class ContainerMachineWarController extends ContainerBase {
 				return null;
 			}
 
-			if(itemstack1.stackSize == 0) {
+			if(itemstack1.getCount() == 0) {
 				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
@@ -56,7 +56,7 @@ public class ContainerMachineWarController extends ContainerBase {
 
 		return itemstack;
 	}
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return shill.isUsableByPlayer(player);

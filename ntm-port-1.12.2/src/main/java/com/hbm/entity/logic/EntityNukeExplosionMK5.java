@@ -90,7 +90,7 @@ public class EntityNukeExplosionMK5 extends EntityExplosionChunkloading {
 				fallout.posY = this.posY;
 				fallout.posZ = this.posZ;
 				fallout.setScale((int)(this.length * 2.5 + falloutAdd) * BombConfig.falloutRange / 100);
-				this.world.spawnEntityInWorld(fallout);
+				this.world.spawnEntity(fallout);
 			}
 			this.clearChunkLoader();
 			this.setDead();
@@ -99,7 +99,7 @@ public class EntityNukeExplosionMK5 extends EntityExplosionChunkloading {
 
 	private void radiate(float rads, double range) {
 
-		List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
+		List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
 
 		for(EntityLivingBase e : entities) {
 

@@ -76,7 +76,7 @@ public class AtmosphereBlob implements Runnable {
 		if(y < 0 || y > 256) return false;
 
 		// Prevent loading new chunks, or we violate thread safety!
-		if(world instanceof WorldServer && !((WorldServer) world).getChunkProvider().chunkExists(x >> 4, z >> 4))
+		if(world instanceof WorldServer && ((WorldServer) world).getChunkProvider().getLoadedChunk(x >> 4, z >> 4) == null)
 			return true;
 
 		net.minecraft.block.state.IBlockState nativeAirState = com.hbm.world.WorldBlockState.read(world, x, y, z);
@@ -102,7 +102,7 @@ public class AtmosphereBlob implements Runnable {
 			// In the most common case, blocks don't use the passed World, only when they need to check neighbours to modify their bounding box
 			// we just want to check that it attempts to change its bounding box at all, resulting in null if it does so by checking neighbours
 			// anything that modifies its own bounding box safely (like half slabs) will still work as normal
-			bb = block.getCollisionBoundingBoxFromPool(null, x, y, z);
+			bb = block.getBoundingBox(com.hbm.world.WorldBlockState.read(world, x, y, z), null, new net.minecraft.util.math.BlockPos(x, y, z));
 		} catch(Exception ex) {}
 
 		if(bb == null) {
@@ -185,7 +185,7 @@ public class AtmosphereBlob implements Runnable {
 	private void addSingleBlock(ThreeInts blockPos) {
 		if(!graph.contains(blockPos)) {
 			graph.add(blockPos, getPositionsToAdd(blockPos));
-			if(handler.getWorld().getBlock(blockPos.x, blockPos.y, blockPos.z) instanceof IGrowable) {
+			if(com.hbm.world.WorldBlockState.read(handler.getWorld(), blockPos.x, blockPos.y, blockPos.z).getBlock() instanceof IGrowable) {
 				addPlant(handler.getWorld(), blockPos.x, blockPos.y, blockPos.z);
 			}
 		}
@@ -365,7 +365,7 @@ public class AtmosphereBlob implements Runnable {
 		depress.posX = pos.x + 0.5;
 		depress.posY = pos.y + 0.5;
 		depress.posZ = pos.z + 0.5;
-		world.spawnEntityInWorld(depress);
+		world.spawnEntity(depress);
 
 		com.hbm.sound.VanillaWorldSoundEffects.play(world, depress.posX, depress.posY, depress.posZ, "random.explode", 1.0F, 1.6F);
 		com.hbm.sound.VanillaWorldSoundEffects.play(world, depress.posX, depress.posY, depress.posZ, "random.fizz", 1.0F, 0.25F);

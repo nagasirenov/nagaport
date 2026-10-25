@@ -84,7 +84,7 @@ public class ContainerMachineShredder extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 29, 30, false)) return null;
 				} else if(rStack.getItem() instanceof ItemBlades) {
@@ -94,7 +94,7 @@ public class ContainerMachineShredder extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
@@ -106,7 +106,7 @@ public class ContainerMachineShredder extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return diFurnace.isUseableByPlayer(player);
+		return diFurnace.isUsableByPlayer(player);
 	}
 
 	@Override

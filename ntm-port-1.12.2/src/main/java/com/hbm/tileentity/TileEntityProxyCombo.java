@@ -36,6 +36,25 @@ import com.hbm.lib.ForgeDirection;
 })
 public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergyReceiverMK2, IEnergyConductorMK2, ISidedInventory, IFluidReceiverMK2, IHeatSource, ICrucibleAcceptor, SimpleComponent, OCComponent, IRORValueProvider, IRORInteractive {
 
+	@Override
+	public boolean isEmpty() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+			if(this.getStackInSlot(i) != null && !this.getStackInSlot(i).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override public int getField(int id) { return 0; }
+	@Override public void setField(int id, int value) {}
+	@Override public int getFieldCount() { return 0; }
+
+	@Override
+	public void clear() {
+		for(int i = 0; i < this.getSizeInventory(); i++) {
+		this.setInventorySlotContents(i, null);
+		}
+	}
+
 	TileEntity tile;
 	boolean inventory;
 	boolean power;
@@ -279,29 +298,37 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 	}
 
 	@Override
-	public String getInventoryName() {
+	public String getName() {
 
 		if(!inventory)
-			return null;
+			return "";
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			return ((ISidedInventory)getCoreObject()).getInventoryName();
+			return ((ISidedInventory)getCoreObject()).getName();
 		}
 
-		return null;
+		return "";
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 
 		if(!inventory)
 			return false;
 
 		if(getCoreObject() instanceof ISidedInventory) {
-			return ((ISidedInventory)getCoreObject()).hasCustomInventoryName();
+			return ((ISidedInventory)getCoreObject()).hasCustomName();
 		}
 
 		return false;
+	}
+
+	public String getInventoryName() {
+		return getName();
+	}
+
+	public boolean hasCustomInventoryName() {
+		return hasCustomName();
 	}
 
 	@Override
@@ -521,11 +548,11 @@ public class TileEntityProxyCombo extends TileEntityProxyBase implements IEnergy
 
 	@Override
 	@Optional.Method(modid = "OpenComputers")
-	public boolean canConnectNode(ForgeDirection side) {
+	public boolean canConnectNode(net.minecraft.util.EnumFacing side) {
 		if(this.getCoreObject() instanceof OCComponent) {
 			boolean isComponent = false;
 			if (this.world != null) {
-				Object nodeTE = Compat.getTileStandard(this.world, this.pos.getX() + side.offsetX, this.pos.getY() + side.offsetY, this.pos.getZ() + side.offsetZ);
+				Object nodeTE = Compat.getTileStandard(this.world, this.pos.getX() + side.getXOffset(), this.pos.getY() + side.getYOffset(), this.pos.getZ() + side.getZOffset());
 				if (nodeTE instanceof TileEntityProxyCombo) {
 					TileEntityProxyCombo proxy = (TileEntityProxyCombo)nodeTE;
 					if (proxy.getCoreObject() == this.getCoreObject()) isComponent = true;

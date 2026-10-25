@@ -19,6 +19,8 @@ import net.minecraft.world.World;
 
 public class BlockArmorTable extends Block implements IGUIProvider {
 
+	protected IIcon blockIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
@@ -28,7 +30,6 @@ public class BlockArmorTable extends Block implements IGUIProvider {
 		super(p_i45394_1_);
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 
@@ -37,7 +38,6 @@ public class BlockArmorTable extends Block implements IGUIProvider {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":armor_table_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 0 ? this.iconBottom : (side == 1 ? this.iconTop : this.blockIcon);

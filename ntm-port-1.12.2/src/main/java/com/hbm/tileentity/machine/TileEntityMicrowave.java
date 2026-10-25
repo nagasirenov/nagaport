@@ -35,7 +35,7 @@ import com.hbm.lib.ForgeDirection;
 
 @Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
 public class TileEntityMicrowave extends TileEntityMachineBase implements IEnergyReceiverMK2, IGUIProvider, SimpleComponent, CompatHandler.OCComponent, ICopiable {
-	
+
 	public long power;
 	public static final long maxPower = 50000;
 	public static final int consumption = 50;
@@ -55,15 +55,15 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 
 	@Override
 	public void update() {
-		
+
 		if(!this.world.isRemote) {
 
 			for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) this.trySubscribe(this.world, this.pos.getX() + dir.offsetX, this.pos.getY() + dir.offsetY, this.pos.getZ() + dir.offsetZ, dir);
-			
+
 			this.power = Library.chargeTEFromItems(slots, 2, power, maxPower);
-			
+
 			if(canProcess()) {
-				
+
 				if(speed >= maxSpeed) {
 					com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
 					ExplosionVNT vnt = new ExplosionVNT(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 5);
@@ -73,12 +73,12 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 					vnt.explode();
 					return;
 				}
-				
+
 				if(time >= maxTime) {
 					process();
 					time = 0;
 				}
-				
+
 				if(canProcess()) {
 					power -= consumption;
 					time += speed * 2;
@@ -104,62 +104,62 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 		time = buf.readInt();
 		speed = buf.readInt();
 	}
-	
+
 	public void handleButtonPacket(int value, int meta) {
-		
+
 		if(value == 0)
 			speed++;
-		
+
 		if(value == 1)
 			speed--;
-		
+
 		if(speed < 0)
 			speed = 0;
-		
+
 		if(speed > maxSpeed)
 			speed = maxSpeed;
 	}
-	
+
 	private void process() {
-		
-		ItemStack stack = FurnaceRecipes.smelting().getSmeltingResult(slots[0]).copy();
-		
+
+		ItemStack stack = FurnaceRecipes.instance().getSmeltingResult(slots[0]).copy();
+
 		if(slots[1] == null) {
 			slots[1] = stack;
 		} else {
-			slots[1].stackSize += stack.stackSize;
+			slots[1].grow(stack.getCount());
 		}
-		
+
 		this.decrStackSize(0, 1);
-		
+
 		this.markDirty();
 	}
-	
+
 	private boolean canProcess() {
-		
+
 		if(speed  == 0)
 			return false;
-		
+
 		if(power < consumption)
 			return false;
-		
-		if(slots[0] != null && FurnaceRecipes.smelting().getSmeltingResult(slots[0]) != null) {
-			
-			ItemStack stack = FurnaceRecipes.smelting().getSmeltingResult(slots[0]);
-			
+
+		if(slots[0] != null && FurnaceRecipes.instance().getSmeltingResult(slots[0]) != null) {
+
+			ItemStack stack = FurnaceRecipes.instance().getSmeltingResult(slots[0]);
+
 			if(!(slots[0].getItem() instanceof ItemFood) && !(stack.getItem() instanceof ItemFood)) return false;
 			if(slots[1] == null) return true;
 			if(!stack.isItemEqual(slots[1])) return false;
-			
-			return stack.stackSize + slots[1].stackSize <= stack.getMaxStackSize();
+
+			return stack.getCount() + slots[1].getCount() <= stack.getMaxStackSize();
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
-		return i == 0 && FurnaceRecipes.smelting().getSmeltingResult(itemStack) != null;
+		return i == 0 && FurnaceRecipes.instance().getSmeltingResult(itemStack) != null;
 	}
 
 	@Override
@@ -179,24 +179,24 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal();
 		return side == 0 ? new int[] { 1 } : new int[] { 0 };
 	}
-	
+
 	public long getPowerScaled(int i) {
 		return (power * i) / maxPower;
 	}
-	
+
 	public int getProgressScaled(int i) {
 		return (time * i) / maxTime;
 	}
-	
+
 	public int getSpeedScaled(int i) {
 		return (speed * i) / maxSpeed;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return TileEntity.INFINITE_EXTENT_AABB;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared()
@@ -218,15 +218,15 @@ public class TileEntityMicrowave extends TileEntityMachineBase implements IEnerg
 	public long getMaxPower() {
 		return maxPower;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		
+
 		power = nbt.getLong("power");
 		speed = nbt.getInteger("speed");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);

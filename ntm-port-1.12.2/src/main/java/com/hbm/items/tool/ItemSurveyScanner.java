@@ -16,6 +16,11 @@ import net.minecraft.world.World;
 public class ItemSurveyScanner extends Item {
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(!world.isRemote) {
@@ -71,16 +76,23 @@ public class ItemSurveyScanner extends Item {
 			if(tile != null && tile.resource != null) player.sendMessage(new TextComponentString("Found BEDROCK ORE for " + tile.resource.getDisplayName() + "!").setStyle(new Style().setColor(TextFormatting.RED)));
 		}
 
-		player.swingItem();
+		player.swingArm(net.minecraft.util.EnumHand.MAIN_HAND);
 
 		return stack;
 
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
-		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.block_beryllium && player.inventory.hasItem(ModItems.entanglement_kit)) {
-			player.travelToDimension(1);
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.block_beryllium && player.inventory.hasItemStack(new net.minecraft.item.ItemStack(ModItems.entanglement_kit))) {
+			player.changeDimension(1);
 			return true;
 		}
 

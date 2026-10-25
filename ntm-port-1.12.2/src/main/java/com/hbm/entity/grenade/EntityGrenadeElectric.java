@@ -26,13 +26,13 @@ public class EntityGrenadeElectric extends EntityGrenadeBouncyBase
 
     @Override
     public void explode() {
-    	
+
         if (!this.world.isRemote)
         {
             this.setDead();
             this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2.0F, true);
         }
-            this.world.spawnEntityInWorld(new EntityLightningBolt(this.world, this.posX, this.posY, this.posZ));
+            this.world.spawnEntity(new EntityLightningBolt(this.world, this.posX, this.posY, this.posZ, false));
     }
 
 	@Override

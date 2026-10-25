@@ -52,7 +52,7 @@ public class BufPacket extends PrecompiledPacket {
 			if(Minecraft.getMinecraft().world == null)
 				return null;
 
-			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(m.x, m.y, m.z);
+			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(new net.minecraft.util.math.BlockPos(m.x, m.y, m.z));
 
 			if (te instanceof IBufPacketReceiver) {
 				try {

@@ -31,12 +31,12 @@ public class EntityGrenadeGas extends EntityGrenadeBouncyBase {
 		if (!this.world.isRemote) {
 			this.setDead();
 			this.world.createExplosion(this, this.posX, this.posY, this.posZ, 0.0F, true);
-			
+
 			EntityMist mist = new EntityMist(this.world);
 			mist.setType(Fluids.CHLORINE);
 			mist.setPosition(posX, posY - 5, posZ);
 			mist.setArea(15, 10);
-			this.world.spawnEntityInWorld(mist);
+			this.world.spawnEntity(mist);
 		}
 	}
 

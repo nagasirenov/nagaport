@@ -122,7 +122,7 @@ public class ContaminationUtil {
 
 		EntityLivingBase entity = (EntityLivingBase)e;
 
-		if(entity.isPotionActive(HbmPotion.stability.id))
+		if(entity.isPotionActive(HbmPotion.stability))
 			return;
 
 		if(!(entity instanceof EntityPlayer && ArmorUtil.checkForDigamma((EntityPlayer) entity)))

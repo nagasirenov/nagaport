@@ -52,7 +52,7 @@ public class ArmorBJ extends ArmorFSBPowered implements IItemRendererProvider {
 			ItemStack helmet = com.hbm.util.PlayerInventoryRead.get(player.inventory.armorInventory, 3);
 
 			if(!player.inventory.addItemStackToInventory(helmet))
-				player.dropPlayerItemWithRandomChoice(helmet, false);
+				player.dropItem(helmet, false);
 
 			player.inventory.armorInventory.set(3, ItemStack.EMPTY);
 

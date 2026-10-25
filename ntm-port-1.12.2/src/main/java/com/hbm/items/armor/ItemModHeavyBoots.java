@@ -89,7 +89,7 @@ public class ItemModHeavyBoots extends ItemArmorMod {
 	@SideOnly(Side.CLIENT)
 	public void armorRender(RenderPlayerEvent.SetArmorModel event, ItemStack armor) {
 		RenderPlayer renderer = event.getRenderer();
-		ModelBiped modelbiped = renderer.modelArmor;
+		ModelBiped modelbiped = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel());
 		modelbiped.bipedHead.showModel = false;
 		modelbiped.bipedHeadwear.showModel = false;
 		modelbiped.bipedBody.showModel = false;
@@ -97,9 +97,9 @@ public class ItemModHeavyBoots extends ItemArmorMod {
 		modelbiped.bipedLeftArm.showModel = false;
 		modelbiped.bipedRightLeg.showModel = true;
 		modelbiped.bipedLeftLeg.showModel = true;
-		modelbiped.onGround = renderer.modelBipedMain.onGround;
-		modelbiped.isRiding = renderer.modelBipedMain.isRiding;
-		modelbiped.isChild = renderer.modelBipedMain.isChild;
+		modelbiped.swingProgress = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel()).swingProgress;
+		modelbiped.isRiding = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel()).isRiding;
+		modelbiped.isChild = ((net.minecraft.client.model.ModelBiped) renderer.getMainModel()).isChild;
 
 		EntityPlayer player = event.getEntityPlayer();
 

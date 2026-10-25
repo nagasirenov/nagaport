@@ -10,10 +10,10 @@ public class ItemOreBlock extends ItemBlock {
 	public ItemOreBlock(Block p_i45328_1_) {
 		super(p_i45328_1_);
 	}
-	
+
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
-		return EnumRarity.uncommon;
+		return EnumRarity.UNCOMMON;
     }
 
 }

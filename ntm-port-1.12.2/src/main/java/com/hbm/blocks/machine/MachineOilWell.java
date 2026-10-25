@@ -71,29 +71,37 @@ public class MachineOilWell extends BlockDummyable implements IPersistentInfoPro
 		MultiblockHandlerXR.fillSpace(world, x - 1, y + 1, z + 1, new int[] {-1, 1, 0, 0, 0, 0}, this, dir);
 		MultiblockHandlerXR.fillSpace(world, x - 1, y + 1, z - 1, new int[] {-1, 1, 0, 0, 0, 0}, this, dir);
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
 		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
-		
+
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
-			
+
 			int[] pos = this.findCore(world, x, y, z);
-			
+
 			if(pos == null)
 				return false;
-			
+
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
 			return true;
 		} else {
 			return true;
 		}
 	}
-	
-	@Override
-	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+
+
+		@Override
+	public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> drops, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state, int fortune) {
+		int meta = state.getBlock().getMetaFromState(state);
+		net.minecraft.world.World w = world instanceof net.minecraft.world.World ? (net.minecraft.world.World) world : null;
+		java.util.ArrayList<net.minecraft.item.ItemStack> ret = getDrops(w, pos.getX(), pos.getY(), pos.getZ(), meta, fortune);
+		if(ret != null) drops.addAll(ret);
+	}
+
+public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		return IPersistentNBT.getDrops(world, x, y, z, this);
 	}
 
@@ -108,16 +116,17 @@ public class MachineOilWell extends BlockDummyable implements IPersistentInfoPro
 	}
 
 	@Override
-	public void onBlockExploded(World world, int x, int y, int z, Explosion explosion) {
+	public void onBlockExploded(World world, net.minecraft.util.math.BlockPos nativePos, Explosion explosion) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
 
 		int[] pos = this.findCore(world, x, y, z);
 		if(pos == null) return;
 		TileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(pos[0], pos[1], pos[2]));
 		if(!(core instanceof TileEntityMachineOilWell)) return;
-		
+
 		com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
-		onBlockDestroyedByExplosion(world, x, y, z, explosion);
-		
+		onExplosionDestroy(world, new net.minecraft.util.math.BlockPos(x, y, z), explosion);
+
 		TileEntityMachineOilWell well = (TileEntityMachineOilWell) core;
 		if(well.tanks[0].getFill() > 0 || well.tanks[1].getFill() > 0) {
 			well.tanks[0].setFill(0);
@@ -129,7 +138,7 @@ public class MachineOilWell extends BlockDummyable implements IPersistentInfoPro
 			xnt.setEntityProcessor(new EntityProcessorStandard());
 			xnt.setPlayerProcessor(new PlayerProcessorStandard());
 			xnt.explode();
-			
+
 			ExplosionCreator.composeEffect(world, pos[0] + 0.5, pos[1] + 0.5, pos[2] + 0.5, 10, 2F, 0.5F, 25F, 5, 8, 20, 0.75F, 1F, -2F, 150);
 		}
 	}

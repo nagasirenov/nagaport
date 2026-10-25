@@ -26,22 +26,29 @@ public class ItemDesingator extends Item implements IDesignatorItem {
 		}
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+
 		if(!(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() instanceof LaunchPad)) {
 
 			if(stack.getTagCompound() == null)
 				stack.setTagCompound(new NBTTagCompound());
-			
+
 			stack.getTagCompound().setInteger("xCoord", x);
 			stack.getTagCompound().setInteger("zCoord", z);
-			
+
 			if(world.isRemote) {
 				player.sendMessage(new TextComponentString("Position set!"));
 			}
 
-			world.playSoundAtEntity(player, "hbm:item.techBleep", 1.0F, 1.0F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.techBleep"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 			return true;
 		}

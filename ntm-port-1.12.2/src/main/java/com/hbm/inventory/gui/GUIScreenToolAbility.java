@@ -252,7 +252,7 @@ public class GUIScreenToolAbility extends GuiScreen {
 	}
 
 	@Override
-	public void handleMouseInput() {
+	public void handleMouseInput() throws java.io.IOException {
 		super.handleMouseInput();
 
 		if(Mouse.getEventButton() == -1) {
@@ -330,7 +330,7 @@ public class GUIScreenToolAbility extends GuiScreen {
 	}
 
 	@Override
-	protected void keyTyped(char c, int key) {
+	protected void keyTyped(char c, int key) throws java.io.IOException {
 		if(key == 1 || key == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
 			doClose();
 			return;
@@ -398,6 +398,6 @@ public class GUIScreenToolAbility extends GuiScreen {
 
 		MainRegistry.proxy.displayTooltip(config.getActivePreset().getMessage().getFormattedText(), MainRegistry.proxy.ID_TOOLABILITY);
 
-		this.mc.world.playSoundAtEntity(this.mc.player, "random.orb", 0.25F, config.getActivePreset().isNone() ? 0.75F : 1.25F);
+		this.mc.world.playSound(null, this.mc.player.posX, this.mc.player.posY, this.mc.player.posZ, com.hbm.main.ModSoundEvents.resolve("random.orb"), net.minecraft.util.SoundCategory.PLAYERS, 0.25F, config.getActivePreset().isNone() ? 0.75F : 1.25F);
 	}
 }

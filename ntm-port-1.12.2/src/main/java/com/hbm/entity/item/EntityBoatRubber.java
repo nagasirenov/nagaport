@@ -51,12 +51,11 @@ public class EntityBoatRubber extends Entity {
 		this.speedMultiplier = 0.07D;
 		this.preventEntitySpawning = true;
 		this.setSize(1.5F, 0.6F);
-		this.yOffset = this.height / 2.0F;
 	}
 
 	public EntityBoatRubber(World world, double x, double y, double z) {
 		this(world);
-		this.setPosition(x, y + (double) this.yOffset, z);
+		this.setPosition(x, y + (double) this.getYOffset(), z);
 		this.motionX = 0.0D;
 		this.motionY = 0.0D;
 		this.motionZ = 0.0D;
@@ -81,7 +80,7 @@ public class EntityBoatRubber extends Entity {
 		return entity.getEntityBoundingBox();
 	}
 	@Override
-	public AxisAlignedBB getBoundingBox() {
+	public AxisAlignedBB getCollisionBoundingBox() {
 		return this.getEntityBoundingBox();
 	}
 	@Override
@@ -92,22 +91,20 @@ public class EntityBoatRubber extends Entity {
 	public double getMountedYOffset() {
 		return (double) this.height * 0.0D - 0.3D;
 	}
-	
+
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if(this.isEntityInvulnerable()) {
+		if(this.isEntityInvulnerable(source)) {
 			return false;
 		} else if(!this.world.isRemote && !this.isDead) {
 			this.setForwardDirection(-this.getForwardDirection());
 			this.setTimeSinceHit(10);
 			this.setDamageTaken(this.getDamageTaken() + amount * 10.0F);
-			this.setBeenAttacked();
+			this.markVelocityChanged();
 			boolean hitByCreative = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer) source.getTrueSource()).capabilities.isCreativeMode;
 
 			if(hitByCreative || this.getDamageTaken() > 40.0F) {
-				if(this.isBeingRidden()) {
-					this.riddenByEntity.mountEntity(this);
-				}
+				this.removePassengers();
 
 				if(!hitByCreative) {
 					this.dropBoat();
@@ -121,7 +118,7 @@ public class EntityBoatRubber extends Entity {
 			return true;
 		}
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void performHurtAnimation() {
@@ -129,15 +126,15 @@ public class EntityBoatRubber extends Entity {
 		this.setTimeSinceHit(10);
 		this.setDamageTaken(this.getDamageTaken() * 11.0F);
 	}
-	
+
 	@Override
 	public boolean canBeCollidedWith() {
 		return !this.isDead;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void setPositionAndRotation2(double x, double y, double z, float yaw, float pitch, int interp) {
+	public void setPositionAndRotationDirect(double x, double y, double z, float yaw, float pitch, int interp, boolean teleport) {
 		if(this.isBoatEmpty) {
 			this.boatPosRotationIncrements = interp;
 		} else {
@@ -162,7 +159,7 @@ public class EntityBoatRubber extends Entity {
 		this.motionY = this.velocityY;
 		this.motionZ = this.velocityZ;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void setVelocity(double x, double y, double z) {
@@ -170,7 +167,7 @@ public class EntityBoatRubber extends Entity {
 		this.velocityY = this.motionY = y;
 		this.velocityZ = this.motionZ = z;
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
@@ -186,16 +183,16 @@ public class EntityBoatRubber extends Entity {
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
-		
+
 		byte b0 = 5;
 		double d0 = 0.0D;
 
 		for(int i = 0; i < b0; ++i) {
 			double d1 = this.getEntityBoundingBox().minY + (this.getEntityBoundingBox().maxY - this.getEntityBoundingBox().minY) * (double) (i + 0) / (double) b0 - 0.125D;
 			double d3 = this.getEntityBoundingBox().minY + (this.getEntityBoundingBox().maxY - this.getEntityBoundingBox().minY) * (double) (i + 1) / (double) b0 - 0.125D;
-			AxisAlignedBB axisalignedbb = AxisAlignedBB.getBoundingBox(this.getEntityBoundingBox().minX, d1, this.getEntityBoundingBox().minZ, this.getEntityBoundingBox().maxX, d3, this.getEntityBoundingBox().maxZ);
+			AxisAlignedBB axisalignedbb = new AxisAlignedBB(this.getEntityBoundingBox().minX, d1, this.getEntityBoundingBox().minZ, this.getEntityBoundingBox().maxX, d3, this.getEntityBoundingBox().maxZ);
 
-			if(this.world.isAABBInMaterial(axisalignedbb, Material.WATER)) {
+			if(this.world.isMaterialInBB(axisalignedbb, Material.WATER)) {
 				d0 += 1.0D / (double) b0;
 			}
 		}
@@ -210,7 +207,7 @@ public class EntityBoatRubber extends Entity {
 				this.rotationPitch = (float) ((double) this.rotationPitch + (this.boatPitch - (double) this.rotationPitch) / (double) this.boatPosRotationIncrements);
 				--this.boatPosRotationIncrements;
 				this.setPosition(x, y, z);
-				
+
 			} else {
 				double x = this.posX + this.motionX;
 				double y = this.posY + this.motionY;
@@ -222,7 +219,7 @@ public class EntityBoatRubber extends Entity {
 					this.motionY *= 0.5D;
 					this.motionZ *= 0.5D;
 				}
-				
+
 				this.passiveDeccelerate();
 			}
 		} else {
@@ -236,32 +233,33 @@ public class EntityBoatRubber extends Entity {
 
 				this.motionY += 0.007000000216066837D;
 			}
-			
+
 			double prevSpeedSq = Math.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
-			
+
 			this.isAirBorne = false;
 
-			if(this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase) {
-				EntityLivingBase entitylivingbase = (EntityLivingBase) this.riddenByEntity;
-				
+			Entity rider = this.getControllingPassenger();
+			if(rider instanceof EntityLivingBase) {
+				EntityLivingBase entitylivingbase = (EntityLivingBase) rider;
+
 				if(entitylivingbase.moveForward != 0 || entitylivingbase.moveStrafing != 0) {
-					
+
 					Vec3d dir = new Vec3d(0, 0, 1);
 					dir = dir.rotateYaw((float) -((this.rotationYaw + 90) * Math.PI / 180D));
 					this.motionX += dir.x * this.speedMultiplier * entitylivingbase.moveForward * 0.05D;
 					this.motionZ += dir.z * this.speedMultiplier * entitylivingbase.moveForward * 0.05D;
-					
+
 					float prevYaw = this.rotationYaw;
 					this.rotationYaw -= entitylivingbase.moveStrafing * 3;
-					
+
 					Vec3d newMotion = new Vec3d(motionX, 0, motionZ);
 					newMotion = newMotion.rotateYaw((float) (-(this.rotationYaw - prevYaw) * Math.PI / 180D));
 					this.motionX = newMotion.x;
 					this.motionZ = newMotion.z;
-					
+
 					//HOLY HELL! if we don't shit ourselves over packets and send them at proper intervals, entities are suddenly smooth! who would have thought! mojang certainly didn't!
 					EntityTrackerEntry entry = TrackerUtil.getTrackerEntry((WorldServer) this.world, this.getEntityId());
-					entry.lastYaw = MathHelper.floor(this.rotationYaw * 256.0F / 360.0F) + 10; //force-trigger rotation update
+					// entry.lastYaw = MathHelper.floor(this.rotationYaw * 256.0F / 360.0F) + 10;
 				}
 			} else {
 				this.motionX *= 0.95D;
@@ -316,41 +314,41 @@ public class EntityBoatRubber extends Entity {
 				this.motionZ *= 0.5D;
 			}
 
-			this.moveEntity(this.motionX, this.motionY, this.motionZ);
+			this.move(net.minecraft.entity.MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 
 			if(this.collidedHorizontally && prevSpeedSq > 0.2D) {
 				this.motionX *= 0.25D;
 				this.motionY *= 0.25D;
 				this.motionZ *= 0.25D;
-				
+
 			} else {
 				this.passiveDeccelerate();
 			}
 
 			this.rotationPitch = 0.0F;
-			
-			if(!(this.riddenByEntity instanceof EntityLivingBase)) {
+
+			if(!(this.getControllingPassenger() instanceof EntityLivingBase)) {
 				double yaw = (double) this.rotationYaw;
 				double deltaX = this.prevPosX - this.posX;
 				double deltaZ = this.prevPosZ - this.posZ;
-	
+
 				if(deltaX * deltaX + deltaZ * deltaZ > 0.001D) {
 					yaw = (double) ((float) (Math.atan2(deltaZ, deltaX) * 180.0D / Math.PI));
 				}
-	
+
 				double rotationSpeed = MathHelper.wrapDegrees(yaw - (double) this.rotationYaw);
-	
+
 				if(rotationSpeed > 20.0D) {
 					rotationSpeed = 20.0D;
 				}
-	
+
 				if(rotationSpeed < -20.0D) {
 					rotationSpeed = -20.0D;
 				}
-	
+
 				this.rotationYaw = (float) ((double) this.rotationYaw + rotationSpeed);
 			}
-			
+
 			this.setRotation(this.rotationYaw, this.rotationPitch);
 
 			if(!this.world.isRemote) {
@@ -360,14 +358,14 @@ public class EntityBoatRubber extends Entity {
 					for(int k1 = 0; k1 < list.size(); ++k1) {
 						Entity entity = (Entity) list.get(k1);
 
-						if(entity != this.riddenByEntity && entity.canBePushed() && (entity instanceof EntityBoatRubber || entity instanceof EntityBoat)) {
+						if(!this.isPassenger(entity) && entity.canBePushed() && (entity instanceof EntityBoatRubber || entity instanceof EntityBoat)) {
 							entity.applyEntityCollision(this);
 						}
 					}
 				}
 
-				if(this.isBeingRidden() && this.riddenByEntity.isDead) {
-					this.riddenByEntity = null;
+				if(this.isBeingRidden() && this.getPassengers().get(0).isDead) {
+					this.removePassengers();
 				}
 			}
 		}
@@ -398,58 +396,62 @@ public class EntityBoatRubber extends Entity {
 			}
 		}
 	}
-	
+
 	protected void passiveDeccelerate() {
 		this.motionX *= 0.99D;
 		this.motionY *= 0.95D;
 		this.motionZ *= 0.99D;
 	}
-	
+
 	@Override
-	public void updateRiderPosition() {
-		if(this.isBeingRidden()) {
+	public void updatePassenger(Entity rider) {
+		if(this.isPassenger(rider)) {
 			double offX = Math.cos((double) this.rotationYaw * Math.PI / 180.0D) * 0.4D;
 			double offZ = Math.sin((double) this.rotationYaw * Math.PI / 180.0D) * 0.4D;
-			this.riddenByEntity.setPosition(this.posX + offX, this.posY + this.getMountedYOffset() + this.riddenByEntity.getYOffset(), this.posZ + offZ);
-			
-			if(this.riddenByEntity instanceof EntityPlayer) {
-				EntityPlayer player = (EntityPlayer) this.riddenByEntity;
+			rider.setPosition(this.posX + offX, this.posY + this.getMountedYOffset() + rider.getYOffset(), this.posZ + offZ);
+
+			if(rider instanceof EntityPlayer) {
+				EntityPlayer player = (EntityPlayer) rider;
 				player.renderYawOffset = MathHelper.wrapDegrees(this.rotationYaw + 90F);
 			}
 		}
 	}
-	
+
 	@Override protected void writeEntityToNBT(NBTTagCompound p_70014_1_) { }
 	@Override protected void readEntityFromNBT(NBTTagCompound p_70037_1_) { }
-	
-	@Override
+
 	@SideOnly(Side.CLIENT)
 	public float getShadowSize() {
 		return 0.0F;
 	}
-	
-	@Override
-	public boolean interactFirst(EntityPlayer player) {
-		if(this.isBeingRidden() && this.riddenByEntity instanceof EntityPlayer && this.riddenByEntity != player) {
+
+
+		@Override
+	public boolean processInitialInteract(net.minecraft.entity.player.EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		return interactFirst(player);
+	}
+
+public boolean interactFirst(EntityPlayer player) {
+		if(this.isBeingRidden() && this.getControllingPassenger() instanceof EntityPlayer && !this.isPassenger(player)) {
 			return true;
 		} else {
 			if(!this.world.isRemote) {
-				player.mountEntity(this);
+				player.startRiding(this);
 			}
 
 			return true;
 		}
 	}
-	
+
 	@Override
-	protected void updateFallState(double fall, boolean onGround) {
+	protected void updateFallState(double fall, boolean onGround, net.minecraft.block.state.IBlockState state, net.minecraft.util.math.BlockPos pos) {
 		int x = MathHelper.floor(this.posX);
 		int y = MathHelper.floor(this.posY);
 		int z = MathHelper.floor(this.posZ);
 
 		if(onGround) {
 			if(this.fallDistance > 5.0F) {
-				this.fall(this.fallDistance);
+				this.fall(this.fallDistance, 1.0F);
 
 				if(!this.world.isRemote && !this.isDead) {
 					this.setDead();
@@ -458,15 +460,15 @@ public class EntityBoatRubber extends Entity {
 
 				this.fallDistance = 0.0F;
 			}
-		} else if(com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getBlock().getMaterial() != Material.WATER && fall < 0.0D) {
+		} else if(com.hbm.world.WorldBlockState.read(this.world, x, y - 1, z).getMaterial() != Material.WATER && fall < 0.0D) {
 			this.fallDistance = (float) ((double) this.fallDistance - fall);
 		}
 	}
-	
+
 	public void dropBoat() {
-		this.func_145778_a(ModItems.boat_rubber, 1, 0.0F);
+		this.dropItemWithOffset(ModItems.boat_rubber, 1, 0.0F);
 	}
-	
+
 	public void setDamageTaken(float amount) {
 		this.dataManager.set(DAMAGE_TAKEN, Float.valueOf(amount));
 	}

@@ -452,7 +452,7 @@ public class PUREXRecipes extends GenericRecipes<GenericRecipe> {
 				.outputFluids(new FluidStack(Fluids.WATZ, 1_000))
 				.setIconToFirstIngredient());
 
-		ArrayList<ItemStack> naquadriaNuggets = OreDictionary.getOres("nuggetNaquadria");
+		net.minecraft.util.NonNullList<ItemStack> naquadriaNuggets = OreDictionary.getOres("nuggetNaquadria");
 		if(naquadriaNuggets.size() != 0) {
 			ItemStack nuggetNQR = naquadriaNuggets.get(0);
 			ItemStack copy = nuggetNQR.copy();

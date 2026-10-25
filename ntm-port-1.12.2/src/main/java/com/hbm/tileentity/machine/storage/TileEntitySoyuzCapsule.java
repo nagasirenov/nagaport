@@ -22,11 +22,11 @@ public class TileEntitySoyuzCapsule extends TileEntityInventoryBase implements I
 	protected String getDefaultName() {
 		return "container.soyuzCapsule";
 	}
-	
+
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getRenderBoundingBox() {
-    	
-        return AxisAlignedBB.getBoundingBox(this.pos.getX() - 1, this.pos.getY() - 1, this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
+
+        return new AxisAlignedBB(this.pos.getX() - 1, this.pos.getY() - 1, this.pos.getZ() - 1, this.pos.getX() + 2, this.pos.getY() + 3, this.pos.getZ() + 2);
     }
 
 	@Override

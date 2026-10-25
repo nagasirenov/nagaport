@@ -63,7 +63,7 @@ public class RBMKDials {
 			gameRules.put(key, new ArrayList<>());
 		refresh(world);
 
-		if(!rules.getGameRuleBooleanValue(RBMKKeys.KEY_SAVE_DIALS.keyString) || forceRecreate) {
+		if(!rules.getBoolean(RBMKKeys.KEY_SAVE_DIALS.keyString) || forceRecreate) {
 			for(RBMKKeys key : RBMKKeys.values())
 				rules.setOrCreateGameRule(key.keyString, String.valueOf(key.defValue));
 		}
@@ -94,7 +94,7 @@ public class RBMKDials {
 		gameRules.get(RBMKKeys.KEY_FUEL_DIFFUSION_MOD).add(new Tuple.Pair<>(world, GameRuleHelper.getDoubleMinimum(world, RBMKKeys.KEY_FUEL_DIFFUSION_MOD, 0.0D)));
 		gameRules.get(RBMKKeys.KEY_HEAT_PROVISION).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedDouble(world, RBMKKeys.KEY_HEAT_PROVISION, 0.0D, 1.0D)));
 		gameRules.get(RBMKKeys.KEY_COLUMN_HEIGHT).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedInt(world, RBMKKeys.KEY_COLUMN_HEIGHT, 2, 16) - 1));
-		gameRules.get(RBMKKeys.KEY_PERMANENT_SCRAP).add(new Tuple.Pair<>(world, world.getGameRules().getGameRuleBooleanValue(RBMKKeys.KEY_PERMANENT_SCRAP.keyString)));
+		gameRules.get(RBMKKeys.KEY_PERMANENT_SCRAP).add(new Tuple.Pair<>(world, world.getGameRules().getBoolean(RBMKKeys.KEY_PERMANENT_SCRAP.keyString)));
 		gameRules.get(RBMKKeys.KEY_BOILER_HEAT_CONSUMPTION).add(new Tuple.Pair<>(world, GameRuleHelper.getDoubleMinimum(world, RBMKKeys.KEY_BOILER_HEAT_CONSUMPTION, 0D)));
 		gameRules.get(RBMKKeys.KEY_CONTROL_SPEED_MOD).add(new Tuple.Pair<>(world, GameRuleHelper.getDoubleMinimum(world, RBMKKeys.KEY_CONTROL_SPEED_MOD, 0.0D)));
 		gameRules.get(RBMKKeys.KEY_REACTIVITY_MOD).add(new Tuple.Pair<>(world, GameRuleHelper.getDoubleMinimum(world, RBMKKeys.KEY_REACTIVITY_MOD, 0.0D)));
@@ -102,16 +102,16 @@ public class RBMKDials {
 		gameRules.get(RBMKKeys.KEY_SURGE_MOD).add(new Tuple.Pair<>(world, GameRuleHelper.getDoubleMinimum(world, RBMKKeys.KEY_SURGE_MOD, 0.0D)));
 		gameRules.get(RBMKKeys.KEY_FLUX_RANGE).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedInt(world, RBMKKeys.KEY_FLUX_RANGE, 1, 100)));
 		gameRules.get(RBMKKeys.KEY_REASIM_RANGE).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedInt(world, RBMKKeys.KEY_REASIM_RANGE, 1, 100)));
-		gameRules.get(RBMKKeys.KEY_REASIM_BOILERS).add(new Tuple.Pair<>(world, world.getGameRules().getGameRuleBooleanValue(RBMKKeys.KEY_REASIM_BOILERS.keyString) || GeneralConfig.enable528ReasimBoilers));
+		gameRules.get(RBMKKeys.KEY_REASIM_BOILERS).add(new Tuple.Pair<>(world, world.getGameRules().getBoolean(RBMKKeys.KEY_REASIM_BOILERS.keyString) || GeneralConfig.enable528ReasimBoilers));
 		gameRules.get(RBMKKeys.KEY_REASIM_BOILER_SPEED).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedDouble(world, RBMKKeys.KEY_REASIM_BOILER_SPEED, 0.0D, 1.0D)));
-		gameRules.get(RBMKKeys.KEY_DISABLE_MELTDOWNS).add(new Tuple.Pair<>(world, world.getGameRules().getGameRuleBooleanValue(RBMKKeys.KEY_DISABLE_MELTDOWNS.keyString)));
-		gameRules.get(RBMKKeys.KEY_ENABLE_MELTDOWN_OVERPRESSURE).add(new Tuple.Pair<>(world, world.getGameRules().getGameRuleBooleanValue(RBMKKeys.KEY_ENABLE_MELTDOWN_OVERPRESSURE.keyString)));
+		gameRules.get(RBMKKeys.KEY_DISABLE_MELTDOWNS).add(new Tuple.Pair<>(world, world.getGameRules().getBoolean(RBMKKeys.KEY_DISABLE_MELTDOWNS.keyString)));
+		gameRules.get(RBMKKeys.KEY_ENABLE_MELTDOWN_OVERPRESSURE).add(new Tuple.Pair<>(world, world.getGameRules().getBoolean(RBMKKeys.KEY_ENABLE_MELTDOWN_OVERPRESSURE.keyString)));
 		gameRules.get(RBMKKeys.KEY_MODERATOR_EFFICIENCY).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedDouble(world, RBMKKeys.KEY_MODERATOR_EFFICIENCY, 0.0D, 1.0D)));
 		gameRules.get(RBMKKeys.KEY_ABSORBER_EFFICIENCY).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedDouble(world, RBMKKeys.KEY_ABSORBER_EFFICIENCY, 0.0D, 1.0D)));
 		gameRules.get(RBMKKeys.KEY_ABSORBER_HEAT_CONVERSION).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedDouble(world, RBMKKeys.KEY_ABSORBER_HEAT_CONVERSION, 0.0D, 1.0D)));
 		gameRules.get(RBMKKeys.KEY_REFLECTOR_EFFICIENCY).add(new Tuple.Pair<>(world, GameRuleHelper.getClampedDouble(world, RBMKKeys.KEY_REFLECTOR_EFFICIENCY, 0.0D, 1.0D)));
-		gameRules.get(RBMKKeys.KEY_DISABLE_DEPLETION).add(new Tuple.Pair<>(world, world.getGameRules().getGameRuleBooleanValue(RBMKKeys.KEY_DISABLE_DEPLETION.keyString)));
-		gameRules.get(RBMKKeys.KEY_DISABLE_XENON).add(new Tuple.Pair<>(world, world.getGameRules().getGameRuleBooleanValue(RBMKKeys.KEY_DISABLE_XENON.keyString)));
+		gameRules.get(RBMKKeys.KEY_DISABLE_DEPLETION).add(new Tuple.Pair<>(world, world.getGameRules().getBoolean(RBMKKeys.KEY_DISABLE_DEPLETION.keyString)));
+		gameRules.get(RBMKKeys.KEY_DISABLE_XENON).add(new Tuple.Pair<>(world, world.getGameRules().getBoolean(RBMKKeys.KEY_DISABLE_XENON.keyString)));
 	}
 
 	/**
@@ -355,7 +355,7 @@ public class RBMKDials {
 	public static double getReflectorEfficiency(World world) {
 		return (double) getGameRule(world, RBMKKeys.KEY_REFLECTOR_EFFICIENCY);
 	}
-	
+
 	/**
 	 * Whether fuel rods should deplete, disabling this makes rods last forever
 	 * @param world
@@ -364,7 +364,7 @@ public class RBMKDials {
 	public static boolean getDepletion(World world) {
 		return !((boolean) getGameRule(world, RBMKKeys.KEY_DISABLE_DEPLETION));
 	}
-	
+
 	/**
 	 * Whether xenon poison should be calculated
 	 * @param world

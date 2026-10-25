@@ -222,7 +222,7 @@ public class ChunkAtmosphereHandler {
 
 		if(canExist) return false;
 
-		block.dropBlockAsItem(world, x, y, z, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ), 0);
+		block.dropBlockAsItem(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), 0);
 		com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 
 		return true;
@@ -337,12 +337,12 @@ public class ChunkAtmosphereHandler {
 
 	public void receiveBlockPlaced(BlockEvent.PlaceEvent event) {
 		if(event.getWorld().isRemote) return;
-		onBlockPlaced(event.getWorld(), new ThreeInts(event.x, event.y, event.z));
+		onBlockPlaced(event.getWorld(), new ThreeInts(event.getPos().getX(), event.getPos().getY(), event.getPos().getZ()));
 	}
 
 	public void receiveBlockBroken(BlockEvent.BreakEvent event) {
 		if(event.getWorld().isRemote) return;
-		onBlockRemoved(event.getWorld(), new ThreeInts(event.x, event.y, event.z));
+		onBlockRemoved(event.getWorld(), new ThreeInts(event.getPos().getX(), event.getPos().getY(), event.getPos().getZ()));
 	}
 
 	// Stores explosion events to execute unsealing after they complete, and the blocks that actually unseal from the explosion
@@ -368,8 +368,10 @@ public class ChunkAtmosphereHandler {
 
 		for(Pair<ExplosionEvent.Detonate, List<ThreeInts>> pair : explosions) {
 			ExplosionEvent.Detonate event = pair.key;
-			ThreeInts explosion = new ThreeInts(MathHelper.floor_double(event.getExplosion().explosionX), MathHelper.floor_double(event.getExplosion().explosionY), MathHelper.floor_double(event.getExplosion().explosionZ));
-			List<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.getWorld(), explosion, MAX_BLOB_RADIUS + MathHelper.ceiling_float_int(event.getExplosion().explosionSize));
+			net.minecraft.util.math.Vec3d expPos = event.getExplosion().getPosition();
+			ThreeInts explosion = new ThreeInts(MathHelper.floor(expPos.x), MathHelper.floor(expPos.y), MathHelper.floor(expPos.z));
+			float expSize = ((Float) net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(net.minecraft.world.Explosion.class, event.getExplosion(), "size", "field_77280_f")).floatValue();
+			List<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.getWorld(), explosion, MAX_BLOB_RADIUS + MathHelper.ceil(expSize));
 
 			for(ThreeInts pos : pair.value) {
 				if(nearbyBlobs.size() == 0) break;
@@ -395,7 +397,7 @@ public class ChunkAtmosphereHandler {
 	}
 
 	public void receiveTreeGrow(SaplingGrowTreeEvent event) {
-		ThreeInts pos = new ThreeInts(event.x, event.y, event.z);
+		ThreeInts pos = new ThreeInts(event.getPos().getX(), event.getPos().getY(), event.getPos().getZ());
 		List<AtmosphereBlob> nearbyBlobs = getBlobsWithinRadius(event.getWorld(), pos, MAX_BLOB_RADIUS);
 		for(AtmosphereBlob blob : nearbyBlobs) {
 			if(blob.contains(pos)) {
@@ -440,9 +442,9 @@ public class ChunkAtmosphereHandler {
 						: block == Blocks.DIRT || block == ModBlocks.waste_earth || block == ModBlocks.dirt_dead || block == ModBlocks.dirt_oily;
 
 					if(shouldReplace) {
-						world.setBlock(x, y, z, growth.into);
+						com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, growth.into);
 
-						if(growth.into == Blocks.GRASS) world.playAuxSFX(2005, x, y + 1, z, 0);
+						if(growth.into == Blocks.GRASS) world.playEvent(2005, new BlockPos(x, y + 1, z), 0);
 
 						if(growth.time > 0) addGrowth(world, growth.from, growth.into, x, y, z, growth.time - 1);
 

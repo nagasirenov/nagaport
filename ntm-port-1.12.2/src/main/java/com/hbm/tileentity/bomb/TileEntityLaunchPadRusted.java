@@ -60,7 +60,7 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 			this.networkPackNT(250);
 		} else {
 
-			List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, AxisAlignedBB.getBoundingBox(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
+			List<EntityMissileBaseNT> entities = this.world.getEntitiesWithinAABB(EntityMissileBaseNT.class, new AxisAlignedBB(this.pos.getX() - 0.5, this.pos.getY(), this.pos.getZ() - 0.5, this.pos.getX() + 1.5, this.pos.getY() + 10, this.pos.getZ() + 1.5));
 
 			if(!entities.isEmpty()) {
 				for(int i = 0; i < 15; i++) {
@@ -112,7 +112,7 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 					int targetZ = (int) Math.floor(coords.z);
 
 					EntityMissileDoomsdayRusted missile = new EntityMissileDoomsdayRusted(this.world, this.pos.getX() + 0.5F, this.pos.getY() + 1F, this.pos.getZ() + 0.5F, targetX, targetZ);
-					this.world.spawnEntityInWorld(missile);
+					this.world.spawnEntity(missile);
 					TrackerUtil.setTrackingRange(this.world, missile, 500);
 					com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY(), this.pos.getZ() + 0.5, "hbm:weapon.missileTakeOff", 2.0F, 1.0F);
 					this.missileLoaded = false;
@@ -137,7 +137,7 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 		this.prevRedstonePower = nbt.getInteger("prevRedstonePower");
 		NBTTagCompound activatedBlocks = nbt.getCompoundTag("activatedBlocks");
 		this.activatedBlocks.clear();
-		for(int i = 0; i < activatedBlocks.func_150296_c().size() / 3; i++) {
+		for(int i = 0; i < activatedBlocks.getKeySet().size() / 3; i++) {
 			this.activatedBlocks.add(new BlockPos(activatedBlocks.getInteger("x" + i), activatedBlocks.getInteger("y" + i), activatedBlocks.getInteger("z" + i)));
 		}
 	}
@@ -187,7 +187,7 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 2,
 					this.pos.getY(),
 					this.pos.getZ() - 2,

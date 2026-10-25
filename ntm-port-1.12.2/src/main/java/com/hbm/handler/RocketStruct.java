@@ -46,7 +46,7 @@ public class RocketStruct {
 	}
 
 	public void addStage(ItemStack fuselage, ItemStack fins, ItemStack thruster) {
-		addStage(MissilePart.getPart(fuselage), MissilePart.getPart(fins), MissilePart.getPart(thruster), fuselage != null ? fuselage.stackSize : 1, thruster != null ? thruster.stackSize : 1);
+		addStage(MissilePart.getPart(fuselage), MissilePart.getPart(fins), MissilePart.getPart(thruster), fuselage != null ? fuselage.getCount() : 1, thruster != null ? thruster.getCount() : 1);
 	}
 
 	public void addStage(MissilePart fuselage, MissilePart fins, MissilePart thruster, int fuselageCount, int thrusterCount) {

@@ -7,26 +7,27 @@ import com.hbm.util.InventoryUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerCrucible extends Container {
-	
+
 	protected TileEntityCrucible crucible;
-	
+
 	public ContainerCrucible(InventoryPlayer invPlayer, TileEntityCrucible crucible) {
 		this.crucible = crucible;
-		
+
 		//template
 		this.addSlotToContainer(new SlotNonRetarded(crucible, 0, 107, 81));
-		
+
 		//input
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
 				this.addSlotToContainer(new SlotNonRetarded(crucible, j + i * 3 + 1, 107 + j * 18, 18 + i * 18));
 			}
 		}
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 132 + i * 18));
@@ -39,8 +40,8 @@ public class ContainerCrucible extends Container {
 	}
 
 	@Override
-	public ItemStack slotClick(int slot, int button, int mode, EntityPlayer player) {
-		if(mode == 2) return null;
+	public ItemStack slotClick(int slot, int button, ClickType mode, EntityPlayer player) {
+		if(mode == ClickType.SWAP) return ItemStack.EMPTY;
 		return super.slotClick(slot, button, mode, player);
 	}
 
@@ -57,14 +58,14 @@ public class ContainerCrucible extends Container {
 				if(!this.mergeItemStack(originalStack, 10, this.inventorySlots.size(), true)) {
 					return null;
 				}
-				
+
 				slot.onSlotChange(originalStack, stack);
-				
+
 			} else if(!InventoryUtil.mergeItemStack(this.inventorySlots, originalStack, 0, 10, false)) {
 				return null;
 			}
 
-			if(originalStack.stackSize == 0) {
+			if(originalStack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

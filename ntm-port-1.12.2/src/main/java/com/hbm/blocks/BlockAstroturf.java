@@ -12,6 +12,13 @@ import com.hbm.render.icon.IIcon;
 
 public class BlockAstroturf extends Block {
 
+	protected IIcon blockIcon;
+	public BlockAstroturf withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
@@ -19,7 +26,6 @@ public class BlockAstroturf extends Block {
 		super(mat);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":astroturf_top");
@@ -28,7 +34,7 @@ public class BlockAstroturf extends Block {
 
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-		return side == 1 ? this.iconTop : (side == 0 ? Blocks.DIRT.getBlockTextureFromSide(side) : this.blockIcon);
+		return side == 1 ? this.iconTop : this.blockIcon;
 	}
-	
+
 }

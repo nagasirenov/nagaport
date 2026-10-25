@@ -41,7 +41,7 @@ public class RadarEntry {
 	}
 	
 	public RadarEntry(EntityPlayer player) {
-		this(player.getDisplayName(), IRadarDetectableNT.PLAYER, (int) Math.floor(player.posX), (int) Math.floor(player.posY), (int) Math.floor(player.posZ), player.dimension, player.getEntityId(), true);
+		this(player.getDisplayName().getUnformattedText(), IRadarDetectableNT.PLAYER, (int) Math.floor(player.posX), (int) Math.floor(player.posY), (int) Math.floor(player.posZ), player.dimension, player.getEntityId(), true);
 	}
 	
 	public void fromBytes(ByteBuf buf) {

@@ -180,7 +180,7 @@ public class TileEntityMachineCryoDistill extends TileEntityMachineBase implemen
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 4,
 				this.pos.getY() - 2,
 				this.pos.getZ() - 4,

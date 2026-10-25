@@ -41,13 +41,13 @@ public class DepthDeposit {
 					double len = new Vec3d(x - i, y - j, z - k).length();
 					Block target = com.hbm.world.WorldBlockState.read(world, i, j, k).getBlock();
 
-					if(target.isReplaceableOreGen(world, i, j, k, genTarget) || target.isReplaceableOreGen(world, i, j, k, Blocks.BEDROCK)) { //yes you've heard right, bedrock
+					if(com.hbm.world.WorldBlockState.isReplaceableOreGen(target, world, i, j, k, genTarget) || com.hbm.world.WorldBlockState.isReplaceableOreGen(target, world, i, j, k, Blocks.BEDROCK)) { //yes you've heard right, bedrock
 
 						if(len + rand.nextInt(2) < size * fill) {
-							world.setBlock(i, j, k, block);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, i, j, k, block);
 
 						} else  if(len + rand.nextInt(2) <= size) {
-							world.setBlock(i, j, k, filler);
+							com.hbm.world.WorldBlockState.writeLegacyBlock(world, i, j, k, filler);
 						}
 					}
 				}

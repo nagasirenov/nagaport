@@ -21,9 +21,9 @@ public class ItemAnchorRemote extends ItemBattery {
 
 	@Override
 	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
-		
+
 		long charge = maxCharge;
-		
+
 		if(itemstack.hasTagCompound())
 			charge = getCharge(itemstack);
 
@@ -34,12 +34,19 @@ public class ItemAnchorRemote extends ItemBattery {
 			list.add("Charge: " + charge1 + "%");
 			list.add("(" + BobMathUtil.getShortNumber(charge) + "/" + BobMathUtil.getShortNumber(maxCharge) + "HE)");
 		}
-		
+
 		list.add("Charge rate: " + BobMathUtil.getShortNumber(chargeRate) + "HE/t");
 	}
 
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
+	}
+
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 
 		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.teleanchor) {
 
@@ -57,6 +64,11 @@ public class ItemAnchorRemote extends ItemBattery {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if(player.isSneaking() || world.isRemote) {
@@ -64,12 +76,12 @@ public class ItemAnchorRemote extends ItemBattery {
 		}
 
 		if(!stack.hasTagCompound()) {
-			world.playSoundAtEntity(player, "random.orb", 0.25F, 0.75F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("random.orb"), net.minecraft.util.SoundCategory.PLAYERS, 0.25F, 0.75F);
 			return stack;
 		}
-		
+
 		if(this.getCharge(stack) < 10_000) {
-			world.playSoundAtEntity(player, "random.orb", 0.25F, 0.75F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("random.orb"), net.minecraft.util.SoundCategory.PLAYERS, 0.25F, 0.75F);
 			return stack;
 		}
 
@@ -77,12 +89,12 @@ public class ItemAnchorRemote extends ItemBattery {
 		int y = stack.getTagCompound().getInteger("y");
 		int z = stack.getTagCompound().getInteger("z");
 
-		world.getChunkProvider().loadChunk(x >> 4, z >> 4);
+		world.getChunk(x >> 4, z >> 4);
 
 		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() == ModBlocks.teleanchor) {
 
 			if(player.isRiding()) {
-				player.mountEntity(null);
+				player.dismountRidingEntity();
 			}
 
 			world.newExplosion(player, x + 0.5, y + 1 + player.height / 2, z + 0.5, 2F, false, false);
@@ -94,11 +106,11 @@ public class ItemAnchorRemote extends ItemBattery {
 			for(int i = 0; i < 32; ++i) {
 				world.spawnParticle(net.minecraft.util.EnumParticleTypes.PORTAL, player.posX, player.posY + player.getRNG().nextDouble() * 2.0D, player.posZ, player.getRNG().nextGaussian(), 0.0D, player.getRNG().nextGaussian());
 			}
-			
+
 			this.dischargeBattery(stack, 10_000);
-			
+
 		} else {
-			world.playSoundAtEntity(player, "random.orb", 0.25F, 0.75F);
+			world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("random.orb"), net.minecraft.util.SoundCategory.PLAYERS, 0.25F, 0.75F);
 		}
 
 		return stack;

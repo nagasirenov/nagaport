@@ -27,6 +27,11 @@ import net.minecraft.world.World;
 
 public class EntityMinecartDestroyer extends EntityMinecartContainerBase implements IGUIProvider {
 
+	@Override
+	public net.minecraft.entity.item.EntityMinecart.Type getType() {
+		return net.minecraft.entity.item.EntityMinecart.Type.RIDEABLE;
+	}
+
 	public EntityMinecartDestroyer(World world) {
 		super(world);
 	}
@@ -35,9 +40,14 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 		super(world, x, y, z, type);
 	}
 
-	@Override
-	public boolean interactFirst(EntityPlayer player) {
-		if(net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.minecart.MinecartInteractEvent(this, player)))
+
+		@Override
+	public boolean processInitialInteract(net.minecraft.entity.player.EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		return interactFirst(player);
+	}
+
+public boolean interactFirst(EntityPlayer player) {
+		if(net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.minecart.MinecartInteractEvent(this, player, net.minecraft.util.EnumHand.MAIN_HAND)))
 			return true;
 		if(!this.world.isRemote) {
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, this.world, this.getEntityId(), 0, 0);
@@ -46,7 +56,6 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 		return true;
 	}
 
-	@Override
 	public Block func_145817_o() {
 		return ModBlocks.machine_shredder;
 	}
@@ -71,7 +80,6 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 		return entity.getEntityBoundingBox();
 	}
 
-	@Override
 	public AxisAlignedBB getBoundingBox() {
 		return this.getEntityBoundingBox();
 	}
@@ -79,37 +87,37 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
+
 		if(!this.world.isRemote && this.ticksExisted % 5 == 0) {
-			
-			List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(
+
+			List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(
 					posX - 2.5,
 					posY - 1.5,
 					posZ - 2.5,
 					posX + 2.5,
 					posY + 2,
 					posZ + 2.5));
-			
+
 			boolean sound = false;
-			
+
 			outer: for(EntityItem item : items) {
-				ItemStack stack = item.getEntityItem();
-				
+				ItemStack stack = item.getItem();
+
 				//Match meta
 				for(int i = 0; i < 9; i++) {
 					ItemStack match = this.slots[i];
-					
+
 					if(match != null && match.getItem() == stack.getItem() && match.getItemDamage() == stack.getItemDamage()) {
 						item.setDead();
 						sound = true;
 						continue outer;
 					}
 				}
-				
+
 				//Match wildcard
 				for(int i = 9; i < 18; i++) {
 					ItemStack match = this.slots[i];
-					
+
 					if(match != null && match.getItem() == stack.getItem()) {
 						item.setDead();
 						sound = true;
@@ -117,11 +125,11 @@ public class EntityMinecartDestroyer extends EntityMinecartContainerBase impleme
 					}
 				}
 			}
-			
+
 			if(sound)
 				com.hbm.sound.VanillaWorldSoundEffects.play(this.world, posX, posY, posZ, "mob.zombie.woodbreak", 0.5F, 0.5F + this.world.rand.nextFloat() * 0.2F);
 		}
-		
+
 		if(this.world.isRemote && this.ticksExisted % 5 == 0) {
 			this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.75, posZ, 0.0, 0.01, 0.0);
 		}

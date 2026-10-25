@@ -21,8 +21,8 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockICF extends BlockContainer implements IBlockCT {
-	
-	
+
+
 	public BlockICF(Material mat) {
 		super(mat);
         setDefaultState(blockState.getBaseState().withProperty(CTContext.METADATA, 0));
@@ -36,7 +36,7 @@ public class BlockICF extends BlockContainer implements IBlockCT {
         return CTContext.extend(state, world, pos, this);
     }
 
-	
+
 	@Override
 	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j)  {
 		return null;
@@ -56,27 +56,30 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
-		
-		TileEntity tile = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {
+		int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Block block = state.getBlock();
+		int meta = block.getMetaFromState(state);
+
+		TileEntity tile = world.getTileEntity(pos);
+
 		if(tile instanceof TileEntityBlockICF) {
 			TileEntityBlockICF icf = (TileEntityBlockICF) tile;
-			world.removeTileEntity(x, y, z);
+			world.removeTileEntity(pos);
 			if(icf.block != null) {
-				world.setBlock(x, y, z, icf.block, icf.meta, 3);
+				com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, icf.block, icf.meta, 3);
 				TileEntity controller = world.getTileEntity(new net.minecraft.util.math.BlockPos(icf.coreX, icf.coreY, icf.coreZ));
-				
+
 				if(controller instanceof TileEntityICFController) {
 					((TileEntityICFController) controller).assembled = false;
 				}
 			}
 		} else {
-			world.removeTileEntity(x, y, z);
+			world.removeTileEntity(pos);
 		}
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
-	
+
 	public static class TileEntityBlockICF extends TileEntity implements IEnergyReceiverMK2, net.minecraft.util.ITickable {
 
 		public Block block;
@@ -84,31 +87,31 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 		public int coreX;
 		public int coreY;
 		public int coreZ;
-		
+
 		@Override
 		public void update() {
-			
+
 			if(!this.world.isRemote) {
-				
+
 				if(this.world.getTotalWorldTime() % 20 == 0 && block != null) {
-					
+
 					TileEntityICFController controller = getCore();
-					
+
 					if(controller != null) {
 						if(!controller.assembled) {
-							this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+							this.getBlockType().breakBlock(this.world, this.pos, this.world.getBlockState(this.pos));
 						}
-					} else if(this.world.getChunkProvider().chunkExists(coreX >> 4, coreZ >> 4)) {
-						this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+					} else if(this.world.getChunkProvider().getLoadedChunk(coreX >> 4, coreZ >> 4) != null) {
+						this.getBlockType().breakBlock(this.world, this.pos, this.world.getBlockState(this.pos));
 					}
 				}
 			}
 		}
-		
+
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
-			
+
 			block = Block.getBlockById(nbt.getInteger("block"));
 			if(block != Blocks.AIR) {
 				meta = nbt.getInteger("meta");
@@ -119,7 +122,7 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 				block = null;
 			}
 		}
-		
+
 		@Override
 		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
@@ -133,22 +136,22 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 			}
 			return nbt;
 		}
-		
+
 		@Override
 		public void markDirty() {
 			if(this.world != null) {
-				this.world.markTileEntityChunkModified(this.pos.getX(), this.pos.getY(), this.pos.getZ(), this);
+				this.world.markChunkDirty(this.pos, this);
 			}
 		}
-		
+
 		public TileEntityICFController cachedCore;
-		
+
 		protected TileEntityICFController getCore() {
-			
+
 			if(cachedCore != null && !cachedCore.isInvalid()) return cachedCore;
 
-			if(this.world.getChunkProvider().chunkExists(coreX >> 4, coreZ >> 4)) {
-				
+			if(this.world.getChunkProvider().getLoadedChunk(coreX >> 4, coreZ >> 4) != null) {
+
 				TileEntity tile = this.world.getTileEntity(new net.minecraft.util.math.BlockPos(coreX, coreY, coreZ));
 				if(tile instanceof TileEntityICFController) {
 					TileEntityICFController controller = (TileEntityICFController) tile;
@@ -156,7 +159,7 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 					return controller;
 				}
 			}
-			
+
 			return null;
 		}
 
@@ -165,7 +168,7 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 			if(block == null) return 0;
 			TileEntityICFController controller = this.getCore();
 			if(controller != null) return controller.getPower();
-			
+
 			return 0;
 		}
 
@@ -181,12 +184,12 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 			if(block == null) return 0;
 			TileEntityICFController controller = this.getCore();
 			if(controller != null) return controller.getMaxPower();
-			
+
 			return 0;
 		}
 
 		public boolean isLoaded = true;
-		
+
 		@Override
 		public boolean isLoaded() {
 			return isLoaded;
@@ -197,7 +200,7 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 			super.onChunkUnload();
 			this.isLoaded = false;
 		}
-		
+
 		@Override
 		public boolean canConnect(ForgeDirection dir) {
 			if(this.getBlockMetadata() != 1) return false;

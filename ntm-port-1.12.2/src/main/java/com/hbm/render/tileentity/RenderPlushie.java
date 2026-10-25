@@ -129,8 +129,8 @@ public class RenderPlushie extends TileEntitySpecialRenderer implements IItemRen
 			GL11.glScaled(scale, scale, scale);
 			GL11.glRotated(90, 0, -1, 0);
 			GL11.glRotated(60, 0, 0, -1);
-			Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationItemsTexture);
-			IIcon icon = stack.getIconIndex();
+			Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+			IIcon icon = com.hbm.render.icon.LegacyIconRegister.wrapSprite(net.minecraft.client.Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(stack.getItem(), stack.getItemDamage()));
 			NativeIconExtrusion.draw(icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
 			break;
 		case HUNDUN:

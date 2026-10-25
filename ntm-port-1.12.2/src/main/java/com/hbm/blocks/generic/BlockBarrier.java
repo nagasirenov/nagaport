@@ -13,6 +13,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
 public class BlockBarrier extends Block implements ISBRHUniversal {
+	@Override
+	public net.minecraft.block.Block setSoundType(net.minecraft.block.SoundType sound) {
+		return super.setSoundType(sound);
+	}
+
     public BlockBarrier(Material material) { super(material); }
     @Override protected BlockStateContainer createBlockState() { return UniversalBlockState.create(this); }
     @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(UniversalBlockState.META, meta & 15); }
@@ -89,7 +94,7 @@ public class BlockBarrier extends Block implements ISBRHUniversal {
 			boxes.add(new AxisAlignedBB(0D, 0.9375D, 0.0625D, 1D, 1D, 0.4375D));
 			boxes.add(new AxisAlignedBB(0D, 0.9375D, 0.5625D, 1D, 1D, 0.9375D));
 		}
-		
+
         return boxes;
     }
 }

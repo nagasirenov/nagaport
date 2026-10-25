@@ -8,6 +8,8 @@ import com.hbm.render.icon.IIcon;
 
 public class BlockLogNT extends BlockLog {
 
+	protected IIcon[] field_150167_a;
+	protected IIcon[] field_150166_b;
 	private String sideIcon;
 	private String topIcon;
 

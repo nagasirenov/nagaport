@@ -94,7 +94,7 @@ public class Lego {
 				rec.getOnFire(stack).accept(stack, ctx);
 
 				if(rec.getFireSound(stack) != null)
-					entity.world.playSoundEffect(entity.posX, entity.posY, entity.posZ, rec.getFireSound(stack), rec.getFireVolume(stack), rec.getFirePitch(stack));
+					entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, com.hbm.main.ModSoundEvents.resolve(rec.getFireSound(stack)), net.minecraft.util.SoundCategory.BLOCKS, rec.getFireVolume(stack), rec.getFirePitch(stack));
 
 				int remaining = rec.getRoundsPerCycle(stack) - 1;
 				for(int i = 0; i < remaining; i++) if(rec.getCanFire(stack).apply(stack, ctx)) rec.getOnFire(stack).accept(stack, ctx);
@@ -234,15 +234,15 @@ public class Lego {
 				EntityBulletBaseMK4 mk4 = new EntityBulletBaseMK4(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);
 				if(ItemGunBaseNT.getIsLockedOn(stack)) mk4.lockonTarget = entity.world.getEntityByID(ItemGunBaseNT.getLockonTarget(stack));
 				if(i == 0 && config.blackPowder) BlackPowderCreator.composeEffect(entity.world, mk4.posX, mk4.posY, mk4.posZ, mk4.motionX, mk4.motionY, mk4.motionZ, 10, 0.25F, 0.5F, 10, 0.25F);
-				entity.world.spawnEntityInWorld(mk4);
+				entity.world.spawnEntity(mk4);
 			} else if(config.pType == ProjectileType.BULLET_CHUNKLOADING) {
 				EntityBulletBaseMK4CL mk4 = new EntityBulletBaseMK4CL(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);
 				if(ItemGunBaseNT.getIsLockedOn(stack)) mk4.lockonTarget = entity.world.getEntityByID(ItemGunBaseNT.getLockonTarget(stack));
 				if(i == 0 && config.blackPowder) BlackPowderCreator.composeEffect(entity.world, mk4.posX, mk4.posY, mk4.posZ, mk4.motionX, mk4.motionY, mk4.motionZ, 10, 0.25F, 0.5F, 10, 0.25F);
-				entity.world.spawnEntityInWorld(mk4);
+				entity.world.spawnEntity(mk4);
 			} else if(config.pType == ProjectileType.BEAM) {
 				EntityBulletBeamBase mk4 = new EntityBulletBeamBase(entity, config, damage, spread, sideOffset, heightOffset, forwardOffset);
-				entity.world.spawnEntityInWorld(mk4);
+				entity.world.spawnEntity(mk4);
 			}
 		}
 
@@ -294,9 +294,9 @@ public class Lego {
 	public static void tinyExplode(EntityBulletBaseMK4 bullet, RayTraceResult mop, float range) { tinyExplode(bullet, mop, range, 1F); }
 	public static void tinyExplode(EntityBulletBaseMK4 bullet, RayTraceResult mop, float range, float damageMod) {
 		net.minecraft.util.EnumFacing side = mop.sideHit;
-		double x = mop.hitVec.x + side.getFrontOffsetX() * 0.25D;
-		double y = mop.hitVec.y + side.getFrontOffsetY() * 0.25D;
-		double z = mop.hitVec.z + side.getFrontOffsetZ() * 0.25D;
+		double x = mop.hitVec.x + side.getXOffset() * 0.25D;
+		double y = mop.hitVec.y + side.getYOffset() * 0.25D;
+		double z = mop.hitVec.z + side.getZOffset() * 0.25D;
 		ExplosionVNT vnt = new ExplosionVNT(bullet.world, x, y, z, range, bullet.getThrower());
 		vnt.setEntityProcessor(new EntityProcessorCrossSmooth(1, bullet.damage * damageMod)
 				.setupPiercing(bullet.config.armorThresholdNegation, bullet.config.armorPiercingPercent).setKnockback(0.25D));

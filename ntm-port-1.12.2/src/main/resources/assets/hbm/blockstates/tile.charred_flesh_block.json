@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "hbm:charred_flesh_block_layer"
+    }
+  }
+}

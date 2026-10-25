@@ -1,103 +1,72 @@
 package com.hbm.blocks.generic;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockFenceGate extends BlockModDoor {
 
-    public BlockFenceGate(Material mat) {
-        super(mat);
-    }
-
-	private static boolean interacting = false;
-
-
-	@SideOnly(Side.CLIENT)
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
-		interacting = true;
-		AxisAlignedBB bb = super.getSelectedBoundingBoxFromPool(world, x, y, z);
-		interacting = false;
-		return bb;
+	public BlockFenceGate(Material mat) {
+		super(mat);
 	}
 
-	public RayTraceResult collisionRayTrace(IBlockState state, World world, BlockPos pos, Vec3d startVec, Vec3d endVec) {
-		interacting = true;
-		RayTraceResult mop = super.collisionRayTrace(state, world, pos, startVec, endVec);
-		interacting = false;
-		return mop;
-	}
+	private static final AxisAlignedBB AABB_CLOSED_Z = new AxisAlignedBB(0.46875D, 0.0D, 0.0D, 0.53125D, 1.0D, 1.0D);
+	private static final AxisAlignedBB AABB_CLOSED_X = new AxisAlignedBB(0.0D, 0.0D, 0.46875D, 1.0D, 1.0D, 0.53125D);
 
-	@Override
-	protected void func_150011_b(int meta) {
-        float f = 0.0625F;
-		float f1 = 0.46875F;
-		float f2 = 0.53125F;
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 1.0F);
-		int j = meta & 3;
-		boolean isOpen = !interacting && (meta & 4) != 0;
-		boolean isOtherSide = (meta & 16) != 0;
+	private static final AxisAlignedBB AABB_OPEN_0_LEFT = new AxisAlignedBB(0.5D, 0.0D, 0.0D, 1.5D, 1.0D, 0.0625D);
+	private static final AxisAlignedBB AABB_OPEN_0_RIGHT = new AxisAlignedBB(0.5D, 0.0D, 0.9375D, 1.5D, 1.0D, 1.0D);
+	private static final AxisAlignedBB AABB_OPEN_1_LEFT = new AxisAlignedBB(0.9375D, 0.0D, 0.5D, 1.0D, 1.0D, 1.5D);
+	private static final AxisAlignedBB AABB_OPEN_1_RIGHT = new AxisAlignedBB(0.0D, 0.0D, 0.5D, 0.0625D, 1.0D, 1.5D);
+	private static final AxisAlignedBB AABB_OPEN_2_LEFT = new AxisAlignedBB(-0.5D, 0.0D, 0.9375D, 0.5D, 1.0D, 1.0D);
+	private static final AxisAlignedBB AABB_OPEN_2_RIGHT = new AxisAlignedBB(-0.5D, 0.0D, 0.0D, 0.5D, 1.0D, 0.0625D);
+	private static final AxisAlignedBB AABB_OPEN_3_LEFT = new AxisAlignedBB(0.0D, 0.0D, -0.5D, 0.0625D, 1.0D, 0.5D);
+	private static final AxisAlignedBB AABB_OPEN_3_RIGHT = new AxisAlignedBB(0.9375D, 0.0D, -0.5D, 1.0D, 1.0D, 0.5D);
 
-		if (j == 0) {
-			if (isOpen) {
-				if (!isOtherSide) {
-					this.setBlockBounds(0.5F, 0.0F, 0.0F, 1.5F, 1.0F, f);
-				} else {
-					this.setBlockBounds(0.5F, 0.0F, 1.0F - f, 1.5F, 1.0F, 1.0F);
-				}
-			} else {
-				this.setBlockBounds(f1, 0.0F, 0.0F, f2, 1.0F, 1.0F);
-			}
-		} else if (j == 1) {
-			if (isOpen) {
-				if (!isOtherSide) {
-					this.setBlockBounds(1.0F - f, 0.0F, 0.5F, 1.0F, 1.0F, 1.5F);
-				} else {
-					this.setBlockBounds(0.0F, 0.0F, 0.5F, f, 1.0F, 1.5F);
-				}
-			} else {
-				this.setBlockBounds(0.0F, 0.0F, f1, 1.0F, 1.0F, f2);
-			}
-		} else if (j == 2) {
-			if (isOpen) {
-				if (!isOtherSide) {
-					this.setBlockBounds(-0.5F, 0.0F, 1.0F - f, 0.5F, 1.0F, 1.0F);
-				} else {
-					this.setBlockBounds(-0.5F, 0.0F, 0.0F, 0.5F, 1.0F, f);
-				}
-			} else {
-				this.setBlockBounds(f1, 0.0F, 0.0F, f2, 1.0F, 1.0F);
-			}
-		} else if (j == 3) {
-			if (isOpen) {
-				if (!isOtherSide) {
-					this.setBlockBounds(0.0F, 0.0F, -0.5F, f, 1.0F, 0.5F);
-				} else {
-					this.setBlockBounds(1.0F - f, 0.0F, -0.5F, 1.0F, 1.0F, 0.5F);
-				}
-			} else {
-				this.setBlockBounds(0.0F, 0.0F, f1, 1.0F, 1.0F, f2);
-			}
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		state = state.getActualState(source, pos);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		boolean open = ((Boolean) state.getValue(OPEN)).booleanValue();
+		boolean rightHinge = state.getValue(HINGE) == BlockDoor.EnumHingePosition.RIGHT;
+
+		if (!open) {
+			return (facing == EnumFacing.EAST || facing == EnumFacing.WEST) ? AABB_CLOSED_Z : AABB_CLOSED_X;
+		}
+
+		switch (facing) {
+		case EAST:
+		default:
+			return rightHinge ? AABB_OPEN_0_RIGHT : AABB_OPEN_0_LEFT;
+		case SOUTH:
+			return rightHinge ? AABB_OPEN_1_RIGHT : AABB_OPEN_1_LEFT;
+		case WEST:
+			return rightHinge ? AABB_OPEN_2_RIGHT : AABB_OPEN_2_LEFT;
+		case NORTH:
+			return rightHinge ? AABB_OPEN_3_RIGHT : AABB_OPEN_3_LEFT;
 		}
 	}
 
-    @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        int meta = this.func_150012_g(world, x, y, z);
-		boolean isOpen = (meta & 4) != 0;
-        if(isOpen) return null;
-        return super.getCollisionBoundingBoxFromPool(world, x, y, z);
-    }
+	@Override
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+		blockState = blockState.getActualState(worldIn, pos);
+		if (((Boolean) blockState.getValue(OPEN)).booleanValue()) {
+			return NULL_AABB;
+		}
+		return this.getBoundingBox(blockState, worldIn, pos);
+	}
+
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+		BlockPos pos = new BlockPos(x, y, z);
+		return this.getCollisionBoundingBox(world.getBlockState(pos), world, pos);
+	}
 
 	@Override
 	protected String getSFX() {
 		return "hbm:block.fenceGate";
 	}
-
 }

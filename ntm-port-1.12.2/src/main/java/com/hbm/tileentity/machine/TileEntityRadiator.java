@@ -17,7 +17,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityRadiator extends TileEntityCondenser {
-	
+
 	public static int inputTankSize = 500;
 	public static int outputTankSize = 500;
 
@@ -66,14 +66,14 @@ public class TileEntityRadiator extends TileEntityCondenser {
 		this.sendFluid(this.tanks[1], this.world, this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ - rot.offsetZ, dir);
 		this.sendFluid(this.tanks[1], this.world, this.pos.getX() - dir.offsetX - rot.offsetX, this.pos.getY() - 1, this.pos.getZ() - dir.offsetZ - rot.offsetZ, dir);
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 20,
 				this.pos.getY() - 1,
 				this.pos.getZ() - 20,
@@ -82,14 +82,14 @@ public class TileEntityRadiator extends TileEntityCondenser {
 				this.pos.getZ() + 21
 			);
 		}
-		
+
 		return bb;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getMaxRenderDistanceSquared() {
 		return 65536.0D;
 	}
-	
+
 }

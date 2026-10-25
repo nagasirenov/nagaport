@@ -63,13 +63,16 @@ public class MachineStardar extends BlockDummyable implements ITooltipProvider {
 
 		// Rack
 		BlockDummyable.safeRem = true;
-		world.setBlock(x - rot.offsetX + dir.offsetX * 2, y - 2, z - rot.offsetZ + dir.offsetZ * 2, this, rot.ordinal(), 3);
-		world.setBlock(x - rot.offsetX + dir.offsetX * 2, y - 3, z - rot.offsetZ + dir.offsetZ * 2, this, rot.ordinal(), 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x - rot.offsetX + dir.offsetX * 2, y - 2, z - rot.offsetZ + dir.offsetZ * 2, this, rot.ordinal(), 3);
+		com.hbm.world.WorldBlockState.writeLegacyBlock(world, x - rot.offsetX + dir.offsetX * 2, y - 3, z - rot.offsetZ + dir.offsetZ * 2, this, rot.ordinal(), 3);
 		BlockDummyable.safeRem = false;
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
 		return this.standardOpenBehavior(world, x, y, z, player, 0);
 	}
 

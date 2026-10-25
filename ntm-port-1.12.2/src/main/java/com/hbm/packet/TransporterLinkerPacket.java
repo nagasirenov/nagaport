@@ -40,12 +40,7 @@ public class TransporterLinkerPacket implements IMessage {
         }
         nbt.setTag("a", transporterList);
 		
-		try {
-			buffer.writeNBTTagCompoundToBuffer(nbt);
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		buffer.writeCompoundTag(nbt);
 	}
 
 	@Override
@@ -73,7 +68,7 @@ public class TransporterLinkerPacket implements IMessage {
 			Minecraft.getMinecraft();
 
 			try {
-				NBTTagCompound nbt = m.buffer.readNBTTagCompoundFromBuffer();
+				NBTTagCompound nbt = m.buffer.readCompoundTag();
 				ItemTransporterLinker.currentTransporters = new ArrayList<>();
 				
 				if(nbt != null) {

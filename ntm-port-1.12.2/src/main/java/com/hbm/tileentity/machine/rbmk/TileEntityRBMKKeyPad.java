@@ -116,7 +116,7 @@ public class TileEntityRBMKKeyPad extends TileEntityLoadedBase implements IGUIPr
 				TileEntityRBMKKeyPad.this.markDirty();
 			}
 			
-			TileEntityRBMKKeyPad.this.world.playSoundEffect(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, "random.click", 1F, this.isPressed ? 1F : 0.75F);
+			TileEntityRBMKKeyPad.this.world.playSound(null, TileEntityRBMKKeyPad.this.pos.getX() + 0.5, TileEntityRBMKKeyPad.this.pos.getY() + 0.5, TileEntityRBMKKeyPad.this.pos.getZ() + 0.5, com.hbm.main.ModSoundEvents.resolve("random.click"), net.minecraft.util.SoundCategory.BLOCKS, 1F, this.isPressed ? 1F : 0.75F);
 		}
 		
 		public void update() {

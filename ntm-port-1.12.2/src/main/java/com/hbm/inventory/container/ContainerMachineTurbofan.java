@@ -14,27 +14,27 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineTurbofan extends Container {
-	
+
 	private TileEntityMachineTurbofan diFurnace;
 	private int afterburner;
-	
+
 	public ContainerMachineTurbofan(InventoryPlayer invPlayer, TileEntityMachineTurbofan tedf) {
 		afterburner = 0;
-		
+
 		diFurnace = tedf;
-		
+
 		this.addSlotToContainer(new Slot(tedf, 0, 17, 17));
 		this.addSlotToContainer(new SlotTakeOnly(tedf, 1, 17, 53));
 		this.addSlotToContainer(new Slot(tedf, 2, 98, 71));
 		this.addSlotToContainer(new Slot(tedf, 3, 143, 71));
 		this.addSlotToContainer(new Slot(tedf, 4, 44, 71));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 8 + j * 18, 121 + i * 18));
 			}
 		}
-		
+
 		for(int i = 0; i < 9; i++) {
 			this.addSlotToContainer(new Slot(invPlayer, i, 8 + i * 18, 179));
 		}
@@ -44,7 +44,7 @@ public class ContainerMachineTurbofan extends Container {
 		super.addListener(crafting);
 		crafting.sendWindowProperty(this, 1, this.diFurnace.afterburner);
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack rStack = null;
@@ -59,7 +59,7 @@ public class ContainerMachineTurbofan extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem) {
 					if(!this.mergeItemStack(stack, 3, 4, false)) return null;
 				} else if(rStack.getItem() instanceof IItemFluidIdentifier) {
@@ -71,7 +71,7 @@ public class ContainerMachineTurbofan extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
@@ -85,24 +85,24 @@ public class ContainerMachineTurbofan extends Container {
 	public boolean canInteractWith(EntityPlayer player) {
 		return diFurnace.isUsableByPlayer(player);
 	}
-	
+
 	@Override
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
-		
+
 		for(int i = 0; i < this.listeners.size(); i++)
 		{
 			IContainerListener par1 = (IContainerListener)this.listeners.get(i);
-			
+
 			if(this.afterburner != this.diFurnace.afterburner)
 			{
 				par1.sendWindowProperty(this, 1, this.diFurnace.afterburner);
 			}
 		}
-		
+
 		this.afterburner = this.diFurnace.afterburner;
 	}
-	
+
 	@Override
 	public void updateProgressBar(int i, int j) {
 		if(i == 1)

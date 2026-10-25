@@ -25,7 +25,6 @@ public class MapGenVNoise extends MapGenBase {
 
 	public Biome applyToBiome;
 
-	@Override
 	public void generate(World world, int chunkX, int chunkZ, ChunkPrimer primer) {
 		// This deterministic whole-chunk pass has no per-neighbor placement or RNG to delegate.
 		long seed = world.getSeed();

@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class EntityCloudSolinium extends Entity {
 
 	private static final DataParameter<Integer> MAX_AGE = EntityDataManager.createKey(EntityCloudSolinium.class, DataSerializers.VARINT);
-	
+
 	public int maxAge = 100;
 	public int age;
     public float scale = 0;
@@ -35,13 +35,13 @@ public class EntityCloudSolinium extends Entity {
 
     @Override
 	@SideOnly(Side.CLIENT)
-    public int getBrightnessForRender(float p_70070_1_)
+    public int getBrightnessForRender()
     {
         return 15728880;
     }
 
     @Override
-	public float getBrightness(float p_70013_1_)
+	public float getBrightness()
     {
         return 1.0F;
     }
@@ -56,14 +56,14 @@ public class EntityCloudSolinium extends Entity {
     @Override
 	public void onUpdate() {
         this.age++;
-        this.world.spawnEntityInWorld(new EntityLightningBolt(this.world, this.posX, this.posY + 200, this.posZ));
-        
+        this.world.spawnEntity(new EntityLightningBolt(this.world, this.posX, this.posY + 200, this.posZ, false));
+
         if(this.age >= this.getMaxAge())
         {
     		this.age = 0;
         	this.setDead();
         }
-        
+
         this.scale++;
     }
 
@@ -77,13 +77,13 @@ public class EntityCloudSolinium extends Entity {
 	protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {
 		p_70014_1_.setShort("age", (short)age);
 		p_70014_1_.setShort("scale", (short)scale);
-		
+
 	}
-	
+
 	public void setMaxAge(int i) {
 		this.dataManager.set(MAX_AGE, Integer.valueOf(i));
 	}
-	
+
 	public int getMaxAge() {
 		return this.dataManager.get(MAX_AGE);
 	}

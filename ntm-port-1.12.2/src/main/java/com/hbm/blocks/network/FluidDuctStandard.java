@@ -178,7 +178,6 @@ public class FluidDuctStandard extends FluidDuctBase implements IBlockMulti, ILo
                 ? bounds(connections(world, pos, ((TileEntityPipeBaseNT) tile).getType())) : NULL_AABB;
     }
 
-    @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
         TileEntity tile = world.getTileEntity(pos);
         // The original left shared mutable bounds stale when the tile was missing.

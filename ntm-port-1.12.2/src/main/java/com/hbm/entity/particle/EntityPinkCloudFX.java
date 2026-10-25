@@ -62,7 +62,7 @@ public class EntityPinkCloudFX extends EntityModFX {
 			this.motionZ *= 0.699999988079071D;
 		}
 		
-		if(this.world.isRaining() && this.world.canBlockSeeTheSky(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ))) {
+		if(this.world.isRaining() && this.world.canSeeSky(new net.minecraft.util.math.BlockPos(MathHelper.floor(this.posX), MathHelper.floor(this.posY), MathHelper.floor(this.posZ)))) {
 			this.motionY -= 0.01;
 		}
 		
@@ -76,8 +76,8 @@ public class EntityPinkCloudFX extends EntityModFX {
 			
 			if(com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).getBlock() == ModBlocks.radiorec) {
 				this.setDead();
-				int meta = this.world.getBlockMetadata((int) posX, (int) posY, (int) posZ);
-				this.world.setBlock((int) posX, (int) posY, (int) posZ, ModBlocks.broadcaster_pc, meta, 2);
+				int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ));
+				this.world.setBlockState(new net.minecraft.util.math.BlockPos((int) posX, (int) posY, (int) posZ), ModBlocks.broadcaster_pc.getStateFromMeta(meta), 2);
 			}
 			
 			if (com.hbm.world.WorldBlockState.read(this.world, (int) posX, (int) posY, (int) posZ).isNormalCube()) {

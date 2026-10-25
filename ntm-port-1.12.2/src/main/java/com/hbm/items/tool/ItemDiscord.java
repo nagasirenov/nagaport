@@ -14,6 +14,11 @@ import net.minecraft.world.World;
 public class ItemDiscord extends Item {
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		RayTraceResult pos = Library.rayTrace(player, 100, 1);
@@ -23,13 +28,13 @@ public class ItemDiscord extends Item {
 			if(!world.isRemote) {
 
 				if(player.isRiding())
-					player.mountEntity(null);
+					player.dismountRidingEntity();
 
 				net.minecraft.util.EnumFacing side = pos.sideHit;
 
 				com.hbm.sound.VanillaWorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "mob.endermen.portal", 1.0F, 1.0F);
 
-				player.setPositionAndUpdate(pos.hitVec.x + side.getFrontOffsetX(), pos.hitVec.y + side.getFrontOffsetY() - 1, pos.hitVec.z + side.getFrontOffsetZ());
+				player.setPositionAndUpdate(pos.hitVec.x + side.getXOffset(), pos.hitVec.y + side.getYOffset() - 1, pos.hitVec.z + side.getZOffset());
 
 				com.hbm.sound.VanillaWorldSoundEffects.play(world, player.posX, player.posY, player.posZ, "mob.endermen.portal", 1.0F, 1.0F);
 				player.fallDistance = 0.0F;

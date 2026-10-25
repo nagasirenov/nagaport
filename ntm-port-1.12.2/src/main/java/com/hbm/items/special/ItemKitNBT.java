@@ -20,6 +20,11 @@ public class ItemKitNBT extends Item {
 	}
 
 	@Override
+	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
+		ItemStack stack = player.getHeldItem(nativeHand);
+		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+	}
+
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		ItemStack[] stacks = ItemStackUtil.readStacksFromNBT(stack);
@@ -35,24 +40,30 @@ public class ItemKitNBT extends Item {
 
 		ItemStack container = stack.getItem().getContainerItem(stack);
 
-		stack.stackSize--;
+		stack.shrink(1);
 
 		if(container != null) {
 
-			if(stack.stackSize > 0) {
+			if(stack.getCount() > 0) {
 				player.inventory.addItemStackToInventory(container.copy());
 			} else {
 				stack = container.copy();
 			}
 		}
 
-		world.playSoundAtEntity(player, "hbm:item.unpack", 1.0F, 1.0F);
+		world.playSound(null, player.posX, player.posY, player.posZ, com.hbm.main.ModSoundEvents.resolve("hbm:item.unpack"), net.minecraft.util.SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 		return stack;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void addInformation(net.minecraft.item.ItemStack stack, net.minecraft.world.World worldIn, java.util.List<java.lang.String> tooltip, net.minecraft.client.util.ITooltipFlag flagIn) {
+		addInformation(stack, (net.minecraft.entity.player.EntityPlayer) null, tooltip, flagIn.isAdvanced());
+	}
+
+@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
 
 		ItemStack[] stacks = ItemStackUtil.readStacksFromNBT(stack);
@@ -62,7 +73,7 @@ public class ItemKitNBT extends Item {
 			list.add("Contains:");
 
 			for(ItemStack item : stacks) {
-				list.add("-" + item.getDisplayName() + (item.stackSize > 1 ? (" x" + item.stackSize) : ""));
+				list.add("-" + item.getDisplayName() + (item.getCount() > 1 ? (" x" + item.getCount()) : ""));
 			}
 		}
 	}

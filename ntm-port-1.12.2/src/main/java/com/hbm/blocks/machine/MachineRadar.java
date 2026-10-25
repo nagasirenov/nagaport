@@ -24,31 +24,34 @@ public class MachineRadar extends BlockContainer {
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		return new TileEntityMachineRadarNT();
 	}
-	
+
 	@Override
 	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
 		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(), y = nativePos.getY(), z = nativePos.getZ();
+		int side = nativeFacing != null ? nativeFacing.getIndex() : 0;
+
+
 		if(y < TileEntityMachineRadarNT.radarAltitude) {
 			if(world.isRemote)
 				player.sendMessage(new TextComponentString("[Radar] Error: Radar altitude not sufficient.").setStyle(new Style().setColor(TextFormatting.RED)));
 			return true;
 		}
-		
+
 		if(world.isRemote && !player.isSneaking()) {
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, x, y, z);
 			return true;
@@ -58,7 +61,7 @@ public class MachineRadar extends BlockContainer {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public boolean canProvidePower(net.minecraft.block.state.IBlockState state) {
 		return true;

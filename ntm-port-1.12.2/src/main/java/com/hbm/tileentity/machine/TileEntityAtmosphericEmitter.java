@@ -24,7 +24,7 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 
 	public FluidTank tank;
 	public long power;
-	
+
 	public float fan = 0;
 	public float prevFan = 0;
 	private AudioWrapper audio;
@@ -32,7 +32,7 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 	public TileEntityAtmosphericEmitter() {
 		this.tank = new FluidTank(Fluids.NONE, 50_000);
 	}
-	
+
 	@Override
 	public void update() {
 		if(!this.world.isRemote) {
@@ -54,12 +54,12 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 						this.world.newExplosion(null, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, 10F, true, true);
 						return;
 					}
-	
+
 					tank.setFill(tank.getFill() - toSpill);
-	
+
 					FT_Polluting.pollute(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), tank.getTankType(), FluidReleaseType.SPILL, toSpill);
 					FT_Gaseous.release(this.world, tank.getTankType(), toSpill);
-	
+
 					this.power -= toSpill * 10;
 				}
 			}
@@ -93,7 +93,7 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 					data.setFloat("base", 0.375F);
 					data.setFloat("max", 3F);
 					data.setInteger("life", 100 + this.world.rand.nextInt(50));
-					
+
 					data.setString("type", "tower");
 
 					data.setInteger("color", tank.getTankType().getColor());
@@ -187,7 +187,7 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -205,5 +205,5 @@ public class TileEntityAtmosphericEmitter extends TileEntityLoadedBase implement
 	public double getMaxRenderDistanceSquared() {
 		return 65536.0D;
 	}
-	
+
 }

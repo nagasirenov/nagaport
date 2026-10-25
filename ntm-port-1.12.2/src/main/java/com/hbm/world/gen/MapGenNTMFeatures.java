@@ -47,9 +47,12 @@ public class MapGenNTMFeatures extends MapGenStructure {
 
 	/** String ID for this MapGen */
 	@Override
-	public String func_143025_a() {
+	public String getStructureName() {
 		return "NTMFeatures";
 	}
+
+	@Override
+	public net.minecraft.util.math.BlockPos getNearestStructurePos(net.minecraft.world.World worldIn, net.minecraft.util.math.BlockPos position, boolean findUnexplored) { return null; }
 
 	/**
 	 * Checks if a structure can be spawned at coords, based off of chance and biome
@@ -180,7 +183,7 @@ public class MapGenNTMFeatures extends MapGenStructure {
 			if(GeneralConfig.enableDebugMode) {
 				System.out.print("[Debug] StructureStart at " + i + ", 64, " + j + "\n[Debug] Components: ");
 				this.components.forEach((component) -> {
-					System.out.print(MapGenStructureIO.func_143036_a((StructureComponent) component) + " ");
+					System.out.print(MapGenStructureIO.getStructureComponentName((StructureComponent) component) + " ");
 				});
 
 				System.out.print("\n");

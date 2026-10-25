@@ -13,6 +13,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenElectricVolcano extends WorldGenerator {
 
+	public boolean generate(World world, Random rand, net.minecraft.util.math.BlockPos position) {
+		return generate(world, rand, position.getX(), position.getY(), position.getZ());
+	}
+
 	public Block volBlock;
 	public Block mainMat;
 
@@ -62,23 +66,23 @@ public class WorldGenElectricVolcano extends WorldGenerator {
 				k1 = MathHelper.ceil(f);
 
 				for(l1 = -k1; l1 <= k1; ++l1) {
-					float f1 = (float) MathHelper.abs_int(l1) - 0.25F;
+					float f1 = (float) MathHelper.abs(l1) - 0.25F;
 
 					for(int i2 = -k1; i2 <= k1; ++i2) {
-						float f2 = (float) MathHelper.abs_int(i2) - 0.75F;
+						float f2 = (float) MathHelper.abs(i2) - 0.75F;
 
 						if((l1 == 0 && i2 == 0 || f1 * f1 + f2 * f2 <= f * f) && (l1 != -k1 && l1 != k1 && i2 != -k1 && i2 != k1 || p_76484_2_.nextFloat() <= 0.75F)) {
 							Block block = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2).getBlock();
 
 							if(block.getDefaultState().getMaterial() == Material.AIR || block == surfaceBlock || block == stoneBlock) {
-								p_76484_1_.setBlock(p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2, ModBlocks.basalt);
+								com.hbm.world.WorldBlockState.writeLegacyBlock(p_76484_1_, p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2, ModBlocks.basalt);
 							}
 
 							if(j1 != 0 && k1 > 1) {
 								block = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2).getBlock();
 
 								if(block.getDefaultState().getMaterial() == Material.AIR || block == surfaceBlock || block == stoneBlock) {
-									this.func_150515_a(p_76484_1_, p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2, ModBlocks.ore_depth_nether_neodymium);
+									this.setBlockAndNotifyAdequately(p_76484_1_, new net.minecraft.util.math.BlockPos(p_76484_3_ + l1, p_76484_4_ - j1, p_76484_5_ + i2), ModBlocks.ore_depth_nether_neodymium.getDefaultState());
 								}
 							}
 						}
@@ -86,14 +90,14 @@ public class WorldGenElectricVolcano extends WorldGenerator {
 							Block block = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2).getBlock();
 
 							if(block.getDefaultState().getMaterial() == Material.AIR || block == surfaceBlock || block == stoneBlock) {
-								this.func_150515_a(p_76484_1_, p_76484_3_, p_76484_4_ + j1, p_76484_5_, Blocks.AIR);
+								this.setBlockAndNotifyAdequately(p_76484_1_, new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_ + j1, p_76484_5_), Blocks.AIR.getDefaultState());
 							}
 						}
 						if((l1 == 0 && j1 == 0) || f1 * f1 + f2 * f2 > f * f) {
 							Block block = com.hbm.world.WorldBlockState.read(p_76484_1_, p_76484_3_ + l1, p_76484_4_ + j1, p_76484_5_ + i2).getBlock();
 
 							if(block.getDefaultState().getMaterial() == Material.AIR || block == surfaceBlock || block == stoneBlock) {
-								this.func_150515_a(p_76484_1_, p_76484_3_, p_76484_4_ + 5, p_76484_5_, ModBlocks.geysir_electric);
+								this.setBlockAndNotifyAdequately(p_76484_1_, new net.minecraft.util.math.BlockPos(p_76484_3_, p_76484_4_ + 5, p_76484_5_), ModBlocks.geysir_electric.getDefaultState());
 							}
 						}
 					}

@@ -31,7 +31,7 @@ public class EntityGlyphidBrawler extends EntityGlyphid {
 	@Override
 	public void onUpdate(){
 		super.onUpdate();
-		Entity e = this.getEntityToAttack();
+		Entity e = this.getAttackTarget();
 		if (e != null && this.isEntityAlive()) {
 
 			this.lastX = e.posX;
@@ -47,8 +47,8 @@ public class EntityGlyphidBrawler extends EntityGlyphid {
 
 	/** Mainly composed of repurposed bombardier code**/
 	public void leap() {
-		if (!this.world.isRemote && entityToAttack instanceof EntityLivingBase && this.getDistanceToEntity(entityToAttack) < 20) {
-			Entity e = this.getEntityToAttack();
+		if (!this.world.isRemote && this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 20) {
+			Entity e = this.getAttackTarget();
 
 			double velX = e.posX - lastX;
 			double velY = e.posY - lastY;
@@ -114,15 +114,15 @@ public class EntityGlyphidBrawler extends EntityGlyphid {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(GlyphidStats.getStats().getBrawler().health);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(GlyphidStats.getStats().getBrawler().speed);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(GlyphidStats.getStats().getBrawler().damage);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(GlyphidStats.getStats().getBrawler().health);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(GlyphidStats.getStats().getBrawler().speed);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(GlyphidStats.getStats().getBrawler().damage);
 	}
-	
+
 	public StatBundle getStats() {
 		return GlyphidStats.getStats().statsBrawler;
 	}
-	
+
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 
@@ -133,7 +133,7 @@ public class EntityGlyphidBrawler extends EntityGlyphid {
 		data.setString("text", "" + (int) amount);
 		PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, posX, posY + 2, posZ), new TargetPoint(dimension, posX, posY + 2, posZ, 50));*/
 		//allows brawlers to get no damage on short leaps, but still affected by fall damage on big drops
-		if(source == DamageSource.fall && amount <= 10) return false;
+		if(source == DamageSource.FALL && amount <= 10) return false;
 		return super.attackEntityFrom(source, amount);
 	}
 	@Override

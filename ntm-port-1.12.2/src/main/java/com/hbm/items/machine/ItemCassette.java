@@ -17,11 +17,13 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.util.ResourceLocation;
 
 public class ItemCassette extends Item {
-	
+
+	protected com.hbm.render.icon.IIcon itemIcon;
+
 	IIcon overlayIcon;
-	
+
 	public enum TrackType {
-		
+
 		NULL(				" ", 						null,												SoundType.SOUND,	0,			0),
 		HATCH(				"Hatch Siren", 				new ResourceLocation("hbm:alarm.hatch"),			SoundType.LOOP,		3358839,	250),
 		ATUOPILOT(			"Autopilot Disconnected", 	new ResourceLocation("hbm:alarm.autopilot"),		SoundType.LOOP,		11908533,	50),
@@ -45,7 +47,7 @@ public class ItemCassette extends Item {
 		RAZORTRAIN(			"Razortrain Horn", 			new ResourceLocation("hbm:alarm.razortrainHorn"),	SoundType.SOUND,	7819501,	250),
 		DISEMBODIED(		"Ducc",						new ResourceLocation("hbm:alarm.ducc"),				SoundType.LOOP,		0xb3a8c1,	50),
 		SUICIDE(			"Xbox Live",				new ResourceLocation("hbm:alarm.mama"),				SoundType.LOOP,		0xb3a8c1,	70);
-		
+
 		//Name of the track shown in GUI
 		private String title;
 		//Location of the sound
@@ -56,7 +58,7 @@ public class ItemCassette extends Item {
 		private int color;
 		//Range where the sound can be heard
 		private int volume;
-		
+
 		private TrackType(String name, ResourceLocation loc, SoundType sound, int msa, int intensity) {
 			title = name;
 			location = loc;
@@ -64,27 +66,27 @@ public class ItemCassette extends Item {
 			color = msa;
 			volume = intensity;
 		}
-		
+
 		public String getTrackTitle() {
 			return title;
 		}
-		
+
 		public ResourceLocation getSoundLocation() {
 			return location;
 		}
-		
+
 		public SoundType getType() {
 			return type;
 		}
-		
+
 		public int getColor() {
 			return color;
 		}
-		
+
 		public int getVolume() {
 			return volume;
 		}
-		
+
 		public static TrackType getEnum(int i) {
 			if(i < TrackType.values().length)
 				return TrackType.values()[i];
@@ -92,7 +94,7 @@ public class ItemCassette extends Item {
 				return TrackType.NULL;
 		}
 	};
-	
+
 	public enum SoundType {
 		LOOP,
 		PASS,
@@ -105,8 +107,16 @@ public class ItemCassette extends Item {
         this.setMaxDamage(0);
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs tabs, List list)
     {
         for (int i = 1; i < TrackType.values().length; ++i)
@@ -114,23 +124,23 @@ public class ItemCassette extends Item {
             list.add(new ItemStack(item, 1, i));
         }
     }
-	
+
 	@Override
 	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
-    	
+
     	if(!(stack.getItem() instanceof ItemCassette))
     		return;
 
 		list.add(TextFormatting.YELLOW + I18nUtil.resolveKey("info.templatefolder", I18nUtil.resolveKey(ModItems.template_folder.getTranslationKey() + ".name")));
 		list.add("");
-    	
+
     	list.add("Siren sound cassette:");
     	list.add("   Name: " + TrackType.getEnum(stack.getItemDamage()).getTrackTitle());
     	list.add("   Type: " + TrackType.getEnum(stack.getItemDamage()).getType().name());
     	list.add("   Volume: " + TrackType.getEnum(stack.getItemDamage()).getVolume());
 	}
-	
+
 	public static TrackType getType(ItemStack stack) {
 		if(stack != null && stack.getItem() instanceof ItemCassette)
 			return TrackType.getEnum(stack.getItemDamage());
@@ -138,30 +148,29 @@ public class ItemCassette extends Item {
 			return TrackType.NULL;
 	}
 
-    @Override
 	@SideOnly(Side.CLIENT)
     public boolean requiresMultipleRenderPasses()
     {
         return true;
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister p_94581_1_)
     {
-        super.registerIcons(p_94581_1_);
+        // The original used the setTextureName base, not the registry name.
+        String base = com.hbm.render.item.NativeItemTextureRegistry.texture(this);
+        if(base == null) base = this.getRegistryName().toString();
+        this.itemIcon = p_94581_1_.registerIcon(base);
 
         this.overlayIcon = p_94581_1_.registerIcon("hbm:cassette_overlay");
     }
-    
-    @Override
+
 	@SideOnly(Side.CLIENT)
     public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_)
     {
-        return p_77618_2_ == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);
+        return p_77618_2_ == 1 ? this.overlayIcon : this.itemIcon;
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int p_82790_2_)
     {

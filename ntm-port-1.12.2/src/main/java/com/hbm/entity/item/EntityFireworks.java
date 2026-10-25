@@ -30,7 +30,7 @@ public class EntityFireworks extends Entity {
 	@Override
 	public void onUpdate() {
 
-		this.moveEntity(0.0, 3.0D, 0.0);
+		this.move(net.minecraft.entity.MoverType.SELF, 0.0, 3.0D, 0.0);
 		this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.FLAME, posX, posY, posZ, 0.0, -0.3, 0.0);
 		this.world.spawnParticle(net.minecraft.util.EnumParticleTypes.SMOKE_NORMAL, posX, posY, posZ, 0.0, -0.2, 0.0);
 

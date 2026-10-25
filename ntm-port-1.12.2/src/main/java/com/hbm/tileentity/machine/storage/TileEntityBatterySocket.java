@@ -33,7 +33,7 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 	public long syncPower = 0;
 	public long syncMaxPower = 0;
 	public ItemStack syncStack;
-	
+
 	public TileEntityBatterySocket() {
 		super(1);
 	}
@@ -99,18 +99,18 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 
 	@Override public long getPower() { return powerFromStack(slots[0]); }
 	@Override public long getMaxPower() { return maxPowerFromStack(slots[0]); }
-	
+
 	@Override
 	public void setPower(long power) {
 		if(slots[0] == null || !(slots[0].getItem() instanceof IBatteryItem)) return;
 		((IBatteryItem) slots[0].getItem()).setCharge(slots[0], power);
 	}
-	
+
 	public static long powerFromStack(ItemStack stack) {
 		if(stack == null || !(stack.getItem() instanceof IBatteryItem)) return 0;
 		return ((IBatteryItem) stack.getItem()).getCharge(stack);
 	}
-	
+
 	public static long maxPowerFromStack(ItemStack stack) {
 		if(stack == null || !(stack.getItem() instanceof IBatteryItem)) return 0;
 		return ((IBatteryItem) stack.getItem()).getMaxCharge(stack);
@@ -168,7 +168,7 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 1,
 					this.pos.getY(),
 					this.pos.getZ() - 1,
@@ -265,7 +265,7 @@ public class TileEntityBatterySocket extends TileEntityBatteryBase implements IR
 	public Object[] getPackInfo(Context context, Arguments args) {
 		if(slots[0] == null || !(slots[0].getItem() instanceof IBatteryItem)) return new Object[] {"", 0, 0};
 		IBatteryItem bat = ((IBatteryItem) slots[0].getItem());
-		return new Object[] {slots[0].getUnlocalizedName(), bat.getChargeRate(slots[0]), bat.getDischargeRate(slots[0])};
+		return new Object[] {slots[0].getTranslationKey(), bat.getChargeRate(slots[0]), bat.getDischargeRate(slots[0])};
 	}
 
 	@Callback(direct = true)

@@ -61,7 +61,7 @@ public class EntityAIFireGun extends EntityAIBase {
 		}
 
 		if(distanceToTargetSquared < maxRange * maxRange && attackTimer > 20) {
-			host.getNavigator().clearPathEntity();
+			host.getNavigator().clearPath();
 		} else {
 			host.getNavigator().tryMoveToEntityLiving(target, attackMoveSpeed);
 		}

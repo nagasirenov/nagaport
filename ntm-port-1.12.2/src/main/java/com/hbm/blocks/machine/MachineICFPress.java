@@ -26,6 +26,8 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class MachineICFPress extends BlockContainer implements ITooltipProvider {
+
+	protected IIcon blockIcon;
 	
 	@SideOnly(Side.CLIENT) private IIcon iconTop;
 
@@ -38,14 +40,12 @@ public class MachineICFPress extends BlockContainer implements ITooltipProvider 
 		return new TileEntityICFPress();
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconTop = iconRegister.registerIcon(RefStrings.MODID + ":machine_icf_press_top");
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_icf_press_side");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);

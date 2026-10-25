@@ -88,7 +88,7 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 
 	@Override public boolean isOpaqueCube() { return true; }
 	@Override public boolean renderAsNormalBlock() { return true; }
-	
+
 	public boolean hasOwnLid() {
 		return this == ModBlocks.rbmk_control || this == ModBlocks.rbmk_control_auto || this == ModBlocks.rbmk_control_mod ||
 				this == ModBlocks.rbmk_control_reasim || this == ModBlocks.rbmk_control_reasim_auto;
@@ -142,7 +142,7 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 
 		if(!player.isSneaking())
 			FMLNetworkHandler.openGui(player, MainRegistry.instance, 0, world, pos[0], pos[1], pos[2]);
-		
+
 		return true;
 	}
 
@@ -166,7 +166,7 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 			}
 		}
 
-		return AxisAlignedBB.getBoundingBox(x + this.minX, y + this.minY, z + this.minZ, x + this.maxX, y + this.maxY + height, z + this.maxZ);
+		return new AxisAlignedBB(x, y, z, x + 1.0, y + 1.0 + height, z + 1.0);
 	}
 
 	/*
@@ -179,7 +179,7 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 	public static final ForgeDirection DIR_NO_LID = ForgeDirection.NORTH;
 	public static final ForgeDirection DIR_NORMAL_LID = ForgeDirection.EAST;
 	public static final ForgeDirection DIR_GLASS_LID = ForgeDirection.SOUTH;
-	
+
 	public static int metaToLid(int meta) {
 		if(meta - 10 == DIR_NORMAL_LID.ordinal()) return LID_STANDARD;
 		if(meta - 10 == DIR_GLASS_LID.ordinal()) return LID_GLASS;
@@ -248,7 +248,7 @@ public abstract class RBMKBase extends BlockDummyable implements IToolable, ILoo
 						}
 
 						rbmk.explodeOnBroken = false;
-						world.setBlockMetadataWithNotify(pos[0], pos[1], pos[2], DIR_NO_LID.ordinal() + offset, 3);
+						com.hbm.world.WorldBlockState.setBlockMetadataWithNotify(world, pos[0], pos[1], pos[2], DIR_NO_LID.ordinal() + offset, 3);
 						rbmk.explodeOnBroken = true;
 					}
 

@@ -15,6 +15,8 @@ import com.hbm.render.icon.IIcon;
 
 public class ItemFluidTank extends Item {
 
+	protected com.hbm.render.icon.IIcon itemIcon;
+
 	protected IIcon overlayIcon;
 
 	public ItemFluidTank() {
@@ -22,22 +24,30 @@ public class ItemFluidTank extends Item {
 		this.setMaxDamage(0);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
-		
+
 		FluidType[] order = Fluids.getInNiceOrder();
 		for(int i = 1; i < order.length; ++i) {
 			FluidType type = order[i];
-			
+
 			if(type.hasNoContainer()) continue;
 			int id = type.getID();
-			
+
 			if(type.needsLeadContainer()) {
 				if(this == ModItems.fluid_tank_lead_full) {
 					list.add(new ItemStack(item, 1, id));
 				}
-				
+
 			} else {
 				list.add(new ItemStack(item, 1, id));
 			}
@@ -51,16 +61,17 @@ public class ItemFluidTank extends Item {
 		return s;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister p_94581_1_) {
-		super.registerIcons(p_94581_1_);
+		// The original used the setTextureName base, not the registry name.
+		String base = com.hbm.render.item.NativeItemTextureRegistry.texture(this);
+		if(base == null) base = this.getRegistryName().toString();
+		this.itemIcon = p_94581_1_.registerIcon(base);
 
 		if(this == ModItems.fluid_tank_full) this.overlayIcon = p_94581_1_.registerIcon("hbm:fluid_tank_overlay");
 		if(this == ModItems.fluid_tank_lead_full) this.overlayIcon = p_94581_1_.registerIcon("hbm:fluid_tank_lead_overlay");
@@ -68,13 +79,11 @@ public class ItemFluidTank extends Item {
 		if(this == ModItems.fluid_pack_full) this.overlayIcon = p_94581_1_.registerIcon("hbm:fluid_pack_overlay");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_) {
-		return p_77618_2_ == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);
+		return p_77618_2_ == 1 ? this.overlayIcon : this.itemIcon;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
 		if(pass == 0) {

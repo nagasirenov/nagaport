@@ -100,7 +100,7 @@ public class CBT_Invasion extends CelestialBodyTrait {
 		} else {
 			if (!isInvading && !warningPlayed) {
 				warningPlayed = true;
-				MainRegistry.proxy.me().playSound("hbm:alarm.ping", 10F, 1F);
+				MainRegistry.proxy.me().playSound(com.hbm.main.ModSoundEvents.resolve("hbm:alarm.ping"), 10F, 1F);
 				MainRegistry.proxy.me().sendMessage(new TextComponentString("Incoming Invasion!").setStyle(new Style().setColor(TextFormatting.RED)));
 			}
 		}
@@ -172,7 +172,7 @@ public class CBT_Invasion extends CelestialBodyTrait {
 		glyph.writeToNBT(nbt);
 
 		pod.setPayload(nbt, amount, 2);
-		world.spawnEntityInWorld(pod);
+		world.spawnEntity(pod);
 	}
 
 	private void HandleBurstSpawning(World world) {
@@ -245,9 +245,9 @@ public class CBT_Invasion extends CelestialBodyTrait {
 
 		if (world.getTotalWorldTime() % timer == 0) {
 			EntityPlayer player = (EntityPlayer) world.playerEntities.get(world.rand.nextInt(world.playerEntities.size()));
-			
+
 			if (player.posY < 50 && player.world.getWorldInfo().getTerrainType() != WorldType.FLAT)
-				return; 
+				return;
 
 			double spawnX = player.posX + world.rand.nextGaussian() * 30;
 			double spawnZ = player.posZ + world.rand.nextGaussian() * 30;
@@ -260,38 +260,38 @@ public class CBT_Invasion extends CelestialBodyTrait {
 				bigUfoChance = 0.2F;
 
 			float waveFactor = wave * 0.05F;
-			if (waveFactor > 0.2F) waveFactor = 0.2F; 
+			if (waveFactor > 0.2F) waveFactor = 0.2F;
 		        float roll = world.rand.nextFloat();
 
 		        if (world.rand.nextFloat() < bigUfoChance) {
-		       	    		       	    EntitySiegeCraft bigUfo = new EntitySiegeCraft(world);
-		       	    bigUfo.setLocationAndAngles(spawnX, spawnY, spawnZ, world.rand.nextFloat() * 360.0F, 0.0F);
+										EntitySiegeCraft bigUfo = new EntitySiegeCraft(world);
+					bigUfo.setLocationAndAngles(spawnX, spawnY, spawnZ, world.rand.nextFloat() * 360.0F, 0.0F);
 
-		       	    float bigRoll = world.rand.nextFloat();
-		       	    SiegeTier chosen = (bigRoll < 0.5F - waveFactor) ? SiegeTier.STONE : SiegeTier.IRON;
+					float bigRoll = world.rand.nextFloat();
+					SiegeTier chosen = (bigRoll < 0.5F - waveFactor) ? SiegeTier.STONE : SiegeTier.IRON;
 
-		       	    bigUfo.setTier(chosen);
-		       	    world.spawnEntityInWorld(bigUfo);
+					bigUfo.setTier(chosen);
+					world.spawnEntity(bigUfo);
 
-		       	} else {
-		       	    EntitySiegeUFO smallUfo = new EntitySiegeUFO(world);
-		       	    smallUfo.setLocationAndAngles(spawnX, spawnY, spawnZ, world.rand.nextFloat() * 360.0F, 0.0F);
+				} else {
+					EntitySiegeUFO smallUfo = new EntitySiegeUFO(world);
+					smallUfo.setLocationAndAngles(spawnX, spawnY, spawnZ, world.rand.nextFloat() * 360.0F, 0.0F);
 
-		       	    float smallRoll = world.rand.nextFloat(); 
-		       	    SiegeTier chosen;
+					float smallRoll = world.rand.nextFloat();
+					SiegeTier chosen;
 
-		       	    if (smallRoll < 0.15F - (waveFactor * 1.5F))      chosen = SiegeTier.CLAY;  
-		       	    else if (smallRoll < 0.35F - (waveFactor * 1.2F)) chosen = SiegeTier.STONE;  
-		       	    else if (smallRoll < 0.50F - waveFactor)          chosen = SiegeTier.IRON;   
-		       	    else if (smallRoll < 0.65F - (waveFactor * 0.8F)) chosen = SiegeTier.SILVER; 
-		       	    else if (smallRoll < 0.80F - (waveFactor * 0.5F)) chosen = SiegeTier.GOLD;   
-		       	    else if (smallRoll < 0.90F - (waveFactor * 0.2F)) chosen = SiegeTier.DESH;   
-		       	    else if (smallRoll < 0.97F)                       chosen = SiegeTier.SCHRAB;
-		       	    else						     chosen = SiegeTier.DNT;
-		     
-		       	    smallUfo.setTier(chosen);
-		       	    world.spawnEntityInWorld(smallUfo);
-		       	}
+					if (smallRoll < 0.15F - (waveFactor * 1.5F))      chosen = SiegeTier.CLAY;
+					else if (smallRoll < 0.35F - (waveFactor * 1.2F)) chosen = SiegeTier.STONE;
+					else if (smallRoll < 0.50F - waveFactor)          chosen = SiegeTier.IRON;
+					else if (smallRoll < 0.65F - (waveFactor * 0.8F)) chosen = SiegeTier.SILVER;
+					else if (smallRoll < 0.80F - (waveFactor * 0.5F)) chosen = SiegeTier.GOLD;
+					else if (smallRoll < 0.90F - (waveFactor * 0.2F)) chosen = SiegeTier.DESH;
+					else if (smallRoll < 0.97F)                       chosen = SiegeTier.SCHRAB;
+					else						     chosen = SiegeTier.DNT;
+
+					smallUfo.setTier(chosen);
+					world.spawnEntity(smallUfo);
+				}
 			lastSpawns++;
 		}
 	}
@@ -304,8 +304,8 @@ public class CBT_Invasion extends CelestialBodyTrait {
 		entity.setLocationAndAngles(player.posX, player.posY + 50, player.posZ, MathHelper.wrapDegrees(world.rand.nextFloat() * 360.0F), 0.0F);
 		entityliving.rotationYawHead = entityliving.rotationYaw;
 		entityliving.renderYawOffset = entityliving.rotationYaw;
-		entityliving.onSpawnWithEgg((IEntityLivingData) null);
-		world.spawnEntityInWorld(entity);
+		entityliving.onInitialSpawn(entityliving.world.getDifficultyForLocation(new net.minecraft.util.math.BlockPos(entityliving)), (IEntityLivingData) null);
+		world.spawnEntity(entity);
 	}
 
 	private void broadcast(World world, String text, TextFormatting color) {

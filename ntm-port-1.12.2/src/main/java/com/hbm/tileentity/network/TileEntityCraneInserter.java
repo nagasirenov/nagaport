@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUIProvider, IControlReceiver {
-	
+
 	public boolean destroyer = true;
 	public static final int[] access = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
@@ -43,25 +43,25 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 
 			if(!this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))) {ForgeDirection outputSide = getOutputSide();
 				TileEntity te = Compat.getTileStandard(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ);
-				
+
 				int[] access = null;
-				
+
 				if(te instanceof ISidedInventory) {
 					ISidedInventory sided = (ISidedInventory) te;
 					access = InventoryUtil.masquerade(sided, outputSide.getOpposite().ordinal());
 				}
-				
+
 				boolean didSomething = false;
-				
+
 				if(te instanceof IInventory) {
 					for(int i = 0; i < slots.length; i++) {
-						
+
 						ItemStack stack = slots[i];
-						
+
 						if(stack != null) {
 							ItemStack ret = CraneInserter.addToInventory((IInventory) te, access, stack.copy(), outputSide.getOpposite().ordinal());
-							
-							if(ret == null || ret.stackSize != stack.stackSize) {
+
+							if(ret == null || ret.getCount() != stack.getCount()) {
 								slots[i] = ret;
 								this.markDirty();
 								didSomething = true;
@@ -69,20 +69,20 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 							}
 						}
 					}
-					
+
 					//if the previous operation fails, repeat but use single items instead of the whole stack instead
 					//this should fix cases where the inserter can't insert into something that has a stack size limitation
 					if(!didSomething) for(int i = 0; i < slots.length; i++) {
-						
+
 						ItemStack stack = slots[i];
-						
+
 						if(stack != null) {
 							stack = stack.copy();
 							stack.setCount(1);
-							
+
 							ItemStack ret = CraneInserter.addToInventory((IInventory) te, access, stack.copy(), outputSide.getOpposite().ordinal());
-							
-							if(ret == null || ret.stackSize != stack.stackSize) {
+
+							if(ret == null || ret.getCount() != stack.getCount()) {
 								this.decrStackSize(i, 1);
 								this.markDirty();
 								didSomething = true;
@@ -102,7 +102,7 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 		super.serialize(buf);
 		buf.writeBoolean(destroyer);
 	}
-	
+
 	@Override
 	public void deserialize(ByteBuf buf) {
 		super.deserialize(buf);
@@ -136,13 +136,13 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 	public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return new GUICraneInserter(player.inventory, this);
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		this.destroyer = nbt.getBoolean("destroyer");
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);

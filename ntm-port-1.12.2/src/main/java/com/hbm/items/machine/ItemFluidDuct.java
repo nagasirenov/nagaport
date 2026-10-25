@@ -27,8 +27,16 @@ public class ItemFluidDuct extends Item {
 		this.setMaxDamage(0);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
+
+		@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public void getSubItems(net.minecraft.creativetab.CreativeTabs tab, net.minecraft.util.NonNullList<net.minecraft.item.ItemStack> list) {
+		if(this.isInCreativeTab(tab)) {
+			getSubItems(this, tab, list);
+		}
+	}
+
+@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tabs, List list) {
 		FluidType[] order = Fluids.getInNiceOrder();
 		for(int i = 1; i < order.length; ++i) {
@@ -49,43 +57,17 @@ public class ItemFluidDuct extends Item {
 		return s;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean requiresMultipleRenderPasses() {
-		return true;
+
+
+		@Override
+	public net.minecraft.util.EnumActionResult onItemUse(net.minecraft.entity.player.EntityPlayer player, net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.util.EnumHand hand, net.minecraft.util.EnumFacing facing, float hitX, float hitY, float hitZ) {
+		net.minecraft.item.ItemStack stack = player.getHeldItem(hand);
+		int side = facing != null ? facing.getIndex() : 0;
+		return onItemUse(stack, player, world, pos.getX(), pos.getY(), pos.getZ(), side, hitX, hitY, hitZ) ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS;
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister p_94581_1_) {
-		super.registerIcons(p_94581_1_);
-		this.overlayIcon = p_94581_1_.registerIcon("hbm:duct_overlay");
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_) {
-		return p_77618_2_ == 1 ? this.overlayIcon : super.getIconFromDamageForRenderPass(p_77618_1_, p_77618_2_);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int p_82790_2_) {
-		if(p_82790_2_ == 0) {
-			return 16777215;
-		} else {
-			int j = Fluids.fromID(stack.getItemDamage()).getColor();
-
-			if(j < 0) {
-				j = 16777215;
-			}
-
-			return j;
-		}
-	}
-
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
-		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.snow_layer) {
+public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int i, float f0, float f1, float f2) {
+		if(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock() != Blocks.SNOW_LAYER) {
 			if(i == 0) {
 				--y;
 			}
@@ -115,17 +97,18 @@ public class ItemFluidDuct extends Item {
 			}
 		}
 
-		if(!player.canPlayerEdit(x, y, z, i, stack)) {
+		if(!player.canPlayerEdit(new net.minecraft.util.math.BlockPos(x, y, z), net.minecraft.util.EnumFacing.byIndex(i), stack)) {
 			return false;
 		} else {
-			--stack.stackSize;
-			world.setBlock(x, y, z, ModBlocks.fluid_duct_neo);
+			stack.shrink(1);
+			com.hbm.world.WorldBlockState.writeLegacyBlock(world, x, y, z, ModBlocks.fluid_duct_neo);
 
 			if(world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z)) instanceof TileEntityPipeBaseNT) {
 				((TileEntityPipeBaseNT) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z))).setType(Fluids.fromID(stack.getItemDamage()));
 			}
-			
-			world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, ModBlocks.fluid_duct_neo.stepSound.func_150496_b(), (ModBlocks.fluid_duct_neo.stepSound.getVolume() + 1.0F) / 2.0F, ModBlocks.fluid_duct_neo.stepSound.getPitch() * 0.8F);
+
+			net.minecraft.block.SoundType soundType = ModBlocks.fluid_duct_neo.getSoundType();
+			world.playSound(null, x + 0.5, y + 0.5, z + 0.5, soundType.getPlaceSound(), net.minecraft.util.SoundCategory.BLOCKS, (soundType.getVolume() + 1.0F) / 2.0F, soundType.getPitch() * 0.8F);
 
 			return true;
 		}

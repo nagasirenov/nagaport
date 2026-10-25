@@ -32,7 +32,7 @@ public class GUIMachineRadarNTSlots extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		if(checkClick(x, y, 5, 5, 8, 8)) {

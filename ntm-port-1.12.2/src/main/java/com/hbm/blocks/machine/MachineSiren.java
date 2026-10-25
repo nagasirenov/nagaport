@@ -23,6 +23,8 @@ import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
 public class MachineSiren extends BlockContainer {
+
+	protected IIcon blockIcon;
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
@@ -36,7 +38,6 @@ public class MachineSiren extends BlockContainer {
 		return new TileEntityMachineSiren();
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		
@@ -44,7 +45,6 @@ public class MachineSiren extends BlockContainer {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":machine_siren");
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata) {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);

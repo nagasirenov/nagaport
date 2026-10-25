@@ -90,13 +90,13 @@ public class TileEntityZirnoxDestroyed extends TileEntity implements net.minecra
 			ContaminationUtil.contaminate(e, HazardType.RADIATION, ContaminationType.CREATIVE, eRads);
 
 			if(onFire && len < 5) {
-				e.attackEntityFrom(DamageSource.onFire, 2);
+				e.attackEntityFrom(DamageSource.ON_FIRE, 2);
 			}
 		}
 	}
 
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getBoundingBox(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 3, this.pos.getX() + 4, this.pos.getY() + 3, this.pos.getZ() + 4);
+		return new AxisAlignedBB(this.pos.getX() - 3, this.pos.getY(), this.pos.getZ() - 3, this.pos.getX() + 4, this.pos.getY() + 3, this.pos.getZ() + 4);
 	}
 
 	@SideOnly(Side.CLIENT)

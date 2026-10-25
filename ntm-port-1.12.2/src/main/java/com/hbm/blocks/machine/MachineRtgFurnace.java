@@ -250,7 +250,6 @@ public class MachineRtgFurnace extends BlockThermalFurnace {
         }
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
     public ItemStack getItem(World world, BlockPos pos, IBlockState state)
     {

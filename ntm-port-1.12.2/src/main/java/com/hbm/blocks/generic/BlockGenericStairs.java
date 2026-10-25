@@ -10,14 +10,19 @@ import net.minecraft.block.BlockStairs;
 
 public class BlockGenericStairs extends BlockStairs {
 
+	public BlockGenericStairs withSoundType(net.minecraft.block.SoundType sound) {
+		super.setSoundType(sound);
+		return this;
+	}
+
+
 	public static List<Object[]> recipeGen = new ArrayList();
 
 	public BlockGenericStairs(Block block, int meta) {
-		super(block, meta);
+		super(block.getStateFromMeta(meta));
 		this.useNeighborBrightness = true;
-		
+
 		recipeGen.add(new Object[] {block, meta, this});
-		
-		this.setBlockTextureName(RefStrings.MODID + ":concrete");
+
 	}
 }

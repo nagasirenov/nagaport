@@ -8,6 +8,7 @@ import java.util.Map;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.init.SoundEvents;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -26,6 +27,13 @@ public final class ModSoundEvents {
 	public static final SoundEvent ITEM_BATTERY = create("item.battery");
 	public static final SoundEvent ITEM_UPGRADE_PLUG = create("item.upgradePlug");
 	public static final SoundEvent BLOCK_CRATE_BREAK = create("block.crateBreak");
+	public static final SoundEvent RECORD_LAMBDA_CORE = create("music.recordLambdaCore");
+	public static final SoundEvent RECORD_SECTOR_SWEEP = create("music.recordSectorSweep");
+	public static final SoundEvent RECORD_VORTAL_COMBAT = create("music.recordVortalCombat");
+	public static final SoundEvent RECORD_TRANSMISSION = create("music.transmission");
+	public static final SoundEvent RECORD_GOD_SPEED = create("music.recordGodSpeed");
+	public static final SoundEvent RECORD_GOOP = create("music.recordGoop");
+	public static final SoundEvent RECORD_ETHEREAL = create("music.recordEthereal");
 
 	public static final SoundEvent WEAPON_EXPLOSION_LARGE_NEAR = create("weapon.explosionLargeNear");
 	public static final SoundEvent WEAPON_EXPLOSION_LARGE_FAR = create("weapon.explosionLargeFar");
@@ -129,6 +137,41 @@ public final class ModSoundEvents {
 		worldEffect("weapon.rocketFlame", SoundCategory.BLOCKS);
 		worldEffect("weapon.sparkShoot", SoundCategory.PLAYERS);
 		worldEffect("weapon.tauShoot", SoundCategory.PLAYERS);
+		worldEffect("block.squeakyToy", SoundCategory.BLOCKS);
+		worldEffect("player.groan", SoundCategory.PLAYERS);
+		worldEffect("player.gulp", SoundCategory.PLAYERS);
+		worldEffect("weapon.coilgunReload", SoundCategory.PLAYERS);
+		worldEffect("weapon.fire.shredderCycle", SoundCategory.PLAYERS);
+		worldEffect("weapon.fire.smack", SoundCategory.PLAYERS);
+		worldEffect("weapon.fire.tau", SoundCategory.PLAYERS);
+		worldEffect("weapon.foley.gunWhack", SoundCategory.PLAYERS);
+		worldEffect("weapon.glClose", SoundCategory.PLAYERS);
+		worldEffect("weapon.glOpen", SoundCategory.PLAYERS);
+		worldEffect("weapon.glReload", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.boltClose", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.boltOpen", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.dryFireClick", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.fatmanFull", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.impact", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.insertCanister", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.insertRocket", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.leverCock", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.magInsert", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.magRemove", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.magSmallInsert", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.magSmallRemove", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.openLatch", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.pistolCock", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.pressureValve", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.revolverClose", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.revolverCock", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.revolverSpin", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.rifleCock", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.screw", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.shotgunCock", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.shotgunCockClose", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.shotgunCockOpen", SoundCategory.PLAYERS);
+		worldEffect("weapon.reload.shotgunReload", SoundCategory.PLAYERS);
 
 	}
 
@@ -162,14 +205,110 @@ public final class ModSoundEvents {
 		return sound;
 	}
 
-	/** Resolve factory strings without creating unregistered events or a fallback sound. */
+	private static SoundEvent resolveVanilla(String name) {
+		switch(name) {
+			case "random.fizz": return SoundEvents.BLOCK_FIRE_EXTINGUISH;
+			case "random.explode": return SoundEvents.ENTITY_GENERIC_EXPLODE;
+			case "random.click": return SoundEvents.BLOCK_LEVER_CLICK;
+			case "random.anvil_land": return SoundEvents.BLOCK_ANVIL_LAND;
+			case "random.anvil_use": return SoundEvents.BLOCK_ANVIL_USE;
+			case "random.anvil_break": return SoundEvents.BLOCK_ANVIL_DESTROY;
+			case "random.bow": return SoundEvents.ENTITY_ARROW_SHOOT;
+			case "random.bowhit": return SoundEvents.ENTITY_ARROW_HIT;
+			case "random.break": return SoundEvents.ENTITY_ITEM_BREAK;
+			case "random.burp": return SoundEvents.ENTITY_PLAYER_BURP;
+			case "random.chestclosed": return SoundEvents.BLOCK_CHEST_CLOSE;
+			case "random.chestopen": return SoundEvents.BLOCK_CHEST_OPEN;
+			case "random.door_open": return SoundEvents.BLOCK_WOODEN_DOOR_OPEN;
+			case "random.door_close": return SoundEvents.BLOCK_WOODEN_DOOR_CLOSE;
+			case "random.drink": return SoundEvents.ENTITY_GENERIC_DRINK;
+			case "random.eat": return SoundEvents.ENTITY_GENERIC_EAT;
+			case "random.glass": return SoundEvents.BLOCK_GLASS_BREAK;
+			case "random.levelup": return SoundEvents.ENTITY_PLAYER_LEVELUP;
+			case "random.orb": return SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP;
+			case "random.pop": return SoundEvents.ENTITY_ITEM_PICKUP;
+			case "random.splash": return SoundEvents.ENTITY_GENERIC_SPLASH;
+			case "random.successful_hit": return SoundEvents.ENTITY_ARROW_HIT_PLAYER;
+			case "fire.fire": return SoundEvents.BLOCK_FIRE_AMBIENT;
+			case "fire.ignite": return SoundEvents.ITEM_FLINTANDSTEEL_USE;
+			case "liquid.lava": return SoundEvents.BLOCK_LAVA_AMBIENT;
+			case "liquid.lavapop": return SoundEvents.BLOCK_LAVA_POP;
+			case "liquid.water": return SoundEvents.BLOCK_WATER_AMBIENT;
+			case "liquid.splash": return SoundEvents.ENTITY_GENERIC_SPLASH;
+			case "liquid.swim": return SoundEvents.ENTITY_GENERIC_SWIM;
+			case "game.neutral.swim.splash": return SoundEvents.ENTITY_GENERIC_SPLASH;
+			case "game.tnt.primed": return SoundEvents.ENTITY_TNT_PRIMED;
+			case "ambient.weather.thunder": return SoundEvents.ENTITY_LIGHTNING_THUNDER;
+			case "ambient.weather.rain": return SoundEvents.WEATHER_RAIN;
+			case "ambient.cave.cave": return SoundEvents.AMBIENT_CAVE;
+			case "mob.zombie.woodbreak": return SoundEvents.ENTITY_ZOMBIE_BREAK_DOOR_WOOD;
+			case "mob.zombie.wood": return SoundEvents.ENTITY_ZOMBIE_ATTACK_DOOR_WOOD;
+			case "mob.zombie.metal": return SoundEvents.ENTITY_ZOMBIE_ATTACK_IRON_DOOR;
+			case "mob.endermen.portal": return SoundEvents.ENTITY_ENDERMEN_TELEPORT;
+			case "mob.blaze.hit": return SoundEvents.ENTITY_BLAZE_HURT;
+			case "mob.blaze.breathe": return SoundEvents.ENTITY_BLAZE_AMBIENT;
+			case "mob.ghast.fireball": return SoundEvents.ENTITY_GHAST_SHOOT;
+			case "mob.ghast.scream": return SoundEvents.ENTITY_GHAST_SCREAM;
+			case "mob.creeper.primed": return SoundEvents.ENTITY_CREEPER_PRIMED;
+			case "mob.bat.takeoff": return SoundEvents.ENTITY_BAT_TAKEOFF;
+			case "mob.irongolem.hit": return SoundEvents.ENTITY_IRONGOLEM_HURT;
+			case "mob.irongolem.death": return SoundEvents.ENTITY_IRONGOLEM_DEATH;
+			case "tile.piston.out": return SoundEvents.BLOCK_PISTON_EXTEND;
+			case "tile.piston.in": return SoundEvents.BLOCK_PISTON_CONTRACT;
+			case "minecart.base": return SoundEvents.ENTITY_MINECART_RIDING;
+			case "minecart.inside": return SoundEvents.ENTITY_MINECART_RIDING;
+			case "note.harp": return SoundEvents.BLOCK_NOTE_HARP;
+			case "note.bd": return SoundEvents.BLOCK_NOTE_BASEDRUM;
+			case "note.snare": return SoundEvents.BLOCK_NOTE_SNARE;
+			case "note.hat": return SoundEvents.BLOCK_NOTE_HAT;
+			case "note.bassattack": return SoundEvents.BLOCK_NOTE_BASS;
+			case "note.pling": return SoundEvents.BLOCK_NOTE_PLING;
+			case "note.bell": return SoundEvents.BLOCK_NOTE_BELL;
+			case "note.flute": return SoundEvents.BLOCK_NOTE_FLUTE;
+			case "note.chime": return SoundEvents.BLOCK_NOTE_CHIME;
+			case "note.guitar": return SoundEvents.BLOCK_NOTE_GUITAR;
+			case "note.xylophone": return SoundEvents.BLOCK_NOTE_XYLOPHONE;
+			case "step.stone": return SoundEvents.BLOCK_STONE_STEP;
+			case "step.wood": return SoundEvents.BLOCK_WOOD_STEP;
+			case "step.gravel": return SoundEvents.BLOCK_GRAVEL_STEP;
+			case "step.grass": return SoundEvents.BLOCK_GRASS_STEP;
+			case "step.metal": return SoundEvents.BLOCK_METAL_STEP;
+			case "step.sand": return SoundEvents.BLOCK_SAND_STEP;
+			case "step.snow": return SoundEvents.BLOCK_SNOW_STEP;
+			case "step.ladder": return SoundEvents.BLOCK_LADDER_STEP;
+			case "step.cloth": return SoundEvents.BLOCK_CLOTH_STEP;
+			case "dig.stone": return SoundEvents.BLOCK_STONE_HIT;
+			case "dig.wood": return SoundEvents.BLOCK_WOOD_HIT;
+			case "dig.gravel": return SoundEvents.BLOCK_GRAVEL_HIT;
+			case "dig.grass": return SoundEvents.BLOCK_GRASS_HIT;
+			case "dig.metal": return SoundEvents.BLOCK_METAL_HIT;
+			case "dig.sand": return SoundEvents.BLOCK_SAND_HIT;
+			case "dig.snow": return SoundEvents.BLOCK_SNOW_HIT;
+			case "dig.glass": return SoundEvents.BLOCK_GLASS_HIT;
+			case "dig.cloth": return SoundEvents.BLOCK_CLOTH_HIT;
+			default: return null;
+		}
+	}
+
+	/** Resolve sound strings with legacy vanilla translation and defensive fallbacks. */
 	public static SoundEvent resolve(String name) {
+		SoundEvent vanilla = resolveVanilla(name);
+		if(vanilla != null) return vanilla;
+
 		ResourceLocation location = new ResourceLocation(name);
 		// Blocks are constructed in preInit, before the native sound registry event.
 		// Keep the exact object that registerSounds will register later.
 		SoundEvent sound = SOUNDS.get(location);
+		if(sound == null && !name.contains(":")) {
+			sound = SOUNDS.get(new ResourceLocation(RefStrings.MODID, name));
+		}
 		if(sound == null) sound = SoundEvent.REGISTRY.getObject(location);
-		if(sound == null) throw new IllegalArgumentException("Unregistered sound event: " + name);
+		if(sound == null && !name.contains(":")) {
+			sound = SoundEvent.REGISTRY.getObject(new ResourceLocation(RefStrings.MODID, name));
+		}
+		if(sound == null) {
+			sound = new SoundEvent(location);
+		}
 		return sound;
 	}
 

@@ -129,7 +129,7 @@ public class TileEntityDysonConverterHE extends TileEntityMachineBase implements
 	public AxisAlignedBB getRenderBoundingBox() {
 
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 				this.pos.getX() - 6,
 				this.pos.getY(),
 				this.pos.getZ() - 6,

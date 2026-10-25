@@ -20,6 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldGeneratorEve implements IWorldGenerator {
 
@@ -34,8 +35,7 @@ public class WorldGeneratorEve implements IWorldGenerator {
 		BlockOre.addValidBody(ModBlocks.ore_gas, SolarSystem.Body.EVE);
 	}
 
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.getDimension() == SpaceConfig.eveDimension) {
 			generateEve(world, random, chunkX * 16, chunkZ * 16);
 		}
@@ -51,7 +51,7 @@ public class WorldGeneratorEve implements IWorldGenerator {
 
 		int x = i + rand.nextInt(16) + 8;
 		int z = j + rand.nextInt(16) + 8;
-		int y = world.getHeightValue(x, z);
+		int y = world.getHeight(x, z);
 
 		Biome biome = world.getBiome(new BlockPos(x, 0, z));
 		if(biome == BiomeGenBaseEve.eveSeismicPlains) {

@@ -43,7 +43,6 @@ public abstract class EntityDroneBase extends Entity {
 		return true;
 	}
 
-	@Override
 	public boolean canAttackWithItem() {
 		return true;
 	}
@@ -119,7 +118,7 @@ public abstract class EntityDroneBase extends Entity {
 				motionY += 1;
 			}
 			this.loadNeighboringChunks();
-			this.moveEntity(motionX, motionY, motionZ);
+			this.move(net.minecraft.entity.MoverType.SELF, motionX, motionY, motionZ);
 		}
 
 		super.onUpdate();

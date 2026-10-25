@@ -6,6 +6,7 @@ import com.hbm.render.model.ModelSkeletonNT;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -18,20 +19,20 @@ public class RenderUndeadSoldier extends RenderBiped {
 	public static ModelBiped modelZombie = new ModelZombie();
 	public static ModelBiped modelSkeleton = new ModelSkeletonNT();
 
-	public RenderUndeadSoldier() {
-		super(modelZombie, 0.5F);
+	public RenderUndeadSoldier(RenderManager renderManager) {
+		super(renderManager, modelZombie, 0.5F);
 	}
 
 	@Override
 	protected void preRenderCallback(EntityLivingBase living, float interp) {
-		byte type = living.getDataWatcher().getWatchableObjectByte(EntityUndeadSoldier.DW_TYPE);
-		if(type == EntityUndeadSoldier.TYPE_ZOMBIE) this.mainModel = this.modelBipedMain = modelZombie;
-		if(type == EntityUndeadSoldier.TYPE_SKELETON) this.mainModel = this.modelBipedMain = modelSkeleton;
+		byte type = ((EntityUndeadSoldier) living).getUndeadType();
+		if(type == EntityUndeadSoldier.TYPE_ZOMBIE) this.mainModel = modelZombie;
+		if(type == EntityUndeadSoldier.TYPE_SKELETON) this.mainModel = modelSkeleton;
 	}
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLiving living) {
-		byte type = living.getDataWatcher().getWatchableObjectByte(EntityUndeadSoldier.DW_TYPE);
+		byte type = ((EntityUndeadSoldier) living).getUndeadType();
 		if(type == EntityUndeadSoldier.TYPE_ZOMBIE) return textureZombie;
 		if(type == EntityUndeadSoldier.TYPE_SKELETON) return textureSkeleton;
 		return null;

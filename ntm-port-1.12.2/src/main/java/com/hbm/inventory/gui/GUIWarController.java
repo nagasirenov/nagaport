@@ -82,7 +82,7 @@ public class GUIWarController extends GuiInfoContainer {
 	}
 
 	@Override
-	protected void keyTyped(char typedChar, int keyCode) {
+	protected void keyTyped(char typedChar, int keyCode) throws java.io.IOException {
 		if(textField.textboxKeyTyped(typedChar, keyCode)) return;
 
 		if(keyCode == Keyboard.KEY_RETURN) {

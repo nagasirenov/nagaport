@@ -15,7 +15,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerMachineExcavator extends Container {
-	
+
 	TileEntityMachineExcavator excavator;
 
 	public ContainerMachineExcavator(InventoryPlayer invPlayer, TileEntityMachineExcavator tile) {
@@ -29,14 +29,14 @@ public class ContainerMachineExcavator extends Container {
 		for(int i = 0; i < 3; i++) {
 			this.addSlotToContainer(new Slot(tile, 2 + i, 136 + i * 18, 75));
 		}
-		
+
 		//Buffer: 5-13
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
 				this.addSlotToContainer(new SlotTakeOnly(tile, 5 + j + i * 3, 136 + j * 18, 5 + i * 18));
 			}
 		}
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 41 + j * 18, 122 + i * 18));
@@ -62,7 +62,7 @@ public class ContainerMachineExcavator extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 0, 1, false)) return null;
 				} else if(rStack.getItem() instanceof IItemFluidIdentifier) {
@@ -75,7 +75,7 @@ public class ContainerMachineExcavator extends Container {
 					return null;
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();

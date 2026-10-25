@@ -136,7 +136,7 @@ public class GUIScreenRadioTorchLogic extends GuiScreen {
 	}
 
 	@Override
-	protected void mouseClicked(int x, int y, int i) {
+	protected void mouseClicked(int x, int y, int i) throws java.io.IOException {
 		super.mouseClicked(x, y, i);
 		
 		this.frequency.mouseClicked(x, y, i);

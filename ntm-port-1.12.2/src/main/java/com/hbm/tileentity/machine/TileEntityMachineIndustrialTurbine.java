@@ -29,7 +29,7 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 
 	public float rotor;
 	public float lastRotor;
-	
+
 	public double spin = 0;
 	public static double ACCELERATION = 1D / 400D;
 	public long lastPowerTarget = 0;
@@ -74,7 +74,7 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 		int maxOps = (int) Math.ceil((tanks[0].getMaxFill() * consumptionPercent()) / trait.amountReq);
 		this.lastPowerTarget = (long) (maxOps * trait.heatEnergy * eff); // theoretical max output at full blast with this type
 		double fraction = (double) steamConsumed / (double) (trait.amountReq * maxOps); // % of max steam throughput currently achieved
-		
+
 		if(Math.abs(spin - fraction) <= ACCELERATION) {
 			this.spin = fraction;
 		} else if(spin < fraction) {
@@ -89,26 +89,26 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 		if(!operational) {
 			this.spin -= ACCELERATION;
 		}
-		
+
 		if(this.spin <= 0) {
 			this.spin = 0;
 		} else {
 			this.powerBuffer = (long) (this.lastPowerTarget * this.spin);
 		}
 	}
-	
+
 	@Override
 	public void onClientTick() {
-		
+
 		this.lastRotor = this.rotor;
 		float speed = this.spin >= 0.5 ? 30 : (float) (Math.pow(this.spin * 2, 0.5) * 30);
 		this.rotor += speed;
-		
+
 		if(this.rotor >= 360) {
 			this.lastRotor -= 360;
 			this.rotor -= 360;
 		}
-		
+
 		if(this.spin > 0 && MainRegistry.proxy.me().getDistance(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5) <= 35) {
 
 			float spinNum = (float) Math.min(1F, spin * 2);
@@ -119,11 +119,11 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 				audio = MainRegistry.proxy.getLoopedSound("hbm:block.largeTurbineRunning", this.pos.getX() + 0.5F, this.pos.getY() + 0.5F, this.pos.getZ() + 0.5F, volume, 20F, pitch, 20);
 				audio.startSound();
 			}
-			
+
 			audio.keepAlive();
 			audio.updatePitch(pitch);
 			audio.updateVolume(volume);
-			
+
 		} else {
 			if(audio != null) {
 				audio.stopSound();
@@ -131,20 +131,20 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean canConnect(ForgeDirection dir) {
 		ForgeDirection myDir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		return dir == myDir.getOpposite();
 	}
-	
+
 	@Override
 	public boolean canConnect(FluidType type, ForgeDirection dir) {
 		if(!type.hasTrait(FT_Coolable.class) && type != Fluids.SPENTSTEAM) return false;
 		ForgeDirection myDir = ForgeDirection.getOrientation(this.getBlockMetadata() - BlockDummyable.offset);
 		return dir != myDir && dir != myDir.getOpposite();
 	}
-	
+
 	@Override public double consumptionPercent() { return 0.2D; }
 	@Override public double getEfficiency() { return efficiency; }
 	@Override public boolean doesResizeCompressor() { return true; }
@@ -217,14 +217,14 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 				new DirPos(this.pos.getX() - dir.offsetX * 4, this.pos.getY() + 1, this.pos.getZ() - dir.offsetZ * 4, dir.getOpposite())
 		};
 	}
-	
+
 	AxisAlignedBB bb = null;
-	
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		
+
 		if(bb == null) {
-			bb = AxisAlignedBB.getBoundingBox(
+			bb = new AxisAlignedBB(
 					this.pos.getX() - 3,
 					this.pos.getY(),
 					this.pos.getZ() - 3,
@@ -233,7 +233,7 @@ public class TileEntityMachineIndustrialTurbine extends TileEntityTurbineBase im
 					this.pos.getZ() + 4
 					);
 		}
-		
+
 		return bb;
 	}
 }

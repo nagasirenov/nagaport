@@ -7,6 +7,7 @@ import com.hbm.util.InventoryUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.InventoryCraftResult;
@@ -14,13 +15,13 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerWeaponTable extends Container {
-	
+
 	public InventoryBasic mods = new InventoryBasic("Mods", false, 7);
 	public IInventory gun = new InventoryCraftResult();
 	public int index = 0;
 
 	public ContainerWeaponTable(InventoryPlayer inventory) {
-		
+
 		for(int i = 0; i < 7; i++) this.addSlotToContainer(new ModSlot(mods, i, 44 + 18 * i, 108));
 
 		this.addSlotToContainer(new Slot(gun, 0, 8, 108) {
@@ -32,17 +33,17 @@ public class ContainerWeaponTable extends Container {
 
 			@Override
 			public void putStack(ItemStack stack) {
-				
+
 				ContainerWeaponTable.this.index = 0;
-				
+
 				if(stack != null) {
 					ItemStack[] mods = XWeaponModManager.getUpgradeItems(stack, index);
-					
+
 					if(mods != null) for(int i = 0; i < Math.min(mods.length, 7); i++) {
 						ContainerWeaponTable.this.mods.setInventorySlotContents(i, mods[i]);
 					}
 				}
-				
+
 				super.putStack(stack);
 			}
 
@@ -59,17 +60,17 @@ public class ContainerWeaponTable extends Container {
 						mods.getStackInSlot(4),
 						mods.getStackInSlot(5),
 						mods.getStackInSlot(6));
-				
+
 				for(int i = 0; i < 7; i++) {
 					ItemStack mod = ContainerWeaponTable.this.mods.getStackInSlot(i);
 					if(XWeaponModManager.isApplicable(stack, mod, index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, ItemStack.EMPTY);
 				}
-				
+
 				ContainerWeaponTable.this.index = 0;
 				return stack;
 			}
 		});
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 158 + i * 18));
@@ -79,14 +80,14 @@ public class ContainerWeaponTable extends Container {
 		for(int i = 0; i < 9; i++) {
 			this.addSlotToContainer(new Slot(inventory, i, 8 + i * 18, 216));
 		}
-		
+
 		this.onCraftMatrixChanged(this.mods);
 	}
-	
+
 	@Override
-	public ItemStack slotClick(int index, int button, int mode, EntityPlayer player) {
-		
-		if(mode == 999_999) {
+	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
+
+		if(mode == ClickType.CLONE) {
 			if(player.world.isRemote) return null;
 			ItemStack stack = gun.getStackInSlot(0);
 			if(stack != null && stack.getItem() instanceof ItemGunBaseNT) {
@@ -102,27 +103,27 @@ public class ContainerWeaponTable extends Container {
 						mods.getStackInSlot(4),
 						mods.getStackInSlot(5),
 						mods.getStackInSlot(6));
-				
+
 				for(int i = 0; i < 7; i++) {
 					ItemStack mod = ContainerWeaponTable.this.mods.getStackInSlot(i);
 					if(XWeaponModManager.isApplicable(stack, mod, this.index, false)) ContainerWeaponTable.this.mods.setInventorySlotContents(i, ItemStack.EMPTY);
 				}
 
 				this.index = button;
-				
+
 				if(stack != null) {
 					ItemStack[] mods = XWeaponModManager.getUpgradeItems(stack, this.index);
-					
+
 					if(mods != null) for(int i = 0; i < Math.min(mods.length, 7); i++) {
 						ContainerWeaponTable.this.mods.setInventorySlotContents(i, mods[i]);
 					}
 				}
-				
+
 				this.detectAndSendChanges();
 			}
 			return null;
 		}
-		
+
 		return super.slotClick(index, button, mode, player);
 	}
 
@@ -132,18 +133,18 @@ public class ContainerWeaponTable extends Container {
 
 		if(!player.world.isRemote) {
 			for(int i = 0; i < this.mods.getSizeInventory(); ++i) {
-				ItemStack itemstack = this.mods.getStackInSlotOnClosing(i);
+				ItemStack itemstack = this.mods.removeStackFromSlot(i);
 
 				if(itemstack != null) {
-					player.dropPlayerItemWithRandomChoice(itemstack, false);
+					player.dropItem(itemstack, false);
 				}
 			}
-			
-			ItemStack itemstack = this.gun.getStackInSlotOnClosing(0);
-			
+
+			ItemStack itemstack = this.gun.removeStackFromSlot(0);
+
 			if(itemstack != null) {
 				XWeaponModManager.uninstall(itemstack, index);
-				player.dropPlayerItemWithRandomChoice(itemstack, false);
+				player.dropItem(itemstack, false);
 			}
 		}
 	}
@@ -157,11 +158,11 @@ public class ContainerWeaponTable extends Container {
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack copy = null;
 		Slot slot = (Slot) this.inventorySlots.get(index);
-		
+
 		if(slot != null && slot.getHasStack()) {
 			ItemStack stack = slot.getStack();
 			copy = stack.copy();
-			
+
 			if(index < 8) {
 				if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 8, this.inventorySlots.size(), true)) return null;
 				slot.onTake(player, stack);
@@ -173,7 +174,7 @@ public class ContainerWeaponTable extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
@@ -182,7 +183,7 @@ public class ContainerWeaponTable extends Container {
 
 		return copy;
 	}
-	
+
 	public class ModSlot extends Slot {
 
 		public ModSlot(IInventory inventory, int index, int x, int y) {
@@ -193,7 +194,7 @@ public class ContainerWeaponTable extends Container {
 		public boolean isItemValid(ItemStack stack) {
 			return gun.getStackInSlot(0) != null && XWeaponModManager.isApplicable(gun.getStackInSlot(0), stack, index, true);
 		}
-		
+
 		@Override
 		public void putStack(ItemStack stack) {
 			super.putStack(stack);
@@ -206,7 +207,7 @@ public class ContainerWeaponTable extends Container {
 			refreshInstalledMods();
 			return stack;
 		}
-		
+
 		public void refreshInstalledMods() {
 			if(gun.getStackInSlot(0) == null) return;
 			XWeaponModManager.install(

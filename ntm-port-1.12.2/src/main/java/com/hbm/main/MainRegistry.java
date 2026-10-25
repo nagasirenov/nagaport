@@ -291,9 +291,6 @@ public class MainRegistry {
 		HTTPHandler.loadStats();
 		com.hbm.crafting.nativeapi.NtmCraftingTables.schedule(CraftingManager::mainRegistry);
 		SiegeTier.registerTiers();
-		HazardRegistry.registerItems();
-		HazardRegistry.registerTrafos();
-		XWeaponModManager.init();
 
 		SolarSystem.init();
 
@@ -333,14 +330,10 @@ public class MainRegistry {
 
 		TileMappings.writeMappings();
 		MachineDynConfig.initialize();
-		TileEntityLaunchPadBase.registerLaunchables();
 
 		for(Entry<Class<? extends TileEntity>, String[]> e : TileMappings.map.entrySet()) {
-
-			if(e.getValue().length == 1)
-				GameRegistry.registerTileEntity(e.getKey(), e.getValue()[0]);
-			else
-				GameRegistry.registerTileEntityWithAlternatives(e.getKey(), e.getValue()[0], e.getValue());
+			// Forge 1.12 maps each TileEntity class to exactly one registry ID.
+			GameRegistry.registerTileEntity(e.getKey(), e.getValue()[0]);
 		}
 
 		VanillaLootHandler chestLoot = new VanillaLootHandler();
@@ -385,6 +378,11 @@ public class MainRegistry {
 
 	@EventHandler
 	public static void load(FMLInitializationEvent event) {
+		proxy.registerPostRegistryInfo();
+		HazardRegistry.registerItems();
+		HazardRegistry.registerTrafos();
+		XWeaponModManager.init();
+		TileEntityLaunchPadBase.registerLaunchables();
 
 		RodRecipes.registerInit();
 

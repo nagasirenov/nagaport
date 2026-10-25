@@ -56,7 +56,7 @@ public class HbmWorld {
 		OfficeFeatures.registerComponents();
 //		RuinFeatures.registerComponents();
 		BunkerComponents.registerComponents();
-		MapGenStructureIO.func_143031_a(SiloComponent.class, "NTMSiloComponent");
+		MapGenStructureIO.registerStructureComponent(SiloComponent.class, "NTMSiloComponent");
 	}
 
 	/** Register multi-chunk spanning terrain features using chainloader */

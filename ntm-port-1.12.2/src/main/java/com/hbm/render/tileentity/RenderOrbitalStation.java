@@ -108,7 +108,7 @@ public class RenderOrbitalStation extends TileEntitySpecialRenderer implements I
 				GL11.glDisable(GL11.GL_CULL_FACE);
 				GL11.glShadeModel(GL11.GL_SMOOTH);
 				ItemBlock itemBlock = (ItemBlock) stack.getItem();
-				if(itemBlock.field_150939_a == ModBlocks.orbital_station_launcher) {
+				if(net.minecraft.block.Block.getBlockFromItem(itemBlock) == ModBlocks.orbital_station_launcher) {
 					bindTexture(ResourceManager.docking_port_launcher_tex);
 				} else {
 					bindTexture(ResourceManager.docking_port_tex);

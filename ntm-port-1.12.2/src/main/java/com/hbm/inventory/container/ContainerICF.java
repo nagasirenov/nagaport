@@ -11,17 +11,17 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerICF extends Container {
-	
+
 	protected TileEntityICF icf;
-	
+
 	public ContainerICF(InventoryPlayer invPlayer, TileEntityICF tedf) {
 		this.icf = tedf;
-		
+
 		for(int i = 0; i < 5; i++) this.addSlotToContainer(new Slot(icf, i, 80 + i * 18, 18));
 		this.addSlotToContainer(new Slot(icf, 5, 116, 54));
 		for(int i = 0; i < 5; i++) this.addSlotToContainer(new SlotCraftingOutput(invPlayer.player, icf, 6 + i, 80 + i * 18, 90));
 		this.addSlotToContainer(new Slot(icf, 11, 44, 90));
-		
+
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.addSlotToContainer(new Slot(invPlayer, j + i * 9 + 9, 44 + j * 18, 140 + i * 18));
@@ -32,7 +32,7 @@ public class ContainerICF extends Container {
 			this.addSlotToContainer(new Slot(invPlayer, i, 44 + i * 18, 198));
 		}
 	}
-	
+
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack copy = null;
@@ -47,7 +47,7 @@ public class ContainerICF extends Container {
 					return null;
 				}
 			} else {
-				
+
 				if(copy.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(stack, 11, 12, false)) {
 						return null;
@@ -61,7 +61,7 @@ public class ContainerICF extends Container {
 				}
 			}
 
-			if(stack.stackSize == 0) {
+			if(stack.getCount() == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
@@ -70,7 +70,7 @@ public class ContainerICF extends Container {
 
 		return copy;
 	}
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return icf.isUsableByPlayer(player);
