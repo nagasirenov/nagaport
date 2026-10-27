@@ -43,7 +43,7 @@ public class ContainerCentrifuge extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -53,7 +53,7 @@ public class ContainerCentrifuge extends Container {
 
 			if(index <= 7) {
 				if(!this.mergeItemStack(stack, 8, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(stack, rStack);
@@ -61,18 +61,18 @@ public class ContainerCentrifuge extends Container {
 
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 1, 2, false))
-						return null;
+						return ItemStack.EMPTY;
 
 				} else if(rStack.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(stack, 6, 8, false))
-						return null;
+						return ItemStack.EMPTY;
 
 				} else if(!this.mergeItemStack(stack, 0, 1, false))
-					return null;
+					return ItemStack.EMPTY;
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

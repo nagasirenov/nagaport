@@ -118,7 +118,7 @@ public boolean canBlockStay(World world, int x, int y, int z) {
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState state, IBlockAccess world, BlockPos pos) {
-		return null;
+		return NULL_AABB;
 	}
 
 	/**
@@ -240,7 +240,24 @@ public boolean canBlockStay(World world, int x, int y, int z) {
 
 
 
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
+	@Override
+	public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+		return net.minecraft.block.state.BlockFaceShape.UNDEFINED;
+	}
+
+	@Override
 	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess world, net.minecraft.util.math.BlockPos pos) {
 		return shape;
+	}
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
 	}
 }

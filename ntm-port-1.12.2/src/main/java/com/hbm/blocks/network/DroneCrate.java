@@ -43,6 +43,11 @@ public class DroneCrate extends BlockContainer implements ILookOverlay, ITooltip
 	}
 
 	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
+	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityDroneCrate();
 	}

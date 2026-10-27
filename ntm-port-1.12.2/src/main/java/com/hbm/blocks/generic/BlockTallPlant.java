@@ -59,6 +59,20 @@ public class BlockTallPlant extends BlockEnumMulti implements IPlantable, IGrowa
 		func_149853_b(worldIn, rand, pos.getX(), pos.getY(), pos.getZ());
 	}
 
+	private static final AxisAlignedBB TALL_LOWER_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
+	private static final AxisAlignedBB TALL_UPPER_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		int meta = state.getBlock().getMetaFromState(state);
+		return meta > 7 ? TALL_UPPER_AABB : TALL_LOWER_AABB;
+	}
+
+	@Override
+	public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, net.minecraft.util.EnumFacing face) {
+		return net.minecraft.block.state.BlockFaceShape.UNDEFINED;
+	}
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
@@ -142,6 +156,11 @@ public class BlockTallPlant extends BlockEnumMulti implements IPlantable, IGrowa
 	@Override
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
+	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
 	}
 
 	public int getRenderType() {
@@ -377,5 +396,11 @@ public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metad
 		}
 
 		return ret;
+	}
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
 	}
 }

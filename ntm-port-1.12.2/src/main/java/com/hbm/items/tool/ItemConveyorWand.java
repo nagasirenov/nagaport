@@ -226,8 +226,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 					player.sendMessage(new TextComponentString("Conveyor obstructed, build cancelled"));
 				}
 			} else {
-				RenderOverhead.clearActionPreview();
-				lastMop = null;
+				clearClientPreview();
 			}
 
 			stack.setTagCompound(null);
@@ -249,74 +248,80 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 			ItemStack held = player.getHeldItemMainhand();
 			if(held == null || held.getItem() != this || held.getItemDamage() != stack.getItemDamage()) {
 				stack.setTagCompound(null);
-				if(world.isRemote) {
-					RenderOverhead.clearActionPreview();
-					lastMop = null;
-				}
+				if(world.isRemote) clearClientPreview();
 			}
 		}
 
 		// clientside prediction only
 		if(world.isRemote && inHand) {
-			if(!stack.hasTagCompound()) {
-				RenderOverhead.clearActionPreview();
-				lastMop = null;
-				return;
-			}
-
-			RayTraceResult mop = Minecraft.getMinecraft().objectMouseOver;
-			if(mop == null || mop.typeOfHit != RayTraceResult.Type.BLOCK) {
-				RenderOverhead.clearActionPreview();
-				lastMop = null;
-				return;
-			}
-
-			int x = mop.getBlockPos().getX();
-			int y = mop.getBlockPos().getY();
-			int z = mop.getBlockPos().getZ();
-			int side = mop.sideHit.getIndex();
-
-			Block onBlock = world.getBlockState(new BlockPos(x, y, z)).getBlock();
-			if(onBlock instanceof BlockConveyorBendable) {
-				BlockConveyorBase bendable = (BlockConveyorBase) onBlock;
-				ForgeDirection moveDir = bendable.getInputDirection(world, x, y, z);
-
-				int ox = x + moveDir.offsetX;
-				int oy = y + moveDir.offsetY;
-				int oz = z + moveDir.offsetZ;
-
-				if(world.getBlockState(new BlockPos(ox, oy, oz)).getBlock().isReplaceable(world, new BlockPos(ox, oy, oz))) {
-					side = moveDir.ordinal();
-				}
-			}
-
-			if(lastMop != null && mop.getBlockPos().equals(lastMop.getBlockPos()) && side == lastSide && Math.abs(lastYaw - player.rotationYaw) < 15) return;
-			lastMop = mop;
-			lastYaw = player.rotationYaw;
-			lastSide = side;
-
-			NBTTagCompound nbt = stack.getTagCompound();
-
-			int sx = nbt.getInteger("x");
-			int sy = nbt.getInteger("y");
-			int sz = nbt.getInteger("z");
-			int sSide = nbt.getInteger("side");
-			int count = nbt.getInteger("count");
-
-			// Size has a one block buffer on both sides, for overshooting conveyors
-			int sizeX = Math.abs(sx - x) + 3;
-			int sizeY = Math.abs(sy - y) + 3;
-			int sizeZ = Math.abs(sz - z) + 3;
-
-			int minX = Math.min(sx, x) - 1;
-			int minY = Math.min(sy, y) - 1;
-			int minZ = Math.min(sz, z) - 1;
-
-			WorldInAJar wiaj = new WorldInAJar(sizeX, sizeY, sizeZ);
-			boolean pathSuccess = construct(world, wiaj, getType(stack), player, sx, sy, sz, sSide, x, y, z, side, minX, minY, minZ, count) > 0;
-
-			RenderOverhead.setActionPreview(wiaj, minX, minY, minZ, pathSuccess);
+			updateClientPreview(stack, world, player);
 		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	private static void clearClientPreview() {
+		RenderOverhead.clearActionPreview();
+		lastMop = null;
+	}
+
+	@SideOnly(Side.CLIENT)
+	private static void updateClientPreview(ItemStack stack, World world, EntityPlayer player) {
+		if(!stack.hasTagCompound()) {
+			clearClientPreview();
+			return;
+		}
+
+		RayTraceResult mop = Minecraft.getMinecraft().objectMouseOver;
+		if(mop == null || mop.typeOfHit != RayTraceResult.Type.BLOCK) {
+			clearClientPreview();
+			return;
+		}
+
+		int x = mop.getBlockPos().getX();
+		int y = mop.getBlockPos().getY();
+		int z = mop.getBlockPos().getZ();
+		int side = mop.sideHit.getIndex();
+
+		Block onBlock = world.getBlockState(new BlockPos(x, y, z)).getBlock();
+		if(onBlock instanceof BlockConveyorBendable) {
+			BlockConveyorBase bendable = (BlockConveyorBase) onBlock;
+			ForgeDirection moveDir = bendable.getInputDirection(world, x, y, z);
+
+			int ox = x + moveDir.offsetX;
+			int oy = y + moveDir.offsetY;
+			int oz = z + moveDir.offsetZ;
+
+			if(world.getBlockState(new BlockPos(ox, oy, oz)).getBlock().isReplaceable(world, new BlockPos(ox, oy, oz))) {
+				side = moveDir.ordinal();
+			}
+		}
+
+		if(lastMop != null && mop.getBlockPos().equals(lastMop.getBlockPos()) && side == lastSide && Math.abs(lastYaw - player.rotationYaw) < 15) return;
+		lastMop = mop;
+		lastYaw = player.rotationYaw;
+		lastSide = side;
+
+		NBTTagCompound nbt = stack.getTagCompound();
+
+		int sx = nbt.getInteger("x");
+		int sy = nbt.getInteger("y");
+		int sz = nbt.getInteger("z");
+		int sSide = nbt.getInteger("side");
+		int count = nbt.getInteger("count");
+
+		// Size has a one block buffer on both sides, for overshooting conveyors
+		int sizeX = Math.abs(sx - x) + 3;
+		int sizeY = Math.abs(sy - y) + 3;
+		int sizeZ = Math.abs(sz - z) + 3;
+
+		int minX = Math.min(sx, x) - 1;
+		int minY = Math.min(sy, y) - 1;
+		int minZ = Math.min(sz, z) - 1;
+
+		WorldInAJar wiaj = new WorldInAJar(sizeX, sizeY, sizeZ);
+		boolean pathSuccess = construct(world, wiaj, getType(stack), player, sx, sy, sz, sSide, x, y, z, side, minX, minY, minZ, count) > 0;
+
+		RenderOverhead.setActionPreview(wiaj, minX, minY, minZ, pathSuccess);
 	}
 
 	// In creative, auto delete connected conveyors

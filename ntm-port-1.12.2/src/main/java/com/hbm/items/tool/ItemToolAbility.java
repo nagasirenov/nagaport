@@ -631,6 +631,7 @@ public class ItemToolAbility extends ItemTool implements IDepthRockTool, IGUIPro
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void renderHUD(Pre event, ElementType type, EntityPlayer player, ItemStack stack) {
 		if(type != ElementType.CROSSHAIRS) return;
 

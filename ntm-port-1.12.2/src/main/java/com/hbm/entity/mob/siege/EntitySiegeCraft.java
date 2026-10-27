@@ -161,8 +161,8 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 	}
 
 	@Override
-	protected void updateAITasks() {
-		super.updateEntityActionState();
+	protected void updateEntityActionStateNT() {
+		super.updateEntityActionStateNT();
 
 		if(this.courseChangeCooldown > 0) {
 			this.courseChangeCooldown--;

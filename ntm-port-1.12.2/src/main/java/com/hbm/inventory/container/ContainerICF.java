@@ -35,7 +35,7 @@ public class ContainerICF extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack copy = null;
+		ItemStack copy = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -44,25 +44,25 @@ public class ContainerICF extends Container {
 
 			if(index <= 11) {
 				if(!this.mergeItemStack(stack, 12, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(copy.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(stack, 11, 12, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else {
 					if(!this.mergeItemStack(stack, 5, 6, false)) {
 						if(!this.mergeItemStack(stack, 0, 5, false)) {
-							return null;
+							return ItemStack.EMPTY;
 						}
 					}
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

@@ -11,6 +11,7 @@ import com.hbm.items.tool.ItemDrone.EnumDroneType;
 import com.hbm.tileentity.network.TileEntityDroneDock;
 import com.hbm.tileentity.network.TileEntityDroneProvider;
 import com.hbm.tileentity.network.TileEntityDroneRequester;
+import com.hbm.util.PersistentRegistryRef;
 import com.hbm.util.fauxpointtwelve.BlockPos;
 
 import net.minecraft.entity.Entity;
@@ -31,6 +32,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 	public ItemStack heldItem;
 	public List program = new ArrayList();
 	int nextActionTimer = 0;
+	private final List<NBTTagCompound> legacyPrograms = new ArrayList<>();
 
 	public static enum DroneProgram {
 		UNLOAD, DOCK
@@ -234,18 +236,21 @@ public class EntityRequestDrone extends EntityDroneBase {
 			} else if("dock".equals(pType)) {
 				this.program.add(DroneProgram.DOCK);
 			} else if("comp".equals(pType)) {
-				// the old code read "id" from the root NBT instead of the program compound; registry names written since the fix are preferred
-				Item item = null;
-
-				if(data.hasKey("name", 8))
-					item = Item.getByNameOrId(data.getString("name"));
-				else if(data.hasKey("id", 99))
-					item = Item.getItemById(data.getInteger("id"));
-
-				if(item != null && !(item instanceof ItemAir))
+				// Persistent identity is the registry name. A numeric-only program
+				// entry is a legacy value with no provable mapping; keep its raw tag
+				// so a re-save does not destroy the original data.
+				Item item = PersistentRegistryRef.readItemName(data, "name");
+				if(item == null || item instanceof ItemAir) {
+					if(data.hasKey("name", 8) || data.hasKey("id", 99)) {
+						NBTTagCompound legacy = data.copy();
+						legacy.setBoolean("legacy", true);
+						this.legacyPrograms.add(legacy);
+					}
+				} else {
 					this.program.add(new ComparableStack(item, 1, data.getInteger("meta")));
+				}
 			} else if("dict".equals(pType)) {
-				OreDictStack dict = new OreDictStack(nbt.getString("dict"));
+				OreDictStack dict = new OreDictStack(data.getString("dict"));
 				this.program.add(dict);
 			}
 		}
@@ -264,7 +269,7 @@ public class EntityRequestDrone extends EntityDroneBase {
 		nbt.setByte("app", this.dataManager.get(APPEARANCE));
 
 		int size = this.program.size();
-		nbt.setInteger("programSize", size);
+		nbt.setInteger("programSize", size + this.legacyPrograms.size());
 
 		for(int i = 0; i < size; i++) {
 			NBTTagCompound data = new NBTTagCompound();
@@ -283,7 +288,6 @@ public class EntityRequestDrone extends EntityDroneBase {
 					data.setString("type", "comp");
 					ResourceLocation name = comp.item != null ? comp.item.getRegistryName() : null;
 					if(name != null) data.setString("name", name.toString());
-					data.setInteger("id", Item.getIdFromItem(comp.item));
 					data.setInteger("meta", comp.meta);
 				} else {
 					OreDictStack dict = (OreDictStack) p;
@@ -300,6 +304,10 @@ public class EntityRequestDrone extends EntityDroneBase {
 			}
 
 			nbt.setTag("program" + i, data);
+		}
+
+		for(int i = 0; i < this.legacyPrograms.size(); i++) {
+			nbt.setTag("program" + (size + i), this.legacyPrograms.get(i).copy());
 		}
 	}
 }

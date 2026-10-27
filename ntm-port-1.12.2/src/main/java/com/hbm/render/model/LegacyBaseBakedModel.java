@@ -11,9 +11,8 @@ import org.lwjgl.util.vector.Vector3f;
 import com.hbm.blocks.BlockBase;
 import com.hbm.items.ItemEnumMulti;
 import com.hbm.render.icon.IIcon;
-import com.hbm.render.icon.LegacyTextureAtlasSprite;
+import com.hbm.render.item.nativeitem.NativeItemParticles;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.BlockFaceUV;
 import net.minecraft.client.renderer.block.model.BlockPartFace;
@@ -137,13 +136,8 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 	}
 
 	private static TextureAtlasSprite resolve(IIcon icon) {
-		if(icon == null) return null;
-		TextureAtlasSprite direct = null;
-		if(icon instanceof com.hbm.render.icon.WrappedIcon) direct = ((com.hbm.render.icon.WrappedIcon) icon).getSprite();
-		else if(icon instanceof LegacyTextureAtlasSprite) direct = ((LegacyTextureAtlasSprite) icon).getSprite();
-		else if(icon instanceof TextureAtlasSprite) direct = (TextureAtlasSprite) icon;
-		if(direct != null) return direct;
-		return Minecraft.getMinecraft().getTextureMapBlocks().getTextureExtry(icon.getIconName());
+		TextureAtlasSprite sprite = NativeItemParticles.spriteOf(icon, "LegacyBaseBakedModel");
+		return sprite != null ? sprite : net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
 	}
 
 	@Override

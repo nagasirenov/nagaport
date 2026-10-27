@@ -78,6 +78,9 @@ public class BlastFurnaceRecipes extends SerializableRecipe {
 
 	public static void addRecipe(Object in1, Object in2, ItemStack out) {
 
+		if(out == null || out.isEmpty())
+			throw new IllegalArgumentException("Blast furnace recipe output must be a non-empty stack");
+
 		if(in1 instanceof Item) in1 = new ComparableStack((Item) in1);
 		if(in1 instanceof Block) in1 = new ComparableStack((Block) in1);
 		if(in2 instanceof Item) in2 = new ComparableStack((Item) in2);

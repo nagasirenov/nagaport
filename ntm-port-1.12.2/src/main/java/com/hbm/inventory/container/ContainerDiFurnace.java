@@ -39,7 +39,7 @@ public class ContainerDiFurnace extends Container {
 
 		if(index >= 0 && index < 3 && button == 1 && mode == ClickType.PICKUP) {
 			Slot slot = this.getSlot(index);
-			if(!slot.getHasStack() && player.inventory.getItemStack() == null) {
+			if(!slot.getHasStack() && player.inventory.getItemStack().isEmpty()) {
 				if(!player.world.isRemote) {
 					if(index == 0) diFurnace.sideUpper = (byte) ((diFurnace.sideUpper + 1) % 6);
 					if(index == 1) diFurnace.sideLower = (byte) ((diFurnace.sideLower + 1) % 6);
@@ -47,7 +47,7 @@ public class ContainerDiFurnace extends Container {
 
 					diFurnace.markDirty();
 				}
-				return null;
+				return ItemStack.EMPTY;
 			}
 		}
 
@@ -56,7 +56,7 @@ public class ContainerDiFurnace extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -65,17 +65,19 @@ public class ContainerDiFurnace extends Container {
 
 			if(par2 <= 3) {
 				if(!this.mergeItemStack(var5, 4, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!this.mergeItemStack(var5, 0, 3, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}
+
+			var4.onTake(p_82846_1_, var5);
 		}
 
 		return var3;

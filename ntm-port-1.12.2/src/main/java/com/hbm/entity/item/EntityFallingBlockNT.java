@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import com.hbm.blocks.BlockFallingNT;
 import com.hbm.blocks.ISpotlight;
+import com.hbm.util.PersistentRegistryRef;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -35,6 +36,8 @@ public class EntityFallingBlockNT extends Entity {
     private static final DataParameter<Integer> META = EntityDataManager.createKey(EntityFallingBlockNT.class, DataSerializers.VARINT);
     private Block fallingBlock;
 	private int fallingMeta = -1;
+	private int legacyTileId = -1;
+	private int legacyTileByte = -1;
 	public int fallingTicks;
 	public boolean canDrop;
 	private boolean destroyOnLand;
@@ -208,8 +211,12 @@ public class EntityFallingBlockNT extends Entity {
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
-		nbt.setByte("Tile", (byte) Block.getIdFromBlock(this.getBlock()));
-		nbt.setInteger("TileID", Block.getIdFromBlock(this.getBlock()));
+		if(this.legacyTileId >= 0 || this.legacyTileByte >= 0) {
+			if(this.legacyTileByte >= 0) nbt.setByte("Tile", (byte) this.legacyTileByte);
+			if(this.legacyTileId >= 0) nbt.setInteger("TileID", this.legacyTileId);
+		} else {
+			PersistentRegistryRef.writeBlock(nbt, "Tile", this.getBlock());
+		}
 		nbt.setByte("Data", (byte) this.getMeta());
 		nbt.setByte("Time", (byte) this.fallingTicks);
 		nbt.setBoolean("DropItem", this.canDrop);
@@ -225,10 +232,15 @@ public class EntityFallingBlockNT extends Entity {
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		
-		if(nbt.hasKey("TileID", 99)) {
-			this.fallingBlock = Block.getBlockById(nbt.getInteger("TileID"));
-		} else {
-			this.fallingBlock = Block.getBlockById(nbt.getByte("Tile") & 255);
+		this.fallingBlock = PersistentRegistryRef.readBlock(nbt, "Tile");
+
+		if(this.fallingBlock == null) {
+			if(nbt.hasKey("TileID", 99)) {
+				this.legacyTileId = nbt.getInteger("TileID");
+			}
+			if(nbt.hasKey("Tile", 99)) {
+				this.legacyTileByte = nbt.getByte("Tile") & 255;
+			}
 		}
 
 		this.fallingMeta = nbt.getByte("Data") & 255;

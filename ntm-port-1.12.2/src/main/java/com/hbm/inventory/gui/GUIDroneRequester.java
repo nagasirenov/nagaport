@@ -33,7 +33,7 @@ public class GUIDroneRequester extends GuiInfoContainer {
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
 
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			for(int i = 0; i < 9; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 	

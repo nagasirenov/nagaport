@@ -184,6 +184,13 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 			int targetDimensionId = destination.body.getDimensionId();
 
 			EntityPlayer rider = this.getControllingPassenger() instanceof EntityPlayer ? (EntityPlayer) this.getControllingPassenger() : null;
+			if(rider == null && this.thrower instanceof EntityPlayer && this.thrower.dimension == this.dimension && this.thrower.isEntityAlive()) {
+				rider = (EntityPlayer) this.thrower;
+				rider.startRiding(this, true);
+				if(rider instanceof EntityPlayerMP) {
+					((EntityPlayerMP) rider).connection.sendPacket(new net.minecraft.network.play.server.SPacketSetPassengers(this));
+				}
+			}
 
 			if(canRide()) {
 				if(destination.body == SolarSystem.Body.ORBIT) {
@@ -210,7 +217,13 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 				// After a successful warp, spawn in a station core if one doesn't yet exist
 				if(destination.body == SolarSystem.Body.ORBIT) {
 					WorldServer targetWorld = DimensionManager.getWorld(targetDimensionId);
-					OrbitalStation.spawn(targetWorld, x, z);
+					if(targetWorld == null) {
+						DimensionManager.initDimension(targetDimensionId);
+						targetWorld = DimensionManager.getWorld(targetDimensionId);
+					}
+					if(targetWorld != null) {
+						OrbitalStation.spawn(targetWorld, x, z);
+					}
 				}
 			} else {
 				if(rocket.capsule.part instanceof ISatChip && destination.body != SolarSystem.Body.ORBIT) {
@@ -260,6 +273,13 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 		station.target = to.body;
 
 		EntityPlayer rider = this.getControllingPassenger() instanceof EntityPlayer ? (EntityPlayer) this.getControllingPassenger() : null;
+		if(rider == null && this.thrower instanceof EntityPlayer && this.thrower.dimension == this.dimension && this.thrower.isEntityAlive()) {
+			rider = (EntityPlayer) this.thrower;
+			rider.startRiding(this, true);
+			if(rider instanceof EntityPlayerMP) {
+				((EntityPlayerMP) rider).connection.sendPacket(new net.minecraft.network.play.server.SPacketSetPassengers(this));
+			}
+		}
 
 		int x = station.dX * OrbitalStation.STATION_SIZE + (OrbitalStation.STATION_SIZE / 2);
 		int y = 128;
@@ -279,8 +299,17 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 	}
 
 	public void attemptLaunch() {
+		RocketState state = getState();
+		if(state != RocketState.AWAITING && (state != RocketState.LANDED || destinationOverride == null)) {
+			return;
+		}
+
 		Target from = CelestialBody.getTarget(this.world, (int)posX, (int)posZ);
 		Target to = getTarget();
+
+		if(from == null || from.body == null || to == null || to.body == null) {
+			return;
+		}
 
 		RocketState transitionTo = from.inOrbit ? RocketState.UNDOCKING : RocketState.LAUNCHING;
 
@@ -328,6 +357,8 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 			if(navDrive != null && navDrive.getItem() instanceof ItemVOTVdrive) {
 				ItemVOTVdrive.getTarget(navDrive, this.world);
 				setDrive(navDrive);
+			} else {
+				setDrive(ItemStack.EMPTY);
 			}
 
 			if(thrower == null && rider != null) {
@@ -337,7 +368,12 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 			// If it's a satellite launcher, launch immediately
 			boolean jumping = false;
 			if(rider instanceof EntityLivingBase) {
-				jumping = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(EntityLivingBase.class, (EntityLivingBase) rider, "field_70703_bu", "isJumping");
+				try {
+					Boolean j = net.minecraftforge.fml.relauncher.ReflectionHelper.getPrivateValue(EntityLivingBase.class, (EntityLivingBase) rider, "field_70703_bu", "isJumping");
+					jumping = j != null && j.booleanValue();
+				} catch(Exception ex) {
+					jumping = false;
+				}
 			}
 			if(state == RocketState.AWAITING && ((rider != null && jumping) || !canRide())) {
 				attemptLaunch();
@@ -345,8 +381,16 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 				thrower = rider;
 			}
 
-			if(thrower != null && rider == null && !canExitCapsule() && forceExitTimer < 60) {
-				thrower.startRiding(this);
+			if(thrower instanceof EntityPlayerMP && rider == null && !canExitCapsule()) {
+				if(thrower.dimension == this.dimension && thrower.isEntityAlive()) {
+					thrower.startRiding(this, true);
+					((EntityPlayerMP) thrower).connection.sendPacket(new net.minecraft.network.play.server.SPacketSetPassengers(this));
+					rider = (EntityPlayer) thrower;
+				}
+			}
+
+			if(this.ticksExisted % 10 == 0 && rider instanceof EntityPlayerMP && !canExitCapsule()) {
+				((EntityPlayerMP) rider).connection.sendPacket(new net.minecraft.network.play.server.SPacketSetPassengers(this));
 			}
 
 			if(state == RocketState.LAUNCHING) {
@@ -452,19 +496,23 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 				forceExitTimer = 0; // never allow exits in transfers under any circumstances!
 
 				OrbitalStation station = OrbitalStation.getStationFromPosition((int)posX, (int)posZ);
-				station.update(this.world);
+				if(station != null) {
+					station.update(this.world);
 
-				if(station.getUnscaledProgress(0) > 0.99 || station.state == StationState.ARRIVING) {
-					Target from = CelestialBody.getTarget(this.world, (int)posX, (int)posZ);
-					Target to = getTarget();
+					if(station.getUnscaledProgress(0) > 0.99 || station.state == StationState.ARRIVING) {
+						Target from = CelestialBody.getTarget(this.world, (int)posX, (int)posZ);
+						Target to = getTarget();
 
-					beginLandingSequence(from, to);
+						beginLandingSequence(from, to);
 
-					SolarSystemWorldSavedData data = SolarSystemWorldSavedData.get(this.world);
-					data.removeStation(station);
+						SolarSystemWorldSavedData data = SolarSystemWorldSavedData.get(this.world);
+						data.removeStation(station);
+					}
 				}
 
-				PacketDispatcher.wrapper.sendTo(new EntityBufPacket(getEntityId(), this), (EntityPlayerMP) rider);
+				if(rider instanceof EntityPlayerMP) {
+					PacketDispatcher.wrapper.sendTo(new EntityBufPacket(getEntityId(), this), (EntityPlayerMP) rider);
+				}
 			} else {
 				rocketVelocity = 0;
 				rotationPitch = 0;
@@ -592,22 +640,33 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 	}
 
 
-		@Override
-	public boolean processInitialInteract(net.minecraft.entity.player.EntityPlayer player, net.minecraft.util.EnumHand hand) {
+	@Override
+	public boolean processInitialInteract(EntityPlayer player, net.minecraft.util.EnumHand hand) {
 		return interactFirst(player);
 	}
 
-public boolean interactFirst(EntityPlayer player) {
+	public boolean interactFirst(EntityPlayer player) {
 		if(!canRide()) return false;
 
-		if(false) {
-			return true;
-		} else if(!this.world.isRemote && (!this.isBeingRidden() || this.isPassenger(player))) {
+		if(!this.world.isRemote && !this.isBeingRidden()) {
 			player.startRiding(this);
+			return true;
+		} else if(this.world.isRemote && !this.isBeingRidden()) {
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public Entity getControllingPassenger() {
+		List<Entity> list = this.getPassengers();
+		return list.isEmpty() ? null : list.get(0);
+	}
+
+	@Override
+	public boolean canPassengerSteer() {
+		return false;
 	}
 
 	public boolean handleWaterMovement() {
@@ -620,7 +679,8 @@ public boolean interactFirst(EntityPlayer player) {
 
 	// Does this rocket accept passengers (is a capsule)
 	public boolean canRide() {
-		return getRocket().capsule.part.attributes[0] == WarheadType.APOLLO;
+		RocketStruct rocket = getRocket();
+		return rocket != null && rocket.capsule != null && rocket.capsule.part != null && rocket.capsule.part.attributes != null && rocket.capsule.part.attributes.length > 0 && rocket.capsule.part.attributes[0] == WarheadType.APOLLO;
 	}
 
 	public boolean isReusable() {
@@ -1069,6 +1129,12 @@ public boolean interactFirst(EntityPlayer player) {
 			parent.printHook(event, world, x, y, z);
 		}
 
+
+		@Override
+		public boolean processInitialInteract(EntityPlayer player, net.minecraft.util.EnumHand hand) {
+			if(parent == null) return false;
+			return parent.processInitialInteract(player, hand);
+		}
 
 		public boolean interactFirst(EntityPlayer player) {
 			if(parent == null) return false;

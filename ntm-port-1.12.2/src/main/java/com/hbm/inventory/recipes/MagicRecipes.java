@@ -26,8 +26,9 @@ public class MagicRecipes {
 		List<ComparableStack> comps = new ArrayList();
 
 		for(int i = 0; i < 4; i++) {
-			if(matrix.getStackInSlot(i) != null)
-				comps.add(new ComparableStack(matrix.getStackInSlot(i)).makeSingular());
+			ItemStack stack = matrix.getStackInSlot(i);
+			if(stack != null && !stack.isEmpty())
+				comps.add(new ComparableStack(stack).makeSingular());
 		}
 
 		//Collections.sort(comps);

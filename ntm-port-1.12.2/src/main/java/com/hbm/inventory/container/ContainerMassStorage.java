@@ -29,7 +29,7 @@ public class ContainerMassStorage extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack result = null;
+		ItemStack result = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		// Refill instantly if needed, then do regular slot behavior
@@ -43,17 +43,17 @@ public class ContainerMassStorage extends ContainerBase {
 
 			if(index == 0 || index == 2) {
 				if(!this.mergeItemStack(initial, storage.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 				// Try to insert instantly, then fall back to regular slot behavior
 				if(!storage.quickInsert(initial) && !this.mergeItemStack(initial, 0, 1, false)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 
 			if(initial.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -78,7 +78,7 @@ public class ContainerMassStorage extends ContainerBase {
 
 		Slot slot = this.getSlot(index);
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
 		if(slot.getHasStack())

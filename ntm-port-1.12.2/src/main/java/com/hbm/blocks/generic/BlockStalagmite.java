@@ -77,9 +77,22 @@ public class BlockStalagmite extends BlockEnumMulti {
 		}
 	}
 
+	private static final AxisAlignedBB STALAG_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
+
 	@Override
 	public net.minecraft.util.math.AxisAlignedBB getBoundingBox(net.minecraft.block.state.IBlockState state, net.minecraft.world.IBlockAccess source, net.minecraft.util.math.BlockPos pos) {
-		return FULL_BLOCK_AABB;
+		return STALAG_AABB;
+	}
+
+	@Override
+	public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(net.minecraft.world.IBlockAccess worldIn, IBlockState state, BlockPos pos, net.minecraft.util.EnumFacing face) {
+		return net.minecraft.block.state.BlockFaceShape.UNDEFINED;
+	}
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
 	}
 
 	@Override

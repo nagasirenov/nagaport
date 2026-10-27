@@ -1,10 +1,25 @@
 {
   "variants": {
-    "orientation=0": { "model": "hbm:block/barbed_wire" },
-    "orientation=1": { "model": "hbm:block/barbed_wire" },
-    "orientation=2": { "model": "hbm:block/barbed_wire" },
-    "orientation=3": { "model": "hbm:block/barbed_wire" },
-    "orientation=4": { "model": "hbm:block/barbed_wire" },
-    "orientation=5": { "model": "hbm:block/barbed_wire" }
+    "orientation=0": {
+      "model": "hbm:barbed_wire_poison"
+    },
+    "orientation=1": {
+      "model": "hbm:barbed_wire_poison"
+    },
+    "orientation=2": {
+      "model": "hbm:barbed_wire_poison"
+    },
+    "orientation=3": {
+      "model": "hbm:barbed_wire_poison"
+    },
+    "orientation=4": {
+      "model": "hbm:barbed_wire_poison"
+    },
+    "orientation=5": {
+      "model": "hbm:barbed_wire_poison"
+    },
+    "inventory": {
+      "model": "hbm:barbed_wire_poison"
+    }
   }
 }

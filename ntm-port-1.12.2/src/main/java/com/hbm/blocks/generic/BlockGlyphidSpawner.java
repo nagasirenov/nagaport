@@ -196,4 +196,9 @@ public class BlockGlyphidSpawner extends BlockContainer implements IBlockMulti {
 			this.initialSpawn = nbt.getBoolean("initialSpawn");
 		}
 	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

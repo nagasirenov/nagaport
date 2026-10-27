@@ -11,31 +11,37 @@ public class TileEntityDummy extends TileEntity implements net.minecraft.util.IT
 	public int targetY;
 	public int targetZ;
 	
-    @Override
+	@Override
 	public void update() {
-    	if(!this.world.isRemote) {
-    		if(!(com.hbm.world.WorldBlockState.read(this.world, targetX, targetY, targetZ).getBlock() instanceof IMultiblock)) {
-    			com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
-    		}
-    	}
-    }
+		if(this.isInvalid()) return;
+		if(!this.world.isRemote) {
+			if(com.hbm.world.WorldBlockState.isAir(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
+				this.invalidate();
+				this.world.removeTileEntity(this.pos);
+				return;
+			}
+			if(!(com.hbm.world.WorldBlockState.read(this.world, targetX, targetY, targetZ).getBlock() instanceof IMultiblock)) {
+				com.hbm.world.WorldBlockDestruction.destroy(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), false);
+			}
+		}
+	}
 
-    @Override
+	@Override
 	public void readFromNBT(NBTTagCompound nbt)
-    {
-    	super.readFromNBT(nbt);
-        this.targetX = nbt.getInteger("tx");
-        this.targetY = nbt.getInteger("ty");
-        this.targetZ = nbt.getInteger("tz");
-    }
+	{
+		super.readFromNBT(nbt);
+	    this.targetX = nbt.getInteger("tx");
+	    this.targetY = nbt.getInteger("ty");
+	    this.targetZ = nbt.getInteger("tz");
+	}
 
-    @Override
+	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
-    {
-    	super.writeToNBT(nbt);
-    	nbt.setInteger("tx", this.targetX);
-    	nbt.setInteger("ty", this.targetY);
-    	nbt.setInteger("tz", this.targetZ);
+	{
+		super.writeToNBT(nbt);
+		nbt.setInteger("tx", this.targetX);
+		nbt.setInteger("ty", this.targetY);
+		nbt.setInteger("tz", this.targetZ);
 	    return nbt;
-    }
+	}
 }

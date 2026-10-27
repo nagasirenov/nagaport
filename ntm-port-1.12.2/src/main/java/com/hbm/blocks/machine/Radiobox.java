@@ -8,6 +8,8 @@ import com.hbm.tileentity.machine.TileEntityRadiobox;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,8 +22,27 @@ import net.minecraft.world.World;
 
 public class Radiobox extends BlockContainer {
 
+	/** Facing 2..5 plus the original +4 active bit. */
+	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 9);
+
 	public Radiobox(Material mat) {
 		super(mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(META, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, META);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(META, meta >= 0 && meta <= 9 ? meta : 0);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(META);
 	}
 
 	@Override

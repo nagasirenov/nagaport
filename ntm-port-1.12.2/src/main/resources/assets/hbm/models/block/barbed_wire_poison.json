@@ -1,0 +1,10 @@
+{
+  "loader": "forge:obj",
+  "model": "hbm:models/blocks/barbed_wire.obj",
+  "flip-v": true,
+  "textures": {
+    "particle": "hbm:blocks/barbed_wire_poison_model",
+    "OBJModel.Default.Texture.Name": "hbm:blocks/barbed_wire_poison_model",
+    "OBJModel.White.Texture.Name": "hbm:blocks/barbed_wire_poison_model"
+  }
+}

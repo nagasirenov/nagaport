@@ -1,6 +1,7 @@
 package com.hbm.entity.item;
 
 import api.hbm.block.IFuckingExplode;
+import com.hbm.util.PersistentRegistryRef;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -23,6 +24,7 @@ public class EntityTNTPrimedBase extends Entity {
 	private boolean doesSpin; // SSSSSSSPEEEEEEEEEEEEEEEEEEEEEEEN
 	private float momentumPitch;
 	private float momentumYaw;
+	private int legacyTile = -1;
 
 	public EntityTNTPrimedBase(World world) {
 		super(world);
@@ -100,11 +102,13 @@ public class EntityTNTPrimedBase extends Entity {
 	}
 
 	private void explode() {
-		this.getBomb().explodeEntity(this.world, posX, posY, posZ, this);
+		IFuckingExplode bomb = this.getBomb();
+		if(bomb != null) bomb.explodeEntity(this.world, posX, posY, posZ, this);
 	}
 
 	public IFuckingExplode getBomb() {
-		return (IFuckingExplode) getBlock();
+		Block block = getBlock();
+		return block instanceof IFuckingExplode ? (IFuckingExplode) block : null;
 	}
 
 	public Block getBlock() {
@@ -114,13 +118,23 @@ public class EntityTNTPrimedBase extends Entity {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		nbt.setByte("Fuse", (byte) this.fuse);
-		nbt.setInteger("Tile", this.dataManager.get(BLOCK_ID));
+		if(this.legacyTile >= 0) {
+			nbt.setInteger("Tile", this.legacyTile);
+		} else {
+			PersistentRegistryRef.writeBlock(nbt, "Tile", this.getBlock());
+		}
 	}
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		this.fuse = nbt.getByte("Fuse");
-		this.dataManager.set(BLOCK_ID, nbt.getInteger("Tile"));
+		Block block = PersistentRegistryRef.readBlock(nbt, "Tile");
+		if(block != null) {
+			this.dataManager.set(BLOCK_ID, Block.getIdFromBlock(block));
+		} else {
+			this.legacyTile = nbt.getInteger("Tile");
+			this.dataManager.set(BLOCK_ID, 0);
+		}
 	}
 
 	@SideOnly(Side.CLIENT)

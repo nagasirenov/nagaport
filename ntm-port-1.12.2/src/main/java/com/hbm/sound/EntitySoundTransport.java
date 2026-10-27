@@ -39,7 +39,7 @@ public final class EntitySoundTransport {
             WorldServer world = (WorldServer) ServerFields.WORLD.get(listener);
             PlayerList players = server.getPlayerList();
             int dimension = world.provider.getDimension();
-            ResourceLocation name = sound == null ? null : sound.getSoundName();
+            ResourceLocation name = sound == null ? null : sound.getRegistryName();
             // Read the event's resource name only for this built-in packet path. Null is
             // passed into the packet constructor so custom observers still receive null.
             LegacyEntitySoundPacket message = new LegacyEntitySoundPacket(

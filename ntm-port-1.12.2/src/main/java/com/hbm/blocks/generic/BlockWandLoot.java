@@ -269,6 +269,15 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 
 		@Override
 		public void update() {
+			if(this.isInvalid()) return;
+			if(!(this.world.getBlockState(this.pos).getBlock() instanceof BlockWandLoot)) {
+				MainRegistry.logger.warn("Somehow the block at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ() + " isn't a loot block, cleaning up orphan TE!");
+				this.invalidate();
+				if(this.hasWorld()) {
+					this.world.removeTileEntity(this.pos);
+				}
+				return;
+			}
 			if(!this.world.isRemote) {
 				if(triggerReplace) {
 					// On the first tick of this TE, replace with intended block and fill with loot
@@ -280,8 +289,13 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 		}
 
 		private void replace() {
+			if(this.isInvalid()) return;
 			if(!(this.world.getBlockState(this.pos).getBlock() instanceof BlockWandLoot)) {
-				MainRegistry.logger.warn("Somehow the block at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ() + " isn't a loot block but we're doing a TE update as if it is, cancelling!");
+				MainRegistry.logger.warn("Somehow the block at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ() + " isn't a loot block, cleaning up orphan TE!");
+				this.invalidate();
+				if(this.hasWorld()) {
+					this.world.removeTileEntity(this.pos);
+				}
 				return;
 			}
 

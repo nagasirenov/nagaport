@@ -46,7 +46,7 @@ private TileEntityReactorResearch reactor;
 
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if (slot != null && slot.getHasStack()) {
@@ -55,18 +55,18 @@ private TileEntityReactorResearch reactor;
 
             if (index <= 12) {
 				if (!this.mergeItemStack(stack, 13, this.inventorySlots.size(), true)){
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 				if(stack.getItem() instanceof ItemPlateFuel) {
 					if (!this.mergeItemStack(stack, 0, 12, true))
-						return null;
+						return ItemStack.EMPTY;
 				} else {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			if (stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

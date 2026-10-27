@@ -8,6 +8,7 @@ import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.tileentity.network.TileEntityPneumoTube;
 import com.hbm.util.Compat;
+import com.hbm.util.PersistentRegistryRef;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -159,6 +160,7 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 		private int meta;
 		private Block lastBlock;
 		private int lastMeta;
+		private NBTTagCompound legacyRef;
 
 		@Override
 		public void update() {
@@ -174,15 +176,16 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
-			int id = nbt.getInteger("block");
-			this.block = id == 0 ? null : Block.getBlockById(id);
+			this.block = PersistentRegistryRef.readBlock(nbt, "block");
 			this.meta = nbt.getInteger("meta");
+			this.legacyRef = PersistentRegistryRef.legacyOnly(nbt, "block");
 		}
 
 		@Override
 		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
-			if(block != null) nbt.setInteger("block", Block.getIdFromBlock(block));
+			if(block != null) PersistentRegistryRef.writeBlock(nbt, "block", block);
+			else PersistentRegistryRef.preserveLegacy(this.legacyRef, nbt, "block");
 			nbt.setInteger("meta", meta);
 			return nbt;
 		}
@@ -191,9 +194,9 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 		public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 			NBTTagCompound nbt = pkt.getNbtCompound();
 
-			int id = nbt.getInteger("block");
-			this.block = id == 0 ? null : Block.getBlockById(id);
+			this.block = PersistentRegistryRef.readBlock(nbt, "block");
 			this.meta = nbt.getInteger("meta");
+			this.legacyRef = PersistentRegistryRef.legacyOnly(nbt, "block");
 			super.onDataPacket(net, pkt);
 		}
 
@@ -201,7 +204,7 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 		public SPacketUpdateTileEntity getUpdatePacket() {
 			NBTTagCompound nbt = new NBTTagCompound();
 
-			if(block != null) nbt.setInteger("block", Block.getIdFromBlock(block));
+			if(block != null) PersistentRegistryRef.writeBlock(nbt, "block", block);
 			nbt.setInteger("meta", meta);
 			nbt.setByte("insertionDir", (byte) insertionDir.ordinal());
 			nbt.setByte("ejectionDir", (byte) ejectionDir.ordinal());
@@ -212,7 +215,7 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 		public NBTTagCompound getSettings(World world, int x, int y, int z) {
 			NBTTagCompound nbt = new NBTTagCompound();
 			if(block != null) {
-				nbt.setInteger("paintblock", Block.getIdFromBlock(block));
+				PersistentRegistryRef.writeBlock(nbt, "paintblock", block);
 				nbt.setInteger("paintmeta", meta);
 			}
 			return nbt;
@@ -220,8 +223,9 @@ public class PneumoTubePaintableBlock extends BlockContainer implements IToolabl
 
 		@Override
 		public void pasteSettings(NBTTagCompound nbt, int index, World world, EntityPlayer player, int x, int y, int z) {
-			if(nbt.hasKey("paintblock")) {
-				this.block = Block.getBlockById(nbt.getInteger("paintblock"));
+			Block painted = PersistentRegistryRef.readBlock(nbt, "paintblock");
+			if(painted != null) {
+				this.block = painted;
 				this.meta = nbt.getInteger("paintmeta");
 			}
 		}

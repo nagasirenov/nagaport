@@ -94,13 +94,13 @@ public class ArmorGasMask extends ItemArmor implements IGasMask {
 			return "hbm:textures/models/GasMask.png";
 		}
 		if(stack.getItem() == ModItems.gas_mask_m65) {
-			return "hbm:textures/models/ModelM65.png";
+			return "hbm:textures/models/modelm65.png";
 		}
 		if(stack.getItem() == ModItems.gas_mask_olde) {
 			return "hbm:textures/armor/mask_olde.png";
 		}
 		if(stack.getItem() == ModItems.gas_mask_mono) {
-			return "hbm:textures/models/ModelM65Mono.png";
+			return "hbm:textures/models/modelm65mono.png";
 		}
 
 		return null;

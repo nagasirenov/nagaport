@@ -119,6 +119,9 @@
     "facing=north,half=upper,hinge=right,open=true": {
       "model": "hbm:native_legacy_doors/door_office/top",
       "y": 180
+    },
+    "inventory": {
+      "model": "hbm:item/tile.door_office"
     }
   }
 }

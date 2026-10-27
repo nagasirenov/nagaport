@@ -20,6 +20,7 @@ import com.hbm.items.weapon.ItemCustomMissilePart.FuelType;
 import com.hbm.items.weapon.ItemCustomMissilePart.PartSize;
 import com.hbm.items.weapon.ItemCustomMissilePart.WarheadType;
 import com.hbm.main.MainRegistry;
+import com.hbm.util.PersistentRegistryRef;
 
 import api.hbm.entity.IRadarDetectableNT;
 import net.minecraft.block.Block;
@@ -43,6 +44,7 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 
 	public float fuel;
 	public float consumption;
+	private NBTTagCompound legacyParts;
 
 	public int getWarheadId() {
 		return this.dataManager.get(WARHEAD);
@@ -144,10 +146,11 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 		super.readEntityFromNBT(nbt);
 		fuel = nbt.getFloat("fuel");
 		consumption = nbt.getFloat("consumption");
-		this.dataManager.set(WARHEAD, nbt.getInteger("warhead"));
-		this.dataManager.set(FUSELAGE, nbt.getInteger("fuselage"));
-		this.dataManager.set(FINS, nbt.getInteger("fins"));
-		this.dataManager.set(THRUSTER, nbt.getInteger("thruster"));
+		this.legacyParts = nbt.copy();
+		this.dataManager.set(WARHEAD, runtimeId(PersistentRegistryRef.readItem(nbt, "warhead")));
+		this.dataManager.set(FUSELAGE, runtimeId(PersistentRegistryRef.readItem(nbt, "fuselage")));
+		this.dataManager.set(FINS, runtimeId(PersistentRegistryRef.readItem(nbt, "fins")));
+		this.dataManager.set(THRUSTER, runtimeId(PersistentRegistryRef.readItem(nbt, "thruster")));
 	}
 
 	@Override
@@ -155,10 +158,21 @@ public class EntityMissileCustom extends EntityMissileBaseNT implements IChunkLo
 		super.writeEntityToNBT(nbt);
 		nbt.setFloat("fuel", fuel);
 		nbt.setFloat("consumption", consumption);
-		nbt.setInteger("warhead", this.dataManager.get(WARHEAD));
-		nbt.setInteger("fuselage", this.dataManager.get(FUSELAGE));
-		nbt.setInteger("fins", this.dataManager.get(FINS));
-		nbt.setInteger("thruster", this.dataManager.get(THRUSTER));
+		writePart(nbt, "warhead", WARHEAD);
+		writePart(nbt, "fuselage", FUSELAGE);
+		writePart(nbt, "fins", FINS);
+		writePart(nbt, "thruster", THRUSTER);
+		nbt.setByte(PersistentRegistryRef.SCHEMA_KEY, (byte) PersistentRegistryRef.SCHEMA_VERSION);
+	}
+
+	private static int runtimeId(Item item) {
+		return item == null ? 0 : Item.getIdFromItem(item);
+	}
+
+	private void writePart(NBTTagCompound nbt, String key, DataParameter<Integer> parameter) {
+		ItemCustomMissilePart part = ItemCustomMissile.readPart(this.dataManager.get(parameter));
+		if(part != null && PersistentRegistryRef.writeItem(nbt, key, part)) return;
+		PersistentRegistryRef.preserveLegacy(this.legacyParts, nbt, key);
 	}
 
 	@Override

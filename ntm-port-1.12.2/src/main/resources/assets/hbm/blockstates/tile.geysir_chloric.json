@@ -2,6 +2,9 @@
   "variants": {
     "normal": {
       "model": "hbm:geysir_chloric"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.geysir_chloric"
     }
   }
 }

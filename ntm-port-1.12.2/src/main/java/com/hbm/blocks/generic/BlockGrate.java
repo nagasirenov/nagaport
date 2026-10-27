@@ -163,4 +163,10 @@ public class BlockGrate extends Block implements ITooltipProvider {
             visible = faces;
         }
     }
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
+	}
 }

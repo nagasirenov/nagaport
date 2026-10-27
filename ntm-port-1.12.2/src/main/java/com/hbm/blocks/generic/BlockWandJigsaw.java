@@ -245,6 +245,14 @@ public class BlockWandJigsaw extends BlockContainer implements IBlockSideRotatio
 
 		@Override
 		public void update() {
+			if(this.isInvalid()) return;
+			if(!(this.world.getBlockState(this.pos).getBlock() instanceof BlockWandJigsaw)) {
+				this.invalidate();
+				if(this.hasWorld()) {
+					this.world.removeTileEntity(this.pos);
+				}
+				return;
+			}
 			if(!this.world.isRemote) {
 				networkPackNT(15);
 			}

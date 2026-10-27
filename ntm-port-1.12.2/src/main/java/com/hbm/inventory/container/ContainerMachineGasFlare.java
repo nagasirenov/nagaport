@@ -53,7 +53,7 @@ public class ContainerMachineGasFlare extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -62,31 +62,31 @@ public class ContainerMachineGasFlare extends Container {
 
 			if(par2 <= 5) {
 				if(!this.mergeItemStack(var5, 6, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(var3.getItem() instanceof IItemFluidIdentifier) {
 					if(!this.mergeItemStack(var5, 3, 4, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else if(var3.getItem() instanceof IBatteryItem) {
 					if(!this.mergeItemStack(var5, 0, 1, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else if(var3.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(var5, 4, 6, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else {
 					if(!this.mergeItemStack(var5, 1, 2, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

@@ -132,4 +132,9 @@ public class MachineKeyForge extends BlockContainer {
 
         super.breakBlock(p_149749_1_, pos, state);
     }
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

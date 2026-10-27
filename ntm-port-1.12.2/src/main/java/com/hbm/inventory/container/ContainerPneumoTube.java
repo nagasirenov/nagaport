@@ -31,7 +31,7 @@ public class ContainerPneumoTube extends ContainerBase {
 		if(index < 0 || index >= 15) return super.slotClick(index, button, mode, player);
 
 		Slot slot = this.getSlot(index);
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
 		if(slot.getHasStack()) ret = slot.getStack().copy();
@@ -48,6 +48,6 @@ public class ContainerPneumoTube extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		return null;
+		return ItemStack.EMPTY;
 	}
 }

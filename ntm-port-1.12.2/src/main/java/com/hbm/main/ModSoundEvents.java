@@ -4,6 +4,8 @@ import com.hbm.lib.RefStrings;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -17,6 +19,15 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public final class ModSoundEvents {
 
 	private static final Map<ResourceLocation, SoundEvent> SOUNDS = new LinkedHashMap<>();
+	private static final Set<ResourceLocation> UNRESOLVED_WARNED = ConcurrentHashMap.newKeySet();
+
+	/**
+	 * Explicit registered silence for a genuinely unresolved legacy name. It is
+	 * deliberately not a random real sound; callers still get a valid SoundEvent
+	 * and the missing identity is logged instead of creating an unregistered
+	 * runtime event.
+	 */
+	public static final SoundEvent MISSING = create("missing");
 
 	public static final SoundEvent SLICER = create("entity.slicer");
 	public static final SoundEvent BLOCK_OPENC = create("block.openc");
@@ -177,8 +188,11 @@ public final class ModSoundEvents {
 
 	private static void worldEffect(String path, SoundCategory category) {
 		SoundEvent sound = create(path);
-		WORLD_EFFECTS.put(sound.getSoundName(), sound);
-		WORLD_CATEGORIES.put(sound.getSoundName(), category);
+		// Do not call SoundEvent.getSoundName(): it is a dev-name method that is
+		// absent from the SRG runtime class. The registration key is authoritative.
+		ResourceLocation name = new ResourceLocation(RefStrings.MODID, path);
+		WORLD_EFFECTS.put(name, sound);
+		WORLD_CATEGORIES.put(name, category);
 	}
 
 	public static boolean isWorldEffect(ResourceLocation name) { return WORLD_EFFECTS.containsKey(name); }
@@ -307,7 +321,10 @@ public final class ModSoundEvents {
 			sound = SoundEvent.REGISTRY.getObject(new ResourceLocation(RefStrings.MODID, name));
 		}
 		if(sound == null) {
-			sound = new SoundEvent(location);
+			if(UNRESOLVED_WARNED.add(location)) {
+				MainRegistry.logger.warn("Unresolved legacy sound event '{}'; using the registered silent placeholder", name);
+			}
+			sound = MISSING;
 		}
 		return sound;
 	}

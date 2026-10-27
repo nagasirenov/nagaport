@@ -44,7 +44,7 @@ public class ContainerSolidifier extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(index);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -53,14 +53,14 @@ public class ContainerSolidifier extends Container {
 
 			if(index <= 4) {
 				if(!this.mergeItemStack(var5, 5, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!this.mergeItemStack(var5, 0, 4, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

@@ -69,7 +69,7 @@ public class ContainerLeadBox extends Container {
 	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 		// prevents the player from moving around the currently open box
 		if(mode == ClickType.SWAP && button == player.inventory.currentItem) return ItemStack.EMPTY;
-		if(index == player.inventory.currentItem + 47) return null;
+		if(index == player.inventory.currentItem + 47) return ItemStack.EMPTY;
 		return super.slotClick(index, button, mode, player);
 	}
 

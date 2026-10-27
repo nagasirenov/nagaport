@@ -38,11 +38,16 @@ public class DroneDock extends BlockContainer implements ITooltipProvider {
 		super(Material.IRON);
 	}
 
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		// The original dock/crate blocks registered side, top and bottom faces.
-		String base = com.hbm.blocks.LegacyBlockTextures.texture(this);
-		if(base == null) base = this.getRegistryName().toString();
+		String base = this.getRegistryName().toString();
+		if(base.startsWith("hbm:tile.")) base = "hbm:" + base.substring(9);
 		this.iconSide = reg.registerIcon(base + "_side");
 		this.iconTop = reg.registerIcon(base + "_top");
 		this.iconBottom = reg.registerIcon(base + "_bottom");
@@ -54,6 +59,11 @@ public class DroneDock extends BlockContainer implements ITooltipProvider {
 		if(side == 0) return this.iconBottom;
 		if(side == 1) return this.iconTop;
 		return this.iconSide;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta) {
+		return getLegacyIcon(side);
 	}
 
 	@Override

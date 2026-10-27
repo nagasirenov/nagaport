@@ -35,7 +35,7 @@ public class ContainerMachineReactorBreeding extends Container {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -45,19 +45,19 @@ public class ContainerMachineReactorBreeding extends Container {
 
 			if(index <= 2) {
 				if(!this.mergeItemStack(stack, 2, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 			} else if(stack.getItem() instanceof ItemBreedingRod) {
 				if(!this.mergeItemStack(stack, 0, 1, false)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 
 			} else {
 				slot.onSlotChanged();

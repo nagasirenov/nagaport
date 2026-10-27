@@ -59,6 +59,7 @@ public class NukeBalefire extends BlockMachineBase implements IBomb {
 				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getName());
 		}
 	}
+		super.onBlockPlacedBy(world, nativePlacementPos, nativePlacementState, player, itemStack);
 	}
 
 	@Override

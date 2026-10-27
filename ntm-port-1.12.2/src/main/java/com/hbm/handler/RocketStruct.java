@@ -14,6 +14,7 @@ import com.hbm.items.weapon.ItemCustomMissilePart.PartType;
 import com.hbm.items.weapon.ItemCustomMissilePart.WarheadType;
 import com.hbm.render.util.MissilePart;
 import com.hbm.util.BufferUtil;
+import com.hbm.util.PersistentRegistryRef;
 import com.hbm.util.Tuple.Pair;
 
 import io.netty.buffer.ByteBuf;
@@ -32,6 +33,9 @@ public class RocketStruct {
 	public int satFreq = 0;
 
 	public List<String> extraIssues = new ArrayList<>();
+
+	/** Raw legacy tag, kept so unresolved numeric part ids survive a re-save. */
+	private NBTTagCompound legacySource;
 
 	public static final int MAX_STAGES = 5;
 
@@ -182,6 +186,9 @@ public class RocketStruct {
 	}
 
 	public boolean hasSufficientFuel(CelestialBody from, CelestialBody to, boolean fromOrbit, boolean toOrbit) {
+		if(from == null || to == null) return false;
+		if(capsule == null || capsule.part == null) return false;
+
 		if(capsule.part == ModItems.rp_pod_20) {
 			return from == to && (fromOrbit || toOrbit); // Pods can transfer, fall to orbited body, and return to station, but NOT hop on the surface
 		}
@@ -192,6 +199,8 @@ public class RocketStruct {
 
 		int fuelRequirement = getFuelRequired(0, from, to, fromOrbit, toOrbit);
 		int fuelCapacity = getFuelCapacity(0);
+
+		if(fuelRequirement < 0 || fuelCapacity < 0) return false;
 
 		return fuelCapacity >= fuelRequirement;
 	}
@@ -352,34 +361,49 @@ public class RocketStruct {
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {
-		nbt.setInteger("capsule", MissilePart.getId(capsule));
+		if(capsule != null && capsule.part != null) {
+			PersistentRegistryRef.writeItem(nbt, "capsule", capsule.part);
+		} else {
+			PersistentRegistryRef.preserveLegacy(legacySource, nbt, "capsule");
+		}
 
+		NBTTagList legacyStages = legacySource == null ? null : legacySource.getTagList("stages", Constants.NBT.TAG_COMPOUND);
 		NBTTagList stagesTag = new NBTTagList();
-		for(RocketStage stage : stages) {
+		for(int i = 0; i < stages.size(); i++) {
+			RocketStage stage = stages.get(i);
 			NBTTagCompound stageTag = new NBTTagCompound();
-			stageTag.setInteger("fuselage", MissilePart.getId(stage.fuselage));
-			stageTag.setInteger("fins", MissilePart.getId(stage.fins));
-			stageTag.setInteger("thruster", MissilePart.getId(stage.thruster));
+			NBTTagCompound legacyStage = legacyStages != null && i < legacyStages.tagCount() ? legacyStages.getCompoundTagAt(i) : null;
+
+			if(stage.fuselage != null && stage.fuselage.part != null) PersistentRegistryRef.writeItem(stageTag, "fuselage", stage.fuselage.part);
+			else PersistentRegistryRef.preserveLegacy(legacyStage, stageTag, "fuselage");
+			if(stage.fins != null && stage.fins.part != null) PersistentRegistryRef.writeItem(stageTag, "fins", stage.fins.part);
+			else PersistentRegistryRef.preserveLegacy(legacyStage, stageTag, "fins");
+			if(stage.thruster != null && stage.thruster.part != null) PersistentRegistryRef.writeItem(stageTag, "thruster", stage.thruster.part);
+			else PersistentRegistryRef.preserveLegacy(legacyStage, stageTag, "thruster");
+
 			stageTag.setInteger("fc", stage.fuselageCount);
 			stageTag.setInteger("tc", stage.thrusterCount);
 			stagesTag.appendTag(stageTag);
 		}
 		nbt.setTag("stages", stagesTag);
+		nbt.setByte(PersistentRegistryRef.SCHEMA_KEY, (byte) PersistentRegistryRef.SCHEMA_VERSION);
 
 		nbt.setInteger("freq", satFreq);
 	}
 
 	public static RocketStruct readFromNBT(NBTTagCompound nbt) {
 		RocketStruct rocket = new RocketStruct();
-		rocket.capsule = MissilePart.getPart(nbt.getInteger("capsule"));
+		rocket.legacySource = nbt.copy();
+
+		rocket.capsule = MissilePart.getPart(PersistentRegistryRef.readItem(nbt, "capsule"));
 
 		NBTTagList stagesTag = nbt.getTagList("stages", Constants.NBT.TAG_COMPOUND);
 		for(int i = 0; i < stagesTag.tagCount(); i++) {
 			NBTTagCompound stageTag = stagesTag.getCompoundTagAt(i);
 			RocketStage stage = new RocketStage();
-			stage.fuselage = MissilePart.getPart(stageTag.getInteger("fuselage"));
-			stage.fins = MissilePart.getPart(stageTag.getInteger("fins"));
-			stage.thruster = MissilePart.getPart(stageTag.getInteger("thruster"));
+			stage.fuselage = MissilePart.getPart(PersistentRegistryRef.readItem(stageTag, "fuselage"));
+			stage.fins = MissilePart.getPart(PersistentRegistryRef.readItem(stageTag, "fins"));
+			stage.thruster = MissilePart.getPart(PersistentRegistryRef.readItem(stageTag, "thruster"));
 			stage.fuselageCount = Math.max(stageTag.getInteger("fc"), 1);
 			stage.thrusterCount = Math.max(stageTag.getInteger("tc"), 1);
 			rocket.stages.add(stage);

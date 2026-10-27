@@ -12,6 +12,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -31,9 +33,27 @@ public class MachineBoiler extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconSide;
 
+	public static final PropertyInteger FACING = PropertyInteger.create("facing", 0, 5);
+
 	public MachineBoiler(boolean blockState) {
 		super(Material.IRON);
 		isActive = blockState;
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING, meta >= 0 && meta <= 5 ? meta : 0);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(FACING);
 	}
 
 	@SideOnly(Side.CLIENT)

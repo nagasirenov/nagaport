@@ -97,7 +97,7 @@ public class ItemWatzPellet extends ItemEnumMulti {
 		
 		for(int i = 0; i < EnumWatzType.values().length; i++) {
 			EnumWatzType type = EnumWatzType.values()[i];
-			String placeholderName = RefStrings.MODID + ":watz_pellet-" + type.name() + getRegistryName().getPath();
+			String placeholderName = RefStrings.MODID + ":watz_pellet-" + type.name().toLowerCase(java.util.Locale.ROOT) + "-" + (this == ModItems.watz_pellet_depleted ? "depleted" : "active");
 			int light = this == ModItems.watz_pellet_depleted ? desaturate(type.colorLight) : type.colorLight;
 			int dark = this == ModItems.watz_pellet_depleted ? desaturate(type.colorDark) : type.colorDark;
 			TextureAtlasSpriteMutatable mutableIcon = new TextureAtlasSpriteMutatable(placeholderName, new RGBMutatorInterpolatedComponentRemap(0xD2D2D2, 0x333333, light, dark));

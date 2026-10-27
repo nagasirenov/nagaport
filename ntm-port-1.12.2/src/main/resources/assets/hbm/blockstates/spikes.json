@@ -1,5 +1,10 @@
 {
   "variants": {
-    "normal": { "model": "hbm:block/spikes" }
+    "normal": {
+      "model": "hbm:spikes"
+    },
+    "inventory": {
+      "model": "hbm:item/spikes"
+    }
   }
 }

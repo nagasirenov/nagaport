@@ -117,7 +117,7 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 		boolean loaded = false;
 
 		for(int i = 0; i < 18; i++) {
-			if(this.slots[i] != null) {
+			if(this.slots[i] != null && !this.slots[i].isEmpty()) {
 				loaded = true;
 				drone.setInventorySlotContents(i, this.slots[i].copy());
 				this.slots[i] = null;
@@ -140,10 +140,10 @@ public class TileEntityDroneCrate extends TileEntityMachineBase implements IGUIP
 		for(int i = 0; i < 18; i++) {
 			ItemStack droneSlot = drone.getStackInSlot(i);
 
-			if(this.slots[i] == null && droneSlot != null) {
+			if((this.slots[i] == null || this.slots[i].isEmpty()) && droneSlot != null && !droneSlot.isEmpty()) {
 				this.slots[i] = droneSlot.copy();
 				drone.setInventorySlotContents(i, ItemStack.EMPTY);
-			} else if(this.slots[i] != null && droneSlot != null) {
+			} else if(this.slots[i] != null && !this.slots[i].isEmpty() && droneSlot != null && !droneSlot.isEmpty()) {
 				emptied = false;
 			}
 		}

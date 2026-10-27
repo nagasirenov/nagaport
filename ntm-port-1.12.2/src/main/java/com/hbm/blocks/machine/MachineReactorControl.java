@@ -209,4 +209,9 @@ public class MachineReactorControl extends BlockContainer {
 		return 0;
     }
 
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

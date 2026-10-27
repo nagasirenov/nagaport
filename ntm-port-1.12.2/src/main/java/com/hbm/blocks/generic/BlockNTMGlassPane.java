@@ -49,4 +49,10 @@ public class BlockNTMGlassPane extends BlockPane
 		return doesDrop ? 1 : 0;
 	}
 
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return renderLayer == 1 ? net.minecraft.util.BlockRenderLayer.TRANSLUCENT : net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED;
+	}
 }

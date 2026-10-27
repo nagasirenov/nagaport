@@ -409,7 +409,7 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 		bobble.renderPart("MrKimkimora");
 	}
 
-	private ResourceLocation shot_tex = new ResourceLocation(RefStrings.MODID +":textures/models/ModelUboinik.png");
+	private ResourceLocation shot_tex = new ResourceLocation(RefStrings.MODID +":textures/models/modeluboinik.png");
 
 	/*
 	 * RENDER ADDITIONAL ITEMS

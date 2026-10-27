@@ -76,6 +76,18 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 		func_149853_b(worldIn, rand, pos.getX(), pos.getY(), pos.getZ());
 	}
 
+	private static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.2D, 0.0D, 0.2D, 0.8D, 0.8D, 0.8D);
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return FLOWER_AABB;
+	}
+
+	@Override
+	public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, net.minecraft.util.EnumFacing face) {
+		return net.minecraft.block.state.BlockFaceShape.UNDEFINED;
+	}
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
@@ -312,4 +324,10 @@ public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metad
 		return new ArrayList<ItemStack>(nativeDrops);
 	}
 
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
+	}
 }

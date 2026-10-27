@@ -56,7 +56,7 @@ public class ContainerMachineCyclotron extends Container {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -65,19 +65,19 @@ public class ContainerMachineCyclotron extends Container {
 
 			if(index <= 15) {
 				if(!this.mergeItemStack(stack, 16, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 			} else {
 
 				if(stack.getItem() instanceof IBatteryItem || stack.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(stack, 9, 10, true))
-						return null;
+						return ItemStack.EMPTY;
 
 				} else if(stack.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(stack, 10, 11, true))
 						if(!this.mergeItemStack(stack, 11, 12, true))
-							return null;
+							return ItemStack.EMPTY;
 
 				} else {
 
@@ -88,17 +88,17 @@ public class ContainerMachineCyclotron extends Container {
 							stack.getItem() == ModItems.part_plutonium) {
 
 						if(!this.mergeItemStack(stack, 0, 3, true))
-							return null;
+							return ItemStack.EMPTY;
 					} else {
 
 						if(!this.mergeItemStack(stack, 3, 6, true))
-							return null;
+							return ItemStack.EMPTY;
 					}
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

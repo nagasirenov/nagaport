@@ -49,7 +49,7 @@ public class ContainerMachineSolderingStation extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -58,26 +58,26 @@ public class ContainerMachineSolderingStation extends Container {
 
 			if(index <= 10) {
 				if(!this.mergeItemStack(stack, 11, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
-					if(!this.mergeItemStack(stack, 7, 8, false)) return null;
+					if(!this.mergeItemStack(stack, 7, 8, false)) return ItemStack.EMPTY;
 				} else if(rStack.getItem() instanceof IItemFluidIdentifier) {
-					if(!this.mergeItemStack(stack, 8, 9, false)) return null;
+					if(!this.mergeItemStack(stack, 8, 9, false)) return ItemStack.EMPTY;
 				} else if(rStack.getItem() instanceof ItemMachineUpgrade ) {
-					if(!this.mergeItemStack(stack, 9, 11, false)) return null;
+					if(!this.mergeItemStack(stack, 9, 11, false)) return ItemStack.EMPTY;
 				} else {
-					for(AStack t : SolderingRecipes.toppings) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 0, 3, false)) return null;
-					for(AStack t : SolderingRecipes.pcb) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 3, 5, false)) return null;
-					for(AStack t : SolderingRecipes.solder) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 5, 6, false)) return null;
-					return null;
+					for(AStack t : SolderingRecipes.toppings) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 0, 3, false)) return ItemStack.EMPTY;
+					for(AStack t : SolderingRecipes.pcb) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 3, 5, false)) return ItemStack.EMPTY;
+					for(AStack t : SolderingRecipes.solder) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 5, 6, false)) return ItemStack.EMPTY;
+					return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

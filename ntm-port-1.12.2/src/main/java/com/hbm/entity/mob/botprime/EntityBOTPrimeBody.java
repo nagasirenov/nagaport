@@ -46,8 +46,7 @@ public class EntityBOTPrimeBody extends EntityBOTPrimeBase {
 
 	@Override
 	protected void updateAITasks() {
-		this.updateEntityActionState();
-		this.targetTasks.onUpdateTasks();
+		super.updateAITasks();
 		
 		updateMovement();
 

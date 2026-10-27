@@ -30,8 +30,8 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 public class ItemModGasmask extends ItemArmorMod implements IGasMask {
 
 	private ModelM65 modelM65;
-	private ResourceLocation tex = new ResourceLocation("hbm:textures/models/ModelM65.png");
-	private ResourceLocation tex_mono = new ResourceLocation("hbm:textures/models/ModelM65Mono.png");
+	private ResourceLocation tex = new ResourceLocation("hbm:textures/models/modelm65.png");
+	private ResourceLocation tex_mono = new ResourceLocation("hbm:textures/models/modelm65mono.png");
 
 	public ItemModGasmask() {
 		super(ArmorModHandler.helmet_only, true, false, false, false);

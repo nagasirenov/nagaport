@@ -50,7 +50,7 @@ public class ArmorModHandler {
 	 */
 	public static boolean isApplicable(ItemStack armor, ItemStack mod) {
 
-		if(armor == null || mod == null)
+		if(armor == null || mod == null || armor.isEmpty() || mod.isEmpty())
 			return false;
 
 		if(!(armor.getItem() instanceof ItemArmor))
@@ -74,6 +74,9 @@ public class ArmorModHandler {
 	 * @param mod
 	 */
 	public static void applyMod(ItemStack armor, ItemStack mod) {
+
+		if(armor == null || armor.isEmpty() || mod == null || mod.isEmpty())
+			return;
 
 		if(!armor.hasTagCompound())
 			armor.setTagCompound(new NBTTagCompound());
@@ -101,7 +104,7 @@ public class ArmorModHandler {
 	 */
 	public static void removeMod(ItemStack armor, int slot) {
 
-		if(armor == null)
+		if(armor == null || armor.isEmpty())
 			return;
 
 		if(!armor.hasTagCompound())
@@ -126,7 +129,7 @@ public class ArmorModHandler {
 	 */
 	public static void clearMods(ItemStack armor) {
 
-		if(!armor.hasTagCompound())
+		if(armor == null || armor.isEmpty() || !armor.hasTagCompound())
 			return;
 
 		NBTTagCompound nbt = armor.getTagCompound();
@@ -140,7 +143,7 @@ public class ArmorModHandler {
 	 */
 	public static boolean hasMods(ItemStack armor) {
 
-		if(!armor.hasTagCompound())
+		if(armor == null || armor.isEmpty() || !armor.hasTagCompound())
 			return false;
 
 		NBTTagCompound nbt = armor.getTagCompound();
@@ -155,8 +158,9 @@ public class ArmorModHandler {
 	public static ItemStack[] pryMods(ItemStack armor) {
 
 		ItemStack[] slots = new ItemStack[MOD_SLOTS];
+		java.util.Arrays.fill(slots, ItemStack.EMPTY);
 
-		if(!hasMods(armor))
+		if(armor == null || armor.isEmpty() || !hasMods(armor))
 			return slots;
 
 		NBTTagCompound nbt = armor.getTagCompound();
@@ -168,10 +172,12 @@ public class ArmorModHandler {
 
 			ItemStack stack = NullableInventoryStackNbt.read(cmp);
 
-			if(stack != null)
+			if(stack != null && !stack.isEmpty())
 				slots[i] = stack;
-			else // Any non-existing armor mods will be sorted out automatically
+			else {
+				slots[i] = ItemStack.EMPTY;
 				removeMod(armor, i);
+			}
 		}
 
 		return slots;
@@ -179,19 +185,19 @@ public class ArmorModHandler {
 
 	public static ItemStack pryMod(ItemStack armor, int slot) {
 
-		if(!hasMods(armor))
-			return null;
+		if(armor == null || armor.isEmpty() || !hasMods(armor))
+			return ItemStack.EMPTY;
 
 		NBTTagCompound nbt = armor.getTagCompound();
 		NBTTagCompound mods = nbt.getCompoundTag(MOD_COMPOUND_KEY);
 		NBTTagCompound cmp = mods.getCompoundTag(MOD_SLOT_KEY + slot);
 		ItemStack stack = NullableInventoryStackNbt.read(cmp);
 
-		if(stack != null)
+		if(stack != null && !stack.isEmpty())
 			return stack;
 
 		removeMod(armor, slot);
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 }

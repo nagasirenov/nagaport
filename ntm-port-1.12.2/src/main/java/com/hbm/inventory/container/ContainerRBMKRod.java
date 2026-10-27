@@ -39,7 +39,7 @@ public class ContainerRBMKRod extends Container {
 			} else {
 
 				Slot slot = this.getSlot(index);
-				ItemStack ret = null;
+				ItemStack ret = ItemStack.EMPTY;
 
 				if(slot.getHasStack()) ret = slot.getStack().copy();
 				return ret;
@@ -51,7 +51,7 @@ public class ContainerRBMKRod extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -59,16 +59,16 @@ public class ContainerRBMKRod extends Container {
 			var3 = var5.copy();
 
 			if(par2 <= rbmk.getSizeInventory() - 1) {
-				if(!rbmk.coldEnoughForManual() && !player.capabilities.isCreativeMode) return null;
+				if(!rbmk.coldEnoughForManual() && !player.capabilities.isCreativeMode) return ItemStack.EMPTY;
 				if(!this.mergeItemStack(var5, rbmk.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!this.mergeItemStack(var5, 0, rbmk.getSizeInventory(), false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

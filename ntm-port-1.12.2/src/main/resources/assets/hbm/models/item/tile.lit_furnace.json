@@ -1,3 +1,3 @@
 {
-  "parent": "hbm:lit_furnace"
+  "parent": "hbm:block/lit_furnace"
 }

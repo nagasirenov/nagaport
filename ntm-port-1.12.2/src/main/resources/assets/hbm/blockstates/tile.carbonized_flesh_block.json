@@ -2,6 +2,9 @@
   "variants": {
     "normal": {
       "model": "hbm:carbonized_flesh_block_layer"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.carbonized_flesh_block"
     }
   }
 }

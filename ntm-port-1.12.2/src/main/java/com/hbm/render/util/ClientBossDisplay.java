@@ -1,6 +1,7 @@
 package com.hbm.render.util;
 
 import com.hbm.entity.boss.INtmBossDisplay;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -17,11 +18,21 @@ public final class ClientBossDisplay {
     private ClientBossDisplay() { }
 
     public static void capture(INtmBossDisplay boss, boolean darken) {
-        // Preserve evaluation/assignment order, including partial state on getter failure.
-        healthRatio = boss.getHealth() / boss.getMaxHealth();
-        framesRemaining = 100;
-        name = boss.getDisplayName().getFormattedText();
-        darkeningPulse = darken;
+        if(boss == null) return;
+        if(boss instanceof EntityLivingBase) {
+            EntityLivingBase living = (EntityLivingBase) boss;
+            float max = living.getMaxHealth();
+            healthRatio = max > 0.0F ? living.getHealth() / max : 0.0F;
+            framesRemaining = 100;
+            name = living.getDisplayName().getFormattedText();
+            darkeningPulse = darken;
+        } else {
+            float max = boss.getMaxHealth();
+            healthRatio = max > 0.0F ? boss.getHealth() / max : 0.0F;
+            framesRemaining = 100;
+            name = boss.getDisplayName() != null ? boss.getDisplayName().getFormattedText() : "";
+            darkeningPulse = darken;
+        }
     }
 
     public static Snapshot current() { return new Snapshot(healthRatio, framesRemaining, name, darkeningPulse); }

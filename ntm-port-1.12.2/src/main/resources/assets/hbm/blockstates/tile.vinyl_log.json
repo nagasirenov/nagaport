@@ -14,6 +14,9 @@
     },
     "axis=none": {
       "model": "hbm:vinyl_log_log"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.vinyl_log"
     }
   }
 }

@@ -16,6 +16,45 @@ public class BlockLogNT extends BlockLog {
 	public BlockLogNT(String sideIcon, String topIcon) {
 		this.sideIcon = sideIcon;
 		this.topIcon = topIcon;
+		this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
+	}
+
+	@Override
+	public net.minecraft.block.state.IBlockState getStateFromMeta(int meta) {
+		BlockLog.EnumAxis axis;
+		switch(meta & 12) {
+		case 4:
+			axis = BlockLog.EnumAxis.X;
+			break;
+		case 8:
+			axis = BlockLog.EnumAxis.Z;
+			break;
+		case 12:
+			axis = BlockLog.EnumAxis.NONE;
+			break;
+		default:
+			axis = BlockLog.EnumAxis.Y;
+		}
+		return this.getDefaultState().withProperty(LOG_AXIS, axis);
+	}
+
+	@Override
+	public int getMetaFromState(net.minecraft.block.state.IBlockState state) {
+		switch(state.getValue(LOG_AXIS)) {
+		case X:
+			return 4;
+		case Z:
+			return 8;
+		case NONE:
+			return 12;
+		default:
+			return 0;
+		}
+	}
+
+	@Override
+	protected net.minecraft.block.state.BlockStateContainer createBlockState() {
+		return new net.minecraft.block.state.BlockStateContainer(this, LOG_AXIS);
 	}
 
 	/** NTM construction hook for the native protected sound setter. */

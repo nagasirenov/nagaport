@@ -52,7 +52,7 @@ public class ContainerAutocrafter extends ContainerBase {
 
 		Slot slot = this.getSlot(index);
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
 		if(slot.getHasStack())
@@ -85,7 +85,7 @@ public class ContainerAutocrafter extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -94,19 +94,19 @@ public class ContainerAutocrafter extends ContainerBase {
 
 			if(index <= 20 && index >= 10) {
 				if(!this.mergeItemStack(stack, 21, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(index > 20){
 
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
-					if(!this.mergeItemStack(stack, 20, 21, false)) return null;
+					if(!this.mergeItemStack(stack, 20, 21, false)) return ItemStack.EMPTY;
 				} else {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

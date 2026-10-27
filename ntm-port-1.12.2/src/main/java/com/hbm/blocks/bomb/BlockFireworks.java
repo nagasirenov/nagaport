@@ -114,4 +114,9 @@ public class BlockFireworks extends BlockContainer {
 	}
 	}
 
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

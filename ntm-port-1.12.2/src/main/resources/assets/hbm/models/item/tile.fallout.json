@@ -1,3 +1,6 @@
 {
-  "parent": "hbm:block/fallout_layer"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hbm:blocks/ash"
+  }
 }

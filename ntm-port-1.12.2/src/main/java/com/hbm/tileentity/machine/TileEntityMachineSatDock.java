@@ -57,7 +57,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 	public TileEntityMachineSatDock() { slots = new ItemStack[16]; }
 
 	@Override public int getSizeInventory() { return slots.length; }
-	@Override public ItemStack getStackInSlot(int i) { return slots[i]; }
+	@Override public ItemStack getStackInSlot(int i) { ItemStack stack = slots[i]; return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack; }
 
 	@Override
 	public ItemStack removeStackFromSlot(int i) {
@@ -114,7 +114,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ISidedInvent
 
 			return itemStack1;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 

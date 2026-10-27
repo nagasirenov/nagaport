@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GUIMachineDiesel extends GuiInfoContainer {
 	
-	private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/GUIDiesel.png");
+	private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/guidiesel.png");
 	private TileEntityMachineDiesel diesel;
 
 	public GUIMachineDiesel(InventoryPlayer invPlayer, TileEntityMachineDiesel tedf) {

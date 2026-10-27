@@ -51,14 +51,14 @@ public class ContainerMachineDiFurnaceRTG extends Container {
 
 		if(index >= 0 && index < 2 && button == 1 && mode == ClickType.PICKUP) {
 			Slot slot = this.getSlot(index);
-			if(!slot.getHasStack() && player.inventory.getItemStack() == null) {
+			if(!slot.getHasStack() && player.inventory.getItemStack().isEmpty()) {
 				if(!player.world.isRemote) {
 					if(index == 0) bFurnace.sideUpper = (byte) ((bFurnace.sideUpper + 1) % 6);
 					if(index == 1) bFurnace.sideLower = (byte) ((bFurnace.sideLower + 1) % 6);
 
 					bFurnace.markDirty();
 				}
-				return null;
+				return ItemStack.EMPTY;
 			}
 		}
 
@@ -67,7 +67,7 @@ public class ContainerMachineDiFurnaceRTG extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -76,18 +76,18 @@ public class ContainerMachineDiFurnaceRTG extends Container {
 
 			if(par2 <= 8) {
 				if(!this.mergeItemStack(var5, 9, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(var5.getItem() instanceof ItemRTGPellet) {
 				if(!this.mergeItemStack(var5, 3, 9, false))
-					return null;
+					return ItemStack.EMPTY;
 
 			} else if(!this.mergeItemStack(var5, 0, 3, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

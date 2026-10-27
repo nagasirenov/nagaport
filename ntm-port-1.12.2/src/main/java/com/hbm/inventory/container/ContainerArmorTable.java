@@ -39,41 +39,37 @@ public class ContainerArmorTable extends Container {
 
 			@Override
 			public boolean isItemValid(ItemStack stack) {
-				return stack.getItem() instanceof ItemArmor;
+				return stack != null && !stack.isEmpty() && stack.getItem() instanceof ItemArmor;
 			}
 
 			@Override
 			public void putStack(ItemStack stack) {
 
-				//when inserting a new armor piece, unload all mods to display
-				if(stack != null) {
+				if(stack != null && !stack.isEmpty()) {
 					ItemStack[] mods = ArmorModHandler.pryMods(stack);
 
 					for(int i = 0; i < ArmorModHandler.MOD_SLOTS; i++) {
-
-						if(mods != null)
-							upgrades.setInventorySlotContents(i, mods[i]);
+						ItemStack mod = (mods != null && i < mods.length && mods[i] != null && !mods[i].isEmpty())
+								? mods[i]
+								: ItemStack.EMPTY;
+						upgrades.setInventorySlotContents(i, mod);
 					}
-
+				} else {
+					for(int i = 0; i < ArmorModHandler.MOD_SLOTS; i++) {
+						upgrades.setInventorySlotContents(i, ItemStack.EMPTY);
+					}
 				}
 
-				super.putStack(stack);
+				super.putStack(stack != null ? stack : ItemStack.EMPTY);
 			}
 
 			@Override
 			public ItemStack onTake(EntityPlayer player, ItemStack stack) {
 				super.onTake(player, stack);
 
-				//if the armor piece is taken, absorb all armor pieces
-
+				// when the armor piece is taken, clear all upgrade display slots
 				for(int i = 0; i < ArmorModHandler.MOD_SLOTS; i++) {
-
-					ItemStack mod = upgrades.getStackInSlot(i);
-
-					//ideally, this should always return true so long as the mod slot is not null due to the insert restriction
-					if(ArmorModHandler.isApplicable(stack, mod)) {
-						upgrades.setInventorySlotContents(i, ItemStack.EMPTY);
-					}
+					upgrades.setInventorySlotContents(i, ItemStack.EMPTY);
 				}
 				return stack;
 			}
@@ -121,7 +117,7 @@ public class ContainerArmorTable extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -131,14 +127,14 @@ public class ContainerArmorTable extends Container {
 			if(par2 <= ArmorModHandler.MOD_SLOTS) {
 				if(par2 != ArmorModHandler.MOD_SLOTS || !InventoryUtil.mergeItemStack(this.inventorySlots, var5, ArmorModHandler.MOD_SLOTS + 1, ArmorModHandler.MOD_SLOTS + 5, false))
 					if(!this.mergeItemStack(var5, ArmorModHandler.MOD_SLOTS + 5, this.inventorySlots.size(), true))
-						return null;
+						return ItemStack.EMPTY;
 
 				var4.onTake(p_82846_1_, var5);
 			} else {
 
 				if(var5.getItem() instanceof ItemArmor) {
 					if(!this.mergeItemStack(var5, ArmorModHandler.MOD_SLOTS, ArmorModHandler.MOD_SLOTS + 1, false))
-						return null;
+						return ItemStack.EMPTY;
 
 				} else if(this.inventorySlots.get(ArmorModHandler.MOD_SLOTS) != null && var5.getItem() instanceof ItemArmorMod) {
 
@@ -147,17 +143,17 @@ public class ContainerArmorTable extends Container {
 
 					if(((Slot) this.inventorySlots.get(slot)).isItemValid(var5)) {
 						if(!this.mergeItemStack(var5, slot, slot + 1, false))
-							return null;
+							return ItemStack.EMPTY;
 					} else {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}
@@ -171,19 +167,24 @@ public class ContainerArmorTable extends Container {
 		super.onContainerClosed(player);
 
 		if(!player.world.isRemote) {
-			for(int i = 0; i < this.upgrades.getSizeInventory(); ++i) {
-				ItemStack itemstack = this.upgrades.removeStackFromSlot(i);
+			ItemStack armorStack = this.armor.removeStackFromSlot(0);
 
-				if(itemstack != null) {
-					player.dropItem(itemstack, false);
-					ArmorModHandler.removeMod(armor.getStackInSlot(0), i);
+			if(armorStack != null && !armorStack.isEmpty()) {
+				// The armor piece holds all installed modifications.
+				// Clear upgrade slots without dropping them or stripping mods from armor.
+				for(int i = 0; i < this.upgrades.getSizeInventory(); ++i) {
+					this.upgrades.setInventorySlotContents(i, ItemStack.EMPTY);
 				}
-			}
+				player.dropItem(armorStack, false);
+			} else {
+				// If somehow there are orphan items in upgrades with no armor present, drop them
+				for(int i = 0; i < this.upgrades.getSizeInventory(); ++i) {
+					ItemStack itemstack = this.upgrades.removeStackFromSlot(i);
 
-			ItemStack itemstack = this.armor.removeStackFromSlot(0);
-
-			if(itemstack != null) {
-				player.dropItem(itemstack, false);
+					if(itemstack != null && !itemstack.isEmpty()) {
+						player.dropItem(itemstack, false);
+					}
+				}
 			}
 		}
 	}
@@ -196,23 +197,36 @@ public class ContainerArmorTable extends Container {
 
 		@Override
 		public boolean isItemValid(ItemStack stack) {
-			return armor.getStackInSlot(0) != null && ArmorModHandler.isApplicable(armor.getStackInSlot(0), stack) && ((ItemArmorMod)stack.getItem()).type == this.slotNumber;
+			if(stack == null || stack.isEmpty() || !(stack.getItem() instanceof ItemArmorMod))
+				return false;
+			ItemStack targetArmor = armor.getStackInSlot(0);
+			return !targetArmor.isEmpty() && ArmorModHandler.isApplicable(targetArmor, stack) && ((ItemArmorMod)stack.getItem()).type == this.slotNumber;
 		}
 
 		@Override
 		public void putStack(ItemStack stack) {
-			super.putStack(stack);
+			super.putStack(stack != null ? stack : ItemStack.EMPTY);
 
-			if(stack != null) {
-				if(ArmorModHandler.isApplicable(armor.getStackInSlot(0), stack))
-					ArmorModHandler.applyMod(armor.getStackInSlot(0), stack);
+			ItemStack targetArmor = armor.getStackInSlot(0);
+			if(!targetArmor.isEmpty()) {
+				if(stack != null && !stack.isEmpty()) {
+					if(ArmorModHandler.isApplicable(targetArmor, stack)) {
+						ArmorModHandler.applyMod(targetArmor, stack);
+					}
+				} else {
+					ArmorModHandler.removeMod(targetArmor, this.slotNumber);
+				}
 			}
 		}
 
+		@Override
 		public ItemStack onTake(EntityPlayer player, ItemStack stack) {
 			super.onTake(player, stack);
 
-			ArmorModHandler.removeMod(armor.getStackInSlot(0), this.slotNumber);
+			ItemStack armorStack = armor.getStackInSlot(0);
+			if(armorStack != null && !armorStack.isEmpty()) {
+				ArmorModHandler.removeMod(armorStack, this.slotNumber);
+			}
 			return stack;
 		}
 	}

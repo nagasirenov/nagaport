@@ -10,6 +10,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
@@ -29,8 +31,26 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 	@SideOnly(Side.CLIENT)
 	private IIcon bottomIcon;
 
+	public static final PropertyBool ACTIVE = PropertyBool.create("active");
+
 	public BlockTNTBase() {
 		super(Material.TNT, 15, 100, 20, false, false);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(ACTIVE, false));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, ACTIVE);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(ACTIVE, meta == 1);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(ACTIVE) ? 1 : 0;
 	}
 
 	@Override

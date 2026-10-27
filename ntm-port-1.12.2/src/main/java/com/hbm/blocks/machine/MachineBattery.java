@@ -21,6 +21,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
@@ -50,9 +52,27 @@ public class MachineBattery extends BlockContainer implements ILookOverlay, IPer
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFront;
 
+	public static final PropertyInteger FACING = PropertyInteger.create("facing", 0, 5);
+
 	public MachineBattery(Material p_i45386_1_, long maxPower) {
 		super(p_i45386_1_);
 		this.maxPower = maxPower;
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING, meta >= 0 && meta <= 5 ? meta : 0);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(FACING);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -319,4 +339,9 @@ public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityP
 		list.add(TextFormatting.GOLD + "Discharge speed: "+ BobMathUtil.getShortNumber(this.maxPower / 600) + "HE");
 	}
 
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

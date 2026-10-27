@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": {
+      "model": "hbm:waste_leaves"
+    },
+    "inventory": {
+      "model": "hbm:waste_leaves"
+    }
+  }
+}

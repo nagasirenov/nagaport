@@ -7,6 +7,7 @@ import com.hbm.lib.RefStrings;
 import com.hbm.render.block.ct.CTContext;
 import com.hbm.render.block.ct.IBlockCT;
 import com.hbm.tileentity.machine.TileEntityICFController;
+import com.hbm.util.PersistentRegistryRef;
 
 import api.hbm.energymk2.IEnergyReceiverMK2;
 import net.minecraft.block.Block;
@@ -87,6 +88,7 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 		public int coreX;
 		public int coreY;
 		public int coreZ;
+		private NBTTagCompound legacyRef;
 
 		@Override
 		public void update() {
@@ -112,14 +114,15 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
 
-			block = Block.getBlockById(nbt.getInteger("block"));
-			if(block != Blocks.AIR) {
+			block = PersistentRegistryRef.readBlock(nbt, "block");
+			if(block != null && block != Blocks.AIR) {
 				meta = nbt.getInteger("meta");
 				coreX = nbt.getInteger("cX");
 				coreY = nbt.getInteger("cY");
 				coreZ = nbt.getInteger("cZ");
 			} else {
 				block = null;
+				this.legacyRef = PersistentRegistryRef.legacyOnly(nbt, "block", "meta", "cX", "cY", "cZ");
 			}
 		}
 
@@ -128,11 +131,13 @@ public class BlockICF extends BlockContainer implements IBlockCT {
 			super.writeToNBT(nbt);
 
 			if(block != null) {
-				nbt.setInteger("block", Block.getIdFromBlock(block));
+				PersistentRegistryRef.writeBlock(nbt, "block", block);
 				nbt.setInteger("meta", meta);
 				nbt.setInteger("cX", coreX);
 				nbt.setInteger("cY", coreY);
 				nbt.setInteger("cZ", coreZ);
+			} else {
+				PersistentRegistryRef.preserveLegacy(this.legacyRef, nbt, "block", "meta", "cX", "cY", "cZ");
 			}
 			return nbt;
 		}

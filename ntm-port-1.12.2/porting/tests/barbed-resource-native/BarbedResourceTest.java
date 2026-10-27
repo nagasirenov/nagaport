@@ -8,6 +8,43 @@ public class BarbedResourceTest {
  static Object get(Object o,Class<?> c,String n)throws Exception{Field f=c.getDeclaredField(n);f.setAccessible(true);return f.get(o);}
  static BarbedWire[] blocks(){return new BarbedWire[]{(BarbedWire)ModBlocks.barbed_wire,(BarbedWire)ModBlocks.barbed_wire_fire,(BarbedWire)ModBlocks.barbed_wire_poison,(BarbedWire)ModBlocks.barbed_wire_acid,(BarbedWire)ModBlocks.barbed_wire_wither,(BarbedWire)ModBlocks.barbed_wire_ultradeath};}
  static SimpleReloadableResourceManager resources=new SimpleReloadableResourceManager(new MetadataSerializer());
+ static int originalWorldColor(BakedQuad q){
+  int[] d=q.getVertexData();check(q.getFormat().equals(net.minecraft.client.renderer.vertex.DefaultVertexFormats.BLOCK)&&d.length==28,"world quad native BLOCK format");
+  float x0=Float.intBitsToFloat(d[0]),y0=Float.intBitsToFloat(d[1]),z0=Float.intBitsToFloat(d[2]);
+  float x1=Float.intBitsToFloat(d[7]),y1=Float.intBitsToFloat(d[8]),z1=Float.intBitsToFloat(d[9]);
+  float x2=Float.intBitsToFloat(d[14]),y2=Float.intBitsToFloat(d[15]),z2=Float.intBitsToFloat(d[16]);
+  float ax=x1-x0,ay=y1-y0,az=z1-z0,bx=x2-x0,by=y2-y0,bz=z2-z0;
+  float nx=ay*bz-az*by,ny=az*bx-ax*bz,nz=ax*by-ay*bx,len=(float)Math.sqrt(nx*nx+ny*ny+nz*nz);
+  if(len>0F){nx/=len;ny/=len;nz/=len;}else{EnumFacing f=q.getFace();nx=f==null?0:f.getXOffset();ny=f==null?0:f.getYOffset();nz=f==null?0:f.getZOffset();}
+  float shade=(ny+.7F)*.9F-Math.abs(nx)*.1F+Math.abs(nz)*.1F;if(shade<.45F)shade=.45F;
+  int c=Math.max(0,Math.min(255,(int)(shade*255F)));return 0xff000000|c<<16|c<<8|c;
+ }
+ static void worldColors(IBakedModel model,String label){
+  int saturated=0;for(BakedQuad q:model.getQuads(null,null,0)){int expected=originalWorldColor(q);if(expected==0xffffffff)saturated++;for(int v=0;v<4;v++)check(q.getVertexData()[v*7+3]==expected,label+" legacy saturated world color");}
+  check(saturated>0,label+" exercises over-one legacy shade saturation");
+ }
+ static final net.minecraft.util.math.BlockPos LIGHT_POS=new net.minecraft.util.math.BlockPos(11,64,13);
+ static final class LightingWorld implements net.minecraft.world.IBlockAccess {
+  final IBlockState state;final int own=0x00F000F0;LightingWorld(IBlockState state){this.state=state;}
+  public net.minecraft.tileentity.TileEntity getTileEntity(net.minecraft.util.math.BlockPos p){return null;}
+  public int getCombinedLight(net.minecraft.util.math.BlockPos p,int emission){return p.equals(LIGHT_POS)?own:0x00100010*((Math.abs(p.getX()+2*p.getY()+3*p.getZ())%8)+1);}
+  public IBlockState getBlockState(net.minecraft.util.math.BlockPos p){return p.equals(LIGHT_POS)?state:net.minecraft.init.Blocks.STONE.getDefaultState();}
+  public boolean isAirBlock(net.minecraft.util.math.BlockPos p){return false;}
+  public net.minecraft.world.biome.Biome getBiome(net.minecraft.util.math.BlockPos p){return net.minecraft.init.Biomes.PLAINS;}
+  public int getStrongPower(net.minecraft.util.math.BlockPos p,EnumFacing side){return 0;}
+  public net.minecraft.world.WorldType getWorldType(){return net.minecraft.world.WorldType.DEFAULT;}
+  public boolean isSideSolid(net.minecraft.util.math.BlockPos p,EnumFacing side,boolean fallback){return !p.equals(LIGHT_POS);}
+ }
+ static void nativeLighting(IBakedModel model,IBlockState state,String label){
+  LightingWorld world=new LightingWorld(state);net.minecraft.client.renderer.color.BlockColors colors=new net.minecraft.client.renderer.color.BlockColors();List<BakedQuad> quads=model.getQuads(state,null,0);
+  for(boolean forge:new boolean[]{false,true}){
+   BufferBuilder out=new BufferBuilder(65536);out.begin(7,net.minecraft.client.renderer.vertex.DefaultVertexFormats.BLOCK);
+   if(forge){net.minecraftforge.client.model.pipeline.VertexLighterFlat lighter=new net.minecraftforge.client.model.pipeline.VertexLighterFlat(colors);net.minecraftforge.client.model.pipeline.VertexBufferConsumer consumer=new net.minecraftforge.client.model.pipeline.VertexBufferConsumer(out);consumer.setOffset(LIGHT_POS);lighter.setParent(consumer);lighter.setWorld(world);lighter.setState(state);lighter.setBlockPos(LIGHT_POS);lighter.updateBlockInfo();for(BakedQuad q:quads)q.pipe(lighter);lighter.resetBlockInfo();}
+   else check(new net.minecraft.client.renderer.BlockModelRenderer(colors).renderModelFlat(world,model,state,LIGHT_POS,out,true,0),label+" native vanilla emits model");
+   out.finishDrawing();check(out.getVertexCount()==quads.size()*4,label+" native emitted vertices "+forge);ByteBuffer data=out.getByteBuffer();
+   for(int v=0;v<out.getVertexCount();v++){check(data.getInt(v*28+24)==world.own,label+" "+(forge?"Forge":"vanilla")+" samples owner packed light");check(data.getInt(v*28+12)==quads.get(v/4).getVertexData()[v%4*7+3],label+" "+(forge?"Forge":"vanilla")+" preserves pre-shaded color");}
+  }
+ }
  static long[] run(IResourcePack pack)throws Exception {
   set(Minecraft.getMinecraft(),Minecraft.class,"resourceManager",resources);resources.reloadResources(Collections.singletonList(pack));
   TextureMap atlas=new TextureMap("textures");atlas.setMipmapLevels(2);set(Minecraft.getMinecraft(),Minecraft.class,"textureMapBlocks",atlas);
@@ -35,6 +72,7 @@ public class BarbedResourceTest {
   for(BarbedWire block:blocks())for(int n=0;n<7;n++){
    ModelResourceLocation id=new ModelResourceLocation(block.getRegistryName(),n==6?"inventory":"orientation="+n);IBakedModel baked=registry.getObject(id);check(baked!=null,"actual handler publication "+id);List<BakedQuad> quads=baked.getQuads(null,null,0);check(!quads.isEmpty(),"actual original transformed geometry");for(BakedQuad q:quads)for(int v=0;v<4;v++)geometry=geometry*31+q.getVertexData()[v*7];for(BakedQuad q:quads)check(q.getSprite()==atlas.getAtlasSprite(block.getIcon(0,0).getIconName()),"handler original material");
   }
+  BarbedWire base=(BarbedWire)ModBlocks.barbed_wire;for(int n=0;n<6;n++){IBakedModel world=registry.getObject(new ModelResourceLocation(base.getRegistryName(),"orientation="+n));worldColors(world,"barbed orientation="+n);if(n==0)nativeLighting(world,base.getStateFromMeta(n),"barbed orientation=0");}
   set(manager,ModelManager.class,"modelRegistry",registry);ItemModelMesher mesher=new ItemModelMesher(manager);ModelLoader.onRegisterItems(mesher);mesher.rebuildCache();for(BarbedWire block:blocks())for(int n=0;n<6;n++)check(mesher.getItemModel(new ItemStack(Item.getItemFromBlock(block),1,n))==registry.getObject(new ModelResourceLocation(block.getRegistryName(),"inventory")),"native item model dispatch");
   for(BarbedWire b:blocks())for(int pixel:atlas.getAtlasSprite(b.getIcon(0,0).getIconName()).getFrameTextureData(0)[0])pixelHash=pixelHash*31+pixel;
   check(GL11.glGetError()==GL11.GL_NO_ERROR,"native GL error-free");atlas.deleteGlTexture();System.out.println("PASS native reload/atlas upload/OBJ state and item bake "+pack.getPackName());return new long[]{geometry,pixelHash};

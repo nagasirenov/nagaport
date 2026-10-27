@@ -18,6 +18,7 @@ import com.hbm.items.weapon.sedna.ItemGunBaseNT.LambdaContext;
 import com.hbm.items.weapon.sedna.ItemGunBaseNT.WeaponQuality;
 import com.hbm.render.anim.BusAnimation;
 import com.hbm.render.anim.AnimationEnums.GunAnimation;
+import com.hbm.render.item.NativeItemTextureRegistry;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -40,6 +41,7 @@ public class XFactoryPA {
 				.rec(new Receiver(0))
 				.pp(LAMBDA_CLICK_RANGED_PRIMARY).ps(LAMBDA_CLICK_RANGED_SENONDARY).decider(GunStateDecider.LAMBDA_STANDARD_DECIDER)
 				).setTranslationKey("gun_pa_ranged").setFull3D();
+		NativeItemTextureRegistry.texture(ModItems.gun_pa_ranged, RefStrings.MODID + ":gun_pa_ranged");
 	}
 
 	public static BiConsumer<ItemStack, LambdaContext> ORCHESTRA = (stack, ctx) -> {

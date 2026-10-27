@@ -45,13 +45,13 @@ public class ContainerLemegeton extends Container {
 
 		if(!player.world.isRemote) {
 			ItemStack itemstack = this.craftMatrix.removeStackFromSlot(0);
-			if(itemstack != null) player.dropItem(itemstack, false);
+			if(itemstack != null && !itemstack.isEmpty()) player.dropItem(itemstack, false);
 		}
 	}
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int slotNo) {
-		ItemStack itemstack = null;
+		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(slotNo);
 
 		if(slot != null && slot.getHasStack()) {
@@ -60,22 +60,22 @@ public class ContainerLemegeton extends Container {
 
 			if(slotNo <= 1) {
 				if(!this.mergeItemStack(itemstack1, 2, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(itemstack1, itemstack);
 			} else if(!this.mergeItemStack(itemstack1, 1, 2, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(itemstack1.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
 
 			if(itemstack1.getCount() == itemstack.getCount()) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			slot.onTake(p_82846_1_, itemstack1);

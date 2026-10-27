@@ -121,12 +121,12 @@ public class ItemAmmoBag extends Item implements IGUIProvider {
 		}
 
 		@Override public int getSizeInventory() { return 8; }
-		@Override public ItemStack getStackInSlot(int slot) { return slots[slot]; }
+		@Override public ItemStack getStackInSlot(int slot) { ItemStack stack = slots[slot]; return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack; }
 
 		@Override
 		public ItemStack decrStackSize(int slot, int amount) {
 			ItemStack stack = getStackInSlot(slot);
-			if (stack != null) {
+			if (!stack.isEmpty()) {
 				if (stack.getCount() > amount) {
 					stack = stack.splitStack(amount);
 					markDirty();
@@ -165,7 +165,7 @@ public class ItemAmmoBag extends Item implements IGUIProvider {
 		@Override
 		public void markDirty() {
 			for(int i = 0; i < getSizeInventory(); ++i) {
-				if(getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
+				if(!getStackInSlot(i).isEmpty() && getStackInSlot(i).getCount() == 0) {
 					slots[i] = null;
 				}
 			}

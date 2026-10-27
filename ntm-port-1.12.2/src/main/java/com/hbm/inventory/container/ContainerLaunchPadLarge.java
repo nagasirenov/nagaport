@@ -49,7 +49,7 @@ public class ContainerLaunchPadLarge extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -58,41 +58,41 @@ public class ContainerLaunchPadLarge extends Container {
 
 			if(par2 <= 6) {
 				if(!this.mergeItemStack(var5, 7, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(var3.getItem() instanceof IBatteryItem || var3.getItem() == ModItems.battery_creative) {
 					if(!this.mergeItemStack(var5, 2, 3, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else if(launchpad.isMissileValid(var3)) {
 					if(!this.mergeItemStack(var5, 0, 1, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else if(var3.getItem() == ModItems.fluid_barrel_infinite) {
 					if(!this.mergeItemStack(var5, 3, 4, false)) if(!this.mergeItemStack(var5, 5, 6, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else if(FluidContainerRegistry.getFluidContent(var3, launchpad.tanks[0].getTankType()) > 0) {
 					if(!this.mergeItemStack(var5, 3, 4, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else if(FluidContainerRegistry.getFluidContent(var3, launchpad.tanks[1].getTankType()) > 0) {
 					if(!this.mergeItemStack(var5, 5, 6, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else if(var3.getItem() instanceof IDesignatorItem) {
 					if(!this.mergeItemStack(var5, 1, 2, false)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

@@ -71,7 +71,7 @@ public class ArmorModel extends ItemArmor {
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, net.minecraft.inventory.EntityEquipmentSlot slot, String type) {
 		if(stack.getItem() == ModItems.goggles) {
-			return "hbm:textures/models/Goggles.png";
+			return "hbm:textures/models/goggles.png";
 		}
 		if(stack.getItem() == ModItems.cape_radiation) {
 			return "hbm:textures/models/capes/CapeRadiation.png";

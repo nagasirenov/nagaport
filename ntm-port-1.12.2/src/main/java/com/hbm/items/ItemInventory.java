@@ -153,16 +153,9 @@ public abstract class ItemInventory implements IInventory {
 		return hasCustomName() ? new TextComponentString(target.getDisplayName()) : new net.minecraft.util.text.TextComponentTranslation(getName());
 	}
 
-	/** Raw quantity is necessary for the original signed clamp and exactly-zero cleanup.
-	 * Read-only, mapped access; no furnace-specific empty admission policy applies here. */
+	/** Raw count for the original signed clamp and exactly-zero cleanup. */
 	protected static int quantity(ItemStack stack) {
-		int count = stack.getCount();
-		if(count != 0) return count;
-		try { return QuantityField.FIELD.getInt(stack); }
-		catch(IllegalAccessException failure) { throw new IllegalStateException("Cannot read item inventory stack quantity", failure); }
-	}
-	private static final class QuantityField {
-		private static final java.lang.reflect.Field FIELD = net.minecraftforge.fml.relauncher.ReflectionHelper.findField(ItemStack.class, "stackSize", "field_77994_a");
+		return stack == null ? 0 : stack.getCount();
 	}
 
 	/** Original nullable item-inventory list schema, deliberately local to this domain. */

@@ -15,7 +15,7 @@ import com.hbm.blocks.BlockBase;
 import com.hbm.blocks.generic.BlockRotatablePillar;
 import com.hbm.lib.RefStrings;
 import com.hbm.render.icon.IIcon;
-import com.hbm.render.icon.LegacyTextureAtlasSprite;
+import com.hbm.render.item.nativeitem.NativeItemParticles;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -58,8 +58,42 @@ import net.minecraftforge.fml.relauncher.Side;
 public final class NativeStateFallbackHandler {
 
 	private static final String PREFIX = "native_fallback/";
+	private static final java.util.Set<String> CANONICAL_INVENTORY_ITEMBLOCKS = Collections.unmodifiableSet(
+			new java.util.HashSet<>(java.util.Arrays.asList(
+					"tile.fallout",
+					"tile.waste_leaves",
+					"tile.rubber_leaves",
+					"tile.pet_leaves",
+					"tile.leaves_layer",
+					"tile.foam_layer",
+					"tile.sand_boron_layer",
+					"tile.vinyl_vine",
+					"tile.oil_spill",
+					"tile.flesh_block",
+					"tile.charred_flesh_block",
+					"tile.carbonized_flesh_block",
+					"tile.ladder_sturdy",
+					"tile.ladder_iron",
+					"tile.ladder_gold",
+					"tile.ladder_aluminium",
+					"tile.ladder_copper",
+					"tile.ladder_titanium",
+					"tile.ladder_lead",
+					"tile.ladder_cobalt",
+					"tile.ladder_steel",
+					"tile.ladder_tungsten",
+					"tile.laythe_seagrass",
+					"tile.laythe_glowgrass",
+					"tile.trapdoor_steel",
+					"tile.primed_log",
+					"tile.eu_log",
+					"tile.bf_log",
+					"tile.lattice_log",
+					"tile.pvc_log",
+					"tile.vinyl_log")));
 	private static final FaceBakery FACE_BAKERY = new FaceBakery();
 	private static final Map<String, FallbackBlock> ROUTES = new HashMap<>();
+	private static final Map<String, IBlockState> PARTICLE_STATES = new HashMap<>();
 	private static final Loader LOADER = new Loader();
 	private static boolean registered;
 
@@ -72,12 +106,26 @@ public final class NativeStateFallbackHandler {
 			registered = true;
 		}
 		ROUTES.clear();
+		PARTICLE_STATES.clear();
 
 		Map<?, ?> existing = stateMappers();
 		int blocks = 0, states = 0, blockItems = 0;
 		for(Block block : net.minecraftforge.fml.common.registry.ForgeRegistries.BLOCKS.getValuesCollection()) {
 			ResourceLocation name = block.getRegistryName();
 			if(name == null || !RefStrings.MODID.equals(name.getNamespace())) continue;
+
+			Item item = Item.getItemFromBlock(block);
+			boolean canonicalInventory = CANONICAL_INVENTORY_ITEMBLOCKS.contains(name.getPath());
+			if(canonicalInventory && item instanceof ItemBlock && ((ItemBlock) item).getBlock() == block) {
+				// These legacy ItemBlocks have real item JSON, but Forge does not infer
+				// an ItemModelMesher route from a blockstate "inventory" variant. Force
+				// the canonical item key before the blockstate-owned world path exits.
+				ModelResourceLocation inventory = new ModelResourceLocation(name, "inventory");
+				ModelBakery.registerItemVariants(item, inventory);
+				ModelLoader.setCustomMeshDefinition(item, stack -> inventory);
+				blockItems++;
+			}
+
 			if(BakeOwnedModelLoader.hasBlockstate(name)) continue;
 			FallbackBlock adapter = adapterFor(block);
 			if(adapter == null) continue;
@@ -90,16 +138,21 @@ public final class NativeStateFallbackHandler {
 					: new HashMap<>(previous.putStateModelLocations(block));
 			boolean touched = false;
 			String routeKey = PREFIX + name.getPath().replace('#', '_') + "/block";
-			ModelResourceLocation fallback = location(routeKey);
+			int stateIndex = 0;
 			for(IBlockState state : block.getBlockState().getValidStates()) {
 				ModelResourceLocation current = routes.get(state);
-				if(current != null && !current.getPath().equals(name.getPath())) continue;
-				routes.put(state, fallback);
+				if(current != null && !current.getPath().equals(name.getPath())) {
+					stateIndex++;
+					continue;
+				}
+				String stateRouteKey = routeKey + "/state_" + stateIndex++;
+				ROUTES.put(stateRouteKey, adapter);
+				PARTICLE_STATES.put(stateRouteKey, state);
+				routes.put(state, location(stateRouteKey));
 				touched = true;
 				states++;
 			}
 			if(touched) {
-				ROUTES.put(routeKey, adapter);
 				final Map<IBlockState, ModelResourceLocation> published = routes;
 				ModelLoader.setCustomStateMapper(block, owner -> new HashMap<>(published));
 				blocks++;
@@ -108,8 +161,8 @@ public final class NativeStateFallbackHandler {
 			// Inventory coverage is independent of the world reroute above: a prior
 			// world owner (for example INVISIBLE container states routed to empty
 			// models) must not leave the ItemBlock without a real per-face model.
-			Item item = Item.getItemFromBlock(block);
 			if(item instanceof ItemBlock && ((ItemBlock) item).getBlock() == block
+					&& !canonicalInventory
 					&& !BakeOwnedModelLoader.hasInventoryAsset(name)
 					&& !hasCustomRoute(item)) {
 				String itemKey = PREFIX + name.getPath().replace('#', '_') + "/item";
@@ -207,7 +260,7 @@ public final class NativeStateFallbackHandler {
 
 		BlockBaseAdapter(BlockBase block) {
 			this.block = block;
-			this.cross = legacyRenderType(block) == 1;
+			this.cross = legacyRenderType(block) == 1 || isPlantBlock(block);
 		}
 
 		@Override public boolean isCross() { return cross; }
@@ -244,7 +297,7 @@ public final class NativeStateFallbackHandler {
 			this.lookup = lookup;
 		}
 
-		@Override public boolean isCross() { return false; }
+		@Override public boolean isCross() { return isPlantBlock(block); }
 		@Override public Block block() { return block; }
 
 		@Override
@@ -276,7 +329,7 @@ public final class NativeStateFallbackHandler {
 			this.block = block;
 		}
 
-		@Override public boolean isCross() { return false; }
+		@Override public boolean isCross() { return isPlantBlock(block); }
 		@Override public Block block() { return block; }
 
 		@Override
@@ -298,6 +351,23 @@ public final class NativeStateFallbackHandler {
 		return null;
 	}
 
+	private static boolean isPlantBlock(Block block) {
+		return block instanceof net.minecraftforge.common.IPlantable
+				|| block instanceof net.minecraft.block.IGrowable
+				|| block instanceof com.hbm.blocks.generic.BlockNTMFlower
+				|| block instanceof com.hbm.blocks.generic.BlockDeadPlant
+				|| block instanceof com.hbm.blocks.generic.BlockTallPlant
+				|| block instanceof com.hbm.blocks.generic.BlockTallPlantWater
+				|| block instanceof com.hbm.blocks.generic.BlockRubberPlant
+				|| block instanceof com.hbm.blocks.generic.BlockStalagmite
+				|| block instanceof com.hbm.blocks.BlockWaterPlant
+				|| block instanceof com.hbm.blocks.BlockKelp
+				|| block instanceof com.hbm.blocks.BlockCrop
+				|| block instanceof com.hbm.blocks.BlockNTSapling
+				|| block.getDefaultState().getMaterial() == net.minecraft.block.material.Material.PLANTS
+				|| block.getDefaultState().getMaterial() == net.minecraft.block.material.Material.VINE;
+	}
+
 	private static int legacyRenderType(Block block) {
 		for(Class<?> current = block.getClass(); current != null && current != Block.class;
 				current = current.getSuperclass()) {
@@ -313,7 +383,9 @@ public final class NativeStateFallbackHandler {
 	}
 
 	private static final class Loader implements ICustomModelLoader {
-		@Override public void onResourceManagerReload(IResourceManager resourceManager) { }
+		@Override public void onResourceManagerReload(IResourceManager resourceManager) {
+			FallbackModel.clearCaches();
+		}
 
 		@Override
 		public boolean accepts(ResourceLocation location) {
@@ -329,21 +401,28 @@ public final class NativeStateFallbackHandler {
 			if(path.startsWith("models/")) path = path.substring(7);
 			FallbackBlock adapter = ROUTES.get(path);
 			if(adapter == null) throw new IllegalArgumentException("Unknown native fallback route " + location);
-			return new FallbackModel(adapter, path.endsWith("/item"));
+			return new FallbackModel(adapter, path.endsWith("/item"), PARTICLE_STATES.get(path));
 		}
 	}
 
 	/** Baked cube (or cross) model resolved from the block's per-state legacy icons. */
 	private static final class FallbackModel implements IBakedModel, IModel {
 		private static final Map<FallbackModel, Map<Integer, List<BakedQuad>>> QUAD_CACHE = new ConcurrentHashMap<>();
-		private static final Map<FallbackModel, List<BakedQuad>> CROSS_CACHE = new ConcurrentHashMap<>();
+		private static final Map<FallbackModel, Map<Integer, List<BakedQuad>>> CROSS_CACHE = new ConcurrentHashMap<>();
+
+		static void clearCaches() {
+			QUAD_CACHE.clear();
+			CROSS_CACHE.clear();
+		}
 
 		private final FallbackBlock adapter;
 		private final boolean inventory;
+		private final IBlockState particleState;
 
-		FallbackModel(FallbackBlock adapter, boolean inventory) {
+		FallbackModel(FallbackBlock adapter, boolean inventory, IBlockState particleState) {
 			this.adapter = adapter;
 			this.inventory = inventory;
+			this.particleState = particleState;
 		}
 
 		private Map<Integer, List<BakedQuad>> quads() {
@@ -353,15 +432,14 @@ public final class NativeStateFallbackHandler {
 		@Override
 		public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 			IBlockState resolved = state != null ? state : adapter.block().getDefaultState();
-			if(adapter.isCross() && !inventory) {
-				if(side != null) return Collections.emptyList();
-				List<BakedQuad> cached = CROSS_CACHE.get(this);
-				if(cached != null) return cached;
-				List<BakedQuad> quads = crossQuads(adapter.icon(EnumFacing.NORTH, resolved));
-				CROSS_CACHE.put(this, quads);
-				return quads;
-			}
 			int meta = resolved.getBlock().getMetaFromState(resolved);
+			if(adapter.isCross()) {
+				if(side != null) return Collections.emptyList();
+				Map<Integer, List<BakedQuad>> modelCache = CROSS_CACHE.computeIfAbsent(this, key -> new ConcurrentHashMap<>());
+				return modelCache.computeIfAbsent(meta, key -> inventory
+						? makeFlatItemQuads(resolve(adapter.icon(EnumFacing.NORTH, resolved)))
+						: crossQuads(adapter.icon(EnumFacing.NORTH, resolved)));
+			}
 			if(side == null) {
 				List<BakedQuad> all = new ArrayList<>(6);
 				for(EnumFacing facing : EnumFacing.values()) {
@@ -377,28 +455,41 @@ public final class NativeStateFallbackHandler {
 			return sideQuads.get(0) == null ? Collections.<BakedQuad>emptyList() : sideQuads;
 		}
 
+		private static List<BakedQuad> makeFlatItemQuads(TextureAtlasSprite sprite) {
+			if(sprite == null) return Collections.emptyList();
+			BlockPartFace face = new BlockPartFace(null, 0, sprite.getIconName(),
+					new BlockFaceUV(new float[] {0.0F, 0.0F, 16.0F, 16.0F}, 0));
+			List<BakedQuad> quads = new ArrayList<>(2);
+			quads.add(FACE_BAKERY.makeBakedQuad(new Vector3f(0.0F, 0.0F, 7.5F),
+					new Vector3f(16.0F, 16.0F, 8.5F), face, sprite, EnumFacing.NORTH,
+					ModelRotation.X0_Y0, null, true, false));
+			quads.add(FACE_BAKERY.makeBakedQuad(new Vector3f(0.0F, 0.0F, 7.5F),
+					new Vector3f(16.0F, 16.0F, 8.5F), face, sprite, EnumFacing.SOUTH,
+					ModelRotation.X0_Y0, null, true, false));
+			return Collections.unmodifiableList(quads);
+		}
+
 		private static List<BakedQuad> crossQuads(IIcon icon) {
 			TextureAtlasSprite sprite = resolve(icon);
 			if(sprite == null) return Collections.emptyList();
 			List<BakedQuad> quads = new ArrayList<>(4);
 			BlockPartFace face = new BlockPartFace(null, 0, sprite.getIconName(),
 					new BlockFaceUV(new float[] {0.0F, 0.0F, 16.0F, 16.0F}, 0));
-			Vector3f from = new Vector3f(0.8F, 0.0F, 8.0F);
-			Vector3f to = new Vector3f(15.2F, 16.0F, 8.0F);
-		net.minecraft.client.renderer.block.model.BlockPartRotation yaw45 =
-				new net.minecraft.client.renderer.block.model.BlockPartRotation(new Vector3f(8.0F, 8.0F, 8.0F),
-						net.minecraft.util.EnumFacing.Axis.Y, 45.0F, false);
-			net.minecraft.client.renderer.block.model.BlockPartRotation yaw315 =
-				new net.minecraft.client.renderer.block.model.BlockPartRotation(new Vector3f(8.0F, 8.0F, 8.0F),
-						net.minecraft.util.EnumFacing.Axis.Y, -45.0F, false);
-			quads.add(FACE_BAKERY.makeBakedQuad(from, to, face, sprite, EnumFacing.NORTH,
-					ModelRotation.X0_Y0, yaw45, true, true));
-			quads.add(FACE_BAKERY.makeBakedQuad(from, to, face, sprite, EnumFacing.SOUTH,
-					ModelRotation.X0_Y0, yaw45, true, true));
-			quads.add(FACE_BAKERY.makeBakedQuad(from, to, face, sprite, EnumFacing.NORTH,
-					ModelRotation.X0_Y0, yaw315, true, true));
-			quads.add(FACE_BAKERY.makeBakedQuad(from, to, face, sprite, EnumFacing.SOUTH,
-					ModelRotation.X0_Y0, yaw315, true, true));
+			Vector3f from1 = new Vector3f(0.8F, 0.0F, 8.0F);
+			Vector3f to1 = new Vector3f(15.2F, 16.0F, 8.0F);
+			Vector3f from2 = new Vector3f(8.0F, 0.0F, 0.8F);
+			Vector3f to2 = new Vector3f(8.0F, 16.0F, 15.2F);
+			net.minecraft.client.renderer.block.model.BlockPartRotation rot =
+					new net.minecraft.client.renderer.block.model.BlockPartRotation(new Vector3f(0.5F, 0.5F, 0.5F),
+							net.minecraft.util.EnumFacing.Axis.Y, 45.0F, true);
+			quads.add(FACE_BAKERY.makeBakedQuad(from1, to1, face, sprite, EnumFacing.NORTH,
+					ModelRotation.X0_Y0, rot, true, true));
+			quads.add(FACE_BAKERY.makeBakedQuad(from1, to1, face, sprite, EnumFacing.SOUTH,
+					ModelRotation.X0_Y0, rot, true, true));
+			quads.add(FACE_BAKERY.makeBakedQuad(from2, to2, face, sprite, EnumFacing.WEST,
+					ModelRotation.X0_Y0, rot, true, true));
+			quads.add(FACE_BAKERY.makeBakedQuad(from2, to2, face, sprite, EnumFacing.EAST,
+					ModelRotation.X0_Y0, rot, true, true));
 			return Collections.unmodifiableList(quads);
 		}
 
@@ -412,24 +503,43 @@ public final class NativeStateFallbackHandler {
 		}
 
 		private static TextureAtlasSprite resolve(IIcon icon) {
-			if(icon == null) return null;
-			TextureAtlasSprite direct = null;
-			if(icon instanceof com.hbm.render.icon.WrappedIcon) direct = ((com.hbm.render.icon.WrappedIcon) icon).getSprite();
-			else if(icon instanceof LegacyTextureAtlasSprite) direct = ((LegacyTextureAtlasSprite) icon).getSprite();
-			else if(icon instanceof TextureAtlasSprite) direct = (TextureAtlasSprite) icon;
-			if(direct != null) return direct;
-			return net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks()
-					.getTextureExtry(icon.getIconName());
+			TextureAtlasSprite sprite = NativeItemParticles.spriteOf(icon, "NativeStateFallbackHandler");
+			return sprite != null ? sprite : net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
 		}
 
 		@Override public boolean isAmbientOcclusion() { return true; }
 		@Override public boolean isGui3d() { return !adapter.isCross(); }
 		@Override public boolean isBuiltInRenderer() { return false; }
 		@Override public TextureAtlasSprite getParticleTexture() {
-			return resolve(adapter.icon(EnumFacing.NORTH, adapter.block().getDefaultState()));
+			if(particleState == null)
+				return resolve(adapter.icon(EnumFacing.NORTH, adapter.block().getDefaultState()));
+			IBlockState resolved = particleState;
+			TextureAtlasSprite sprite = NativeItemParticles.spriteOf(adapter.icon(EnumFacing.NORTH, resolved));
+			if(sprite != null) return sprite;
+			for(EnumFacing face : EnumFacing.values()) {
+				if(face == EnumFacing.NORTH) continue;
+				sprite = NativeItemParticles.spriteOf(adapter.icon(face, resolved));
+				if(sprite != null) return sprite;
+			}
+			return net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
 		}
 		@Override public ItemCameraTransforms getItemCameraTransforms() { return ItemCameraTransforms.DEFAULT; }
-		@Override public ItemOverrideList getOverrides() { return ItemOverrideList.NONE; }
+		private final ItemOverrideList overrides = new ItemOverrideList(Collections.emptyList()) {
+			@Override
+			public IBakedModel handleItemState(IBakedModel originalModel, net.minecraft.item.ItemStack stack, net.minecraft.world.World world, net.minecraft.entity.EntityLivingBase entity) {
+				if(stack.isEmpty()) return originalModel;
+				int meta = stack.getItemDamage();
+				return getBakedModelForMeta(meta);
+			}
+		};
+
+		private final Map<Integer, IBakedModel> metaModels = new ConcurrentHashMap<>();
+
+		public IBakedModel getBakedModelForMeta(int meta) {
+			return metaModels.computeIfAbsent(meta, m -> new MetaBakedModel(this, m));
+		}
+
+		@Override public ItemOverrideList getOverrides() { return overrides; }
 
 		@Override public java.util.Collection<ResourceLocation> getDependencies() { return Collections.emptyList(); }
 		@Override public java.util.Collection<ResourceLocation> getTextures() { return Collections.emptyList(); }
@@ -439,5 +549,28 @@ public final class NativeStateFallbackHandler {
 				Function<ResourceLocation, TextureAtlasSprite> sprites) {
 			return this;
 		}
+	}
+
+	private static final class MetaBakedModel implements IBakedModel {
+		private final FallbackModel parent;
+		private final int meta;
+
+		MetaBakedModel(FallbackModel parent, int meta) {
+			this.parent = parent;
+			this.meta = meta;
+		}
+
+		@Override
+		public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
+			IBlockState metaState = state != null ? state : parent.adapter.block().getStateFromMeta(meta);
+			return parent.getQuads(metaState, side, rand);
+		}
+
+		@Override public boolean isAmbientOcclusion() { return parent.isAmbientOcclusion(); }
+		@Override public boolean isGui3d() { return parent.isGui3d(); }
+		@Override public boolean isBuiltInRenderer() { return false; }
+		@Override public TextureAtlasSprite getParticleTexture() { return parent.getParticleTexture(); }
+		@Override public ItemCameraTransforms getItemCameraTransforms() { return parent.getItemCameraTransforms(); }
+		@Override public ItemOverrideList getOverrides() { return ItemOverrideList.NONE; }
 	}
 }

@@ -204,6 +204,9 @@
       "model": "hbm:pink_stairs_inner",
       "x": 180,
       "uvlock": true
+    },
+    "inventory": {
+      "model": "hbm:item/tile.pink_stairs"
     }
   }
 }

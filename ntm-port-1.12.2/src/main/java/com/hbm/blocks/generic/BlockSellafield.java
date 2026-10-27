@@ -15,6 +15,8 @@ import com.hbm.render.icon.LegacyIconRegister;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -31,6 +33,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 
 public class BlockSellafield extends BlockHazard {
+	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
 
 	@SideOnly(Side.CLIENT)
 	protected IIcon[][] icons;
@@ -40,9 +43,25 @@ public class BlockSellafield extends BlockHazard {
 
 	public BlockSellafield(Material mat) {
 		super(mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(META, 0));
 		this.setCreativeTab(MainRegistry.blockTab);
 		this.needsRandomTick = true;
 		this.rad = 0.5F;
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, META);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(META, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(META);
 	}
 
 

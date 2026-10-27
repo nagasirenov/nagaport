@@ -147,4 +147,9 @@ public class MachineShredder extends BlockContainer {
 
         super.breakBlock(p_149749_1_, nativePos, nativeState);
     }
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

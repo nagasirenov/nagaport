@@ -28,9 +28,21 @@ public abstract class EntityMinecartContainerBase extends EntityMinecartNTM impl
 		super(world, x, y, z, type);
 	}
 
+	private static ItemStack nativeStack(ItemStack stack) {
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+	}
+
 	@Override
 	public ItemStack getStackInSlot(int slot) {
-		return slots[slot];
+		return nativeStack(slots[slot]);
+	}
+
+	@Override
+	public boolean isEmpty() {
+		for(ItemStack stack : slots) {
+			if(!nativeStack(stack).isEmpty()) return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -52,7 +64,7 @@ public abstract class EntityMinecartContainerBase extends EntityMinecartNTM impl
 				return itemstack;
 			}
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
@@ -107,14 +119,6 @@ public abstract class EntityMinecartContainerBase extends EntityMinecartNTM impl
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
-		return true;
-	}
-
-	@Override
-	public boolean isEmpty() {
-		for(ItemStack stack : this.slots) {
-			if(stack != null && !stack.isEmpty()) return false;
-		}
 		return true;
 	}
 

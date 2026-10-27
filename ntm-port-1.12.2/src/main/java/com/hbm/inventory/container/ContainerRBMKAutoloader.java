@@ -22,7 +22,7 @@ public class ContainerRBMKAutoloader extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -31,14 +31,14 @@ public class ContainerRBMKAutoloader extends ContainerBase {
 
 			if(index <= 17) {
 				if(!this.mergeItemStack(stack, 18, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
-				if(!this.mergeItemStack(stack, 0, 9, false)) return null;
+				if(!this.mergeItemStack(stack, 0, 9, false)) return ItemStack.EMPTY;
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

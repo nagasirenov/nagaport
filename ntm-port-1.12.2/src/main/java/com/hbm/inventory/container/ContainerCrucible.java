@@ -47,7 +47,7 @@ public class ContainerCrucible extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack stack = null;
+		ItemStack stack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -56,17 +56,17 @@ public class ContainerCrucible extends Container {
 
 			if(index <= 9) {
 				if(!this.mergeItemStack(originalStack, 10, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(originalStack, stack);
 
 			} else if(!InventoryUtil.mergeItemStack(this.inventorySlots, originalStack, 0, 10, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(originalStack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

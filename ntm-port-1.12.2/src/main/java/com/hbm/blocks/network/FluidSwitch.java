@@ -11,6 +11,8 @@ import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockStateContainer;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.render.icon.IIcon;
@@ -27,8 +29,26 @@ public class FluidSwitch extends FluidDuctBase implements ILookOverlay {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconOn;
 
+	public static final PropertyBool OPEN = PropertyBool.create("open");
+
 	public FluidSwitch(Material mat) {
 		super(mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(OPEN, false));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, OPEN);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(OPEN, meta == 1);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(OPEN) ? 1 : 0;
 	}
 
 	@SideOnly(Side.CLIENT)

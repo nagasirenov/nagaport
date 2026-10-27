@@ -32,7 +32,7 @@ public class ContainerAshpit extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack stack = null;
+		ItemStack stack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -41,17 +41,17 @@ public class ContainerAshpit extends Container {
 
 			if(index <= 4) {
 				if(!this.mergeItemStack(originalStack, 5, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(originalStack, stack);
 
 			} else {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(originalStack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

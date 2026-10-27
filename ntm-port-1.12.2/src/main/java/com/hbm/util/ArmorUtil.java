@@ -28,6 +28,8 @@ import com.hbm.util.Tuple.Pair;
 import api.hbm.item.IGasMask;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -527,6 +529,7 @@ public class ArmorUtil {
 			installGasMaskFilter(mask, filter);
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static void addGasMaskTooltip(ItemStack mask, EntityPlayer player, List list, boolean ext) {
 
 		if(mask == null || !(mask.getItem() instanceof IGasMask))

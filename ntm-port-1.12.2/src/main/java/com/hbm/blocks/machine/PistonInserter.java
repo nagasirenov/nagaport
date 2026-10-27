@@ -378,7 +378,11 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 
 		@Override public int getSizeInventory() { return 1; }
 
-		@Override public ItemStack getStackInSlot(int slot) { return this.slot; }
+		private static ItemStack nativeStack(ItemStack stack) {
+			return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+		}
+
+		@Override public ItemStack getStackInSlot(int slot) { return nativeStack(this.slot); }
 
 		@Override
 		public ItemStack decrStackSize(int slot, int amount) {
@@ -396,11 +400,15 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 				return stack;
 			}
 
-			return null;
+			return ItemStack.EMPTY;
 		}
 
 		@Override
-		public ItemStack removeStackFromSlot(int slot) { return ItemStack.EMPTY; }
+		public ItemStack removeStackFromSlot(int slot) {
+			ItemStack stack = nativeStack(this.slot);
+			this.slot = null;
+			return stack;
+		}
 
 		@Override
 		public void setInventorySlotContents(int slot, ItemStack stack) {

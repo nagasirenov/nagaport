@@ -1,3 +1,6 @@
 {
-  "parent": "hbm:block/oil_spill_1"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hbm:blocks/oil_spill"
+  }
 }

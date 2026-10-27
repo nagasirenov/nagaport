@@ -33,6 +33,17 @@ public class WasteLeaves extends Block {
 		this.blockIcon = iconRegister.registerIcon(RefStrings.MODID + ":waste_leaves");
 	}
 
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta) {
+		return this.blockIcon;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
 	@Override
 	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 		return null;

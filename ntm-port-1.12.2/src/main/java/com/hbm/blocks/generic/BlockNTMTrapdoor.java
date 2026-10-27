@@ -53,7 +53,7 @@ public class BlockNTMTrapdoor extends BlockTrapDoor {
                 return new AxisAlignedBB(x, y, z, x + thickness, y + 1F, z + 1F);
         }
 
-        return super.getBoundingBox(com.hbm.world.WorldBlockState.read(world, x, y, z), world, new net.minecraft.util.math.BlockPos(x, y, z));
+        return super.getBoundingBox(state, world, pos);
     }
 
     @Override

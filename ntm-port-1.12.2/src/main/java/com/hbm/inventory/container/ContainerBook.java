@@ -53,7 +53,7 @@ public class ContainerBook extends Container {
 			for(int i = 0; i < 4; ++i) {
 				ItemStack itemstack = this.craftMatrix.removeStackFromSlot(i);
 
-				if(itemstack != null)
+				if(itemstack != null && !itemstack.isEmpty())
 					player.dropItem(itemstack, false);
 			}
 		}
@@ -61,7 +61,7 @@ public class ContainerBook extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_) {
-		ItemStack itemstack = null;
+		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(p_82846_2_);
 
 		if(slot != null && slot.getHasStack()) {
@@ -70,30 +70,30 @@ public class ContainerBook extends Container {
 
 			if(p_82846_2_ == 0) {
 				if(!this.mergeItemStack(itemstack1, 10 - 5, 46 - 5, true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(itemstack1, itemstack);
 			} else if(p_82846_2_ >= 10 - 5 && p_82846_2_ < 37 - 5) {
 				if(!this.mergeItemStack(itemstack1, 37 - 5, 46 - 5, false)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(p_82846_2_ >= 37 - 5 && p_82846_2_ < 46 - 5) {
 				if(!this.mergeItemStack(itemstack1, 10 - 5, 37 - 5, false)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!this.mergeItemStack(itemstack1, 10 - 5, 46 - 5, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(itemstack1.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
 
 			if(itemstack1.getCount() == itemstack.getCount()) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			slot.onTake(p_82846_1_, itemstack1);

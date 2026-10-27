@@ -108,4 +108,9 @@ public class MachineICFPress extends BlockContainer implements ITooltipProvider 
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
 		for(String s : I18nUtil.resolveKeyArray(((Block)this).getTranslationKey() + ".desc")) list.add(TextFormatting.YELLOW + s);
 	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

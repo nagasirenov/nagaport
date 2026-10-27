@@ -2,6 +2,9 @@
   "variants": {
     "normal": {
       "model": "hbm:native_balefire_cross"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.balefire"
     }
   }
 }

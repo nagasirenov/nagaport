@@ -100,7 +100,7 @@ public class ItemPlasticBag extends Item implements IGUIProvider {
 		@Override
 		public ItemStack decrStackSize(int slot, int amount) {
 			ItemStack stack = getStackInSlot(slot);
-			if (stack != null) {
+			if (!stack.isEmpty()) {
 				if (stack.getCount() > amount) {
 					stack = stack.splitStack(amount);
 					markDirty();
@@ -134,7 +134,7 @@ public class ItemPlasticBag extends Item implements IGUIProvider {
 		public void markDirty() {
 
 			for(int i = 0; i < getSizeInventory(); ++i) {
-				if(getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
+				if(!getStackInSlot(i).isEmpty() && getStackInSlot(i).getCount() == 0) {
 					slots[i] = null;
 				}
 			}
@@ -143,7 +143,7 @@ public class ItemPlasticBag extends Item implements IGUIProvider {
 		}
 
 		@Override public int getSizeInventory() { return 1; }
-		@Override public ItemStack getStackInSlot(int slot) { return slots[slot]; }
+		@Override public ItemStack getStackInSlot(int slot) { ItemStack stack = slots[slot]; return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack; }
 		@Override public String getName() { return "container.plasticBag"; }
 		@Override public boolean hasCustomName() { return bag.hasDisplayName(); }
 		public String getInventoryName() { return getName(); }

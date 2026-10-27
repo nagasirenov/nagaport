@@ -21,6 +21,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -49,8 +52,32 @@ public class BlockMassStorage extends BlockContainer implements IBlockMulti, ILo
 	@SideOnly(Side.CLIENT) private IIcon[] iconSide;
 	@SideOnly(Side.CLIENT) private IIcon[] iconFront;
 
+	/** Packed legacy subtype (0..3) and horizontal orientation (0..3), 0..15. */
+	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
+
 	public BlockMassStorage() {
 		super(Material.IRON);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(META, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, META);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(META, meta & 15);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(META);
+	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
 	}
 
 	@SideOnly(Side.CLIENT)

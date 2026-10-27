@@ -38,6 +38,7 @@ public class ItemMachineUpgrade extends Item {
 	}
 	
 	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
 	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		
 		GuiScreen open = Minecraft.getMinecraft().currentScreen;

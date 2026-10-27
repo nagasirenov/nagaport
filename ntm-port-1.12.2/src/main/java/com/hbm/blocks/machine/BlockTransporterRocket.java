@@ -47,7 +47,7 @@ public class BlockTransporterRocket extends BlockDummyable {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
-		super.onBlockPlacedBy(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), player, itemStack);
+		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
 		if(world.isRemote) return;
 
 		// If we don't have a position, we failed to place, and should skip chunkloading

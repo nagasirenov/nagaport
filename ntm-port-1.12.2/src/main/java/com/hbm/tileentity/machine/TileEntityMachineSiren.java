@@ -66,7 +66,7 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return slots[i];
+		ItemStack stack = slots[i]; return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
 	}
 
 	@Override
@@ -161,7 +161,7 @@ public class TileEntityMachineSiren extends TileEntity implements ISidedInventor
 
 			return itemStack1;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 

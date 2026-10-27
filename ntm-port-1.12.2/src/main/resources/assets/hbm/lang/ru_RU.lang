@@ -7490,3 +7490,6 @@ desc.util.chip_inaccuracy=Неточность чипа
 desc.util.fin_inaccuracy=Неточность стабилизатора
 
 // last updated february 6th, 2025 by KimiKimi //
+tile.flesh_block.name=Расплавленная плоть
+tile.charred_flesh_block.name=Обугленная плоть
+tile.carbonized_flesh_block.name=Карбонизированная плоть

@@ -46,7 +46,7 @@ public class ContainerPASource extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -55,19 +55,19 @@ public class ContainerPASource extends Container {
 
 			if(index <= 5) {
 				if(!this.mergeItemStack(stack, 6, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 0, 1, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 0, 1, false)) return ItemStack.EMPTY;
 				} else {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 1, 3, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 1, 3, false)) return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

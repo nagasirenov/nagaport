@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/slab_top",
+  "parent": "minecraft:block/upper_slab",
   "textures": {
     "bottom": "hbm:blocks/pink_planks",
     "top": "hbm:blocks/pink_planks",

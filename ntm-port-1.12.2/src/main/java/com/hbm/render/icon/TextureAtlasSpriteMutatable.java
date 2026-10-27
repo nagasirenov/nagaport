@@ -53,20 +53,37 @@ public class TextureAtlasSpriteMutatable extends TextureAtlasSprite {
 		// wrapper's, so the source path never doubles the prefix.
 		ResourceLocation source;
 		int domain = path.indexOf(':');
-		if(domain >= 0) source = new ResourceLocation(path.substring(0, domain), path.substring(domain + 1));
-		else source = new ResourceLocation(location.getNamespace(), path);
+		String domainStr = (domain >= 0) ? path.substring(0, domain) : location.getNamespace();
+		if(domainStr == null || domainStr.isEmpty() || "minecraft".equals(domainStr)) {
+			domainStr = com.hbm.lib.RefStrings.MODID;
+		}
+		String subPath = (domain >= 0) ? path.substring(domain + 1) : path;
+		source = new ResourceLocation(domainStr, subPath);
 		// Legacy registry-style names ("tile.slag") keep their art under the plain
 		// atlas name ("slag"); strip the old prefix the same way the legacy icon
 		// register does, never by rewriting the resource itself.
 		String sourcePath = source.getPath();
-		if(sourcePath.startsWith("tile.")) sourcePath = sourcePath.substring(5);
+		boolean legacyBlockName = sourcePath.startsWith("tile.");
+		if(legacyBlockName) sourcePath = sourcePath.substring(5);
 		else if(sourcePath.startsWith("item.")) sourcePath = sourcePath.substring(5);
+		if(legacyBlockName && "textures/items".equals(this.basePath)) {
+			// ItemAutogen can still use the original block texture base (tile.slag);
+			// its generated variants must read textures/blocks/slag.png, not items/.
+			this.basePath = "textures/blocks";
+		}
 		source = new ResourceLocation(source.getNamespace(), sourcePath);
 		ResourceLocation sourceTexture = completeResourceLocation(source, 0);
 
-		try(IResource resource = manager.getResource(sourceTexture)) {
-			loadSprite(PngSizeInfo.makeFromResource(resource), false);
-			loadSpriteFrames(resource, mipmap);
+		try {
+			PngSizeInfo sizeInfo;
+			try(IResource sizeResource = manager.getResource(sourceTexture)) {
+				sizeInfo = PngSizeInfo.makeFromResource(sizeResource);
+			}
+			loadSprite(sizeInfo, false);
+			try(IResource frameResource = manager.getResource(sourceTexture)) {
+				int effectiveMipmap = Math.max(1, Minecraft.getMinecraft().gameSettings.mipmapLevels + 1);
+				loadSpriteFrames(frameResource, effectiveMipmap);
+			}
 			mutateFrames();
 			// Forge 2768's TextureMap exits before stitching the sprite when a
 			// custom loader returns true; false hands the loaded frames to the

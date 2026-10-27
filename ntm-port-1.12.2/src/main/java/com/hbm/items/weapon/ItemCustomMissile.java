@@ -4,12 +4,12 @@ import java.util.List;
 
 import com.hbm.handler.MissileStruct;
 import com.hbm.items.ModItems;
+import com.hbm.util.PersistentRegistryRef;
 import com.hbm.util.i18n.I18nUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 
 public class ItemCustomMissile extends Item {
@@ -42,34 +42,27 @@ public class ItemCustomMissile extends Item {
 	private static void writePartToNBT(ItemStack stack, String key, Item item) {
 		if(!stack.hasTagCompound())
 			stack.setTagCompound(new NBTTagCompound());
-		ResourceLocation name = item.getRegistryName();
-		if(name != null)
-			stack.getTagCompound().setString(key + "_name", name.toString());
-		else
-			stack.getTagCompound().setInteger(key, Item.getIdFromItem(item));
+		PersistentRegistryRef.writeItem(stack.getTagCompound(), key, item);
 	}
 
-	public static int readFromNBT(ItemStack stack, String key) {
-		if(!stack.hasTagCompound())
-			stack.setTagCompound(new NBTTagCompound());
-		return stack.getTagCompound().getInteger(key);
-	}
-
-	// reads a part written by buildMissile; legacy numeric ids are validated by instanceof instead of cast
+	/**
+	 * Reads a part written by buildMissile. Registry names are the only accepted
+	 * persistent identity. A numeric-only tag is a 1.7.10 legacy value: there is
+	 * no provable runtime mapping, so it is left untouched and reported as
+	 * unresolved instead of being looked up in the current item registry.
+	 */
 	public static ItemCustomMissilePart readPart(ItemStack stack, String key) {
 
 		if(stack == null || !stack.hasTagCompound())
 			return null;
 
-		NBTTagCompound nbt = stack.getTagCompound();
-		Item item = null;
-
-		if(nbt.hasKey(key + "_name", 8))
-			item = Item.getByNameOrId(nbt.getString(key + "_name"));
-		else if(nbt.hasKey(key, 99))
-			item = Item.getItemById(nbt.getInteger(key));
-
+		Item item = PersistentRegistryRef.readItem(stack.getTagCompound(), key);
 		return item instanceof ItemCustomMissilePart ? (ItemCustomMissilePart) item : null;
+	}
+
+	public static boolean hasUnresolvedLegacyPart(ItemStack stack, String key) {
+		return stack != null && stack.hasTagCompound()
+				&& PersistentRegistryRef.hasLegacyNumeric(stack.getTagCompound(), key);
 	}
 
 	// validates a runtime numeric id (DataWatcher, packets); returns null for foreign ids instead of throwing
@@ -83,6 +76,12 @@ public class ItemCustomMissile extends Item {
 
 		if(!stack.hasTagCompound())
 			return;
+
+		for(String key : new String[] { "chip", "warhead", "fuselage", "stability", "thruster" }) {
+			if(hasUnresolvedLegacyPart(stack, key)) {
+				list.add(TextFormatting.RED + "Legacy " + key + " id unresolved; raw NBT preserved");
+			}
+		}
 
 		try {
 			ItemCustomMissilePart chip = readPart(stack, "chip");

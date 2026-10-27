@@ -24,6 +24,7 @@ import com.hbm.packet.toserver.NBTControlPacket;
 import com.hbm.tileentity.IGUIProvider;
 import com.hbm.tileentity.TileEntityLoadedBase;
 import com.hbm.util.BufferUtil;
+import com.hbm.util.PersistentRegistryRef;
 import com.hbm.util.Tuple.Pair;
 import com.hbm.util.i18n.I18nUtil;
 import com.hbm.world.gen.nbt.NBTStructure;
@@ -48,6 +49,8 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextComponentString;
@@ -180,6 +183,8 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 		public int sizeZ = 1;
 
 		public Set<Pair<Block, Integer>> blacklist = new HashSet<>();
+		private int[] legacyBlockIds;
+		private int[] legacyBlockMetas;
 
 		@Override
 		public void update() {
@@ -294,12 +299,23 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 			sizeY = nbt.getInteger("sizeY");
 			sizeZ = nbt.getInteger("sizeZ");
 
-			int[] blocks = nbt.getIntArray("blocks");
+			NBTTagList names = nbt.getTagList("blockNames", 8);
 			int[] metas = nbt.getIntArray("metas");
 
 			blacklist = new HashSet<>();
-			for (int i = 0; i < blocks.length; i++) {
-				blacklist.add(new Pair<Block, Integer>(Block.getBlockById(blocks[i]), metas[i]));
+			for(int i = 0; i < names.tagCount(); i++) {
+				Block block = Block.getBlockFromName(names.getStringTagAt(i));
+				if(block == null) {
+					MainRegistry.logger.warn("Structure wand blacklist entry '" + names.getStringTagAt(i) + "' is not registered; entry skipped");
+					continue;
+				}
+				blacklist.add(new Pair<Block, Integer>(block, i < metas.length ? metas[i] : 0));
+			}
+
+			if(names.tagCount() == 0 && (nbt.hasKey("blocks") || nbt.hasKey("legacyBlocks"))) {
+				this.legacyBlockIds = nbt.hasKey("legacyBlocks") ? nbt.getIntArray("legacyBlocks") : nbt.getIntArray("blocks");
+				this.legacyBlockMetas = nbt.hasKey("legacyMetas") ? nbt.getIntArray("legacyMetas") : nbt.getIntArray("metas");
+				MainRegistry.logger.warn("Structure wand blacklist uses legacy numeric block ids; they are unresolved and the raw NBT is preserved");
 			}
 		}
 
@@ -313,8 +329,23 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 			nbt.setInteger("sizeY", sizeY);
 			nbt.setInteger("sizeZ", sizeZ);
 
-			nbt.setIntArray("blocks", blacklist.stream().mapToInt(b -> Block.getIdFromBlock(b.getKey())).toArray());
-			nbt.setIntArray("metas", blacklist.stream().mapToInt(b -> b.getValue()).toArray());
+			NBTTagList names = new NBTTagList();
+			int[] metas = new int[blacklist.size()];
+			int index = 0;
+			for(Pair<Block, Integer> entry : blacklist) {
+				Block block = entry.getKey();
+				if(block == null || block.getRegistryName() == null) continue;
+				names.appendTag(new NBTTagString(block.getRegistryName().toString()));
+				metas[index++] = entry.getValue();
+			}
+			nbt.setTag("blockNames", names);
+			nbt.setIntArray("metas", java.util.Arrays.copyOf(metas, index));
+			nbt.setByte(PersistentRegistryRef.SCHEMA_KEY, (byte) PersistentRegistryRef.SCHEMA_VERSION);
+
+			if(this.legacyBlockIds != null && this.legacyBlockMetas != null) {
+				nbt.setIntArray("legacyBlocks", this.legacyBlockIds);
+				nbt.setIntArray("legacyMetas", this.legacyBlockMetas);
+			}
 			return nbt;
 		}
 
@@ -572,4 +603,9 @@ public class BlockWandStructure extends BlockContainer implements IBlockMulti, I
 
 	}
 
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

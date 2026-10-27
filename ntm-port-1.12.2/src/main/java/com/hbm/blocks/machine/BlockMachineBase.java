@@ -7,6 +7,9 @@ import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,9 +25,30 @@ public abstract class BlockMachineBase extends BlockContainer implements INBTBlo
 	int guiID = -1;
 	protected boolean rotatable = false;
 
+	/**
+	 * Legacy horizontal orientation, preserving the original 2/3/4/5 values.
+	 * Value 0 remains the unrotated state for non-rotatable subclasses.
+	 */
+	public static final PropertyInteger FACING = PropertyInteger.create("facing", 0, 5);
+
 	public BlockMachineBase(Material mat, int guiID) {
 		super(mat);
 		this.guiID = guiID;
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING, meta >= 0 && meta <= 5 ? meta : 0);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(FACING);
 	}
 
 	@Override

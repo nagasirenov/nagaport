@@ -254,7 +254,12 @@ public class NBTStructure {
 							for(int i = 0; i < items.tagCount(); i++) {
 								NBTTagCompound item = items.getCompoundTagAt(i);
 								short id = item.getShort("id");
-								String name = Item.getItemById(id).getRegistryName().toString();
+								Item paletteItem = Item.getItemById(id);
+								if(paletteItem == null || paletteItem.getRegistryName() == null) {
+									MainRegistry.logger.warn("Cannot export NBT structure item with unresolved runtime id " + id);
+									continue;
+								}
+								String name = paletteItem.getRegistryName().toString();
 
 								if(!itemPalette.containsKey(id)) {
 									int itemPaletteId = itemPalette.size();
@@ -468,6 +473,10 @@ public class NBTStructure {
 
 		for(Pair<Short, String> entry : itemPalette) {
 			Item item = Item.getByNameOrId(entry.getValue());
+			if(item == null) {
+				MainRegistry.logger.warn("NBT structure item palette entry '" + entry.getValue() + "' is not registered; item will not be relinked");
+				continue;
+			}
 
 			worldItemPalette.put(entry.getKey(), (short)Item.getIdFromItem(item));
 		}
@@ -526,7 +535,11 @@ public class NBTStructure {
 				for(int by = 0; by < size.y; by++) {
 					BlockState state = blockArray[bx][by][bz];
 					if(state == null) {
-						if(wipeExisting) { net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = rx; int nativePlacementY = by + y; int nativePlacementZ = rz; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 2; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+						if(wipeExisting) {
+							net.minecraft.util.math.BlockPos clearPos = new net.minecraft.util.math.BlockPos(rx, by + y, rz);
+							world.setBlockState(clearPos, Blocks.AIR.getDefaultState(), 2);
+							world.removeTileEntity(clearPos);
+						}
 						continue;
 					}
 
@@ -539,9 +552,11 @@ public class NBTStructure {
 
 					com.hbm.world.WorldBlockState.writeLegacyBlock(world, rx, ry, rz, block, meta, 2);
 
-					if(state.nbt != null) {
+					if(state.nbt != null && block != Blocks.AIR && block.hasTileEntity(block.getStateFromMeta(meta))) {
 						TileEntity te = buildTileEntity(world, block, worldItemPalette, state.nbt, coordBaseMode, null);
-						world.setTileEntity(new net.minecraft.util.math.BlockPos(rx, ry, rz), te);
+						if(te != null) {
+							world.setTileEntity(new net.minecraft.util.math.BlockPos(rx, ry, rz), te);
+						}
 					}
 				}
 			}
@@ -636,9 +651,11 @@ public class NBTStructure {
 
 					com.hbm.world.WorldBlockState.writeLegacyBlock(world, rx, ry, rz, block, meta, 2);
 
-					if(state.nbt != null) {
+					if(state.nbt != null && block != Blocks.AIR && block.hasTileEntity(block.getStateFromMeta(meta))) {
 						TileEntity te = buildTileEntity(world, block, worldItemPalette, state.nbt, coordBaseMode, structureName);
-						world.setTileEntity(new net.minecraft.util.math.BlockPos(rx, ry, rz), te);
+						if(te != null) {
+							world.setTileEntity(new net.minecraft.util.math.BlockPos(rx, ry, rz), te);
+						}
 					}
 
 					if(by == 0 && piece.platform != null && !block.getDefaultState().getMaterial().isReplaceable()) hasBase = true;

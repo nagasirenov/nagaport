@@ -71,7 +71,7 @@ public class BlockRubberCacti extends BlockEnumMulti {
 		return false;
 	}
 
-	public BlockRenderLayer getBlockLayer() {
+	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
 
@@ -125,9 +125,21 @@ public class BlockRubberCacti extends BlockEnumMulti {
 		return Item.getItemFromBlock(this);
 	}
 
+	private static final AxisAlignedBB CACTI_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return CACTI_AABB;
+	}
+
+	@Override
+	public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+		return net.minecraft.block.state.BlockFaceShape.UNDEFINED;
+	}
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
-		return null;
+		return NULL_AABB;
 	}
 
 }

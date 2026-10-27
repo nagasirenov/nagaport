@@ -37,7 +37,7 @@ public class GUIAutocrafter extends GuiInfoContainer {
 		
 		this.drawElectricityInfo(this, x, y, guiLeft + 17, guiTop + 45, 16, 52, diFurnace.getPower(), diFurnace.getMaxPower());
 
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			for(int i = 0; i < 9; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 	

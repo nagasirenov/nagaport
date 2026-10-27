@@ -27,7 +27,9 @@ public class EntityBufPacket extends PrecompiledPacket {
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		this.entityId = buf.readInt();
-		this.buf = buf;
+		// The receive handler is scheduled on the client thread; the Netty
+		// buffer may be released before that task runs.
+		this.buf = buf.copy();
 	}
 
 	@Override
@@ -41,21 +43,23 @@ public class EntityBufPacket extends PrecompiledPacket {
 		@Override
 		public IMessage onMessage(EntityBufPacket m, MessageContext ctx) {
 
-			if(Minecraft.getMinecraft().world == null)
-				return null;
+			try {
+				if(Minecraft.getMinecraft().world == null)
+					return null;
 
-			Entity entity = Minecraft.getMinecraft().world.getEntityByID(m.entityId);
+				Entity entity = Minecraft.getMinecraft().world.getEntityByID(m.entityId);
 
-			if(entity instanceof IBufPacketReceiver) {
-				try {
-					((IBufPacketReceiver) entity).deserialize(m.buf);
-				} catch(Exception e) { // just in case gamma fucked up
-					MainRegistry.logger.warn("An EntityByteBuf packet failed to be read and has thrown an error. This normally means that there was a buffer underflow and more data was read than was actually in the packet.");
-					MainRegistry.logger.warn("Entity: {}", entity.getName());
-					MainRegistry.logger.warn(e.getMessage());
-				} finally {
-					m.buf.release();
+				if(entity instanceof IBufPacketReceiver) {
+					try {
+						((IBufPacketReceiver) entity).deserialize(m.buf);
+					} catch(Exception e) { // just in case gamma fucked up
+						MainRegistry.logger.warn("An EntityByteBuf packet failed to be read and has thrown an error. This normally means that there was a buffer underflow and more data was read than was actually in the packet.");
+						MainRegistry.logger.warn("Entity: {}", entity.getName());
+						MainRegistry.logger.warn(e.getMessage());
+					}
 				}
+			} finally {
+				m.buf.release();
 			}
 
 			return null;

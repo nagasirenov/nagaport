@@ -2,7 +2,9 @@ package com.hbm.render.item.nativeitem;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.google.common.collect.ImmutableMap;
 import com.hbm.blocks.LegacyBlockTextures;
@@ -48,6 +50,8 @@ public final class NativeItemParticles {
 
     private static final Map<Item, ResourceLocation> BOUND = new IdentityHashMap<>();
     private static final Map<String, Integer> SOURCES = new TreeMap<>();
+    private static final Set<String> REJECTED_LEGACY_SPRITES = ConcurrentHashMap.newKeySet();
+    private static final Set<String> DECLARED_TEXTURE_MISSES = ConcurrentHashMap.newKeySet();
     private static boolean registered;
 
     private NativeItemParticles() { }
@@ -69,6 +73,8 @@ public final class NativeItemParticles {
     @SubscribeEvent
     public void stitch(TextureStitchEvent.Pre event) {
         SOURCES.clear();
+        REJECTED_LEGACY_SPRITES.clear();
+        DECLARED_TEXTURE_MISSES.clear();
         for(ResourceLocation texture : BOUND.values()) MaterialTextureAtlasSprite.register(event.getMap(), texture);
     }
 
@@ -81,8 +87,18 @@ public final class NativeItemParticles {
         if(sprite != null) return source(item, sprite, "bind");
         String declared = NativeItemTextureRegistry.texture(item);
         if(declared != null) {
-            sprite = atlasSprite(atlas, NativeItemTextureRegistry.atlasLocation(declared));
+            ResourceLocation declaredLocation = NativeItemTextureRegistry.atlasLocation(declared);
+            sprite = atlasSprite(atlas, declaredLocation);
             if(sprite != null) return source(item, sprite, "declared-texture");
+            if(item instanceof ItemBlock) {
+                TextureAtlasSprite blockSprite = blockIconSprite((ItemBlock) item, atlas);
+                if(blockSprite != null) {
+                    diagnoseDeclaredMiss(item, declaredLocation, atlas, "block-icon");
+                    return source(item, blockSprite, "block-icon");
+                }
+            }
+            diagnoseDeclaredMiss(item, declaredLocation, atlas, "unresolved");
+            return null;
         }
         if(item instanceof ItemBlock) {
             sprite = blockIconSprite((ItemBlock) item, atlas);
@@ -138,6 +154,32 @@ public final class NativeItemParticles {
         return stitchedSprite(atlas, location.toString());
     }
 
+    /** One bounded diagnostic per concrete declared texture that did not resolve.
+     * Record atlas state even when the same-name PNG is absent so generated/custom
+     * sprites remain visible to the diagnostic without changing selection behavior. */
+    private static void diagnoseDeclaredMiss(Item item, ResourceLocation location, TextureMap atlas, String selectedSource) {
+        if(location == null) return;
+        ResourceLocation png = pngForAtlasSprite(location);
+        boolean pngPresent = hasSourcePng(png);
+        String itemName = item.getRegistryName() == null ? String.valueOf(item) : item.getRegistryName().toString();
+        String key = itemName + '\u0000' + location;
+        if(!DECLARED_TEXTURE_MISSES.add(key)) return;
+
+        TextureAtlasSprite registered = atlas.getTextureExtry(location.toString());
+        TextureAtlasSprite uploaded = atlas.getAtlasSprite(location.toString());
+        TextureAtlasSprite missing = atlas.getMissingSprite();
+        org.apache.logging.log4j.LogManager.getLogger("hbm").warn(
+                "Declared texture miss item={} candidate={} png={} pngPresent={} selected={} registered={} uploaded={} same={} uploadedMissing={}",
+                itemName, location, png, pngPresent, selectedSource, spriteIdentity(registered), spriteIdentity(uploaded),
+                registered != null && uploaded == registered, uploaded == missing);
+    }
+
+    private static String spriteIdentity(TextureAtlasSprite sprite) {
+        if(sprite == null) return "null";
+        return sprite.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(sprite))
+                + "[" + sprite.getIconName() + "]";
+    }
+
     /** A registered entry alone does not prove the sprite was stitched and
      * uploaded; the post-stitch lookup must return that exact sprite. */
     private static TextureAtlasSprite stitchedSprite(TextureMap atlas, String name) {
@@ -164,6 +206,20 @@ public final class NativeItemParticles {
         if(icon instanceof TextureAtlasSprite)
             return uploadedSprite(atlas, (TextureAtlasSprite) icon);
         return stitchedSprite(atlas, icon.getIconName());
+    }
+
+    /** Same post-stitch validation with one warning per caller/icon per stitch. */
+    public static TextureAtlasSprite spriteOf(com.hbm.render.icon.IIcon icon, String context) {
+        TextureAtlasSprite sprite = spriteOf(icon);
+        if(sprite != null || icon == null) return sprite;
+        String iconName = icon.getIconName();
+        String owner = context == null ? "legacy-model" : context;
+        if(REJECTED_LEGACY_SPRITES.add(owner + '\u0000' + iconName)) {
+            org.apache.logging.log4j.LogManager.getLogger("hbm").warn(
+                    "Rejected legacy sprite {} for {}: sprite is not uploaded in the stitched atlas",
+                    iconName, owner);
+        }
+        return null;
     }
 
     private static ResourceLocation pngForAtlasSprite(ResourceLocation atlasLocation) {

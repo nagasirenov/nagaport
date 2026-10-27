@@ -59,6 +59,9 @@
     "facing=east,half=top,open=true": {
       "model": "hbm:trapdoor_steel_open",
       "y": 90
+    },
+    "inventory": {
+      "model": "hbm:item/tile.trapdoor_steel"
     }
   }
 }

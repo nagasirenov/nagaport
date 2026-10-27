@@ -276,6 +276,16 @@ public class ModEventHandler {
 	}
 
 	@SubscribeEvent
+	public void onEntityMount(net.minecraftforge.event.entity.EntityMountEvent event) {
+		if(event.isDismounting() && event.getEntityBeingMounted() instanceof EntityRideableRocket) {
+			EntityRideableRocket rocket = (EntityRideableRocket) event.getEntityBeingMounted();
+			if(!rocket.canExitCapsule() && (rocket.forceExitTimer < 60 || rocket.getState() == EntityRideableRocket.RocketState.TRANSFER)) {
+				event.setCanceled(true);
+			}
+		}
+	}
+
+	@SubscribeEvent
 	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
 
 		EntityPlayer player = event.player;
@@ -917,7 +927,7 @@ public class ModEventHandler {
 
 						if(player.isSneaking()) {
 							// Prevent leaving a rocket in motion, for safety
-							if(rocket.canExitCapsule() || rocket.forceExitTimer >= 60) {
+							if(rocket.canExitCapsule() || (rocket.forceExitTimer >= 60 && rocket.getState() != EntityRideableRocket.RocketState.TRANSFER)) {
 								boolean inOrbit = event.world.provider instanceof WorldProviderOrbit;
 								Entity ridingEntity = player.getRidingEntity();
 								float prevHeight = ridingEntity.height;

@@ -20,11 +20,50 @@ import java.util.List;
 
 public class ItemFluidDuct extends Item {
 
-	IIcon overlayIcon;
+	protected IIcon itemIcon;
+	protected IIcon overlayIcon;
 
 	public ItemFluidDuct() {
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public boolean requiresMultipleRenderPasses() {
+		return true;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister reg) {
+		String base = com.hbm.render.item.NativeItemTextureRegistry.texture(this);
+		if(base == null) base = "hbm:duct";
+		this.itemIcon = reg.registerIcon(base);
+		this.overlayIcon = reg.registerIcon("hbm:duct_overlay");
+	}
+
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(ItemStack stack, int pass) {
+		return pass == 1 ? this.overlayIcon : this.itemIcon;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public IIcon getIconFromDamageForRenderPass(int p_77618_1_, int p_77618_2_) {
+		return p_77618_2_ == 1 ? this.overlayIcon : this.itemIcon;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getColorFromItemStack(ItemStack stack, int p_82790_2_) {
+		if(p_82790_2_ == 0) {
+			return 16777215;
+		} else {
+			int j = Fluids.fromID(stack.getItemDamage()).getColor();
+
+			if(j < 0) {
+				j = 16777215;
+			}
+
+			return j;
+		}
 	}
 
 

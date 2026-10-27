@@ -54,6 +54,11 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 		super(p_i45394_1_);
 	}
 
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 	/** NTM construction hook for the native protected sound setter. */
 	public BlockStorageCrate withSoundType(net.minecraft.block.SoundType sound) {
 		super.setSoundType(sound);

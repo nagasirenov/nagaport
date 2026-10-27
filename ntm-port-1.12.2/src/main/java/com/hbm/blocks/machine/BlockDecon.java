@@ -47,4 +47,9 @@ public class BlockDecon extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(net.minecraft.block.state.IBlockState state, World world, net.minecraft.util.math.BlockPos pos, Random rand) { }
 
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

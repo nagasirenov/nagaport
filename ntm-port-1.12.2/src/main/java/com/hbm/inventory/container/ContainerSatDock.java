@@ -59,7 +59,7 @@ public class ContainerSatDock extends Container {
 
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer player, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if (var4 != null && var4.getHasStack()) {
@@ -68,10 +68,10 @@ public class ContainerSatDock extends Container {
 
             if (par2 <= 15) {
 				if (!this.mergeItemStack(var5, 16, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if (!this.mergeItemStack(var5, 0, 15, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if (var5.getCount() == 0) {

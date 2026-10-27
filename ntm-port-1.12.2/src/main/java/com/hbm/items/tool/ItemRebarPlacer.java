@@ -243,7 +243,7 @@ public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int 
 
 		@Override
 		public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-			return null;
+			return ItemStack.EMPTY;
 		}
 
 		@Override
@@ -262,7 +262,7 @@ public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int 
 
 			Slot slot = this.getSlot(index);
 
-			ItemStack ret = null;
+			ItemStack ret = ItemStack.EMPTY;
 			ItemStack held = player.inventory.getItemStack();
 
 			if(slot.getHasStack()) ret = slot.getStack().copy();
@@ -283,6 +283,7 @@ public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int 
 		}
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static class GUIRebar extends GuiInfoContainer {
 
 		private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/gui_rebar.png");

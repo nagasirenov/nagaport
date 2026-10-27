@@ -33,7 +33,7 @@ public class ContainerFusionKlystron extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack copy = null;
+		ItemStack copy = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -41,18 +41,18 @@ public class ContainerFusionKlystron extends Container {
 			copy = stack.copy();
 
 			if(index == 0) {
-				if(!this.mergeItemStack(stack, 1, this.inventorySlots.size(), true)) return null;
+				if(!this.mergeItemStack(stack, 1, this.inventorySlots.size(), true)) return ItemStack.EMPTY;
 			} else {
 
 				if(copy.getItem() instanceof IBatteryItem || copy.getItem() == ModItems.battery_creative) {
-					if(!this.mergeItemStack(stack, 0, 1, false)) return null;
+					if(!this.mergeItemStack(stack, 0, 1, false)) return ItemStack.EMPTY;
 				} else {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

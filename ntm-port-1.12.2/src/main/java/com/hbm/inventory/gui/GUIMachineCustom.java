@@ -39,7 +39,7 @@ public class GUIMachineCustom extends GuiInfoContainer {
 
 		this.drawElectricityInfo(this, x, y, guiLeft + 150, guiTop + 18, 16, 52, custom.power, custom.config.maxPower);
 		if(custom.config.maxHeat>0) this.drawCustomInfoStat(x, y, guiLeft + 61, guiTop + 53, 18, 18, x, y, new String[] { "Heat:" + String.format(Locale.US, "%,d", custom.heat) + " / " + String.format(Locale.US, "%,d", custom.config.maxHeat)});
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			for(int i = 0; i < this.inventorySlots.inventorySlots.size(); ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 				int tileIndex = slot.getSlotIndex();

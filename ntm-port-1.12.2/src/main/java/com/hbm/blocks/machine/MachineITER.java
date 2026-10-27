@@ -132,7 +132,7 @@ public class MachineITER extends BlockDummyable {
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 1);
 		world.scheduleUpdate(new net.minecraft.util.math.BlockPos(x, y, z), this, 2);
 
-		super.onBlockPlacedBy(world, new net.minecraft.util.math.BlockPos(x, y, z), com.hbm.world.WorldBlockState.read(world, x, y, z), player, itemStack);
+		super.onBlockPlacedBy(world, x, y, z, player, itemStack);
 	}
 
 	@Override

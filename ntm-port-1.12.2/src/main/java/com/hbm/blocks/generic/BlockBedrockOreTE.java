@@ -16,6 +16,7 @@ import com.hbm.items.machine.ItemDrillbit.EnumDrillType;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.util.EnumUtil;
+import com.hbm.util.PersistentRegistryRef;
 import com.hbm.util.i18n.I18nUtil;
 
 import api.hbm.fluidmk2.IFillableItem;
@@ -177,6 +178,8 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 		public int tier;
 		public int color;
 		public int shape;
+		private int legacyResourceId = -1;
+		private NBTTagCompound legacyResourceRef;
 
 		public TileEntityBedrockOre setStyle(int color, int shape) {
 			this.color = color;
@@ -191,15 +194,22 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 
 			Item resourceItem = null;
 
-			// block/item ids shift between sessions; registry names written since the fix are preferred
-			if(nbt.hasKey("0name", 8))
+			// Persistent identity is the registry name. Numeric ids from 1.7.10
+			// cannot be mapped through the current runtime registry; keep the raw
+			// id instead of silently substituting an unrelated item.
+			if(nbt.hasKey("0name", 8)) {
 				resourceItem = Item.getByNameOrId(nbt.getString("0name"));
-			else if(nbt.hasKey("0id", 99))
-				resourceItem = Item.getItemById(nbt.getInteger("0id"));
+			} else if(nbt.hasKey("0id", 99)) {
+				this.legacyResourceId = nbt.getInteger("0id");
+				this.legacyResourceRef = PersistentRegistryRef.legacyOnly(nbt, "size", "meta");
+				MainRegistry.logger.warn("Bedrock ore at legacy numeric resource id " + this.legacyResourceId + " is unresolved; raw NBT preserved");
+			}
 
 			this.resource = new ItemStack(resourceItem, nbt.getByte("size"), nbt.getShort("meta"));
 
-			if(this.resource.getItem() == null || this.resource.getItem() instanceof ItemAir) this.resource = new ItemStack(ModItems.powder_iron);
+			if(this.resource.getItem() == null || this.resource.getItem() instanceof ItemAir) {
+				this.resource = new ItemStack(ModItems.powder_iron);
+			}
 
 			FluidType type = Fluids.fromID(nbt.getInteger("fluid"));
 
@@ -218,10 +228,16 @@ public class BlockBedrockOreTE extends BlockContainer implements ILookOverlay, I
 
 			if(this.resource != null) {
 				ResourceLocation resourceName = this.resource.getItem().getRegistryName();
-				if(resourceName != null) nbt.setString("0name", resourceName.toString());
-				nbt.setInteger("0id", Item.getIdFromItem(this.resource.getItem()));
+				if(this.legacyResourceId >= 0) {
+					nbt.setInteger("0id", this.legacyResourceId);
+				} else if(resourceName != null) {
+					nbt.setString("0name", resourceName.toString());
+				}
 				nbt.setByte("size", (byte) this.resource.getCount());
 				nbt.setShort("meta", (short) this.resource.getItemDamage());
+				if(this.legacyResourceId >= 0) {
+					PersistentRegistryRef.preserveLegacy(this.legacyResourceRef, nbt, "size", "meta");
+				}
 			}
 
 			if(this.acidRequirement != null) {

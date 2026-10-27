@@ -31,7 +31,7 @@ public class ContainerMachineWarController extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack itemstack = null;
+		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -41,10 +41,10 @@ public class ContainerMachineWarController extends ContainerBase {
 			// TileEntity Slots to Player Inventory
 			if(index < 4) {
 				if(!this.mergeItemStack(itemstack1, 4, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!this.mergeItemStack(itemstack1, 0, 4, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(itemstack1.getCount() == 0) {

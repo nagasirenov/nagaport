@@ -3,6 +3,7 @@ package com.hbm.entity.projectile;
 import com.hbm.lib.ModDamageSource;
 import com.hbm.packet.PacketDispatcher;
 import com.hbm.packet.toclient.ParticleBurstPacket;
+import com.hbm.util.PersistentRegistryRef;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
@@ -17,6 +18,7 @@ public class EntityRubble extends EntityThrowableNT {
 
 	private static final DataParameter<Integer> BLOCK_ID = EntityDataManager.createKey(EntityRubble.class, DataSerializers.VARINT);
 	private static final DataParameter<Integer> BLOCK_META = EntityDataManager.createKey(EntityRubble.class, DataSerializers.VARINT);
+	private int legacyBlockId = -1;
 
 
     public EntityRubble(World world)
@@ -69,14 +71,24 @@ public class EntityRubble extends EntityThrowableNT {
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.dataManager.set(BLOCK_ID, nbt.getInteger("block"));
+		Block block = PersistentRegistryRef.readBlock(nbt, "block");
+		if(block != null) {
+			this.dataManager.set(BLOCK_ID, Block.getIdFromBlock(block));
+		} else {
+			this.legacyBlockId = nbt.getInteger("block");
+			this.dataManager.set(BLOCK_ID, 0);
+		}
 		this.dataManager.set(BLOCK_META, nbt.getInteger("meta"));
 	}
 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setInteger("block", this.dataManager.get(BLOCK_ID));
+		if(this.legacyBlockId >= 0) {
+			nbt.setInteger("block", this.legacyBlockId);
+		} else {
+			PersistentRegistryRef.writeBlock(nbt, "block", Block.getBlockById(this.dataManager.get(BLOCK_ID)));
+		}
 		nbt.setInteger("meta", this.dataManager.get(BLOCK_META));
 	}
 

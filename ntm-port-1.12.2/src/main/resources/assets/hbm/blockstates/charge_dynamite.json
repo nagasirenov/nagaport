@@ -1,5 +1,10 @@
 {
   "variants": {
-    "normal": { "model": "hbm:block/charge_dynamite_obj" }
+    "normal": {
+      "model": "hbm:charge_dynamite_obj"
+    },
+    "inventory": {
+      "model": "hbm:item/charge_dynamite"
+    }
   }
 }

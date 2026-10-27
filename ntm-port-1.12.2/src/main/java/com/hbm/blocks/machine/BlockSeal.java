@@ -11,6 +11,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import com.hbm.render.icon.IIconRegister;
@@ -31,8 +33,27 @@ public class BlockSeal extends Block implements IBomb {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
+	/** Facing 0..3 plus the original powered/active bit +4. */
+	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 7);
+
 	public BlockSeal(Material p_i45394_1_) {
 		super(p_i45394_1_);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(META, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, META);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(META, meta >= 0 && meta <= 7 ? meta : 0);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(META);
 	}
 
 	@SideOnly(Side.CLIENT)

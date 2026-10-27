@@ -64,7 +64,7 @@ public class ItemAutogen extends Item {
 
 		for(NTMMaterial mat : Mats.orderedList) {
 			if(!textureOverrides.containsKey(mat) && mat.solidColorLight != mat.solidColorDark && (shape == null || mat.autogen.contains(shape))) { //only generate icons if there is no override, color variation is available and if the icon will actually be used
-				String placeholderName = legacyBase + "-" + mat.names[0]; //the suffix keeps material-specific atlas entries distinct
+				String placeholderName = legacyBase + "-" + mat.names[0].toLowerCase(java.util.Locale.ROOT); //the suffix keeps material-specific atlas entries distinct
 				TextureAtlasSpriteMutatable mutableIcon = new TextureAtlasSpriteMutatable(placeholderName, new RGBMutatorInterpolatedComponentRemap(0xFFFFFF, 0x505050, mat.solidColorLight, mat.solidColorDark));
 				iconMap.put(mat, adapter.registerGeneratedSprite(mutableIcon));
 			}

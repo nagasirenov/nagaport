@@ -1,0 +1,55 @@
+{
+  "variants": {
+    "metadata=0": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=1": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=2": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=3": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=4": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=5": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=6": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=7": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=8": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=9": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=10": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=11": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=12": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=13": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=14": {
+      "model": "hbm:icf_block"
+    },
+    "metadata=15": {
+      "model": "hbm:icf_block"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.icf_block"
+    }
+  }
+}

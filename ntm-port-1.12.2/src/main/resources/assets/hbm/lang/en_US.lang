@@ -7301,3 +7301,6 @@ achievement.acquireIron=Acquire Hardware
 achievement.acquireIron.desc=Smelt an iron ingot
 achievement.cookFish=Delicious Fish
 achievement.cookFish.desc=Catch and cook fish!
+tile.flesh_block.name=Melted Flesh
+tile.charred_flesh_block.name=Charred Flesh
+tile.carbonized_flesh_block.name=Carbonized Flesh

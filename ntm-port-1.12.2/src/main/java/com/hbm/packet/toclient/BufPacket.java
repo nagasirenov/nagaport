@@ -33,7 +33,9 @@ public class BufPacket extends PrecompiledPacket {
 		this.x = buf.readInt();
 		this.y = buf.readInt();
 		this.z = buf.readInt();
-		this.buf = buf;
+		// The receive handler is scheduled on the client thread; the Netty
+		// buffer may be released before that task runs.
+		this.buf = buf.copy();
 	}
 
 	@Override
@@ -49,21 +51,23 @@ public class BufPacket extends PrecompiledPacket {
 		@Override
 		public IMessage onMessage(BufPacket m, MessageContext ctx) {
 
-			if(Minecraft.getMinecraft().world == null)
-				return null;
+			try {
+				if(Minecraft.getMinecraft().world == null)
+					return null;
 
-			TileEntity te = Minecraft.getMinecraft().world.getTileEntity(new net.minecraft.util.math.BlockPos(m.x, m.y, m.z));
+				TileEntity te = Minecraft.getMinecraft().world.getTileEntity(new net.minecraft.util.math.BlockPos(m.x, m.y, m.z));
 
-			if (te instanceof IBufPacketReceiver) {
-				try {
-					((IBufPacketReceiver) te).deserialize(m.buf);
-				} catch(Exception e) { // just in case I fucked up
-					MainRegistry.logger.warn("A ByteBuf packet failed to be read and has thrown an error. This normally means that there was a buffer underflow and more data was read than was actually in the packet.");
-					MainRegistry.logger.warn("Tile: {}", te.getBlockType().getTranslationKey());
-					MainRegistry.logger.warn(e.getMessage());
-				} finally {
-					m.buf.release();
+				if (te instanceof IBufPacketReceiver) {
+					try {
+						((IBufPacketReceiver) te).deserialize(m.buf);
+					} catch(Exception e) { // just in case I fucked up
+						MainRegistry.logger.warn("A ByteBuf packet failed to be read and has thrown an error. This normally means that there was a buffer underflow and more data was read than was actually in the packet.");
+						MainRegistry.logger.warn("Tile: {}", te.getBlockType().getTranslationKey());
+						MainRegistry.logger.warn(e.getMessage());
+					}
 				}
+			} finally {
+				m.buf.release();
 			}
 
 			return null;

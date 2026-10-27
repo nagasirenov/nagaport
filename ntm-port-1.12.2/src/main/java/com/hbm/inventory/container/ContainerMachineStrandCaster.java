@@ -41,7 +41,7 @@ public class ContainerMachineStrandCaster extends Container {
 
     @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-        ItemStack stack = null;
+        ItemStack stack = ItemStack.EMPTY;
         Slot slot = (Slot) this.inventorySlots.get(index);
 
         if (slot != null && slot.getHasStack()) {
@@ -50,13 +50,13 @@ public class ContainerMachineStrandCaster extends Container {
 
             if (index <= 6) {
                 if (!InventoryUtil.mergeItemStack(this.inventorySlots, originalStack, 7, this.inventorySlots.size(), true)) {
-                    return null;
+                    return ItemStack.EMPTY;
                 }
 
                 slot.onSlotChange(originalStack, stack);
 
             } else if (!InventoryUtil.mergeItemStack(this.inventorySlots, originalStack, 1, 2, false)) {
-                return null;
+                return ItemStack.EMPTY;
             }
 
             if (originalStack.getCount() == 0) {

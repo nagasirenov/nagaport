@@ -2,6 +2,7 @@ package com.hbm.entity.grenade;
 
 import com.hbm.items.ModItems;
 import com.hbm.items.weapon.ItemGenericGrenade;
+import com.hbm.util.PersistentRegistryRef;
 
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -14,6 +15,7 @@ import net.minecraft.world.World;
 public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGenericGrenade {
 
 	private static final DataParameter<Integer> GRENADE_ID = EntityDataManager.createKey(EntityGrenadeImpactGeneric.class, DataSerializers.VARINT);
+	private int legacyGrenadeId = -1;
 
 	public EntityGrenadeImpactGeneric(World p_i1773_1_) {
 		super(p_i1773_1_);
@@ -57,12 +59,20 @@ public class EntityGrenadeImpactGeneric extends EntityGrenadeBase implements IGe
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setInteger("grenade", this.dataManager.get(GRENADE_ID));
+		Item item = Item.getItemById(this.dataManager.get(GRENADE_ID));
+		if(this.legacyGrenadeId >= 0) nbt.setInteger("grenade", this.legacyGrenadeId);
+		else PersistentRegistryRef.writeItem(nbt, "grenade", item);
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
-		this.dataManager.set(GRENADE_ID, nbt.getInteger("grenade"));
+		Item item = PersistentRegistryRef.readItem(nbt, "grenade");
+		if(item != null) {
+			this.dataManager.set(GRENADE_ID, Item.getIdFromItem(item));
+		} else {
+			this.legacyGrenadeId = nbt.getInteger("grenade");
+			this.dataManager.set(GRENADE_ID, 0);
+		}
 	}
 }

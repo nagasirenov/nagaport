@@ -39,7 +39,7 @@ public class GUIMachineHydrotreater extends GuiInfoContainer {
 		hydrotreater.tanks[3].renderTankInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 70 - 52, 16, 52);
 		this.drawElectricityInfo(this, mouseX, mouseY, guiLeft + 17, guiTop + 70 - 52, 16, 52, hydrotreater.power, hydrotreater.maxPower);
 
-		if(this.mc.player.inventory.getItemStack() == null && this.isMouseOverSlot(this.inventorySlots.getSlot(10), mouseX, mouseY) && !this.inventorySlots.getSlot(10).getHasStack()) {
+		if(this.mc.player.inventory.getItemStack().isEmpty() && this.isMouseOverSlot(this.inventorySlots.getSlot(10), mouseX, mouseY) && !this.inventorySlots.getSlot(10).getHasStack()) {
 			List<Object[]> lines = new ArrayList();
 			ItemStack converter = new ItemStack(ModItems.catalytic_converter);
 			lines.add(new Object[] {converter});

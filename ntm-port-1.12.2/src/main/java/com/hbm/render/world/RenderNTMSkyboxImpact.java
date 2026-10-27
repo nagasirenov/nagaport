@@ -4,6 +4,7 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
@@ -298,6 +299,15 @@ public class RenderNTMSkyboxImpact extends IRenderHandler {
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glDepthMask(true);
 
+		GlStateManager.enableTexture2D();
+		GlStateManager.depthMask(true);
+		GlStateManager.disableBlend();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+		GlStateManager.resetColor();
+		GlStateManager.enableAlpha();
+		GlStateManager.alphaFunc(516, 0.1F);
+		RenderHelper.enableStandardItemLighting();
 	}
 
 	private void renderStars() {

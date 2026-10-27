@@ -39,7 +39,7 @@ public class ContainerMachineTurbineGas extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) { //shit for shift clicking that works and idk how
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -47,24 +47,24 @@ public class ContainerMachineTurbineGas extends Container {
 			var3 = var5.copy();
 
 			if(par2 <= 1) { //checks if the item is in the battery or fluidID slot
-				if(!this.mergeItemStack(var5, 2, this.inventorySlots.size(), true)) return null;
+				if(!this.mergeItemStack(var5, 2, this.inventorySlots.size(), true)) return ItemStack.EMPTY;
 			} else if(var5.getItem() instanceof IBatteryItem) { //only yeets batteries in the battery slot
-				if(!this.mergeItemStack(var5, 0, 1, true)) return null;
+				if(!this.mergeItemStack(var5, 0, 1, true)) return ItemStack.EMPTY;
 			} else if(var5.getItem() instanceof IItemFluidIdentifier) {
 
 				IItemFluidIdentifier id = (IItemFluidIdentifier) var5.getItem();
 				FluidType type = id.getType(turbinegas.getWorld(), turbinegas.getPos().getX(), turbinegas.getPos().getY(), turbinegas.getPos().getZ(), var5);
 				if(!(type.hasTrait(FT_Combustible.class) && type.getTrait(FT_Combustible.class).getGrade() == FuelGrade.GAS)) // redundant restriction that does nothing at best and at worst breaks shit but i'm not questioning pvn on this one
-					return null;
+					return ItemStack.EMPTY;
 
-				if(!this.mergeItemStack(var5, 1, 2, true)) return null;
+				if(!this.mergeItemStack(var5, 1, 2, true)) return ItemStack.EMPTY;
 
 			} else {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

@@ -23,7 +23,7 @@ public class ContainerCounterTorch extends ContainerBase {
 		playerInv(invPlayer, 12, 156, 214);
 	}
 
-	@Override public ItemStack transferStackInSlot(EntityPlayer player, int slot) { return null; }
+	@Override public ItemStack transferStackInSlot(EntityPlayer player, int slot) { return ItemStack.EMPTY; }
 
 	@Override
 	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
@@ -38,7 +38,7 @@ public class ContainerCounterTorch extends ContainerBase {
 
 		Slot slot = this.getSlot(index);
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
 		if(slot.getHasStack())

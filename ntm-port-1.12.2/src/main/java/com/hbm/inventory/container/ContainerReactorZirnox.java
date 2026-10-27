@@ -65,7 +65,7 @@ public class ContainerReactorZirnox extends Container {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -74,32 +74,32 @@ public class ContainerReactorZirnox extends Container {
 
 			if(index <= 27) {
 				if(!this.mergeItemStack(stack, 28, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(FluidContainerRegistry.getFluidContent(stack, Fluids.CARBONDIOXIDE) > 0) {
 					if(!this.mergeItemStack(stack, 24, 26, false))
-						return null;
+						return ItemStack.EMPTY;
 
 				} else if(FluidContainerRegistry.getFluidContent(stack, Fluids.WATER) > 0) {
 					if(!this.mergeItemStack(stack, 26, 28, false))
-						return null;
+						return ItemStack.EMPTY;
 
 				} else {
 
 					if(stack.getItem() instanceof ItemZirnoxRod) {
 
 						if(!this.mergeItemStack(stack, 0, 24, true))
-							return null;
+							return ItemStack.EMPTY;
 					} else {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

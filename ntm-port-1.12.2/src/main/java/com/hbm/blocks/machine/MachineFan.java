@@ -25,6 +25,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -43,8 +45,26 @@ import com.hbm.lib.ForgeDirection;
 
 public class MachineFan extends BlockContainer implements IToolable, ITooltipProvider, IBlockSealable {
 
+	public static final PropertyInteger FACING = PropertyInteger.create("facing", 0, 5);
+
 	public MachineFan() {
 		super(Material.IRON);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING, meta >= 0 && meta <= 5 ? meta : 0);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(FACING);
 	}
 
 	@Override

@@ -76,7 +76,7 @@ public class GUICraneRouter extends GuiInfoContainer {
 			}
 		}
 
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			for(int i = 0; i < 30; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 				ModulePatternMatcher matcher = router.patterns[i / 5];

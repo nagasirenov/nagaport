@@ -12,11 +12,15 @@ import com.hbm.explosion.vanillant.ExplosionVNT;
 import com.hbm.extprop.HbmLivingProps;
 import com.hbm.extprop.HbmPlayerProps;
 import com.hbm.items.ModItems;
+import com.hbm.lib.RefStrings;
 import com.hbm.lib.ModDamageSource;
 import com.hbm.util.ContaminationUtil;
 import com.hbm.util.ContaminationUtil.ContaminationType;
 import com.hbm.util.ContaminationUtil.HazardType;
 
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -32,7 +36,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 
+@Mod.EventBusSubscriber(modid = RefStrings.MODID)
 public class HbmPotion extends Potion {
+	private static boolean initialized;
 
 	public static HbmPotion taint;
 	public static HbmPotion radiation;
@@ -59,7 +65,9 @@ public class HbmPotion extends Potion {
 		super(isBad, color);
 	}
 
-	public static void init() {
+	public static synchronized void init() {
+		if(initialized) return;
+
 		taint = registerPotion(PotionConfig.taintID, true, 0x800080, "potion.hbm_taint", 0, 0);
 		radiation = registerPotion(PotionConfig.radiationID, true, 0x84C128, "potion.hbm_radiation", 1, 0);
 		bang = registerPotion(PotionConfig.bangID, true, 0x111111, "potion.hbm_bang", 3, 0);
@@ -76,7 +84,7 @@ public class HbmPotion extends Potion {
 		nitan = registerPotion(PotionConfig.nitanID, false, 8388736, "potion.hbm_nitan", 3, 1);
 		flashbang = registerPotion(PotionConfig.flashbangID, false, 0xD0D0D0, "potion.hbm_flashbang", 15, 1);
 		slippery = registerPotion(PotionConfig.slipperyID, false, 0xD0D0D0, "potion.hbm_slippery", 15, 0);
-
+		initialized = true;
 	}
 
 	public static HbmPotion registerPotion(int id, boolean isBad, int color, String name, int x, int y) {
@@ -85,8 +93,34 @@ public class HbmPotion extends Potion {
 		HbmPotion effect = new HbmPotion(id, isBad, color);
 		effect.setPotionName(name);
 		effect.setIconIndex(x, y);
+		String registryPath = name.startsWith("potion.") ? name.substring("potion.".length()) : name;
+		effect.setRegistryName(new ResourceLocation(RefStrings.MODID, registryPath));
 
 		return effect;
+	}
+
+	@SubscribeEvent
+	public static void registerPotions(RegistryEvent.Register<Potion> event) {
+		if(!initialized) {
+			throw new IllegalStateException("HBM potions were not initialized before the potion registry event");
+		}
+
+		event.getRegistry().registerAll(
+				taint,
+				radiation,
+				bang,
+				mutation,
+				radx,
+				lead,
+				radaway,
+				phosphorus,
+				stability,
+				potionsickness,
+				death,
+				run,
+				nitan,
+				flashbang,
+				slippery);
 	}
 
 	@Override

@@ -50,6 +50,13 @@ public final class PlantBlockModelHandler {
    if(!(item instanceof ItemBlock)||((ItemBlock)item).getBlock()!=block)throw new IllegalStateException("Missing plant ItemBlock "+name);
    for(int meta=0;meta<16;meta++)ModelLoader.setCustomModelResourceLocation(item,meta,route(kind,"item",kind.equals("coral")?meta%5:0));
   }
+  Item saplingItem = Item.getItemFromBlock(com.hbm.blocks.ModBlocks.sapling_pvc);
+  if(saplingItem instanceof ItemBlock) {
+   ModelLoader.setCustomModelResourceLocation(saplingItem, 0, new ModelResourceLocation(RefStrings.MODID + ":sapling_vinyl", "inventory"));
+   for(int meta = 1; meta < 16; meta++) {
+    ModelLoader.setCustomModelResourceLocation(saplingItem, meta, new ModelResourceLocation(RefStrings.MODID + ":sapling_pvc", "inventory"));
+   }
+  }
  }
  private static ModelResourceLocation route(String kind,String mode,int variant){return new ModelResourceLocation(new ResourceLocation(RefStrings.MODID,PREFIX+kind+"/"+mode+"/"+variant),mode.equals("item")?"inventory":"normal");}
  private static final class Loader implements ICustomModelLoader {

@@ -18,6 +18,7 @@ import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.particle.SpentCasing;
 import com.hbm.particle.SpentCasing.CasingType;
+import com.hbm.render.item.NativeItemTextureRegistry;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,7 +33,7 @@ public class GunFactory {
 	public static void init() {
 		
 		/// AMMO ITEMS ///
-		ModItems.ammo_debug = new Item().setTranslationKey("ammo_debug");
+		ModItems.ammo_debug = NativeItemTextureRegistry.texture(new Item().setTranslationKey("ammo_debug"), RefStrings.MODID + ":ammo_45");
 		ModItems.ammo_standard = new ItemEnumMulti(EnumAmmo.class, true, true).setTranslationKey("ammo_standard").setCreativeTab(MainRegistry.weaponTab);
 		ModItems.ammo_secret = new ItemEnumMulti(EnumAmmoSecret.class, true, true).setTranslationKey("ammo_secret").setCreativeTab(null);
 

@@ -52,7 +52,7 @@ public class GUIPneumoTube extends GuiInfoContainer {
 			this.drawCustomInfoStat(x, y, guiLeft + 151, guiTop + 52, 18, 18, x, y, TextFormatting.YELLOW + "Provider slot order:", tube.sendOrder == PneumaticNetwork.SEND_FIRST ? "First to last" : tube.sendOrder == PneumaticNetwork.SEND_LAST ? "Last to first" : "Random");
 		}
 
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			for(int i = 0; i < 15; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 	

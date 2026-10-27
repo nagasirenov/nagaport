@@ -65,7 +65,7 @@ public abstract class GUITurretBase extends GuiInfoContainer {
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft + 50, guiTop + 30, 10, 10, mouseX, mouseY, I18nUtil.resolveKeyArray("turret.machines", turret.targetMachines ? on : off));
 
 
-		if(this.mc.player.inventory.getItemStack() == null && this.guiLeft + 79 <= mouseX && guiLeft + 79 + 54 > mouseX && guiTop + 62 < mouseY && guiTop + 62 + 54 >= mouseY) {
+		if(this.mc.player.inventory.getItemStack().isEmpty() && this.guiLeft + 79 <= mouseX && guiLeft + 79 + 54 > mouseX && guiTop + 62 < mouseY && guiTop + 62 + 54 >= mouseY) {
 
 			boolean draw = true;
 			for(int i = 1; i < 10; i++) {

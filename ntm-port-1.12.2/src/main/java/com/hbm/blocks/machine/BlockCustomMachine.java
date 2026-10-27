@@ -16,6 +16,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -38,8 +41,26 @@ public class BlockCustomMachine extends BlockContainer {
 	private IIcon iconFront;
 	protected IIcon blockIcon;
 
+	public static final PropertyInteger FACING = PropertyInteger.create("facing", 0, 5);
+
 	public BlockCustomMachine() {
 		super(Material.IRON);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING, meta >= 0 && meta <= 5 ? meta : 0);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(FACING);
 	}
 
 	@Override
@@ -230,5 +251,10 @@ public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metad
 		}
 
 		super.breakBlock(world, pos, state);
+	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
 	}
 }

@@ -2,6 +2,9 @@
   "variants": {
     "normal": {
       "model": "hbm:laythe_glowgrass"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.laythe_glowgrass"
     }
   }
 }

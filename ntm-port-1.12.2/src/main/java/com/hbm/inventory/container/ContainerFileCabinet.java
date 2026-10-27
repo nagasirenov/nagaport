@@ -35,7 +35,7 @@ public class ContainerFileCabinet extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack returnStack = null;
+		ItemStack returnStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -44,17 +44,17 @@ public class ContainerFileCabinet extends Container {
 
 			if(index <= 7) {
 				if(!this.mergeItemStack(originalStack, 8, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(originalStack, returnStack);
 
 			} else if(!this.mergeItemStack(originalStack, 0, 8, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(originalStack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

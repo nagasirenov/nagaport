@@ -136,5 +136,10 @@ public class BlockAirPump extends BlockContainer implements ILookOverlay, IBlock
 	public boolean isSealed(World world, int x, int y, int z) {
 		return false;
 	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }
 

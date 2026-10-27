@@ -47,6 +47,9 @@
     },
     "metadata=15": {
       "model": "hbm:oil_spill_8"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.oil_spill"
     }
   }
 }

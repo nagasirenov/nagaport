@@ -14,7 +14,7 @@ import com.hbm.tileentity.machine.TileEntityRtgFurnace;
 
 public class GUIRtgFurnace extends GuiContainer {
 	
-	private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/RTGfurnace.png");
+	private static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/rtgfurnace.png");
 	private TileEntityRtgFurnace diFurnace;
 
 	public GUIRtgFurnace(InventoryPlayer invPlayer, TileEntityRtgFurnace tedf) {

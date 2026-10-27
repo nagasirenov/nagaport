@@ -1,6 +1,7 @@
 package com.hbm.main;
 
 import com.hbm.handler.threading.PacketThreading;
+import com.hbm.packet.ScheduledMessageHandler;
 import com.hbm.packet.threading.ThreadedPacket;
 import net.minecraftforge.fml.common.network.FMLEmbeddedChannel;
 import net.minecraftforge.fml.common.network.FMLOutboundHandler;
@@ -125,8 +126,16 @@ public class NetworkHandler {
 		else
 			channel = serverChannel;
 		String type = channel.findChannelHandlerNameForType(PrecompilingNetworkCodec.class);
+		IMessageHandler<REQ, REPLY> delegate;
+
+		try {
+			delegate = messageHandler.newInstance();
+		} catch(InstantiationException | IllegalAccessException e) {
+			throw new RuntimeException("Could not instantiate packet handler " + messageHandler.getName(), e);
+		}
+
 		SimpleChannelHandlerWrapper<REQ, REPLY> handler;
-		handler = new SimpleChannelHandlerWrapper<>(messageHandler, side, requestMessageType);
+		handler = new SimpleChannelHandlerWrapper<>(new ScheduledMessageHandler<>(delegate, side), side, requestMessageType);
 		channel.pipeline().addAfter(type, messageHandler.getName(), handler);
 	}
 

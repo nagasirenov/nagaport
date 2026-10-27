@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/ladder",
   "textures": {
-    "ladder": "hbm:blocks/ladder_cobalt"
+    "texture": "hbm:blocks/ladder_cobalt"
   }
 }

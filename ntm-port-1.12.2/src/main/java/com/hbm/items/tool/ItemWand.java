@@ -3,6 +3,7 @@ package com.hbm.items.tool;
 import java.util.List;
 
 import com.hbm.blocks.ModBlocks;
+import com.hbm.util.PersistentRegistryRef;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,8 +29,14 @@ public class ItemWand extends Item {
 		} else {
 			list.add("Positions not set!");
 		}
-		if(stack.getTagCompound() != null)
-			list.add("Block saved: " + Block.getBlockById(stack.getTagCompound().getInteger("block")).getTranslationKey());
+		if(stack.getTagCompound() != null) {
+			Block saved = PersistentRegistryRef.readBlock(stack.getTagCompound(), "block");
+			if(saved != null) {
+				list.add("Block saved: " + saved.getTranslationKey());
+			} else if(PersistentRegistryRef.hasLegacyNumeric(stack.getTagCompound(), "block")) {
+				list.add(net.minecraft.util.text.TextFormatting.RED + "Legacy block id unresolved; raw NBT preserved");
+			}
+		}
 	}
 
 
@@ -46,10 +53,11 @@ public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int 
 		}
 
 		if(player.isSneaking()) {
-			stack.getTagCompound().setInteger("block", Block.getIdFromBlock(com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock()));
+			Block saved = com.hbm.world.WorldBlockState.read(world, x, y, z).getBlock();
+			PersistentRegistryRef.writeBlock(stack.getTagCompound(), "block", saved);
 			stack.getTagCompound().setInteger("meta", com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
 			if(world.isRemote)
-				player.sendMessage(new TextComponentString("Set block " + Block.getBlockById(stack.getTagCompound().getInteger("block")).getTranslationKey()));
+				player.sendMessage(new TextComponentString("Set block " + saved.getTranslationKey()));
 		} else {
 			if(stack.getTagCompound().getInteger("x") == 0 && stack.getTagCompound().getInteger("y") == 0 && stack.getTagCompound().getInteger("z") == 0) {
 				stack.getTagCompound().setInteger("x", x);
@@ -68,8 +76,12 @@ public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int 
 				stack.getTagCompound().setInteger("z", 0);
 
 				if(!world.isRemote) {
-					Block block = Block.getBlockById(stack.getTagCompound().getInteger("block"));
+					Block block = PersistentRegistryRef.readBlock(stack.getTagCompound(), "block");
 					int meta = stack.getTagCompound().getInteger("meta");
+					if(block == null) {
+						player.sendMessage(new TextComponentString(net.minecraft.util.text.TextFormatting.RED + "Block id unresolved; selection unchanged"));
+						return true;
+					}
 					boolean replaceAir = block == ModBlocks.wand_air;
 
 					for(int i = Math.min(ox, x); i <= Math.max(ox, x); i++) {
@@ -100,10 +112,10 @@ public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int 
 			stack.setTagCompound(new NBTTagCompound());
 		}
 		if(player.isSneaking()) {
-			stack.getTagCompound().setInteger("block", 0);
+			PersistentRegistryRef.writeBlock(stack.getTagCompound(), "block", Blocks.AIR);
 			stack.getTagCompound().setInteger("meta", 0);
 			if(world.isRemote)
-				player.sendMessage(new TextComponentString("Set block " + Block.getBlockById(stack.getTagCompound().getInteger("block")).getTranslationKey()));
+				player.sendMessage(new TextComponentString("Set block " + Blocks.AIR.getTranslationKey()));
 		}
 
 		return stack;

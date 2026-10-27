@@ -175,6 +175,7 @@ public void addInformation(ItemStack stack, EntityPlayer player, List list, bool
 	}
 
 	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
 	public void printHook(RenderGameOverlayEvent.Pre event, World world, int x, int y, int z) {
 		ItemStack stack = com.hbm.util.NativeHeldItem.getMainHandNullable(Minecraft.getMinecraft().player);
 		List<String> text = new ArrayList();

@@ -68,7 +68,7 @@ public class GUICounterTorch extends GuiInfoContainer {
 			drawHoveringText(Arrays.asList(new String[] { "Save Settings" }), x, y);
 		}
 
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			for(int i = 0; i < 3; ++i) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 	

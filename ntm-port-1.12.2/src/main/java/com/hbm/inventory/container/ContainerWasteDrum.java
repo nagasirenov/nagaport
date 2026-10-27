@@ -45,7 +45,7 @@ public class ContainerWasteDrum extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -54,14 +54,14 @@ public class ContainerWasteDrum extends Container {
 
 			if(par2 <= drum.getSizeInventory() - 1) {
 				if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, drum.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!InventoryUtil.mergeItemStack(this.inventorySlots, var5, 0, drum.getSizeInventory(), false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

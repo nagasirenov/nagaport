@@ -6,7 +6,8 @@ import java.util.Set;
 
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.generic.BlockWandStructure.TileEntityWandStructure;
-import com.hbm.util.BobMathUtil;
+import com.hbm.main.MainRegistry;
+import com.hbm.util.PersistentRegistryRef;
 import com.hbm.util.Tuple.Pair;
 
 import net.minecraft.block.Block;
@@ -14,6 +15,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
@@ -134,25 +137,46 @@ public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int 
 			return new HashSet<>();
 		}
 
-		int[] blockIds = stack.getTagCompound().getIntArray("blocks");
+		NBTTagList names = stack.getTagCompound().getTagList("blockNames", 8);
 		int[] metas = stack.getTagCompound().getIntArray("metas");
-		Set<Pair<Block, Integer>> blocks = new HashSet<>(blockIds.length);
+		Set<Pair<Block, Integer>> blocks = new HashSet<>(names.tagCount());
 
-		for(int i = 0; i < blockIds.length; i++) {
-			blocks.add(new Pair<Block, Integer>(Block.getBlockById(blockIds[i]), metas[i]));
+		for(int i = 0; i < names.tagCount(); i++) {
+			Block block = Block.getBlockFromName(names.getStringTagAt(i));
+			if(block == null) {
+				MainRegistry.logger.warn("Structure wand blacklist entry '" + names.getStringTagAt(i) + "' is not registered; entry skipped");
+				continue;
+			}
+			blocks.add(new Pair<Block, Integer>(block, i < metas.length ? metas[i] : 0));
+		}
+
+		if(names.tagCount() == 0 && stack.getTagCompound().hasKey("blocks")) {
+			MainRegistry.logger.warn("Structure wand blacklist uses legacy numeric block ids; they are unresolved and the raw NBT is preserved");
 		}
 
 		return blocks;
 	}
 
-	@SuppressWarnings("unchecked")
 	private void setBlocks(ItemStack stack, Set<Pair<Block, Integer>> blocks) {
 		if(stack.getTagCompound() == null) {
 			stack.setTagCompound(new NBTTagCompound());
 		}
 
-		stack.getTagCompound().setIntArray("blocks", BobMathUtil.collectionToIntArray(blocks, i -> Block.getIdFromBlock(((Pair<Block, Integer>)i).getKey())));
-		stack.getTagCompound().setIntArray("metas", BobMathUtil.collectionToIntArray(blocks, i -> ((Pair<Block, Integer>)i).getValue()));
+		NBTTagList names = new NBTTagList();
+		int[] metas = new int[blocks.size()];
+		int index = 0;
+
+		for(Pair<Block, Integer> entry : blocks) {
+			Block block = entry.getKey();
+			if(block == null || block.getRegistryName() == null) continue;
+			names.appendTag(new NBTTagString(block.getRegistryName().toString()));
+			metas[index++] = entry.getValue();
+		}
+
+		stack.getTagCompound().setTag("blockNames", names);
+		stack.getTagCompound().setIntArray("metas", java.util.Arrays.copyOf(metas, index));
+		stack.getTagCompound().removeTag("blocks");
+		stack.getTagCompound().setByte(PersistentRegistryRef.SCHEMA_KEY, (byte) PersistentRegistryRef.SCHEMA_VERSION);
 	}
 
 	@Override
@@ -167,7 +191,8 @@ public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int 
 		}
 
 		if(player.isSneaking()) {
-			stack.getTagCompound().setIntArray("blocks", new int[0]);
+			stack.getTagCompound().removeTag("blocks");
+			stack.getTagCompound().removeTag("blockNames");
 			stack.getTagCompound().setIntArray("metas", new int[0]);
 
 			if(world.isRemote) {

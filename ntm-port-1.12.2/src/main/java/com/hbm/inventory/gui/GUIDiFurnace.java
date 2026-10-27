@@ -19,7 +19,7 @@ import com.hbm.lib.ForgeDirection;
 
 public class GUIDiFurnace extends GuiContainer {
 
-	public static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/GUIDiFurnace.png");
+	public static ResourceLocation texture = new ResourceLocation(RefStrings.MODID + ":textures/gui/guidifurnace.png");
 	private TileEntityDiFurnace diFurnace;
 
 	public GUIDiFurnace(InventoryPlayer invPlayer, TileEntityDiFurnace tedf) {
@@ -34,7 +34,7 @@ public class GUIDiFurnace extends GuiContainer {
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
 
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			for(int i = 0; i < 3; i++) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 

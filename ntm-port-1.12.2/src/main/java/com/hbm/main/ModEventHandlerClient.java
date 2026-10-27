@@ -1624,4 +1624,34 @@ public class ModEventHandlerClient {
 			if(d < 0.1) setSplash(main, "Redditors aren't people!");
 		}
 	}
+
+	private static java.lang.reflect.Field basicInventoryField;
+	static {
+		try {
+			basicInventoryField = net.minecraft.client.gui.inventory.GuiContainerCreative.class.getDeclaredField("basicInventory");
+			basicInventoryField.setAccessible(true);
+		} catch(Exception e) {
+			try {
+				basicInventoryField = net.minecraft.client.gui.inventory.GuiContainerCreative.class.getDeclaredField("field_147060_v");
+				basicInventoryField.setAccessible(true);
+			} catch(Exception ignored) {}
+		}
+	}
+
+	@SubscribeEvent
+	public void onGuiDrawPre(net.minecraftforge.client.event.GuiScreenEvent.DrawScreenEvent.Pre event) {
+		if(event.getGui() instanceof net.minecraft.client.gui.inventory.GuiContainerCreative) {
+			net.minecraft.client.gui.inventory.GuiContainerCreative creative = (net.minecraft.client.gui.inventory.GuiContainerCreative) event.getGui();
+			if(creative.getSelectedTabIndex() == net.minecraft.creativetab.CreativeTabs.INVENTORY.getIndex()) {
+				if(basicInventoryField != null) {
+					try {
+						net.minecraft.inventory.InventoryBasic inv = (net.minecraft.inventory.InventoryBasic) basicInventoryField.get(null);
+						if(inv != null && !inv.getStackInSlot(0).isEmpty()) {
+							inv.setInventorySlotContents(0, net.minecraft.item.ItemStack.EMPTY);
+						}
+					} catch(Exception ignored) {}
+				}
+			}
+		}
+	}
 }

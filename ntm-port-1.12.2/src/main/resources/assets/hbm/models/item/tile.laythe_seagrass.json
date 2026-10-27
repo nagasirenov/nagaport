@@ -1,3 +1,6 @@
 {
-  "parent": "hbm:block/laythe_seagrass"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hbm:blocks/laythe_seagrass"
+  }
 }

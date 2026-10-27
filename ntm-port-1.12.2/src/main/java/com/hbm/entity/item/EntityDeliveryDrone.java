@@ -165,9 +165,13 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 		if(nbt.getBoolean("chunkLoading")) this.setChunkLoading();
 	}
 
+	private static ItemStack nativeStack(ItemStack stack) {
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+	}
+
 	@Override
 	public ItemStack getStackInSlot(int slot) {
-		return slots[slot];
+		return nativeStack(slots[slot]);
 	}
 
 	@Override
@@ -189,7 +193,7 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 				return itemstack;
 			}
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 

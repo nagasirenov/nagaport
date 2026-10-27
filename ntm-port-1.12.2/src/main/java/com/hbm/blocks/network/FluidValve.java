@@ -8,6 +8,9 @@ import com.hbm.util.i18n.I18nUtil;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -25,8 +28,26 @@ public class FluidValve extends FluidDuctBase implements ILookOverlay {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconOn;
 
+	public static final PropertyBool OPEN = PropertyBool.create("open");
+
 	public FluidValve(Material mat) {
 		super(mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(OPEN, false));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, OPEN);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(OPEN, meta == 1);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(OPEN) ? 1 : 0;
 	}
 
 	@SideOnly(Side.CLIENT)

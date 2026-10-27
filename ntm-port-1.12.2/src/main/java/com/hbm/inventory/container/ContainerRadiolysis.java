@@ -53,7 +53,7 @@ public class ContainerRadiolysis extends Container {
 	/** my eye, my eye, coctor coctor coctor **/
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -62,14 +62,14 @@ public class ContainerRadiolysis extends Container {
 
 			if(index <= 14) {
 				if(!this.mergeItemStack(stack, 15, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!this.mergeItemStack(stack, 0, 15, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

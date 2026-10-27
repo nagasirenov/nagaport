@@ -17,6 +17,7 @@ import com.hbm.tileentity.TileEntityMachineBase;
 import com.hbm.util.BufferUtil;
 import com.hbm.util.CompatEnergyControl;
 import com.hbm.util.InventoryUtil;
+import com.hbm.util.PersistentRegistryRef;
 import com.hbm.util.WeightedRandomObject;
 
 import api.hbm.fluid.IFluidStandardReceiver;
@@ -39,6 +40,7 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 	public boolean hasLaser;
 	public FluidTank tank;
 	public ComparableStack current;
+	private NBTTagCompound legacyRef;
 	public int currentFill;
 	public static final int maxFill = 16000;
 	public int progress;
@@ -316,7 +318,13 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 		this.mode = EnumWavelengths.valueOf(nbt.getString("mode"));
 
 		if(this.currentFill > 0) {
-			this.current = new ComparableStack(Item.getItemById(nbt.getInteger("item")), 1, nbt.getInteger("meta"));
+			Item item = PersistentRegistryRef.readItem(nbt, "item");
+			if(item != null) {
+				this.current = new ComparableStack(item, 1, nbt.getInteger("meta"));
+			} else {
+				this.current = null;
+				this.legacyRef = PersistentRegistryRef.legacyOnly(nbt, "item", "meta");
+			}
 		}
 	}
 
@@ -329,8 +337,11 @@ public class TileEntitySILEX extends TileEntityMachineBase implements IFluidStan
 		nbt.setString("mode", mode.toString());
 
 		if(this.current != null) {
-			nbt.setInteger("item", Item.getIdFromItem(this.current.item));
+			PersistentRegistryRef.writeItem(nbt, "item", this.current.item);
 			nbt.setInteger("meta", this.current.meta);
+		} else {
+			PersistentRegistryRef.preserveLegacy(this.legacyRef, nbt, "item");
+			PersistentRegistryRef.preserveLegacy(this.legacyRef, nbt, "meta");
 		}
 		return nbt;
 	}

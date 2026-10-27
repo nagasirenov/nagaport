@@ -37,7 +37,7 @@ public class ContainerFurnaceCombo extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack stack = null;
+		ItemStack stack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -46,17 +46,17 @@ public class ContainerFurnaceCombo extends Container {
 
 			if(index <= 3) {
 				if(!this.mergeItemStack(originalStack, 4, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(originalStack, stack);
 
 			} else if(!this.mergeItemStack(originalStack, 0, 1, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(originalStack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

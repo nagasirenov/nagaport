@@ -34,9 +34,14 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 		slots = new ItemStack[scount];
 	}
 
-	@Override public void clear() { for(int i = 0; i < slots.length; i++) slots[i] = ItemStack.EMPTY; }
+	private static ItemStack nativeStack(ItemStack stack) { return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack; }
+	@Override public void clear() { for(int i = 0; i < slots.length; i++) slots[i] = null; }
 	@Override public int getSizeInventory() { return slots.length; }
-	@Override public ItemStack getStackInSlot(int i) { return slots[i]; }
+	@Override public ItemStack getStackInSlot(int i) { return nativeStack(slots[i]); }
+	@Override public boolean isEmpty() {
+		for(ItemStack stack : slots) if(!nativeStack(stack).isEmpty()) return false;
+		return true;
+	}
 	@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 	@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 	@Override public boolean isItemValidForSlot(int slot, ItemStack itemStack) { return false; }
@@ -79,12 +84,6 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 	public boolean hasCustomInventoryName() { return this.hasCustomName(); }
 	public void setCustomName(String name) { this.customName = name; markDirty(); }
 	@Override public int getInventoryStackLimit() { return 64; }
-	@Override public boolean isEmpty() {
-		for(ItemStack stack : this.slots) {
-			if(stack != null && !stack.isEmpty()) return false;
-		}
-		return true;
-	}
 	@Override public int getField(int id) { return 0; }
 	@Override public void setField(int id, int value) {}
 	@Override public int getFieldCount() { return 0; }
@@ -117,7 +116,7 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 
 			return itemStack1;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 

@@ -35,7 +35,7 @@ public class ContainerFusionBreeder extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack copy = null;
+		ItemStack copy = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -43,18 +43,18 @@ public class ContainerFusionBreeder extends Container {
 			copy = stack.copy();
 
 			if(index <= 2) {
-				if(!this.mergeItemStack(stack, 3, this.inventorySlots.size(), true)) return null;
+				if(!this.mergeItemStack(stack, 3, this.inventorySlots.size(), true)) return ItemStack.EMPTY;
 			} else {
 
 				if(copy.getItem() instanceof IItemFluidIdentifier) {
-					if(!this.mergeItemStack(stack, 0, 1, false)) return null;
+					if(!this.mergeItemStack(stack, 0, 1, false)) return ItemStack.EMPTY;
 				} else {
-					if(!this.mergeItemStack(stack, 1, 2, false)) return null;
+					if(!this.mergeItemStack(stack, 1, 2, false)) return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

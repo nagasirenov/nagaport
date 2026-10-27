@@ -55,7 +55,7 @@ public class TileEntityNukePrototype extends TileEntity implements ISidedInvento
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return slots[i];
+		ItemStack stack = slots[i]; return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
 	}
 
 	@Override
@@ -76,7 +76,7 @@ public class TileEntityNukePrototype extends TileEntity implements ISidedInvento
 
 			return itemStack1;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 

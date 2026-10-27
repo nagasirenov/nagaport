@@ -72,7 +72,7 @@ public class ContainerMachineShredder extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -81,21 +81,21 @@ public class ContainerMachineShredder extends Container {
 
 			if(index <= 29) {
 				if(!this.mergeItemStack(stack, 30, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
-					if(!this.mergeItemStack(stack, 29, 30, false)) return null;
+					if(!this.mergeItemStack(stack, 29, 30, false)) return ItemStack.EMPTY;
 				} else if(rStack.getItem() instanceof ItemBlades) {
-					if(!this.mergeItemStack(stack, 27, 29, false)) return null;
+					if(!this.mergeItemStack(stack, 27, 29, false)) return ItemStack.EMPTY;
 				} else {
-					if(!this.mergeItemStack(stack, 0, 9, false)) return null;
+					if(!this.mergeItemStack(stack, 0, 9, false)) return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

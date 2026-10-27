@@ -23,6 +23,7 @@ import com.hbm.render.block.ISBRHUniversal;
 import com.hbm.render.block.nativeblock.UniversalCuboidGeometry;
 import com.hbm.tileentity.IBufPacketReceiver;
 import com.hbm.tileentity.TileEntityLoadedBase;
+import com.hbm.util.PersistentRegistryRef;
 import com.hbm.tileentity.network.TileEntityPipeBaseNT;
 import com.hbm.uninos.GenNode;
 import com.hbm.uninos.INetworkProvider;
@@ -123,6 +124,7 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 		public int prevProgress;
 		protected RebarNode node;
 		public boolean hasConnection = false;
+		private NBTTagCompound legacyRef;
 		
 		public TileEntityRebar setup(Block b, int m) {
 			this.concrete = b;
@@ -196,10 +198,9 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 			this.progress = nbt.getInteger("progress");
 			this.hasConnection = nbt.getBoolean("hasConnection");
 			
-			if(nbt.hasKey("block")) {
-				this.concrete = Block.getBlockById(nbt.getInteger("block"));
-				this.concreteMeta = nbt.getInteger("meta");
-			}
+			this.concrete = PersistentRegistryRef.readBlock(nbt, "block");
+			this.concreteMeta = nbt.getInteger("meta");
+			this.legacyRef = PersistentRegistryRef.legacyOnly(nbt, "block", "meta");
 		}
 
 		@Override
@@ -209,8 +210,10 @@ public class BlockRebar extends BlockContainer implements ISBRHUniversal {
 			nbt.setBoolean("hasConnection", this.hasConnection);
 			
 			if(this.concrete != null) {
-				nbt.setInteger("block", Block.getIdFromBlock(this.concrete));
+				PersistentRegistryRef.writeBlock(nbt, "block", this.concrete);
 				nbt.setInteger("meta", this.concreteMeta);
+			} else {
+				PersistentRegistryRef.preserveLegacy(this.legacyRef, nbt, "block", "meta");
 			}
 			return nbt;
 		}

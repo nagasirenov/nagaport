@@ -48,14 +48,23 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 
 	@Override
 	public void update() {
+		if(this.isInvalid()) return;
+		DoorDecl type = getDoorType();
+		if(type == null || !(this.getBlockType() instanceof BlockDoorGeneric) || this.getBlockMetadata() < BlockDummyable.offset) {
+			this.invalidate();
+			if(this.hasWorld()) {
+				this.world.removeTileEntity(this.pos);
+			}
+			return;
+		}
 		
-		if(getDoorType().onDoorUpdate() != null) {
-			getDoorType().onDoorUpdate().accept(this);
+		if(type.onDoorUpdate() != null) {
+			type.onDoorUpdate().accept(this);
 		}
 		
 		if(state == STATE_OPENING) {
 			openTicks++;
-			if(openTicks >= getDoorType().timeToOpen()) openTicks = getDoorType().timeToOpen();
+			if(openTicks >= type.timeToOpen()) openTicks = type.timeToOpen();
 			
 		} else if(state == STATE_CLOSING) {
 			openTicks--;
@@ -66,7 +75,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 
 			BlockPos pos = new BlockPos(this);
 
-			int[][] ranges = getDoorType().getDoorOpenRanges();
+			int[][] ranges = type.getDoorOpenRanges();
 			ForgeDirection dir = ForgeDirection.getOrientation(getBlockMetadata() - BlockDummyable.offset);
 
 			if(state == STATE_OPENING) {
@@ -75,7 +84,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 
 					int[] range = ranges[i];
 					BlockPos startPos = new BlockPos(range[0], range[1], range[2]);
-					float time = getDoorType().getDoorRangeOpenTime(openTicks, i);
+					float time = type.getDoorRangeOpenTime(openTicks, i);
 
 					for(int j = 0; j < Math.abs(range[3]); j++) {
 
@@ -112,7 +121,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 					int[] range = ranges[i];
 
 					BlockPos startPos = new BlockPos(range[0], range[1], range[2]);
-					float time = getDoorType().getDoorRangeOpenTime(openTicks, i);
+					float time = type.getDoorRangeOpenTime(openTicks, i);
 
 					for(int j = Math.abs(range[3])-1; j >= 0; j--) {
 
@@ -142,13 +151,15 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 					}
 				}
 			}
-			if(state == STATE_OPENING && openTicks == getDoorType().timeToOpen()) {
+			if(state == STATE_OPENING && openTicks == type.timeToOpen()) {
 				state = STATE_OPEN;
-				((IBlockSealable)blockType).updateSealedState(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				if(blockType instanceof IBlockSealable)
+					((IBlockSealable)blockType).updateSealedState(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 			if(state == STATE_CLOSING && openTicks == 0) {
 				state = STATE_CLOSED;
-				((IBlockSealable)blockType).updateSealedState(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				if(blockType instanceof IBlockSealable)
+					((IBlockSealable)blockType).updateSealedState(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ());
 			}
 
 			this.networkPackNT(100);
@@ -199,6 +210,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 	}
 
 	public boolean tryToggle(EntityPlayer player) {
+		if(getDoorType() == null) return false;
 
 		if(this.isLocked() && player == null) return false;
 
@@ -219,6 +231,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 	}
 
 	public boolean tryToggle(int passcode) {
+		if(getDoorType() == null) return false;
 		if(this.isLocked() && passcode != this.lock) return false;
 		
 		if(this.state == STATE_CLOSED) {
@@ -237,6 +250,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 
 		if(this.state != state) {
 			DoorDecl doorType = getDoorType();
+			if(doorType == null) return;
 
 			if(this.state == STATE_CLOSED && state == STATE_OPENING) { // Door transitioning to open
 				if(audio != null) {
@@ -321,9 +335,10 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 	}
 
 	public boolean cycleSkinIndex() {
-		if(!getDoorType().hasSkins()) return false;
+		DoorDecl type = getDoorType();
+		if(type == null || !type.hasSkins()) return false;
 		this.skinIndex++;
-		this.skinIndex %= getDoorType().getSkinCount();
+		this.skinIndex %= type.getSkinCount();
 		this.markDirty();
 		return true;
 	}
@@ -372,7 +387,7 @@ public class TileEntityDoorGeneric extends TileEntityLockableBase implements net
 		tag.setLong("animStartTime", animStartTime);
 		tag.setInteger("redstoned", redstonePower);
 		tag.setBoolean("shouldUseBB", shouldUseBB);
-		if(getDoorType().hasSkins())
+		if(getDoorType() != null && getDoorType().hasSkins())
 			tag.setByte("skin", skinIndex);
 		NBTTagCompound activatedBlocks = new NBTTagCompound();
 		int i = 0;

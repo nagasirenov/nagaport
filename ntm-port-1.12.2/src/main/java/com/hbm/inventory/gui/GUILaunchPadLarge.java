@@ -45,7 +45,7 @@ public class GUILaunchPadLarge extends GuiInfoContainer {
 		launchpad.tanks[0].renderTankInfo(this, mouseX, mouseY, guiLeft + 125, guiTop + 88 - 52, 16, 52);
 		launchpad.tanks[1].renderTankInfo(this, mouseX, mouseY, guiLeft + 143, guiTop + 88 - 52, 16, 52);
 
-		if(this.mc.player.inventory.getItemStack() == null && this.isMouseOverSlot(this.inventorySlots.getSlot(1), mouseX, mouseY) && !this.inventorySlots.getSlot(1).getHasStack()) {
+		if(this.mc.player.inventory.getItemStack().isEmpty() && this.isMouseOverSlot(this.inventorySlots.getSlot(1), mouseX, mouseY) && !this.inventorySlots.getSlot(1).getHasStack()) {
 			ItemStack[] list = new ItemStack[] { new ItemStack(ModItems.designator), new ItemStack(ModItems.designator_range), new ItemStack(ModItems.designator_manual) };
 			List<Object[]> lines = new ArrayList();
 			ItemStack selected = list[(int) ((System.currentTimeMillis() % (1000 * list.length)) / 1000)];

@@ -32,7 +32,7 @@ public class ContainerMachineTeleporter extends Container {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_)
     {
-		return null;
+		return ItemStack.EMPTY;
     }
 
 	@Override

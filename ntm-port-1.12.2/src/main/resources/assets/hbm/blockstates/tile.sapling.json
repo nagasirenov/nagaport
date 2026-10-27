@@ -35,6 +35,9 @@
     },
     "stage=1,type=dark_oak": {
       "model": "hbm:sapling_pvc"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.sapling"
     }
   }
 }

@@ -236,7 +236,9 @@ public class ItemVOTVdrive extends ItemEnumMulti {
 	@Override
 	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, net.minecraft.util.EnumHand nativeHand) {
 		ItemStack stack = player.getHeldItem(nativeHand);
-		return new net.minecraft.util.ActionResult<ItemStack>(net.minecraft.util.EnumActionResult.PASS, onItemRightClick(stack, world, player));
+		ItemStack result = onItemRightClick(stack, world, player);
+		boolean changed = (result != stack) || (result.isEmpty() != stack.isEmpty());
+		return new net.minecraft.util.ActionResult<ItemStack>(changed ? net.minecraft.util.EnumActionResult.SUCCESS : net.minecraft.util.EnumActionResult.PASS, result);
 	}
 
 
@@ -258,10 +260,10 @@ public class ItemVOTVdrive extends ItemEnumMulti {
 			if(rocket.getRocket().stages.size() > 0 || world.provider.getDimension() == SpaceConfig.orbitDimension || rocket.isReusable()) {
 				if(rocket.getState() == RocketState.LANDED || rocket.getState() == RocketState.AWAITING) {
 					// Replace our held stack with the rocket drive and place our held drive into the rocket
-					if(rocket.navDrive != null) {
+					if(rocket.navDrive != null && !rocket.navDrive.isEmpty()) {
 						newStack = rocket.navDrive;
 					} else {
-						newStack.setCount(0);
+						newStack = ItemStack.EMPTY;
 					}
 
 					rocket.navDrive = stack.copy();

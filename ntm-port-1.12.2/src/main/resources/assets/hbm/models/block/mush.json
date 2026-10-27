@@ -3,6 +3,7 @@
   "textures": {
     "all": "hbm:blocks/mush",
     "texture": "hbm:blocks/mush",
-    "particle": "hbm:blocks/mush"
+    "particle": "hbm:blocks/mush",
+    "cross": "hbm:blocks/mush"
   }
 }

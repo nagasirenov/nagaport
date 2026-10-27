@@ -30,6 +30,7 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.math.MathHelper;
@@ -471,8 +472,9 @@ public class SkyProviderCelestial extends IRenderHandler {
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
 			float sunBrightness = world.getSunBrightness(partialTicks);
+			float horizonFade = MathHelper.clamp(((float)pos.y - 200.0F) / 300.0F, 0.0F, 1.0F);
 
-			GL11.glColor4f(sunBrightness, sunBrightness, sunBrightness, ((float)pos.y - 200.0F) / 300.0F);
+			GL11.glColor4f(sunBrightness, sunBrightness, sunBrightness, horizonFade);
 			mc.renderEngine.bindTexture(body.texture);
 			GL11.glRotated(180, 1, 0, 0);
 
@@ -496,6 +498,15 @@ public class SkyProviderCelestial extends IRenderHandler {
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glDepthMask(true);
 
+		GlStateManager.enableTexture2D();
+		GlStateManager.depthMask(true);
+		GlStateManager.disableBlend();
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+		GlStateManager.resetColor();
+		GlStateManager.enableAlpha();
+		GlStateManager.alphaFunc(516, 0.1F);
+		RenderHelper.enableStandardItemLighting();
 	}
 
 	protected void renderSunset(float partialTicks, WorldClient world, Minecraft mc, float solarAngle, float pressure, ResourceLocation surfaceTexture) {

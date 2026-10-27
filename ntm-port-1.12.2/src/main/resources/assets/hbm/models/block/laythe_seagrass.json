@@ -3,6 +3,7 @@
   "textures": {
     "all": "hbm:blocks/laythe_seagrass",
     "texture": "hbm:blocks/laythe_seagrass",
-    "particle": "hbm:blocks/laythe_seagrass"
+    "particle": "hbm:blocks/laythe_seagrass",
+    "cross": "hbm:blocks/laythe_seagrass"
   }
 }

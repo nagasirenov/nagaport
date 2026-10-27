@@ -34,7 +34,7 @@ public class ContainerMachineAnnihilator extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack slotOriginal = null;
+		ItemStack slotOriginal = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -44,14 +44,14 @@ public class ContainerMachineAnnihilator extends ContainerBase {
 			if(index <= tile.getSizeInventory() - 1) {
 				SlotCraftingOutput.checkAchievements(player, slotStack);
 				if(!this.mergeItemStack(slotStack, tile.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(slotOriginal.getItem() instanceof IItemFluidIdentifier) {
-					if(!this.mergeItemStack(slotStack, 1, 2, false)) return null;
+					if(!this.mergeItemStack(slotStack, 1, 2, false)) return ItemStack.EMPTY;
 				} else {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, slotStack, 0, 1, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, slotStack, 0, 1, false)) return ItemStack.EMPTY;
 				}
 			}
 

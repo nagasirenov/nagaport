@@ -31,25 +31,25 @@ public class ContainerDroneRequester extends ContainerCrateBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
 			ItemStack var5 = var4.getStack();
 			var3 = var5.copy();
 
-			if(par2 < 9) return null; //ignore filters
+			if(par2 < 9) return ItemStack.EMPTY; //ignore filters
 
 			if(par2 <= tile.getSizeInventory() - 1) {
 				if(!this.mergeItemStack(var5, tile.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if(!this.mergeItemStack(var5, 9, tile.getSizeInventory(), false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}
@@ -74,7 +74,7 @@ public class ContainerDroneRequester extends ContainerCrateBase {
 
 		Slot slot = this.getSlot(index);
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 		TileEntityDroneRequester requester = (TileEntityDroneRequester) tile;
 

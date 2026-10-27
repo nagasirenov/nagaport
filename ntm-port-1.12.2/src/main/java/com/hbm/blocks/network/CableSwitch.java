@@ -6,6 +6,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -19,8 +22,26 @@ public class CableSwitch extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconOn;
 
+	public static final PropertyBool ACTIVE = PropertyBool.create("active");
+
 	public CableSwitch(Material p_i45386_1_) {
 		super(p_i45386_1_);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(ACTIVE, false));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, ACTIVE);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(ACTIVE, meta == 1);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(ACTIVE) ? 1 : 0;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -65,5 +86,10 @@ public class CableSwitch extends BlockContainer {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
 	}
 }

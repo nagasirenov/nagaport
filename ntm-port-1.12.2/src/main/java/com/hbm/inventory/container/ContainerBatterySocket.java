@@ -36,7 +36,7 @@ public class ContainerBatterySocket extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack copy = null;
+		ItemStack copy = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -44,13 +44,13 @@ public class ContainerBatterySocket extends Container {
 			copy = stack.copy();
 
 			if(index == 0) {
-				if(!this.mergeItemStack(stack, 1, this.inventorySlots.size(), true)) return null;
+				if(!this.mergeItemStack(stack, 1, this.inventorySlots.size(), true)) return ItemStack.EMPTY;
 			} else {
-				if(!this.mergeItemStack(stack, 0, 1, false)) return null;
+				if(!this.mergeItemStack(stack, 0, 1, false)) return ItemStack.EMPTY;
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

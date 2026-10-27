@@ -6,6 +6,7 @@ import com.hbm.blocks.MultipassContext;
 import com.hbm.interfaces.ICopiable;
 import com.hbm.lib.RefStrings;
 import com.hbm.tileentity.TileEntityLoadedBase;
+import com.hbm.util.PersistentRegistryRef;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import li.cil.oc.api.network.Environment;
@@ -163,6 +164,7 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 		private Block lastBlock;
 		private int lastMeta;
 		private OCColors color = OCColors.LIGHTGRAY;
+		private NBTTagCompound legacyRef;
 
 		public TileEntityOpenComputersCablePaintable() {
 			node = Network.newNode(this, Visibility.None).create();
@@ -200,9 +202,9 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 		@Override
 		public void readFromNBT(NBTTagCompound nbt) {
 			super.readFromNBT(nbt);
-			int id = nbt.getInteger("block");
-			this.block = id == 0 ? null : Block.getBlockById(id);
+			this.block = PersistentRegistryRef.readBlock(nbt, "block");
 			this.meta = nbt.getInteger("meta");
+			this.legacyRef = PersistentRegistryRef.legacyOnly(nbt, "block");
 
 			this.color = OCColors.fromInt(nbt.getInteger("dyeColor"));
 
@@ -214,7 +216,8 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 		@Override
 		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 			super.writeToNBT(nbt);
-			if(block != null) nbt.setInteger("block", Block.getIdFromBlock(block));
+			if(block != null) PersistentRegistryRef.writeBlock(nbt, "block", block);
+			else PersistentRegistryRef.preserveLegacy(this.legacyRef, nbt, "block");
 			nbt.setInteger("meta", meta);
 
 			nbt.setInteger("dyeColor", color.getColor());
@@ -230,15 +233,16 @@ public class BlockOpenComputersCablePaintable extends BlockContainer implements 
 		public NBTTagCompound getSettings(World world, int x, int y, int z) {
 			NBTTagCompound nbt = new NBTTagCompound();
 			if(block != null) {
-				nbt.setInteger("paintblock", Block.getIdFromBlock(block));
+				PersistentRegistryRef.writeBlock(nbt, "paintblock", block);
 				nbt.setInteger("paintmeta", meta);
 			}
 			return nbt;
 		}
 
 		public void pasteSettings(NBTTagCompound nbt, int index, World world, EntityPlayer player, int x, int y, int z) {
-			if(nbt.hasKey("paintblock")) {
-				this.block = Block.getBlockById(nbt.getInteger("paintblock"));
+			Block painted = PersistentRegistryRef.readBlock(nbt, "paintblock");
+			if(painted != null) {
+				this.block = painted;
 				this.meta = nbt.getInteger("paintmeta");
 				this.color = OCColors.fromInt(nbt.getInteger("dyeColor"));
 			}

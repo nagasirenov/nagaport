@@ -87,7 +87,9 @@ public final class BarbedWireObjModelHandler {
 
 			// Inventory icons use metadata zero; all current BarbedWire metadata values
 			// resolve to this identity's same icon, as in the legacy block callback.
-			String texture = RefStrings.MODID + ":blocks/" + name.getPath() + "_model";
+			String pathName = name.getPath();
+			if(pathName.startsWith("tile.")) pathName = pathName.substring(5);
+			String texture = RefStrings.MODID + ":blocks/" + pathName + "_model";
 			IBakedModel blockMesh = bakeObj(texture, DefaultVertexFormats.BLOCK);
 			List<BakedQuad> blockSource = collectAllQuads(blockMesh);
 			List<List<BakedQuad>> orientedQuads = new ArrayList<>(6);
@@ -266,7 +268,10 @@ public final class BarbedWireObjModelHandler {
 
 		float brightness = (ny + 0.7F) * 0.9F - Math.abs(nx) * 0.1F + Math.abs(nz) * 0.1F;
 		if(brightness < 0.45F) brightness = 0.45F;
-		int component = (int) (brightness * 255.0F) & 255;
+		// Legacy Tessellator#setColorOpaque_F truncates float*255 and then
+		// saturates each channel to 255. Masking here wrapped bright faces back
+		// into dark byte values (for example 1.53 -> 134).
+		int component = Math.min(255, (int) (brightness * 255.0F));
 		return 0xFF000000 | component << 16 | component << 8 | component;
 	}
 

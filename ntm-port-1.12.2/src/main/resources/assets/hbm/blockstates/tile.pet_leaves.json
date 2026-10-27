@@ -14,6 +14,9 @@
     },
     "check_decay=true,decayable=true": {
       "model": "hbm:pet_leaves"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.pet_leaves"
     }
   }
 }

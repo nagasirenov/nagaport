@@ -47,7 +47,7 @@ public class ContainerVacuumCircuit extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -56,23 +56,23 @@ public class ContainerVacuumCircuit extends Container {
 
 			if(index <= 7) {
 				if(!this.mergeItemStack(stack, 8, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
-					if(!this.mergeItemStack(stack, 5, 6, false)) return null;
+					if(!this.mergeItemStack(stack, 5, 6, false)) return ItemStack.EMPTY;
 				} else if(rStack.getItem() instanceof ItemMachineUpgrade ) {
-					if(!this.mergeItemStack(stack, 6, 8, false)) return null;
+					if(!this.mergeItemStack(stack, 6, 8, false)) return ItemStack.EMPTY;
 				} else {
-					for(AStack t : VacuumCircuitRecipes.wafer) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 0, 2, false)) return null;
-					for(AStack t : VacuumCircuitRecipes.pcb) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 2, 4, false)) return null;
-					return null;
+					for(AStack t : VacuumCircuitRecipes.wafer) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 0, 2, false)) return ItemStack.EMPTY;
+					for(AStack t : VacuumCircuitRecipes.pcb) if(t.matchesRecipe(stack, false)) if(!this.mergeItemStack(stack, 2, 4, false)) return ItemStack.EMPTY;
+					return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

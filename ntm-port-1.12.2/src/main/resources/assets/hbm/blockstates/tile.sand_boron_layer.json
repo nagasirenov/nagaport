@@ -47,6 +47,9 @@
     },
     "metadata=15": {
       "model": "hbm:sand_boron_layer_8"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.sand_boron_layer"
     }
   }
 }

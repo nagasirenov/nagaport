@@ -59,6 +59,24 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 		func_149853_b(worldIn, rand, pos.getX(), pos.getY(), pos.getZ());
 	}
 
+	private static final AxisAlignedBB WATER_PLANT_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return WATER_PLANT_AABB;
+	}
+
+	@Override
+	public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, net.minecraft.util.EnumFacing face) {
+		return net.minecraft.block.state.BlockFaceShape.UNDEFINED;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
+	}
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
@@ -109,6 +127,11 @@ public class BlockTallPlantWater extends BlockEnumMulti implements IPlantable, I
 	@Override
 	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
+	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
 	}
 
 	public int getRenderType() {

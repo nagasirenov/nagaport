@@ -47,7 +47,7 @@ public class ContainerMachineArcFurnaceLarge extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -56,23 +56,23 @@ public class ContainerMachineArcFurnaceLarge extends Container {
 
 			if(index <= 29) {
 				if(!this.mergeItemStack(stack, 30, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(rStack.getItem() instanceof IBatteryItem || rStack.getItem() == ModItems.battery_creative) {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 3, 4, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 3, 4, false)) return ItemStack.EMPTY;
 				} else if(rStack.getItem() == ModItems.arc_electrode) {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 0, 3, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 0, 3, false)) return ItemStack.EMPTY;
 				} else if(rStack.getItem() instanceof ItemMachineUpgrade) {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 4, 5, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 4, 5, false)) return ItemStack.EMPTY;
 				} else {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 25, 30, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 25, 30, false)) return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack == null || stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

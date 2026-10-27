@@ -39,7 +39,7 @@ public class ContainerMachineAmmoPress extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack rStack = null;
+		ItemStack rStack = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -48,27 +48,27 @@ public class ContainerMachineAmmoPress extends Container {
 
 			if(index <= 9) {
 				if(!this.mergeItemStack(stack, 10, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
-				if(press.selectedRecipe < 0 || press.selectedRecipe >= AmmoPressRecipes.recipes.size()) return null;
+				if(press.selectedRecipe < 0 || press.selectedRecipe >= AmmoPressRecipes.recipes.size()) return ItemStack.EMPTY;
 				AmmoPressRecipe recipe = AmmoPressRecipes.recipes.get(press.selectedRecipe);
 
 				for(int i = 0; i < 9; i++) {
 					if(recipe.input[i] == null) continue;
 					if(recipe.input[i].matchesRecipe(stack, true)) {
 						if(!this.mergeItemStack(stack, i, i + 1, false)) {
-							return null;
+							return ItemStack.EMPTY;
 						}
 					}
 				}
 
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}

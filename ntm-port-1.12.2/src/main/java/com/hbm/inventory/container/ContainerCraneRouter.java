@@ -41,7 +41,7 @@ public class ContainerCraneRouter extends ContainerBase {
 
 		Slot slot = this.getSlot(index);
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
 		if(slot.getHasStack())
@@ -62,6 +62,6 @@ public class ContainerCraneRouter extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		return null;
+		return ItemStack.EMPTY;
 	}
 }

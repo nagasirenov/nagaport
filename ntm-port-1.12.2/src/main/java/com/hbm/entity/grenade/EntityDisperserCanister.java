@@ -3,6 +3,7 @@ package com.hbm.entity.grenade;
 import com.hbm.entity.effect.EntityMist;
 import com.hbm.inventory.fluid.FluidType;
 import com.hbm.inventory.fluid.Fluids;
+import com.hbm.util.PersistentRegistryRef;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,6 +16,7 @@ public class EntityDisperserCanister extends EntityGrenadeBase {
 
 	private static final DataParameter<Integer> FLUID_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);
 	private static final DataParameter<Integer> ITEM_TYPE = EntityDataManager.createKey(EntityDisperserCanister.class, DataSerializers.VARINT);
+	private int legacyItemId = -1;
 
 	public EntityDisperserCanister(World world) {
 		super(world);
@@ -69,14 +71,22 @@ public class EntityDisperserCanister extends EntityGrenadeBase {
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		nbt.setInteger("fluid", this.dataManager.get(FLUID_TYPE));
-		nbt.setInteger("item", this.dataManager.get(ITEM_TYPE));
+		Item item = Item.getItemById(this.dataManager.get(ITEM_TYPE));
+		if(this.legacyItemId >= 0) nbt.setInteger("item", this.legacyItemId);
+		else PersistentRegistryRef.writeItem(nbt, "item", item);
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		this.dataManager.set(FLUID_TYPE, nbt.getInteger("fluid"));
-		this.dataManager.set(ITEM_TYPE, nbt.getInteger("item"));
+		Item item = PersistentRegistryRef.readItem(nbt, "item");
+		if(item != null) {
+			this.dataManager.set(ITEM_TYPE, Item.getIdFromItem(item));
+		} else {
+			this.legacyItemId = nbt.getInteger("item");
+			this.dataManager.set(ITEM_TYPE, 0);
+		}
 
 	}
 }

@@ -59,17 +59,29 @@ public abstract class EntityThrowableInterp extends EntityThrowableNT {
 		this.velocityZ = this.motionZ = velZ;
 	}
 	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void setPositionAndRotationDirect(double x, double y, double z, float yaw, float pitch, int posRotationIncrements, boolean teleport) {
+		if(teleport) {
+			this.setPosition(x, y, z);
+			this.setRotation(yaw, pitch);
+			this.turnProgress = 0;
+		} else {
+			this.syncPosX = x;
+			this.syncPosY = y;
+			this.syncPosZ = z;
+			this.syncYaw = yaw;
+			this.syncPitch = pitch;
+			this.turnProgress = posRotationIncrements + approachNum();
+			this.motionX = this.velocityX;
+			this.motionY = this.velocityY;
+			this.motionZ = this.velocityZ;
+		}
+	}
+
 	@SideOnly(Side.CLIENT)
 	public void setPositionAndRotation2(double x, double y, double z, float yaw, float pitch, int theNumberThree) {
-		this.syncPosX = x;
-		this.syncPosY = y;
-		this.syncPosZ = z;
-		this.syncYaw = yaw;
-		this.syncPitch = pitch;
-		this.turnProgress = theNumberThree + approachNum();
-		this.motionX = this.velocityX;
-		this.motionY = this.velocityY;
-		this.motionZ = this.velocityZ;
+		setPositionAndRotationDirect(x, y, z, yaw, pitch, theNumberThree, false);
 	}
 	
 	/**

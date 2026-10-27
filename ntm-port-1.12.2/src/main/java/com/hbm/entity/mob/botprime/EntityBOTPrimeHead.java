@@ -90,7 +90,6 @@ public class EntityBOTPrimeHead extends EntityBOTPrimeBase implements INtmBossDi
 	@Override
 	protected void updateAITasks() {
 
-		this.updateEntityActionState();
 		super.updateAITasks();
 
 		updateHeadMovement();

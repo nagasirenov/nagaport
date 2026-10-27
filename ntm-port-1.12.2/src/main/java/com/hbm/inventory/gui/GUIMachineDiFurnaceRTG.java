@@ -52,7 +52,7 @@ public class GUIMachineDiFurnaceRTG extends GuiInfoContainer {
 
 		this.drawCustomInfoStat(mouseX, mouseY, guiLeft - 15, guiTop + 36, 16, 16, guiLeft - 8, guiTop + 36 + 16, pelletText);
 
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			for(int i = 0; i < 2; i++) {
 				Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i);
 

@@ -2,6 +2,9 @@
   "variants": {
     "normal": {
       "model": "hbm:flesh_block_layer"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.flesh_block"
     }
   }
 }

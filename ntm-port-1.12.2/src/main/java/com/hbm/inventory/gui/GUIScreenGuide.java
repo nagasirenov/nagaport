@@ -61,7 +61,9 @@ public class GUIScreenGuide extends GuiScreen {
 		this.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		this.drawGuiContainerForegroundLayer(mouseX, mouseY);
-		GL11.glEnable(GL11.GL_LIGHTING);
+		net.minecraft.client.renderer.GlStateManager.disableLighting();
+		net.minecraft.client.renderer.GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		super.drawScreen(mouseX, mouseY, f);
 	}
 
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {

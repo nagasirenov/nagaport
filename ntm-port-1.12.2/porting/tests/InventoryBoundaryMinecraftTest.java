@@ -164,7 +164,7 @@ public final class InventoryBoundaryMinecraftTest {
         player.setPosition(18.5001, 20.5, 38.5);
         check(!edge.isUsableByPlayer(player), "beyond squared distance 128 excluded");
         player.setPosition(10.5, 20.5, 30.5);
-        check(edge.isUseableByPlayer(player), "legacy usability wrapper delegates native method");
+        check(edge.isUsableByPlayer(player), "legacy usability wrapper delegates native method");
         world.current = new Inventory();
         check(!edge.isUsableByPlayer(player), "replaced tile rejected even at center");
         world.current = null;

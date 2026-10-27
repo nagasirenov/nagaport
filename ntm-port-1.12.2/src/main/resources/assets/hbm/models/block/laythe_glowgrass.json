@@ -3,6 +3,7 @@
   "textures": {
     "all": "hbm:blocks/laythe_glowgrass",
     "texture": "hbm:blocks/laythe_glowgrass",
-    "particle": "hbm:blocks/laythe_glowgrass"
+    "particle": "hbm:blocks/laythe_glowgrass",
+    "cross": "hbm:blocks/laythe_glowgrass"
   }
 }

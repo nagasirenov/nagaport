@@ -35,6 +35,9 @@
     "shape=north_east": {
       "model": "hbm:rail_narrow_curved",
       "y": 270
+    },
+    "inventory": {
+      "model": "hbm:item/tile.rail_narrow"
     }
   }
 }

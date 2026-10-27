@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.hbm.items.special.ItemNuclearWaste;
 import com.hbm.main.MainRegistry;
+import com.hbm.render.item.NativeItemTextureRegistry;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -63,7 +64,8 @@ public class ItemRBMKPellet extends ItemNuclearWaste {
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister) {
-		this.itemIcon = iconRegister.registerIcon(this.getRegistryName().toString());
+		String baseTexture = NativeItemTextureRegistry.texture(this);
+		this.itemIcon = iconRegister.registerIcon(baseTexture != null ? baseTexture : this.getRegistryName().toString());
 
 		this.enrichmentOverlays = new IIcon[5];
 

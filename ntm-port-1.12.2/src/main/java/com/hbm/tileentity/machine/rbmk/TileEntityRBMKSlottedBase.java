@@ -32,9 +32,27 @@ public abstract class TileEntityRBMKSlottedBase extends TileEntityRBMKActiveBase
 		return slots.length;
 	}
 
+	private static ItemStack nativeStack(ItemStack stack) {
+		return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
+	}
+
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return slots[i];
+		return nativeStack(slots[i]);
+	}
+
+	@Override
+	public boolean isEmpty() {
+		for(ItemStack stack : slots) {
+			if(!nativeStack(stack).isEmpty()) return false;
+		}
+		return true;
+	}
+
+	@Override
+	public void clear() {
+		java.util.Arrays.fill(slots, null);
+		this.markDirty();
 	}
 
 	@Override
@@ -119,7 +137,7 @@ public abstract class TileEntityRBMKSlottedBase extends TileEntityRBMKActiveBase
 
 			return itemStack1;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 

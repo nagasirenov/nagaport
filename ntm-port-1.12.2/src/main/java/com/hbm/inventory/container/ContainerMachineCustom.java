@@ -64,7 +64,7 @@ public class ContainerMachineCustom extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class ContainerMachineCustom extends Container {
 		Slot slot = this.getSlot(index);
 		index = ((Slot) this.inventorySlots.get(index)).getSlotIndex();
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
 		if(slot.getHasStack())

@@ -28,7 +28,7 @@ public class ContainerWeaponTable extends Container {
 
 			@Override
 			public boolean isItemValid(ItemStack stack) {
-				return gun.getStackInSlot(0) == null && stack.getItem() instanceof ItemGunBaseNT;
+				return gun.getStackInSlot(0).isEmpty() && stack.getItem() instanceof ItemGunBaseNT;
 			}
 
 			@Override
@@ -36,7 +36,7 @@ public class ContainerWeaponTable extends Container {
 
 				ContainerWeaponTable.this.index = 0;
 
-				if(stack != null) {
+				if(stack != null && !stack.isEmpty()) {
 					ItemStack[] mods = XWeaponModManager.getUpgradeItems(stack, index);
 
 					if(mods != null) for(int i = 0; i < Math.min(mods.length, 7); i++) {
@@ -88,11 +88,11 @@ public class ContainerWeaponTable extends Container {
 	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 
 		if(mode == ClickType.CLONE) {
-			if(player.world.isRemote) return null;
+			if(player.world.isRemote) return ItemStack.EMPTY;
 			ItemStack stack = gun.getStackInSlot(0);
 			if(stack != null && stack.getItem() instanceof ItemGunBaseNT) {
 				int configs = ((ItemGunBaseNT) stack.getItem()).getConfigCount();
-				if(configs < button) return null;
+				if(configs < button) return ItemStack.EMPTY;
 
 				XWeaponModManager.install(
 						stack, this.index,
@@ -121,7 +121,7 @@ public class ContainerWeaponTable extends Container {
 
 				this.detectAndSendChanges();
 			}
-			return null;
+			return ItemStack.EMPTY;
 		}
 
 		return super.slotClick(index, button, mode, player);
@@ -135,14 +135,14 @@ public class ContainerWeaponTable extends Container {
 			for(int i = 0; i < this.mods.getSizeInventory(); ++i) {
 				ItemStack itemstack = this.mods.removeStackFromSlot(i);
 
-				if(itemstack != null) {
+				if(itemstack != null && !itemstack.isEmpty()) {
 					player.dropItem(itemstack, false);
 				}
 			}
 
 			ItemStack itemstack = this.gun.removeStackFromSlot(0);
 
-			if(itemstack != null) {
+			if(itemstack != null && !itemstack.isEmpty()) {
 				XWeaponModManager.uninstall(itemstack, index);
 				player.dropItem(itemstack, false);
 			}
@@ -156,7 +156,7 @@ public class ContainerWeaponTable extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack copy = null;
+		ItemStack copy = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -164,18 +164,18 @@ public class ContainerWeaponTable extends Container {
 			copy = stack.copy();
 
 			if(index < 8) {
-				if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 8, this.inventorySlots.size(), true)) return null;
+				if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 8, this.inventorySlots.size(), true)) return ItemStack.EMPTY;
 				slot.onTake(player, stack);
 			} else {
 				if(stack.getItem() instanceof ItemGunBaseNT) {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 7, 8, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 7, 8, false)) return ItemStack.EMPTY;
 				} else {
-					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 0, 7, false)) return null;
+					if(!InventoryUtil.mergeItemStack(this.inventorySlots, stack, 0, 7, false)) return ItemStack.EMPTY;
 				}
 			}
 
 			if(stack.getCount() == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -192,7 +192,7 @@ public class ContainerWeaponTable extends Container {
 
 		@Override
 		public boolean isItemValid(ItemStack stack) {
-			return gun.getStackInSlot(0) != null && XWeaponModManager.isApplicable(gun.getStackInSlot(0), stack, index, true);
+			return !gun.getStackInSlot(0).isEmpty() && XWeaponModManager.isApplicable(gun.getStackInSlot(0), stack, index, true);
 		}
 
 		@Override
@@ -209,7 +209,7 @@ public class ContainerWeaponTable extends Container {
 		}
 
 		public void refreshInstalledMods() {
-			if(gun.getStackInSlot(0) == null) return;
+			if(gun.getStackInSlot(0).isEmpty()) return;
 			XWeaponModManager.install(
 					gun.getStackInSlot(0), index,
 					mods.getStackInSlot(0),

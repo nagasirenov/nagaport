@@ -9,6 +9,7 @@ import com.hbm.entity.mob.siege.SiegeTier;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
 import com.hbm.render.util.BeamPronter;
+import com.hbm.render.util.ClientBossDisplay;
 import com.hbm.render.util.RenderMiscEffects;
 import com.hbm.render.util.BeamPronter.EnumBeamType;
 import com.hbm.render.util.BeamPronter.EnumWaveType;
@@ -34,7 +35,7 @@ public class RenderSiegeCraft extends Render {
 		GL11.glPushMatrix();
 
 		EntitySiegeCraft ufo = (EntitySiegeCraft) entity;
-		//BossStatus.setBossStatus(ufo, false);
+		ClientBossDisplay.capture(ufo, false);
 
 		this.bindTexture(getEntityTexture(entity));
 

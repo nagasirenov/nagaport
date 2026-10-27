@@ -36,13 +36,13 @@ public class ContainerCrateBase extends ContainerBase {
 	@Override
 	public ItemStack slotClick(int index, int button, ClickType mode, EntityPlayer player) {
 		// prevents the player from moving around the currently open box
-		if(player.inventory.getStackInSlot(player.inventory.currentItem) != null &&
-			player.inventory.getStackInSlot(player.inventory.currentItem).getItem() instanceof ItemBlockStorageCrate && !(this.tile instanceof TileEntity)) {
-			if (mode == ClickType.SWAP && button == player.inventory.currentItem) {
-				return null;
+		ItemStack held = player.inventory.getStackInSlot(player.inventory.currentItem);
+		if(!held.isEmpty() && held.getItem() instanceof ItemBlockStorageCrate && !(this.tile instanceof TileEntity)) {
+			if(mode == ClickType.SWAP && button == player.inventory.currentItem) {
+				return ItemStack.EMPTY;
 			}
-			if (index == player.inventory.currentItem + 27 + this.tile.getSizeInventory()) {
-				return null;
+			if(index == player.inventory.currentItem + 27 + this.tile.getSizeInventory()) {
+				return ItemStack.EMPTY;
 			}
 		}
 		return super.slotClick(index, button, mode, player);

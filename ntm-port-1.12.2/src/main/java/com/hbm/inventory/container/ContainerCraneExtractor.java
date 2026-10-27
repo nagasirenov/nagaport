@@ -39,7 +39,7 @@ public class ContainerCraneExtractor extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(slot);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -47,30 +47,30 @@ public class ContainerCraneExtractor extends ContainerBase {
 			var3 = var5.copy();
 
 			if(slot < 9) { //filters
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(slot <= extractor.getSizeInventory() - 1) {
 				if(!this.mergeItemStack(var5, extractor.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(var3.getItem() == ModItems.upgrade_stack) {
 					 if(!this.mergeItemStack(var5, 18, 19, false))
-						 return null;
+						 return ItemStack.EMPTY;
 				} else if(var3.getItem() == ModItems.upgrade_ejector) {
 					 if(!this.mergeItemStack(var5, 19, 20, false))
-						 return null;
+						 return ItemStack.EMPTY;
 				} else if(!this.mergeItemStack(var5, 9, extractor.getSizeInventory(), false)) {
-					 return null;
+					 return ItemStack.EMPTY;
 				}
 
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}
@@ -95,7 +95,7 @@ public class ContainerCraneExtractor extends ContainerBase {
 
 		Slot slot = this.getSlot(index);
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
 		if(slot.getHasStack())

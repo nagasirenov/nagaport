@@ -119,4 +119,9 @@ public class MachineAutocrafter extends BlockContainer {
 
 		super.breakBlock(world, pos, state);
 	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
 }

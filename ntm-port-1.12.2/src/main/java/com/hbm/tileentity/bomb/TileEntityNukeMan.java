@@ -54,7 +54,7 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return slots[i];
+		ItemStack stack = slots[i]; return stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack;
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class TileEntityNukeMan extends TileEntity implements ISidedInventory, IG
 
 			return itemStack1;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 

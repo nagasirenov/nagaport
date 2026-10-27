@@ -38,7 +38,7 @@ public class ContainerMachineChemicalFactory extends ContainerBase {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		ItemStack slotOriginal = null;
+		ItemStack slotOriginal = ItemStack.EMPTY;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
 		if(slot != null && slot.getHasStack()) {
@@ -48,27 +48,27 @@ public class ContainerMachineChemicalFactory extends ContainerBase {
 			if(index <= tile.getSizeInventory() - 1) {
 				SlotCraftingOutput.checkAchievements(player, slotStack);
 				if(!this.mergeItemStack(slotStack, tile.getSizeInventory(), this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(slotOriginal.getItem() instanceof IBatteryItem || slotOriginal.getItem() == ModItems.battery_creative) {
-					if(!this.mergeItemStack(slotStack, 0, 1, false)) return null;
+					if(!this.mergeItemStack(slotStack, 0, 1, false)) return ItemStack.EMPTY;
 				} else if(slotOriginal.getItem() instanceof ItemBlueprints) {
-					if(!this.mergeItemStack(slotStack, 4, 5, false)) return null;
+					if(!this.mergeItemStack(slotStack, 4, 5, false)) return ItemStack.EMPTY;
 				} else if(slotOriginal.getItem() instanceof ItemBlueprints) {
-					if(!this.mergeItemStack(slotStack, 11, 12, false)) return null;
+					if(!this.mergeItemStack(slotStack, 11, 12, false)) return ItemStack.EMPTY;
 				} else if(slotOriginal.getItem() instanceof ItemBlueprints) {
-					if(!this.mergeItemStack(slotStack, 18, 19, false)) return null;
+					if(!this.mergeItemStack(slotStack, 18, 19, false)) return ItemStack.EMPTY;
 				} else if(slotOriginal.getItem() instanceof ItemBlueprints) {
-					if(!this.mergeItemStack(slotStack, 25, 26, false)) return null;
+					if(!this.mergeItemStack(slotStack, 25, 26, false)) return ItemStack.EMPTY;
 				} else if(slotOriginal.getItem() instanceof ItemMachineUpgrade) {
-					if(!this.mergeItemStack(slotStack, 1, 4, false)) return null;
+					if(!this.mergeItemStack(slotStack, 1, 4, false)) return ItemStack.EMPTY;
 				} else {
 					if(!InventoryUtil.mergeItemStack(this.inventorySlots, slotStack, 5, 8, false) &&
 							!InventoryUtil.mergeItemStack(this.inventorySlots, slotStack, 12, 15, false) &&
 							!InventoryUtil.mergeItemStack(this.inventorySlots, slotStack, 19, 22, false) &&
-							!InventoryUtil.mergeItemStack(this.inventorySlots, slotStack, 26, 29, false)) return null;
+							!InventoryUtil.mergeItemStack(this.inventorySlots, slotStack, 26, 29, false)) return ItemStack.EMPTY;
 				}
 			}
 

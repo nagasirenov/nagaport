@@ -28,4 +28,10 @@ public class BlockCMGlass extends BlockCM {
 		net.minecraft.block.state.IBlockState neighbor = world.getBlockState(pos.offset(side));
 		return neighbor.getBlock() == this ? false : super.shouldSideBeRendered(state, world, pos, side);
 	}
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
+	}
 }

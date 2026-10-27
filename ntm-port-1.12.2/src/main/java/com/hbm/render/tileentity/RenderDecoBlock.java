@@ -19,8 +19,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderDecoBlock extends TileEntitySpecialRenderer {
 
-	private static final ResourceLocation texture3 = new ResourceLocation(RefStrings.MODID + ":" + "textures/models/SteelRoof.png");
-	private static final ResourceLocation texture6 = new ResourceLocation(RefStrings.MODID + ":" + "textures/models/ModelBroadcaster.png");
+	private static final ResourceLocation texture3 = new ResourceLocation(RefStrings.MODID + ":" + "textures/models/steelroof.png");
+	private static final ResourceLocation texture6 = new ResourceLocation(RefStrings.MODID + ":" + "textures/models/modelbroadcaster.png");
 	private static final ResourceLocation texture7 = new ResourceLocation(RefStrings.MODID + ":" + "textures/models/ModelRadio.png");
 	private static final ResourceLocation texture8 = new ResourceLocation(RefStrings.MODID + ":" + "textures/models/ModelRadioReceiver.png");
 

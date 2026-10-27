@@ -2226,9 +2226,9 @@ public class ModBlocks {
 		drone_waypoint = com.hbm.blocks.LegacyBlockTextures.bind(new DroneWaypoint().setTranslationKey("drone_waypoint").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_waypoint");
 		drone_crate = new DroneCrate().setTranslationKey("drone_crate").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		drone_waypoint_request = com.hbm.blocks.LegacyBlockTextures.bind(new DroneWaypointRequest().setTranslationKey("drone_waypoint_request").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_waypoint_request");
-		drone_dock = com.hbm.blocks.LegacyBlockTextures.bind(new DroneDock().setTranslationKey("drone_dock").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_dock");
-		drone_crate_provider = com.hbm.blocks.LegacyBlockTextures.bind(new DroneDock().setTranslationKey("drone_crate_provider").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_crate_provider");
-		drone_crate_requester = com.hbm.blocks.LegacyBlockTextures.bind(new DroneDock().setTranslationKey("drone_crate_requester").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab), RefStrings.MODID + ":drone_crate_requester");
+		drone_dock = new DroneDock().setTranslationKey("drone_dock").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+		drone_crate_provider = new DroneDock().setTranslationKey("drone_crate_provider").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+		drone_crate_requester = new DroneDock().setTranslationKey("drone_crate_requester").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 
 		pneumatic_tube = new PneumoTube().setSoundType(ModSoundTypes.pipe).setTranslationKey("pneumatic_tube").setHardness(0.1F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
 		pneumatic_tube_paintable = new PneumoTubePaintableBlock().setTranslationKey("pneumatic_tube_paintable").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
@@ -2693,11 +2693,8 @@ public class ModBlocks {
 		concrete_liquid = new GenericFiniteFluid(liquidConcrete, Material.ROCK, "concrete_liquid", "concrete_liquid_flowing").setQuantaPerBlock(4).setTranslationKey("concrete_liquid").setResistance(500F);
 
 		flesh_block = new MeltedFlesh(Material.SNOW).withSoundType(SoundType.GROUND).setTranslationKey("flesh_block").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
-		com.hbm.blocks.LegacyBlockTextures.bind(flesh_block, RefStrings.MODID + ":meltedFlesh");
 		charred_flesh_block = new MeltedFlesh(Material.SNOW).withSoundType(SoundType.GROUND).setTranslationKey("charred_flesh_block").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
-		com.hbm.blocks.LegacyBlockTextures.bind(charred_flesh_block, RefStrings.MODID + ":charredFlesh");
 		carbonized_flesh_block = new MeltedFlesh(Material.SNOW).withSoundType(SoundType.GROUND).setTranslationKey("carbonized_flesh_block").setCreativeTab(MainRegistry.blockTab).setHardness(0.1F).setLightOpacity(0);
-		com.hbm.blocks.LegacyBlockTextures.bind(carbonized_flesh_block, RefStrings.MODID + ":carbonizedFlesh");
 
 		ccl_fluid = new GenericFluid("ccl_fluid").setDensity(1840).setViscosity(1000).setTemperature(273);
 		FluidRegistry.registerFluid(ccl_fluid);

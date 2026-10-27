@@ -167,4 +167,10 @@ public boolean canBlockStay(World world, int x, int y, int z) {
 		return super.getTranslationKey() + "_" + sapling.name().toLowerCase(Locale.US);
 	}
 
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
+	}
 }

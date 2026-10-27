@@ -1,36 +1,25 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "hbm:barbed_wire",
-    "textures": {
-      "#OBJModel.Default.Texture.Name": "hbm:blocks/barbed_wire_acid_model",
-      "#OBJModel.White.Texture.Name": "hbm:blocks/barbed_wire_acid_model"
-    },
-    "custom": {
-      "flip-v": true
-    }
-  },
   "variants": {
-    "orientation=0": [
-      {}
-    ],
-    "orientation=1": [
-      {}
-    ],
-    "orientation=2": [
-      {}
-    ],
-    "orientation=3": [
-      {}
-    ],
-    "orientation=4": [
-      {}
-    ],
-    "orientation=5": [
-      {}
-    ],
-    "inventory": [
-      {}
-    ]
+    "orientation=0": {
+      "model": "hbm:barbed_wire_acid"
+    },
+    "orientation=1": {
+      "model": "hbm:barbed_wire_acid"
+    },
+    "orientation=2": {
+      "model": "hbm:barbed_wire_acid"
+    },
+    "orientation=3": {
+      "model": "hbm:barbed_wire_acid"
+    },
+    "orientation=4": {
+      "model": "hbm:barbed_wire_acid"
+    },
+    "orientation=5": {
+      "model": "hbm:barbed_wire_acid"
+    },
+    "inventory": {
+      "model": "hbm:barbed_wire_acid"
+    }
   }
 }

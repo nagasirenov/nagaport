@@ -26,7 +26,55 @@ import net.minecraft.nbt.NBTTagCompound;
 import com.hbm.render.icon.IIcon;
 import net.minecraft.world.World;
 
-public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IItemControlReceiver, IGUIProvider {
+public class ItemFluidIDMulti extends ItemFluidIdentifier implements IItemControlReceiver, IGUIProvider {
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean requiresMultipleRenderPasses() {
+		return true;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister reg) {
+		String base = com.hbm.render.item.NativeItemTextureRegistry.texture(this);
+		if(base == null) base = "hbm:fluid_identifier_multi";
+		this.itemIcon = reg.registerIcon(base);
+		this.overlayIcon = reg.registerIcon("hbm:fluid_identifier_overlay");
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(ItemStack stack, int pass) {
+		return pass == 1 ? this.overlayIcon : this.itemIcon;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIconFromDamageForRenderPass(int meta, int pass) {
+		return pass == 1 ? this.overlayIcon : this.itemIcon;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getColorFromItemStack(ItemStack stack, int pass) {
+		if(pass == 0) {
+			return 16777215;
+		} else {
+			FluidType primary = getType(stack, true);
+			if(primary == Fluids.NONE && stack.getItemDamage() > 0) {
+				primary = Fluids.fromID(stack.getItemDamage());
+			}
+			int j = primary.getColor();
+
+			if(j < 0) {
+				j = 16777215;
+			}
+
+			return j;
+		}
+	}
+
 
 
 

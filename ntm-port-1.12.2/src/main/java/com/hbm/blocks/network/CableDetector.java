@@ -9,6 +9,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockStateContainer;
 import com.hbm.render.icon.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import com.hbm.render.icon.IIcon;
@@ -21,8 +23,26 @@ public class CableDetector extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconOn;
 
+	public static final PropertyBool ACTIVE = PropertyBool.create("active");
+
 	public CableDetector(Material p_i45386_1_) {
 		super(p_i45386_1_);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(ACTIVE, false));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, ACTIVE);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(ACTIVE, meta == 1);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(ACTIVE) ? 1 : 0;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -66,5 +86,10 @@ public class CableDetector extends BlockContainer {
 			TileEntityCableSwitch te = (TileEntityCableSwitch) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 			te.updateState();
 		}
+	}
+
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
 	}
 }

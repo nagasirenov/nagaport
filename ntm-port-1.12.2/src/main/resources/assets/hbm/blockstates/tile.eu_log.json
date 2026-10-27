@@ -14,6 +14,9 @@
     },
     "axis=none": {
       "model": "hbm:eu_log_log"
+    },
+    "inventory": {
+      "model": "hbm:item/tile.eu_log"
     }
   }
 }

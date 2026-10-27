@@ -81,7 +81,7 @@ public class ContainerElectrolyser extends Container {
 	
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 }

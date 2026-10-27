@@ -35,7 +35,7 @@ public class GUIArmorTable extends GuiInfoContainer {
 	public void drawScreen(int x, int y, float interp) {
 		super.drawScreen(x, y, interp);
 
-		if(this.mc.player.inventory.getItemStack() == null) {
+		if(this.mc.player.inventory.getItemStack().isEmpty()) {
 			
 			String[] unloc = new String[] {
 					"armorMod.type.helmet",
@@ -78,7 +78,7 @@ public class GUIArmorTable extends GuiInfoContainer {
 
 		ItemStack armor = this.inventorySlots.getSlot(ArmorModHandler.MOD_SLOTS).getStack();
 
-		if(armor != null) {
+		if(armor != null && !armor.isEmpty()) {
 
 			if(armor.getItem() instanceof ItemArmor)
 				this.drawTexturedModalRect(guiLeft + 41 + 22, guiTop + 60, 176, 74, 22, 22);
@@ -101,7 +101,7 @@ public class GUIArmorTable extends GuiInfoContainer {
 		ItemStack mod = this.inventorySlots.getSlot(index).getStack();
 		ItemStack armor = this.inventorySlots.getSlot(ArmorModHandler.MOD_SLOTS).getStack();
 
-		if(mod == null)
+		if(mod == null || mod.isEmpty())
 			return;
 
 		if(ArmorModHandler.isApplicable(armor, mod)) {

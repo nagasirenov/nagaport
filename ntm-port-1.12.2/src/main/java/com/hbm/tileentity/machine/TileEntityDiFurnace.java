@@ -37,21 +37,13 @@ public class TileEntityDiFurnace extends TileEntityMachinePolluting implements I
     }
 
 
-	/** Raw quantity is required for dynamically valid stacks with a stale empty cache.
-	 * Admission of native-empty stacks is handled at the furnace boundaries, not here. */
+	/**
+	 * Native stack count only. Zero/negative counts are empty by the 1.12
+	 * contract and are not a second quantity to be excavated through reflection;
+	 * the furnace boundaries normalize such records before they reach this code.
+	 */
 	private static int quantity(ItemStack stack) {
-		int count = stack.getCount();
-		if(count != 0) return count;
-		try {
-			return QuantityField.FIELD.getInt(stack);
-		} catch(IllegalAccessException ex) {
-			throw new IllegalStateException("Cannot read furnace stack quantity", ex);
-		}
-	}
-
-	private static final class QuantityField {
-		private static final java.lang.reflect.Field FIELD = net.minecraftforge.fml.relauncher.ReflectionHelper.findField(
-				ItemStack.class, "stackSize", "field_77994_a");
+		return stack == null || stack.isEmpty() ? 0 : stack.getCount();
 	}
 
 	public int progress;

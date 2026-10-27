@@ -59,7 +59,7 @@ public class ContainerOrbitalStationLauncher extends ContainerBase {
 		//DRAG: 5
 
 		if(index >= tile.getSizeInventory() && mode == ClickType.QUICK_MOVE) {
-			return null;
+			return ItemStack.EMPTY;
 		}
 
 		if(index < tile.getSizeInventory() - RocketStruct.MAX_STAGES * 2 || index >= tile.getSizeInventory()) {
@@ -68,10 +68,10 @@ public class ContainerOrbitalStationLauncher extends ContainerBase {
 
 		Slot slot = this.getSlot(index);
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
-		if(held != null && !slot.isItemValid(held)) return null;
+		if(held != null && !slot.isItemValid(held)) return ItemStack.EMPTY;
 
 		if(slot.getHasStack())
 			ret = slot.getStack().copy();

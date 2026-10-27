@@ -46,7 +46,7 @@ public class ContainerMachineOilWell extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int par2) {
-		ItemStack var3 = null;
+		ItemStack var3 = ItemStack.EMPTY;
 		Slot var4 = (Slot) this.inventorySlots.get(par2);
 
 		if(var4 != null && var4.getHasStack()) {
@@ -55,25 +55,25 @@ public class ContainerMachineOilWell extends Container {
 
 			if(par2 <= 7) {
 				if(!this.mergeItemStack(var5, 8, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else {
 
 				if(var5.getItem() instanceof ItemMachineUpgrade) {
 					if(!this.mergeItemStack(var5, 5, 8, true)) {
-						return null;
+						return ItemStack.EMPTY;
 					}
 				} else {
 					if(!this.mergeItemStack(var5, 0, 2, false)) {
 						if(!this.mergeItemStack(var5, 3, 4, false)) {
-							return null;
+							return ItemStack.EMPTY;
 						}
 					}
 				}
 			}
 
 			if(var5.getCount() == 0) {
-				var4.putStack((ItemStack) null);
+				var4.putStack(ItemStack.EMPTY);
 			} else {
 				var4.onSlotChanged();
 			}

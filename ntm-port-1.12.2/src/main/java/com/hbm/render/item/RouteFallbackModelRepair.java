@@ -25,6 +25,7 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.IResource;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.model.IModel;
@@ -95,8 +96,9 @@ public final class RouteFallbackModelRepair {
         // real variants (soyuz.png would shadow soyuz_0/1/2).
         java.lang.reflect.Method byMeta = declaredCallback(item, "getIconFromDamage", int.class);
         java.lang.reflect.Method byPass = declaredCallback(item, "getIcon", ItemStack.class, int.class);
-        if(byMeta != null || byPass != null) {
-            IBakedModel callbackModel = callbackModel(item, byMeta, byPass);
+        java.lang.reflect.Method byDamagePass = declaredCallback(item, "getIconFromDamageForRenderPass", int.class, int.class);
+        if(byMeta != null || byPass != null || byDamagePass != null) {
+            IBakedModel callbackModel = callbackModel(item, byMeta, byPass, byDamagePass);
             if(callbackModel != null) return callbackModel;
         }
 
@@ -109,13 +111,13 @@ public final class RouteFallbackModelRepair {
 
     /** Per-variant models driven by the item's real sub-item stacks. */
     private static IBakedModel callbackModel(Item item,
-            java.lang.reflect.Method byMeta, java.lang.reflect.Method byPass) {
+            java.lang.reflect.Method byMeta, java.lang.reflect.Method byPass, java.lang.reflect.Method byDamagePass) {
         // Real stacks (from getSubItems where available) preserve metadata and
         // NBT; molds carry IDs beyond the 4-bit block-metadata range.
         List<ItemStack> resolvedStacks = new ArrayList<>();
         List<List<TextureAtlasSprite>> layersList = new ArrayList<>();
         for(ItemStack stack : subItems(item)) {
-            List<TextureAtlasSprite> layers = layersFor(item, byMeta, byPass, stack);
+            List<TextureAtlasSprite> layers = layersFor(item, byMeta, byPass, byDamagePass, stack);
             if(layers != null) {
                 resolvedStacks.add(stack);
                 layersList.add(layers);
@@ -156,10 +158,23 @@ public final class RouteFallbackModelRepair {
 
     /** Layer sprites for one real stack; null when no layer resolves. */
     private static List<TextureAtlasSprite> layersFor(Item item,
-            java.lang.reflect.Method byMeta, java.lang.reflect.Method byPass, ItemStack stack) {
+            java.lang.reflect.Method byMeta, java.lang.reflect.Method byPass, java.lang.reflect.Method byDamagePass, ItemStack stack) {
         try {
             List<TextureAtlasSprite> layers = new ArrayList<>();
-            if(byPass != null) {
+            if(byDamagePass != null) {
+                java.lang.reflect.Method getPasses = declaredCallback(item, "getRenderPasses", int.class);
+                int passes = 2;
+                if(getPasses != null) {
+                    try {
+                        passes = (int) getPasses.invoke(item, stack.getMetadata());
+                    } catch(Exception ignored) {}
+                }
+                for(int pass = 0; pass < passes; pass++) {
+                    TextureAtlasSprite sprite = NativeItemParticles.spriteOf(
+                            (com.hbm.render.icon.IIcon) byDamagePass.invoke(item, stack.getMetadata(), pass));
+                    if(sprite != null) layers.add(sprite);
+                }
+            } else if(byPass != null) {
                 for(int pass = 0; pass < 2; pass++) {
                     TextureAtlasSprite sprite = NativeItemParticles.spriteOf(
                             (com.hbm.render.icon.IIcon) byPass.invoke(item, stack, pass));
@@ -199,7 +214,9 @@ public final class RouteFallbackModelRepair {
             @Override public IBakedModel handleItemState(IBakedModel model, ItemStack stack, net.minecraft.world.World world, net.minecraft.entity.EntityLivingBase entity) {
                 if(stack == null || stack.isEmpty()) return base;
                 for(Map.Entry<ItemStack, IBakedModel> entry : byStack.entrySet())
-                    if(ItemStack.areItemStacksEqual(stack, entry.getKey())) return entry.getValue();
+                    if(sameVariant(stack, entry.getKey())) return entry.getValue();
+                // Metadata-only is a last resort; it must not be reached while a
+                // full variant (including cartBase/other NBT) is available.
                 for(Map.Entry<ItemStack, IBakedModel> entry : byStack.entrySet())
                     if(entry.getKey().getMetadata() == stack.getMetadata()) return entry.getValue();
                 return base;
@@ -208,6 +225,18 @@ public final class RouteFallbackModelRepair {
         VariantSelectingModel(IBakedModel base, Map<ItemStack, IBakedModel> byStack) {
             this.base = base;
             this.byStack = new HashMap<>(byStack);
+        }
+
+        /** Variant identity ignores stack count and cosmetic rename/repair NBT. */
+        private static boolean sameVariant(ItemStack stack, ItemStack variant) {
+            if(stack.isEmpty() || variant.isEmpty()) return false;
+            if(stack.getItem() != variant.getItem() || stack.getMetadata() != variant.getMetadata()) return false;
+
+            NBTTagCompound a = stack.getTagCompound() == null ? null : stack.getTagCompound().copy();
+            NBTTagCompound b = variant.getTagCompound() == null ? null : variant.getTagCompound().copy();
+            if(a != null) { a.removeTag("display"); a.removeTag("RepairCost"); }
+            if(b != null) { b.removeTag("display"); b.removeTag("RepairCost"); }
+            return a == null ? b == null : a.equals(b);
         }
         @Override public List<BakedQuad> getQuads(IBlockState state, net.minecraft.util.EnumFacing side, long rand) { return base.getQuads(state, side, rand); }
         @Override public boolean isAmbientOcclusion() { return base.isAmbientOcclusion(); }
@@ -234,7 +263,9 @@ public final class RouteFallbackModelRepair {
                 ? LegacyTexturePath.blockAtlasLocation(name.toString())
                 : LegacyTexturePath.itemAtlasLocation(name.toString());
         TextureMap atlas = Minecraft.getMinecraft().getTextureMapBlocks();
-        TextureAtlasSprite sprite = atlas.getTextureExtry(spriteName.toString());
+        // Registry membership is not proof of a successful stitch/upload; use
+        // the post-stitch atlas lookup and reject the missing sprite.
+        TextureAtlasSprite sprite = atlas.getAtlasSprite(spriteName.toString());
         if(sprite == null || sprite == atlas.getMissingSprite()) return null;
         ResourceLocation png = new ResourceLocation(spriteName.getNamespace(),
                 "textures/" + spriteName.getPath() + ".png");

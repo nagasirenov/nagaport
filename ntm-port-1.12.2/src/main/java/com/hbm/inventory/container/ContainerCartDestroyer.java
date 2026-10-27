@@ -37,7 +37,7 @@ public class ContainerCartDestroyer extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class ContainerCartDestroyer extends Container {
 
 		Slot slot = this.getSlot(index);
 
-		ItemStack ret = null;
+		ItemStack ret = ItemStack.EMPTY;
 		ItemStack held = player.inventory.getItemStack();
 
 		if(slot.getHasStack())

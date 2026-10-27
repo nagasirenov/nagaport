@@ -33,6 +33,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -50,8 +53,26 @@ import com.hbm.lib.ForgeDirection;
 
 public class FluidPump extends BlockContainer implements INBTBlockTransformable, ILookOverlay, IGUIProvider {
 
+	public static final PropertyInteger FACING = PropertyInteger.create("facing", 0, 5);
+
 	public FluidPump(Material mat) {
 		super(mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, 0));
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING, meta >= 0 && meta <= 5 ? meta : 0);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(FACING);
 	}
 
 	@Override

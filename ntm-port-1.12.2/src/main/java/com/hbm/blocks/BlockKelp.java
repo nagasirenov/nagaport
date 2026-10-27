@@ -47,6 +47,24 @@ public class BlockKelp extends Block {
 		return false;
 	}
 
+	private static final AxisAlignedBB KELP_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, net.minecraft.world.IBlockAccess source, BlockPos pos) {
+		return KELP_AABB;
+	}
+
+	@Override
+	public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(net.minecraft.world.IBlockAccess worldIn, IBlockState state, BlockPos pos, net.minecraft.util.EnumFacing face) {
+		return net.minecraft.block.state.BlockFaceShape.UNDEFINED;
+	}
+
+	@Override
+	@net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+	public net.minecraft.util.BlockRenderLayer getRenderLayer() {
+		return net.minecraft.util.BlockRenderLayer.CUTOUT;
+	}
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(net.minecraft.block.state.IBlockState blockState, net.minecraft.world.IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
