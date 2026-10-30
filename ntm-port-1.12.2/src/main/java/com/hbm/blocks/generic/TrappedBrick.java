@@ -27,6 +27,12 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class TrappedBrick extends BlockContainer {
+	// 1.7.10 type 0 cube; BlockContainer would make it INVISIBLE in 1.12 (render-type parity audit).
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 
 	public static final PropertyInteger META = PropertyInteger.create("meta", 0, 15);
 

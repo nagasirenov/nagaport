@@ -31,6 +31,12 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockEmitter extends BlockContainer implements IToolable, ITooltipProvider {
+	// TESR draws only the beam; 1.7.10 type 0 cube body stays.
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 
 	public BlockEmitter() {
 		super(Material.IRON);
