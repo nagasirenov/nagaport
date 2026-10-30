@@ -11,6 +11,12 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class BlockICFStruct extends BlockContainer {
+	// TESR skips the core cell; 1.7.10 type 0 cube body stays.
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 
 	public BlockICFStruct(Material mat) { super(mat); }
 	@Override public TileEntity createNewTileEntity(World world, int meta) { return new TileEntityICFStruct(); }
