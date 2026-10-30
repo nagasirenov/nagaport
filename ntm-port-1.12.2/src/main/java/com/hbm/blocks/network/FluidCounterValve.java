@@ -20,6 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FluidCounterValve extends FluidDuctBase implements ILookOverlay, ITooltipProvider {
+	// 1.7.10 type 0 cube; BlockContainer would make it INVISIBLE in 1.12 (render-type parity audit).
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 
 	protected IIcon blockIcon;
 
