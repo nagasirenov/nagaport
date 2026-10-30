@@ -22,6 +22,12 @@ import net.minecraft.util.math.BlockPos;
 import com.hbm.lib.ForgeDirection;
 
 public abstract class BlockGasBase extends Block {
+	// 1.7.10 getRenderType() -1: gas is invisible, only particles are drawn.
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
+	}
+
 
 	float red;
 	float green;

@@ -35,6 +35,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class BlockAtmosphereEditor extends BlockContainer implements IToolable, ITooltipProvider, ILookOverlay {
+	// 1.7.10 type 0 cube; BlockContainer would make it INVISIBLE in 1.12 (render-type parity audit).
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 
 	public BlockAtmosphereEditor(Material material) {
 		super(material);

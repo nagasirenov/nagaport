@@ -17,6 +17,12 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockGasClorine extends BlockGasBase {
+	// 1.7.10 getRenderType() 0 overrides BlockGasBase -1: chlorine is a visible cube.
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 
 	public BlockGasClorine() {
 		super(0.7F, 0.8F, 0.6F);
