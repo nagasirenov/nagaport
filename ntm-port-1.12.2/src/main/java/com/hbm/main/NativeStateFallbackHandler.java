@@ -523,7 +523,10 @@ public final class NativeStateFallbackHandler {
 			}
 			return net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
 		}
-		@Override public ItemCameraTransforms getItemCameraTransforms() { return ItemCameraTransforms.DEFAULT; }
+		@Override public ItemCameraTransforms getItemCameraTransforms() {
+			// Cubes need block/block display transforms; flat cross items keep the item defaults.
+			return adapter.isCross() ? ItemCameraTransforms.DEFAULT : com.hbm.render.model.BlockItemTransforms.BLOCK;
+		}
 		private final ItemOverrideList overrides = new ItemOverrideList(Collections.emptyList()) {
 			@Override
 			public IBakedModel handleItemState(IBakedModel originalModel, net.minecraft.item.ItemStack stack, net.minecraft.world.World world, net.minecraft.entity.EntityLivingBase entity) {

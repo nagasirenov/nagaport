@@ -162,7 +162,7 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 
 	@Override
 	public ItemCameraTransforms getItemCameraTransforms() {
-		return ItemCameraTransforms.DEFAULT;
+		return inventoryCube ? BlockItemTransforms.BLOCK : ItemCameraTransforms.DEFAULT;
 	}
 
 	@Override
