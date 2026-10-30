@@ -80,6 +80,7 @@ public class ItemConveyorWand extends Item implements ILookOverlay {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
+		if(!this.isInCreativeTab(tab)) return;
 		for(ConveyorType type : ConveyorType.values()) {
 			list.add(new ItemStack(this, 1, type.ordinal()));
 		}
