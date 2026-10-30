@@ -25,6 +25,8 @@ public final class NTMJeiPlugin implements IModPlugin {
         }
     }
     @Override public void register(IModRegistry registry) {
+        final mezz.jei.api.recipe.IStackHelper stackHelper = registry.getJeiHelpers().getStackHelper();
+        registry.handleRecipes(com.hbm.crafting.nativeapi.NtmCraftingRecipe.class, recipe -> NtmCraftingRecipeWrapper.create(recipe, stackHelper), mezz.jei.api.recipe.VanillaRecipeCategoryUid.CRAFTING);
         registry.addRecipeRegistryPlugin(new NativeRecipeLookup(categories, registry.getIngredientRegistry()));
         com.hbm.handler.imc.IMCHandlerNHNEI.registerCatalysts(registry, categories);
         com.hbm.handler.RecipeBrowserVisibility.configureHiddenItems(stack -> registry.getJeiHelpers().getIngredientBlacklist().addIngredientToBlacklist(stack));

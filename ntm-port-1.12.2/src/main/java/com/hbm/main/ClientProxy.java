@@ -191,7 +191,6 @@ public class ClientProxy extends ServerProxy {
 		registerBlockRenderer();
 
 		IReloadableResourceManager resourceMan = (IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager();
-		resourceMan.registerReloadListener(new QMAWLoader());
 		resourceMan.registerReloadListener(new HFRModelReloader());
 		resourceMan.registerReloadListener(new com.hbm.sound.SoundCategoryResolver());
 
@@ -207,6 +206,9 @@ public class ClientProxy extends ServerProxy {
 		FallingTintModelHandler.registerColorHandlers();
 		if(legacyBaseModelHandler != null) legacyBaseModelHandler.registerColorHandlers();
 		com.hbm.render.item.ModItemColors.registerItemColors();
+
+		// Must run after registry events: registering triggers an immediate reload that resolves items/blocks by name.
+		((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new QMAWLoader());
 	}
 
 	private void registerClientEventHandler(Object handler) {

@@ -2,10 +2,18 @@ package com.hbm.main;
 
 import com.hbm.lib.RefStrings;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
+import org.apache.logging.log4j.LogManager;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -55,6 +63,29 @@ public final class ModSoundEvents {
 
 	public static final SoundEvent WEAPON_EXPLOSION_SMALL_NEAR = create("weapon.explosionSmallNear");
 	public static final SoundEvent WEAPON_EXPLOSION_SMALL_FAR = create("weapon.explosionSmallFar");
+
+	// Every top-level key of the mod's own sounds.json becomes a registered event. This runs
+	// during class init, before any resolve() call. create() dedups against the constants above.
+	static {
+		try(InputStream in = ModSoundEvents.class.getResourceAsStream("/assets/" + RefStrings.MODID + "/sounds.json")) {
+			if(in == null) {
+				LogManager.getLogger("HBM").warn("sounds.json not found on classpath; only statically declared sound events are registered");
+			} else {
+				JsonElement root = new JsonParser().parse(new InputStreamReader(in, StandardCharsets.UTF_8));
+				if(root.isJsonObject()) {
+					for(Map.Entry<String, JsonElement> entry : root.getAsJsonObject().entrySet()) {
+						try {
+							create(entry.getKey());
+						} catch(RuntimeException ex) {
+							LogManager.getLogger("HBM").warn("Skipping invalid sound event key '{}'", entry.getKey());
+						}
+					}
+				}
+			}
+		} catch(Exception ex) {
+			LogManager.getLogger("HBM").warn("Failed to read sounds.json; only partially registered sound events available", ex);
+		}
+	}
 
 	// Only compiler-proven coordinate effects; existing approved paths stay separate.
 	private static final Map<ResourceLocation, SoundEvent> WORLD_EFFECTS = new LinkedHashMap<>();
