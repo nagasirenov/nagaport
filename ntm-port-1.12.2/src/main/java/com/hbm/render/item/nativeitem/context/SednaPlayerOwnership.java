@@ -84,7 +84,8 @@ public final class SednaPlayerOwnership {
         SednaPlayerLayers companion = new SednaPlayerLayers(renderer);
         for(int i = 0; i < layers.size(); i++) {
             LayerRenderer<?> layer = layers.get(i);
-            if(layer == null || !nativeLayers.contains(layer.getClass())) throw new IllegalStateException("Unknown player layer: " + (layer == null ? "null" : layer.getClass().getName()));
+            if(layer == null || (!nativeLayers.contains(layer.getClass()) && !isCompatibleOptifinePlayerItemsLayer(layer,renderer)))
+                throw new IllegalStateException("Unknown player layer: " + (layer == null ? "null" : layer.getClass().getName()));
             if(layer.getClass() == LayerBipedArmor.class) {
                 armorCount++;
                 LayerBipedArmor armor = (LayerBipedArmor)layer;
@@ -110,6 +111,20 @@ public final class SednaPlayerOwnership {
         if(armorCount != 1 || heldCount != 1 || headCount != 1) throw new IllegalStateException("Native armor/held/head layer ownership is not unique");
         for(int i=0;i<after.size();i++) after.set(i,companion.visibility(after.get(i)));
         changes.add(new Change(renderer,layersField,layers,after));
+    }
+    private static boolean isCompatibleOptifinePlayerItemsLayer(LayerRenderer<?> layer, RenderPlayer renderer) {
+        if(!"net.optifine.player.PlayerItemsLayer".equals(layer.getClass().getName())) return false;
+        Field rendererField = null;
+        for(Class<?> owner = layer.getClass(); owner != null && owner != Object.class; owner = owner.getSuperclass()) {
+            for(Field field : owner.getDeclaredFields()) if(!Modifier.isStatic(field.getModifiers()) && field.getType().isAssignableFrom(renderer.getClass())) {
+                if(rendererField != null) throw new IllegalStateException("Ambiguous OptiFine player layer renderer ownership");
+                rendererField = field;
+            }
+        }
+        if(rendererField == null) throw new IllegalStateException("OptiFine player layer renderer ownership missing");
+        rendererField.setAccessible(true);
+        if(NativeItemFields.get(rendererField,layer) != renderer) throw new IllegalStateException("OptiFine player layer renderer differs");
+        return true;
     }
     private static Field identityField(Class<?> owner, Object target, Object value) {
         Field found = null;
