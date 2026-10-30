@@ -94,6 +94,9 @@ public final class NativeStateFallbackHandler {
 	private static final FaceBakery FACE_BAKERY = new FaceBakery();
 	private static final Map<String, FallbackBlock> ROUTES = new HashMap<>();
 	private static final Map<String, IBlockState> PARTICLE_STATES = new HashMap<>();
+	/** Item routes of blocks that were flat 2D icons in 1.7.10 (not 3D in inventory). */
+	private static final java.util.Set<String> FLAT_ITEM_ROUTES = new java.util.HashSet<>();
+	private static final java.util.Set<String> MISSING_SPRITE_LOGGED = ConcurrentHashMap.newKeySet();
 	private static final Loader LOADER = new Loader();
 	private static boolean registered;
 
@@ -107,6 +110,7 @@ public final class NativeStateFallbackHandler {
 		}
 		ROUTES.clear();
 		PARTICLE_STATES.clear();
+		FLAT_ITEM_ROUTES.clear();
 
 		Map<?, ?> existing = stateMappers();
 		int blocks = 0, states = 0, blockItems = 0;
@@ -166,7 +170,8 @@ public final class NativeStateFallbackHandler {
 					&& !BakeOwnedModelLoader.hasInventoryAsset(name)
 					&& !hasCustomRoute(item)) {
 				String itemKey = PREFIX + name.getPath().replace('#', '_') + "/item";
-				ROUTES.put(itemKey, adapter);
+					ROUTES.put(itemKey, adapter);
+				if(!isThreeDInInventory(block)) FLAT_ITEM_ROUTES.add(itemKey);
 				ModelResourceLocation inventory = new ModelResourceLocation(
 						new ResourceLocation(RefStrings.MODID, itemKey), "inventory");
 				ModelBakery.registerItemVariants(item, inventory);
@@ -368,6 +373,22 @@ public final class NativeStateFallbackHandler {
 				|| block.getDefaultState().getMaterial() == net.minecraft.block.material.Material.VINE;
 	}
 
+	/** 1.7.10 RenderItem rule: an ItemBlock is a cube only for render types that are 3D in inventory. */
+	public static boolean isThreeDInInventory(Block block) {
+		if(legacyRenderType(block) == -1) return false;
+		try {
+			return block.getRenderType(block.getDefaultState()) == net.minecraft.util.EnumBlockRenderType.MODEL;
+		} catch(RuntimeException failure) {
+			return true;
+		}
+	}
+
+	/** Logs a substituted missing sprite once per unique key. */
+	public static void warnMissingSprite(String key) {
+		if(MISSING_SPRITE_LOGGED.add(key))
+			MainRegistry.logger.warn("Missing sprite for {} -> using missing texture", key);
+	}
+
 	private static int legacyRenderType(Block block) {
 		for(Class<?> current = block.getClass(); current != null && current != Block.class;
 				current = current.getSuperclass()) {
@@ -401,7 +422,8 @@ public final class NativeStateFallbackHandler {
 			if(path.startsWith("models/")) path = path.substring(7);
 			FallbackBlock adapter = ROUTES.get(path);
 			if(adapter == null) throw new IllegalArgumentException("Unknown native fallback route " + location);
-			return new FallbackModel(adapter, path.endsWith("/item"), PARTICLE_STATES.get(path));
+			return new FallbackModel(adapter, path.endsWith("/item"), PARTICLE_STATES.get(path),
+						FLAT_ITEM_ROUTES.contains(path));
 		}
 	}
 
@@ -418,11 +440,13 @@ public final class NativeStateFallbackHandler {
 		private final FallbackBlock adapter;
 		private final boolean inventory;
 		private final IBlockState particleState;
+		private final boolean flatInventory;
 
-		FallbackModel(FallbackBlock adapter, boolean inventory, IBlockState particleState) {
+		FallbackModel(FallbackBlock adapter, boolean inventory, IBlockState particleState, boolean flatInventory) {
 			this.adapter = adapter;
 			this.inventory = inventory;
 			this.particleState = particleState;
+			this.flatInventory = inventory && flatInventory;
 		}
 
 		private Map<Integer, List<BakedQuad>> quads() {
@@ -433,11 +457,12 @@ public final class NativeStateFallbackHandler {
 		public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
 			IBlockState resolved = state != null ? state : adapter.block().getDefaultState();
 			int meta = resolved.getBlock().getMetaFromState(resolved);
-			if(adapter.isCross()) {
+			if(adapter.isCross() || flatInventory) {
 				if(side != null) return Collections.emptyList();
 				Map<Integer, List<BakedQuad>> modelCache = CROSS_CACHE.computeIfAbsent(this, key -> new ConcurrentHashMap<>());
 				return modelCache.computeIfAbsent(meta, key -> inventory
-						? makeFlatItemQuads(resolve(adapter.icon(EnumFacing.NORTH, resolved)))
+						? makeFlatItemQuads(resolve(adapter.icon(
+								adapter.isCross() ? EnumFacing.NORTH : EnumFacing.UP, resolved)))
 						: crossQuads(adapter.icon(EnumFacing.NORTH, resolved)));
 			}
 			if(side == null) {
@@ -504,11 +529,13 @@ public final class NativeStateFallbackHandler {
 
 		private static TextureAtlasSprite resolve(IIcon icon) {
 			TextureAtlasSprite sprite = NativeItemParticles.spriteOf(icon, "NativeStateFallbackHandler");
-			return sprite != null ? sprite : net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+			if(sprite != null) return sprite;
+			warnMissingSprite(icon == null ? "null icon" : String.valueOf(icon.getIconName()));
+			return net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
 		}
 
 		@Override public boolean isAmbientOcclusion() { return true; }
-		@Override public boolean isGui3d() { return !adapter.isCross(); }
+		@Override public boolean isGui3d() { return !adapter.isCross() && !flatInventory; }
 		@Override public boolean isBuiltInRenderer() { return false; }
 		@Override public TextureAtlasSprite getParticleTexture() {
 			if(particleState == null)
@@ -525,7 +552,7 @@ public final class NativeStateFallbackHandler {
 		}
 		@Override public ItemCameraTransforms getItemCameraTransforms() {
 			// Cubes need block/block display transforms; flat cross items keep the item defaults.
-			return adapter.isCross() ? ItemCameraTransforms.DEFAULT : com.hbm.render.model.BlockItemTransforms.BLOCK;
+			return adapter.isCross() || flatInventory ? ItemCameraTransforms.DEFAULT : com.hbm.render.model.BlockItemTransforms.BLOCK;
 		}
 		private final ItemOverrideList overrides = new ItemOverrideList(Collections.emptyList()) {
 			@Override

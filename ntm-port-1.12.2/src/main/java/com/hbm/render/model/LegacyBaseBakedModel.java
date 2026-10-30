@@ -67,6 +67,8 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 
 	public static LegacyBaseBakedModel forBlockItem(BlockBase block, Item item, int metadata) {
 		TextureAtlasSprite particle = resolve(block.getIcon(1, metadata));
+		if(!com.hbm.main.NativeStateFallbackHandler.isThreeDInInventory(block))
+			return forFlatItem(item, metadata, particle);
 		return new LegacyBaseBakedModel(block, item, metadata, true, null, particle, true);
 	}
 
@@ -137,7 +139,10 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 
 	private static TextureAtlasSprite resolve(IIcon icon) {
 		TextureAtlasSprite sprite = NativeItemParticles.spriteOf(icon, "LegacyBaseBakedModel");
-		return sprite != null ? sprite : net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+		if(sprite != null) return sprite;
+		com.hbm.main.NativeStateFallbackHandler.warnMissingSprite(
+				icon == null ? "null icon" : String.valueOf(icon.getIconName()));
+		return net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
 	}
 
 	@Override
