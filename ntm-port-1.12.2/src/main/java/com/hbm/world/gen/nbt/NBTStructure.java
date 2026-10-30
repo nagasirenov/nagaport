@@ -87,7 +87,24 @@ public class NBTStructure {
 		put("hbm:tile.ore_coal_oil", "coal_ore");
 	}};
 
+	// 1.12 fires the block/item registry events after preInit, where StructureManager is first loaded;
+	// parsing palettes then would turn every hbm block and the jigsaw markers into air.
+	private static boolean registriesReady;
+	private static final Map<NBTStructure, ResourceLocation> PENDING = new java.util.LinkedHashMap<>();
+
+	/** Parses every structure created before the registries were filled. Call once from init. */
+	public static void loadPending() {
+		registriesReady = true;
+		for(Map.Entry<NBTStructure, ResourceLocation> entry : PENDING.entrySet()) entry.getKey().load(entry.getValue());
+		PENDING.clear();
+	}
+
 	public NBTStructure(ResourceLocation resource) {
+		if(registriesReady) load(resource);
+		else PENDING.put(this, resource);
+	}
+
+	private void load(ResourceLocation resource) {
 		// Can't use regular resource loading, servers don't know how!
 		InputStream stream = NBTStructure.class.getResourceAsStream("/assets/" + resource.getNamespace() + "/" + resource.getPath());
 		if(stream != null) {

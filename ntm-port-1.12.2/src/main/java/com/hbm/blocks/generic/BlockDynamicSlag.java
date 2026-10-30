@@ -75,6 +75,52 @@ public class BlockDynamicSlag extends BlockContainer {
 		}
 	}
 
+	/** Render-only snapshot of the tile, rebuilt per chunk build; 1.7.10 read the same tile fields in RenderBlocks. */
+	public static final class RenderSnapshot {
+		public static final net.minecraftforge.common.property.IUnlistedProperty<RenderSnapshot> PROPERTY = new net.minecraftforge.common.property.IUnlistedProperty<RenderSnapshot>() {
+			@Override public String getName() { return "slag_render"; }
+			@Override public boolean isValid(RenderSnapshot value) { return value != null; }
+			@Override public Class<RenderSnapshot> getType() { return RenderSnapshot.class; }
+			@Override public String valueToString(RenderSnapshot value) { return value.mat + "@" + value.height; }
+		};
+		public final NTMMaterial mat;
+		public final float height;
+		RenderSnapshot(NTMMaterial mat, float height) { this.mat = mat; this.height = height; }
+
+		public static RenderSnapshot of(IBlockState state) {
+			RenderSnapshot snap = state instanceof net.minecraftforge.common.property.IExtendedBlockState
+					? ((net.minecraftforge.common.property.IExtendedBlockState) state).getValue(PROPERTY) : null;
+			return snap != null ? snap : new RenderSnapshot(null, 1F);
+		}
+	}
+
+	@Override
+	protected net.minecraft.block.state.BlockStateContainer createBlockState() {
+		return new net.minecraftforge.common.property.ExtendedBlockState(this, new net.minecraft.block.properties.IProperty<?>[0],
+				new net.minecraftforge.common.property.IUnlistedProperty<?>[] { RenderSnapshot.PROPERTY });
+	}
+
+	@Override
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		TileEntity tile = world.getTileEntity(pos);
+		if(!(tile instanceof TileEntitySlag) || !(state instanceof net.minecraftforge.common.property.IExtendedBlockState)) return state;
+		TileEntitySlag slag = (TileEntitySlag) tile;
+		return ((net.minecraftforge.common.property.IExtendedBlockState) state).withProperty(RenderSnapshot.PROPERTY,
+				new RenderSnapshot(slag.mat, (float) slag.amount / (float) TileEntitySlag.maxAmount));
+	}
+
+	@SideOnly(Side.CLIENT)
+	public IIcon legacyIcon() {
+		return this.blockIcon;
+	}
+
+	/** Same choice as getIcon(world, ...): the material's recolored slag, else the plain slag icon. */
+	@SideOnly(Side.CLIENT)
+	public IIcon iconFor(NTMMaterial mat) {
+		IIcon override = mat == null ? null : iconMap.get(mat);
+		return override != null ? override : this.blockIcon;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
 
@@ -268,8 +314,15 @@ public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metad
 		}
 
 		@Override
+		public NBTTagCompound getUpdateTag() {
+			return this.writeToNBT(new NBTTagCompound());
+		}
+
+		@Override
 		public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 			this.readFromNBT(pkt.getNbtCompound());
+			// Same-state block updates do not rebuild the chunk; height and material live in the tile.
+			if(this.world != null && this.world.isRemote) this.world.markBlockRangeForRenderUpdate(this.pos, this.pos);
 		}
 
 		@Override

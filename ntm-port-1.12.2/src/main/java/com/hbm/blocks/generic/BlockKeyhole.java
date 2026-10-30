@@ -34,6 +34,8 @@ public class BlockKeyhole extends BlockStone {
 
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
+		// 1.7.10 super.registerBlockIcons registered the side icon from the block texture name.
+		this.blockIcon = iconRegister.registerIcon(com.hbm.blocks.LegacyBlockTextures.atlasName(this));
 		this.iconTop = iconRegister.registerIcon("stone");
 	}
 

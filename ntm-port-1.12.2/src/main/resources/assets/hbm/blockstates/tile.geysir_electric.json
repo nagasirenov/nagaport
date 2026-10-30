@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "normal": { "model": "hbm:geysir_electric" },
+    "inventory": { "model": "hbm:geysir_electric" }
+  }
+}

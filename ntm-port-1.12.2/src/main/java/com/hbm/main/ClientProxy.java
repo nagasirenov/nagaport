@@ -204,6 +204,7 @@ public class ClientProxy extends ServerProxy {
 	public void registerPostRegistryInfo() {
 		Jars.initJars();
 		FallingTintModelHandler.registerColorHandlers();
+		SlagModelHandler.registerColorHandlers();
 		if(legacyBaseModelHandler != null) legacyBaseModelHandler.registerColorHandlers();
 		com.hbm.render.item.ModItemColors.registerItemColors();
 

@@ -62,11 +62,11 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 
 	public static LegacyBaseBakedModel forBlock(BlockBase block) {
 		return new LegacyBaseBakedModel(block, null, 0, false, null,
-				resolve(block.getIcon(1, 0)), true);
+				resolve(block.getIcon(1, 0), block.getRegistryName()), true);
 	}
 
 	public static LegacyBaseBakedModel forBlockItem(BlockBase block, Item item, int metadata) {
-		TextureAtlasSprite particle = resolve(block.getIcon(1, metadata));
+		TextureAtlasSprite particle = resolve(block.getIcon(1, metadata), block.getRegistryName());
 		if(!com.hbm.main.NativeStateFallbackHandler.isThreeDInInventory(block))
 			return forFlatItem(item, metadata, particle);
 		return new LegacyBaseBakedModel(block, item, metadata, true, null, particle, true);
@@ -77,7 +77,7 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 	}
 
 	public static LegacyBaseBakedModel forEnumItem(ItemEnumMulti item, int metadata) {
-		return forFlatItem(item, metadata, resolve(item.getIconFromDamage(metadata)));
+		return forFlatItem(item, metadata, resolve(item.getIconFromDamage(metadata), item.getRegistryName()));
 	}
 
 	@Override
@@ -109,7 +109,7 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 	private BakedQuad[] makeCubeQuads(int meta) {
 		BakedQuad[] quads = new BakedQuad[EnumFacing.values().length];
 		for(EnumFacing facing : EnumFacing.values()) {
-			TextureAtlasSprite sprite = resolve(block.getIcon(facing.getIndex(), meta));
+			TextureAtlasSprite sprite = resolve(block.getIcon(facing.getIndex(), meta), block.getRegistryName());
 			if(sprite != null) {
 				quads[facing.ordinal()] = bakeFace(facing, sprite, 0.0F, 0.0F, 0.0F,
 					16.0F, 16.0F, 16.0F, facing, true);
@@ -137,11 +137,11 @@ public final class LegacyBaseBakedModel implements IBakedModel {
 				ModelRotation.X0_Y0, null, true, shade);
 	}
 
-	private static TextureAtlasSprite resolve(IIcon icon) {
+	private static TextureAtlasSprite resolve(IIcon icon, Object owner) {
 		TextureAtlasSprite sprite = NativeItemParticles.spriteOf(icon, "LegacyBaseBakedModel");
 		if(sprite != null) return sprite;
 		com.hbm.main.NativeStateFallbackHandler.warnMissingSprite(
-				icon == null ? "null icon" : String.valueOf(icon.getIconName()));
+				owner + ": " + (icon == null ? "null icon" : String.valueOf(icon.getIconName())));
 		return net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
 	}
 

@@ -378,6 +378,7 @@ public class MainRegistry {
 
 	@EventHandler
 	public static void load(FMLInitializationEvent event) {
+		com.hbm.world.gen.nbt.NBTStructure.loadPending();
 		proxy.registerPostRegistryInfo();
 		HazardRegistry.registerItems();
 		HazardRegistry.registerTrafos();

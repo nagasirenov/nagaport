@@ -25,6 +25,12 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class BlockGeysir extends BlockContainer {
+	// 1.7.10 type 0 cube; BlockContainer would make it INVISIBLE in 1.12 (render-type parity audit).
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 	public <T extends BlockGeysir> T withSoundType(net.minecraft.block.SoundType sound) {
 		super.setSoundType(sound);
 		return (T) this;

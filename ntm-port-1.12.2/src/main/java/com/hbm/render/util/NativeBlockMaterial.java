@@ -99,7 +99,8 @@ public final class NativeBlockMaterial {
         ResourceLocation icon = new ResourceLocation(name);
         String path = icon.getPath();
         // Native sprites carry their blocks/ folder. Legacy icon names did not.
-        if(!nativeSprite) path = "blocks/" + path;
+        // Port icons registered under atlas names already carry it (hbm:blocks/tektite).
+        if(!nativeSprite && !path.startsWith("blocks/")) path = "blocks/" + path;
         return new ResourceLocation(icon.getNamespace(), "textures/" + path + ".png");
     }
 }

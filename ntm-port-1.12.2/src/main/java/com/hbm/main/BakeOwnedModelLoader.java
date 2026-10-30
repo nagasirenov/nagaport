@@ -107,6 +107,17 @@ public final class BakeOwnedModelLoader implements ICustomModelLoader {
                 new ResourceLocation(owner.getNamespace(), "models/item/" + owner.getPath() + ".json"));
     }
 
+    /** True when owner#inventory resolves: an item JSON, or a blockstate with an "inventory" variant. */
+    public static boolean hasInventoryModel(ResourceLocation owner) {
+        IResourceManager resources = Minecraft.getMinecraft().getResourceManager();
+        if(exists(resources, new ResourceLocation(owner.getNamespace(), "models/item/" + owner.getPath() + ".json"))) return true;
+        try(IResource resource = resources.getResource(new ResourceLocation(owner.getNamespace(), "blockstates/" + owner.getPath() + ".json"))) {
+            return org.apache.commons.io.IOUtils.toString(resource.getInputStream(), java.nio.charset.StandardCharsets.UTF_8).contains("\"inventory\"");
+        } catch(IOException absent) {
+            return false;
+        }
+    }
+
     private static boolean exists(IResourceManager resources, ResourceLocation location) {
         try(IResource resource = resources.getResource(location)) { return true; }
         catch(IOException absent) { return false; }
@@ -131,7 +142,7 @@ public final class BakeOwnedModelLoader implements ICustomModelLoader {
             // and usually never queried. Aggregate them instead of per-item
             // error spam; owning a route still does not prove the default key
             // unreachable, so the count stays visible.
-            if("DefaultVariantQuiet".equals(entry.getValue())) {
+            if("DefaultVariantQuiet".equals(entry.getValue()) || "NoLegacyIcon".equals(entry.getValue())) {
                 quietUnresolved++;
                 continue;
             }

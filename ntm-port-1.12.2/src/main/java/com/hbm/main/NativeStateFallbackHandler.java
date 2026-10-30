@@ -90,7 +90,14 @@ public final class NativeStateFallbackHandler {
 					"tile.bf_log",
 					"tile.lattice_log",
 					"tile.pvc_log",
-					"tile.vinyl_log")));
+					"tile.vinyl_log",
+					"tile.geysir_water",
+					"tile.geysir_chlorine",
+					"tile.geysir_vapor",
+					"tile.geysir_nether",
+					"tile.geysir_volcanic",
+					"tile.geysir_electric",
+					"tile.geysir_chloric")));
 	private static final FaceBakery FACE_BAKERY = new FaceBakery();
 	private static final Map<String, FallbackBlock> ROUTES = new HashMap<>();
 	private static final Map<String, IBlockState> PARTICLE_STATES = new HashMap<>();
@@ -186,16 +193,29 @@ public final class NativeStateFallbackHandler {
 		for(Item item : net.minecraftforge.fml.common.registry.ForgeRegistries.ITEMS.getValuesCollection()) {
 			ResourceLocation itemName = item.getRegistryName();
 			if(itemName == null || !RefStrings.MODID.equals(itemName.getNamespace())) continue;
-			if(BakeOwnedModelLoader.hasInventoryAsset(itemName)) continue;
+			if(BakeOwnedModelLoader.hasInventoryAsset(itemName)) {
+				// Forge never maps an item to its own JSON asset by itself; without a
+				// mesh route the item renders as the missing model.
+				if(!hasCustomRoute(item) && BakeOwnedModelLoader.hasInventoryModel(itemName)) {
+					ModelResourceLocation inventory = new ModelResourceLocation(itemName, "inventory");
+					ModelBakery.registerItemVariants(item, inventory);
+					ModelLoader.setCustomMeshDefinition(item, stack -> inventory);
+					items++;
+				}
+				continue;
+			}
 			// Items that own meta or mesh routes still fail their default variant
 			// lookup; a tracked placeholder quiets it without touching ownership.
 			boolean owned = hasCustomRoute(item);
+			// Light beams are air-like technical blocks without any icon in 1.7.10 either.
+			boolean noLegacyIcon = item instanceof ItemBlock
+					&& ((ItemBlock) item).getBlock() instanceof com.hbm.blocks.machine.BlockBeamBase;
 			// Registry names may contain reserved characters (the "#undef" statue);
 			// sanitize the route path while the mesh definition keeps it valid.
 			ModelResourceLocation location = new ModelResourceLocation(
 					new ResourceLocation(itemName.getNamespace(), itemName.getPath().replace('#', '_')), "inventory");
-			BakeOwnedModelLoader.registerMissing(location, owned ? "DefaultVariantQuiet" : "ItemRouteFallback");
-			if(!owned) com.hbm.render.item.RouteFallbackModelRepair.track(location, item);
+			BakeOwnedModelLoader.registerMissing(location, owned ? "DefaultVariantQuiet" : noLegacyIcon ? "NoLegacyIcon" : "ItemRouteFallback");
+			if(!owned && !noLegacyIcon) com.hbm.render.item.RouteFallbackModelRepair.track(location, item);
 			ModelBakery.registerItemVariants(item, location);
 			if(!owned) ModelLoader.setCustomMeshDefinition(item, stack -> location);
 			items++;
@@ -494,7 +514,7 @@ public final class NativeStateFallbackHandler {
 			return Collections.unmodifiableList(quads);
 		}
 
-		private static List<BakedQuad> crossQuads(IIcon icon) {
+		private List<BakedQuad> crossQuads(IIcon icon) {
 			TextureAtlasSprite sprite = resolve(icon);
 			if(sprite == null) return Collections.emptyList();
 			List<BakedQuad> quads = new ArrayList<>(4);
@@ -527,10 +547,10 @@ public final class NativeStateFallbackHandler {
 					ModelRotation.X0_Y0, null, true, true);
 		}
 
-		private static TextureAtlasSprite resolve(IIcon icon) {
+		private TextureAtlasSprite resolve(IIcon icon) {
 			TextureAtlasSprite sprite = NativeItemParticles.spriteOf(icon, "NativeStateFallbackHandler");
 			if(sprite != null) return sprite;
-			warnMissingSprite(icon == null ? "null icon" : String.valueOf(icon.getIconName()));
+			warnMissingSprite(adapter.block().getRegistryName() + ": " + (icon == null ? "null icon" : String.valueOf(icon.getIconName())));
 			return net.minecraft.client.Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
 		}
 

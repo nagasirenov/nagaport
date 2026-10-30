@@ -25,6 +25,12 @@ import net.minecraft.world.World;
 import com.hbm.lib.ForgeDirection;
 
 public class BlockVolcanoV2 extends BlockContainer {
+	// 1.7.10 type 0 cube; BlockContainer would make it INVISIBLE in 1.12 (render-type parity audit).
+	@Override
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.MODEL;
+	}
+
 
 	public BlockVolcanoV2 withSoundType(net.minecraft.block.SoundType sound) {
 		super.setSoundType(sound);
