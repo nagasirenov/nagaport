@@ -95,9 +95,10 @@ public class EntityQuackos extends EntityDuck implements INtmBossDisplay {
 	/**
 	 * BOW
 	 */
-	public boolean interact(EntityPlayer player) {
+	@Override
+	public boolean processInteract(EntityPlayer player, net.minecraft.util.EnumHand hand) {
 
-		if(super.processInitialInteract(player, net.minecraft.util.EnumHand.MAIN_HAND)) {
+		if(super.processInteract(player, hand)) {
 			return true;
 
 		} else {

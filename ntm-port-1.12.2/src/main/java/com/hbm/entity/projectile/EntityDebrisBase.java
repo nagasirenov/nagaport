@@ -40,6 +40,11 @@ abstract public class EntityDebrisBase extends Entity {
 		return true;
 	}
 
+	@Override
+	public boolean processInitialInteract(EntityPlayer player, net.minecraft.util.EnumHand hand) {
+		return interactFirst(player);
+	}
+
 	abstract public boolean interactFirst(EntityPlayer player);
 
 	abstract protected int getLifetime();

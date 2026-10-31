@@ -49,7 +49,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 	@Override
 	public double getCurrentSpeed() { // in its current form, only call once per tick
 
-		Entity rider = this.getControllingPassenger();
+		Entity rider = this.isBeingRidden() ? this.getPassengers().get(0) : null;
 		if(rider instanceof EntityPlayer) {
 
 			EntityPlayer player = (EntityPlayer) rider;
@@ -185,6 +185,9 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 		}
 	}
 
+	@Override
+	public void updatePassenger(Entity passenger) { updateRiderPosition(); }
+
 	public void updateRiderPosition() {
 
 		com.hbm.util.Vec3NT offset = new com.hbm.util.Vec3NT(getRiderSeatPosition());
@@ -252,6 +255,9 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 			this.trainZ = posZ;
 			this.turnProgress = turnProg + 2;
 		}
+
+		@Override
+		public void updatePassenger(Entity passenger) { updateRiderPosition(); }
 
 		public void updateRiderPosition() {
 			if(this.isBeingRidden()) {
