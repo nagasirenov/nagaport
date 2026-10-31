@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
 import com.hbm.interfaces.IControlReceiver;
 import com.hbm.inventory.recipes.loader.GenericRecipe;
@@ -21,6 +19,7 @@ import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.item.ItemStack;
@@ -121,9 +120,9 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 	public void drawScreen(int mouseX, int mouseY, float f) {
 		this.drawDefaultBackground();
 		this.drawGuiContainerBackgroundLayer(f, mouseX, mouseY);
-		GL11.glDisable(GL11.GL_LIGHTING);
+		GlStateManager.disableLighting();
 		this.drawGuiContainerForegroundLayer(mouseX, mouseY);
-		GL11.glEnable(GL11.GL_LIGHTING);
+		GlStateManager.enableLighting();
 		this.handleScroll();
 
 		if(guiLeft + 7 <= mouseX && guiLeft + 7 + 144 > mouseX && guiTop + 17 < mouseY && guiTop + 17 + 90 >= mouseY) {
@@ -175,7 +174,7 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 	}
 
 	private void drawGuiContainerBackgroundLayer(float f, int mouseX, int mouseY) {
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
@@ -231,17 +230,17 @@ public class GUIScreenRecipeSelector extends GuiScreen {
 		FontRenderer font = stack.getItem().getFontRenderer(stack);
 		if(font == null) font = fontRenderer;
 
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		RenderHelper.enableGUIStandardItemLighting();
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) 240 / 1.0F, (float) 240 / 1.0F);
-		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+		GlStateManager.enableRescaleNormal();
 
 		itemRender.zLevel = 100.0F;
 		itemRender.renderItemAndEffectIntoGUI(stack, guiLeft + x, guiTop + y);
 		itemRender.zLevel = 0.0F;
 
-		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		GL11.glDisable(GL11.GL_LIGHTING);
+		GlStateManager.enableAlpha();
+		GlStateManager.disableLighting();
 	}
 
 	@Override
