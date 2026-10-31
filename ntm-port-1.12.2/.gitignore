@@ -32,3 +32,6 @@
 
 # User-provided, checksum-pinned optional development dependencies
 /.local-dependencies/maven/
+
+# JVM heap dumps (OutOfMemoryError)
+*.hprof
