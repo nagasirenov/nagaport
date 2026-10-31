@@ -303,6 +303,22 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 
 			this.world.setBlockState(this.pos, replaceBlock.getStateFromMeta(replaceMeta), 2);
 
+			// Rotate before filling: in 1.12 the rotation re-sets the state and replaces the still-pending TE with an empty one.
+			if(this.world instanceof WorldServer) try {
+				if(fakePlayer == null || fakePlayer.world != this.world) {
+					fakePlayer = FakePlayerFactory.get((WorldServer)this.world, FAKE_PROFILE);
+				}
+
+				fakePlayer.rotationYaw = fakePlayer.rotationYawHead = placedRotation;
+
+				ItemStack fakeStack = new ItemStack(replaceBlock, 1, replaceMeta);
+
+				replaceBlock.onBlockPlacedBy(this.world, this.pos, this.world.getBlockState(this.pos), fakePlayer, fakeStack);
+			} catch(Exception ex) {
+				MainRegistry.logger.warn("Failed to correctly rotate loot block at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ());
+				MainRegistry.logger.catching(ex);
+			}
+
 			TileEntity te = this.world.getTileEntity(this.pos);
 
 			if(te == null || te instanceof TileEntityWandLoot) {
@@ -322,24 +338,6 @@ public class BlockWandLoot extends BlockContainer implements ILookOverlay, ITool
 				WeightedRandomChestContent.generateChestContents(this.world.rand, pool, (IInventory) te, count);
 			} else if(te instanceof BlockLoot.TileEntityLoot) {
 				LootGenerator.applyLoot(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), poolName);
-			}
-
-			// Shouldn't happen but let's guard anyway, if it fails we just don't rotate the chest block correctly
-			if(!(this.world instanceof WorldServer)) return;
-
-			try {
-				if(fakePlayer == null || fakePlayer.world != this.world) {
-					fakePlayer = FakePlayerFactory.get((WorldServer)this.world, FAKE_PROFILE);
-				}
-
-				fakePlayer.rotationYaw = fakePlayer.rotationYawHead = placedRotation;
-
-				ItemStack fakeStack = new ItemStack(replaceBlock, 1, replaceMeta);
-
-				replaceBlock.onBlockPlacedBy(this.world, this.pos, this.world.getBlockState(this.pos), fakePlayer, fakeStack);
-			} catch(Exception ex) {
-				MainRegistry.logger.warn("Failed to correctly rotate loot block at: " + this.pos.getX() + ", " + this.pos.getY() + ", " + this.pos.getZ());
-				MainRegistry.logger.catching(ex);
 			}
 		}
 
