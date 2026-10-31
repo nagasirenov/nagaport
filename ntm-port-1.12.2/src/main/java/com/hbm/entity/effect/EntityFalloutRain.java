@@ -78,6 +78,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 							}
 						}
 						if(biomeModified) WorldUtil.syncBiomeChange(this.world, chunkPosX << 4, chunkPosZ << 4);
+						irradiateChunk(chunkPosX, chunkPosZ);
 
 					} else if (!outerChunksToProcess.isEmpty()) {
 						long chunkPos = outerChunksToProcess.remove(outerChunksToProcess.size() - 1);
@@ -99,6 +100,7 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 							}
 						}
 						if(biomeModified) WorldUtil.syncBiomeChange(this.world, chunkPosX << 4, chunkPosZ << 4);
+						irradiateChunk(chunkPosX, chunkPosZ);
 
 					} else {
 						this.clearChunkLoader();
@@ -110,6 +112,13 @@ public class EntityFalloutRain extends EntityExplosionChunkloading {
 
 			tickDelay--;
 		}
+	}
+
+	/** Hardcore addition: lasting chunk radiation, full at ground zero and fading to 0 at the fallout edge. */
+	private void irradiateChunk(int chunkX, int chunkZ) {
+		int x = (chunkX << 4) + 8, z = (chunkZ << 4) + 8;
+		double falloff = 1D - Math.hypot(x - posX, z - posZ) / getScale();
+		if(falloff > 0) com.hbm.handler.radiation.ChunkRadiationManager.proxy.incrementRad(this.world, x, (int) posY, z, (float) (com.hbm.config.RadiationConfig.nukeChunkRad * falloff));
 	}
 
 	public static Biome getBiomeChange(double dist, int scale, Biome original) {

@@ -59,7 +59,7 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 
 	@Override
 	public void incrementRad(World world, int x, int y, int z, float rad) {
-		setRadiation(world, x, y, z, getRadiation(world, x, y, z) + rad);
+		setRadiation(world, x, y, z, getRadiation(world, x, y, z) + rad * (float) RadiationConfig.chunkRadMultiplier);
 	}
 
 	@Override
@@ -95,7 +95,8 @@ public class ChunkRadiationHandlerSimple extends ChunkRadiationHandler {
 							Float val = radiation.get(newCoord);
 							float rad = val == null ? 0 : val;
 							float newRad = rad + chunk.getValue() * percent;
-							newRad = MathHelper.clamp(0F, newRad * 0.99F - 0.05F, maxRad);
+							float decay = (float) RadiationConfig.chunkRadDecay; // 1 = original 0.99 / 0.05
+							newRad = MathHelper.clamp(0F, newRad * (1F - 0.01F * decay) - 0.05F * decay, maxRad);
 							radiation.put(newCoord, newRad);
 						} else {
 							radiation.put(newCoord, chunk.getValue() * percent);

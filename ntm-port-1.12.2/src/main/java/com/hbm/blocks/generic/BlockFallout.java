@@ -37,10 +37,7 @@ public class BlockFallout extends Block {
 	public BlockFallout(Material mat) {
 		super(mat);
 		this.shape = new net.minecraft.util.math.AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
-		if(this==ModBlocks.salted_fallout)
-		{
-			this.setTickRandomly(true);
-		}
+		this.setTickRandomly(true); // ModBlocks.salted_fallout is still null here, so the original check never matched
 	}
 
 	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
@@ -118,6 +115,8 @@ public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
 		if(this==ModBlocks.salted_fallout)
 		{
 			ChunkRadiationManager.proxy.incrementRad(world, x, y, z, 50);
+		} else {
+			ChunkRadiationManager.proxy.incrementRad(world, x, y, z, (float) com.hbm.config.RadiationConfig.falloutLayerRad);
 		}
 	}
 

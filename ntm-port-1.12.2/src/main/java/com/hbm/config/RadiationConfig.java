@@ -20,6 +20,10 @@ public class RadiationConfig {
 	public static boolean enableContamination = true;
 	public static boolean enableChunkRads = true;
 	public static boolean enablePRISM = false;
+	public static double chunkRadMultiplier = 5D;
+	public static double chunkRadDecay = 0.5D;
+	public static double nukeChunkRad = 10D;
+	public static double falloutLayerRad = 0.1D;
 
 	public static boolean disableAsbestos = false;
 	public static boolean disableCoal = false;
@@ -56,6 +60,10 @@ public class RadiationConfig {
 
 		enableContamination = CommonConfig.createConfigBool(config, CATEGORY_NUKE, "RADIATION_00_enableContamination", "Toggles player contamination (and negative effects from radiation poisoning)", true);
 		enableChunkRads = CommonConfig.createConfigBool(config, CATEGORY_NUKE, "RADIATION_01_enableChunkRads", "Toggles the world radiation system (chunk radiation only, some blocks use an AoE!)", true);
+		chunkRadMultiplier = CommonConfig.createConfigDouble(config, CATEGORY_NUKE, "RADIATION_02_chunkMultiplier", "Multiplier for all radiation added to chunks (original mod: 1)", 5D);
+		chunkRadDecay = CommonConfig.createConfigDouble(config, CATEGORY_NUKE, "RADIATION_03_chunkDecay", "How fast chunk radiation decays, 1 = original mod, lower lingers longer", 0.5D);
+		nukeChunkRad = CommonConfig.createConfigDouble(config, CATEGORY_NUKE, "RADIATION_04_nukeChunkRad", "Chunk radiation fallout rain adds at ground zero, fading to 0 at the edge (before multiplier, original mod: 0)", 10D);
+		falloutLayerRad = CommonConfig.createConfigDouble(config, CATEGORY_NUKE, "RADIATION_05_falloutLayerRad", "Chunk radiation a fallout layer adds per random tick (before multiplier, original mod: 0)", 0.1D);
 		enablePRISM = CommonConfig.createConfigBool(config, CATEGORY_NUKE, "RADIATION_99_enablePRISM", "Enables the new 3D resistance-aware PRISM radiation system", false);
 		if(enablePRISM) ChunkRadiationManager.proxy = new ChunkRadiationHandlerPRISM();
 		

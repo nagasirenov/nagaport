@@ -95,7 +95,7 @@ public class ChunkRadiationHandlerPRISM extends ChunkRadiationHandler {
 
 	@Override
 	public void incrementRad(World world, int x, int y, int z, float rad) {
-		setRadiation(world, x, y, z, getRadiation(world, x, y, z) + rad);
+		setRadiation(world, x, y, z, getRadiation(world, x, y, z) + rad * (float) com.hbm.config.RadiationConfig.chunkRadMultiplier);
 	}
 
 	@Override
