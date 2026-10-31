@@ -333,7 +333,7 @@ public class MainRegistry {
 
 		for(Entry<Class<? extends TileEntity>, String[]> e : TileMappings.map.entrySet()) {
 			// Forge 1.12 maps each TileEntity class to exactly one registry ID.
-			GameRegistry.registerTileEntity(e.getKey(), e.getValue()[0]);
+			GameRegistry.registerTileEntity(e.getKey(), new ResourceLocation(RefStrings.MODID, e.getValue()[0]));
 		}
 
 		VanillaLootHandler chestLoot = new VanillaLootHandler();

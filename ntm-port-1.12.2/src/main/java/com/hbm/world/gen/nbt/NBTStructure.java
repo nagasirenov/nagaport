@@ -505,6 +505,7 @@ public class NBTStructure {
 		nbt = (NBTTagCompound)nbt.copy();
 
 		if(worldItemPalette != null) relinkItems(worldItemPalette, nbt);
+		com.hbm.tileentity.TileMappings.fixId(nbt);
 
 		TileEntity te = TileEntity.create(world, nbt);
 

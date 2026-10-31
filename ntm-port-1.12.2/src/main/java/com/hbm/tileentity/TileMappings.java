@@ -68,6 +68,19 @@ import net.minecraft.tileentity.TileEntity;
 public class TileMappings {
 
 	public static HashMap<Class<? extends TileEntity>, String[]> map = new HashMap<Class<? extends TileEntity>, String[]>();
+	private static java.util.Set<String> ids;
+
+	/** Bundled .nbt structures store NTM tile IDs without a namespace. */
+	public static void fixId(net.minecraft.nbt.NBTTagCompound nbt) {
+		if(ids == null) {
+			java.util.Set<String> names = new java.util.HashSet<>();
+			for(String[] n : map.values()) names.add(new net.minecraft.util.ResourceLocation(n[0]).getPath());
+			ids = names;
+		}
+		net.minecraft.util.ResourceLocation id = new net.minecraft.util.ResourceLocation(nbt.getString("id"));
+		if("minecraft".equals(id.getNamespace()) && ids.contains(id.getPath()))
+			nbt.setString("id", com.hbm.lib.RefStrings.MODID + ":" + id.getPath());
+	}
 	public static List<Class<? extends IConfigurableMachine>> configurables = new ArrayList<Class<? extends IConfigurableMachine>>();
 
 	public static void writeMappings() {
