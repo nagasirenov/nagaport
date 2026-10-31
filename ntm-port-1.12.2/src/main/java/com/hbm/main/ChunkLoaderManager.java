@@ -33,11 +33,11 @@ public class ChunkLoaderManager {
 	}
 
 	private static ChunkWorldSavedData getSavedData(World world, Ticket ticket) {
-		ChunkWorldSavedData savedData = (ChunkWorldSavedData) world.getMapStorage().getOrLoadData(ChunkWorldSavedData.class, DATA_NAME);
+		ChunkWorldSavedData savedData = (ChunkWorldSavedData) world.getPerWorldStorage().getOrLoadData(ChunkWorldSavedData.class, DATA_NAME);
 
 		if(savedData == null) {
-			world.getMapStorage().setData(DATA_NAME, new ChunkWorldSavedData(DATA_NAME));
-			savedData = (ChunkWorldSavedData) world.getMapStorage().getOrLoadData(ChunkWorldSavedData.class, DATA_NAME);
+			world.getPerWorldStorage().setData(DATA_NAME, new ChunkWorldSavedData(DATA_NAME));
+			savedData = (ChunkWorldSavedData) world.getPerWorldStorage().getOrLoadData(ChunkWorldSavedData.class, DATA_NAME);
 		}
 
 		if(savedData.ticket == null) {

@@ -68,10 +68,10 @@ public class AnnihilatorSavedData extends WorldSavedData {
 	}
 
 	public static AnnihilatorSavedData getData(World worldObj) {
-		AnnihilatorSavedData data = (AnnihilatorSavedData) worldObj.getMapStorage().getOrLoadData(AnnihilatorSavedData.class, KEY);
+		AnnihilatorSavedData data = (AnnihilatorSavedData) worldObj.getPerWorldStorage().getOrLoadData(AnnihilatorSavedData.class, KEY);
 		if(data == null) {
-			worldObj.getMapStorage().setData(KEY, new AnnihilatorSavedData());
-			data = (AnnihilatorSavedData) worldObj.getMapStorage().getOrLoadData(AnnihilatorSavedData.class, KEY);
+			worldObj.getPerWorldStorage().setData(KEY, new AnnihilatorSavedData());
+			data = (AnnihilatorSavedData) worldObj.getPerWorldStorage().getOrLoadData(AnnihilatorSavedData.class, KEY);
 		}
 		return data;
 	}

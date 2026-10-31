@@ -20,7 +20,7 @@ public class CelestialBodyWorldSavedData extends WorldSavedData {
 	
 	public static CelestialBodyWorldSavedData get(WorldProviderCelestial provider) {
 		if(provider == null || provider.getWorldObj() == null) return null;
-		MapStorage storage = provider.getWorldObj().getMapStorage();
+		MapStorage storage = provider.getWorldObj().getPerWorldStorage();
 		if(storage == null) return null;
 
 		CelestialBodyWorldSavedData result = (CelestialBodyWorldSavedData) storage.getOrLoadData(CelestialBodyWorldSavedData.class, DATA_NAME);

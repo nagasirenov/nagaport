@@ -76,11 +76,11 @@ public class SatelliteSavedData extends WorldSavedData {
 
 	@Deprecated // will return invalid results in orbit
 	public static SatelliteSavedData getData(World worldObj) {
-		SatelliteSavedData data = (SatelliteSavedData)worldObj.getMapStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
+		SatelliteSavedData data = (SatelliteSavedData)worldObj.getPerWorldStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
 		if(data == null) {
-			worldObj.getMapStorage().setData("satellites", new SatelliteSavedData());
+			worldObj.getPerWorldStorage().setData("satellites", new SatelliteSavedData());
 
-			data = (SatelliteSavedData)worldObj.getMapStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
+			data = (SatelliteSavedData)worldObj.getPerWorldStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
 		}
 
 		return data;

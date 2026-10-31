@@ -19,11 +19,11 @@ public class TomSaveData extends WorldSavedData {
 
 	/* no caching for data per world needed, minecraft's save structure already does that! call forWorld as much as you want. */
 	public static TomSaveData forWorld(World world) {
-		TomSaveData result = (TomSaveData) world.getMapStorage().getOrLoadData(TomSaveData.class, "impactData");
+		TomSaveData result = (TomSaveData) world.getPerWorldStorage().getOrLoadData(TomSaveData.class, "impactData");
 
 		if(result == null) {
-			world.getMapStorage().setData(key, new TomSaveData(key));
-			result = (TomSaveData) world.getMapStorage().getOrLoadData(TomSaveData.class, "impactData");
+			world.getPerWorldStorage().setData(key, new TomSaveData(key));
+			result = (TomSaveData) world.getPerWorldStorage().getOrLoadData(TomSaveData.class, "impactData");
 		}
 		lastCachedUnsafe = result;
 		return result;
