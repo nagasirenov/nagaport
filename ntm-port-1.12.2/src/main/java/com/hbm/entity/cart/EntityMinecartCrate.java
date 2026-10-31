@@ -90,7 +90,7 @@ public class EntityMinecartCrate extends EntityMinecartContainerBase implements 
 			for(int i = 0; i < getSizeInventory(); i++) {
 
 			ItemStack stack = getStackInSlot(i);
-			if(stack == null)
+			if(stack.isEmpty())
 				continue;
 
 			NBTTagCompound slot = new NBTTagCompound();

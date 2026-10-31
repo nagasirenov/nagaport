@@ -112,7 +112,7 @@ public class ModelJetPack extends ModelBiped {
 			EntityPlayer player = (EntityPlayer) entity;
 			this.isSneak = player.isSneaking();
 			ItemStack itemstack = player.inventory.getCurrentItem();
-			this.heldItemRight = itemstack != null ? 1 : 0;
+			this.heldItemRight = !itemstack.isEmpty() ? 1 : 0;
 
 			if (itemstack != null && player.getItemInUseCount() > 0) {
 				EnumAction enumaction = itemstack.getItemUseAction();

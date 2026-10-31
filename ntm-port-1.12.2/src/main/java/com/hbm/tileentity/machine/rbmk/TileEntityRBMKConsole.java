@@ -638,7 +638,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 				data_table.put("fluxQuantity", fuelChannel.lastFluxQuantity);
 				data_table.put("fluxRatio", fuelChannel.fluxFastRatio);
 				ItemStack rod = fuelChannel.getStackInSlot(0);
-				if (rod != null)
+				if (rod != null && !rod.isEmpty())
 					data_table.put("rodName", rod.getTranslationKey());
 				else
 					data_table.put("rodName", "");
@@ -656,7 +656,7 @@ public class TileEntityRBMKConsole extends TileEntityMachineBase implements ICon
 				data_table.put("fluxProgress", irradiationChannel.progress);
 				data_table.put("requiredFlux", irradiationChannel.duration);
 				ItemStack input = irradiationChannel.getStackInSlot(0);
-				if (input != null){
+				if (input != null && !input.isEmpty()){
 					data_table.put("craftingName", input.getTranslationKey());
 					data_table.put("craftingNumber", input.getCount());
 				}
