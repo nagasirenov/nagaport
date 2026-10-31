@@ -21,6 +21,7 @@ public class RenderUndeadSoldier extends RenderBiped {
 
 	public RenderUndeadSoldier(RenderManager renderManager) {
 		super(renderManager, modelZombie, 0.5F);
+		this.addLayer(new net.minecraft.client.renderer.entity.layers.LayerBipedArmor(this));
 	}
 
 	@Override

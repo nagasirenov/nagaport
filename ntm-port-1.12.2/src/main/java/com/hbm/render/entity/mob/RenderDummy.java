@@ -13,6 +13,7 @@ public class RenderDummy extends RenderBiped {
 
 	public RenderDummy(net.minecraft.client.renderer.entity.RenderManager renderManager) {
 		super(renderManager, new ModelBiped(0.0F), 0.5F);
+		this.addLayer(new net.minecraft.client.renderer.entity.layers.LayerBipedArmor(this)); // 1.12 RenderBiped no longer draws armor itself
 	}
 
 	@Override

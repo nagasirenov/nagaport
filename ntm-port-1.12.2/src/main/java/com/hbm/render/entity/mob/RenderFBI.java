@@ -15,6 +15,7 @@ public class RenderFBI extends RenderBiped<EntityLiving> {
 
     public RenderFBI(RenderManager renderManager) {
         super(renderManager, new ModelFBI(), 0.5F);
+        this.addLayer(new net.minecraft.client.renderer.entity.layers.LayerBipedArmor(this));
     }
 
     @Override

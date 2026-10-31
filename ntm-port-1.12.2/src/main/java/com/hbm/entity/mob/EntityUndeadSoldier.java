@@ -61,6 +61,7 @@ public class EntityUndeadSoldier extends EntityMob {
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		IEntityLivingData result = super.onInitialSpawn(difficulty, data);
+		this.setEquipmentBasedOnDifficulty(difficulty); // 1.12 EntityLiving no longer equips mobs by itself
 		this.dataManager.set(TYPE, Byte.valueOf(rand.nextBoolean() ? TYPE_ZOMBIE : TYPE_SKELETON));
 		return result;
 	}
