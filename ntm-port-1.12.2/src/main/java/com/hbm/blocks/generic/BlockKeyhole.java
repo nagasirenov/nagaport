@@ -225,7 +225,7 @@ public class BlockKeyhole extends BlockStone {
 		}
 
 		//Clear dropped items
-		List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(x + 0.5, y, z + 0.5, x + 0.5, y + height, z + 0.5).expand(size / 2D, 0, size / 2D));
+		List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(x + 0.5, y, z + 0.5, x + 0.5, y + height, z + 0.5).grow(size / 2D, 0, size / 2D));
 		for(EntityItem item : items) item.setDead();
 	}
 

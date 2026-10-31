@@ -74,7 +74,7 @@ public class EntityWaypoint extends Entity {
 			this.setDead();
 		}
 
-		bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
+		bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).grow(radius, radius, radius);
 
 		if(!this.world.isRemote) {
 

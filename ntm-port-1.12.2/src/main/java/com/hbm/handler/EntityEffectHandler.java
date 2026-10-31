@@ -501,7 +501,7 @@ public class EntityEffectHandler {
 
 					double range = entity.isWet() ? 16D : 2D; //avoid rain, just avoid it
 
-					List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(entity, entity.getEntityBoundingBox().expand(range, range, range));
+					List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(entity, entity.getEntityBoundingBox().grow(range, range, range));
 
 					for(Entity ent : list) {
 

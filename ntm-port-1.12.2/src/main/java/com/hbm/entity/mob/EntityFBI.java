@@ -207,7 +207,7 @@ public class EntityFBI extends EntityMob implements IRangedAttackMob, ISuffocati
 
 		double range = 1.5;
 
-		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
+		List<EntityItem> items = this.world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(posX, posY, posZ, posX, posY, posZ).grow(range, range, range));
 
 		for(EntityItem item : items)
 			item.setFire(10);

@@ -33,7 +33,7 @@ public class TileEntityCrashedBomb extends TileEntity implements net.minecraft.u
 	}
 
 	public void affectEntities(BiConsumer<EntityLivingBase, Float> effect, double range) {
-		List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));
+		List<EntityLivingBase> list = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).grow(range, range, range));
 		for(EntityLivingBase entity : list) {
 			double dist = Math.sqrt(getDistanceSq(entity.posX, entity.posY + entity.height / 2, entity.posZ));
 			if(dist > range) continue;

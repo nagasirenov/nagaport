@@ -117,7 +117,7 @@ public class XFactory12ga {
 
 				spawnPulse(beam.world, mop, hitVec, beam.rotationYaw, beam.rotationPitch);
 
-				List<Entity> blast = beam.world.getEntitiesWithinAABBExcludingEntity(beam, new AxisAlignedBB(hitVec.x, hitVec.y, hitVec.z, hitVec.x, hitVec.y, hitVec.z).expand(0.75, 0.75, 0.75));
+				List<Entity> blast = beam.world.getEntitiesWithinAABBExcludingEntity(beam, new AxisAlignedBB(hitVec.x, hitVec.y, hitVec.z, hitVec.x, hitVec.y, hitVec.z).grow(0.75, 0.75, 0.75));
 				DamageSource source = BulletConfig.getDamage(beam, beam.getThrower(), DamageClass.LASER);
 
 				for(Entity e : blast) {
@@ -185,7 +185,7 @@ public class XFactory12ga {
 
 				spawnPulse(bullet.world, mop, bullet.rotationYaw, bullet.rotationPitch);
 
-				List<Entity> blast = bullet.world.getEntitiesWithinAABBExcludingEntity(bullet, new AxisAlignedBB(bullet.posX, bullet.posY, bullet.posZ, bullet.posX, bullet.posY, bullet.posZ).expand(0.5, 0.5, 0.5));
+				List<Entity> blast = bullet.world.getEntitiesWithinAABBExcludingEntity(bullet, new AxisAlignedBB(bullet.posX, bullet.posY, bullet.posZ, bullet.posX, bullet.posY, bullet.posZ).grow(0.5, 0.5, 0.5));
 				DamageSource source = BulletConfig.getDamage(bullet, bullet.getThrower(), DamageClass.LASER);
 
 				for(Entity e : blast) {

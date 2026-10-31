@@ -240,7 +240,7 @@ public class EntitySiegeCraft extends EntityUFOBase implements INtmBossDisplay {
 						com.hbm.sound.WorldSoundEffects.play(this.world, lockon.x, lockon.y, lockon.z, "hbm:entity.ufoBlast", 5.0F, 0.9F + this.world.rand.nextFloat() * 0.2F);
 					}
 
-					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(lockon.x, lockon.y, lockon.z, lockon.x, lockon.y, lockon.z).expand(2, 2, 2));
+					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(lockon.x, lockon.y, lockon.z, lockon.x, lockon.y, lockon.z).grow(2, 2, 2));
 
 					for(Entity e : entities) {
 						if(e instanceof EntityLivingBase && this.canAttackClass(((EntityLivingBase) e).getClass())) {

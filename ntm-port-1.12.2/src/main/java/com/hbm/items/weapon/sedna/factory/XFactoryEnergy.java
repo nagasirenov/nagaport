@@ -105,7 +105,7 @@ public class XFactoryEnergy {
 		if(mop.typeOfHit != RayTraceResult.Type.ENTITY) return;
 
 		double range = 20;
-		List<EntityLivingBase> potentialTargets = beam.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).expand(range, range, range));
+		List<EntityLivingBase> potentialTargets = beam.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).grow(range, range, range));
 		Collections.shuffle(potentialTargets);
 
 		for(EntityLivingBase target : potentialTargets) {

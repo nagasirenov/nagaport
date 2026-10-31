@@ -103,7 +103,7 @@ public class XFactoryFlamer {
 	public static void spawnFire(EntityBulletBaseMK4 bullet, RayTraceResult mop, float width, float height, int duration, int type) {
 		if(mop.typeOfHit == RayTraceResult.Type.BLOCK) {
 			List<EntityFireLingering> fires = bullet.world.getEntitiesWithinAABB(EntityFireLingering.class,
-					new AxisAlignedBB(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).expand(width / 2 + 0.5, height / 2 + 0.5, width / 2 + 0.5));
+					new AxisAlignedBB(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z, mop.hitVec.x, mop.hitVec.y, mop.hitVec.z).grow(width / 2 + 0.5, height / 2 + 0.5, width / 2 + 0.5));
 			if(fires.isEmpty()) {
 				EntityFireLingering fire = new EntityFireLingering(bullet.world).setArea(width, height).setDuration(duration).setType(type);
 				fire.setPosition(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);

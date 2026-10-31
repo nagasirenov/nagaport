@@ -304,7 +304,7 @@ public class LogicBlockActions {
 		ForgeDirection direction = tile.direction.getOpposite();
 		ForgeDirection rot = direction.getRotation(ForgeDirection.UP);
 
-		AxisAlignedBB bb = new AxisAlignedBB(x - rot.offsetX, y - 1, z - rot.offsetZ, x + rot.offsetX + direction.offsetX * 15, y + 1, z + rot.offsetZ + direction.offsetZ * 15).expand(2,2,2);
+		AxisAlignedBB bb = new AxisAlignedBB(x - rot.offsetX, y - 1, z - rot.offsetZ, x + rot.offsetX + direction.offsetX * 15, y + 1, z + rot.offsetZ + direction.offsetZ * 15).grow(2,2,2);
 
 		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, bb);
 

@@ -171,11 +171,11 @@ public class XFactoryDrill {
 
 			float exp = 0.002F;
 			AxisAlignedBB aabb = new AxisAlignedBB(0, 0, 0, 1, 1, 1);
-			int outlineColor = aoe > 0 ? -1 : 0x800000; RenderGlobal.drawSelectionBoundingBox(aabb.expand(exp, exp, exp).offset(mop.getBlockPos().getX() - dX, mop.getBlockPos().getY() - dY, mop.getBlockPos().getZ() - dZ), (outlineColor >> 16 & 255) / 255F, (outlineColor >> 8 & 255) / 255F, (outlineColor & 255) / 255F, 1.0F);
+			int outlineColor = aoe > 0 ? -1 : 0x800000; RenderGlobal.drawSelectionBoundingBox(aabb.grow(exp, exp, exp).offset(mop.getBlockPos().getX() - dX, mop.getBlockPos().getY() - dY, mop.getBlockPos().getZ() - dZ), (outlineColor >> 16 & 255) / 255F, (outlineColor >> 8 & 255) / 255F, (outlineColor & 255) / 255F, 1.0F);
 
 			if(aoe > 0) {
 				aabb = new AxisAlignedBB(-aoe, -aoe, -aoe, 1 + aoe, 1 + aoe, 1 + aoe);
-				RenderGlobal.drawSelectionBoundingBox(aabb.expand(exp, exp, exp).offset(mop.getBlockPos().getX() - dX, mop.getBlockPos().getY() - dY, mop.getBlockPos().getZ() - dZ), (0x800000 >> 16 & 255) / 255F, (0x800000 >> 8 & 255) / 255F, (0x800000 & 255) / 255F, 1.0F);
+				RenderGlobal.drawSelectionBoundingBox(aabb.grow(exp, exp, exp).offset(mop.getBlockPos().getX() - dX, mop.getBlockPos().getY() - dY, mop.getBlockPos().getZ() - dZ), (0x800000 >> 16 & 255) / 255F, (0x800000 >> 8 & 255) / 255F, (0x800000 & 255) / 255F, 1.0F);
 			}
 
 			ICustomBlockHighlight.cleanup();

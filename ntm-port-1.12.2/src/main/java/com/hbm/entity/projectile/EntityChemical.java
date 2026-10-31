@@ -105,7 +105,7 @@ public class EntityChemical extends EntityThrowableNT {
 			if(type.hasTrait(Fluids.GASEOUS.getClass()) || type.hasTrait(Fluids.EVAP.getClass())) {
 
 				double intensity = 1D - (double) this.ticksExisted / (double) this.getMaxAge();
-				List<Entity> affected = this.world.getEntitiesWithinAABBExcludingEntity(this.thrower, this.getEntityBoundingBox().expand(intensity * 2.5, intensity * 2.5, intensity * 2.5));
+				List<Entity> affected = this.world.getEntitiesWithinAABBExcludingEntity(this.thrower, this.getEntityBoundingBox().grow(intensity * 2.5, intensity * 2.5, intensity * 2.5));
 
 				for(Entity e : affected) {
 					this.affect(e, intensity);

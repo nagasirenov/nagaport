@@ -65,7 +65,7 @@ public class ExplosionNukeGeneric {
 
 	public static void dealDamage(World world, double x, double y, double z, double radius, float maxDamage) {
 
-		List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(x, y, z, x, y, z).expand(radius, radius, radius));
+		List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(x, y, z, x, y, z).grow(radius, radius, radius));
 
 		for(Entity e : list) {
 

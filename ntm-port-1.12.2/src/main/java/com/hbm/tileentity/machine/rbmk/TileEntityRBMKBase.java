@@ -551,7 +551,7 @@ public abstract class TileEntityRBMKBase extends TileEntityLoadedBase implements
 		com.hbm.sound.WorldSoundEffects.play(this.world, avgX + 0.5, this.pos.getY() + 1, avgZ + 0.5, "hbm:block.rbmk_explosion", 50.0F, 1.0F);
 
 		List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class,
-				new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(50, 50, 50));
+				new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).grow(50, 50, 50));
 
 		for(EntityPlayer player : players) {
 			com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRBMKBoom);

@@ -83,7 +83,7 @@ public class EntityPlasticBag extends EntityWaterMob implements ISuffocationImmu
 
 	@Override
 	public boolean isInWater() {
-		return this.world.handleMaterialAcceleration(this.getEntityBoundingBox().expand(0.0D, -0.6D, 0.0D), Material.WATER, this);
+		return this.world.handleMaterialAcceleration(this.getEntityBoundingBox().grow(0.0D, -0.6D, 0.0D), Material.WATER, this);
 	}
 
 	@Override

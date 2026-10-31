@@ -146,7 +146,7 @@ public class TileEntityCrucible extends TileEntityMachineBase implements IGUIPro
 
 			double level = ((double) totalMass / (double) totalCap) * 0.875D;
 
-			List<EntityLivingBase> living = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5 + level, this.pos.getZ() + 0.5).expand(1, 0, 1));
+			List<EntityLivingBase> living = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5 + level, this.pos.getZ() + 0.5).grow(1, 0, 1));
 			for(EntityLivingBase entity : living) {
 				entity.attackEntityFrom(DamageSource.LAVA, 5F);
 				entity.setFire(5);

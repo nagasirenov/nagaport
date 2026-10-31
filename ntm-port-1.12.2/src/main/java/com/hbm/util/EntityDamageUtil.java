@@ -502,7 +502,7 @@ public class EntityDamageUtil {
 			if(entity.canBeCollidedWith() && entity.isEntityAlive()) {
 
 				double borderSize = entity.getCollisionBorderSize() + threshold;
-				AxisAlignedBB axisalignedbb = entity.getEntityBoundingBox().expand(borderSize, borderSize, borderSize);
+				AxisAlignedBB axisalignedbb = entity.getEntityBoundingBox().grow(borderSize, borderSize, borderSize);
 				RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(pos, end);
 
 				if(axisalignedbb.contains(pos)) {

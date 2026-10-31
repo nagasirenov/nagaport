@@ -604,7 +604,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	/** Copies tasks and waypoint to nearby glyphids. Does not work on glyphid scouts */
 	public void communicate(int task, @Nullable EntityWaypoint waypoint) {
 		int radius = waypoint != null ? waypoint.radius : 4;
-		AxisAlignedBB bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
+		AxisAlignedBB bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).grow(radius, radius, radius);
 
 		List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 		for(Entity e : bugs) {

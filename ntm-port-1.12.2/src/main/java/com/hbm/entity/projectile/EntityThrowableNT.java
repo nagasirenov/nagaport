@@ -188,7 +188,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 			if(!this.world.isRemote && this.doesImpactEntities()) {
 
 				Entity hitEntity = null;
-				List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(this.motionX * motionMult(), this.motionY * motionMult(), this.motionZ * motionMult()).expand(1.0D, 1.0D, 1.0D));
+				List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(this.motionX * motionMult(), this.motionY * motionMult(), this.motionZ * motionMult()).grow(1.0D, 1.0D, 1.0D));
 				double nearest = 0.0D;
 				EntityLivingBase thrower = this.getThrower();
 				RayTraceResult nonPenImpact = null;
@@ -198,7 +198,7 @@ public abstract class EntityThrowableNT extends Entity implements IProjectile {
 
 					if(entity.canBeCollidedWith() && (entity != thrower || this.ticksInAir >= this.selfDamageDelay()) && entity.isEntityAlive()) {
 						double hitbox = 0.3F;
-						AxisAlignedBB aabb = entity.getEntityBoundingBox().expand(hitbox, hitbox, hitbox);
+						AxisAlignedBB aabb = entity.getEntityBoundingBox().grow(hitbox, hitbox, hitbox);
 						RayTraceResult hitMop = aabb.calculateIntercept(pos, nextPos);
 
 						if(hitMop != null) {

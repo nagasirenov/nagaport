@@ -123,7 +123,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 
 		if(deathTicks == 90){
 			int radius = 8;
-			AxisAlignedBB bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).expand(radius, radius, radius);
+			AxisAlignedBB bb = new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX, this.posY, this.posZ).grow(radius, radius, radius);
 
 			List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 			for (Entity e: bugs){

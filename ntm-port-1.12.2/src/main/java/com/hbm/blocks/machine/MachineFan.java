@@ -150,7 +150,7 @@ public class MachineFan extends BlockContainer implements IToolable, ITooltipPro
 					int y = dir.offsetY * effRange;
 					int z = dir.offsetZ * effRange;
 
-					List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() + 0.5 + Math.min(x, 0), this.pos.getY() + 0.5 + Math.min(y, 0), this.pos.getZ() + 0.5 + Math.min(z, 0), this.pos.getX() + 0.5 + Math.max(x, 0), this.pos.getY() + 0.5 + Math.max(y, 0), this.pos.getZ() + 0.5 + Math.max(z, 0)).expand(0.5, 0.5, 0.5));
+					List<Entity> affected = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(this.pos.getX() + 0.5 + Math.min(x, 0), this.pos.getY() + 0.5 + Math.min(y, 0), this.pos.getZ() + 0.5 + Math.min(z, 0), this.pos.getX() + 0.5 + Math.max(x, 0), this.pos.getY() + 0.5 + Math.max(y, 0), this.pos.getZ() + 0.5 + Math.max(z, 0)).grow(0.5, 0.5, 0.5));
 
 					for(Entity e : affected) {
 

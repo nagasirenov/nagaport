@@ -99,7 +99,7 @@ public class EntityNukeExplosionMK5 extends EntityExplosionChunkloading {
 
 	private void radiate(float rads, double range) {
 
-		List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX, posY, posZ, posX, posY, posZ).expand(range, range, range));
+		List<EntityLivingBase> entities = this.world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX, posY, posZ, posX, posY, posZ).grow(range, range, range));
 
 		for(EntityLivingBase e : entities) {
 

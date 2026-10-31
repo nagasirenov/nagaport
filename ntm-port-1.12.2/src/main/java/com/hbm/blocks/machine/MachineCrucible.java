@@ -154,7 +154,7 @@ public class MachineCrucible extends BlockDummyable implements ICrucibleAcceptor
 		/*event.context.drawOutlinedBoundingBox(new AxisAlignedBB(x - 1, y, z - 1, x + 2, y + 0.5, z + 2).expand(exp, exp, exp).offset(-dX, -dY, -dZ), -1);
 		event.context.drawOutlinedBoundingBox(new AxisAlignedBB(x - 0.75, y + 0.5, z - 0.75, x + 1.75, y + 1.5, z + 1.75).expand(exp, exp, exp).offset(-dX, -dY, -dZ), -1);
 		event.context.drawOutlinedBoundingBox(new AxisAlignedBB(x - 0.5, y + 0.75, z - 0.5, x + 1.5, y + 1.5, z + 1.5).expand(exp, exp, exp).offset(-dX, -dY, -dZ), -1);*/
-		for(AxisAlignedBB aabb : this.bounding) event.getContext().drawSelectionBoundingBox(aabb.expand(exp, exp, exp).offset(x - dX + 0.5, y - dY, z - dZ + 0.5), 1.0F, 1.0F, 1.0F, 1.0F);
+		for(AxisAlignedBB aabb : this.bounding) event.getContext().drawSelectionBoundingBox(aabb.grow(exp, exp, exp).offset(x - dX + 0.5, y - dY, z - dZ + 0.5), 1.0F, 1.0F, 1.0F, 1.0F);
 		ICustomBlockHighlight.cleanup();
 	}
 

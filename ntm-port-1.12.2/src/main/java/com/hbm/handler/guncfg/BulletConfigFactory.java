@@ -128,7 +128,7 @@ public class BulletConfigFactory {
 
 			private void chooseTarget(EntityBulletBaseNT bullet) {
 
-				List<EntityLivingBase> entities = bullet.world.getEntitiesWithinAABB(EntityLivingBase.class, bullet.getEntityBoundingBox().expand(range, range, range));
+				List<EntityLivingBase> entities = bullet.world.getEntitiesWithinAABB(EntityLivingBase.class, bullet.getEntityBoundingBox().grow(range, range, range));
 
 				Vec3d mot = new Vec3d(bullet.motionX, bullet.motionY, bullet.motionZ);
 

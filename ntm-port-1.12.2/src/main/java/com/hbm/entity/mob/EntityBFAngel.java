@@ -233,7 +233,7 @@ public class EntityBFAngel extends EntityFlying implements IMob, INtmBossDisplay
 				}
 
 				if(iy < this.posY) {
-					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).expand(5, 0, 5));
+					List<Entity> entities = this.world.getEntitiesWithinAABBExcludingEntity(this, new AxisAlignedBB(this.posX, iy, this.posZ, this.posX, this.posY, this.posZ).grow(5, 0, 5));
 
 					for(Entity e : entities) {
 						if(this.canAttackClass(e.getClass())) {

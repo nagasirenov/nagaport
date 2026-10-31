@@ -61,7 +61,7 @@ public class TileEntityZirnoxDestroyed extends TileEntity implements net.minecra
 		float rads = onFire ? 500000F : 75000F;
 		double range = 100D;
 
-		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).expand(range, range, range));
+		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x + 0.5, y + 0.5, z + 0.5, x + 0.5, y + 0.5, z + 0.5).grow(range, range, range));
 
 		for(EntityLivingBase e : entities) {
 

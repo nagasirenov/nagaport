@@ -70,7 +70,7 @@ public class XFactoryFolly {
 
 		if(beam.thrower != null) ContaminationUtil.contaminate(beam.thrower, HazardType.RADIATION, ContaminationType.CREATIVE, 150F);
 
-		List<Entity> entities = beam.world.getEntitiesWithinAABBExcludingEntity(beam, beam.getEntityBoundingBox().expand(beam.headingX, beam.headingY, beam.headingZ).expand(1.0D, 1.0D, 1.0D));
+		List<Entity> entities = beam.world.getEntitiesWithinAABBExcludingEntity(beam, beam.getEntityBoundingBox().expand(beam.headingX, beam.headingY, beam.headingZ).grow(1.0D, 1.0D, 1.0D));
 
 		for(int i = 1; i < beam.beamLength; i += 2) {
 			int x = (int) Math.floor(beam.posX + dir.x * i);

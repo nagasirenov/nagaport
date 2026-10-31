@@ -184,7 +184,7 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 		double scale = this.meltdownTick ? 5 : 3;
 		double range = this.meltdownTick ? 50 : 10;
 
-		List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(range, range, range));
+		List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).grow(range, range, range));
 
 		for(Entity e : list) {
 			if(!(e instanceof EntityPlayer && ArmorUtil.checkForHazmat((EntityPlayer)e)))
@@ -194,7 +194,7 @@ public class TileEntityCore extends TileEntityMachineBase implements IGUIProvide
 				}
 		}
 
-		List<Entity> list2 =this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).expand(scale, scale, scale));
+		List<Entity> list2 =this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5).grow(scale, scale, scale));
 
 		for(Entity e : list2) {
 			if(!(e instanceof EntityPlayer && ArmorUtil.checkForHaz2((EntityPlayer)e)))

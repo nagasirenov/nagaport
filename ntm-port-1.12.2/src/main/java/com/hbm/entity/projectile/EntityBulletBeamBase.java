@@ -162,7 +162,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 		if(!this.world.isRemote && this.doesImpactEntities()) {
 
 			Entity hitEntity = null;
-			List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(this.headingX, this.headingY, this.headingZ).expand(1.0D, 1.0D, 1.0D));
+			List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(this.headingX, this.headingY, this.headingZ).grow(1.0D, 1.0D, 1.0D));
 			double nearest = 0.0D;
 			RayTraceResult nonPenImpact = null;
 			RayTraceResult coinHit = null;
@@ -174,7 +174,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 				if(entity.isDead) continue;
 				if(entity instanceof EntityCoin) {
 					double hitbox = 0.3F;
-					AxisAlignedBB aabb = entity.getEntityBoundingBox().expand(hitbox, hitbox, hitbox);
+					AxisAlignedBB aabb = entity.getEntityBoundingBox().grow(hitbox, hitbox, hitbox);
 					RayTraceResult hitMop = aabb.calculateIntercept(pos, nextPos);
 					if(hitMop != null) {
 						double dist = pos.distanceTo(hitMop.hitVec);
@@ -192,7 +192,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 
 				if(entity.canBeCollidedWith() && entity != thrower && entity.isEntityAlive()) {
 					double hitbox = 0.3F;
-					AxisAlignedBB aabb = entity.getEntityBoundingBox().expand(hitbox, hitbox, hitbox);
+					AxisAlignedBB aabb = entity.getEntityBoundingBox().grow(hitbox, hitbox, hitbox);
 					RayTraceResult hitMop = aabb.calculateIntercept(pos, nextPos);
 
 					if(hitMop != null) {
@@ -225,7 +225,7 @@ public class EntityBulletBeamBase extends Entity implements IEntityAdditionalSpa
 				this.beamLength = vec.length();
 
 				double range = 50;
-				List<Entity> targets = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z, coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z).expand(range, range, range));
+				List<Entity> targets = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z, coinHit.hitVec.x, coinHit.hitVec.y, coinHit.hitVec.z).grow(range, range, range));
 				Entity nearestCoin = null;
 				Entity nearestPlayer = null;
 				Entity nearestMob = null;

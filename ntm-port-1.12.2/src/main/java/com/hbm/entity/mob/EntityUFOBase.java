@@ -85,7 +85,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 		int range = getScanRange();
 
 		if(this.scanCooldown <= 0) {
-			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().expand(range, range / 2, range));
+			List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, this.getEntityBoundingBox().grow(range, range / 2, range));
 			this.target = null;
 
 			for(Entity entity : entities) {

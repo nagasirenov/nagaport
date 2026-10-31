@@ -94,11 +94,11 @@ public class DungeonSpawner extends BlockContainer {
 		int z = tile.getPos().getZ();
 		if(tile.phase == 0) {
 			if(world.getTotalWorldTime() % 20 != 0) return false;
-			return !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y - 2, z + 1).expand(20, 10, 20)).isEmpty();
+			return !world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(x, y, z, x + 1, y - 2, z + 1).grow(20, 10, 20)).isEmpty();
 		}
 		if(tile.phase < 3) {
 			if(world.getTotalWorldTime() % 20 != 0 || tile.timer < 60) return false;
-			return world.getEntitiesWithinAABB(EntityUndeadSoldier.class, new AxisAlignedBB(x, y, z, x - 2, y + 1, z + 1).expand(50, 20, 50)).isEmpty();
+			return world.getEntitiesWithinAABB(EntityUndeadSoldier.class, new AxisAlignedBB(x, y, z, x - 2, y + 1, z + 1).grow(50, 20, 50)).isEmpty();
 		}
 		return false;
 	};

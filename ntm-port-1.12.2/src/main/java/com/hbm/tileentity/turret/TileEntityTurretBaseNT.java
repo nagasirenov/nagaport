@@ -438,7 +438,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 
 		Vec3d pos = this.getTurretPos();
 		double range = this.getDecetorRange();
-		List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.x, pos.y, pos.z, pos.x, pos.y, pos.z).expand(range, range, range));
+		List<Entity> entities = this.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.x, pos.y, pos.z, pos.x, pos.y, pos.z).grow(range, range, range));
 
 		Entity target = null;
 		double closest = range;
