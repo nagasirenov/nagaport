@@ -46,10 +46,7 @@ public abstract class NativeDecoItemRenderer extends ContextItemRenderer impleme
             GL11.glTranslated(x, y, z);
             GL11.glScaled(.5, .5, .5); // original non-BLOCK_3D Forge entity caller
             Matrix4f m = localTransform(entity.getItem(), new NativeItemContext(TransformType.GROUND, null));
-            java.nio.FloatBuffer values = org.lwjgl.BufferUtils.createFloatBuffer(16);
-            values.put(new float[]{m.m00,m.m10,m.m20,m.m30,m.m01,m.m11,m.m21,m.m31,
-                    m.m02,m.m12,m.m22,m.m32,m.m03,m.m13,m.m23,m.m33}).flip();
-            GL11.glMultMatrix(values);
+            multMatrix(m);
             if(outlines) { GlStateManager.enableColorMaterial(); GlStateManager.enableOutlineMode(outlineColor); }
             render(entity.getItem(), new NativeItemContext(TransformType.GROUND, null));
         } finally {

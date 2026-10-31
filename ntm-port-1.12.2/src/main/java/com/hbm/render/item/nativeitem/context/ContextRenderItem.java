@@ -36,8 +36,7 @@ public final class ContextRenderItem extends RenderItem {
         if(stack.isEmpty()) return;
         ContextItemModel selected = (ContextItemModel)model;
         boolean rescale = GL11.glIsEnabled(GL12.GL_RESCALE_NORMAL);
-        java.nio.FloatBuffer color = org.lwjgl.BufferUtils.createFloatBuffer(16);
-        GL11.glGetFloat(GL11.GL_CURRENT_COLOR, color);
+        float[] color = NativeItemFailureScope.read(GL11.GL_CURRENT_COLOR, new float[4]);
         GlStateManager.pushMatrix();
         try {
             GlStateManager.translate(-.5F, -.5F, -.5F);
@@ -46,7 +45,7 @@ public final class ContextRenderItem extends RenderItem {
             selected.renderer.render(stack, selected.context);
         } catch(RuntimeException | Error failure) {
             if(rescale) GlStateManager.enableRescaleNormal(); else GlStateManager.disableRescaleNormal();
-            GlStateManager.color(color.get(0), color.get(1), color.get(2), color.get(3));
+            GlStateManager.color(color[0], color[1], color[2], color[3]);
             throw failure;
         } finally { GlStateManager.popMatrix(); }
     }

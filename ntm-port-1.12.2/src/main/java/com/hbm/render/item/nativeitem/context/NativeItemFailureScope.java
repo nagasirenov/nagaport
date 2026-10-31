@@ -26,7 +26,9 @@ final class NativeItemFailureScope {
     private final boolean lighting = GL11.glIsEnabled(GL11.GL_LIGHTING), rescale = GL11.glIsEnabled(GL12.GL_RESCALE_NORMAL);
     private final int srcRgb = GL11.glGetInteger(GL14.GL_BLEND_SRC_RGB), dstRgb = GL11.glGetInteger(GL14.GL_BLEND_DST_RGB);
     private final int srcAlpha = GL11.glGetInteger(GL14.GL_BLEND_SRC_ALPHA), dstAlpha = GL11.glGetInteger(GL14.GL_BLEND_DST_ALPHA);
-    private final FloatBuffer matrix = BufferUtils.createFloatBuffer(16), color = BufferUtils.createFloatBuffer(16);
+    // Render thread only; scopes nest, so saved values are copied out of it at once.
+    private static final FloatBuffer SCRATCH = BufferUtils.createFloatBuffer(16);
+    private final float[] matrix = read(GL11.GL_MODELVIEW_MATRIX, new float[16]), color = read(GL11.GL_CURRENT_COLOR, new float[4]);
     private final AbstractTexture atlas;
     private static final Field[] FILTER_FIELDS = {ReflectionHelper.findField(AbstractTexture.class, "blur", "field_174940_b"),
             ReflectionHelper.findField(AbstractTexture.class, "mipmap", "field_174941_c"),
@@ -34,8 +36,6 @@ final class NativeItemFailureScope {
             ReflectionHelper.findField(AbstractTexture.class, "mipmapLast", "field_174939_e")};
     private final boolean[] filters;
     NativeItemFailureScope(TextureManager textures) {
-        GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, matrix);
-        GL11.glGetFloat(GL11.GL_CURRENT_COLOR, color);
         ITextureObject texture = textures.getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
         atlas = texture instanceof AbstractTexture ? (AbstractTexture)texture : null;
         filters = new boolean[4];
@@ -44,7 +44,8 @@ final class NativeItemFailureScope {
     void restore() {
         GlStateManager.matrixMode(GL11.GL_MODELVIEW);
         while(GL11.glGetInteger(GL11.GL_MODELVIEW_STACK_DEPTH) > depth) GlStateManager.popMatrix();
-        GL11.glLoadMatrix(matrix);
+        SCRATCH.clear(); SCRATCH.put(matrix).flip();
+        GL11.glLoadMatrix(SCRATCH);
         GlStateManager.matrixMode(mode);
         if(alpha) GlStateManager.enableAlpha(); else GlStateManager.disableAlpha();
         if(blend) GlStateManager.enableBlend(); else GlStateManager.disableBlend();
@@ -54,7 +55,7 @@ final class NativeItemFailureScope {
         GlStateManager.tryBlendFuncSeparate(srcRgb, dstRgb, srcAlpha, dstAlpha);
         GlStateManager.cullFace(cullFace == GL11.GL_FRONT ? GlStateManager.CullFace.FRONT
                 : cullFace == GL11.GL_FRONT_AND_BACK ? GlStateManager.CullFace.FRONT_AND_BACK : GlStateManager.CullFace.BACK);
-        GlStateManager.color(color.get(0), color.get(1), color.get(2), color.get(3));
+        GlStateManager.color(color[0], color[1], color[2], color[3]);
         restoreTextureFilter();
         GlStateManager.bindTexture(binding);
     }
@@ -114,11 +115,17 @@ final class NativeItemFailureScope {
             GlStateManager.depthFunc(depth == GL11.GL_ALWAYS ? GL11.GL_NEVER : GL11.GL_ALWAYS); GlStateManager.depthFunc(depth);
             int shade = GL11.glGetInteger(GL11.GL_SHADE_MODEL);
             GlStateManager.shadeModel(shade == GL11.GL_FLAT ? GL11.GL_SMOOTH : GL11.GL_FLAT); GlStateManager.shadeModel(shade);
-            FloatBuffer color = BufferUtils.createFloatBuffer(16); GL11.glGetFloat(GL11.GL_CURRENT_COLOR, color);
-            GlStateManager.resetColor(); GlStateManager.color(color.get(0), color.get(1), color.get(2), color.get(3));
+            float[] color = read(GL11.GL_CURRENT_COLOR, new float[4]);
+            GlStateManager.resetColor(); GlStateManager.color(color[0], color[1], color[2], color[3]);
         } finally {
             GL11.glPopAttrib();
         }
     }
 
+    static float[] read(int name, float[] out) {
+        SCRATCH.clear();
+        GL11.glGetFloat(name, SCRATCH);
+        SCRATCH.get(out, 0, out.length);
+        return out;
+    }
 }

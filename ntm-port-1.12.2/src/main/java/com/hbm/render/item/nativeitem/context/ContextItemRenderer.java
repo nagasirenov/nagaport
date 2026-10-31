@@ -36,12 +36,17 @@ public abstract class ContextItemRenderer extends TileEntityItemStackRenderer {
         GL11.glPushMatrix();
         try {
             javax.vecmath.Matrix4f matrix = localTransform(stack, context);
-            java.nio.FloatBuffer values = org.lwjgl.BufferUtils.createFloatBuffer(16);
-            values.put(new float[]{matrix.m00,matrix.m10,matrix.m20,matrix.m30,matrix.m01,matrix.m11,matrix.m21,matrix.m31,
-                    matrix.m02,matrix.m12,matrix.m22,matrix.m32,matrix.m03,matrix.m13,matrix.m23,matrix.m33}).flip();
-            GL11.glMultMatrix(values);
+            multMatrix(matrix);
             render(stack, context);
         } finally { GL11.glPopMatrix(); }
     }
     @Override public final void renderByItem(ItemStack stack, float partialTicks) { renderByItem(stack); }
+    // Render thread only; GL consumes it before any nested draw can reuse it.
+    private static final java.nio.FloatBuffer MATRIX = org.lwjgl.BufferUtils.createFloatBuffer(16);
+    protected static void multMatrix(javax.vecmath.Matrix4f m) {
+        MATRIX.clear();
+        MATRIX.put(new float[]{m.m00,m.m10,m.m20,m.m30,m.m01,m.m11,m.m21,m.m31,
+                m.m02,m.m12,m.m22,m.m32,m.m03,m.m13,m.m23,m.m33}).flip();
+        GL11.glMultMatrix(MATRIX);
+    }
 }

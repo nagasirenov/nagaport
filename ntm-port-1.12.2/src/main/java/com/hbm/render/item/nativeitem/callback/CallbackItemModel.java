@@ -28,6 +28,7 @@ import net.minecraft.world.World;
  * Capture those operations locally; never store a last stack/holder/context globally.
  */
 public final class CallbackItemModel implements IBakedModel, com.hbm.render.util.NativeItemBaseModel {
+    private static final FloatBuffer MATRIX = BufferUtils.createFloatBuffer(16); // render thread scratch
     private final IBakedModel baseModel;
     private final IBakedModel perspective;
     private final ItemRenderBase renderer;
@@ -62,8 +63,7 @@ public final class CallbackItemModel implements IBakedModel, com.hbm.render.util
         GL11.glMatrixMode(GL11.GL_MODELVIEW);GL11.glPushMatrix();
         try {
             GL11.glLoadIdentity();callback.run();
-            FloatBuffer values=BufferUtils.createFloatBuffer(16);GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX,values);
-            float[] columnMajor=new float[16];values.get(columnMajor);
+            float[] columnMajor=new float[16];MATRIX.clear();GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX,MATRIX);MATRIX.get(columnMajor);
             Matrix4f result=new Matrix4f(columnMajor);result.transpose();return result;
         } finally { GL11.glPopMatrix();GL11.glMatrixMode(mode); }
     }
