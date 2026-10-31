@@ -204,7 +204,7 @@ public class ModEventHandler {
 		if(!event.player.world.isRemote) {
 
 			if(GeneralConfig.enableMOTD) {
-				event.player.sendMessage(new TextComponentString("Loaded world with JamesH2 & Mellow's NTM: Space " + RefStrings.VERSION + " for Minecraft 1.7.10!"));
+				event.player.sendMessage(new TextComponentString("Loaded world with JamesH2 & Mellow's NTM: Space " + RefStrings.VERSION + " (1.12.2 port)!"));
 
 				if(HTTPHandler.newVersion) {
 					event.player.sendMessage(

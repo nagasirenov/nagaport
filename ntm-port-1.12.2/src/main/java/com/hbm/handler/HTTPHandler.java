@@ -24,7 +24,7 @@ public class HTTPHandler {
 			@Override
 			public void run() {
 				try {
-					loadVersion();
+					// loadVersion(); upstream VERSION is the 1.7.10 mod's, so it always reports an "update"
 					loadSoyuz();
 					loadTips();
 					loadSpaceTips();

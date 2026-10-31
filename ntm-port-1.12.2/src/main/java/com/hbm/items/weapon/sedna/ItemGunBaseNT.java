@@ -209,7 +209,7 @@ public class ItemGunBaseNT extends Item implements IKeybindReceiver, IItemHUD, I
 			}
 
 			for(ItemStack upgrade : XWeaponModManager.getUpgradeItems(stack, i)) {
-				list.add(TextFormatting.YELLOW + upgrade.getDisplayName());
+				if(!upgrade.isEmpty()) list.add(TextFormatting.YELLOW + upgrade.getDisplayName());
 			}
 		}
 

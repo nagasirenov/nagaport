@@ -238,12 +238,11 @@ public class XWeaponModManager {
 		int[] modIds = stack.getTagCompound().getIntArray(KEY_MOD_LIST + cfg);
 		if(modIds.length == 0) return new ItemStack[0];
 		ItemStack[] mods = new ItemStack[modIds.length];
+		java.util.Arrays.fill(mods, ItemStack.EMPTY); // 1.12 slots and tooltips can't take null
 		for(int i = 0; i < mods.length; i++) {
 			IWeaponMod mod = idToMod.get(modIds[i]);
-			if(mod != null) {
-				mods[i] = mod != null ? modToStack.get(mod) : null;
-				if(mods[i] != null) mods[i] = mods[i].copy();
-			}
+			ItemStack modStack = mod != null ? modToStack.get(mod) : null;
+			if(modStack != null) mods[i] = modStack.copy();
 		}
 		return mods;
 	}

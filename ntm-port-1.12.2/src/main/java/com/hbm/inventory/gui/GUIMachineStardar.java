@@ -99,6 +99,12 @@ public class GUIMachineStardar extends GuiInfoContainer {
 	}
 
 	@Override
+	public void onGuiClosed() {
+		super.onGuiClosed();
+		mc.getTextureManager().deleteTexture(groundMap);
+	}
+
+	@Override
 	public void drawScreen(int mouseX, int mouseY, float f) {
 		super.drawScreen(mouseX, mouseY, f);
 
